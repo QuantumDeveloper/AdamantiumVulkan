@@ -15,7 +15,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 158 Column: 30
+// File: video.xml Line: 14042 Column: 10
 public unsafe struct PFN_vkGetSemaphoreWin32HandleKHR
 {
     public PFN_vkGetSemaphoreWin32HandleKHR(nuint ptr) : this((void*) ptr) { }
@@ -23,24 +23,24 @@ public unsafe struct PFN_vkGetSemaphoreWin32HandleKHR
     public PFN_vkGetSemaphoreWin32HandleKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR*, IntPtr, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR*, nuint*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR*, IntPtr, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR*, nuint*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, IntPtr pHandle)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, nuint* pHandle)
     {
         return InvokeFunc(device, pGetWin32HandleInfo, pHandle);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, IntPtr pHandle)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, nuint* pHandle)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR*, IntPtr, Result>)ptr)(device, pGetWin32HandleInfo, pHandle);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR*, nuint*, Result>)ptr)(device, pGetWin32HandleInfo, pHandle);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, IntPtr pHandle)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, nuint* pHandle)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR*, IntPtr, Result>)(void*)ptr)(device, pGetWin32HandleInfo, pHandle);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR*, nuint*, Result>)(void*)ptr)(device, pGetWin32HandleInfo, pHandle);
     }
 
     public static explicit operator PFN_vkGetSemaphoreWin32HandleKHR(void* ptr) => new(ptr);

@@ -9,9 +9,9 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace AdamantiumVulkan.Interop;
+namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_h264std_encode.h Line: 91 Column: 16
+// File: video.xml Line: 317 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoEncodeH264ReferenceListsInfo
 {
@@ -24,9 +24,9 @@ public unsafe partial struct StdVideoEncodeH264ReferenceListsInfo
     public byte refList1ModOpCount;
     public byte refPicMarkingOpCount;
     public unsafe fixed byte reserved1[7];
-    public AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry* pRefList0ModOperations;
-    public AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry* pRefList1ModOperations;
-    public AdamantiumVulkan.Interop.StdVideoEncodeH264RefPicMarkingEntry* pRefPicMarkingOperations;
+    public AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry* pRefList0ModOperations;
+    public AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry* pRefList1ModOperations;
+    public AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry* pRefPicMarkingOperations;
 }
 
 

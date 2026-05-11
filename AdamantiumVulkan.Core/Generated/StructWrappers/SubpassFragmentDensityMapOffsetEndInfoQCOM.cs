@@ -23,10 +23,10 @@ public unsafe partial class SubpassFragmentDensityMapOffsetEndInfoQCOM : IMarsha
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.SubpassFragmentDensityMapOffsetEndInfoQcom;
     public object PNext { get; set; }
     public uint FragmentDensityOffsetCount { get; set; }
-    public Offset2D PFragmentDensityOffsets { get; set; }
+    public System.ReadOnlyMemory<Offset2D> PFragmentDensityOffsets { get; set; }
 
     public static implicit operator SubpassFragmentDensityMapOffsetEndInfoQCOM(AdamantiumVulkan.Core.Interop.VkSubpassFragmentDensityMapOffsetEndInfoQCOM s)
     {
@@ -40,9 +40,15 @@ public unsafe partial class SubpassFragmentDensityMapOffsetEndInfoQCOM : IMarsha
         {
             size += marshallable.GetSize();
         }
-        if (PFragmentDensityOffsets != default)
+        if (!PFragmentDensityOffsets.IsEmpty)
         {
-            size += PFragmentDensityOffsets.GetSize();
+            for (int i = 0; i < PFragmentDensityOffsets.Length; i++)
+            {
+                if (PFragmentDensityOffsets.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkOffset2D>();
+                else
+                    size += PFragmentDensityOffsets.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -54,21 +60,27 @@ public unsafe partial class SubpassFragmentDensityMapOffsetEndInfoQCOM : IMarsha
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkSubpassFragmentDensityMapOffsetEndInfoQCOM native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         FragmentDensityOffsetCount = native.fragmentDensityOffsetCount;
-        PFragmentDensityOffsets = new Offset2D(in *native.pFragmentDensityOffsets);
-        NativeUtils.Free(native.pFragmentDensityOffsets);
+        var arrayLengthPFragmentDensityOffsets = native.fragmentDensityOffsetCount;
+        var tmpPFragmentDensityOffsets = new Offset2D[arrayLengthPFragmentDensityOffsets];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkOffset2D[arrayLengthPFragmentDensityOffsets];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pFragmentDensityOffsets, arrayLengthPFragmentDensityOffsets, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPFragmentDensityOffsets[i] = new Offset2D(in nativeTmpArray0[i]);
+        }
+        PFragmentDensityOffsets = tmpPFragmentDensityOffsets;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSubpassFragmentDensityMapOffsetEndInfoQCOM>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSubpassFragmentDensityMapOffsetEndInfoQCOM>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSubpassFragmentDensityMapOffsetEndInfoQCOMMarshaller
     {
@@ -82,23 +94,18 @@ public unsafe partial class SubpassFragmentDensityMapOffsetEndInfoQCOM : IMarsha
             }
             else if (subpassFragmentDensityMapOffsetEndInfoQCOM.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (subpassFragmentDensityMapOffsetEndInfoQCOM.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].fragmentDensityOffsetCount = subpassFragmentDensityMapOffsetEndInfoQCOM.FragmentDensityOffsetCount;
 
-            if (subpassFragmentDensityMapOffsetEndInfoQCOM.PFragmentDensityOffsets != default)
+            if (!subpassFragmentDensityMapOffsetEndInfoQCOM.PFragmentDensityOffsets.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkOffset2D));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkOffset2D>(structSlice0).Slice(0, 1);
-                context.Destination[0].pFragmentDensityOffsets = (AdamantiumVulkan.Core.Interop.VkOffset2D*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkOffset2D>(structDestination0, context.DataCursor);
-                subpassFragmentDensityMapOffsetEndInfoQCOM.PFragmentDensityOffsets.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pFragmentDensityOffsets = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.Offset2D, AdamantiumVulkan.Core.Interop.VkOffset2D, AdamantiumVulkan.Core.Interop.VkSubpassFragmentDensityMapOffsetEndInfoQCOM>(subpassFragmentDensityMapOffsetEndInfoQCOM.PFragmentDensityOffsets, ref context);
             }
 
         }

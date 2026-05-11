@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoDecodeH265ReferenceInfo : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoDecodeH265ReferenceInfo>
+public unsafe partial class StdVideoDecodeH265ReferenceInfo : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoDecodeH265ReferenceInfo>
 {
     public StdVideoDecodeH265ReferenceInfo()
     {
     }
 
-    public StdVideoDecodeH265ReferenceInfo(in AdamantiumVulkan.Interop.StdVideoDecodeH265ReferenceInfo native)
+    public StdVideoDecodeH265ReferenceInfo(in AdamantiumVulkan.Core.Interop.StdVideoDecodeH265ReferenceInfo native)
     {
         MarshalFrom(in native);
     }
@@ -26,47 +26,47 @@ public unsafe partial class StdVideoDecodeH265ReferenceInfo : IMarshallableObjec
     public StdVideoDecodeH265ReferenceInfoFlags Flags { get; set; }
     public int PicOrderCntVal { get; set; }
 
-    public static implicit operator StdVideoDecodeH265ReferenceInfo(AdamantiumVulkan.Interop.StdVideoDecodeH265ReferenceInfo s)
+    public static implicit operator StdVideoDecodeH265ReferenceInfo(AdamantiumVulkan.Core.Interop.StdVideoDecodeH265ReferenceInfo s)
     {
         return new StdVideoDecodeH265ReferenceInfo(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoDecodeH265ReferenceInfo>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoDecodeH265ReferenceInfo>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoDecodeH265ReferenceInfo> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoDecodeH265ReferenceInfo> context)
     {
         new StdVideoDecodeH265ReferenceInfoMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoDecodeH265ReferenceInfo native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoDecodeH265ReferenceInfo native)
     {
         Flags = new StdVideoDecodeH265ReferenceInfoFlags(native.flags);
         PicOrderCntVal = native.PicOrderCntVal;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoDecodeH265ReferenceInfo>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoDecodeH265ReferenceInfo>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoDecodeH265ReferenceInfo>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoDecodeH265ReferenceInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoDecodeH265ReferenceInfoMarshaller
     {
-        public StdVideoDecodeH265ReferenceInfoMarshaller(AdamantiumVulkan.StdVideoDecodeH265ReferenceInfo stdVideoDecodeH265ReferenceInfo, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoDecodeH265ReferenceInfo> context)
+        public StdVideoDecodeH265ReferenceInfoMarshaller(AdamantiumVulkan.Core.StdVideoDecodeH265ReferenceInfo stdVideoDecodeH265ReferenceInfo, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoDecodeH265ReferenceInfo> context)
         {
             if (stdVideoDecodeH265ReferenceInfo.Flags != default)
             {
-                fixed (AdamantiumVulkan.Interop.StdVideoDecodeH265ReferenceInfoFlags* pField = &context.Destination[0].flags)
+                fixed (AdamantiumVulkan.Core.Interop.StdVideoDecodeH265ReferenceInfoFlags* pField = &context.Destination[0].flags)
                 {
-                    var fieldSpan = new System.Span<AdamantiumVulkan.Interop.StdVideoDecodeH265ReferenceInfoFlags>(pField, 1);
-                    var childContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoDecodeH265ReferenceInfoFlags>(fieldSpan, context.DataCursor);
+                    var fieldSpan = new System.Span<AdamantiumVulkan.Core.Interop.StdVideoDecodeH265ReferenceInfoFlags>(pField, 1);
+                    var childContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoDecodeH265ReferenceInfoFlags>(fieldSpan, context.DataCursor);
                     stdVideoDecodeH265ReferenceInfo.Flags.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }

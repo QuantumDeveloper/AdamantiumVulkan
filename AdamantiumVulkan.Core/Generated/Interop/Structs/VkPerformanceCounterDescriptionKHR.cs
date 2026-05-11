@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10481 Column: 16
+// File: vk.xml Line: 5471 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPerformanceCounterDescriptionKHR
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkPerformanceCounterDescriptionFlagsKHR flags;
+    public void* pNext;
+    public PerformanceCounterDescriptionFlagBitsKHR flags;
     public unsafe fixed sbyte name[256];
     public unsafe fixed sbyte category[256];
     public unsafe fixed sbyte description[256];

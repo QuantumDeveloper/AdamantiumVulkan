@@ -11,9 +11,9 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7801 Column: 14
+// File: vk.xml Line: 11392 Column: 6
 [Flags]
-public enum QueueGlobalPriority : uint
+public enum QueueGlobalPriority : int
 {
     Low = 128,
 
@@ -22,8 +22,6 @@ public enum QueueGlobalPriority : uint
     High = 512,
 
     Realtime = 1024,
-
-    MaxEnum = 2147483647,
 
 }
 

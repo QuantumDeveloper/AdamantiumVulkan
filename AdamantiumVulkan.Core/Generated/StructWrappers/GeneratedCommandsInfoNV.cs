@@ -23,13 +23,13 @@ public unsafe partial class GeneratedCommandsInfoNV : IMarshallableObject, IMars
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.GeneratedCommandsInfoNv;
     public object PNext { get; set; }
     public PipelineBindPoint PipelineBindPoint { get; set; }
     public Pipeline Pipeline { get; set; }
     public IndirectCommandsLayoutNV IndirectCommandsLayout { get; set; }
     public uint StreamCount { get; set; }
-    public IndirectCommandsStreamNV PStreams { get; set; }
+    public System.ReadOnlyMemory<IndirectCommandsStreamNV> PStreams { get; set; }
     public uint SequencesCount { get; set; }
     public Buffer PreprocessBuffer { get; set; }
     public VkDeviceSize PreprocessOffset { get; set; }
@@ -51,9 +51,15 @@ public unsafe partial class GeneratedCommandsInfoNV : IMarshallableObject, IMars
         {
             size += marshallable.GetSize();
         }
-        if (PStreams != default)
+        if (!PStreams.IsEmpty)
         {
-            size += PStreams.GetSize();
+            for (int i = 0; i < PStreams.Length; i++)
+            {
+                if (PStreams.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV>();
+                else
+                    size += PStreams.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -65,14 +71,20 @@ public unsafe partial class GeneratedCommandsInfoNV : IMarshallableObject, IMars
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PipelineBindPoint = native.pipelineBindPoint;
         Pipeline = new Pipeline(native.pipeline);
         IndirectCommandsLayout = new IndirectCommandsLayoutNV(native.indirectCommandsLayout);
         StreamCount = native.streamCount;
-        PStreams = new IndirectCommandsStreamNV(in *native.pStreams);
-        NativeUtils.Free(native.pStreams);
+        var arrayLengthPStreams = native.streamCount;
+        var tmpPStreams = new IndirectCommandsStreamNV[arrayLengthPStreams];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV[arrayLengthPStreams];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pStreams, arrayLengthPStreams, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPStreams[i] = new IndirectCommandsStreamNV(in nativeTmpArray0[i]);
+        }
+        PStreams = tmpPStreams;
         SequencesCount = native.sequencesCount;
         PreprocessBuffer = new Buffer(native.preprocessBuffer);
         PreprocessOffset = native.preprocessOffset;
@@ -83,14 +95,14 @@ public unsafe partial class GeneratedCommandsInfoNV : IMarshallableObject, IMars
         SequencesIndexOffset = native.sequencesIndexOffset;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkGeneratedCommandsInfoNVMarshaller
     {
@@ -104,11 +116,11 @@ public unsafe partial class GeneratedCommandsInfoNV : IMarshallableObject, IMars
             }
             else if (generatedCommandsInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (generatedCommandsInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].pipelineBindPoint = generatedCommandsInfoNV.PipelineBindPoint;
@@ -125,14 +137,9 @@ public unsafe partial class GeneratedCommandsInfoNV : IMarshallableObject, IMars
 
             context.Destination[0].streamCount = generatedCommandsInfoNV.StreamCount;
 
-            if (generatedCommandsInfoNV.PStreams != default)
+            if (!generatedCommandsInfoNV.PStreams.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStreams = (AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV>(structDestination0, context.DataCursor);
-                generatedCommandsInfoNV.PStreams.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pStreams = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.IndirectCommandsStreamNV, AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV, AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV>(generatedCommandsInfoNV.PStreams, ref context);
             }
 
             context.Destination[0].sequencesCount = generatedCommandsInfoNV.SequencesCount;

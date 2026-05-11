@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16033 Column: 14
+// File: vk.xml Line: 11380 Column: 6
 [Flags]
-public enum CoverageReductionModeNV : uint
+public enum CoverageReductionModeNV : int
 {
     MergeNv = 0,
 
     TruncateNv = 1,
-
-    MaxEnumNv = 2147483647,
 
 }
 

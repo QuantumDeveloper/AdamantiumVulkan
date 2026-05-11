@@ -11,18 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14791 Column: 14
-public enum CopyAccelerationStructureModeKHR : uint
+// File: vk.xml Line: 11517 Column: 6
+[Flags]
+public enum CopyAccelerationStructureModeKHR : int
 {
     CloneKhr = 0,
 
     CompactKhr = 1,
-
-    SerializeKhr = 2,
-
-    DeserializeKhr = 3,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

@@ -12,20 +12,20 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6098 Column: 16
+// File: vk.xml Line: 5812 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceVulkan11Properties
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public unsafe fixed byte deviceUUID[16];
     public unsafe fixed byte driverUUID[16];
     public unsafe fixed byte deviceLUID[8];
     public uint deviceNodeMask;
     public VkBool32 deviceLUIDValid;
     public uint subgroupSize;
-    public VkShaderStageFlags subgroupSupportedStages;
-    public VkSubgroupFeatureFlags subgroupSupportedOperations;
+    public ShaderStageFlagBits subgroupSupportedStages;
+    public SubgroupFeatureFlagBits subgroupSupportedOperations;
     public VkBool32 subgroupQuadOperationsInAllStages;
     public PointClippingBehavior pointClippingBehavior;
     public uint maxMultiviewViewCount;

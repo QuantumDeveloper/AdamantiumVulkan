@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9155 Column: 30
+// File: video.xml Line: 15941 Column: 10
 public unsafe struct PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR
 {
     public PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR
     public PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR*, ref uint*, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR*, uint*, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR*, ref uint*, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR*, uint*, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo, ref uint* pVideoFormatPropertyCount, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR* pVideoFormatProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo, uint* pVideoFormatPropertyCount, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR* pVideoFormatProperties)
     {
-        return InvokeFunc(physicalDevice, pVideoFormatInfo, ref pVideoFormatPropertyCount, pVideoFormatProperties);
+        return InvokeFunc(physicalDevice, pVideoFormatInfo, pVideoFormatPropertyCount, pVideoFormatProperties);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo, ref uint* pVideoFormatPropertyCount, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR* pVideoFormatProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo, uint* pVideoFormatPropertyCount, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR* pVideoFormatProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR*, ref uint*, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR*, Result>)ptr)(physicalDevice, pVideoFormatInfo, ref pVideoFormatPropertyCount, pVideoFormatProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR*, uint*, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR*, Result>)ptr)(physicalDevice, pVideoFormatInfo, pVideoFormatPropertyCount, pVideoFormatProperties);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo, ref uint* pVideoFormatPropertyCount, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR* pVideoFormatProperties)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo, uint* pVideoFormatPropertyCount, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR* pVideoFormatProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR*, ref uint*, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR*, Result>)(void*)ptr)(physicalDevice, pVideoFormatInfo, ref pVideoFormatPropertyCount, pVideoFormatProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR*, uint*, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR*, Result>)(void*)ptr)(physicalDevice, pVideoFormatInfo, pVideoFormatPropertyCount, pVideoFormatProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR(void* ptr) => new(ptr);

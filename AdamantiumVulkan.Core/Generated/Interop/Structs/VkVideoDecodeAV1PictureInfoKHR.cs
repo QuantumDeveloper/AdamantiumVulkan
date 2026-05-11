@@ -9,17 +9,16 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using AdamantiumVulkan.Core;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12291 Column: 16
+// File: vk.xml Line: 7618 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkVideoDecodeAV1PictureInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
-    public AdamantiumVulkan.Interop.StdVideoDecodeAV1PictureInfo* pStdPictureInfo;
+    public void* pNext;
+    public AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1PictureInfo* pStdPictureInfo;
     public unsafe fixed int referenceNameSlotIndices[7];
     public uint frameHeaderOffset;
     public uint tileCount;

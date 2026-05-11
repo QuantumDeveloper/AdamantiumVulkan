@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7896 Column: 37
+// File: vk.xml Line: 10837 Column: 6
 [Flags]
 public enum BufferUsageFlagBits2 : ulong
 {
@@ -32,40 +32,6 @@ public enum BufferUsageFlagBits2 : ulong
     VertexBufferBit = 128,
 
     IndirectBufferBit = 256,
-
-    ShaderDeviceAddressBit = 131072,
-
-    ConditionalRenderingBitExt = 512,
-
-    ShaderBindingTableBitKhr = 1024,
-
-    TransformFeedbackBufferBitExt = 2048,
-
-    TransformFeedbackCounterBufferBitExt = 4096,
-
-    VideoDecodeSrcBitKhr = 8192,
-
-    VideoDecodeDstBitKhr = 16384,
-
-    VideoEncodeDstBitKhr = 32768,
-
-    VideoEncodeSrcBitKhr = 65536,
-
-    AccelerationStructureBuildInputReadOnlyBitKhr = 524288,
-
-    AccelerationStructureStorageBitKhr = 1048576,
-
-    SamplerDescriptorBufferBitExt = 2097152,
-
-    ResourceDescriptorBufferBitExt = 4194304,
-
-    PushDescriptorsDescriptorBufferBitExt = 67108864,
-
-    MicromapBuildInputReadOnlyBitExt = 8388608,
-
-    MicromapStorageBitExt = 16777216,
-
-    PreprocessBufferBitExt = 2147483648,
 
 }
 

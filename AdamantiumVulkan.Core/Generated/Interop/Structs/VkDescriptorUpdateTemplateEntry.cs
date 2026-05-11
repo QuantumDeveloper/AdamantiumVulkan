@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5646 Column: 16
+// File: vk.xml Line: 3432 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDescriptorUpdateTemplateEntry
 {
@@ -20,8 +20,8 @@ public unsafe partial struct VkDescriptorUpdateTemplateEntry
     public uint dstArrayElement;
     public uint descriptorCount;
     public DescriptorType descriptorType;
-    public ulong offset;
-    public ulong stride;
+    public nuint offset;
+    public nuint stride;
 }
 
 

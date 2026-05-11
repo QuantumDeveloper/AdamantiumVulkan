@@ -26,7 +26,7 @@ public unsafe partial class CoarseSampleOrderCustomNV : IMarshallableObject, IMa
     public ShadingRatePaletteEntryNV ShadingRate { get; set; }
     public uint SampleCount { get; set; }
     public uint SampleLocationCount { get; set; }
-    public CoarseSampleLocationNV PSampleLocations { get; set; }
+    public System.ReadOnlyMemory<CoarseSampleLocationNV> PSampleLocations { get; set; }
 
     public static implicit operator CoarseSampleOrderCustomNV(AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV c)
     {
@@ -36,9 +36,15 @@ public unsafe partial class CoarseSampleOrderCustomNV : IMarshallableObject, IMa
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV>();
-        if (PSampleLocations != default)
+        if (!PSampleLocations.IsEmpty)
         {
-            size += PSampleLocations.GetSize();
+            for (int i = 0; i < PSampleLocations.Length; i++)
+            {
+                if (PSampleLocations.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV>();
+                else
+                    size += PSampleLocations.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -53,18 +59,25 @@ public unsafe partial class CoarseSampleOrderCustomNV : IMarshallableObject, IMa
         ShadingRate = native.shadingRate;
         SampleCount = native.sampleCount;
         SampleLocationCount = native.sampleLocationCount;
-        PSampleLocations = new CoarseSampleLocationNV(in *native.pSampleLocations);
-        NativeUtils.Free(native.pSampleLocations);
+        var arrayLengthPSampleLocations = native.sampleLocationCount;
+        var tmpPSampleLocations = new CoarseSampleLocationNV[arrayLengthPSampleLocations];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV[arrayLengthPSampleLocations];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSampleLocations, arrayLengthPSampleLocations, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPSampleLocations[i] = new CoarseSampleLocationNV(in nativeTmpArray0[i]);
+        }
+        PSampleLocations = tmpPSampleLocations;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkCoarseSampleOrderCustomNVMarshaller
     {
@@ -76,14 +89,9 @@ public unsafe partial class CoarseSampleOrderCustomNV : IMarshallableObject, IMa
 
             context.Destination[0].sampleLocationCount = coarseSampleOrderCustomNV.SampleLocationCount;
 
-            if (coarseSampleOrderCustomNV.PSampleLocations != default)
+            if (!coarseSampleOrderCustomNV.PSampleLocations.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV>(structSlice0).Slice(0, 1);
-                context.Destination[0].pSampleLocations = (AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV>(structDestination0, context.DataCursor);
-                coarseSampleOrderCustomNV.PSampleLocations.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pSampleLocations = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.CoarseSampleLocationNV, AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV, AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV>(coarseSampleOrderCustomNV.PSampleLocations, ref context);
             }
 
         }

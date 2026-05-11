@@ -27,7 +27,7 @@ public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : 
     public object PNext { get; set; }
     public VkBool32 ShadingRateImageEnable { get; set; }
     public uint ViewportCount { get; set; }
-    public ShadingRatePaletteNV PShadingRatePalettes { get; set; }
+    public System.ReadOnlyMemory<ShadingRatePaletteNV> PShadingRatePalettes { get; set; }
 
     public static implicit operator PipelineViewportShadingRateImageStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV p)
     {
@@ -41,9 +41,15 @@ public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : 
         {
             size += marshallable.GetSize();
         }
-        if (PShadingRatePalettes != default)
+        if (!PShadingRatePalettes.IsEmpty)
         {
-            size += PShadingRatePalettes.GetSize();
+            for (int i = 0; i < PShadingRatePalettes.Length; i++)
+            {
+                if (PShadingRatePalettes.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV>();
+                else
+                    size += PShadingRatePalettes.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -58,18 +64,25 @@ public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : 
         PNext = (System.IntPtr)native.pNext;
         ShadingRateImageEnable = native.shadingRateImageEnable;
         ViewportCount = native.viewportCount;
-        PShadingRatePalettes = new ShadingRatePaletteNV(in *native.pShadingRatePalettes);
-        NativeUtils.Free(native.pShadingRatePalettes);
+        var arrayLengthPShadingRatePalettes = native.viewportCount;
+        var tmpPShadingRatePalettes = new ShadingRatePaletteNV[arrayLengthPShadingRatePalettes];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV[arrayLengthPShadingRatePalettes];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pShadingRatePalettes, arrayLengthPShadingRatePalettes, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPShadingRatePalettes[i] = new ShadingRatePaletteNV(in nativeTmpArray0[i]);
+        }
+        PShadingRatePalettes = tmpPShadingRatePalettes;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineViewportShadingRateImageStateCreateInfoNVMarshaller
     {
@@ -83,11 +96,11 @@ public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : 
             }
             else if (pipelineViewportShadingRateImageStateCreateInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineViewportShadingRateImageStateCreateInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineViewportShadingRateImageStateCreateInfoNV.ShadingRateImageEnable != (uint)default)
@@ -97,14 +110,9 @@ public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : 
 
             context.Destination[0].viewportCount = pipelineViewportShadingRateImageStateCreateInfoNV.ViewportCount;
 
-            if (pipelineViewportShadingRateImageStateCreateInfoNV.PShadingRatePalettes != default)
+            if (!pipelineViewportShadingRateImageStateCreateInfoNV.PShadingRatePalettes.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV>(structSlice0).Slice(0, 1);
-                context.Destination[0].pShadingRatePalettes = (AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV>(structDestination0, context.DataCursor);
-                pipelineViewportShadingRateImageStateCreateInfoNV.PShadingRatePalettes.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pShadingRatePalettes = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.ShadingRatePaletteNV, AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV, AdamantiumVulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV>(pipelineViewportShadingRateImageStateCreateInfoNV.PShadingRatePalettes, ref context);
             }
 
         }

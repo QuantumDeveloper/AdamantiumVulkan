@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoH264SequenceParameterSetVui : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSetVui>
+public unsafe partial class StdVideoH264SequenceParameterSetVui : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSetVui>
 {
     public StdVideoH264SequenceParameterSetVui()
     {
     }
 
-    public StdVideoH264SequenceParameterSetVui(in AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSetVui native)
+    public StdVideoH264SequenceParameterSetVui(in AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSetVui native)
     {
         MarshalFrom(in native);
     }
@@ -40,14 +40,14 @@ public unsafe partial class StdVideoH264SequenceParameterSetVui : IMarshallableO
     public uint Reserved1 { get; set; }
     public StdVideoH264HrdParameters PHrdParameters { get; set; }
 
-    public static implicit operator StdVideoH264SequenceParameterSetVui(AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSetVui s)
+    public static implicit operator StdVideoH264SequenceParameterSetVui(AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSetVui s)
     {
         return new StdVideoH264SequenceParameterSetVui(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSetVui>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSetVui>();
         if (PHrdParameters != default)
         {
             size += PHrdParameters.GetSize();
@@ -55,12 +55,12 @@ public unsafe partial class StdVideoH264SequenceParameterSetVui : IMarshallableO
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSetVui> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSetVui> context)
     {
         new StdVideoH264SequenceParameterSetVuiMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSetVui native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSetVui native)
     {
         Flags = new StdVideoH264SpsVuiFlags(native.flags);
         Aspect_ratio_idc = native.aspect_ratio_idc;
@@ -81,25 +81,25 @@ public unsafe partial class StdVideoH264SequenceParameterSetVui : IMarshallableO
         NativeUtils.Free(native.pHrdParameters);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSetVui>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSetVui>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSetVui>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSetVui>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoH264SequenceParameterSetVuiMarshaller
     {
-        public StdVideoH264SequenceParameterSetVuiMarshaller(AdamantiumVulkan.StdVideoH264SequenceParameterSetVui stdVideoH264SequenceParameterSetVui, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSetVui> context)
+        public StdVideoH264SequenceParameterSetVuiMarshaller(AdamantiumVulkan.Core.StdVideoH264SequenceParameterSetVui stdVideoH264SequenceParameterSetVui, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSetVui> context)
         {
             if (stdVideoH264SequenceParameterSetVui.Flags != default)
             {
-                fixed (AdamantiumVulkan.Interop.StdVideoH264SpsVuiFlags* pField = &context.Destination[0].flags)
+                fixed (AdamantiumVulkan.Core.Interop.StdVideoH264SpsVuiFlags* pField = &context.Destination[0].flags)
                 {
-                    var fieldSpan = new System.Span<AdamantiumVulkan.Interop.StdVideoH264SpsVuiFlags>(pField, 1);
-                    var childContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH264SpsVuiFlags>(fieldSpan, context.DataCursor);
+                    var fieldSpan = new System.Span<AdamantiumVulkan.Core.Interop.StdVideoH264SpsVuiFlags>(pField, 1);
+                    var childContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH264SpsVuiFlags>(fieldSpan, context.DataCursor);
                     stdVideoH264SequenceParameterSetVui.Flags.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
@@ -135,10 +135,10 @@ public unsafe partial class StdVideoH264SequenceParameterSetVui : IMarshallableO
 
             if (stdVideoH264SequenceParameterSetVui.PHrdParameters != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoH264HrdParameters));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoH264HrdParameters>(structSlice0).Slice(0, 1);
-                context.Destination[0].pHrdParameters = (AdamantiumVulkan.Interop.StdVideoH264HrdParameters*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH264HrdParameters>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters>(structSlice0).Slice(0, 1);
+                context.Destination[0].pHrdParameters = (AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters>(structDestination0, context.DataCursor);
                 stdVideoH264SequenceParameterSetVui.PHrdParameters.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }

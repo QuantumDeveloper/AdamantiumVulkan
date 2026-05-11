@@ -12,14 +12,14 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19639 Column: 16
+// File: vk.xml Line: 9214 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceOpticalFlowPropertiesNV
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkOpticalFlowGridSizeFlagsNV supportedOutputGridSizes;
-    public VkOpticalFlowGridSizeFlagsNV supportedHintGridSizes;
+    public void* pNext;
+    public OpticalFlowGridSizeFlagBitsNV supportedOutputGridSizes;
+    public OpticalFlowGridSizeFlagBitsNV supportedHintGridSizes;
     public VkBool32 hintSupported;
     public VkBool32 costSupported;
     public VkBool32 bidirectionalFlowSupported;

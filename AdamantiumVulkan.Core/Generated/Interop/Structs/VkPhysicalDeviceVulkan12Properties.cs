@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6177 Column: 16
+// File: vk.xml Line: 5882 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceVulkan12Properties
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public DriverId driverID;
     public unsafe fixed sbyte driverName[256];
     public unsafe fixed sbyte driverInfo[256];
@@ -62,14 +62,14 @@ public unsafe partial struct VkPhysicalDeviceVulkan12Properties
     public uint maxDescriptorSetUpdateAfterBindSampledImages;
     public uint maxDescriptorSetUpdateAfterBindStorageImages;
     public uint maxDescriptorSetUpdateAfterBindInputAttachments;
-    public VkResolveModeFlags supportedDepthResolveModes;
-    public VkResolveModeFlags supportedStencilResolveModes;
+    public ResolveModeFlagBits supportedDepthResolveModes;
+    public ResolveModeFlagBits supportedStencilResolveModes;
     public VkBool32 independentResolveNone;
     public VkBool32 independentResolve;
     public VkBool32 filterMinmaxSingleComponentFormats;
     public VkBool32 filterMinmaxImageComponentMapping;
     public ulong maxTimelineSemaphoreValueDifference;
-    public VkSampleCountFlags framebufferIntegerColorSampleCounts;
+    public SampleCountFlagBits framebufferIntegerColorSampleCounts;
 }
 
 

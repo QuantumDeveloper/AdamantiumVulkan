@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21534 Column: 26
+// File: video.xml Line: 15373 Column: 10
 public unsafe struct PFN_vkCmdBuildAccelerationStructuresIndirectKHR
 {
     public PFN_vkCmdBuildAccelerationStructuresIndirectKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkCmdBuildAccelerationStructuresIndirectKHR
     public PFN_vkCmdBuildAccelerationStructuresIndirectKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, VkDeviceAddress*, uint*, uint**, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, VkDeviceAddress*, uint*, void**, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, VkDeviceAddress*, uint*, uint**, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, VkDeviceAddress*, uint*, void**, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, VkDeviceAddress* pIndirectDeviceAddresses, uint* pIndirectStrides, uint** ppMaxPrimitiveCounts)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, VkDeviceAddress* pIndirectDeviceAddresses, uint* pIndirectStrides, void** ppMaxPrimitiveCounts)
     {
          InvokeFunc(commandBuffer, infoCount, pInfos, pIndirectDeviceAddresses, pIndirectStrides, ppMaxPrimitiveCounts);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, VkDeviceAddress* pIndirectDeviceAddresses, uint* pIndirectStrides, uint** ppMaxPrimitiveCounts)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, VkDeviceAddress* pIndirectDeviceAddresses, uint* pIndirectStrides, void** ppMaxPrimitiveCounts)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, VkDeviceAddress*, uint*, uint**, void>)ptr)(commandBuffer, infoCount, pInfos, pIndirectDeviceAddresses, pIndirectStrides, ppMaxPrimitiveCounts);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, VkDeviceAddress*, uint*, void**, void>)ptr)(commandBuffer, infoCount, pInfos, pIndirectDeviceAddresses, pIndirectStrides, ppMaxPrimitiveCounts);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, VkDeviceAddress* pIndirectDeviceAddresses, uint* pIndirectStrides, uint** ppMaxPrimitiveCounts)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, VkDeviceAddress* pIndirectDeviceAddresses, uint* pIndirectStrides, void** ppMaxPrimitiveCounts)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, VkDeviceAddress*, uint*, uint**, void>)(void*)ptr)(commandBuffer, infoCount, pInfos, pIndirectDeviceAddresses, pIndirectStrides, ppMaxPrimitiveCounts);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, VkDeviceAddress*, uint*, void**, void>)(void*)ptr)(commandBuffer, infoCount, pInfos, pIndirectDeviceAddresses, pIndirectStrides, ppMaxPrimitiveCounts);
     }
 
     public static explicit operator PFN_vkCmdBuildAccelerationStructuresIndirectKHR(void* ptr) => new(ptr);

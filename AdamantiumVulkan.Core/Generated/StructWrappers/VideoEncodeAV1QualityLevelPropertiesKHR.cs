@@ -23,9 +23,9 @@ public unsafe partial class VideoEncodeAV1QualityLevelPropertiesKHR : IMarshalla
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeAv1QualityLevelPropertiesKhr;
     public object PNext { get; set; }
-    public VkVideoEncodeAV1RateControlFlagsKHR PreferredRateControlFlags { get; set; }
+    public VideoEncodeAV1RateControlFlagBitsKHR PreferredRateControlFlags { get; set; }
     public uint PreferredGopFrameCount { get; set; }
     public uint PreferredKeyFramePeriod { get; set; }
     public uint PreferredConsecutiveBipredictiveFrameCount { get; set; }
@@ -63,7 +63,6 @@ public unsafe partial class VideoEncodeAV1QualityLevelPropertiesKHR : IMarshalla
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1QualityLevelPropertiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PreferredRateControlFlags = native.preferredRateControlFlags;
         PreferredGopFrameCount = native.preferredGopFrameCount;
@@ -82,14 +81,14 @@ public unsafe partial class VideoEncodeAV1QualityLevelPropertiesKHR : IMarshalla
         PreferredBidirectionalCompoundReferenceNameMask = native.preferredBidirectionalCompoundReferenceNameMask;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1QualityLevelPropertiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1QualityLevelPropertiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeAV1QualityLevelPropertiesKHRMarshaller
     {
@@ -103,17 +102,14 @@ public unsafe partial class VideoEncodeAV1QualityLevelPropertiesKHR : IMarshalla
             }
             else if (videoEncodeAV1QualityLevelPropertiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeAV1QualityLevelPropertiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (videoEncodeAV1QualityLevelPropertiesKHR.PreferredRateControlFlags != (uint)default)
-            {
-                context.Destination[0].preferredRateControlFlags = videoEncodeAV1QualityLevelPropertiesKHR.PreferredRateControlFlags;
-            }
+            context.Destination[0].preferredRateControlFlags = videoEncodeAV1QualityLevelPropertiesKHR.PreferredRateControlFlags;
 
             context.Destination[0].preferredGopFrameCount = videoEncodeAV1QualityLevelPropertiesKHR.PreferredGopFrameCount;
 

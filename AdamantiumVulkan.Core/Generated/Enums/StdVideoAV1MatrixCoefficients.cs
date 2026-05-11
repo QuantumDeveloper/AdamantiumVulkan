@@ -9,10 +9,10 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_av1std.h Line: 176 Column: 14
-public enum StdVideoAV1MatrixCoefficients : uint
+// File: video.xml Line: 1538 Column: 6
+public enum StdVideoAV1MatrixCoefficients : int
 {
     Identity = 0,
 
@@ -43,8 +43,6 @@ public enum StdVideoAV1MatrixCoefficients : uint
     ChromatCl = 13,
 
     Ictcp = 14,
-
-    Invalid = 2147483647,
 
 }
 

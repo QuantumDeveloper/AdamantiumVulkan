@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeH265WeightTableFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTableFlags>
+public unsafe partial class StdVideoEncodeH265WeightTableFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags>
 {
     public StdVideoEncodeH265WeightTableFlags()
     {
     }
 
-    public StdVideoEncodeH265WeightTableFlags(in AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTableFlags native)
+    public StdVideoEncodeH265WeightTableFlags(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags native)
     {
         MarshalFrom(in native);
     }
@@ -28,23 +28,23 @@ public unsafe partial class StdVideoEncodeH265WeightTableFlags : IMarshallableOb
     public ushort Luma_weight_l1_flag { get; set; }
     public ushort Chroma_weight_l1_flag { get; set; }
 
-    public static implicit operator StdVideoEncodeH265WeightTableFlags(AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTableFlags s)
+    public static implicit operator StdVideoEncodeH265WeightTableFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags s)
     {
         return new StdVideoEncodeH265WeightTableFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTableFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTableFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags> context)
     {
         new StdVideoEncodeH265WeightTableFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTableFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags native)
     {
         Luma_weight_l0_flag = native.luma_weight_l0_flag;
         Chroma_weight_l0_flag = native.chroma_weight_l0_flag;
@@ -52,18 +52,18 @@ public unsafe partial class StdVideoEncodeH265WeightTableFlags : IMarshallableOb
         Chroma_weight_l1_flag = native.chroma_weight_l1_flag;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTableFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTableFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeH265WeightTableFlagsMarshaller
     {
-        public StdVideoEncodeH265WeightTableFlagsMarshaller(AdamantiumVulkan.StdVideoEncodeH265WeightTableFlags stdVideoEncodeH265WeightTableFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTableFlags> context)
+        public StdVideoEncodeH265WeightTableFlagsMarshaller(AdamantiumVulkan.Core.StdVideoEncodeH265WeightTableFlags stdVideoEncodeH265WeightTableFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags> context)
         {
             context.Destination[0].luma_weight_l0_flag = stdVideoEncodeH265WeightTableFlags.Luma_weight_l0_flag;
 

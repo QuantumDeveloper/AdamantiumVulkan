@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9160 Column: 30
+// File: video.xml Line: 15967 Column: 10
 public unsafe struct PFN_vkCreateVideoSessionParametersKHR
 {
     public PFN_vkCreateVideoSessionParametersKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkCreateVideoSessionParametersKHR
     public PFN_vkCreateVideoSessionParametersKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T pVideoSessionParameters)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T* pVideoSessionParameters)
     {
-        return InvokeFunc(device, pCreateInfo, pAllocator, out pVideoSessionParameters);
+        return InvokeFunc(device, pCreateInfo, pAllocator, pVideoSessionParameters);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T pVideoSessionParameters)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T* pVideoSessionParameters)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T, Result>)ptr)(device, pCreateInfo, pAllocator, out pVideoSessionParameters);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T*, Result>)ptr)(device, pCreateInfo, pAllocator, pVideoSessionParameters);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T pVideoSessionParameters)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T* pVideoSessionParameters)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, out pVideoSessionParameters);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T*, Result>)(void*)ptr)(device, pCreateInfo, pAllocator, pVideoSessionParameters);
     }
 
     public static explicit operator PFN_vkCreateVideoSessionParametersKHR(void* ptr) => new(ptr);

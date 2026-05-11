@@ -24,8 +24,8 @@ public unsafe partial class PipelineBinaryKeysAndDataKHR : IMarshallableObject, 
     }
 
     public uint BinaryCount { get; set; }
-    public PipelineBinaryKeyKHR PipelineBinaryKeys { get; set; }
-    public PipelineBinaryDataKHR PipelineBinaryData { get; set; }
+    public System.ReadOnlyMemory<PipelineBinaryKeyKHR> PipelineBinaryKeys { get; set; }
+    public System.ReadOnlyMemory<PipelineBinaryDataKHR> PipelineBinaryData { get; set; }
 
     public static implicit operator PipelineBinaryKeysAndDataKHR(AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeysAndDataKHR p)
     {
@@ -35,13 +35,25 @@ public unsafe partial class PipelineBinaryKeysAndDataKHR : IMarshallableObject, 
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeysAndDataKHR>();
-        if (PipelineBinaryKeys != default)
+        if (!PipelineBinaryKeys.IsEmpty)
         {
-            size += PipelineBinaryKeys.GetSize();
+            for (int i = 0; i < PipelineBinaryKeys.Length; i++)
+            {
+                if (PipelineBinaryKeys.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR>();
+                else
+                    size += PipelineBinaryKeys.Span[i].GetSize();
+            }
         }
-        if (PipelineBinaryData != default)
+        if (!PipelineBinaryData.IsEmpty)
         {
-            size += PipelineBinaryData.GetSize();
+            for (int i = 0; i < PipelineBinaryData.Length; i++)
+            {
+                if (PipelineBinaryData.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR>();
+                else
+                    size += PipelineBinaryData.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -54,20 +66,34 @@ public unsafe partial class PipelineBinaryKeysAndDataKHR : IMarshallableObject, 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeysAndDataKHR native)
     {
         BinaryCount = native.binaryCount;
-        PipelineBinaryKeys = new PipelineBinaryKeyKHR(in *native.pPipelineBinaryKeys);
-        NativeUtils.Free(native.pPipelineBinaryKeys);
-        PipelineBinaryData = new PipelineBinaryDataKHR(in *native.pPipelineBinaryData);
-        NativeUtils.Free(native.pPipelineBinaryData);
+        var arrayLengthPipelineBinaryKeys = native.binaryCount;
+        var tmpPipelineBinaryKeys = new PipelineBinaryKeyKHR[arrayLengthPipelineBinaryKeys];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR[arrayLengthPipelineBinaryKeys];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPipelineBinaryKeys, arrayLengthPipelineBinaryKeys, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPipelineBinaryKeys[i] = new PipelineBinaryKeyKHR(in nativeTmpArray0[i]);
+        }
+        PipelineBinaryKeys = tmpPipelineBinaryKeys;
+        var arrayLengthPipelineBinaryData = native.binaryCount;
+        var tmpPipelineBinaryData = new PipelineBinaryDataKHR[arrayLengthPipelineBinaryData];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR[arrayLengthPipelineBinaryData];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPipelineBinaryData, arrayLengthPipelineBinaryData, nativeTmpArray1);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        {
+            tmpPipelineBinaryData[i] = new PipelineBinaryDataKHR(in nativeTmpArray1[i]);
+        }
+        PipelineBinaryData = tmpPipelineBinaryData;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeysAndDataKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeysAndDataKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineBinaryKeysAndDataKHRMarshaller
     {
@@ -75,24 +101,14 @@ public unsafe partial class PipelineBinaryKeysAndDataKHR : IMarshallableObject, 
         {
             context.Destination[0].binaryCount = pipelineBinaryKeysAndDataKHR.BinaryCount;
 
-            if (pipelineBinaryKeysAndDataKHR.PipelineBinaryKeys != default)
+            if (!pipelineBinaryKeysAndDataKHR.PipelineBinaryKeys.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR>(structSlice0).Slice(0, 1);
-                context.Destination[0].pPipelineBinaryKeys = (AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR>(structDestination0, context.DataCursor);
-                pipelineBinaryKeysAndDataKHR.PipelineBinaryKeys.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pPipelineBinaryKeys = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.PipelineBinaryKeyKHR, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeysAndDataKHR>(pipelineBinaryKeysAndDataKHR.PipelineBinaryKeys, ref context);
             }
 
-            if (pipelineBinaryKeysAndDataKHR.PipelineBinaryData != default)
+            if (!pipelineBinaryKeysAndDataKHR.PipelineBinaryData.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR>(structSlice0).Slice(0, 1);
-                context.Destination[0].pPipelineBinaryData = (AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR>(structDestination0, context.DataCursor);
-                pipelineBinaryKeysAndDataKHR.PipelineBinaryData.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pPipelineBinaryData = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.PipelineBinaryDataKHR, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeysAndDataKHR>(pipelineBinaryKeysAndDataKHR.PipelineBinaryData, ref context);
             }
 
         }

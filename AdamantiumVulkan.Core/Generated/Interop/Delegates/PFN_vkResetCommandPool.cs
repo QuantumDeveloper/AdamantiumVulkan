@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4240 Column: 30
+// File: video.xml Line: 13052 Column: 10
 public unsafe struct PFN_vkResetCommandPool
 {
     public PFN_vkResetCommandPool(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkResetCommandPool
     public PFN_vkResetCommandPool(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, VkCommandPoolResetFlags, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, CommandPoolResetFlagBits, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, VkCommandPoolResetFlags, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, CommandPoolResetFlagBits, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, VkCommandPoolResetFlags flags)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, CommandPoolResetFlagBits flags)
     {
         return InvokeFunc(device, commandPool, flags);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, VkCommandPoolResetFlags flags)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, CommandPoolResetFlagBits flags)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, VkCommandPoolResetFlags, Result>)ptr)(device, commandPool, flags);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, CommandPoolResetFlagBits, Result>)ptr)(device, commandPool, flags);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, VkCommandPoolResetFlags flags)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandPool_T commandPool, CommandPoolResetFlagBits flags)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, VkCommandPoolResetFlags, Result>)(void*)ptr)(device, commandPool, flags);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandPool_T, CommandPoolResetFlagBits, Result>)(void*)ptr)(device, commandPool, flags);
     }
 
     public static explicit operator PFN_vkResetCommandPool(void* ptr) => new(ptr);

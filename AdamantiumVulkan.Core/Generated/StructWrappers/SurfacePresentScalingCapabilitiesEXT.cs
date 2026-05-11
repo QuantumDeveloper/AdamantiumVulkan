@@ -23,11 +23,11 @@ public unsafe partial class SurfacePresentScalingCapabilitiesEXT : IMarshallable
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.SurfacePresentScalingCapabilitiesExt;
     public object PNext { get; set; }
-    public VkPresentScalingFlagsEXT SupportedPresentScaling { get; set; }
-    public VkPresentGravityFlagsEXT SupportedPresentGravityX { get; set; }
-    public VkPresentGravityFlagsEXT SupportedPresentGravityY { get; set; }
+    public PresentScalingFlagBitsEXT SupportedPresentScaling { get; set; }
+    public PresentGravityFlagBitsEXT SupportedPresentGravityX { get; set; }
+    public PresentGravityFlagBitsEXT SupportedPresentGravityY { get; set; }
     public Extent2D MinScaledImageExtent { get; set; }
     public Extent2D MaxScaledImageExtent { get; set; }
 
@@ -53,7 +53,6 @@ public unsafe partial class SurfacePresentScalingCapabilitiesEXT : IMarshallable
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkSurfacePresentScalingCapabilitiesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         SupportedPresentScaling = native.supportedPresentScaling;
         SupportedPresentGravityX = native.supportedPresentGravityX;
@@ -62,14 +61,14 @@ public unsafe partial class SurfacePresentScalingCapabilitiesEXT : IMarshallable
         MaxScaledImageExtent = new Extent2D(native.maxScaledImageExtent);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSurfacePresentScalingCapabilitiesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSurfacePresentScalingCapabilitiesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSurfacePresentScalingCapabilitiesEXTMarshaller
     {
@@ -83,27 +82,18 @@ public unsafe partial class SurfacePresentScalingCapabilitiesEXT : IMarshallable
             }
             else if (surfacePresentScalingCapabilitiesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (surfacePresentScalingCapabilitiesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (surfacePresentScalingCapabilitiesEXT.SupportedPresentScaling != (uint)default)
-            {
-                context.Destination[0].supportedPresentScaling = surfacePresentScalingCapabilitiesEXT.SupportedPresentScaling;
-            }
+            context.Destination[0].supportedPresentScaling = surfacePresentScalingCapabilitiesEXT.SupportedPresentScaling;
 
-            if (surfacePresentScalingCapabilitiesEXT.SupportedPresentGravityX != (uint)default)
-            {
-                context.Destination[0].supportedPresentGravityX = surfacePresentScalingCapabilitiesEXT.SupportedPresentGravityX;
-            }
+            context.Destination[0].supportedPresentGravityX = surfacePresentScalingCapabilitiesEXT.SupportedPresentGravityX;
 
-            if (surfacePresentScalingCapabilitiesEXT.SupportedPresentGravityY != (uint)default)
-            {
-                context.Destination[0].supportedPresentGravityY = surfacePresentScalingCapabilitiesEXT.SupportedPresentGravityY;
-            }
+            context.Destination[0].supportedPresentGravityY = surfacePresentScalingCapabilitiesEXT.SupportedPresentGravityY;
 
             if (surfacePresentScalingCapabilitiesEXT.MinScaledImageExtent != default)
             {

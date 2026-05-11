@@ -23,10 +23,10 @@ public unsafe partial class CudaModuleCreateInfoNV : IMarshallableObject, IMarsh
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.CudaModuleCreateInfoNv;
     public object PNext { get; set; }
-    public ulong DataSize { get; set; }
-    public nuint PData { get; set; }
+    public nuint DataSize { get; set; }
+    public System.ReadOnlyMemory<byte> PData { get; set; }
 
     public static implicit operator CudaModuleCreateInfoNV(AdamantiumVulkan.Core.Interop.VkCudaModuleCreateInfoNV c)
     {
@@ -40,6 +40,8 @@ public unsafe partial class CudaModuleCreateInfoNV : IMarshallableObject, IMarsh
         {
             size += marshallable.GetSize();
         }
+        if (!PData.IsEmpty)
+            size += PData.Span.Length * Marshal.SizeOf<System.Byte>();
         return size;
     }
 
@@ -50,20 +52,22 @@ public unsafe partial class CudaModuleCreateInfoNV : IMarshallableObject, IMarsh
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkCudaModuleCreateInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         DataSize = native.dataSize;
-        PData = native.pData;
+        var arrayLengthPData = native.dataSize;
+        var tmpPData = new byte[arrayLengthPData];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pData, arrayLengthPData, tmpPData);
+        PData = tmpPData;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkCudaModuleCreateInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkCudaModuleCreateInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkCudaModuleCreateInfoNVMarshaller
     {
@@ -77,16 +81,19 @@ public unsafe partial class CudaModuleCreateInfoNV : IMarshallableObject, IMarsh
             }
             else if (cudaModuleCreateInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (cudaModuleCreateInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].dataSize = cudaModuleCreateInfoNV.DataSize;
 
-            context.Destination[0].pData = cudaModuleCreateInfoNV.PData;
+            if (!cudaModuleCreateInfoNV.PData.IsEmpty)
+            {
+                context.Destination[0].pData = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<byte, AdamantiumVulkan.Core.Interop.VkCudaModuleCreateInfoNV>(cudaModuleCreateInfoNV.PData.Span, ref context);
+            }
 
         }
     }

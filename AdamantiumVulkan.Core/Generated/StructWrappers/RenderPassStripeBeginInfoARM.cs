@@ -23,10 +23,10 @@ public unsafe partial class RenderPassStripeBeginInfoARM : IMarshallableObject, 
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.RenderPassStripeBeginInfoArm;
     public object PNext { get; set; }
     public uint StripeInfoCount { get; set; }
-    public RenderPassStripeInfoARM PStripeInfos { get; set; }
+    public System.ReadOnlyMemory<RenderPassStripeInfoARM> PStripeInfos { get; set; }
 
     public static implicit operator RenderPassStripeBeginInfoARM(AdamantiumVulkan.Core.Interop.VkRenderPassStripeBeginInfoARM r)
     {
@@ -40,9 +40,15 @@ public unsafe partial class RenderPassStripeBeginInfoARM : IMarshallableObject, 
         {
             size += marshallable.GetSize();
         }
-        if (PStripeInfos != default)
+        if (!PStripeInfos.IsEmpty)
         {
-            size += PStripeInfos.GetSize();
+            for (int i = 0; i < PStripeInfos.Length; i++)
+            {
+                if (PStripeInfos.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM>();
+                else
+                    size += PStripeInfos.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -54,21 +60,27 @@ public unsafe partial class RenderPassStripeBeginInfoARM : IMarshallableObject, 
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkRenderPassStripeBeginInfoARM native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         StripeInfoCount = native.stripeInfoCount;
-        PStripeInfos = new RenderPassStripeInfoARM(in *native.pStripeInfos);
-        NativeUtils.Free(native.pStripeInfos);
+        var arrayLengthPStripeInfos = native.stripeInfoCount;
+        var tmpPStripeInfos = new RenderPassStripeInfoARM[arrayLengthPStripeInfos];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM[arrayLengthPStripeInfos];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pStripeInfos, arrayLengthPStripeInfos, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPStripeInfos[i] = new RenderPassStripeInfoARM(in nativeTmpArray0[i]);
+        }
+        PStripeInfos = tmpPStripeInfos;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderPassStripeBeginInfoARM>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderPassStripeBeginInfoARM>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderPassStripeBeginInfoARMMarshaller
     {
@@ -82,23 +94,18 @@ public unsafe partial class RenderPassStripeBeginInfoARM : IMarshallableObject, 
             }
             else if (renderPassStripeBeginInfoARM.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderPassStripeBeginInfoARM.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].stripeInfoCount = renderPassStripeBeginInfoARM.StripeInfoCount;
 
-            if (renderPassStripeBeginInfoARM.PStripeInfos != default)
+            if (!renderPassStripeBeginInfoARM.PStripeInfos.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStripeInfos = (AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM>(structDestination0, context.DataCursor);
-                renderPassStripeBeginInfoARM.PStripeInfos.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pStripeInfos = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.RenderPassStripeInfoARM, AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM, AdamantiumVulkan.Core.Interop.VkRenderPassStripeBeginInfoARM>(renderPassStripeBeginInfoARM.PStripeInfos, ref context);
             }
 
         }

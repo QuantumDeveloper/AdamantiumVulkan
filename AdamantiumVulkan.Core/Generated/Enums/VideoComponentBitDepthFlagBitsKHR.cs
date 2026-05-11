@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8971 Column: 14
+// File: vk.xml Line: 11864 Column: 6
 [Flags]
 public enum VideoComponentBitDepthFlagBitsKHR : uint
 {
@@ -22,8 +22,6 @@ public enum VideoComponentBitDepthFlagBitsKHR : uint
     _10BitKhr = 4,
 
     _12BitKhr = 16,
-
-    FlagBitsMaxEnumKhr = 2147483647,
 
 }
 

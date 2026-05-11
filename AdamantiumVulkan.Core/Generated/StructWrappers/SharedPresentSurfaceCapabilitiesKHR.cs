@@ -25,7 +25,7 @@ public unsafe partial class SharedPresentSurfaceCapabilitiesKHR : IMarshallableO
 
     public StructureType SType => StructureType.SharedPresentSurfaceCapabilitiesKhr;
     public object PNext { get; set; }
-    public VkImageUsageFlags SharedPresentSupportedUsageFlags { get; set; }
+    public ImageUsageFlagBits SharedPresentSupportedUsageFlags { get; set; }
 
     public static implicit operator SharedPresentSurfaceCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkSharedPresentSurfaceCapabilitiesKHR s)
     {
@@ -53,14 +53,14 @@ public unsafe partial class SharedPresentSurfaceCapabilitiesKHR : IMarshallableO
         SharedPresentSupportedUsageFlags = native.sharedPresentSupportedUsageFlags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSharedPresentSurfaceCapabilitiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSharedPresentSurfaceCapabilitiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSharedPresentSurfaceCapabilitiesKHRMarshaller
     {
@@ -74,17 +74,14 @@ public unsafe partial class SharedPresentSurfaceCapabilitiesKHR : IMarshallableO
             }
             else if (sharedPresentSurfaceCapabilitiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (sharedPresentSurfaceCapabilitiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (sharedPresentSurfaceCapabilitiesKHR.SharedPresentSupportedUsageFlags != (uint)default)
-            {
-                context.Destination[0].sharedPresentSupportedUsageFlags = sharedPresentSurfaceCapabilitiesKHR.SharedPresentSupportedUsageFlags;
-            }
+            context.Destination[0].sharedPresentSupportedUsageFlags = sharedPresentSurfaceCapabilitiesKHR.SharedPresentSupportedUsageFlags;
 
         }
     }

@@ -27,7 +27,7 @@ public unsafe partial class LayerSettingEXT : IMarshallableObject, IMarshallable
     public string PSettingName { get; set; }
     public LayerSettingTypeEXT Type { get; set; }
     public uint ValueCount { get; set; }
-    public nuint PValues { get; set; }
+    public System.ReadOnlyMemory<byte> PValues { get; set; }
 
     public static implicit operator LayerSettingEXT(AdamantiumVulkan.Core.Interop.VkLayerSettingEXT l)
     {
@@ -41,6 +41,8 @@ public unsafe partial class LayerSettingEXT : IMarshallableObject, IMarshallable
             size += System.Text.Encoding.UTF8.GetByteCount(PLayerName) + 1;
         if (!string.IsNullOrEmpty(PSettingName))
             size += System.Text.Encoding.UTF8.GetByteCount(PSettingName) + 1;
+        if (!PValues.IsEmpty)
+            size += PValues.Span.Length * Marshal.SizeOf<System.Byte>();
         return size;
     }
 
@@ -55,17 +57,20 @@ public unsafe partial class LayerSettingEXT : IMarshallableObject, IMarshallable
         PSettingName = new string(native.pSettingName);
         Type = native.type;
         ValueCount = native.valueCount;
-        PValues = native.pValues;
+        var arrayLengthPValues = native.valueCount;
+        var tmpPValues = new byte[arrayLengthPValues];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pValues, arrayLengthPValues, tmpPValues);
+        PValues = tmpPValues;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkLayerSettingEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkLayerSettingEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkLayerSettingEXTMarshaller
     {
@@ -91,7 +96,10 @@ public unsafe partial class LayerSettingEXT : IMarshallableObject, IMarshallable
 
             context.Destination[0].valueCount = layerSettingEXT.ValueCount;
 
-            context.Destination[0].pValues = layerSettingEXT.PValues;
+            if (!layerSettingEXT.PValues.IsEmpty)
+            {
+                context.Destination[0].pValues = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<byte, AdamantiumVulkan.Core.Interop.VkLayerSettingEXT>(layerSettingEXT.PValues.Span, ref context);
+            }
 
         }
     }

@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoH265DecPicBufMgr : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr>
+public unsafe partial class StdVideoH265DecPicBufMgr : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr>
 {
     public StdVideoH265DecPicBufMgr()
     {
     }
 
-    public StdVideoH265DecPicBufMgr(in AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr native)
+    public StdVideoH265DecPicBufMgr(in AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr native)
     {
         MarshalFrom(in native);
     }
@@ -27,50 +27,53 @@ public unsafe partial class StdVideoH265DecPicBufMgr : IMarshallableObject, IMar
     public System.ReadOnlyMemory<byte> Max_dec_pic_buffering_minus1 { get; set; }
     public System.ReadOnlyMemory<byte> Max_num_reorder_pics { get; set; }
 
-    public static implicit operator StdVideoH265DecPicBufMgr(AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr s)
+    public static implicit operator StdVideoH265DecPicBufMgr(AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr s)
     {
         return new StdVideoH265DecPicBufMgr(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr> context)
     {
         new StdVideoH265DecPicBufMgrMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr native)
     {
         var tmpMax_latency_increase_plus1 = new uint[7];
-        var pMax_latency_increase_plus1 = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.max_latency_increase_plus1[0]));
+        var max_latency_increase_plus1p = native.max_latency_increase_plus1[0];
+        var pMax_latency_increase_plus1 = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in max_latency_increase_plus1p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMax_latency_increase_plus1, 7, tmpMax_latency_increase_plus1);
         Max_latency_increase_plus1 = tmpMax_latency_increase_plus1;
         var tmpMax_dec_pic_buffering_minus1 = new byte[7];
-        var pMax_dec_pic_buffering_minus1 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.max_dec_pic_buffering_minus1[0]));
+        var max_dec_pic_buffering_minus1p = native.max_dec_pic_buffering_minus1[0];
+        var pMax_dec_pic_buffering_minus1 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in max_dec_pic_buffering_minus1p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMax_dec_pic_buffering_minus1, 7, tmpMax_dec_pic_buffering_minus1);
         Max_dec_pic_buffering_minus1 = tmpMax_dec_pic_buffering_minus1;
         var tmpMax_num_reorder_pics = new byte[7];
-        var pMax_num_reorder_pics = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.max_num_reorder_pics[0]));
+        var max_num_reorder_picsp = native.max_num_reorder_pics[0];
+        var pMax_num_reorder_pics = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in max_num_reorder_picsp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMax_num_reorder_pics, 7, tmpMax_num_reorder_pics);
         Max_num_reorder_pics = tmpMax_num_reorder_pics;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoH265DecPicBufMgrMarshaller
     {
-        public StdVideoH265DecPicBufMgrMarshaller(AdamantiumVulkan.StdVideoH265DecPicBufMgr stdVideoH265DecPicBufMgr, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr> context)
+        public StdVideoH265DecPicBufMgrMarshaller(AdamantiumVulkan.Core.StdVideoH265DecPicBufMgr stdVideoH265DecPicBufMgr, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr> context)
         {
             ref var tmpDestination0 = ref context.Destination[0];
             fixed (uint* pDest = tmpDestination0.max_latency_increase_plus1)

@@ -8,11 +8,11 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using AdamantiumVulkan;
+using AdamantiumVulkan.Core;
 
-namespace AdamantiumVulkan.Interop;
+namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_av1std_decode.h Line: 63 Column: 16
+// File: video.xml Line: 1077 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoDecodeAV1PictureInfo
 {
@@ -32,14 +32,14 @@ public unsafe partial struct StdVideoDecodeAV1PictureInfo
     public unsafe fixed byte reserved2[3];
     public unsafe fixed byte OrderHints[8];
     public unsafe fixed uint expectedFrameId[8];
-    public AdamantiumVulkan.Interop.StdVideoAV1TileInfo* pTileInfo;
-    public AdamantiumVulkan.Interop.StdVideoAV1Quantization* pQuantization;
-    public AdamantiumVulkan.Interop.StdVideoAV1Segmentation* pSegmentation;
-    public AdamantiumVulkan.Interop.StdVideoAV1LoopFilter* pLoopFilter;
-    public AdamantiumVulkan.Interop.StdVideoAV1CDEF* pCDEF;
-    public AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration* pLoopRestoration;
-    public AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion* pGlobalMotion;
-    public AdamantiumVulkan.Interop.StdVideoAV1FilmGrain* pFilmGrain;
+    public AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo* pTileInfo;
+    public AdamantiumVulkan.Core.Interop.StdVideoAV1Quantization* pQuantization;
+    public AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation* pSegmentation;
+    public AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter* pLoopFilter;
+    public AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF* pCDEF;
+    public AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration* pLoopRestoration;
+    public AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion* pGlobalMotion;
+    public AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrain* pFilmGrain;
 }
 
 

@@ -23,9 +23,9 @@ public unsafe partial class ExternalMemoryProperties : IMarshallableObject, IMar
         MarshalFrom(in native);
     }
 
-    public VkExternalMemoryFeatureFlags ExternalMemoryFeatures { get; set; }
-    public VkExternalMemoryHandleTypeFlags ExportFromImportedHandleTypes { get; set; }
-    public VkExternalMemoryHandleTypeFlags CompatibleHandleTypes { get; set; }
+    public ExternalMemoryFeatureFlagBits ExternalMemoryFeatures { get; set; }
+    public ExternalMemoryHandleTypeFlagBits ExportFromImportedHandleTypes { get; set; }
+    public ExternalMemoryHandleTypeFlagBits CompatibleHandleTypes { get; set; }
 
     public static implicit operator ExternalMemoryProperties(AdamantiumVulkan.Core.Interop.VkExternalMemoryProperties e)
     {
@@ -50,33 +50,24 @@ public unsafe partial class ExternalMemoryProperties : IMarshallableObject, IMar
         CompatibleHandleTypes = native.compatibleHandleTypes;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkExternalMemoryProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkExternalMemoryProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkExternalMemoryPropertiesMarshaller
     {
         public VkExternalMemoryPropertiesMarshaller(AdamantiumVulkan.Core.ExternalMemoryProperties externalMemoryProperties, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkExternalMemoryProperties> context)
         {
-            if (externalMemoryProperties.ExternalMemoryFeatures != (uint)default)
-            {
-                context.Destination[0].externalMemoryFeatures = externalMemoryProperties.ExternalMemoryFeatures;
-            }
+            context.Destination[0].externalMemoryFeatures = externalMemoryProperties.ExternalMemoryFeatures;
 
-            if (externalMemoryProperties.ExportFromImportedHandleTypes != (uint)default)
-            {
-                context.Destination[0].exportFromImportedHandleTypes = externalMemoryProperties.ExportFromImportedHandleTypes;
-            }
+            context.Destination[0].exportFromImportedHandleTypes = externalMemoryProperties.ExportFromImportedHandleTypes;
 
-            if (externalMemoryProperties.CompatibleHandleTypes != (uint)default)
-            {
-                context.Destination[0].compatibleHandleTypes = externalMemoryProperties.CompatibleHandleTypes;
-            }
+            context.Destination[0].compatibleHandleTypes = externalMemoryProperties.CompatibleHandleTypes;
 
         }
     }

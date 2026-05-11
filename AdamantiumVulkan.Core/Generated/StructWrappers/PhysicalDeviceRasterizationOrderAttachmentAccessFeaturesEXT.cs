@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceRasterizationOrderAttachmentAccessFeat
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesExt;
     public object PNext { get; set; }
     public VkBool32 RasterizationOrderColorAttachmentAccess { get; set; }
     public VkBool32 RasterizationOrderDepthAttachmentAccess { get; set; }
@@ -51,21 +51,20 @@ public unsafe partial class PhysicalDeviceRasterizationOrderAttachmentAccessFeat
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         RasterizationOrderColorAttachmentAccess = native.rasterizationOrderColorAttachmentAccess;
         RasterizationOrderDepthAttachmentAccess = native.rasterizationOrderDepthAttachmentAccess;
         RasterizationOrderStencilAttachmentAccess = native.rasterizationOrderStencilAttachmentAccess;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXTMarshaller
     {
@@ -79,11 +78,11 @@ public unsafe partial class PhysicalDeviceRasterizationOrderAttachmentAccessFeat
             }
             else if (physicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT.RasterizationOrderColorAttachmentAccess != (uint)default)

@@ -23,7 +23,7 @@ public unsafe partial class CommandBufferInheritanceViewportScissorInfoNV : IMar
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.CommandBufferInheritanceViewportScissorInfoNv;
     public object PNext { get; set; }
     public VkBool32 ViewportScissor2D { get; set; }
     public uint ViewportDepthCount { get; set; }
@@ -55,7 +55,6 @@ public unsafe partial class CommandBufferInheritanceViewportScissorInfoNV : IMar
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceViewportScissorInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ViewportScissor2D = native.viewportScissor2D;
         ViewportDepthCount = native.viewportDepthCount;
@@ -63,14 +62,14 @@ public unsafe partial class CommandBufferInheritanceViewportScissorInfoNV : IMar
         NativeUtils.Free(native.pViewportDepths);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceViewportScissorInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceViewportScissorInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkCommandBufferInheritanceViewportScissorInfoNVMarshaller
     {
@@ -84,11 +83,11 @@ public unsafe partial class CommandBufferInheritanceViewportScissorInfoNV : IMar
             }
             else if (commandBufferInheritanceViewportScissorInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (commandBufferInheritanceViewportScissorInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (commandBufferInheritanceViewportScissorInfoNV.ViewportScissor2D != (uint)default)

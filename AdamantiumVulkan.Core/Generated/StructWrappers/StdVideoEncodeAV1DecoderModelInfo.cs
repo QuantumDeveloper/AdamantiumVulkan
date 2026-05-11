@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeAV1DecoderModelInfo : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo>
+public unsafe partial class StdVideoEncodeAV1DecoderModelInfo : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo>
 {
     public StdVideoEncodeAV1DecoderModelInfo()
     {
     }
 
-    public StdVideoEncodeAV1DecoderModelInfo(in AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo native)
+    public StdVideoEncodeAV1DecoderModelInfo(in AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo native)
     {
         MarshalFrom(in native);
     }
@@ -29,23 +29,23 @@ public unsafe partial class StdVideoEncodeAV1DecoderModelInfo : IMarshallableObj
     public byte Reserved1 { get; set; }
     public uint Num_units_in_decoding_tick { get; set; }
 
-    public static implicit operator StdVideoEncodeAV1DecoderModelInfo(AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo s)
+    public static implicit operator StdVideoEncodeAV1DecoderModelInfo(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo s)
     {
         return new StdVideoEncodeAV1DecoderModelInfo(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo> context)
     {
         new StdVideoEncodeAV1DecoderModelInfoMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo native)
     {
         Buffer_delay_length_minus_1 = native.buffer_delay_length_minus_1;
         Buffer_removal_time_length_minus_1 = native.buffer_removal_time_length_minus_1;
@@ -54,18 +54,18 @@ public unsafe partial class StdVideoEncodeAV1DecoderModelInfo : IMarshallableObj
         Num_units_in_decoding_tick = native.num_units_in_decoding_tick;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeAV1DecoderModelInfoMarshaller
     {
-        public StdVideoEncodeAV1DecoderModelInfoMarshaller(AdamantiumVulkan.StdVideoEncodeAV1DecoderModelInfo stdVideoEncodeAV1DecoderModelInfo, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo> context)
+        public StdVideoEncodeAV1DecoderModelInfoMarshaller(AdamantiumVulkan.Core.StdVideoEncodeAV1DecoderModelInfo stdVideoEncodeAV1DecoderModelInfo, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo> context)
         {
             context.Destination[0].buffer_delay_length_minus_1 = stdVideoEncodeAV1DecoderModelInfo.Buffer_delay_length_minus_1;
 

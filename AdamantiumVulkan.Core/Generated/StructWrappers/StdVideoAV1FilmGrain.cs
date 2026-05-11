@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1FilmGrain : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1FilmGrain>
+public unsafe partial class StdVideoAV1FilmGrain : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrain>
 {
     public StdVideoAV1FilmGrain()
     {
     }
 
-    public StdVideoAV1FilmGrain(in AdamantiumVulkan.Interop.StdVideoAV1FilmGrain native)
+    public StdVideoAV1FilmGrain(in AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrain native)
     {
         MarshalFrom(in native);
     }
@@ -39,9 +39,9 @@ public unsafe partial class StdVideoAV1FilmGrain : IMarshallableObject, IMarshal
     public byte Num_cr_points { get; set; }
     public System.ReadOnlyMemory<byte> Point_cr_value { get; set; }
     public System.ReadOnlyMemory<byte> Point_cr_scaling { get; set; }
-    public string Ar_coeffs_y_plus_128 { get; set; }
-    public string Ar_coeffs_cb_plus_128 { get; set; }
-    public string Ar_coeffs_cr_plus_128 { get; set; }
+    public System.ReadOnlyMemory<sbyte> Ar_coeffs_y_plus_128 { get; set; }
+    public System.ReadOnlyMemory<sbyte> Ar_coeffs_cb_plus_128 { get; set; }
+    public System.ReadOnlyMemory<sbyte> Ar_coeffs_cr_plus_128 { get; set; }
     public byte Cb_mult { get; set; }
     public byte Cb_luma_mult { get; set; }
     public ushort Cb_offset { get; set; }
@@ -49,23 +49,23 @@ public unsafe partial class StdVideoAV1FilmGrain : IMarshallableObject, IMarshal
     public byte Cr_luma_mult { get; set; }
     public ushort Cr_offset { get; set; }
 
-    public static implicit operator StdVideoAV1FilmGrain(AdamantiumVulkan.Interop.StdVideoAV1FilmGrain s)
+    public static implicit operator StdVideoAV1FilmGrain(AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrain s)
     {
         return new StdVideoAV1FilmGrain(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1FilmGrain>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrain>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1FilmGrain> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrain> context)
     {
         new StdVideoAV1FilmGrainMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1FilmGrain native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrain native)
     {
         Flags = new StdVideoAV1FilmGrainFlags(native.flags);
         Grain_scaling_minus_8 = native.grain_scaling_minus_8;
@@ -76,43 +76,52 @@ public unsafe partial class StdVideoAV1FilmGrain : IMarshallableObject, IMarshal
         Film_grain_params_ref_idx = native.film_grain_params_ref_idx;
         Num_y_points = native.num_y_points;
         var tmpPoint_y_value = new byte[14];
-        var pPoint_y_value = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.point_y_value[0]));
+        var point_y_valuep = native.point_y_value[0];
+        var pPoint_y_value = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in point_y_valuep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pPoint_y_value, 14, tmpPoint_y_value);
         Point_y_value = tmpPoint_y_value;
         var tmpPoint_y_scaling = new byte[14];
-        var pPoint_y_scaling = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.point_y_scaling[0]));
+        var point_y_scalingp = native.point_y_scaling[0];
+        var pPoint_y_scaling = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in point_y_scalingp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pPoint_y_scaling, 14, tmpPoint_y_scaling);
         Point_y_scaling = tmpPoint_y_scaling;
         Num_cb_points = native.num_cb_points;
         var tmpPoint_cb_value = new byte[10];
-        var pPoint_cb_value = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.point_cb_value[0]));
+        var point_cb_valuep = native.point_cb_value[0];
+        var pPoint_cb_value = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in point_cb_valuep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pPoint_cb_value, 10, tmpPoint_cb_value);
         Point_cb_value = tmpPoint_cb_value;
         var tmpPoint_cb_scaling = new byte[10];
-        var pPoint_cb_scaling = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.point_cb_scaling[0]));
+        var point_cb_scalingp = native.point_cb_scaling[0];
+        var pPoint_cb_scaling = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in point_cb_scalingp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pPoint_cb_scaling, 10, tmpPoint_cb_scaling);
         Point_cb_scaling = tmpPoint_cb_scaling;
         Num_cr_points = native.num_cr_points;
         var tmpPoint_cr_value = new byte[10];
-        var pPoint_cr_value = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.point_cr_value[0]));
+        var point_cr_valuep = native.point_cr_value[0];
+        var pPoint_cr_value = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in point_cr_valuep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pPoint_cr_value, 10, tmpPoint_cr_value);
         Point_cr_value = tmpPoint_cr_value;
         var tmpPoint_cr_scaling = new byte[10];
-        var pPoint_cr_scaling = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.point_cr_scaling[0]));
+        var point_cr_scalingp = native.point_cr_scaling[0];
+        var pPoint_cr_scaling = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in point_cr_scalingp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pPoint_cr_scaling, 10, tmpPoint_cr_scaling);
         Point_cr_scaling = tmpPoint_cr_scaling;
-        fixed(sbyte* pSource = native.ar_coeffs_y_plus_128)
-        {
-            Ar_coeffs_y_plus_128 = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 24);
-        }
-        fixed(sbyte* pSource = native.ar_coeffs_cb_plus_128)
-        {
-            Ar_coeffs_cb_plus_128 = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 25);
-        }
-        fixed(sbyte* pSource = native.ar_coeffs_cr_plus_128)
-        {
-            Ar_coeffs_cr_plus_128 = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 25);
-        }
+        var tmpAr_coeffs_y_plus_128 = new sbyte[24];
+        var ar_coeffs_y_plus_128p = native.ar_coeffs_y_plus_128[0];
+        var pAr_coeffs_y_plus_128 = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in ar_coeffs_y_plus_128p ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pAr_coeffs_y_plus_128, 24, tmpAr_coeffs_y_plus_128);
+        Ar_coeffs_y_plus_128 = tmpAr_coeffs_y_plus_128;
+        var tmpAr_coeffs_cb_plus_128 = new sbyte[25];
+        var ar_coeffs_cb_plus_128p = native.ar_coeffs_cb_plus_128[0];
+        var pAr_coeffs_cb_plus_128 = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in ar_coeffs_cb_plus_128p ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pAr_coeffs_cb_plus_128, 25, tmpAr_coeffs_cb_plus_128);
+        Ar_coeffs_cb_plus_128 = tmpAr_coeffs_cb_plus_128;
+        var tmpAr_coeffs_cr_plus_128 = new sbyte[25];
+        var ar_coeffs_cr_plus_128p = native.ar_coeffs_cr_plus_128[0];
+        var pAr_coeffs_cr_plus_128 = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in ar_coeffs_cr_plus_128p ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pAr_coeffs_cr_plus_128, 25, tmpAr_coeffs_cr_plus_128);
+        Ar_coeffs_cr_plus_128 = tmpAr_coeffs_cr_plus_128;
         Cb_mult = native.cb_mult;
         Cb_luma_mult = native.cb_luma_mult;
         Cb_offset = native.cb_offset;
@@ -121,25 +130,25 @@ public unsafe partial class StdVideoAV1FilmGrain : IMarshallableObject, IMarshal
         Cr_offset = native.cr_offset;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1FilmGrain>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrain>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1FilmGrain>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrain>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1FilmGrainMarshaller
     {
-        public StdVideoAV1FilmGrainMarshaller(AdamantiumVulkan.StdVideoAV1FilmGrain stdVideoAV1FilmGrain, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1FilmGrain> context)
+        public StdVideoAV1FilmGrainMarshaller(AdamantiumVulkan.Core.StdVideoAV1FilmGrain stdVideoAV1FilmGrain, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrain> context)
         {
             if (stdVideoAV1FilmGrain.Flags != default)
             {
-                fixed (AdamantiumVulkan.Interop.StdVideoAV1FilmGrainFlags* pField = &context.Destination[0].flags)
+                fixed (AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrainFlags* pField = &context.Destination[0].flags)
                 {
-                    var fieldSpan = new System.Span<AdamantiumVulkan.Interop.StdVideoAV1FilmGrainFlags>(pField, 1);
-                    var childContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1FilmGrainFlags>(fieldSpan, context.DataCursor);
+                    var fieldSpan = new System.Span<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrainFlags>(pField, 1);
+                    var childContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrainFlags>(fieldSpan, context.DataCursor);
                     stdVideoAV1FilmGrain.Flags.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
@@ -202,22 +211,19 @@ public unsafe partial class StdVideoAV1FilmGrain : IMarshallableObject, IMarshal
             ref var tmpDestination6 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination6.ar_coeffs_y_plus_128)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 24);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoAV1FilmGrain.Ar_coeffs_y_plus_128, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoAV1FilmGrain.Ar_coeffs_y_plus_128.Span, pDest, 24);
             }
 
             ref var tmpDestination7 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination7.ar_coeffs_cb_plus_128)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 25);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoAV1FilmGrain.Ar_coeffs_cb_plus_128, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoAV1FilmGrain.Ar_coeffs_cb_plus_128.Span, pDest, 25);
             }
 
             ref var tmpDestination8 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination8.ar_coeffs_cr_plus_128)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 25);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoAV1FilmGrain.Ar_coeffs_cr_plus_128, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoAV1FilmGrain.Ar_coeffs_cr_plus_128.Span, pDest, 25);
             }
 
             context.Destination[0].cb_mult = stdVideoAV1FilmGrain.Cb_mult;

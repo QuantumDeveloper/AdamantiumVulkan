@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19804 Column: 1
+// File: vk.xml Line: 597 Column: 10
 public unsafe partial class ShaderEXT : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkShaderEXT_T>
 {
     internal VkShaderEXT_T __Instance;
@@ -27,7 +27,7 @@ public unsafe partial class ShaderEXT : IUnmanagedWrapper<AdamantiumVulkan.Core.
     }
 
     public AdamantiumVulkan.Core.Interop.VkShaderEXT_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public ref readonly VkShaderEXT_T GetPinnableReference() => ref __Instance;
 

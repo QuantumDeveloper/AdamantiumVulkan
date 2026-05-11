@@ -11,13 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15558 Column: 14
+// File: vk.xml Line: 11628 Column: 6
 [Flags]
-public enum PerformanceConfigurationTypeINTEL : uint
+public enum PerformanceConfigurationTypeINTEL : int
 {
     CommandQueueMetricsDiscoveryActivatedIntel = 0,
-
-    MaxEnumIntel = 2147483647,
 
 }
 

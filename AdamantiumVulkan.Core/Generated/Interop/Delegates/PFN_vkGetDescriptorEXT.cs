@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17293 Column: 26
+// File: video.xml Line: 16101 Column: 10
 public unsafe struct PFN_vkGetDescriptorEXT
 {
     public PFN_vkGetDescriptorEXT(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetDescriptorEXT
     public PFN_vkGetDescriptorEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT*, ulong, nuint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT*, nuint, byte*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT*, ulong, nuint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT*, nuint, byte*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT* pDescriptorInfo, ulong dataSize, nuint pDescriptor)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT* pDescriptorInfo, nuint dataSize, byte* pDescriptor)
     {
          InvokeFunc(device, pDescriptorInfo, dataSize, pDescriptor);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT* pDescriptorInfo, ulong dataSize, nuint pDescriptor)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT* pDescriptorInfo, nuint dataSize, byte* pDescriptor)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT*, ulong, nuint, void>)ptr)(device, pDescriptorInfo, dataSize, pDescriptor);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT*, nuint, byte*, void>)ptr)(device, pDescriptorInfo, dataSize, pDescriptor);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT* pDescriptorInfo, ulong dataSize, nuint pDescriptor)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT* pDescriptorInfo, nuint dataSize, byte* pDescriptor)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT*, ulong, nuint, void>)(void*)ptr)(device, pDescriptorInfo, dataSize, pDescriptor);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT*, nuint, byte*, void>)(void*)ptr)(device, pDescriptorInfo, dataSize, pDescriptor);
     }
 
     public static explicit operator PFN_vkGetDescriptorEXT(void* ptr) => new(ptr);

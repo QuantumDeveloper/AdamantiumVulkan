@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17907 Column: 14
+// File: vk.xml Line: 11833 Column: 6
 [Flags]
-public enum DeviceAddressBindingTypeEXT : uint
+public enum DeviceAddressBindingTypeEXT : int
 {
     BindExt = 0,
 
     UnbindExt = 1,
-
-    MaxEnumExt = 2147483647,
 
 }
 

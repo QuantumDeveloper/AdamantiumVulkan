@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeH265SliceSegmentHeaderFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags>
+public unsafe partial class StdVideoEncodeH265SliceSegmentHeaderFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags>
 {
     public StdVideoEncodeH265SliceSegmentHeaderFlags()
     {
     }
 
-    public StdVideoEncodeH265SliceSegmentHeaderFlags(in AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags native)
+    public StdVideoEncodeH265SliceSegmentHeaderFlags(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags native)
     {
         MarshalFrom(in native);
     }
@@ -37,23 +37,23 @@ public unsafe partial class StdVideoEncodeH265SliceSegmentHeaderFlags : IMarshal
     public uint Slice_loop_filter_across_slices_enabled_flag { get; set; }
     public uint Reserved { get; set; }
 
-    public static implicit operator StdVideoEncodeH265SliceSegmentHeaderFlags(AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags s)
+    public static implicit operator StdVideoEncodeH265SliceSegmentHeaderFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags s)
     {
         return new StdVideoEncodeH265SliceSegmentHeaderFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags> context)
     {
         new StdVideoEncodeH265SliceSegmentHeaderFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags native)
     {
         First_slice_segment_in_pic_flag = native.first_slice_segment_in_pic_flag;
         Dependent_slice_segment_flag = native.dependent_slice_segment_flag;
@@ -70,18 +70,18 @@ public unsafe partial class StdVideoEncodeH265SliceSegmentHeaderFlags : IMarshal
         Reserved = native.reserved;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeH265SliceSegmentHeaderFlagsMarshaller
     {
-        public StdVideoEncodeH265SliceSegmentHeaderFlagsMarshaller(AdamantiumVulkan.StdVideoEncodeH265SliceSegmentHeaderFlags stdVideoEncodeH265SliceSegmentHeaderFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags> context)
+        public StdVideoEncodeH265SliceSegmentHeaderFlagsMarshaller(AdamantiumVulkan.Core.StdVideoEncodeH265SliceSegmentHeaderFlags stdVideoEncodeH265SliceSegmentHeaderFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags> context)
         {
             context.Destination[0].first_slice_segment_in_pic_flag = stdVideoEncodeH265SliceSegmentHeaderFlags.First_slice_segment_in_pic_flag;
 

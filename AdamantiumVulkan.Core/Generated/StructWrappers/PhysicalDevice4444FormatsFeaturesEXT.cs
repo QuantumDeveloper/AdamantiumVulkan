@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDevice4444FormatsFeaturesEXT : IMarshallable
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDevice4444FormatsFeaturesExt;
     public object PNext { get; set; }
     public VkBool32 FormatA4R4G4B4 { get; set; }
     public VkBool32 FormatA4B4G4R4 { get; set; }
@@ -50,20 +50,19 @@ public unsafe partial class PhysicalDevice4444FormatsFeaturesEXT : IMarshallable
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         FormatA4R4G4B4 = native.formatA4R4G4B4;
         FormatA4B4G4R4 = native.formatA4B4G4R4;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDevice4444FormatsFeaturesEXTMarshaller
     {
@@ -77,11 +76,11 @@ public unsafe partial class PhysicalDevice4444FormatsFeaturesEXT : IMarshallable
             }
             else if (physicalDevice4444FormatsFeaturesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDevice4444FormatsFeaturesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDevice4444FormatsFeaturesEXT.FormatA4R4G4B4 != (uint)default)

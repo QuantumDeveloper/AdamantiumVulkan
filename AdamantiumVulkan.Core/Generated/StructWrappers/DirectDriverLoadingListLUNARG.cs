@@ -23,11 +23,11 @@ public unsafe partial class DirectDriverLoadingListLUNARG : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.DirectDriverLoadingListLunarg;
     public object PNext { get; set; }
     public DirectDriverLoadingModeLUNARG Mode { get; set; }
     public uint DriverCount { get; set; }
-    public DirectDriverLoadingInfoLUNARG PDrivers { get; set; }
+    public System.ReadOnlyMemory<DirectDriverLoadingInfoLUNARG> PDrivers { get; set; }
 
     public static implicit operator DirectDriverLoadingListLUNARG(AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingListLUNARG d)
     {
@@ -41,9 +41,15 @@ public unsafe partial class DirectDriverLoadingListLUNARG : IMarshallableObject,
         {
             size += marshallable.GetSize();
         }
-        if (PDrivers != default)
+        if (!PDrivers.IsEmpty)
         {
-            size += PDrivers.GetSize();
+            for (int i = 0; i < PDrivers.Length; i++)
+            {
+                if (PDrivers.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG>();
+                else
+                    size += PDrivers.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -55,22 +61,28 @@ public unsafe partial class DirectDriverLoadingListLUNARG : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingListLUNARG native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Mode = native.mode;
         DriverCount = native.driverCount;
-        PDrivers = new DirectDriverLoadingInfoLUNARG(in *native.pDrivers);
-        NativeUtils.Free(native.pDrivers);
+        var arrayLengthPDrivers = native.driverCount;
+        var tmpPDrivers = new DirectDriverLoadingInfoLUNARG[arrayLengthPDrivers];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG[arrayLengthPDrivers];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDrivers, arrayLengthPDrivers, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPDrivers[i] = new DirectDriverLoadingInfoLUNARG(in nativeTmpArray0[i]);
+        }
+        PDrivers = tmpPDrivers;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingListLUNARG>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingListLUNARG>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDirectDriverLoadingListLUNARGMarshaller
     {
@@ -84,25 +96,20 @@ public unsafe partial class DirectDriverLoadingListLUNARG : IMarshallableObject,
             }
             else if (directDriverLoadingListLUNARG.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (directDriverLoadingListLUNARG.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].mode = directDriverLoadingListLUNARG.Mode;
 
             context.Destination[0].driverCount = directDriverLoadingListLUNARG.DriverCount;
 
-            if (directDriverLoadingListLUNARG.PDrivers != default)
+            if (!directDriverLoadingListLUNARG.PDrivers.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG>(structSlice0).Slice(0, 1);
-                context.Destination[0].pDrivers = (AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG>(structDestination0, context.DataCursor);
-                directDriverLoadingListLUNARG.PDrivers.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pDrivers = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.DirectDriverLoadingInfoLUNARG, AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG, AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingListLUNARG>(directDriverLoadingListLUNARG.PDrivers, ref context);
             }
 
         }

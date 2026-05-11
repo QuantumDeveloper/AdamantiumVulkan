@@ -9,8 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core;
 
@@ -25,7 +23,7 @@ public unsafe partial class VideoDecodeAV1SessionParametersCreateInfoKHR : IMars
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoDecodeAv1SessionParametersCreateInfoKhr;
     public object PNext { get; set; }
     public StdVideoAV1SequenceHeader PStdSequenceHeader { get; set; }
 
@@ -55,20 +53,19 @@ public unsafe partial class VideoDecodeAV1SessionParametersCreateInfoKHR : IMars
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoDecodeAV1SessionParametersCreateInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PStdSequenceHeader = new StdVideoAV1SequenceHeader(in *native.pStdSequenceHeader);
         NativeUtils.Free(native.pStdSequenceHeader);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoDecodeAV1SessionParametersCreateInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoDecodeAV1SessionParametersCreateInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoDecodeAV1SessionParametersCreateInfoKHRMarshaller
     {
@@ -82,19 +79,19 @@ public unsafe partial class VideoDecodeAV1SessionParametersCreateInfoKHR : IMars
             }
             else if (videoDecodeAV1SessionParametersCreateInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoDecodeAV1SessionParametersCreateInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoDecodeAV1SessionParametersCreateInfoKHR.PStdSequenceHeader != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoAV1SequenceHeader));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoAV1SequenceHeader>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStdSequenceHeader = (AdamantiumVulkan.Interop.StdVideoAV1SequenceHeader*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1SequenceHeader>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeader));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeader>(structSlice0).Slice(0, 1);
+                context.Destination[0].pStdSequenceHeader = (AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeader*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeader>(structDestination0, context.DataCursor);
                 videoDecodeAV1SessionParametersCreateInfoKHR.PStdSequenceHeader.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }

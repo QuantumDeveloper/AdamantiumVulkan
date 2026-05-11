@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeH265WeightTable : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTable>
+public unsafe partial class StdVideoEncodeH265WeightTable : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTable>
 {
     public StdVideoEncodeH265WeightTable()
     {
     }
 
-    public StdVideoEncodeH265WeightTable(in AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTable native)
+    public StdVideoEncodeH265WeightTable(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTable native)
     {
         MarshalFrom(in native);
     }
@@ -26,89 +26,97 @@ public unsafe partial class StdVideoEncodeH265WeightTable : IMarshallableObject,
     public StdVideoEncodeH265WeightTableFlags Flags { get; set; }
     public byte Luma_log2_weight_denom { get; set; }
     public sbyte Delta_chroma_log2_weight_denom { get; set; }
-    public string Delta_luma_weight_l0 { get; set; }
-    public string Luma_offset_l0 { get; set; }
-    public string Delta_chroma_weight_l0 { get; set; }
-    public string Delta_chroma_offset_l0 { get; set; }
-    public string Delta_luma_weight_l1 { get; set; }
-    public string Luma_offset_l1 { get; set; }
-    public string Delta_chroma_weight_l1 { get; set; }
-    public string Delta_chroma_offset_l1 { get; set; }
+    public System.ReadOnlyMemory<sbyte> Delta_luma_weight_l0 { get; set; }
+    public System.ReadOnlyMemory<sbyte> Luma_offset_l0 { get; set; }
+    public System.ReadOnlyMemory<sbyte> Delta_chroma_weight_l0 { get; set; }
+    public System.ReadOnlyMemory<sbyte> Delta_chroma_offset_l0 { get; set; }
+    public System.ReadOnlyMemory<sbyte> Delta_luma_weight_l1 { get; set; }
+    public System.ReadOnlyMemory<sbyte> Luma_offset_l1 { get; set; }
+    public System.ReadOnlyMemory<sbyte> Delta_chroma_weight_l1 { get; set; }
+    public System.ReadOnlyMemory<sbyte> Delta_chroma_offset_l1 { get; set; }
 
-    public static implicit operator StdVideoEncodeH265WeightTable(AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTable s)
+    public static implicit operator StdVideoEncodeH265WeightTable(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTable s)
     {
         return new StdVideoEncodeH265WeightTable(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTable>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTable>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTable> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTable> context)
     {
         new StdVideoEncodeH265WeightTableMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTable native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTable native)
     {
         Flags = new StdVideoEncodeH265WeightTableFlags(native.flags);
         Luma_log2_weight_denom = native.luma_log2_weight_denom;
         Delta_chroma_log2_weight_denom = native.delta_chroma_log2_weight_denom;
-        fixed(sbyte* pSource = native.delta_luma_weight_l0)
-        {
-            Delta_luma_weight_l0 = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 15);
-        }
-        fixed(sbyte* pSource = native.luma_offset_l0)
-        {
-            Luma_offset_l0 = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 15);
-        }
-        fixed(sbyte* pSource = native.delta_chroma_weight_l0)
-        {
-            Delta_chroma_weight_l0 = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 30);
-        }
-        fixed(sbyte* pSource = native.delta_chroma_offset_l0)
-        {
-            Delta_chroma_offset_l0 = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 30);
-        }
-        fixed(sbyte* pSource = native.delta_luma_weight_l1)
-        {
-            Delta_luma_weight_l1 = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 15);
-        }
-        fixed(sbyte* pSource = native.luma_offset_l1)
-        {
-            Luma_offset_l1 = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 15);
-        }
-        fixed(sbyte* pSource = native.delta_chroma_weight_l1)
-        {
-            Delta_chroma_weight_l1 = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 30);
-        }
-        fixed(sbyte* pSource = native.delta_chroma_offset_l1)
-        {
-            Delta_chroma_offset_l1 = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 30);
-        }
+        var tmpDelta_luma_weight_l0 = new sbyte[15];
+        var delta_luma_weight_l0p = native.delta_luma_weight_l0[0];
+        var pDelta_luma_weight_l0 = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in delta_luma_weight_l0p ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pDelta_luma_weight_l0, 15, tmpDelta_luma_weight_l0);
+        Delta_luma_weight_l0 = tmpDelta_luma_weight_l0;
+        var tmpLuma_offset_l0 = new sbyte[15];
+        var luma_offset_l0p = native.luma_offset_l0[0];
+        var pLuma_offset_l0 = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in luma_offset_l0p ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pLuma_offset_l0, 15, tmpLuma_offset_l0);
+        Luma_offset_l0 = tmpLuma_offset_l0;
+        var tmpDelta_chroma_weight_l0 = new sbyte[30];
+        var delta_chroma_weight_l0p = native.delta_chroma_weight_l0[0];
+        var pDelta_chroma_weight_l0 = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in delta_chroma_weight_l0p ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pDelta_chroma_weight_l0, 30, tmpDelta_chroma_weight_l0);
+        Delta_chroma_weight_l0 = tmpDelta_chroma_weight_l0;
+        var tmpDelta_chroma_offset_l0 = new sbyte[30];
+        var delta_chroma_offset_l0p = native.delta_chroma_offset_l0[0];
+        var pDelta_chroma_offset_l0 = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in delta_chroma_offset_l0p ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pDelta_chroma_offset_l0, 30, tmpDelta_chroma_offset_l0);
+        Delta_chroma_offset_l0 = tmpDelta_chroma_offset_l0;
+        var tmpDelta_luma_weight_l1 = new sbyte[15];
+        var delta_luma_weight_l1p = native.delta_luma_weight_l1[0];
+        var pDelta_luma_weight_l1 = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in delta_luma_weight_l1p ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pDelta_luma_weight_l1, 15, tmpDelta_luma_weight_l1);
+        Delta_luma_weight_l1 = tmpDelta_luma_weight_l1;
+        var tmpLuma_offset_l1 = new sbyte[15];
+        var luma_offset_l1p = native.luma_offset_l1[0];
+        var pLuma_offset_l1 = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in luma_offset_l1p ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pLuma_offset_l1, 15, tmpLuma_offset_l1);
+        Luma_offset_l1 = tmpLuma_offset_l1;
+        var tmpDelta_chroma_weight_l1 = new sbyte[30];
+        var delta_chroma_weight_l1p = native.delta_chroma_weight_l1[0];
+        var pDelta_chroma_weight_l1 = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in delta_chroma_weight_l1p ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pDelta_chroma_weight_l1, 30, tmpDelta_chroma_weight_l1);
+        Delta_chroma_weight_l1 = tmpDelta_chroma_weight_l1;
+        var tmpDelta_chroma_offset_l1 = new sbyte[30];
+        var delta_chroma_offset_l1p = native.delta_chroma_offset_l1[0];
+        var pDelta_chroma_offset_l1 = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in delta_chroma_offset_l1p ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pDelta_chroma_offset_l1, 30, tmpDelta_chroma_offset_l1);
+        Delta_chroma_offset_l1 = tmpDelta_chroma_offset_l1;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTable>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTable>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTable>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTable>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeH265WeightTableMarshaller
     {
-        public StdVideoEncodeH265WeightTableMarshaller(AdamantiumVulkan.StdVideoEncodeH265WeightTable stdVideoEncodeH265WeightTable, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTable> context)
+        public StdVideoEncodeH265WeightTableMarshaller(AdamantiumVulkan.Core.StdVideoEncodeH265WeightTable stdVideoEncodeH265WeightTable, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTable> context)
         {
             if (stdVideoEncodeH265WeightTable.Flags != default)
             {
-                fixed (AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTableFlags* pField = &context.Destination[0].flags)
+                fixed (AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags* pField = &context.Destination[0].flags)
                 {
-                    var fieldSpan = new System.Span<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTableFlags>(pField, 1);
-                    var childContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265WeightTableFlags>(fieldSpan, context.DataCursor);
+                    var fieldSpan = new System.Span<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags>(pField, 1);
+                    var childContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags>(fieldSpan, context.DataCursor);
                     stdVideoEncodeH265WeightTable.Flags.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
@@ -121,57 +129,49 @@ public unsafe partial class StdVideoEncodeH265WeightTable : IMarshallableObject,
             ref var tmpDestination0 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination0.delta_luma_weight_l0)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 15);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoEncodeH265WeightTable.Delta_luma_weight_l0, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoEncodeH265WeightTable.Delta_luma_weight_l0.Span, pDest, 15);
             }
 
             ref var tmpDestination1 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination1.luma_offset_l0)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 15);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoEncodeH265WeightTable.Luma_offset_l0, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoEncodeH265WeightTable.Luma_offset_l0.Span, pDest, 15);
             }
 
             ref var tmpDestination2 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination2.delta_chroma_weight_l0)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 30);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoEncodeH265WeightTable.Delta_chroma_weight_l0, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoEncodeH265WeightTable.Delta_chroma_weight_l0.Span, pDest, 30);
             }
 
             ref var tmpDestination3 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination3.delta_chroma_offset_l0)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 30);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoEncodeH265WeightTable.Delta_chroma_offset_l0, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoEncodeH265WeightTable.Delta_chroma_offset_l0.Span, pDest, 30);
             }
 
             ref var tmpDestination4 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination4.delta_luma_weight_l1)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 15);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoEncodeH265WeightTable.Delta_luma_weight_l1, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoEncodeH265WeightTable.Delta_luma_weight_l1.Span, pDest, 15);
             }
 
             ref var tmpDestination5 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination5.luma_offset_l1)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 15);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoEncodeH265WeightTable.Luma_offset_l1, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoEncodeH265WeightTable.Luma_offset_l1.Span, pDest, 15);
             }
 
             ref var tmpDestination6 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination6.delta_chroma_weight_l1)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 30);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoEncodeH265WeightTable.Delta_chroma_weight_l1, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoEncodeH265WeightTable.Delta_chroma_weight_l1.Span, pDest, 30);
             }
 
             ref var tmpDestination7 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination7.delta_chroma_offset_l1)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 30);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoEncodeH265WeightTable.Delta_chroma_offset_l1, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoEncodeH265WeightTable.Delta_chroma_offset_l1.Span, pDest, 30);
             }
 
         }

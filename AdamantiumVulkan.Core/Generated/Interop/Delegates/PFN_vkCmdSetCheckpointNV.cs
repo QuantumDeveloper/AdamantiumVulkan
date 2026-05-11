@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15519 Column: 26
+// File: video.xml Line: 14760 Column: 10
 public unsafe struct PFN_vkCmdSetCheckpointNV
 {
     public PFN_vkCmdSetCheckpointNV(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkCmdSetCheckpointNV
     public PFN_vkCmdSetCheckpointNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, nuint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, void*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, nuint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, void*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, nuint pCheckpointMarker)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, void* pCheckpointMarker)
     {
          InvokeFunc(commandBuffer, pCheckpointMarker);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, nuint pCheckpointMarker)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, void* pCheckpointMarker)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, nuint, void>)ptr)(commandBuffer, pCheckpointMarker);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, void*, void>)ptr)(commandBuffer, pCheckpointMarker);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, nuint pCheckpointMarker)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, void* pCheckpointMarker)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, nuint, void>)(void*)ptr)(commandBuffer, pCheckpointMarker);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, void*, void>)(void*)ptr)(commandBuffer, pCheckpointMarker);
     }
 
     public static explicit operator PFN_vkCmdSetCheckpointNV(void* ptr) => new(ptr);

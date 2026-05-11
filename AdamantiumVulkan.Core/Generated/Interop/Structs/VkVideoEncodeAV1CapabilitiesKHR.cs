@@ -9,23 +9,22 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using AdamantiumVulkan.Core;
-using AdamantiumVulkan;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12371 Column: 16
+// File: vk.xml Line: 8041 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkVideoEncodeAV1CapabilitiesKHR
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkVideoEncodeAV1CapabilityFlagsKHR flags;
+    public void* pNext;
+    public VideoEncodeAV1CapabilityFlagBitsKHR flags;
     public StdVideoAV1Level maxLevel;
     public VkExtent2D codedPictureAlignment;
     public VkExtent2D maxTiles;
     public VkExtent2D minTileSize;
     public VkExtent2D maxTileSize;
-    public VkVideoEncodeAV1SuperblockSizeFlagsKHR superblockSizes;
+    public VideoEncodeAV1SuperblockSizeFlagBitsKHR superblockSizes;
     public uint maxSingleReferenceCount;
     public uint singleReferenceNameMask;
     public uint maxUnidirectionalCompoundReferenceCount;
@@ -42,7 +41,7 @@ public unsafe partial struct VkVideoEncodeAV1CapabilitiesKHR
     public uint maxQIndex;
     public VkBool32 prefersGopRemainingFrames;
     public VkBool32 requiresGopRemainingFrames;
-    public VkVideoEncodeAV1StdFlagsKHR stdSyntaxFlags;
+    public VideoEncodeAV1StdFlagBitsKHR stdSyntaxFlags;
 }
 
 

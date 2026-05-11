@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7579 Column: 26
+// File: video.xml Line: 15520 Column: 10
 public unsafe struct PFN_vkCmdSetStencilOp
 {
     public PFN_vkCmdSetStencilOp(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkCmdSetStencilOp
     public PFN_vkCmdSetStencilOp(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, StencilOp, StencilOp, StencilOp, CompareOp, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, StencilFaceFlagBits, StencilOp, StencilOp, StencilOp, CompareOp, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, StencilOp, StencilOp, StencilOp, CompareOp, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, StencilFaceFlagBits, StencilOp, StencilOp, StencilOp, CompareOp, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, StencilFaceFlagBits faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp)
     {
          InvokeFunc(commandBuffer, faceMask, failOp, passOp, depthFailOp, compareOp);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, StencilFaceFlagBits faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, StencilOp, StencilOp, StencilOp, CompareOp, void>)ptr)(commandBuffer, faceMask, failOp, passOp, depthFailOp, compareOp);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, StencilFaceFlagBits, StencilOp, StencilOp, StencilOp, CompareOp, void>)ptr)(commandBuffer, faceMask, failOp, passOp, depthFailOp, compareOp);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, StencilFaceFlagBits faceMask, StencilOp failOp, StencilOp passOp, StencilOp depthFailOp, CompareOp compareOp)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, StencilOp, StencilOp, StencilOp, CompareOp, void>)(void*)ptr)(commandBuffer, faceMask, failOp, passOp, depthFailOp, compareOp);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, StencilFaceFlagBits, StencilOp, StencilOp, StencilOp, CompareOp, void>)(void*)ptr)(commandBuffer, faceMask, failOp, passOp, depthFailOp, compareOp);
     }
 
     public static explicit operator PFN_vkCmdSetStencilOp(void* ptr) => new(ptr);

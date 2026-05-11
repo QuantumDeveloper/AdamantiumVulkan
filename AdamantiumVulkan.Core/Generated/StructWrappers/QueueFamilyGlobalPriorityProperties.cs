@@ -23,7 +23,7 @@ public unsafe partial class QueueFamilyGlobalPriorityProperties : IMarshallableO
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.QueueFamilyGlobalPriorityProperties;
     public object PNext { get; set; }
     public uint PriorityCount { get; set; }
     public System.ReadOnlyMemory<QueueGlobalPriority> Priorities { get; set; }
@@ -50,7 +50,6 @@ public unsafe partial class QueueFamilyGlobalPriorityProperties : IMarshallableO
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkQueueFamilyGlobalPriorityProperties native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PriorityCount = native.priorityCount;
         var tmpPriorities = new QueueGlobalPriority[16];
@@ -61,14 +60,14 @@ public unsafe partial class QueueFamilyGlobalPriorityProperties : IMarshallableO
         Priorities = tmpPriorities;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkQueueFamilyGlobalPriorityProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkQueueFamilyGlobalPriorityProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkQueueFamilyGlobalPriorityPropertiesMarshaller
     {
@@ -82,11 +81,11 @@ public unsafe partial class QueueFamilyGlobalPriorityProperties : IMarshallableO
             }
             else if (queueFamilyGlobalPriorityProperties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (queueFamilyGlobalPriorityProperties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].priorityCount = queueFamilyGlobalPriorityProperties.PriorityCount;

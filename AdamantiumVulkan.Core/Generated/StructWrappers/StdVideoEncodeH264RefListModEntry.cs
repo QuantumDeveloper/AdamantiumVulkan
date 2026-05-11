@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeH264RefListModEntry : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry>
+public unsafe partial class StdVideoEncodeH264RefListModEntry : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>
 {
     public StdVideoEncodeH264RefListModEntry()
     {
     }
 
-    public StdVideoEncodeH264RefListModEntry(in AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry native)
+    public StdVideoEncodeH264RefListModEntry(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry native)
     {
         MarshalFrom(in native);
     }
@@ -27,41 +27,41 @@ public unsafe partial class StdVideoEncodeH264RefListModEntry : IMarshallableObj
     public ushort Abs_diff_pic_num_minus1 { get; set; }
     public ushort Long_term_pic_num { get; set; }
 
-    public static implicit operator StdVideoEncodeH264RefListModEntry(AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry s)
+    public static implicit operator StdVideoEncodeH264RefListModEntry(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry s)
     {
         return new StdVideoEncodeH264RefListModEntry(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry> context)
     {
         new StdVideoEncodeH264RefListModEntryMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry native)
     {
         Modification_of_pic_nums_idc = native.modification_of_pic_nums_idc;
         Abs_diff_pic_num_minus1 = native.abs_diff_pic_num_minus1;
         Long_term_pic_num = native.long_term_pic_num;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeH264RefListModEntryMarshaller
     {
-        public StdVideoEncodeH264RefListModEntryMarshaller(AdamantiumVulkan.StdVideoEncodeH264RefListModEntry stdVideoEncodeH264RefListModEntry, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264RefListModEntry> context)
+        public StdVideoEncodeH264RefListModEntryMarshaller(AdamantiumVulkan.Core.StdVideoEncodeH264RefListModEntry stdVideoEncodeH264RefListModEntry, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry> context)
         {
             context.Destination[0].modification_of_pic_nums_idc = stdVideoEncodeH264RefListModEntry.Modification_of_pic_nums_idc;
 

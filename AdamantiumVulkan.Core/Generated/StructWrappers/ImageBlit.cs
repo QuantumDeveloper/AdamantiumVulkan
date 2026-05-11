@@ -56,14 +56,14 @@ public unsafe partial class ImageBlit : IMarshallableObject, IMarshallable<Adama
         DstOffsets = QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArrayOfStructs<AdamantiumVulkan.Core.Offset3D, AdamantiumVulkan.Core.Interop.VkOffset3D>(pDstOffsets, 2, 2);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageBlit>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageBlit>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageBlitMarshaller
     {
@@ -82,8 +82,8 @@ public unsafe partial class ImageBlit : IMarshallableObject, IMarshallable<Adama
 
             ref var fixedField1 = ref context.Destination[0].srcOffsets;
             var fixedField1Span = imageBlit.SrcOffsets.Span;
-            var pSrcOffsets = (VkOffset3D*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref fixedField1.item0);
-            QuantumBinding.Utils.MarshalingUtils.MarshalArrayOfWrappersToFixedBuffer(fixedField1Span , pSrcOffsets, 2, ref context.DataCursor);
+            var pSrcOffsets = (AdamantiumVulkan.Core.Interop.VkOffset3D*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref fixedField1.item0);
+            QuantumBinding.Utils.MarshalingUtils.MarshalArrayOfWrappersToFixedBuffer(fixedField1Span, pSrcOffsets, 2, ref context.DataCursor);
 
             if (imageBlit.DstSubresource != default)
             {
@@ -98,8 +98,8 @@ public unsafe partial class ImageBlit : IMarshallableObject, IMarshallable<Adama
 
             ref var fixedField3 = ref context.Destination[0].dstOffsets;
             var fixedField3Span = imageBlit.DstOffsets.Span;
-            var pDstOffsets = (VkOffset3D*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref fixedField3.item0);
-            QuantumBinding.Utils.MarshalingUtils.MarshalArrayOfWrappersToFixedBuffer(fixedField3Span , pDstOffsets, 2, ref context.DataCursor);
+            var pDstOffsets = (AdamantiumVulkan.Core.Interop.VkOffset3D*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref fixedField3.item0);
+            QuantumBinding.Utils.MarshalingUtils.MarshalArrayOfWrappersToFixedBuffer(fixedField3Span, pDstOffsets, 2, ref context.DataCursor);
 
         }
     }

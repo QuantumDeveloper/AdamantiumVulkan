@@ -24,10 +24,10 @@ public unsafe partial class ExportMemoryWin32HandleInfoNV : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ExportMemoryWin32HandleInfoNv;
     public object PNext { get; set; }
-    public nuint PAttributes { get; set; }
-    public uint DwAccess { get; set; }
+    public nuint? PAttributes { get; set; }
+    public nuint DwAccess { get; set; }
 
     public static implicit operator ExportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV e)
     {
@@ -51,20 +51,23 @@ public unsafe partial class ExportMemoryWin32HandleInfoNV : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
-        PAttributes = native.pAttributes;
+        if (native.pAttributes != null)
+        {
+            PAttributes = *native.pAttributes;
+            NativeUtils.Free(native.pAttributes);
+        }
         DwAccess = native.dwAccess;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkExportMemoryWin32HandleInfoNVMarshaller
     {
@@ -78,14 +81,17 @@ public unsafe partial class ExportMemoryWin32HandleInfoNV : IMarshallableObject,
             }
             else if (exportMemoryWin32HandleInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (exportMemoryWin32HandleInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            context.Destination[0].pAttributes = exportMemoryWin32HandleInfoNV.PAttributes;
+            if (exportMemoryWin32HandleInfoNV.PAttributes.HasValue)
+            {
+                context.Destination[0].pAttributes = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(exportMemoryWin32HandleInfoNV.PAttributes.Value, ref context);
+            }
 
             context.Destination[0].dwAccess = exportMemoryWin32HandleInfoNV.DwAccess;
 

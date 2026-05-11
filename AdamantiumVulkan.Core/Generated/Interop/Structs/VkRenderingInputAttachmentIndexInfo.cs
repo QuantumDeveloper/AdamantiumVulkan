@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8189 Column: 16
+// File: vk.xml Line: 10005 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkRenderingInputAttachmentIndexInfo
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public uint colorAttachmentCount;
     public uint* pColorAttachmentInputIndices;
     public uint* pDepthInputAttachmentIndex;

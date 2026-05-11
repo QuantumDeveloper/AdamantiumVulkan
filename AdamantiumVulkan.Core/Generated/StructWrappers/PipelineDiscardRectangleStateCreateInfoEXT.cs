@@ -28,7 +28,7 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarsha
     public VkPipelineDiscardRectangleStateCreateFlagsEXT Flags { get; set; }
     public DiscardRectangleModeEXT DiscardRectangleMode { get; set; }
     public uint DiscardRectangleCount { get; set; }
-    public Rect2D PDiscardRectangles { get; set; }
+    public System.ReadOnlyMemory<Rect2D> PDiscardRectangles { get; set; }
 
     public static implicit operator PipelineDiscardRectangleStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT p)
     {
@@ -42,9 +42,15 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarsha
         {
             size += marshallable.GetSize();
         }
-        if (PDiscardRectangles != default)
+        if (!PDiscardRectangles.IsEmpty)
         {
-            size += PDiscardRectangles.GetSize();
+            for (int i = 0; i < PDiscardRectangles.Length; i++)
+            {
+                if (PDiscardRectangles.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkRect2D>();
+                else
+                    size += PDiscardRectangles.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -60,18 +66,25 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarsha
         Flags = native.flags;
         DiscardRectangleMode = native.discardRectangleMode;
         DiscardRectangleCount = native.discardRectangleCount;
-        PDiscardRectangles = new Rect2D(in *native.pDiscardRectangles);
-        NativeUtils.Free(native.pDiscardRectangles);
+        var arrayLengthPDiscardRectangles = native.discardRectangleCount;
+        var tmpPDiscardRectangles = new Rect2D[arrayLengthPDiscardRectangles];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkRect2D[arrayLengthPDiscardRectangles];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDiscardRectangles, arrayLengthPDiscardRectangles, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPDiscardRectangles[i] = new Rect2D(in nativeTmpArray0[i]);
+        }
+        PDiscardRectangles = tmpPDiscardRectangles;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineDiscardRectangleStateCreateInfoEXTMarshaller
     {
@@ -85,11 +98,11 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarsha
             }
             else if (pipelineDiscardRectangleStateCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineDiscardRectangleStateCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineDiscardRectangleStateCreateInfoEXT.Flags != (uint)default)
@@ -101,14 +114,9 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarsha
 
             context.Destination[0].discardRectangleCount = pipelineDiscardRectangleStateCreateInfoEXT.DiscardRectangleCount;
 
-            if (pipelineDiscardRectangleStateCreateInfoEXT.PDiscardRectangles != default)
+            if (!pipelineDiscardRectangleStateCreateInfoEXT.PDiscardRectangles.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkRect2D));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkRect2D>(structSlice0).Slice(0, 1);
-                context.Destination[0].pDiscardRectangles = (AdamantiumVulkan.Core.Interop.VkRect2D*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkRect2D>(structDestination0, context.DataCursor);
-                pipelineDiscardRectangleStateCreateInfoEXT.PDiscardRectangles.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pDiscardRectangles = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.Rect2D, AdamantiumVulkan.Core.Interop.VkRect2D, AdamantiumVulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT>(pipelineDiscardRectangleStateCreateInfoEXT.PDiscardRectangles, ref context);
             }
 
         }

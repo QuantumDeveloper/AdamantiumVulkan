@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2214 Column: 14
-public enum StencilOp : uint
+// File: vk.xml Line: 10397 Column: 6
+public enum StencilOp : int
 {
     Keep = 0,
 
@@ -29,8 +29,6 @@ public enum StencilOp : uint
     IncrementAndWrap = 6,
 
     DecrementAndWrap = 7,
-
-    MaxEnum = 2147483647,
 
 }
 

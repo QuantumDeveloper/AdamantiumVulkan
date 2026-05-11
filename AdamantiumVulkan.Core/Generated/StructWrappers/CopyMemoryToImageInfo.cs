@@ -23,13 +23,13 @@ public unsafe partial class CopyMemoryToImageInfo : IMarshallableObject, IMarsha
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.CopyMemoryToImageInfo;
     public object PNext { get; set; }
-    public VkHostImageCopyFlags Flags { get; set; }
+    public HostImageCopyFlagBits Flags { get; set; }
     public Image DstImage { get; set; }
     public ImageLayout DstImageLayout { get; set; }
     public uint RegionCount { get; set; }
-    public MemoryToImageCopy PRegions { get; set; }
+    public System.ReadOnlyMemory<MemoryToImageCopy> PRegions { get; set; }
 
     public static implicit operator CopyMemoryToImageInfo(AdamantiumVulkan.Core.Interop.VkCopyMemoryToImageInfo c)
     {
@@ -43,9 +43,15 @@ public unsafe partial class CopyMemoryToImageInfo : IMarshallableObject, IMarsha
         {
             size += marshallable.GetSize();
         }
-        if (PRegions != default)
+        if (!PRegions.IsEmpty)
         {
-            size += PRegions.GetSize();
+            for (int i = 0; i < PRegions.Length; i++)
+            {
+                if (PRegions.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkMemoryToImageCopy>();
+                else
+                    size += PRegions.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -57,24 +63,30 @@ public unsafe partial class CopyMemoryToImageInfo : IMarshallableObject, IMarsha
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkCopyMemoryToImageInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         DstImage = new Image(native.dstImage);
         DstImageLayout = native.dstImageLayout;
         RegionCount = native.regionCount;
-        PRegions = new MemoryToImageCopy(in *native.pRegions);
-        NativeUtils.Free(native.pRegions);
+        var arrayLengthPRegions = native.regionCount;
+        var tmpPRegions = new MemoryToImageCopy[arrayLengthPRegions];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkMemoryToImageCopy[arrayLengthPRegions];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pRegions, arrayLengthPRegions, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPRegions[i] = new MemoryToImageCopy(in nativeTmpArray0[i]);
+        }
+        PRegions = tmpPRegions;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkCopyMemoryToImageInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkCopyMemoryToImageInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkCopyMemoryToImageInfoMarshaller
     {
@@ -88,17 +100,14 @@ public unsafe partial class CopyMemoryToImageInfo : IMarshallableObject, IMarsha
             }
             else if (copyMemoryToImageInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (copyMemoryToImageInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (copyMemoryToImageInfo.Flags != (uint)default)
-            {
-                context.Destination[0].flags = copyMemoryToImageInfo.Flags;
-            }
+            context.Destination[0].flags = copyMemoryToImageInfo.Flags;
 
             if (copyMemoryToImageInfo.DstImage != default)
             {
@@ -109,14 +118,9 @@ public unsafe partial class CopyMemoryToImageInfo : IMarshallableObject, IMarsha
 
             context.Destination[0].regionCount = copyMemoryToImageInfo.RegionCount;
 
-            if (copyMemoryToImageInfo.PRegions != default)
+            if (!copyMemoryToImageInfo.PRegions.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkMemoryToImageCopy));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkMemoryToImageCopy>(structSlice0).Slice(0, 1);
-                context.Destination[0].pRegions = (AdamantiumVulkan.Core.Interop.VkMemoryToImageCopy*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkMemoryToImageCopy>(structDestination0, context.DataCursor);
-                copyMemoryToImageInfo.PRegions.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pRegions = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.MemoryToImageCopy, AdamantiumVulkan.Core.Interop.VkMemoryToImageCopy, AdamantiumVulkan.Core.Interop.VkCopyMemoryToImageInfo>(copyMemoryToImageInfo.PRegions, ref context);
             }
 
         }

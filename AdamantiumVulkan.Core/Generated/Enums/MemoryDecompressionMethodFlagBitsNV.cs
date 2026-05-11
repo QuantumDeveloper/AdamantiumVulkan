@@ -11,11 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18953 Column: 52
+// File: vk.xml Line: 11592 Column: 6
 [Flags]
 public enum MemoryDecompressionMethodFlagBitsNV : ulong
 {
-    VkMemoryDecompressionMethodGdeflate10BitNv = 1,
+    Gdeflate10BitNv = 1,
 
 }
 

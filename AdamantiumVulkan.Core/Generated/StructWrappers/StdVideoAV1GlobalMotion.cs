@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1GlobalMotion : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion>
+public unsafe partial class StdVideoAV1GlobalMotion : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion>
 {
     public StdVideoAV1GlobalMotion()
     {
     }
 
-    public StdVideoAV1GlobalMotion(in AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion native)
+    public StdVideoAV1GlobalMotion(in AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion native)
     {
         MarshalFrom(in native);
     }
@@ -26,46 +26,48 @@ public unsafe partial class StdVideoAV1GlobalMotion : IMarshallableObject, IMars
     public System.ReadOnlyMemory<byte> GmType { get; set; }
     public System.ReadOnlyMemory<int> Gm_params { get; set; }
 
-    public static implicit operator StdVideoAV1GlobalMotion(AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion s)
+    public static implicit operator StdVideoAV1GlobalMotion(AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion s)
     {
         return new StdVideoAV1GlobalMotion(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion> context)
     {
         new StdVideoAV1GlobalMotionMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion native)
     {
         var tmpGmType = new byte[8];
-        var pGmType = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.GmType[0]));
+        var GmTypep = native.GmType[0];
+        var pGmType = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in GmTypep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pGmType, 8, tmpGmType);
         GmType = tmpGmType;
         var tmpGm_params = new int[48];
-        var pGm_params = (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.gm_params[0]));
+        var gm_paramsp = native.gm_params[0];
+        var pGm_params = (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in gm_paramsp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pGm_params, 48, tmpGm_params);
         Gm_params = tmpGm_params;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1GlobalMotionMarshaller
     {
-        public StdVideoAV1GlobalMotionMarshaller(AdamantiumVulkan.StdVideoAV1GlobalMotion stdVideoAV1GlobalMotion, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion> context)
+        public StdVideoAV1GlobalMotionMarshaller(AdamantiumVulkan.Core.StdVideoAV1GlobalMotion stdVideoAV1GlobalMotion, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion> context)
         {
             ref var tmpDestination0 = ref context.Destination[0];
             fixed (byte* pDest = tmpDestination0.GmType)

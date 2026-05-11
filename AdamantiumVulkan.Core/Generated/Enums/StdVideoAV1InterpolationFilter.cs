@@ -9,10 +9,10 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_av1std.h Line: 106 Column: 14
-public enum StdVideoAV1InterpolationFilter : uint
+// File: video.xml Line: 1479 Column: 6
+public enum StdVideoAV1InterpolationFilter : int
 {
     Eighttap = 0,
 
@@ -24,7 +24,7 @@ public enum StdVideoAV1InterpolationFilter : uint
 
     Switchable = 4,
 
-    Invalid = 2147483647,
+    Invalid = 7,
 
 }
 

@@ -23,10 +23,10 @@ public unsafe partial class MutableDescriptorTypeCreateInfoEXT : IMarshallableOb
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.MutableDescriptorTypeCreateInfoExt;
     public object PNext { get; set; }
     public uint MutableDescriptorTypeListCount { get; set; }
-    public MutableDescriptorTypeListEXT PMutableDescriptorTypeLists { get; set; }
+    public System.ReadOnlyMemory<MutableDescriptorTypeListEXT> PMutableDescriptorTypeLists { get; set; }
 
     public static implicit operator MutableDescriptorTypeCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT m)
     {
@@ -40,9 +40,15 @@ public unsafe partial class MutableDescriptorTypeCreateInfoEXT : IMarshallableOb
         {
             size += marshallable.GetSize();
         }
-        if (PMutableDescriptorTypeLists != default)
+        if (!PMutableDescriptorTypeLists.IsEmpty)
         {
-            size += PMutableDescriptorTypeLists.GetSize();
+            for (int i = 0; i < PMutableDescriptorTypeLists.Length; i++)
+            {
+                if (PMutableDescriptorTypeLists.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT>();
+                else
+                    size += PMutableDescriptorTypeLists.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -54,21 +60,27 @@ public unsafe partial class MutableDescriptorTypeCreateInfoEXT : IMarshallableOb
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MutableDescriptorTypeListCount = native.mutableDescriptorTypeListCount;
-        PMutableDescriptorTypeLists = new MutableDescriptorTypeListEXT(in *native.pMutableDescriptorTypeLists);
-        NativeUtils.Free(native.pMutableDescriptorTypeLists);
+        var arrayLengthPMutableDescriptorTypeLists = native.mutableDescriptorTypeListCount;
+        var tmpPMutableDescriptorTypeLists = new MutableDescriptorTypeListEXT[arrayLengthPMutableDescriptorTypeLists];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT[arrayLengthPMutableDescriptorTypeLists];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pMutableDescriptorTypeLists, arrayLengthPMutableDescriptorTypeLists, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPMutableDescriptorTypeLists[i] = new MutableDescriptorTypeListEXT(in nativeTmpArray0[i]);
+        }
+        PMutableDescriptorTypeLists = tmpPMutableDescriptorTypeLists;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkMutableDescriptorTypeCreateInfoEXTMarshaller
     {
@@ -82,23 +94,18 @@ public unsafe partial class MutableDescriptorTypeCreateInfoEXT : IMarshallableOb
             }
             else if (mutableDescriptorTypeCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (mutableDescriptorTypeCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].mutableDescriptorTypeListCount = mutableDescriptorTypeCreateInfoEXT.MutableDescriptorTypeListCount;
 
-            if (mutableDescriptorTypeCreateInfoEXT.PMutableDescriptorTypeLists != default)
+            if (!mutableDescriptorTypeCreateInfoEXT.PMutableDescriptorTypeLists.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT>(structSlice0).Slice(0, 1);
-                context.Destination[0].pMutableDescriptorTypeLists = (AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT>(structDestination0, context.DataCursor);
-                mutableDescriptorTypeCreateInfoEXT.PMutableDescriptorTypeLists.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pMutableDescriptorTypeLists = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.MutableDescriptorTypeListEXT, AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT, AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT>(mutableDescriptorTypeCreateInfoEXT.PMutableDescriptorTypeLists, ref context);
             }
 
         }

@@ -29,10 +29,10 @@ public unsafe partial class SurfaceCapabilitiesKHR : IMarshallableObject, IMarsh
     public Extent2D MinImageExtent { get; set; }
     public Extent2D MaxImageExtent { get; set; }
     public uint MaxImageArrayLayers { get; set; }
-    public VkSurfaceTransformFlagsKHR SupportedTransforms { get; set; }
+    public SurfaceTransformFlagBitsKHR SupportedTransforms { get; set; }
     public SurfaceTransformFlagBitsKHR CurrentTransform { get; set; }
-    public VkCompositeAlphaFlagsKHR SupportedCompositeAlpha { get; set; }
-    public VkImageUsageFlags SupportedUsageFlags { get; set; }
+    public CompositeAlphaFlagBitsKHR SupportedCompositeAlpha { get; set; }
+    public ImageUsageFlagBits SupportedUsageFlags { get; set; }
 
     public static implicit operator SurfaceCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkSurfaceCapabilitiesKHR s)
     {
@@ -64,14 +64,14 @@ public unsafe partial class SurfaceCapabilitiesKHR : IMarshallableObject, IMarsh
         SupportedUsageFlags = native.supportedUsageFlags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSurfaceCapabilitiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSurfaceCapabilitiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSurfaceCapabilitiesKHRMarshaller
     {
@@ -116,22 +116,13 @@ public unsafe partial class SurfaceCapabilitiesKHR : IMarshallableObject, IMarsh
 
             context.Destination[0].maxImageArrayLayers = surfaceCapabilitiesKHR.MaxImageArrayLayers;
 
-            if (surfaceCapabilitiesKHR.SupportedTransforms != (uint)default)
-            {
-                context.Destination[0].supportedTransforms = surfaceCapabilitiesKHR.SupportedTransforms;
-            }
+            context.Destination[0].supportedTransforms = surfaceCapabilitiesKHR.SupportedTransforms;
 
             context.Destination[0].currentTransform = surfaceCapabilitiesKHR.CurrentTransform;
 
-            if (surfaceCapabilitiesKHR.SupportedCompositeAlpha != (uint)default)
-            {
-                context.Destination[0].supportedCompositeAlpha = surfaceCapabilitiesKHR.SupportedCompositeAlpha;
-            }
+            context.Destination[0].supportedCompositeAlpha = surfaceCapabilitiesKHR.SupportedCompositeAlpha;
 
-            if (surfaceCapabilitiesKHR.SupportedUsageFlags != (uint)default)
-            {
-                context.Destination[0].supportedUsageFlags = surfaceCapabilitiesKHR.SupportedUsageFlags;
-            }
+            context.Destination[0].supportedUsageFlags = surfaceCapabilitiesKHR.SupportedUsageFlags;
 
         }
     }

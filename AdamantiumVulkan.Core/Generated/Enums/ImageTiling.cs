@@ -11,16 +11,14 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 1923 Column: 14
-public enum ImageTiling : uint
+// File: vk.xml Line: 10249 Column: 6
+public enum ImageTiling : int
 {
     Optimal = 0,
 
     Linear = 1,
 
     DrmFormatModifierExt = 1000158000,
-
-    MaxEnum = 2147483647,
 
 }
 

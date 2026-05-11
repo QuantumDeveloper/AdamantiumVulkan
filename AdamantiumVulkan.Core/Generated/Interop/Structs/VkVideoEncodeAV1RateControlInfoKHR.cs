@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12481 Column: 16
+// File: vk.xml Line: 8134 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkVideoEncodeAV1RateControlInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkVideoEncodeAV1RateControlFlagsKHR flags;
+    public void* pNext;
+    public VideoEncodeAV1RateControlFlagBitsKHR flags;
     public uint gopFrameCount;
     public uint keyFramePeriod;
     public uint consecutiveBipredictiveFrameCount;

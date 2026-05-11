@@ -11,16 +11,10 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2876 Column: 14
+// File: vk.xml Line: 11822 Column: 6
 [Flags]
 public enum PipelineDepthStencilStateCreateFlagBits : uint
 {
-    RasterizationOrderAttachmentDepthAccessBitExt = 1,
-
-    RasterizationOrderAttachmentStencilAccessBitExt = 2,
-
-    FlagBitsMaxEnum = 2147483647,
-
 }
 
 

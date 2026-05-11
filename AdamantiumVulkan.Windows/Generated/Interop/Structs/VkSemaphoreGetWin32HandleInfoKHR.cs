@@ -13,12 +13,12 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 150 Column: 16
+// File: vk.xml Line: 3083 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkSemaphoreGetWin32HandleInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkSemaphore_T semaphore;
     public ExternalSemaphoreHandleTypeFlagBits handleType;
 }

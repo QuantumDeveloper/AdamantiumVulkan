@@ -23,12 +23,12 @@ public unsafe partial class GraphicsPipelineShaderGroupsCreateInfoNV : IMarshall
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.GraphicsPipelineShaderGroupsCreateInfoNv;
     public object PNext { get; set; }
     public uint GroupCount { get; set; }
-    public GraphicsShaderGroupCreateInfoNV PGroups { get; set; }
+    public System.ReadOnlyMemory<GraphicsShaderGroupCreateInfoNV> PGroups { get; set; }
     public uint PipelineCount { get; set; }
-    public Pipeline Pipelines { get; set; }
+    public System.ReadOnlyMemory<Pipeline> Pipelines { get; set; }
 
     public static implicit operator GraphicsPipelineShaderGroupsCreateInfoNV(AdamantiumVulkan.Core.Interop.VkGraphicsPipelineShaderGroupsCreateInfoNV g)
     {
@@ -42,10 +42,18 @@ public unsafe partial class GraphicsPipelineShaderGroupsCreateInfoNV : IMarshall
         {
             size += marshallable.GetSize();
         }
-        if (PGroups != default)
+        if (!PGroups.IsEmpty)
         {
-            size += PGroups.GetSize();
+            for (int i = 0; i < PGroups.Length; i++)
+            {
+                if (PGroups.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV>();
+                else
+                    size += PGroups.Span[i].GetSize();
+            }
         }
+        if (!Pipelines.IsEmpty)
+            size += Pipelines.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPipeline_T>();
         return size;
     }
 
@@ -56,24 +64,37 @@ public unsafe partial class GraphicsPipelineShaderGroupsCreateInfoNV : IMarshall
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkGraphicsPipelineShaderGroupsCreateInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         GroupCount = native.groupCount;
-        PGroups = new GraphicsShaderGroupCreateInfoNV(in *native.pGroups);
-        NativeUtils.Free(native.pGroups);
+        var arrayLengthPGroups = native.groupCount;
+        var tmpPGroups = new GraphicsShaderGroupCreateInfoNV[arrayLengthPGroups];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV[arrayLengthPGroups];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pGroups, arrayLengthPGroups, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPGroups[i] = new GraphicsShaderGroupCreateInfoNV(in nativeTmpArray0[i]);
+        }
+        PGroups = tmpPGroups;
         PipelineCount = native.pipelineCount;
-        Pipelines = new Pipeline(in *native.pPipelines);
-        NativeUtils.Free(native.pPipelines);
+        var arrayLengthPipelines = native.pipelineCount;
+        var tmpPipelines = new Pipeline[arrayLengthPipelines];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkPipeline_T[arrayLengthPipelines];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPipelines, arrayLengthPipelines, nativeTmpArray1);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        {
+            tmpPipelines[i] = new Pipeline(in nativeTmpArray1[i]);
+        }
+        Pipelines = tmpPipelines;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkGraphicsPipelineShaderGroupsCreateInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkGraphicsPipelineShaderGroupsCreateInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkGraphicsPipelineShaderGroupsCreateInfoNVMarshaller
     {
@@ -87,31 +108,33 @@ public unsafe partial class GraphicsPipelineShaderGroupsCreateInfoNV : IMarshall
             }
             else if (graphicsPipelineShaderGroupsCreateInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (graphicsPipelineShaderGroupsCreateInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].groupCount = graphicsPipelineShaderGroupsCreateInfoNV.GroupCount;
 
-            if (graphicsPipelineShaderGroupsCreateInfoNV.PGroups != default)
+            if (!graphicsPipelineShaderGroupsCreateInfoNV.PGroups.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV>(structSlice0).Slice(0, 1);
-                context.Destination[0].pGroups = (AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV>(structDestination0, context.DataCursor);
-                graphicsPipelineShaderGroupsCreateInfoNV.PGroups.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pGroups = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.GraphicsShaderGroupCreateInfoNV, AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV, AdamantiumVulkan.Core.Interop.VkGraphicsPipelineShaderGroupsCreateInfoNV>(graphicsPipelineShaderGroupsCreateInfoNV.PGroups, ref context);
             }
 
             context.Destination[0].pipelineCount = graphicsPipelineShaderGroupsCreateInfoNV.PipelineCount;
 
-            if (graphicsPipelineShaderGroupsCreateInfoNV.Pipelines != default)
+            if (!graphicsPipelineShaderGroupsCreateInfoNV.Pipelines.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkPipeline_T struct0 = graphicsPipelineShaderGroupsCreateInfoNV.Pipelines;
-                context.Destination[0].pPipelines = (AdamantiumVulkan.Core.Interop.VkPipeline_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.Pipeline> sourceSpan = graphicsPipelineShaderGroupsCreateInfoNV.Pipelines.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkPipeline_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkPipeline_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkPipeline_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pPipelines = pDestination;
             }
 
         }

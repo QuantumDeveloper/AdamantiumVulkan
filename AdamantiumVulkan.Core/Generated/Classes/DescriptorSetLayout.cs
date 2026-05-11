@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 122 Column: 1
+// File: vk.xml Line: 568 Column: 10
 public unsafe partial class DescriptorSetLayout : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T>
 {
     internal VkDescriptorSetLayout_T __Instance;
@@ -27,7 +27,7 @@ public unsafe partial class DescriptorSetLayout : IUnmanagedWrapper<AdamantiumVu
     }
 
     public AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public ref readonly VkDescriptorSetLayout_T GetPinnableReference() => ref __Instance;
 

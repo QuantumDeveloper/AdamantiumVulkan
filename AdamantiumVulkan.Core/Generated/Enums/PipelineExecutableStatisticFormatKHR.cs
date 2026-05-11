@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11331 Column: 14
-public enum PipelineExecutableStatisticFormatKHR : uint
+// File: vk.xml Line: 11654 Column: 6
+public enum PipelineExecutableStatisticFormatKHR : int
 {
     Bool32Khr = 0,
 
@@ -21,8 +21,6 @@ public enum PipelineExecutableStatisticFormatKHR : uint
     Uint64Khr = 2,
 
     Float64Khr = 3,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

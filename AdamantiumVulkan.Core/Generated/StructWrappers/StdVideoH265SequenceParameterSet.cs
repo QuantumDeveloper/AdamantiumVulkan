@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoH265SequenceParameterSet : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet>
+public unsafe partial class StdVideoH265SequenceParameterSet : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSet>
 {
     public StdVideoH265SequenceParameterSet()
     {
     }
 
-    public StdVideoH265SequenceParameterSet(in AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet native)
+    public StdVideoH265SequenceParameterSet(in AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSet native)
     {
         MarshalFrom(in native);
     }
@@ -63,14 +63,14 @@ public unsafe partial class StdVideoH265SequenceParameterSet : IMarshallableObje
     public StdVideoH265SequenceParameterSetVui PSequenceParameterSetVui { get; set; }
     public StdVideoH265PredictorPaletteEntries PredictorPaletteEntries { get; set; }
 
-    public static implicit operator StdVideoH265SequenceParameterSet(AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet s)
+    public static implicit operator StdVideoH265SequenceParameterSet(AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSet s)
     {
         return new StdVideoH265SequenceParameterSet(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSet>();
         if (ProfileTierLevel != default)
         {
             size += ProfileTierLevel.GetSize();
@@ -102,12 +102,12 @@ public unsafe partial class StdVideoH265SequenceParameterSet : IMarshallableObje
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSet> context)
     {
         new StdVideoH265SequenceParameterSetMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSet native)
     {
         Flags = new StdVideoH265SpsFlags(native.flags);
         Chroma_format_idc = native.chroma_format_idc;
@@ -157,25 +157,25 @@ public unsafe partial class StdVideoH265SequenceParameterSet : IMarshallableObje
         NativeUtils.Free(native.pPredictorPaletteEntries);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSet>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSet>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoH265SequenceParameterSetMarshaller
     {
-        public StdVideoH265SequenceParameterSetMarshaller(AdamantiumVulkan.StdVideoH265SequenceParameterSet stdVideoH265SequenceParameterSet, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet> context)
+        public StdVideoH265SequenceParameterSetMarshaller(AdamantiumVulkan.Core.StdVideoH265SequenceParameterSet stdVideoH265SequenceParameterSet, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSet> context)
         {
             if (stdVideoH265SequenceParameterSet.Flags != default)
             {
-                fixed (AdamantiumVulkan.Interop.StdVideoH265SpsFlags* pField = &context.Destination[0].flags)
+                fixed (AdamantiumVulkan.Core.Interop.StdVideoH265SpsFlags* pField = &context.Destination[0].flags)
                 {
-                    var fieldSpan = new System.Span<AdamantiumVulkan.Interop.StdVideoH265SpsFlags>(pField, 1);
-                    var childContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265SpsFlags>(fieldSpan, context.DataCursor);
+                    var fieldSpan = new System.Span<AdamantiumVulkan.Core.Interop.StdVideoH265SpsFlags>(pField, 1);
+                    var childContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265SpsFlags>(fieldSpan, context.DataCursor);
                     stdVideoH265SequenceParameterSet.Flags.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
@@ -245,70 +245,70 @@ public unsafe partial class StdVideoH265SequenceParameterSet : IMarshallableObje
 
             if (stdVideoH265SequenceParameterSet.ProfileTierLevel != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevel));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevel>(structSlice0).Slice(0, 1);
-                context.Destination[0].pProfileTierLevel = (AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevel*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevel>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevel));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevel>(structSlice0).Slice(0, 1);
+                context.Destination[0].pProfileTierLevel = (AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevel*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevel>(structDestination0, context.DataCursor);
                 stdVideoH265SequenceParameterSet.ProfileTierLevel.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (stdVideoH265SequenceParameterSet.PDecPicBufMgr != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr>(structSlice0).Slice(0, 1);
-                context.Destination[0].pDecPicBufMgr = (AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr>(structSlice0).Slice(0, 1);
+                context.Destination[0].pDecPicBufMgr = (AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr>(structDestination0, context.DataCursor);
                 stdVideoH265SequenceParameterSet.PDecPicBufMgr.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (stdVideoH265SequenceParameterSet.PScalingLists != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoH265ScalingLists));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoH265ScalingLists>(structSlice0).Slice(0, 1);
-                context.Destination[0].pScalingLists = (AdamantiumVulkan.Interop.StdVideoH265ScalingLists*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265ScalingLists>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists>(structSlice0).Slice(0, 1);
+                context.Destination[0].pScalingLists = (AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists>(structDestination0, context.DataCursor);
                 stdVideoH265SequenceParameterSet.PScalingLists.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (stdVideoH265SequenceParameterSet.PShortTermRefPicSet != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSet));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSet>(structSlice0).Slice(0, 1);
-                context.Destination[0].pShortTermRefPicSet = (AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSet*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSet>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet>(structSlice0).Slice(0, 1);
+                context.Destination[0].pShortTermRefPicSet = (AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet>(structDestination0, context.DataCursor);
                 stdVideoH265SequenceParameterSet.PShortTermRefPicSet.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (stdVideoH265SequenceParameterSet.PLongTermRefPicsSps != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps>(structSlice0).Slice(0, 1);
-                context.Destination[0].pLongTermRefPicsSps = (AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps>(structSlice0).Slice(0, 1);
+                context.Destination[0].pLongTermRefPicsSps = (AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps>(structDestination0, context.DataCursor);
                 stdVideoH265SequenceParameterSet.PLongTermRefPicsSps.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (stdVideoH265SequenceParameterSet.PSequenceParameterSetVui != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSetVui));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSetVui>(structSlice0).Slice(0, 1);
-                context.Destination[0].pSequenceParameterSetVui = (AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSetVui*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSetVui>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSetVui));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSetVui>(structSlice0).Slice(0, 1);
+                context.Destination[0].pSequenceParameterSetVui = (AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSetVui*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSetVui>(structDestination0, context.DataCursor);
                 stdVideoH265SequenceParameterSet.PSequenceParameterSetVui.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (stdVideoH265SequenceParameterSet.PredictorPaletteEntries != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoH265PredictorPaletteEntries));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoH265PredictorPaletteEntries>(structSlice0).Slice(0, 1);
-                context.Destination[0].pPredictorPaletteEntries = (AdamantiumVulkan.Interop.StdVideoH265PredictorPaletteEntries*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265PredictorPaletteEntries>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoH265PredictorPaletteEntries));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoH265PredictorPaletteEntries>(structSlice0).Slice(0, 1);
+                context.Destination[0].pPredictorPaletteEntries = (AdamantiumVulkan.Core.Interop.StdVideoH265PredictorPaletteEntries*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265PredictorPaletteEntries>(structDestination0, context.DataCursor);
                 stdVideoH265SequenceParameterSet.PredictorPaletteEntries.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }

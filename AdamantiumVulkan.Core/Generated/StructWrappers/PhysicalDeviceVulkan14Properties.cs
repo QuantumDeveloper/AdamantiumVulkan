@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceVulkan14Properties : IMarshallableObje
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceVulkan14Properties;
     public object PNext { get; set; }
     public uint LineSubPixelPrecisionBits { get; set; }
     public uint MaxVertexAttribDivisor { get; set; }
@@ -45,9 +45,9 @@ public unsafe partial class PhysicalDeviceVulkan14Properties : IMarshallableObje
     public PipelineRobustnessBufferBehavior DefaultRobustnessVertexInputs { get; set; }
     public PipelineRobustnessImageBehavior DefaultRobustnessImages { get; set; }
     public uint CopySrcLayoutCount { get; set; }
-    public ImageLayout? PCopySrcLayouts { get; set; }
+    public System.ReadOnlyMemory<ImageLayout> PCopySrcLayouts { get; set; }
     public uint CopyDstLayoutCount { get; set; }
-    public ImageLayout? PCopyDstLayouts { get; set; }
+    public System.ReadOnlyMemory<ImageLayout> PCopyDstLayouts { get; set; }
     public System.ReadOnlyMemory<byte> OptimalTilingLayoutUUID { get; set; }
     public VkBool32 IdenticalMemoryTypeRequirements { get; set; }
 
@@ -63,6 +63,10 @@ public unsafe partial class PhysicalDeviceVulkan14Properties : IMarshallableObje
         {
             size += marshallable.GetSize();
         }
+        if (!PCopySrcLayouts.IsEmpty)
+            size += PCopySrcLayouts.Span.Length * sizeof(int);
+        if (!PCopyDstLayouts.IsEmpty)
+            size += PCopyDstLayouts.Span.Length * sizeof(int);
         return size;
     }
 
@@ -73,7 +77,6 @@ public unsafe partial class PhysicalDeviceVulkan14Properties : IMarshallableObje
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan14Properties native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         LineSubPixelPrecisionBits = native.lineSubPixelPrecisionBits;
         MaxVertexAttribDivisor = native.maxVertexAttribDivisor;
@@ -95,24 +98,31 @@ public unsafe partial class PhysicalDeviceVulkan14Properties : IMarshallableObje
         DefaultRobustnessVertexInputs = native.defaultRobustnessVertexInputs;
         DefaultRobustnessImages = native.defaultRobustnessImages;
         CopySrcLayoutCount = native.copySrcLayoutCount;
-        PCopySrcLayouts = *native.pCopySrcLayouts;
+        var arrayLengthPCopySrcLayouts = native.copySrcLayoutCount;
+        var tmpPCopySrcLayouts = new ImageLayout[arrayLengthPCopySrcLayouts];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCopySrcLayouts, arrayLengthPCopySrcLayouts, tmpPCopySrcLayouts);
+        PCopySrcLayouts = tmpPCopySrcLayouts;
         CopyDstLayoutCount = native.copyDstLayoutCount;
-        PCopyDstLayouts = *native.pCopyDstLayouts;
+        var arrayLengthPCopyDstLayouts = native.copyDstLayoutCount;
+        var tmpPCopyDstLayouts = new ImageLayout[arrayLengthPCopyDstLayouts];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCopyDstLayouts, arrayLengthPCopyDstLayouts, tmpPCopyDstLayouts);
+        PCopyDstLayouts = tmpPCopyDstLayouts;
         var tmpOptimalTilingLayoutUUID = new byte[16];
-        var pOptimalTilingLayoutUUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.optimalTilingLayoutUUID[0]));
+        var optimalTilingLayoutUUIDp = native.optimalTilingLayoutUUID[0];
+        var pOptimalTilingLayoutUUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in optimalTilingLayoutUUIDp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pOptimalTilingLayoutUUID, 16, tmpOptimalTilingLayoutUUID);
         OptimalTilingLayoutUUID = tmpOptimalTilingLayoutUUID;
         IdenticalMemoryTypeRequirements = native.identicalMemoryTypeRequirements;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan14Properties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan14Properties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceVulkan14PropertiesMarshaller
     {
@@ -126,11 +136,11 @@ public unsafe partial class PhysicalDeviceVulkan14Properties : IMarshallableObje
             }
             else if (physicalDeviceVulkan14Properties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceVulkan14Properties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].lineSubPixelPrecisionBits = physicalDeviceVulkan14Properties.LineSubPixelPrecisionBits;
@@ -206,17 +216,31 @@ public unsafe partial class PhysicalDeviceVulkan14Properties : IMarshallableObje
 
             context.Destination[0].copySrcLayoutCount = physicalDeviceVulkan14Properties.CopySrcLayoutCount;
 
-            var enumSpanPCopySrcLayouts = context.AllocateData(sizeof(uint));
-            ref uint enumValuePCopySrcLayouts = ref System.Runtime.InteropServices.MemoryMarshal.AsRef<uint>(enumSpanPCopySrcLayouts);
-            enumValuePCopySrcLayouts = (uint)physicalDeviceVulkan14Properties.PCopySrcLayouts;
-            context.Destination[0].pCopySrcLayouts = (AdamantiumVulkan.Core.ImageLayout*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPCopySrcLayouts));
+            if (!physicalDeviceVulkan14Properties.PCopySrcLayouts.IsEmpty)
+            {
+                var sizeInBytes = sizeof(int) * physicalDeviceVulkan14Properties.PCopySrcLayouts.Length;
+                var byteSpan = context.AllocateData(sizeInBytes);
+                var enumSpanPCopySrcLayouts = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, int>(byteSpan);
+                context.Destination[0].pCopySrcLayouts = (AdamantiumVulkan.Core.ImageLayout*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPCopySrcLayouts));
+                for (int i = 0; i < enumSpanPCopySrcLayouts.Length; i++)
+                {
+                    enumSpanPCopySrcLayouts[i] = (int)physicalDeviceVulkan14Properties.PCopySrcLayouts.Span[i];
+                }
+            }
 
             context.Destination[0].copyDstLayoutCount = physicalDeviceVulkan14Properties.CopyDstLayoutCount;
 
-            var enumSpanPCopyDstLayouts = context.AllocateData(sizeof(uint));
-            ref uint enumValuePCopyDstLayouts = ref System.Runtime.InteropServices.MemoryMarshal.AsRef<uint>(enumSpanPCopyDstLayouts);
-            enumValuePCopyDstLayouts = (uint)physicalDeviceVulkan14Properties.PCopyDstLayouts;
-            context.Destination[0].pCopyDstLayouts = (AdamantiumVulkan.Core.ImageLayout*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPCopyDstLayouts));
+            if (!physicalDeviceVulkan14Properties.PCopyDstLayouts.IsEmpty)
+            {
+                var sizeInBytes = sizeof(int) * physicalDeviceVulkan14Properties.PCopyDstLayouts.Length;
+                var byteSpan = context.AllocateData(sizeInBytes);
+                var enumSpanPCopyDstLayouts = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, int>(byteSpan);
+                context.Destination[0].pCopyDstLayouts = (AdamantiumVulkan.Core.ImageLayout*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPCopyDstLayouts));
+                for (int i = 0; i < enumSpanPCopyDstLayouts.Length; i++)
+                {
+                    enumSpanPCopyDstLayouts[i] = (int)physicalDeviceVulkan14Properties.PCopyDstLayouts.Span[i];
+                }
+            }
 
             ref var tmpDestination0 = ref context.Destination[0];
             fixed (byte* pDest = tmpDestination0.optimalTilingLayoutUUID)

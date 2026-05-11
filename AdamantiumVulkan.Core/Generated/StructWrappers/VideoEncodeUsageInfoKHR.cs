@@ -23,10 +23,10 @@ public unsafe partial class VideoEncodeUsageInfoKHR : IMarshallableObject, IMars
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeUsageInfoKhr;
     public object PNext { get; set; }
-    public VkVideoEncodeUsageFlagsKHR VideoUsageHints { get; set; }
-    public VkVideoEncodeContentFlagsKHR VideoContentHints { get; set; }
+    public VideoEncodeUsageFlagBitsKHR VideoUsageHints { get; set; }
+    public VideoEncodeContentFlagBitsKHR VideoContentHints { get; set; }
     public VideoEncodeTuningModeKHR TuningMode { get; set; }
 
     public static implicit operator VideoEncodeUsageInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeUsageInfoKHR v)
@@ -51,21 +51,20 @@ public unsafe partial class VideoEncodeUsageInfoKHR : IMarshallableObject, IMars
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeUsageInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         VideoUsageHints = native.videoUsageHints;
         VideoContentHints = native.videoContentHints;
         TuningMode = native.tuningMode;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeUsageInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeUsageInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeUsageInfoKHRMarshaller
     {
@@ -79,22 +78,16 @@ public unsafe partial class VideoEncodeUsageInfoKHR : IMarshallableObject, IMars
             }
             else if (videoEncodeUsageInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeUsageInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (videoEncodeUsageInfoKHR.VideoUsageHints != (uint)default)
-            {
-                context.Destination[0].videoUsageHints = videoEncodeUsageInfoKHR.VideoUsageHints;
-            }
+            context.Destination[0].videoUsageHints = videoEncodeUsageInfoKHR.VideoUsageHints;
 
-            if (videoEncodeUsageInfoKHR.VideoContentHints != (uint)default)
-            {
-                context.Destination[0].videoContentHints = videoEncodeUsageInfoKHR.VideoContentHints;
-            }
+            context.Destination[0].videoContentHints = videoEncodeUsageInfoKHR.VideoContentHints;
 
             context.Destination[0].tuningMode = videoEncodeUsageInfoKHR.TuningMode;
 

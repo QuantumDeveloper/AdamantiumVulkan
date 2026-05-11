@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2266 Column: 14
-public enum SamplerAddressMode : uint
+// File: vk.xml Line: 10339 Column: 6
+public enum SamplerAddressMode : int
 {
     Repeat = 0,
 
@@ -23,11 +23,6 @@ public enum SamplerAddressMode : uint
     ClampToBorder = 3,
 
     MirrorClampToEdge = 4,
-
-    ///<summary>
-    /// VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE_KHR is a deprecated alias
-    ///</summary>
-    MaxEnum = 2147483647,
 
 }
 

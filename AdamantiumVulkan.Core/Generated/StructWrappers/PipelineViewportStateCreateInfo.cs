@@ -76,18 +76,20 @@ public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObjec
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         ViewportCount = native.viewportCount;
-        var tmpPViewports = new Viewport[native.viewportCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkViewport[native.viewportCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pViewports, native.viewportCount, nativeTmpArray0);
+        var arrayLengthPViewports = native.viewportCount;
+        var tmpPViewports = new Viewport[arrayLengthPViewports];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkViewport[arrayLengthPViewports];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pViewports, arrayLengthPViewports, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPViewports[i] = new Viewport(in nativeTmpArray0[i]);
         }
         PViewports = tmpPViewports;
         ScissorCount = native.scissorCount;
-        var tmpPScissors = new Rect2D[native.scissorCount];
-        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkRect2D[native.scissorCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pScissors, native.scissorCount, nativeTmpArray1);
+        var arrayLengthPScissors = native.scissorCount;
+        var tmpPScissors = new Rect2D[arrayLengthPScissors];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkRect2D[arrayLengthPScissors];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pScissors, arrayLengthPScissors, nativeTmpArray1);
         for (int i = 0; i < nativeTmpArray1.Length; ++i)
         {
             tmpPScissors[i] = new Rect2D(in nativeTmpArray1[i]);
@@ -95,14 +97,14 @@ public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObjec
         PScissors = tmpPScissors;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineViewportStateCreateInfoMarshaller
     {
@@ -116,11 +118,11 @@ public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObjec
             }
             else if (pipelineViewportStateCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineViewportStateCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineViewportStateCreateInfo.Flags != (uint)default)

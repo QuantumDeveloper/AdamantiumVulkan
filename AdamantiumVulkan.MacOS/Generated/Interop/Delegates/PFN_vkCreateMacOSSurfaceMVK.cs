@@ -15,7 +15,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.MacOS.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_macos.h Line: 34 Column: 30
+// File: video.xml Line: 14354 Column: 10
 public unsafe struct PFN_vkCreateMacOSSurfaceMVK
 {
     public PFN_vkCreateMacOSSurfaceMVK(nuint ptr) : this((void*) ptr) { }
@@ -23,24 +23,24 @@ public unsafe struct PFN_vkCreateMacOSSurfaceMVK
     public PFN_vkCreateMacOSSurfaceMVK(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T* pSurface)
     {
-        return InvokeFunc(instance, pCreateInfo, pAllocator, out pSurface);
+        return InvokeFunc(instance, pCreateInfo, pAllocator, pSurface);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T* pSurface)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, Result>)ptr)(instance, pCreateInfo, pAllocator, out pSurface);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T*, Result>)ptr)(instance, pCreateInfo, pAllocator, pSurface);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T* pSurface)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, Result>)(void*)ptr)(instance, pCreateInfo, pAllocator, out pSurface);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T*, Result>)(void*)ptr)(instance, pCreateInfo, pAllocator, pSurface);
     }
 
     public static explicit operator PFN_vkCreateMacOSSurfaceMVK(void* ptr) => new(ptr);

@@ -13,7 +13,7 @@ using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3163 Column: 26
+// File: vk.xml Line: 1021 Column: 10
 public unsafe struct PFN_vkVoidFunction
 {
     public PFN_vkVoidFunction(nuint ptr) : this((void*) ptr) { }
@@ -21,24 +21,24 @@ public unsafe struct PFN_vkVoidFunction
     public PFN_vkVoidFunction(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<nuint>)ptr;
+        InvokeFunc = (delegate* unmanaged<void*>)ptr;
     }
 
-    private delegate* unmanaged<nuint> InvokeFunc;
+    private delegate* unmanaged<void*> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public nuint Invoke()
+    public void* Invoke()
     {
         return InvokeFunc();
     }
-    public static nuint Invoke(void* ptr)
+    public static void* Invoke(void* ptr)
     {
-        return ((delegate* unmanaged<nuint>)ptr)();
+        return ((delegate* unmanaged<void*>)ptr)();
     }
-    public static nuint Invoke(nuint ptr)
+    public static void* Invoke(nuint ptr)
     {
-        return ((delegate* unmanaged<nuint>)(void*)ptr)();
+        return ((delegate* unmanaged<void*>)(void*)ptr)();
     }
 
     public static explicit operator PFN_vkVoidFunction(void* ptr) => new(ptr);

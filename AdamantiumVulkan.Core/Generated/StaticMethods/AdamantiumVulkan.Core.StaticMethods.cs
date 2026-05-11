@@ -35,8 +35,8 @@ public unsafe static class VulkanNative
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.InstanceCreateInfo, AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo>(pCreateInfo, ref currentCursor);
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.AllocationCallbacks, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
-            VkInstance_T arg2;
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateInstance(arg0, arg1, out arg2);
+            VkInstance_T arg2 = default;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateInstance(arg0, arg1, &arg2);
             pInstance = new Instance(arg2);
             return result;
         }
@@ -47,46 +47,12 @@ public unsafe static class VulkanNative
         }
     }
 
-    public static Result EnumerateInstanceExtensionProperties(string pLayerName, ref uint pPropertyCount, System.Span<ExtensionProperties> pProperties)
+    public static Result EnumerateInstanceVersion(out uint pApiVersion)
     {
-        int CalculateSize(string pLayerName, System.Span<ExtensionProperties> pProperties)
-        {
-            int totalSize = 0;
-            if (!string.IsNullOrEmpty(pLayerName))
-                totalSize += pLayerName.Length * sizeof(byte) + 1;
-            for (var i = 0U; i < pProperties.Length; i++)
-            {
-                if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkExtensionProperties>();
-                else
-                    totalSize += pProperties[(int)i].GetSize();
-            }
-            return totalSize;
-        }
-
-        var totalSize = CalculateSize(pLayerName, pProperties);
-        byte[] rentedArray = null;
-        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
-        {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(pLayerName, ref currentCursor);
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
-            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkExtensionProperties[(int)pProperties.Length];
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceExtensionProperties(arg0, arg1, arg2);
-            pPropertyCount = *arg1;
-            for (var i = 0; i < pProperties.Length; ++i)
-            {
-                pProperties[i] = new ExtensionProperties(arg2[i]);
-            }
-            return result;
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
-        }
+        var arg0 = stackalloc uint[1];
+        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceVersion(arg0);
+        pApiVersion = *arg0;
+        return result;
     }
 
     public static Result EnumerateInstanceLayerProperties(ref uint pPropertyCount, System.Span<LayerProperties> pProperties)
@@ -128,13 +94,46 @@ public unsafe static class VulkanNative
         }
     }
 
-    public static Result EnumerateInstanceVersion(ref uint pApiVersion)
+    public static Result EnumerateInstanceExtensionProperties(in string pLayerName, ref uint pPropertyCount, System.Span<ExtensionProperties> pProperties)
     {
-        var arg0 = stackalloc uint[1];
-        *arg0 = pApiVersion;
-        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceVersion(arg0);
-        pApiVersion = *arg0;
-        return result;
+        int CalculateSize(string pLayerName, System.Span<ExtensionProperties> pProperties)
+        {
+            int totalSize = 0;
+            if (!string.IsNullOrEmpty(pLayerName))
+                totalSize += pLayerName.Length * sizeof(byte) + 1;
+            for (var i = 0U; i < pProperties.Length; i++)
+            {
+                if(pProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkExtensionProperties>();
+                else
+                    totalSize += pProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pLayerName, pProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(pLayerName, ref currentCursor);
+            var arg1 = stackalloc uint[1];
+            *arg1 = pPropertyCount;
+            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkExtensionProperties[(int)pProperties.Length];
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceExtensionProperties(arg0, arg1, arg2);
+            pPropertyCount = *arg1;
+            for (var i = 0; i < pProperties.Length; ++i)
+            {
+                pProperties[i] = new ExtensionProperties(arg2[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
 }

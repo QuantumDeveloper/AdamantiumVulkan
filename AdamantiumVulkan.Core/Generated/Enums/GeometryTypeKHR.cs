@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14767 Column: 14
-public enum GeometryTypeKHR : uint
+// File: vk.xml Line: 11530 Column: 6
+public enum GeometryTypeKHR : int
 {
     TrianglesKhr = 0,
 
@@ -23,8 +23,6 @@ public enum GeometryTypeKHR : uint
     SpheresNv = 1000429004,
 
     LinearSweptSpheresNv = 1000429005,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

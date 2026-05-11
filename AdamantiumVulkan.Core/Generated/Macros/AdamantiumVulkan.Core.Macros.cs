@@ -13,3489 +13,10276 @@ namespace AdamantiumVulkan.Core;
 
 public static class Constants
 {
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 23 Column: 9
-    public static uint VK_VERSION_1_0 => 1;
+    // File: vk.xml Line: 10184 Column: 10
+    public static int VK_MAX_PHYSICAL_DEVICE_NAME_SIZE => 256;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 31 Column: 17
-    public static uint VK_USE_64_BIT_PTR_DEFINES => 1;
+    // File: vk.xml Line: 10185 Column: 10
+    public static int VK_UUID_SIZE => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 62 Column: 9
+    // File: vk.xml Line: 10186 Column: 10
+    public static int VK_LUID_SIZE => 8;
+
+    // File: vk.xml Line: 10187 Column: 10
+    public static int VK_MAX_EXTENSION_NAME_SIZE => 256;
+
+    // File: vk.xml Line: 10188 Column: 10
+    public static int VK_MAX_DESCRIPTION_SIZE => 256;
+
+    // File: vk.xml Line: 10189 Column: 10
+    public static int VK_MAX_MEMORY_TYPES => 32;
+
+    // File: vk.xml Line: 10190 Column: 10
+    public static int VK_MAX_MEMORY_HEAPS => 16;
+
+    // File: vk.xml Line: 10191 Column: 10
+    public static float VK_LOD_CLAMP_NONE => 1000.0F;
+
+    // File: vk.xml Line: 10192 Column: 10
+    public static uint VK_REMAINING_MIP_LEVELS => ~0U;
+
+    // File: vk.xml Line: 10193 Column: 10
+    public static uint VK_REMAINING_ARRAY_LAYERS => ~0U;
+
+    // File: vk.xml Line: 10194 Column: 10
+    public static uint VK_REMAINING_3D_SLICES_EXT => ~0U;
+
+    // File: vk.xml Line: 10195 Column: 10
+    public static ulong VK_WHOLE_SIZE => ~0UL;
+
+    // File: vk.xml Line: 10196 Column: 10
+    public static uint VK_ATTACHMENT_UNUSED => ~0U;
+
+    // File: vk.xml Line: 10197 Column: 10
+    public static int VK_TRUE => 1;
+
+    // File: vk.xml Line: 10198 Column: 10
+    public static int VK_FALSE => 0;
+
+    // File: vk.xml Line: 10199 Column: 10
+    public static uint VK_QUEUE_FAMILY_IGNORED => ~0U;
+
+    // File: vk.xml Line: 10200 Column: 10
+    public static uint VK_QUEUE_FAMILY_EXTERNAL => ~1U;
+
+    // File: vk.xml Line: 10201 Column: 10
+    public static uint VK_QUEUE_FAMILY_FOREIGN_EXT => ~2U;
+
+    // File: vk.xml Line: 10202 Column: 10
+    public static uint VK_SUBPASS_EXTERNAL => ~0U;
+
+    // File: vk.xml Line: 10203 Column: 10
+    public static int VK_MAX_DEVICE_GROUP_SIZE => 32;
+
+    // File: vk.xml Line: 10204 Column: 10
+    public static int VK_MAX_DRIVER_NAME_SIZE => 256;
+
+    // File: vk.xml Line: 10205 Column: 10
+    public static int VK_MAX_DRIVER_INFO_SIZE => 256;
+
+    // File: vk.xml Line: 10206 Column: 10
+    public static uint VK_SHADER_UNUSED_KHR => ~0U;
+
+    // File: vk.xml Line: 10207 Column: 10
+    public static int VK_MAX_GLOBAL_PRIORITY_SIZE => 16;
+
+    // File: vk.xml Line: 10208 Column: 10
+    public static int VK_MAX_SHADER_MODULE_IDENTIFIER_SIZE_EXT => 32;
+
+    // File: vk.xml Line: 10209 Column: 10
+    public static int VK_MAX_PIPELINE_BINARY_KEY_SIZE_KHR => 32;
+
+    // File: vk.xml Line: 10210 Column: 10
+    public static int VK_MAX_VIDEO_AV1_REFERENCES_PER_FRAME_KHR => 7;
+
+    // File: vk.xml Line: 10211 Column: 10
+    public static uint VK_SHADER_INDEX_UNUSED_AMDX => ~0U;
+
+    // File: vk.xml Line: 10212 Column: 10
+    public static uint VK_PARTITIONED_ACCELERATION_STRUCTURE_PARTITION_INDEX_GLOBAL_NV => ~0U;
+
+    // File: vk.xml Line: 10225 Column: 10
+    public static int VK_IMAGE_LAYOUT_UNDEFINED => 0;
+
+    // File: vk.xml Line: 10226 Column: 10
+    public static int VK_IMAGE_LAYOUT_GENERAL => 1;
+
+    // File: vk.xml Line: 10227 Column: 10
+    public static int VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL => 2;
+
+    // File: vk.xml Line: 10228 Column: 10
+    public static int VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL => 3;
+
+    // File: vk.xml Line: 10229 Column: 10
+    public static int VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL => 4;
+
+    // File: vk.xml Line: 10230 Column: 10
+    public static int VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL => 5;
+
+    // File: vk.xml Line: 10231 Column: 10
+    public static int VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL => 6;
+
+    // File: vk.xml Line: 10232 Column: 10
+    public static int VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL => 7;
+
+    // File: vk.xml Line: 10233 Column: 10
+    public static int VK_IMAGE_LAYOUT_PREINITIALIZED => 8;
+
+    // File: vk.xml Line: 10236 Column: 10
+    public static int VK_ATTACHMENT_LOAD_OP_LOAD => 0;
+
+    // File: vk.xml Line: 10237 Column: 10
+    public static int VK_ATTACHMENT_LOAD_OP_CLEAR => 1;
+
+    // File: vk.xml Line: 10238 Column: 10
+    public static int VK_ATTACHMENT_LOAD_OP_DONT_CARE => 2;
+
+    // File: vk.xml Line: 10241 Column: 10
+    public static int VK_ATTACHMENT_STORE_OP_STORE => 0;
+
+    // File: vk.xml Line: 10242 Column: 10
+    public static int VK_ATTACHMENT_STORE_OP_DONT_CARE => 1;
+
+    // File: vk.xml Line: 10245 Column: 10
+    public static int VK_IMAGE_TYPE_1D => 0;
+
+    // File: vk.xml Line: 10246 Column: 10
+    public static int VK_IMAGE_TYPE_2D => 1;
+
+    // File: vk.xml Line: 10247 Column: 10
+    public static int VK_IMAGE_TYPE_3D => 2;
+
+    // File: vk.xml Line: 10250 Column: 10
+    public static int VK_IMAGE_TILING_OPTIMAL => 0;
+
+    // File: vk.xml Line: 10251 Column: 10
+    public static int VK_IMAGE_TILING_LINEAR => 1;
+
+    // File: vk.xml Line: 10254 Column: 10
+    public static int VK_IMAGE_VIEW_TYPE_1D => 0;
+
+    // File: vk.xml Line: 10255 Column: 10
+    public static int VK_IMAGE_VIEW_TYPE_2D => 1;
+
+    // File: vk.xml Line: 10256 Column: 10
+    public static int VK_IMAGE_VIEW_TYPE_3D => 2;
+
+    // File: vk.xml Line: 10257 Column: 10
+    public static int VK_IMAGE_VIEW_TYPE_CUBE => 3;
+
+    // File: vk.xml Line: 10258 Column: 10
+    public static int VK_IMAGE_VIEW_TYPE_1D_ARRAY => 4;
+
+    // File: vk.xml Line: 10259 Column: 10
+    public static int VK_IMAGE_VIEW_TYPE_2D_ARRAY => 5;
+
+    // File: vk.xml Line: 10260 Column: 10
+    public static int VK_IMAGE_VIEW_TYPE_CUBE_ARRAY => 6;
+
+    // File: vk.xml Line: 10263 Column: 10
+    public static int VK_COMMAND_BUFFER_LEVEL_PRIMARY => 0;
+
+    // File: vk.xml Line: 10264 Column: 10
+    public static int VK_COMMAND_BUFFER_LEVEL_SECONDARY => 1;
+
+    // File: vk.xml Line: 10267 Column: 10
+    public static int VK_COMPONENT_SWIZZLE_IDENTITY => 0;
+
+    // File: vk.xml Line: 10268 Column: 10
+    public static int VK_COMPONENT_SWIZZLE_ZERO => 1;
+
+    // File: vk.xml Line: 10269 Column: 10
+    public static int VK_COMPONENT_SWIZZLE_ONE => 2;
+
+    // File: vk.xml Line: 10270 Column: 10
+    public static int VK_COMPONENT_SWIZZLE_R => 3;
+
+    // File: vk.xml Line: 10271 Column: 10
+    public static int VK_COMPONENT_SWIZZLE_G => 4;
+
+    // File: vk.xml Line: 10272 Column: 10
+    public static int VK_COMPONENT_SWIZZLE_B => 5;
+
+    // File: vk.xml Line: 10273 Column: 10
+    public static int VK_COMPONENT_SWIZZLE_A => 6;
+
+    // File: vk.xml Line: 10276 Column: 10
+    public static int VK_DESCRIPTOR_TYPE_SAMPLER => 0;
+
+    // File: vk.xml Line: 10277 Column: 10
+    public static int VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER => 1;
+
+    // File: vk.xml Line: 10278 Column: 10
+    public static int VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE => 2;
+
+    // File: vk.xml Line: 10279 Column: 10
+    public static int VK_DESCRIPTOR_TYPE_STORAGE_IMAGE => 3;
+
+    // File: vk.xml Line: 10280 Column: 10
+    public static int VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER => 4;
+
+    // File: vk.xml Line: 10281 Column: 10
+    public static int VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER => 5;
+
+    // File: vk.xml Line: 10282 Column: 10
+    public static int VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER => 6;
+
+    // File: vk.xml Line: 10283 Column: 10
+    public static int VK_DESCRIPTOR_TYPE_STORAGE_BUFFER => 7;
+
+    // File: vk.xml Line: 10284 Column: 10
+    public static int VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC => 8;
+
+    // File: vk.xml Line: 10285 Column: 10
+    public static int VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC => 9;
+
+    // File: vk.xml Line: 10286 Column: 10
+    public static int VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT => 10;
+
+    // File: vk.xml Line: 10289 Column: 10
+    public static int VK_QUERY_TYPE_OCCLUSION => 0;
+
+    // File: vk.xml Line: 10290 Column: 10
+    public static int VK_QUERY_TYPE_PIPELINE_STATISTICS => 1;
+
+    // File: vk.xml Line: 10291 Column: 10
+    public static int VK_QUERY_TYPE_TIMESTAMP => 2;
+
+    // File: vk.xml Line: 10294 Column: 10
+    public static int VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK => 0;
+
+    // File: vk.xml Line: 10295 Column: 10
+    public static int VK_BORDER_COLOR_INT_TRANSPARENT_BLACK => 1;
+
+    // File: vk.xml Line: 10296 Column: 10
+    public static int VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK => 2;
+
+    // File: vk.xml Line: 10297 Column: 10
+    public static int VK_BORDER_COLOR_INT_OPAQUE_BLACK => 3;
+
+    // File: vk.xml Line: 10298 Column: 10
+    public static int VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE => 4;
+
+    // File: vk.xml Line: 10299 Column: 10
+    public static int VK_BORDER_COLOR_INT_OPAQUE_WHITE => 5;
+
+    // File: vk.xml Line: 10302 Column: 10
+    public static int VK_PIPELINE_BIND_POINT_GRAPHICS => 0;
+
+    // File: vk.xml Line: 10303 Column: 10
+    public static int VK_PIPELINE_BIND_POINT_COMPUTE => 1;
+
+    // File: vk.xml Line: 10306 Column: 10
+    public static int VK_PIPELINE_CACHE_HEADER_VERSION_ONE => 1;
+
+    // File: vk.xml Line: 10311 Column: 10
+    public static int VK_PRIMITIVE_TOPOLOGY_POINT_LIST => 0;
+
+    // File: vk.xml Line: 10312 Column: 10
+    public static int VK_PRIMITIVE_TOPOLOGY_LINE_LIST => 1;
+
+    // File: vk.xml Line: 10313 Column: 10
+    public static int VK_PRIMITIVE_TOPOLOGY_LINE_STRIP => 2;
+
+    // File: vk.xml Line: 10314 Column: 10
+    public static int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST => 3;
+
+    // File: vk.xml Line: 10315 Column: 10
+    public static int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP => 4;
+
+    // File: vk.xml Line: 10316 Column: 10
+    public static int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_FAN => 5;
+
+    // File: vk.xml Line: 10317 Column: 10
+    public static int VK_PRIMITIVE_TOPOLOGY_LINE_LIST_WITH_ADJACENCY => 6;
+
+    // File: vk.xml Line: 10318 Column: 10
+    public static int VK_PRIMITIVE_TOPOLOGY_LINE_STRIP_WITH_ADJACENCY => 7;
+
+    // File: vk.xml Line: 10319 Column: 10
+    public static int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST_WITH_ADJACENCY => 8;
+
+    // File: vk.xml Line: 10320 Column: 10
+    public static int VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP_WITH_ADJACENCY => 9;
+
+    // File: vk.xml Line: 10321 Column: 10
+    public static int VK_PRIMITIVE_TOPOLOGY_PATCH_LIST => 10;
+
+    // File: vk.xml Line: 10324 Column: 10
+    public static int VK_SHARING_MODE_EXCLUSIVE => 0;
+
+    // File: vk.xml Line: 10325 Column: 10
+    public static int VK_SHARING_MODE_CONCURRENT => 1;
+
+    // File: vk.xml Line: 10328 Column: 10
+    public static int VK_INDEX_TYPE_UINT16 => 0;
+
+    // File: vk.xml Line: 10329 Column: 10
+    public static int VK_INDEX_TYPE_UINT32 => 1;
+
+    // File: vk.xml Line: 10332 Column: 10
+    public static int VK_FILTER_NEAREST => 0;
+
+    // File: vk.xml Line: 10333 Column: 10
+    public static int VK_FILTER_LINEAR => 1;
+
+    // File: vk.xml Line: 10336 Column: 10
+    public static int VK_SAMPLER_MIPMAP_MODE_NEAREST => 0;
+
+    // File: vk.xml Line: 10337 Column: 10
+    public static int VK_SAMPLER_MIPMAP_MODE_LINEAR => 1;
+
+    // File: vk.xml Line: 10340 Column: 10
+    public static int VK_SAMPLER_ADDRESS_MODE_REPEAT => 0;
+
+    // File: vk.xml Line: 10341 Column: 10
+    public static int VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT => 1;
+
+    // File: vk.xml Line: 10342 Column: 10
+    public static int VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE => 2;
+
+    // File: vk.xml Line: 10343 Column: 10
+    public static int VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER => 3;
+
+    // File: vk.xml Line: 10351 Column: 10
+    public static int VK_COMPARE_OP_NEVER => 0;
+
+    // File: vk.xml Line: 10352 Column: 10
+    public static int VK_COMPARE_OP_LESS => 1;
+
+    // File: vk.xml Line: 10353 Column: 10
+    public static int VK_COMPARE_OP_EQUAL => 2;
+
+    // File: vk.xml Line: 10354 Column: 10
+    public static int VK_COMPARE_OP_LESS_OR_EQUAL => 3;
+
+    // File: vk.xml Line: 10355 Column: 10
+    public static int VK_COMPARE_OP_GREATER => 4;
+
+    // File: vk.xml Line: 10356 Column: 10
+    public static int VK_COMPARE_OP_NOT_EQUAL => 5;
+
+    // File: vk.xml Line: 10357 Column: 10
+    public static int VK_COMPARE_OP_GREATER_OR_EQUAL => 6;
+
+    // File: vk.xml Line: 10358 Column: 10
+    public static int VK_COMPARE_OP_ALWAYS => 7;
+
+    // File: vk.xml Line: 10361 Column: 10
+    public static int VK_POLYGON_MODE_FILL => 0;
+
+    // File: vk.xml Line: 10362 Column: 10
+    public static int VK_POLYGON_MODE_LINE => 1;
+
+    // File: vk.xml Line: 10363 Column: 10
+    public static int VK_POLYGON_MODE_POINT => 2;
+
+    // File: vk.xml Line: 10366 Column: 10
+    public static int VK_FRONT_FACE_COUNTER_CLOCKWISE => 0;
+
+    // File: vk.xml Line: 10367 Column: 10
+    public static int VK_FRONT_FACE_CLOCKWISE => 1;
+
+    // File: vk.xml Line: 10370 Column: 10
+    public static int VK_BLEND_FACTOR_ZERO => 0;
+
+    // File: vk.xml Line: 10371 Column: 10
+    public static int VK_BLEND_FACTOR_ONE => 1;
+
+    // File: vk.xml Line: 10372 Column: 10
+    public static int VK_BLEND_FACTOR_SRC_COLOR => 2;
+
+    // File: vk.xml Line: 10373 Column: 10
+    public static int VK_BLEND_FACTOR_ONE_MINUS_SRC_COLOR => 3;
+
+    // File: vk.xml Line: 10374 Column: 10
+    public static int VK_BLEND_FACTOR_DST_COLOR => 4;
+
+    // File: vk.xml Line: 10375 Column: 10
+    public static int VK_BLEND_FACTOR_ONE_MINUS_DST_COLOR => 5;
+
+    // File: vk.xml Line: 10376 Column: 10
+    public static int VK_BLEND_FACTOR_SRC_ALPHA => 6;
+
+    // File: vk.xml Line: 10377 Column: 10
+    public static int VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA => 7;
+
+    // File: vk.xml Line: 10378 Column: 10
+    public static int VK_BLEND_FACTOR_DST_ALPHA => 8;
+
+    // File: vk.xml Line: 10379 Column: 10
+    public static int VK_BLEND_FACTOR_ONE_MINUS_DST_ALPHA => 9;
+
+    // File: vk.xml Line: 10380 Column: 10
+    public static int VK_BLEND_FACTOR_CONSTANT_COLOR => 10;
+
+    // File: vk.xml Line: 10381 Column: 10
+    public static int VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR => 11;
+
+    // File: vk.xml Line: 10382 Column: 10
+    public static int VK_BLEND_FACTOR_CONSTANT_ALPHA => 12;
+
+    // File: vk.xml Line: 10383 Column: 10
+    public static int VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA => 13;
+
+    // File: vk.xml Line: 10384 Column: 10
+    public static int VK_BLEND_FACTOR_SRC_ALPHA_SATURATE => 14;
+
+    // File: vk.xml Line: 10385 Column: 10
+    public static int VK_BLEND_FACTOR_SRC1_COLOR => 15;
+
+    // File: vk.xml Line: 10386 Column: 10
+    public static int VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR => 16;
+
+    // File: vk.xml Line: 10387 Column: 10
+    public static int VK_BLEND_FACTOR_SRC1_ALPHA => 17;
+
+    // File: vk.xml Line: 10388 Column: 10
+    public static int VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA => 18;
+
+    // File: vk.xml Line: 10391 Column: 10
+    public static int VK_BLEND_OP_ADD => 0;
+
+    // File: vk.xml Line: 10392 Column: 10
+    public static int VK_BLEND_OP_SUBTRACT => 1;
+
+    // File: vk.xml Line: 10393 Column: 10
+    public static int VK_BLEND_OP_REVERSE_SUBTRACT => 2;
+
+    // File: vk.xml Line: 10394 Column: 10
+    public static int VK_BLEND_OP_MIN => 3;
+
+    // File: vk.xml Line: 10395 Column: 10
+    public static int VK_BLEND_OP_MAX => 4;
+
+    // File: vk.xml Line: 10398 Column: 10
+    public static int VK_STENCIL_OP_KEEP => 0;
+
+    // File: vk.xml Line: 10399 Column: 10
+    public static int VK_STENCIL_OP_ZERO => 1;
+
+    // File: vk.xml Line: 10400 Column: 10
+    public static int VK_STENCIL_OP_REPLACE => 2;
+
+    // File: vk.xml Line: 10401 Column: 10
+    public static int VK_STENCIL_OP_INCREMENT_AND_CLAMP => 3;
+
+    // File: vk.xml Line: 10402 Column: 10
+    public static int VK_STENCIL_OP_DECREMENT_AND_CLAMP => 4;
+
+    // File: vk.xml Line: 10403 Column: 10
+    public static int VK_STENCIL_OP_INVERT => 5;
+
+    // File: vk.xml Line: 10404 Column: 10
+    public static int VK_STENCIL_OP_INCREMENT_AND_WRAP => 6;
+
+    // File: vk.xml Line: 10405 Column: 10
+    public static int VK_STENCIL_OP_DECREMENT_AND_WRAP => 7;
+
+    // File: vk.xml Line: 10408 Column: 10
+    public static int VK_LOGIC_OP_CLEAR => 0;
+
+    // File: vk.xml Line: 10409 Column: 10
+    public static int VK_LOGIC_OP_AND => 1;
+
+    // File: vk.xml Line: 10410 Column: 10
+    public static int VK_LOGIC_OP_AND_REVERSE => 2;
+
+    // File: vk.xml Line: 10411 Column: 10
+    public static int VK_LOGIC_OP_COPY => 3;
+
+    // File: vk.xml Line: 10412 Column: 10
+    public static int VK_LOGIC_OP_AND_INVERTED => 4;
+
+    // File: vk.xml Line: 10413 Column: 10
+    public static int VK_LOGIC_OP_NO_OP => 5;
+
+    // File: vk.xml Line: 10414 Column: 10
+    public static int VK_LOGIC_OP_XOR => 6;
+
+    // File: vk.xml Line: 10415 Column: 10
+    public static int VK_LOGIC_OP_OR => 7;
+
+    // File: vk.xml Line: 10416 Column: 10
+    public static int VK_LOGIC_OP_NOR => 8;
+
+    // File: vk.xml Line: 10417 Column: 10
+    public static int VK_LOGIC_OP_EQUIVALENT => 9;
+
+    // File: vk.xml Line: 10418 Column: 10
+    public static int VK_LOGIC_OP_INVERT => 10;
+
+    // File: vk.xml Line: 10419 Column: 10
+    public static int VK_LOGIC_OP_OR_REVERSE => 11;
+
+    // File: vk.xml Line: 10420 Column: 10
+    public static int VK_LOGIC_OP_COPY_INVERTED => 12;
+
+    // File: vk.xml Line: 10421 Column: 10
+    public static int VK_LOGIC_OP_OR_INVERTED => 13;
+
+    // File: vk.xml Line: 10422 Column: 10
+    public static int VK_LOGIC_OP_NAND => 14;
+
+    // File: vk.xml Line: 10423 Column: 10
+    public static int VK_LOGIC_OP_SET => 15;
+
+    // File: vk.xml Line: 10426 Column: 10
+    public static int VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE => 0;
+
+    // File: vk.xml Line: 10429 Column: 10
+    public static int VK_SYSTEM_ALLOCATION_SCOPE_COMMAND => 0;
+
+    // File: vk.xml Line: 10430 Column: 10
+    public static int VK_SYSTEM_ALLOCATION_SCOPE_OBJECT => 1;
+
+    // File: vk.xml Line: 10431 Column: 10
+    public static int VK_SYSTEM_ALLOCATION_SCOPE_CACHE => 2;
+
+    // File: vk.xml Line: 10432 Column: 10
+    public static int VK_SYSTEM_ALLOCATION_SCOPE_DEVICE => 3;
+
+    // File: vk.xml Line: 10433 Column: 10
+    public static int VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE => 4;
+
+    // File: vk.xml Line: 10436 Column: 10
+    public static int VK_PHYSICAL_DEVICE_TYPE_OTHER => 0;
+
+    // File: vk.xml Line: 10437 Column: 10
+    public static int VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU => 1;
+
+    // File: vk.xml Line: 10438 Column: 10
+    public static int VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU => 2;
+
+    // File: vk.xml Line: 10439 Column: 10
+    public static int VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU => 3;
+
+    // File: vk.xml Line: 10440 Column: 10
+    public static int VK_PHYSICAL_DEVICE_TYPE_CPU => 4;
+
+    // File: vk.xml Line: 10443 Column: 10
+    public static int VK_VERTEX_INPUT_RATE_VERTEX => 0;
+
+    // File: vk.xml Line: 10444 Column: 10
+    public static int VK_VERTEX_INPUT_RATE_INSTANCE => 1;
+
+    // File: vk.xml Line: 10447 Column: 10
+    public static int VK_FORMAT_UNDEFINED => 0;
+
+    // File: vk.xml Line: 10448 Column: 10
+    public static int VK_FORMAT_R4G4_UNORM_PACK8 => 1;
+
+    // File: vk.xml Line: 10449 Column: 10
+    public static int VK_FORMAT_R4G4B4A4_UNORM_PACK16 => 2;
+
+    // File: vk.xml Line: 10450 Column: 10
+    public static int VK_FORMAT_B4G4R4A4_UNORM_PACK16 => 3;
+
+    // File: vk.xml Line: 10451 Column: 10
+    public static int VK_FORMAT_R5G6B5_UNORM_PACK16 => 4;
+
+    // File: vk.xml Line: 10452 Column: 10
+    public static int VK_FORMAT_B5G6R5_UNORM_PACK16 => 5;
+
+    // File: vk.xml Line: 10453 Column: 10
+    public static int VK_FORMAT_R5G5B5A1_UNORM_PACK16 => 6;
+
+    // File: vk.xml Line: 10454 Column: 10
+    public static int VK_FORMAT_B5G5R5A1_UNORM_PACK16 => 7;
+
+    // File: vk.xml Line: 10455 Column: 10
+    public static int VK_FORMAT_A1R5G5B5_UNORM_PACK16 => 8;
+
+    // File: vk.xml Line: 10456 Column: 10
+    public static int VK_FORMAT_R8_UNORM => 9;
+
+    // File: vk.xml Line: 10457 Column: 10
+    public static int VK_FORMAT_R8_SNORM => 10;
+
+    // File: vk.xml Line: 10458 Column: 10
+    public static int VK_FORMAT_R8_USCALED => 11;
+
+    // File: vk.xml Line: 10459 Column: 10
+    public static int VK_FORMAT_R8_SSCALED => 12;
+
+    // File: vk.xml Line: 10460 Column: 10
+    public static int VK_FORMAT_R8_UINT => 13;
+
+    // File: vk.xml Line: 10461 Column: 10
+    public static int VK_FORMAT_R8_SINT => 14;
+
+    // File: vk.xml Line: 10462 Column: 10
+    public static int VK_FORMAT_R8_SRGB => 15;
+
+    // File: vk.xml Line: 10463 Column: 10
+    public static int VK_FORMAT_R8G8_UNORM => 16;
+
+    // File: vk.xml Line: 10464 Column: 10
+    public static int VK_FORMAT_R8G8_SNORM => 17;
+
+    // File: vk.xml Line: 10465 Column: 10
+    public static int VK_FORMAT_R8G8_USCALED => 18;
+
+    // File: vk.xml Line: 10466 Column: 10
+    public static int VK_FORMAT_R8G8_SSCALED => 19;
+
+    // File: vk.xml Line: 10467 Column: 10
+    public static int VK_FORMAT_R8G8_UINT => 20;
+
+    // File: vk.xml Line: 10468 Column: 10
+    public static int VK_FORMAT_R8G8_SINT => 21;
+
+    // File: vk.xml Line: 10469 Column: 10
+    public static int VK_FORMAT_R8G8_SRGB => 22;
+
+    // File: vk.xml Line: 10470 Column: 10
+    public static int VK_FORMAT_R8G8B8_UNORM => 23;
+
+    // File: vk.xml Line: 10471 Column: 10
+    public static int VK_FORMAT_R8G8B8_SNORM => 24;
+
+    // File: vk.xml Line: 10472 Column: 10
+    public static int VK_FORMAT_R8G8B8_USCALED => 25;
+
+    // File: vk.xml Line: 10473 Column: 10
+    public static int VK_FORMAT_R8G8B8_SSCALED => 26;
+
+    // File: vk.xml Line: 10474 Column: 10
+    public static int VK_FORMAT_R8G8B8_UINT => 27;
+
+    // File: vk.xml Line: 10475 Column: 10
+    public static int VK_FORMAT_R8G8B8_SINT => 28;
+
+    // File: vk.xml Line: 10476 Column: 10
+    public static int VK_FORMAT_R8G8B8_SRGB => 29;
+
+    // File: vk.xml Line: 10477 Column: 10
+    public static int VK_FORMAT_B8G8R8_UNORM => 30;
+
+    // File: vk.xml Line: 10478 Column: 10
+    public static int VK_FORMAT_B8G8R8_SNORM => 31;
+
+    // File: vk.xml Line: 10479 Column: 10
+    public static int VK_FORMAT_B8G8R8_USCALED => 32;
+
+    // File: vk.xml Line: 10480 Column: 10
+    public static int VK_FORMAT_B8G8R8_SSCALED => 33;
+
+    // File: vk.xml Line: 10481 Column: 10
+    public static int VK_FORMAT_B8G8R8_UINT => 34;
+
+    // File: vk.xml Line: 10482 Column: 10
+    public static int VK_FORMAT_B8G8R8_SINT => 35;
+
+    // File: vk.xml Line: 10483 Column: 10
+    public static int VK_FORMAT_B8G8R8_SRGB => 36;
+
+    // File: vk.xml Line: 10484 Column: 10
+    public static int VK_FORMAT_R8G8B8A8_UNORM => 37;
+
+    // File: vk.xml Line: 10485 Column: 10
+    public static int VK_FORMAT_R8G8B8A8_SNORM => 38;
+
+    // File: vk.xml Line: 10486 Column: 10
+    public static int VK_FORMAT_R8G8B8A8_USCALED => 39;
+
+    // File: vk.xml Line: 10487 Column: 10
+    public static int VK_FORMAT_R8G8B8A8_SSCALED => 40;
+
+    // File: vk.xml Line: 10488 Column: 10
+    public static int VK_FORMAT_R8G8B8A8_UINT => 41;
+
+    // File: vk.xml Line: 10489 Column: 10
+    public static int VK_FORMAT_R8G8B8A8_SINT => 42;
+
+    // File: vk.xml Line: 10490 Column: 10
+    public static int VK_FORMAT_R8G8B8A8_SRGB => 43;
+
+    // File: vk.xml Line: 10491 Column: 10
+    public static int VK_FORMAT_B8G8R8A8_UNORM => 44;
+
+    // File: vk.xml Line: 10492 Column: 10
+    public static int VK_FORMAT_B8G8R8A8_SNORM => 45;
+
+    // File: vk.xml Line: 10493 Column: 10
+    public static int VK_FORMAT_B8G8R8A8_USCALED => 46;
+
+    // File: vk.xml Line: 10494 Column: 10
+    public static int VK_FORMAT_B8G8R8A8_SSCALED => 47;
+
+    // File: vk.xml Line: 10495 Column: 10
+    public static int VK_FORMAT_B8G8R8A8_UINT => 48;
+
+    // File: vk.xml Line: 10496 Column: 10
+    public static int VK_FORMAT_B8G8R8A8_SINT => 49;
+
+    // File: vk.xml Line: 10497 Column: 10
+    public static int VK_FORMAT_B8G8R8A8_SRGB => 50;
+
+    // File: vk.xml Line: 10498 Column: 10
+    public static int VK_FORMAT_A8B8G8R8_UNORM_PACK32 => 51;
+
+    // File: vk.xml Line: 10499 Column: 10
+    public static int VK_FORMAT_A8B8G8R8_SNORM_PACK32 => 52;
+
+    // File: vk.xml Line: 10500 Column: 10
+    public static int VK_FORMAT_A8B8G8R8_USCALED_PACK32 => 53;
+
+    // File: vk.xml Line: 10501 Column: 10
+    public static int VK_FORMAT_A8B8G8R8_SSCALED_PACK32 => 54;
+
+    // File: vk.xml Line: 10502 Column: 10
+    public static int VK_FORMAT_A8B8G8R8_UINT_PACK32 => 55;
+
+    // File: vk.xml Line: 10503 Column: 10
+    public static int VK_FORMAT_A8B8G8R8_SINT_PACK32 => 56;
+
+    // File: vk.xml Line: 10504 Column: 10
+    public static int VK_FORMAT_A8B8G8R8_SRGB_PACK32 => 57;
+
+    // File: vk.xml Line: 10505 Column: 10
+    public static int VK_FORMAT_A2R10G10B10_UNORM_PACK32 => 58;
+
+    // File: vk.xml Line: 10506 Column: 10
+    public static int VK_FORMAT_A2R10G10B10_SNORM_PACK32 => 59;
+
+    // File: vk.xml Line: 10507 Column: 10
+    public static int VK_FORMAT_A2R10G10B10_USCALED_PACK32 => 60;
+
+    // File: vk.xml Line: 10508 Column: 10
+    public static int VK_FORMAT_A2R10G10B10_SSCALED_PACK32 => 61;
+
+    // File: vk.xml Line: 10509 Column: 10
+    public static int VK_FORMAT_A2R10G10B10_UINT_PACK32 => 62;
+
+    // File: vk.xml Line: 10510 Column: 10
+    public static int VK_FORMAT_A2R10G10B10_SINT_PACK32 => 63;
+
+    // File: vk.xml Line: 10511 Column: 10
+    public static int VK_FORMAT_A2B10G10R10_UNORM_PACK32 => 64;
+
+    // File: vk.xml Line: 10512 Column: 10
+    public static int VK_FORMAT_A2B10G10R10_SNORM_PACK32 => 65;
+
+    // File: vk.xml Line: 10513 Column: 10
+    public static int VK_FORMAT_A2B10G10R10_USCALED_PACK32 => 66;
+
+    // File: vk.xml Line: 10514 Column: 10
+    public static int VK_FORMAT_A2B10G10R10_SSCALED_PACK32 => 67;
+
+    // File: vk.xml Line: 10515 Column: 10
+    public static int VK_FORMAT_A2B10G10R10_UINT_PACK32 => 68;
+
+    // File: vk.xml Line: 10516 Column: 10
+    public static int VK_FORMAT_A2B10G10R10_SINT_PACK32 => 69;
+
+    // File: vk.xml Line: 10517 Column: 10
+    public static int VK_FORMAT_R16_UNORM => 70;
+
+    // File: vk.xml Line: 10518 Column: 10
+    public static int VK_FORMAT_R16_SNORM => 71;
+
+    // File: vk.xml Line: 10519 Column: 10
+    public static int VK_FORMAT_R16_USCALED => 72;
+
+    // File: vk.xml Line: 10520 Column: 10
+    public static int VK_FORMAT_R16_SSCALED => 73;
+
+    // File: vk.xml Line: 10521 Column: 10
+    public static int VK_FORMAT_R16_UINT => 74;
+
+    // File: vk.xml Line: 10522 Column: 10
+    public static int VK_FORMAT_R16_SINT => 75;
+
+    // File: vk.xml Line: 10523 Column: 10
+    public static int VK_FORMAT_R16_SFLOAT => 76;
+
+    // File: vk.xml Line: 10524 Column: 10
+    public static int VK_FORMAT_R16G16_UNORM => 77;
+
+    // File: vk.xml Line: 10525 Column: 10
+    public static int VK_FORMAT_R16G16_SNORM => 78;
+
+    // File: vk.xml Line: 10526 Column: 10
+    public static int VK_FORMAT_R16G16_USCALED => 79;
+
+    // File: vk.xml Line: 10527 Column: 10
+    public static int VK_FORMAT_R16G16_SSCALED => 80;
+
+    // File: vk.xml Line: 10528 Column: 10
+    public static int VK_FORMAT_R16G16_UINT => 81;
+
+    // File: vk.xml Line: 10529 Column: 10
+    public static int VK_FORMAT_R16G16_SINT => 82;
+
+    // File: vk.xml Line: 10530 Column: 10
+    public static int VK_FORMAT_R16G16_SFLOAT => 83;
+
+    // File: vk.xml Line: 10531 Column: 10
+    public static int VK_FORMAT_R16G16B16_UNORM => 84;
+
+    // File: vk.xml Line: 10532 Column: 10
+    public static int VK_FORMAT_R16G16B16_SNORM => 85;
+
+    // File: vk.xml Line: 10533 Column: 10
+    public static int VK_FORMAT_R16G16B16_USCALED => 86;
+
+    // File: vk.xml Line: 10534 Column: 10
+    public static int VK_FORMAT_R16G16B16_SSCALED => 87;
+
+    // File: vk.xml Line: 10535 Column: 10
+    public static int VK_FORMAT_R16G16B16_UINT => 88;
+
+    // File: vk.xml Line: 10536 Column: 10
+    public static int VK_FORMAT_R16G16B16_SINT => 89;
+
+    // File: vk.xml Line: 10537 Column: 10
+    public static int VK_FORMAT_R16G16B16_SFLOAT => 90;
+
+    // File: vk.xml Line: 10538 Column: 10
+    public static int VK_FORMAT_R16G16B16A16_UNORM => 91;
+
+    // File: vk.xml Line: 10539 Column: 10
+    public static int VK_FORMAT_R16G16B16A16_SNORM => 92;
+
+    // File: vk.xml Line: 10540 Column: 10
+    public static int VK_FORMAT_R16G16B16A16_USCALED => 93;
+
+    // File: vk.xml Line: 10541 Column: 10
+    public static int VK_FORMAT_R16G16B16A16_SSCALED => 94;
+
+    // File: vk.xml Line: 10542 Column: 10
+    public static int VK_FORMAT_R16G16B16A16_UINT => 95;
+
+    // File: vk.xml Line: 10543 Column: 10
+    public static int VK_FORMAT_R16G16B16A16_SINT => 96;
+
+    // File: vk.xml Line: 10544 Column: 10
+    public static int VK_FORMAT_R16G16B16A16_SFLOAT => 97;
+
+    // File: vk.xml Line: 10545 Column: 10
+    public static int VK_FORMAT_R32_UINT => 98;
+
+    // File: vk.xml Line: 10546 Column: 10
+    public static int VK_FORMAT_R32_SINT => 99;
+
+    // File: vk.xml Line: 10547 Column: 10
+    public static int VK_FORMAT_R32_SFLOAT => 100;
+
+    // File: vk.xml Line: 10548 Column: 10
+    public static int VK_FORMAT_R32G32_UINT => 101;
+
+    // File: vk.xml Line: 10549 Column: 10
+    public static int VK_FORMAT_R32G32_SINT => 102;
+
+    // File: vk.xml Line: 10550 Column: 10
+    public static int VK_FORMAT_R32G32_SFLOAT => 103;
+
+    // File: vk.xml Line: 10551 Column: 10
+    public static int VK_FORMAT_R32G32B32_UINT => 104;
+
+    // File: vk.xml Line: 10552 Column: 10
+    public static int VK_FORMAT_R32G32B32_SINT => 105;
+
+    // File: vk.xml Line: 10553 Column: 10
+    public static int VK_FORMAT_R32G32B32_SFLOAT => 106;
+
+    // File: vk.xml Line: 10554 Column: 10
+    public static int VK_FORMAT_R32G32B32A32_UINT => 107;
+
+    // File: vk.xml Line: 10555 Column: 10
+    public static int VK_FORMAT_R32G32B32A32_SINT => 108;
+
+    // File: vk.xml Line: 10556 Column: 10
+    public static int VK_FORMAT_R32G32B32A32_SFLOAT => 109;
+
+    // File: vk.xml Line: 10557 Column: 10
+    public static int VK_FORMAT_R64_UINT => 110;
+
+    // File: vk.xml Line: 10558 Column: 10
+    public static int VK_FORMAT_R64_SINT => 111;
+
+    // File: vk.xml Line: 10559 Column: 10
+    public static int VK_FORMAT_R64_SFLOAT => 112;
+
+    // File: vk.xml Line: 10560 Column: 10
+    public static int VK_FORMAT_R64G64_UINT => 113;
+
+    // File: vk.xml Line: 10561 Column: 10
+    public static int VK_FORMAT_R64G64_SINT => 114;
+
+    // File: vk.xml Line: 10562 Column: 10
+    public static int VK_FORMAT_R64G64_SFLOAT => 115;
+
+    // File: vk.xml Line: 10563 Column: 10
+    public static int VK_FORMAT_R64G64B64_UINT => 116;
+
+    // File: vk.xml Line: 10564 Column: 10
+    public static int VK_FORMAT_R64G64B64_SINT => 117;
+
+    // File: vk.xml Line: 10565 Column: 10
+    public static int VK_FORMAT_R64G64B64_SFLOAT => 118;
+
+    // File: vk.xml Line: 10566 Column: 10
+    public static int VK_FORMAT_R64G64B64A64_UINT => 119;
+
+    // File: vk.xml Line: 10567 Column: 10
+    public static int VK_FORMAT_R64G64B64A64_SINT => 120;
+
+    // File: vk.xml Line: 10568 Column: 10
+    public static int VK_FORMAT_R64G64B64A64_SFLOAT => 121;
+
+    // File: vk.xml Line: 10569 Column: 10
+    public static int VK_FORMAT_B10G11R11_UFLOAT_PACK32 => 122;
+
+    // File: vk.xml Line: 10570 Column: 10
+    public static int VK_FORMAT_E5B9G9R9_UFLOAT_PACK32 => 123;
+
+    // File: vk.xml Line: 10571 Column: 10
+    public static int VK_FORMAT_D16_UNORM => 124;
+
+    // File: vk.xml Line: 10572 Column: 10
+    public static int VK_FORMAT_X8_D24_UNORM_PACK32 => 125;
+
+    // File: vk.xml Line: 10573 Column: 10
+    public static int VK_FORMAT_D32_SFLOAT => 126;
+
+    // File: vk.xml Line: 10574 Column: 10
+    public static int VK_FORMAT_S8_UINT => 127;
+
+    // File: vk.xml Line: 10575 Column: 10
+    public static int VK_FORMAT_D16_UNORM_S8_UINT => 128;
+
+    // File: vk.xml Line: 10576 Column: 10
+    public static int VK_FORMAT_D24_UNORM_S8_UINT => 129;
+
+    // File: vk.xml Line: 10577 Column: 10
+    public static int VK_FORMAT_D32_SFLOAT_S8_UINT => 130;
+
+    // File: vk.xml Line: 10578 Column: 10
+    public static int VK_FORMAT_BC1_RGB_UNORM_BLOCK => 131;
+
+    // File: vk.xml Line: 10579 Column: 10
+    public static int VK_FORMAT_BC1_RGB_SRGB_BLOCK => 132;
+
+    // File: vk.xml Line: 10580 Column: 10
+    public static int VK_FORMAT_BC1_RGBA_UNORM_BLOCK => 133;
+
+    // File: vk.xml Line: 10581 Column: 10
+    public static int VK_FORMAT_BC1_RGBA_SRGB_BLOCK => 134;
+
+    // File: vk.xml Line: 10582 Column: 10
+    public static int VK_FORMAT_BC2_UNORM_BLOCK => 135;
+
+    // File: vk.xml Line: 10583 Column: 10
+    public static int VK_FORMAT_BC2_SRGB_BLOCK => 136;
+
+    // File: vk.xml Line: 10584 Column: 10
+    public static int VK_FORMAT_BC3_UNORM_BLOCK => 137;
+
+    // File: vk.xml Line: 10585 Column: 10
+    public static int VK_FORMAT_BC3_SRGB_BLOCK => 138;
+
+    // File: vk.xml Line: 10586 Column: 10
+    public static int VK_FORMAT_BC4_UNORM_BLOCK => 139;
+
+    // File: vk.xml Line: 10587 Column: 10
+    public static int VK_FORMAT_BC4_SNORM_BLOCK => 140;
+
+    // File: vk.xml Line: 10588 Column: 10
+    public static int VK_FORMAT_BC5_UNORM_BLOCK => 141;
+
+    // File: vk.xml Line: 10589 Column: 10
+    public static int VK_FORMAT_BC5_SNORM_BLOCK => 142;
+
+    // File: vk.xml Line: 10590 Column: 10
+    public static int VK_FORMAT_BC6H_UFLOAT_BLOCK => 143;
+
+    // File: vk.xml Line: 10591 Column: 10
+    public static int VK_FORMAT_BC6H_SFLOAT_BLOCK => 144;
+
+    // File: vk.xml Line: 10592 Column: 10
+    public static int VK_FORMAT_BC7_UNORM_BLOCK => 145;
+
+    // File: vk.xml Line: 10593 Column: 10
+    public static int VK_FORMAT_BC7_SRGB_BLOCK => 146;
+
+    // File: vk.xml Line: 10594 Column: 10
+    public static int VK_FORMAT_ETC2_R8G8B8_UNORM_BLOCK => 147;
+
+    // File: vk.xml Line: 10595 Column: 10
+    public static int VK_FORMAT_ETC2_R8G8B8_SRGB_BLOCK => 148;
+
+    // File: vk.xml Line: 10596 Column: 10
+    public static int VK_FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK => 149;
+
+    // File: vk.xml Line: 10597 Column: 10
+    public static int VK_FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK => 150;
+
+    // File: vk.xml Line: 10598 Column: 10
+    public static int VK_FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK => 151;
+
+    // File: vk.xml Line: 10599 Column: 10
+    public static int VK_FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK => 152;
+
+    // File: vk.xml Line: 10600 Column: 10
+    public static int VK_FORMAT_EAC_R11_UNORM_BLOCK => 153;
+
+    // File: vk.xml Line: 10601 Column: 10
+    public static int VK_FORMAT_EAC_R11_SNORM_BLOCK => 154;
+
+    // File: vk.xml Line: 10602 Column: 10
+    public static int VK_FORMAT_EAC_R11G11_UNORM_BLOCK => 155;
+
+    // File: vk.xml Line: 10603 Column: 10
+    public static int VK_FORMAT_EAC_R11G11_SNORM_BLOCK => 156;
+
+    // File: vk.xml Line: 10604 Column: 10
+    public static int VK_FORMAT_ASTC_4x4_UNORM_BLOCK => 157;
+
+    // File: vk.xml Line: 10605 Column: 10
+    public static int VK_FORMAT_ASTC_4x4_SRGB_BLOCK => 158;
+
+    // File: vk.xml Line: 10606 Column: 10
+    public static int VK_FORMAT_ASTC_5x4_UNORM_BLOCK => 159;
+
+    // File: vk.xml Line: 10607 Column: 10
+    public static int VK_FORMAT_ASTC_5x4_SRGB_BLOCK => 160;
+
+    // File: vk.xml Line: 10608 Column: 10
+    public static int VK_FORMAT_ASTC_5x5_UNORM_BLOCK => 161;
+
+    // File: vk.xml Line: 10609 Column: 10
+    public static int VK_FORMAT_ASTC_5x5_SRGB_BLOCK => 162;
+
+    // File: vk.xml Line: 10610 Column: 10
+    public static int VK_FORMAT_ASTC_6x5_UNORM_BLOCK => 163;
+
+    // File: vk.xml Line: 10611 Column: 10
+    public static int VK_FORMAT_ASTC_6x5_SRGB_BLOCK => 164;
+
+    // File: vk.xml Line: 10612 Column: 10
+    public static int VK_FORMAT_ASTC_6x6_UNORM_BLOCK => 165;
+
+    // File: vk.xml Line: 10613 Column: 10
+    public static int VK_FORMAT_ASTC_6x6_SRGB_BLOCK => 166;
+
+    // File: vk.xml Line: 10614 Column: 10
+    public static int VK_FORMAT_ASTC_8x5_UNORM_BLOCK => 167;
+
+    // File: vk.xml Line: 10615 Column: 10
+    public static int VK_FORMAT_ASTC_8x5_SRGB_BLOCK => 168;
+
+    // File: vk.xml Line: 10616 Column: 10
+    public static int VK_FORMAT_ASTC_8x6_UNORM_BLOCK => 169;
+
+    // File: vk.xml Line: 10617 Column: 10
+    public static int VK_FORMAT_ASTC_8x6_SRGB_BLOCK => 170;
+
+    // File: vk.xml Line: 10618 Column: 10
+    public static int VK_FORMAT_ASTC_8x8_UNORM_BLOCK => 171;
+
+    // File: vk.xml Line: 10619 Column: 10
+    public static int VK_FORMAT_ASTC_8x8_SRGB_BLOCK => 172;
+
+    // File: vk.xml Line: 10620 Column: 10
+    public static int VK_FORMAT_ASTC_10x5_UNORM_BLOCK => 173;
+
+    // File: vk.xml Line: 10621 Column: 10
+    public static int VK_FORMAT_ASTC_10x5_SRGB_BLOCK => 174;
+
+    // File: vk.xml Line: 10622 Column: 10
+    public static int VK_FORMAT_ASTC_10x6_UNORM_BLOCK => 175;
+
+    // File: vk.xml Line: 10623 Column: 10
+    public static int VK_FORMAT_ASTC_10x6_SRGB_BLOCK => 176;
+
+    // File: vk.xml Line: 10624 Column: 10
+    public static int VK_FORMAT_ASTC_10x8_UNORM_BLOCK => 177;
+
+    // File: vk.xml Line: 10625 Column: 10
+    public static int VK_FORMAT_ASTC_10x8_SRGB_BLOCK => 178;
+
+    // File: vk.xml Line: 10626 Column: 10
+    public static int VK_FORMAT_ASTC_10x10_UNORM_BLOCK => 179;
+
+    // File: vk.xml Line: 10627 Column: 10
+    public static int VK_FORMAT_ASTC_10x10_SRGB_BLOCK => 180;
+
+    // File: vk.xml Line: 10628 Column: 10
+    public static int VK_FORMAT_ASTC_12x10_UNORM_BLOCK => 181;
+
+    // File: vk.xml Line: 10629 Column: 10
+    public static int VK_FORMAT_ASTC_12x10_SRGB_BLOCK => 182;
+
+    // File: vk.xml Line: 10630 Column: 10
+    public static int VK_FORMAT_ASTC_12x12_UNORM_BLOCK => 183;
+
+    // File: vk.xml Line: 10631 Column: 10
+    public static int VK_FORMAT_ASTC_12x12_SRGB_BLOCK => 184;
+
+    // File: vk.xml Line: 10634 Column: 10
+    public static int VK_STRUCTURE_TYPE_APPLICATION_INFO => 0;
+
+    // File: vk.xml Line: 10635 Column: 10
+    public static int VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO => 1;
+
+    // File: vk.xml Line: 10636 Column: 10
+    public static int VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO => 2;
+
+    // File: vk.xml Line: 10637 Column: 10
+    public static int VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO => 3;
+
+    // File: vk.xml Line: 10638 Column: 10
+    public static int VK_STRUCTURE_TYPE_SUBMIT_INFO => 4;
+
+    // File: vk.xml Line: 10639 Column: 10
+    public static int VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO => 5;
+
+    // File: vk.xml Line: 10640 Column: 10
+    public static int VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE => 6;
+
+    // File: vk.xml Line: 10641 Column: 10
+    public static int VK_STRUCTURE_TYPE_BIND_SPARSE_INFO => 7;
+
+    // File: vk.xml Line: 10642 Column: 10
+    public static int VK_STRUCTURE_TYPE_FENCE_CREATE_INFO => 8;
+
+    // File: vk.xml Line: 10643 Column: 10
+    public static int VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO => 9;
+
+    // File: vk.xml Line: 10644 Column: 10
+    public static int VK_STRUCTURE_TYPE_EVENT_CREATE_INFO => 10;
+
+    // File: vk.xml Line: 10645 Column: 10
+    public static int VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO => 11;
+
+    // File: vk.xml Line: 10646 Column: 10
+    public static int VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO => 12;
+
+    // File: vk.xml Line: 10647 Column: 10
+    public static int VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO => 13;
+
+    // File: vk.xml Line: 10648 Column: 10
+    public static int VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO => 14;
+
+    // File: vk.xml Line: 10649 Column: 10
+    public static int VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO => 15;
+
+    // File: vk.xml Line: 10650 Column: 10
+    public static int VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO => 16;
+
+    // File: vk.xml Line: 10651 Column: 10
+    public static int VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO => 17;
+
+    // File: vk.xml Line: 10652 Column: 10
+    public static int VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO => 18;
+
+    // File: vk.xml Line: 10653 Column: 10
+    public static int VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO => 19;
+
+    // File: vk.xml Line: 10654 Column: 10
+    public static int VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO => 20;
+
+    // File: vk.xml Line: 10655 Column: 10
+    public static int VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO => 21;
+
+    // File: vk.xml Line: 10656 Column: 10
+    public static int VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO => 22;
+
+    // File: vk.xml Line: 10657 Column: 10
+    public static int VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO => 23;
+
+    // File: vk.xml Line: 10658 Column: 10
+    public static int VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO => 24;
+
+    // File: vk.xml Line: 10659 Column: 10
+    public static int VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO => 25;
+
+    // File: vk.xml Line: 10660 Column: 10
+    public static int VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO => 26;
+
+    // File: vk.xml Line: 10661 Column: 10
+    public static int VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO => 27;
+
+    // File: vk.xml Line: 10662 Column: 10
+    public static int VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO => 28;
+
+    // File: vk.xml Line: 10663 Column: 10
+    public static int VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO => 29;
+
+    // File: vk.xml Line: 10664 Column: 10
+    public static int VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO => 30;
+
+    // File: vk.xml Line: 10665 Column: 10
+    public static int VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO => 31;
+
+    // File: vk.xml Line: 10666 Column: 10
+    public static int VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO => 32;
+
+    // File: vk.xml Line: 10667 Column: 10
+    public static int VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO => 33;
+
+    // File: vk.xml Line: 10668 Column: 10
+    public static int VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO => 34;
+
+    // File: vk.xml Line: 10669 Column: 10
+    public static int VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET => 35;
+
+    // File: vk.xml Line: 10670 Column: 10
+    public static int VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET => 36;
+
+    // File: vk.xml Line: 10671 Column: 10
+    public static int VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO => 37;
+
+    // File: vk.xml Line: 10672 Column: 10
+    public static int VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO => 38;
+
+    // File: vk.xml Line: 10673 Column: 10
+    public static int VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO => 39;
+
+    // File: vk.xml Line: 10674 Column: 10
+    public static int VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO => 40;
+
+    // File: vk.xml Line: 10675 Column: 10
+    public static int VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO => 41;
+
+    // File: vk.xml Line: 10676 Column: 10
+    public static int VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO => 42;
+
+    // File: vk.xml Line: 10677 Column: 10
+    public static int VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO => 43;
+
+    // File: vk.xml Line: 10678 Column: 10
+    public static int VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER => 44;
+
+    // File: vk.xml Line: 10679 Column: 10
+    public static int VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER => 45;
+
+    // File: vk.xml Line: 10680 Column: 10
+    public static int VK_STRUCTURE_TYPE_MEMORY_BARRIER => 46;
+
+    // File: vk.xml Line: 10681 Column: 10
+    public static int VK_STRUCTURE_TYPE_LOADER_INSTANCE_CREATE_INFO => 47;
+
+    // File: vk.xml Line: 10682 Column: 10
+    public static int VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO => 48;
+
+    // File: vk.xml Line: 10685 Column: 10
+    public static int VK_SUBPASS_CONTENTS_INLINE => 0;
+
+    // File: vk.xml Line: 10686 Column: 10
+    public static int VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS => 1;
+
+    // File: vk.xml Line: 10690 Column: 10
+    public static int VK_SUCCESS => 0;
+
+    // File: vk.xml Line: 10691 Column: 10
+    public static int VK_NOT_READY => 1;
+
+    // File: vk.xml Line: 10692 Column: 10
+    public static int VK_TIMEOUT => 2;
+
+    // File: vk.xml Line: 10693 Column: 10
+    public static int VK_EVENT_SET => 3;
+
+    // File: vk.xml Line: 10694 Column: 10
+    public static int VK_EVENT_RESET => 4;
+
+    // File: vk.xml Line: 10695 Column: 10
+    public static int VK_INCOMPLETE => 5;
+
+    // File: vk.xml Line: 10697 Column: 10
+    public static int VK_ERROR_OUT_OF_HOST_MEMORY => -1;
+
+    // File: vk.xml Line: 10698 Column: 10
+    public static int VK_ERROR_OUT_OF_DEVICE_MEMORY => -2;
+
+    // File: vk.xml Line: 10699 Column: 10
+    public static int VK_ERROR_INITIALIZATION_FAILED => -3;
+
+    // File: vk.xml Line: 10700 Column: 10
+    public static int VK_ERROR_DEVICE_LOST => -4;
+
+    // File: vk.xml Line: 10701 Column: 10
+    public static int VK_ERROR_MEMORY_MAP_FAILED => -5;
+
+    // File: vk.xml Line: 10702 Column: 10
+    public static int VK_ERROR_LAYER_NOT_PRESENT => -6;
+
+    // File: vk.xml Line: 10703 Column: 10
+    public static int VK_ERROR_EXTENSION_NOT_PRESENT => -7;
+
+    // File: vk.xml Line: 10704 Column: 10
+    public static int VK_ERROR_FEATURE_NOT_PRESENT => -8;
+
+    // File: vk.xml Line: 10705 Column: 10
+    public static int VK_ERROR_INCOMPATIBLE_DRIVER => -9;
+
+    // File: vk.xml Line: 10706 Column: 10
+    public static int VK_ERROR_TOO_MANY_OBJECTS => -10;
+
+    // File: vk.xml Line: 10707 Column: 10
+    public static int VK_ERROR_FORMAT_NOT_SUPPORTED => -11;
+
+    // File: vk.xml Line: 10708 Column: 10
+    public static int VK_ERROR_FRAGMENTED_POOL => -12;
+
+    // File: vk.xml Line: 10709 Column: 10
+    public static int VK_ERROR_UNKNOWN => -13;
+
+    // File: vk.xml Line: 10713 Column: 10
+    public static int VK_DYNAMIC_STATE_VIEWPORT => 0;
+
+    // File: vk.xml Line: 10714 Column: 10
+    public static int VK_DYNAMIC_STATE_SCISSOR => 1;
+
+    // File: vk.xml Line: 10715 Column: 10
+    public static int VK_DYNAMIC_STATE_LINE_WIDTH => 2;
+
+    // File: vk.xml Line: 10716 Column: 10
+    public static int VK_DYNAMIC_STATE_DEPTH_BIAS => 3;
+
+    // File: vk.xml Line: 10717 Column: 10
+    public static int VK_DYNAMIC_STATE_BLEND_CONSTANTS => 4;
+
+    // File: vk.xml Line: 10718 Column: 10
+    public static int VK_DYNAMIC_STATE_DEPTH_BOUNDS => 5;
+
+    // File: vk.xml Line: 10719 Column: 10
+    public static int VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK => 6;
+
+    // File: vk.xml Line: 10720 Column: 10
+    public static int VK_DYNAMIC_STATE_STENCIL_WRITE_MASK => 7;
+
+    // File: vk.xml Line: 10721 Column: 10
+    public static int VK_DYNAMIC_STATE_STENCIL_REFERENCE => 8;
+
+    // File: vk.xml Line: 10724 Column: 10
+    public static int VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_DESCRIPTOR_SET => 0;
+
+    // File: vk.xml Line: 10727 Column: 10
+    public static int VK_OBJECT_TYPE_UNKNOWN => 0;
+
+    // File: vk.xml Line: 10728 Column: 10
+    public static int VK_OBJECT_TYPE_INSTANCE => 1;
+
+    // File: vk.xml Line: 10729 Column: 10
+    public static int VK_OBJECT_TYPE_PHYSICAL_DEVICE => 2;
+
+    // File: vk.xml Line: 10730 Column: 10
+    public static int VK_OBJECT_TYPE_DEVICE => 3;
+
+    // File: vk.xml Line: 10731 Column: 10
+    public static int VK_OBJECT_TYPE_QUEUE => 4;
+
+    // File: vk.xml Line: 10732 Column: 10
+    public static int VK_OBJECT_TYPE_SEMAPHORE => 5;
+
+    // File: vk.xml Line: 10733 Column: 10
+    public static int VK_OBJECT_TYPE_COMMAND_BUFFER => 6;
+
+    // File: vk.xml Line: 10734 Column: 10
+    public static int VK_OBJECT_TYPE_FENCE => 7;
+
+    // File: vk.xml Line: 10735 Column: 10
+    public static int VK_OBJECT_TYPE_DEVICE_MEMORY => 8;
+
+    // File: vk.xml Line: 10736 Column: 10
+    public static int VK_OBJECT_TYPE_BUFFER => 9;
+
+    // File: vk.xml Line: 10737 Column: 10
+    public static int VK_OBJECT_TYPE_IMAGE => 10;
+
+    // File: vk.xml Line: 10738 Column: 10
+    public static int VK_OBJECT_TYPE_EVENT => 11;
+
+    // File: vk.xml Line: 10739 Column: 10
+    public static int VK_OBJECT_TYPE_QUERY_POOL => 12;
+
+    // File: vk.xml Line: 10740 Column: 10
+    public static int VK_OBJECT_TYPE_BUFFER_VIEW => 13;
+
+    // File: vk.xml Line: 10741 Column: 10
+    public static int VK_OBJECT_TYPE_IMAGE_VIEW => 14;
+
+    // File: vk.xml Line: 10742 Column: 10
+    public static int VK_OBJECT_TYPE_SHADER_MODULE => 15;
+
+    // File: vk.xml Line: 10743 Column: 10
+    public static int VK_OBJECT_TYPE_PIPELINE_CACHE => 16;
+
+    // File: vk.xml Line: 10744 Column: 10
+    public static int VK_OBJECT_TYPE_PIPELINE_LAYOUT => 17;
+
+    // File: vk.xml Line: 10745 Column: 10
+    public static int VK_OBJECT_TYPE_RENDER_PASS => 18;
+
+    // File: vk.xml Line: 10746 Column: 10
+    public static int VK_OBJECT_TYPE_PIPELINE => 19;
+
+    // File: vk.xml Line: 10747 Column: 10
+    public static int VK_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT => 20;
+
+    // File: vk.xml Line: 10748 Column: 10
+    public static int VK_OBJECT_TYPE_SAMPLER => 21;
+
+    // File: vk.xml Line: 10749 Column: 10
+    public static int VK_OBJECT_TYPE_DESCRIPTOR_POOL => 22;
+
+    // File: vk.xml Line: 10750 Column: 10
+    public static int VK_OBJECT_TYPE_DESCRIPTOR_SET => 23;
+
+    // File: vk.xml Line: 10751 Column: 10
+    public static int VK_OBJECT_TYPE_FRAMEBUFFER => 24;
+
+    // File: vk.xml Line: 10752 Column: 10
+    public static int VK_OBJECT_TYPE_COMMAND_POOL => 25;
+
+    // File: vk.xml Line: 10755 Column: 10
+    public static int VK_RAY_TRACING_INVOCATION_REORDER_MODE_NONE_NV => 0;
+
+    // File: vk.xml Line: 10756 Column: 10
+    public static int VK_RAY_TRACING_INVOCATION_REORDER_MODE_REORDER_NV => 1;
+
+    // File: vk.xml Line: 10759 Column: 10
+    public static int VK_RAY_TRACING_LSS_INDEXING_MODE_LIST_NV => 0;
+
+    // File: vk.xml Line: 10760 Column: 10
+    public static int VK_RAY_TRACING_LSS_INDEXING_MODE_SUCCESSIVE_NV => 1;
+
+    // File: vk.xml Line: 10763 Column: 10
+    public static int VK_RAY_TRACING_LSS_PRIMITIVE_END_CAPS_MODE_NONE_NV => 0;
+
+    // File: vk.xml Line: 10764 Column: 10
+    public static int VK_RAY_TRACING_LSS_PRIMITIVE_END_CAPS_MODE_CHAINED_NV => 1;
+
+    // File: vk.xml Line: 10767 Column: 10
+    public static int VK_DIRECT_DRIVER_LOADING_MODE_EXCLUSIVE_LUNARG => 0;
+
+    // File: vk.xml Line: 10768 Column: 10
+    public static int VK_DIRECT_DRIVER_LOADING_MODE_INCLUSIVE_LUNARG => 1;
+
+    // File: vk.xml Line: 10771 Column: 10
+    public static int VK_ANTI_LAG_MODE_DRIVER_CONTROL_AMD => 0;
+
+    // File: vk.xml Line: 10772 Column: 10
+    public static int VK_ANTI_LAG_MODE_ON_AMD => 1;
+
+    // File: vk.xml Line: 10773 Column: 10
+    public static int VK_ANTI_LAG_MODE_OFF_AMD => 2;
+
+    // File: vk.xml Line: 10776 Column: 10
+    public static int VK_ANTI_LAG_STAGE_INPUT_AMD => 0;
+
+    // File: vk.xml Line: 10777 Column: 10
+    public static int VK_ANTI_LAG_STAGE_PRESENT_AMD => 1;
+
+    // File: vk.xml Line: 10788 Column: 10
+    public static int VK_CULL_MODE_NONE => 0;
+
+    // File: vk.xml Line: 10791 Column: 10
+    public static int VK_CULL_MODE_FRONT_AND_BACK => 0x00000003;
+
+    // File: vk.xml Line: 10860 Column: 10
+    public static int VK_SHADER_STAGE_ALL_GRAPHICS => 0x0000001F;
+
+    // File: vk.xml Line: 10861 Column: 10
+    public static int VK_SHADER_STAGE_ALL => 0x7FFFFFFF;
+
+    // File: vk.xml Line: 11015 Column: 10
+    public static int VK_STENCIL_FACE_FRONT_AND_BACK => 0x00000003;
+
+    // File: vk.xml Line: 11025 Column: 10
+    public static int VK_SEMAPHORE_TYPE_BINARY => 0;
+
+    // File: vk.xml Line: 11026 Column: 10
+    public static int VK_SEMAPHORE_TYPE_TIMELINE => 1;
+
+    // File: vk.xml Line: 11034 Column: 10
+    public static int VK_PRESENT_MODE_IMMEDIATE_KHR => 0;
+
+    // File: vk.xml Line: 11035 Column: 10
+    public static int VK_PRESENT_MODE_MAILBOX_KHR => 1;
+
+    // File: vk.xml Line: 11036 Column: 10
+    public static int VK_PRESENT_MODE_FIFO_KHR => 2;
+
+    // File: vk.xml Line: 11037 Column: 10
+    public static int VK_PRESENT_MODE_FIFO_RELAXED_KHR => 3;
+
+    // File: vk.xml Line: 11040 Column: 10
+    public static int VK_COLOR_SPACE_SRGB_NONLINEAR_KHR => 0;
+
+    // File: vk.xml Line: 11067 Column: 10
+    public static int VK_DISPLAY_SURFACE_STEREO_TYPE_NONE_NV => 0;
+
+    // File: vk.xml Line: 11068 Column: 10
+    public static int VK_DISPLAY_SURFACE_STEREO_TYPE_ONBOARD_DIN_NV => 1;
+
+    // File: vk.xml Line: 11069 Column: 10
+    public static int VK_DISPLAY_SURFACE_STEREO_TYPE_HDMI_3D_NV => 2;
+
+    // File: vk.xml Line: 11070 Column: 10
+    public static int VK_DISPLAY_SURFACE_STEREO_TYPE_INBAND_DISPLAYPORT_NV => 3;
+
+    // File: vk.xml Line: 11076 Column: 10
+    public static int VK_TIME_DOMAIN_DEVICE_KHR => 0;
+
+    // File: vk.xml Line: 11077 Column: 10
+    public static int VK_TIME_DOMAIN_CLOCK_MONOTONIC_KHR => 1;
+
+    // File: vk.xml Line: 11078 Column: 10
+    public static int VK_TIME_DOMAIN_CLOCK_MONOTONIC_RAW_KHR => 2;
+
+    // File: vk.xml Line: 11079 Column: 10
+    public static int VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_KHR => 3;
+
+    // File: vk.xml Line: 11089 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT => 0;
+
+    // File: vk.xml Line: 11090 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_INSTANCE_EXT => 1;
+
+    // File: vk.xml Line: 11091 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_PHYSICAL_DEVICE_EXT => 2;
+
+    // File: vk.xml Line: 11092 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_DEVICE_EXT => 3;
+
+    // File: vk.xml Line: 11093 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_QUEUE_EXT => 4;
+
+    // File: vk.xml Line: 11094 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_SEMAPHORE_EXT => 5;
+
+    // File: vk.xml Line: 11095 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_COMMAND_BUFFER_EXT => 6;
+
+    // File: vk.xml Line: 11096 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_FENCE_EXT => 7;
+
+    // File: vk.xml Line: 11097 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_DEVICE_MEMORY_EXT => 8;
+
+    // File: vk.xml Line: 11098 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_BUFFER_EXT => 9;
+
+    // File: vk.xml Line: 11099 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_IMAGE_EXT => 10;
+
+    // File: vk.xml Line: 11100 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_EVENT_EXT => 11;
+
+    // File: vk.xml Line: 11101 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_QUERY_POOL_EXT => 12;
+
+    // File: vk.xml Line: 11102 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_BUFFER_VIEW_EXT => 13;
+
+    // File: vk.xml Line: 11103 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_IMAGE_VIEW_EXT => 14;
+
+    // File: vk.xml Line: 11104 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_SHADER_MODULE_EXT => 15;
+
+    // File: vk.xml Line: 11105 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_CACHE_EXT => 16;
+
+    // File: vk.xml Line: 11106 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_LAYOUT_EXT => 17;
+
+    // File: vk.xml Line: 11107 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_RENDER_PASS_EXT => 18;
+
+    // File: vk.xml Line: 11108 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_EXT => 19;
+
+    // File: vk.xml Line: 11109 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT_EXT => 20;
+
+    // File: vk.xml Line: 11110 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_SAMPLER_EXT => 21;
+
+    // File: vk.xml Line: 11111 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_POOL_EXT => 22;
+
+    // File: vk.xml Line: 11112 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_EXT => 23;
+
+    // File: vk.xml Line: 11113 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_FRAMEBUFFER_EXT => 24;
+
+    // File: vk.xml Line: 11114 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_COMMAND_POOL_EXT => 25;
+
+    // File: vk.xml Line: 11115 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT => 26;
+
+    // File: vk.xml Line: 11116 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_SWAPCHAIN_KHR_EXT => 27;
+
+    // File: vk.xml Line: 11117 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT_EXT => 28;
+
+    // File: vk.xml Line: 11119 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_KHR_EXT => 29;
+
+    // File: vk.xml Line: 11120 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT => 30;
+
+    // File: vk.xml Line: 11125 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT_EXT => 33;
+
+    // File: vk.xml Line: 11129 Column: 10
+    public static int VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATE_EXT => 0;
+
+    // File: vk.xml Line: 11130 Column: 10
+    public static int VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_FREE_EXT => 1;
+
+    // File: vk.xml Line: 11131 Column: 10
+    public static int VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_IMPORT_EXT => 2;
+
+    // File: vk.xml Line: 11132 Column: 10
+    public static int VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_UNIMPORT_EXT => 3;
+
+    // File: vk.xml Line: 11133 Column: 10
+    public static int VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATION_FAILED_EXT => 4;
+
+    // File: vk.xml Line: 11136 Column: 10
+    public static int VK_RASTERIZATION_ORDER_STRICT_AMD => 0;
+
+    // File: vk.xml Line: 11137 Column: 10
+    public static int VK_RASTERIZATION_ORDER_RELAXED_AMD => 1;
+
+    // File: vk.xml Line: 11156 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_TYPE_CLUSTERS_BOTTOM_LEVEL_NV => 0;
+
+    // File: vk.xml Line: 11157 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_TYPE_TRIANGLE_CLUSTER_NV => 1;
+
+    // File: vk.xml Line: 11158 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_TYPE_TRIANGLE_CLUSTER_TEMPLATE_NV => 2;
+
+    // File: vk.xml Line: 11161 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_MOVE_OBJECTS_NV => 0;
+
+    // File: vk.xml Line: 11162 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_CLUSTERS_BOTTOM_LEVEL_NV => 1;
+
+    // File: vk.xml Line: 11163 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_NV => 2;
+
+    // File: vk.xml Line: 11164 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_TEMPLATE_NV => 3;
+
+    // File: vk.xml Line: 11165 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_INSTANTIATE_TRIANGLE_CLUSTER_NV => 4;
+
+    // File: vk.xml Line: 11168 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_IMPLICIT_DESTINATIONS_NV => 0;
+
+    // File: vk.xml Line: 11169 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_EXPLICIT_DESTINATIONS_NV => 1;
+
+    // File: vk.xml Line: 11170 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_COMPUTE_SIZES_NV => 2;
+
+    // File: vk.xml Line: 11189 Column: 10
+    public static int VK_VALIDATION_CHECK_ALL_EXT => 0;
+
+    // File: vk.xml Line: 11190 Column: 10
+    public static int VK_VALIDATION_CHECK_SHADERS_EXT => 1;
+
+    // File: vk.xml Line: 11193 Column: 10
+    public static int VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_EXT => 0;
+
+    // File: vk.xml Line: 11194 Column: 10
+    public static int VK_VALIDATION_FEATURE_ENABLE_GPU_ASSISTED_RESERVE_BINDING_SLOT_EXT => 1;
+
+    // File: vk.xml Line: 11195 Column: 10
+    public static int VK_VALIDATION_FEATURE_ENABLE_BEST_PRACTICES_EXT => 2;
+
+    // File: vk.xml Line: 11196 Column: 10
+    public static int VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT => 3;
+
+    // File: vk.xml Line: 11197 Column: 10
+    public static int VK_VALIDATION_FEATURE_ENABLE_SYNCHRONIZATION_VALIDATION_EXT => 4;
+
+    // File: vk.xml Line: 11200 Column: 10
+    public static int VK_VALIDATION_FEATURE_DISABLE_ALL_EXT => 0;
+
+    // File: vk.xml Line: 11201 Column: 10
+    public static int VK_VALIDATION_FEATURE_DISABLE_SHADERS_EXT => 1;
+
+    // File: vk.xml Line: 11202 Column: 10
+    public static int VK_VALIDATION_FEATURE_DISABLE_THREAD_SAFETY_EXT => 2;
+
+    // File: vk.xml Line: 11203 Column: 10
+    public static int VK_VALIDATION_FEATURE_DISABLE_API_PARAMETERS_EXT => 3;
+
+    // File: vk.xml Line: 11204 Column: 10
+    public static int VK_VALIDATION_FEATURE_DISABLE_OBJECT_LIFETIMES_EXT => 4;
+
+    // File: vk.xml Line: 11205 Column: 10
+    public static int VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT => 5;
+
+    // File: vk.xml Line: 11206 Column: 10
+    public static int VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT => 6;
+
+    // File: vk.xml Line: 11207 Column: 10
+    public static int VK_VALIDATION_FEATURE_DISABLE_SHADER_VALIDATION_CACHE_EXT => 7;
+
+    // File: vk.xml Line: 11210 Column: 10
+    public static int VK_LAYER_SETTING_TYPE_BOOL32_EXT => 0;
+
+    // File: vk.xml Line: 11211 Column: 10
+    public static int VK_LAYER_SETTING_TYPE_INT32_EXT => 1;
+
+    // File: vk.xml Line: 11212 Column: 10
+    public static int VK_LAYER_SETTING_TYPE_INT64_EXT => 2;
+
+    // File: vk.xml Line: 11213 Column: 10
+    public static int VK_LAYER_SETTING_TYPE_UINT32_EXT => 3;
+
+    // File: vk.xml Line: 11214 Column: 10
+    public static int VK_LAYER_SETTING_TYPE_UINT64_EXT => 4;
+
+    // File: vk.xml Line: 11215 Column: 10
+    public static int VK_LAYER_SETTING_TYPE_FLOAT32_EXT => 5;
+
+    // File: vk.xml Line: 11216 Column: 10
+    public static int VK_LAYER_SETTING_TYPE_FLOAT64_EXT => 6;
+
+    // File: vk.xml Line: 11217 Column: 10
+    public static int VK_LAYER_SETTING_TYPE_STRING_EXT => 7;
+
+    // File: vk.xml Line: 11238 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_SHADER_GROUP_NV => 0;
+
+    // File: vk.xml Line: 11239 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_STATE_FLAGS_NV => 1;
+
+    // File: vk.xml Line: 11240 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_INDEX_BUFFER_NV => 2;
+
+    // File: vk.xml Line: 11241 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_VERTEX_BUFFER_NV => 3;
+
+    // File: vk.xml Line: 11242 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_CONSTANT_NV => 4;
+
+    // File: vk.xml Line: 11243 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_NV => 5;
+
+    // File: vk.xml Line: 11244 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_NV => 6;
+
+    // File: vk.xml Line: 11245 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_TASKS_NV => 7;
+
+    // File: vk.xml Line: 11298 Column: 10
+    public static int VK_DISPLAY_POWER_STATE_OFF_EXT => 0;
+
+    // File: vk.xml Line: 11299 Column: 10
+    public static int VK_DISPLAY_POWER_STATE_SUSPEND_EXT => 1;
+
+    // File: vk.xml Line: 11300 Column: 10
+    public static int VK_DISPLAY_POWER_STATE_ON_EXT => 2;
+
+    // File: vk.xml Line: 11303 Column: 10
+    public static int VK_DEVICE_EVENT_TYPE_DISPLAY_HOTPLUG_EXT => 0;
+
+    // File: vk.xml Line: 11306 Column: 10
+    public static int VK_DISPLAY_EVENT_TYPE_FIRST_PIXEL_OUT_EXT => 0;
+
+    // File: vk.xml Line: 11326 Column: 10
+    public static int VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_X_NV => 0;
+
+    // File: vk.xml Line: 11327 Column: 10
+    public static int VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_X_NV => 1;
+
+    // File: vk.xml Line: 11328 Column: 10
+    public static int VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Y_NV => 2;
+
+    // File: vk.xml Line: 11329 Column: 10
+    public static int VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Y_NV => 3;
+
+    // File: vk.xml Line: 11330 Column: 10
+    public static int VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_Z_NV => 4;
+
+    // File: vk.xml Line: 11331 Column: 10
+    public static int VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Z_NV => 5;
+
+    // File: vk.xml Line: 11332 Column: 10
+    public static int VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_W_NV => 6;
+
+    // File: vk.xml Line: 11333 Column: 10
+    public static int VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_W_NV => 7;
+
+    // File: vk.xml Line: 11336 Column: 10
+    public static int VK_DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT => 0;
+
+    // File: vk.xml Line: 11337 Column: 10
+    public static int VK_DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT => 1;
+
+    // File: vk.xml Line: 11342 Column: 10
+    public static int VK_POINT_CLIPPING_BEHAVIOR_ALL_CLIP_PLANES => 0;
+
+    // File: vk.xml Line: 11343 Column: 10
+    public static int VK_POINT_CLIPPING_BEHAVIOR_USER_CLIP_PLANES_ONLY => 1;
+
+    // File: vk.xml Line: 11346 Column: 10
+    public static int VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE => 0;
+
+    // File: vk.xml Line: 11347 Column: 10
+    public static int VK_SAMPLER_REDUCTION_MODE_MIN => 1;
+
+    // File: vk.xml Line: 11348 Column: 10
+    public static int VK_SAMPLER_REDUCTION_MODE_MAX => 2;
+
+    // File: vk.xml Line: 11351 Column: 10
+    public static int VK_TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT => 0;
+
+    // File: vk.xml Line: 11352 Column: 10
+    public static int VK_TESSELLATION_DOMAIN_ORIGIN_LOWER_LEFT => 1;
+
+    // File: vk.xml Line: 11355 Column: 10
+    public static int VK_SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY => 0;
+
+    // File: vk.xml Line: 11356 Column: 10
+    public static int VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_IDENTITY => 1;
+
+    // File: vk.xml Line: 11357 Column: 10
+    public static int VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_709 => 2;
+
+    // File: vk.xml Line: 11358 Column: 10
+    public static int VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_601 => 3;
+
+    // File: vk.xml Line: 11359 Column: 10
+    public static int VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_2020 => 4;
+
+    // File: vk.xml Line: 11362 Column: 10
+    public static int VK_SAMPLER_YCBCR_RANGE_ITU_FULL => 0;
+
+    // File: vk.xml Line: 11363 Column: 10
+    public static int VK_SAMPLER_YCBCR_RANGE_ITU_NARROW => 1;
+
+    // File: vk.xml Line: 11366 Column: 10
+    public static int VK_CHROMA_LOCATION_COSITED_EVEN => 0;
+
+    // File: vk.xml Line: 11367 Column: 10
+    public static int VK_CHROMA_LOCATION_MIDPOINT => 1;
+
+    // File: vk.xml Line: 11370 Column: 10
+    public static int VK_BLEND_OVERLAP_UNCORRELATED_EXT => 0;
+
+    // File: vk.xml Line: 11371 Column: 10
+    public static int VK_BLEND_OVERLAP_DISJOINT_EXT => 1;
+
+    // File: vk.xml Line: 11372 Column: 10
+    public static int VK_BLEND_OVERLAP_CONJOINT_EXT => 2;
+
+    // File: vk.xml Line: 11375 Column: 10
+    public static int VK_COVERAGE_MODULATION_MODE_NONE_NV => 0;
+
+    // File: vk.xml Line: 11376 Column: 10
+    public static int VK_COVERAGE_MODULATION_MODE_RGB_NV => 1;
+
+    // File: vk.xml Line: 11377 Column: 10
+    public static int VK_COVERAGE_MODULATION_MODE_ALPHA_NV => 2;
+
+    // File: vk.xml Line: 11378 Column: 10
+    public static int VK_COVERAGE_MODULATION_MODE_RGBA_NV => 3;
+
+    // File: vk.xml Line: 11381 Column: 10
+    public static int VK_COVERAGE_REDUCTION_MODE_MERGE_NV => 0;
+
+    // File: vk.xml Line: 11382 Column: 10
+    public static int VK_COVERAGE_REDUCTION_MODE_TRUNCATE_NV => 1;
+
+    // File: vk.xml Line: 11385 Column: 10
+    public static int VK_VALIDATION_CACHE_HEADER_VERSION_ONE_EXT => 1;
+
+    // File: vk.xml Line: 11388 Column: 10
+    public static int VK_SHADER_INFO_TYPE_STATISTICS_AMD => 0;
+
+    // File: vk.xml Line: 11389 Column: 10
+    public static int VK_SHADER_INFO_TYPE_BINARY_AMD => 1;
+
+    // File: vk.xml Line: 11390 Column: 10
+    public static int VK_SHADER_INFO_TYPE_DISASSEMBLY_AMD => 2;
+
+    // File: vk.xml Line: 11393 Column: 10
+    public static int VK_QUEUE_GLOBAL_PRIORITY_LOW => 128;
+
+    // File: vk.xml Line: 11394 Column: 10
+    public static int VK_QUEUE_GLOBAL_PRIORITY_MEDIUM => 256;
+
+    // File: vk.xml Line: 11395 Column: 10
+    public static int VK_QUEUE_GLOBAL_PRIORITY_HIGH => 512;
+
+    // File: vk.xml Line: 11396 Column: 10
+    public static int VK_QUEUE_GLOBAL_PRIORITY_REALTIME => 1024;
+
+    // File: vk.xml Line: 11410 Column: 10
+    public static int VK_CONSERVATIVE_RASTERIZATION_MODE_DISABLED_EXT => 0;
+
+    // File: vk.xml Line: 11411 Column: 10
+    public static int VK_CONSERVATIVE_RASTERIZATION_MODE_OVERESTIMATE_EXT => 1;
+
+    // File: vk.xml Line: 11412 Column: 10
+    public static int VK_CONSERVATIVE_RASTERIZATION_MODE_UNDERESTIMATE_EXT => 2;
+
+    // File: vk.xml Line: 11424 Column: 10
+    public static int VK_VENDOR_ID_KHRONOS => 0x10000;
+
+    // File: vk.xml Line: 11425 Column: 10
+    public static int VK_VENDOR_ID_VIV => 0x10001;
+
+    // File: vk.xml Line: 11426 Column: 10
+    public static int VK_VENDOR_ID_VSI => 0x10002;
+
+    // File: vk.xml Line: 11427 Column: 10
+    public static int VK_VENDOR_ID_KAZAN => 0x10003;
+
+    // File: vk.xml Line: 11428 Column: 10
+    public static int VK_VENDOR_ID_CODEPLAY => 0x10004;
+
+    // File: vk.xml Line: 11429 Column: 10
+    public static int VK_VENDOR_ID_MESA => 0x10005;
+
+    // File: vk.xml Line: 11430 Column: 10
+    public static int VK_VENDOR_ID_POCL => 0x10006;
+
+    // File: vk.xml Line: 11431 Column: 10
+    public static int VK_VENDOR_ID_MOBILEYE => 0x10007;
+
+    // File: vk.xml Line: 11438 Column: 10
+    public static int VK_DRIVER_ID_AMD_PROPRIETARY => 1;
+
+    // File: vk.xml Line: 11439 Column: 10
+    public static int VK_DRIVER_ID_AMD_OPEN_SOURCE => 2;
+
+    // File: vk.xml Line: 11440 Column: 10
+    public static int VK_DRIVER_ID_MESA_RADV => 3;
+
+    // File: vk.xml Line: 11441 Column: 10
+    public static int VK_DRIVER_ID_NVIDIA_PROPRIETARY => 4;
+
+    // File: vk.xml Line: 11442 Column: 10
+    public static int VK_DRIVER_ID_INTEL_PROPRIETARY_WINDOWS => 5;
+
+    // File: vk.xml Line: 11443 Column: 10
+    public static int VK_DRIVER_ID_INTEL_OPEN_SOURCE_MESA => 6;
+
+    // File: vk.xml Line: 11444 Column: 10
+    public static int VK_DRIVER_ID_IMAGINATION_PROPRIETARY => 7;
+
+    // File: vk.xml Line: 11445 Column: 10
+    public static int VK_DRIVER_ID_QUALCOMM_PROPRIETARY => 8;
+
+    // File: vk.xml Line: 11446 Column: 10
+    public static int VK_DRIVER_ID_ARM_PROPRIETARY => 9;
+
+    // File: vk.xml Line: 11447 Column: 10
+    public static int VK_DRIVER_ID_GOOGLE_SWIFTSHADER => 10;
+
+    // File: vk.xml Line: 11448 Column: 10
+    public static int VK_DRIVER_ID_GGP_PROPRIETARY => 11;
+
+    // File: vk.xml Line: 11449 Column: 10
+    public static int VK_DRIVER_ID_BROADCOM_PROPRIETARY => 12;
+
+    // File: vk.xml Line: 11450 Column: 10
+    public static int VK_DRIVER_ID_MESA_LLVMPIPE => 13;
+
+    // File: vk.xml Line: 11451 Column: 10
+    public static int VK_DRIVER_ID_MOLTENVK => 14;
+
+    // File: vk.xml Line: 11452 Column: 10
+    public static int VK_DRIVER_ID_COREAVI_PROPRIETARY => 15;
+
+    // File: vk.xml Line: 11453 Column: 10
+    public static int VK_DRIVER_ID_JUICE_PROPRIETARY => 16;
+
+    // File: vk.xml Line: 11454 Column: 10
+    public static int VK_DRIVER_ID_VERISILICON_PROPRIETARY => 17;
+
+    // File: vk.xml Line: 11455 Column: 10
+    public static int VK_DRIVER_ID_MESA_TURNIP => 18;
+
+    // File: vk.xml Line: 11456 Column: 10
+    public static int VK_DRIVER_ID_MESA_V3DV => 19;
+
+    // File: vk.xml Line: 11457 Column: 10
+    public static int VK_DRIVER_ID_MESA_PANVK => 20;
+
+    // File: vk.xml Line: 11458 Column: 10
+    public static int VK_DRIVER_ID_SAMSUNG_PROPRIETARY => 21;
+
+    // File: vk.xml Line: 11459 Column: 10
+    public static int VK_DRIVER_ID_MESA_VENUS => 22;
+
+    // File: vk.xml Line: 11460 Column: 10
+    public static int VK_DRIVER_ID_MESA_DOZEN => 23;
+
+    // File: vk.xml Line: 11461 Column: 10
+    public static int VK_DRIVER_ID_MESA_NVK => 24;
+
+    // File: vk.xml Line: 11462 Column: 10
+    public static int VK_DRIVER_ID_IMAGINATION_OPEN_SOURCE_MESA => 25;
+
+    // File: vk.xml Line: 11463 Column: 10
+    public static int VK_DRIVER_ID_MESA_HONEYKRISP => 26;
+
+    // File: vk.xml Line: 11464 Column: 10
+    public static int VK_DRIVER_ID_VULKAN_SC_EMULATION_ON_VULKAN => 27;
+
+    // File: vk.xml Line: 11470 Column: 10
+    public static int VK_RESOLVE_MODE_NONE => 0;
+
+    // File: vk.xml Line: 11477 Column: 10
+    public static int VK_SHADING_RATE_PALETTE_ENTRY_NO_INVOCATIONS_NV => 0;
+
+    // File: vk.xml Line: 11478 Column: 10
+    public static int VK_SHADING_RATE_PALETTE_ENTRY_16_INVOCATIONS_PER_PIXEL_NV => 1;
+
+    // File: vk.xml Line: 11479 Column: 10
+    public static int VK_SHADING_RATE_PALETTE_ENTRY_8_INVOCATIONS_PER_PIXEL_NV => 2;
+
+    // File: vk.xml Line: 11480 Column: 10
+    public static int VK_SHADING_RATE_PALETTE_ENTRY_4_INVOCATIONS_PER_PIXEL_NV => 3;
+
+    // File: vk.xml Line: 11481 Column: 10
+    public static int VK_SHADING_RATE_PALETTE_ENTRY_2_INVOCATIONS_PER_PIXEL_NV => 4;
+
+    // File: vk.xml Line: 11482 Column: 10
+    public static int VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_PIXEL_NV => 5;
+
+    // File: vk.xml Line: 11483 Column: 10
+    public static int VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X1_PIXELS_NV => 6;
+
+    // File: vk.xml Line: 11484 Column: 10
+    public static int VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_1X2_PIXELS_NV => 7;
+
+    // File: vk.xml Line: 11485 Column: 10
+    public static int VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X2_PIXELS_NV => 8;
+
+    // File: vk.xml Line: 11486 Column: 10
+    public static int VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_4X2_PIXELS_NV => 9;
+
+    // File: vk.xml Line: 11487 Column: 10
+    public static int VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X4_PIXELS_NV => 10;
+
+    // File: vk.xml Line: 11488 Column: 10
+    public static int VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_4X4_PIXELS_NV => 11;
+
+    // File: vk.xml Line: 11491 Column: 10
+    public static int VK_COARSE_SAMPLE_ORDER_TYPE_DEFAULT_NV => 0;
+
+    // File: vk.xml Line: 11492 Column: 10
+    public static int VK_COARSE_SAMPLE_ORDER_TYPE_CUSTOM_NV => 1;
+
+    // File: vk.xml Line: 11493 Column: 10
+    public static int VK_COARSE_SAMPLE_ORDER_TYPE_PIXEL_MAJOR_NV => 2;
+
+    // File: vk.xml Line: 11494 Column: 10
+    public static int VK_COARSE_SAMPLE_ORDER_TYPE_SAMPLE_MAJOR_NV => 3;
+
+    // File: vk.xml Line: 11518 Column: 10
+    public static int VK_COPY_ACCELERATION_STRUCTURE_MODE_CLONE_KHR => 0;
+
+    // File: vk.xml Line: 11519 Column: 10
+    public static int VK_COPY_ACCELERATION_STRUCTURE_MODE_COMPACT_KHR => 1;
+
+    // File: vk.xml Line: 11522 Column: 10
+    public static int VK_BUILD_ACCELERATION_STRUCTURE_MODE_BUILD_KHR => 0;
+
+    // File: vk.xml Line: 11523 Column: 10
+    public static int VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR => 1;
+
+    // File: vk.xml Line: 11526 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_TYPE_TOP_LEVEL_KHR => 0;
+
+    // File: vk.xml Line: 11527 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_KHR => 1;
+
+    // File: vk.xml Line: 11528 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_TYPE_GENERIC_KHR => 2;
+
+    // File: vk.xml Line: 11531 Column: 10
+    public static int VK_GEOMETRY_TYPE_TRIANGLES_KHR => 0;
+
+    // File: vk.xml Line: 11532 Column: 10
+    public static int VK_GEOMETRY_TYPE_AABBS_KHR => 1;
+
+    // File: vk.xml Line: 11533 Column: 10
+    public static int VK_GEOMETRY_TYPE_INSTANCES_KHR => 2;
+
+    // File: vk.xml Line: 11536 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_OBJECT_NV => 0;
+
+    // File: vk.xml Line: 11537 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_BUILD_SCRATCH_NV => 1;
+
+    // File: vk.xml Line: 11538 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_UPDATE_SCRATCH_NV => 2;
+
+    // File: vk.xml Line: 11541 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_BUILD_TYPE_HOST_KHR => 0;
+
+    // File: vk.xml Line: 11542 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_BUILD_TYPE_DEVICE_KHR => 1;
+
+    // File: vk.xml Line: 11543 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_BUILD_TYPE_HOST_OR_DEVICE_KHR => 2;
+
+    // File: vk.xml Line: 11546 Column: 10
+    public static int VK_RAY_TRACING_SHADER_GROUP_TYPE_GENERAL_KHR => 0;
+
+    // File: vk.xml Line: 11547 Column: 10
+    public static int VK_RAY_TRACING_SHADER_GROUP_TYPE_TRIANGLES_HIT_GROUP_KHR => 1;
+
+    // File: vk.xml Line: 11548 Column: 10
+    public static int VK_RAY_TRACING_SHADER_GROUP_TYPE_PROCEDURAL_HIT_GROUP_KHR => 2;
+
+    // File: vk.xml Line: 11551 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_COMPATIBILITY_COMPATIBLE_KHR => 0;
+
+    // File: vk.xml Line: 11552 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_COMPATIBILITY_INCOMPATIBLE_KHR => 1;
+
+    // File: vk.xml Line: 11555 Column: 10
+    public static int VK_SHADER_GROUP_SHADER_GENERAL_KHR => 0;
+
+    // File: vk.xml Line: 11556 Column: 10
+    public static int VK_SHADER_GROUP_SHADER_CLOSEST_HIT_KHR => 1;
+
+    // File: vk.xml Line: 11557 Column: 10
+    public static int VK_SHADER_GROUP_SHADER_ANY_HIT_KHR => 2;
+
+    // File: vk.xml Line: 11558 Column: 10
+    public static int VK_SHADER_GROUP_SHADER_INTERSECTION_KHR => 3;
+
+    // File: vk.xml Line: 11561 Column: 10
+    public static int VK_MEMORY_OVERALLOCATION_BEHAVIOR_DEFAULT_AMD => 0;
+
+    // File: vk.xml Line: 11562 Column: 10
+    public static int VK_MEMORY_OVERALLOCATION_BEHAVIOR_ALLOWED_AMD => 1;
+
+    // File: vk.xml Line: 11563 Column: 10
+    public static int VK_MEMORY_OVERALLOCATION_BEHAVIOR_DISALLOWED_AMD => 2;
+
+    // File: vk.xml Line: 11579 Column: 10
+    public static int VK_FULL_SCREEN_EXCLUSIVE_DEFAULT_EXT => 0;
+
+    // File: vk.xml Line: 11580 Column: 10
+    public static int VK_FULL_SCREEN_EXCLUSIVE_ALLOWED_EXT => 1;
+
+    // File: vk.xml Line: 11581 Column: 10
+    public static int VK_FULL_SCREEN_EXCLUSIVE_DISALLOWED_EXT => 2;
+
+    // File: vk.xml Line: 11582 Column: 10
+    public static int VK_FULL_SCREEN_EXCLUSIVE_APPLICATION_CONTROLLED_EXT => 3;
+
+    // File: vk.xml Line: 11585 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_SCOPE_COMMAND_BUFFER_KHR => 0;
+
+    // File: vk.xml Line: 11586 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_SCOPE_RENDER_PASS_KHR => 1;
+
+    // File: vk.xml Line: 11587 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_SCOPE_COMMAND_KHR => 2;
+
+    // File: vk.xml Line: 11596 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_UNIT_GENERIC_KHR => 0;
+
+    // File: vk.xml Line: 11597 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_UNIT_PERCENTAGE_KHR => 1;
+
+    // File: vk.xml Line: 11598 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_UNIT_NANOSECONDS_KHR => 2;
+
+    // File: vk.xml Line: 11599 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_UNIT_BYTES_KHR => 3;
+
+    // File: vk.xml Line: 11600 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_UNIT_BYTES_PER_SECOND_KHR => 4;
+
+    // File: vk.xml Line: 11601 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_UNIT_KELVIN_KHR => 5;
+
+    // File: vk.xml Line: 11602 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_UNIT_WATTS_KHR => 6;
+
+    // File: vk.xml Line: 11603 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_UNIT_VOLTS_KHR => 7;
+
+    // File: vk.xml Line: 11604 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_UNIT_AMPS_KHR => 8;
+
+    // File: vk.xml Line: 11605 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_UNIT_HERTZ_KHR => 9;
+
+    // File: vk.xml Line: 11606 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_UNIT_CYCLES_KHR => 10;
+
+    // File: vk.xml Line: 11609 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_STORAGE_INT32_KHR => 0;
+
+    // File: vk.xml Line: 11610 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_STORAGE_INT64_KHR => 1;
+
+    // File: vk.xml Line: 11611 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_STORAGE_UINT32_KHR => 2;
+
+    // File: vk.xml Line: 11612 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_STORAGE_UINT64_KHR => 3;
+
+    // File: vk.xml Line: 11613 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_STORAGE_FLOAT32_KHR => 4;
+
+    // File: vk.xml Line: 11614 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_STORAGE_FLOAT64_KHR => 5;
+
+    // File: vk.xml Line: 11629 Column: 10
+    public static int VK_PERFORMANCE_CONFIGURATION_TYPE_COMMAND_QUEUE_METRICS_DISCOVERY_ACTIVATED_INTEL => 0;
+
+    // File: vk.xml Line: 11632 Column: 10
+    public static int VK_QUERY_POOL_SAMPLING_MODE_MANUAL_INTEL => 0;
+
+    // File: vk.xml Line: 11635 Column: 10
+    public static int VK_PERFORMANCE_OVERRIDE_TYPE_NULL_HARDWARE_INTEL => 0;
+
+    // File: vk.xml Line: 11636 Column: 10
+    public static int VK_PERFORMANCE_OVERRIDE_TYPE_FLUSH_GPU_CACHES_INTEL => 1;
+
+    // File: vk.xml Line: 11639 Column: 10
+    public static int VK_PERFORMANCE_PARAMETER_TYPE_HW_COUNTERS_SUPPORTED_INTEL => 0;
+
+    // File: vk.xml Line: 11640 Column: 10
+    public static int VK_PERFORMANCE_PARAMETER_TYPE_STREAM_MARKER_VALID_BITS_INTEL => 1;
+
+    // File: vk.xml Line: 11643 Column: 10
+    public static int VK_PERFORMANCE_VALUE_TYPE_UINT32_INTEL => 0;
+
+    // File: vk.xml Line: 11644 Column: 10
+    public static int VK_PERFORMANCE_VALUE_TYPE_UINT64_INTEL => 1;
+
+    // File: vk.xml Line: 11645 Column: 10
+    public static int VK_PERFORMANCE_VALUE_TYPE_FLOAT_INTEL => 2;
+
+    // File: vk.xml Line: 11646 Column: 10
+    public static int VK_PERFORMANCE_VALUE_TYPE_BOOL_INTEL => 3;
+
+    // File: vk.xml Line: 11647 Column: 10
+    public static int VK_PERFORMANCE_VALUE_TYPE_STRING_INTEL => 4;
+
+    // File: vk.xml Line: 11650 Column: 10
+    public static int VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_32_BIT_ONLY => 0;
+
+    // File: vk.xml Line: 11651 Column: 10
+    public static int VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_ALL => 1;
+
+    // File: vk.xml Line: 11652 Column: 10
+    public static int VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_NONE => 2;
+
+    // File: vk.xml Line: 11655 Column: 10
+    public static int VK_PIPELINE_EXECUTABLE_STATISTIC_FORMAT_BOOL32_KHR => 0;
+
+    // File: vk.xml Line: 11656 Column: 10
+    public static int VK_PIPELINE_EXECUTABLE_STATISTIC_FORMAT_INT64_KHR => 1;
+
+    // File: vk.xml Line: 11657 Column: 10
+    public static int VK_PIPELINE_EXECUTABLE_STATISTIC_FORMAT_UINT64_KHR => 2;
+
+    // File: vk.xml Line: 11658 Column: 10
+    public static int VK_PIPELINE_EXECUTABLE_STATISTIC_FORMAT_FLOAT64_KHR => 3;
+
+    // File: vk.xml Line: 11661 Column: 10
+    public static int VK_LINE_RASTERIZATION_MODE_DEFAULT => 0;
+
+    // File: vk.xml Line: 11662 Column: 10
+    public static int VK_LINE_RASTERIZATION_MODE_RECTANGULAR => 1;
+
+    // File: vk.xml Line: 11663 Column: 10
+    public static int VK_LINE_RASTERIZATION_MODE_BRESENHAM => 2;
+
+    // File: vk.xml Line: 11664 Column: 10
+    public static int VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH => 3;
+
+    // File: vk.xml Line: 11671 Column: 10
+    public static int VK_FAULT_LEVEL_UNASSIGNED => 0;
+
+    // File: vk.xml Line: 11672 Column: 10
+    public static int VK_FAULT_LEVEL_CRITICAL => 1;
+
+    // File: vk.xml Line: 11673 Column: 10
+    public static int VK_FAULT_LEVEL_RECOVERABLE => 2;
+
+    // File: vk.xml Line: 11674 Column: 10
+    public static int VK_FAULT_LEVEL_WARNING => 3;
+
+    // File: vk.xml Line: 11677 Column: 10
+    public static int VK_FAULT_TYPE_INVALID => 0;
+
+    // File: vk.xml Line: 11678 Column: 10
+    public static int VK_FAULT_TYPE_UNASSIGNED => 1;
+
+    // File: vk.xml Line: 11679 Column: 10
+    public static int VK_FAULT_TYPE_IMPLEMENTATION => 2;
+
+    // File: vk.xml Line: 11680 Column: 10
+    public static int VK_FAULT_TYPE_SYSTEM => 3;
+
+    // File: vk.xml Line: 11681 Column: 10
+    public static int VK_FAULT_TYPE_PHYSICAL_DEVICE => 4;
+
+    // File: vk.xml Line: 11682 Column: 10
+    public static int VK_FAULT_TYPE_COMMAND_BUFFER_FULL => 5;
+
+    // File: vk.xml Line: 11683 Column: 10
+    public static int VK_FAULT_TYPE_INVALID_API_USAGE => 6;
+
+    // File: vk.xml Line: 11686 Column: 10
+    public static int VK_FAULT_QUERY_BEHAVIOR_GET_AND_CLEAR_ALL_FAULTS => 0;
+
+    // File: vk.xml Line: 11696 Column: 10
+    public static int VK_PIPELINE_MATCH_CONTROL_APPLICATION_UUID_EXACT_MATCH => 0;
+
+    // File: vk.xml Line: 11699 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_COMBINER_OP_KEEP_KHR => 0;
+
+    // File: vk.xml Line: 11700 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_COMBINER_OP_REPLACE_KHR => 1;
+
+    // File: vk.xml Line: 11701 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_COMBINER_OP_MIN_KHR => 2;
+
+    // File: vk.xml Line: 11702 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_COMBINER_OP_MAX_KHR => 3;
+
+    // File: vk.xml Line: 11703 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_COMBINER_OP_MUL_KHR => 4;
+
+    // File: vk.xml Line: 11706 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_PIXEL_NV => 0;
+
+    // File: vk.xml Line: 11707 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_1X2_PIXELS_NV => 1;
+
+    // File: vk.xml Line: 11708 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_2X1_PIXELS_NV => 4;
+
+    // File: vk.xml Line: 11709 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_2X2_PIXELS_NV => 5;
+
+    // File: vk.xml Line: 11710 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_2X4_PIXELS_NV => 6;
+
+    // File: vk.xml Line: 11711 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_4X2_PIXELS_NV => 9;
+
+    // File: vk.xml Line: 11712 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_1_INVOCATION_PER_4X4_PIXELS_NV => 10;
+
+    // File: vk.xml Line: 11713 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_2_INVOCATIONS_PER_PIXEL_NV => 11;
+
+    // File: vk.xml Line: 11714 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_4_INVOCATIONS_PER_PIXEL_NV => 12;
+
+    // File: vk.xml Line: 11715 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_8_INVOCATIONS_PER_PIXEL_NV => 13;
+
+    // File: vk.xml Line: 11716 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_16_INVOCATIONS_PER_PIXEL_NV => 14;
+
+    // File: vk.xml Line: 11717 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_NO_INVOCATIONS_NV => 15;
+
+    // File: vk.xml Line: 11720 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_TYPE_FRAGMENT_SIZE_NV => 0;
+
+    // File: vk.xml Line: 11721 Column: 10
+    public static int VK_FRAGMENT_SHADING_RATE_TYPE_ENUMS_NV => 1;
+
+    // File: vk.xml Line: 11724 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_MERGED_EXT => 0;
+
+    // File: vk.xml Line: 11725 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_DISALLOWED_EXT => 1;
+
+    // File: vk.xml Line: 11726 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_NOT_MERGED_SIDE_EFFECTS_EXT => 2;
+
+    // File: vk.xml Line: 11727 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_NOT_MERGED_SAMPLES_MISMATCH_EXT => 3;
+
+    // File: vk.xml Line: 11728 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_NOT_MERGED_VIEWS_MISMATCH_EXT => 4;
+
+    // File: vk.xml Line: 11729 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_NOT_MERGED_ALIASING_EXT => 5;
+
+    // File: vk.xml Line: 11730 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_NOT_MERGED_DEPENDENCIES_EXT => 6;
+
+    // File: vk.xml Line: 11731 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_NOT_MERGED_INCOMPATIBLE_INPUT_ATTACHMENT_EXT => 7;
+
+    // File: vk.xml Line: 11732 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_NOT_MERGED_TOO_MANY_ATTACHMENTS_EXT => 8;
+
+    // File: vk.xml Line: 11733 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_NOT_MERGED_INSUFFICIENT_STORAGE_EXT => 9;
+
+    // File: vk.xml Line: 11734 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_NOT_MERGED_DEPTH_STENCIL_COUNT_EXT => 10;
+
+    // File: vk.xml Line: 11735 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_NOT_MERGED_RESOLVE_ATTACHMENT_REUSE_EXT => 11;
+
+    // File: vk.xml Line: 11736 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_NOT_MERGED_SINGLE_SUBPASS_EXT => 12;
+
+    // File: vk.xml Line: 11737 Column: 10
+    public static int VK_SUBPASS_MERGE_STATUS_NOT_MERGED_UNSPECIFIED_EXT => 13;
+
+    // File: vk.xml Line: 11740 Column: 10
+    public static int VK_ACCESS_2_NONE => 0;
+
+    // File: vk.xml Line: 11764 Column: 10
+    public static int VK_PIPELINE_STAGE_2_NONE => 0;
+
+    // File: vk.xml Line: 11800 Column: 10
+    public static int VK_SCI_SYNC_CLIENT_TYPE_SIGNALER_NV => 0;
+
+    // File: vk.xml Line: 11801 Column: 10
+    public static int VK_SCI_SYNC_CLIENT_TYPE_WAITER_NV => 1;
+
+    // File: vk.xml Line: 11802 Column: 10
+    public static int VK_SCI_SYNC_CLIENT_TYPE_SIGNALER_WAITER_NV => 2;
+
+    // File: vk.xml Line: 11805 Column: 10
+    public static int VK_SCI_SYNC_PRIMITIVE_TYPE_FENCE_NV => 0;
+
+    // File: vk.xml Line: 11806 Column: 10
+    public static int VK_SCI_SYNC_PRIMITIVE_TYPE_SEMAPHORE_NV => 1;
+
+    // File: vk.xml Line: 11809 Column: 10
+    public static int VK_PROVOKING_VERTEX_MODE_FIRST_VERTEX_EXT => 0;
+
+    // File: vk.xml Line: 11810 Column: 10
+    public static int VK_PROVOKING_VERTEX_MODE_LAST_VERTEX_EXT => 1;
+
+    // File: vk.xml Line: 11813 Column: 10
+    public static int VK_PIPELINE_CACHE_VALIDATION_VERSION_SAFETY_CRITICAL_ONE => 1;
+
+    // File: vk.xml Line: 11816 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_STATIC_NV => 0;
+
+    // File: vk.xml Line: 11817 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_MATRIX_MOTION_NV => 1;
+
+    // File: vk.xml Line: 11818 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_SRT_MOTION_NV => 2;
+
+    // File: vk.xml Line: 11834 Column: 10
+    public static int VK_DEVICE_ADDRESS_BINDING_TYPE_BIND_EXT => 0;
+
+    // File: vk.xml Line: 11835 Column: 10
+    public static int VK_DEVICE_ADDRESS_BINDING_TYPE_UNBIND_EXT => 1;
+
+    // File: vk.xml Line: 11855 Column: 10
+    public static int VK_VIDEO_CODEC_OPERATION_NONE_KHR => 0;
+
+    // File: vk.xml Line: 11858 Column: 10
+    public static int VK_VIDEO_CHROMA_SUBSAMPLING_INVALID_KHR => 0;
+
+    // File: vk.xml Line: 11865 Column: 10
+    public static int VK_VIDEO_COMPONENT_BIT_DEPTH_INVALID_KHR => 0;
+
+    // File: vk.xml Line: 11880 Column: 10
+    public static int VK_VIDEO_DECODE_H264_PICTURE_LAYOUT_PROGRESSIVE_KHR => 0;
+
+    // File: vk.xml Line: 11888 Column: 10
+    public static int VK_QUERY_RESULT_STATUS_ERROR_KHR => -1;
+
+    // File: vk.xml Line: 11889 Column: 10
+    public static int VK_QUERY_RESULT_STATUS_NOT_READY_KHR => 0;
+
+    // File: vk.xml Line: 11890 Column: 10
+    public static int VK_QUERY_RESULT_STATUS_COMPLETE_KHR => 1;
+
+    // File: vk.xml Line: 11893 Column: 10
+    public static int VK_VIDEO_DECODE_USAGE_DEFAULT_KHR => 0;
+
+    // File: vk.xml Line: 11905 Column: 10
+    public static int VK_VIDEO_ENCODE_USAGE_DEFAULT_KHR => 0;
+
+    // File: vk.xml Line: 11912 Column: 10
+    public static int VK_VIDEO_ENCODE_CONTENT_DEFAULT_KHR => 0;
+
+    // File: vk.xml Line: 11918 Column: 10
+    public static int VK_VIDEO_ENCODE_TUNING_MODE_DEFAULT_KHR => 0;
+
+    // File: vk.xml Line: 11919 Column: 10
+    public static int VK_VIDEO_ENCODE_TUNING_MODE_HIGH_QUALITY_KHR => 1;
+
+    // File: vk.xml Line: 11920 Column: 10
+    public static int VK_VIDEO_ENCODE_TUNING_MODE_LOW_LATENCY_KHR => 2;
+
+    // File: vk.xml Line: 11921 Column: 10
+    public static int VK_VIDEO_ENCODE_TUNING_MODE_ULTRA_LOW_LATENCY_KHR => 3;
+
+    // File: vk.xml Line: 11922 Column: 10
+    public static int VK_VIDEO_ENCODE_TUNING_MODE_LOSSLESS_KHR => 4;
+
+    // File: vk.xml Line: 11934 Column: 10
+    public static int VK_VIDEO_ENCODE_RATE_CONTROL_MODE_DEFAULT_KHR => 0;
+
+    // File: vk.xml Line: 11983 Column: 10
+    public static int VK_PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_WRITE_INSTANCE_NV => 0;
+
+    // File: vk.xml Line: 11984 Column: 10
+    public static int VK_PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_UPDATE_INSTANCE_NV => 1;
+
+    // File: vk.xml Line: 11985 Column: 10
+    public static int VK_PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_WRITE_PARTITION_TRANSLATION_NV => 2;
+
+    // File: vk.xml Line: 12114 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_PREDICTION_MODE_INTRA_ONLY_KHR => 0;
+
+    // File: vk.xml Line: 12115 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_PREDICTION_MODE_SINGLE_REFERENCE_KHR => 1;
+
+    // File: vk.xml Line: 12116 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_PREDICTION_MODE_UNIDIRECTIONAL_COMPOUND_KHR => 2;
+
+    // File: vk.xml Line: 12117 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_PREDICTION_MODE_BIDIRECTIONAL_COMPOUND_KHR => 3;
+
+    // File: vk.xml Line: 12120 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_INTRA_KHR => 0;
+
+    // File: vk.xml Line: 12121 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_PREDICTIVE_KHR => 1;
+
+    // File: vk.xml Line: 12122 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_BIPREDICTIVE_KHR => 2;
+
+    // File: vk.xml Line: 12135 Column: 10
+    public static int VK_IMAGE_COMPRESSION_DEFAULT_EXT => 0;
+
+    // File: vk.xml Line: 12141 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_NONE_EXT => 0;
+
+    // File: vk.xml Line: 12168 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DEVICE_DEFAULT => 0;
+
+    // File: vk.xml Line: 12169 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DISABLED => 1;
+
+    // File: vk.xml Line: 12170 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS => 2;
+
+    // File: vk.xml Line: 12171 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2 => 3;
+
+    // File: vk.xml Line: 12174 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_DEVICE_DEFAULT => 0;
+
+    // File: vk.xml Line: 12175 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_DISABLED => 1;
+
+    // File: vk.xml Line: 12176 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS => 2;
+
+    // File: vk.xml Line: 12177 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS_2 => 3;
+
+    // File: vk.xml Line: 12180 Column: 10
+    public static int VK_OPTICAL_FLOW_GRID_SIZE_UNKNOWN_NV => 0;
+
+    // File: vk.xml Line: 12187 Column: 10
+    public static int VK_OPTICAL_FLOW_USAGE_UNKNOWN_NV => 0;
+
+    // File: vk.xml Line: 12195 Column: 10
+    public static int VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_UNKNOWN_NV => 0;
+
+    // File: vk.xml Line: 12196 Column: 10
+    public static int VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_SLOW_NV => 1;
+
+    // File: vk.xml Line: 12197 Column: 10
+    public static int VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_MEDIUM_NV => 2;
+
+    // File: vk.xml Line: 12198 Column: 10
+    public static int VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_FAST_NV => 3;
+
+    // File: vk.xml Line: 12201 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_BINDING_POINT_UNKNOWN_NV => 0;
+
+    // File: vk.xml Line: 12202 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_BINDING_POINT_INPUT_NV => 1;
+
+    // File: vk.xml Line: 12203 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_BINDING_POINT_REFERENCE_NV => 2;
+
+    // File: vk.xml Line: 12204 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_BINDING_POINT_HINT_NV => 3;
+
+    // File: vk.xml Line: 12205 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_BINDING_POINT_FLOW_VECTOR_NV => 4;
+
+    // File: vk.xml Line: 12206 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_BINDING_POINT_BACKWARD_FLOW_VECTOR_NV => 5;
+
+    // File: vk.xml Line: 12207 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_BINDING_POINT_COST_NV => 6;
+
+    // File: vk.xml Line: 12208 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_BINDING_POINT_BACKWARD_COST_NV => 7;
+
+    // File: vk.xml Line: 12209 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_BINDING_POINT_GLOBAL_FLOW_NV => 8;
+
+    // File: vk.xml Line: 12222 Column: 10
+    public static int VK_MICROMAP_TYPE_OPACITY_MICROMAP_EXT => 0;
+
+    // File: vk.xml Line: 12233 Column: 10
+    public static int VK_COPY_MICROMAP_MODE_CLONE_EXT => 0;
+
+    // File: vk.xml Line: 12234 Column: 10
+    public static int VK_COPY_MICROMAP_MODE_SERIALIZE_EXT => 1;
+
+    // File: vk.xml Line: 12235 Column: 10
+    public static int VK_COPY_MICROMAP_MODE_DESERIALIZE_EXT => 2;
+
+    // File: vk.xml Line: 12236 Column: 10
+    public static int VK_COPY_MICROMAP_MODE_COMPACT_EXT => 3;
+
+    // File: vk.xml Line: 12239 Column: 10
+    public static int VK_BUILD_MICROMAP_MODE_BUILD_EXT => 0;
+
+    // File: vk.xml Line: 12242 Column: 10
+    public static int VK_OPACITY_MICROMAP_FORMAT_2_STATE_EXT => 1;
+
+    // File: vk.xml Line: 12243 Column: 10
+    public static int VK_OPACITY_MICROMAP_FORMAT_4_STATE_EXT => 2;
+
+    // File: vk.xml Line: 12246 Column: 10
+    public static int VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_TRANSPARENT_EXT => -1;
+
+    // File: vk.xml Line: 12247 Column: 10
+    public static int VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_OPAQUE_EXT => -2;
+
+    // File: vk.xml Line: 12248 Column: 10
+    public static int VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_TRANSPARENT_EXT => -3;
+
+    // File: vk.xml Line: 12249 Column: 10
+    public static int VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_OPAQUE_EXT => -4;
+
+    // File: vk.xml Line: 12252 Column: 10
+    public static int VK_DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORMAT_EXT => 0;
+
+    // File: vk.xml Line: 12253 Column: 10
+    public static int VK_DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORCE_UNORM_EXT => 1;
+
+    // File: vk.xml Line: 12254 Column: 10
+    public static int VK_DEPTH_BIAS_REPRESENTATION_FLOAT_EXT => 2;
+
+    // File: vk.xml Line: 12257 Column: 10
+    public static int VK_DEVICE_FAULT_ADDRESS_TYPE_NONE_EXT => 0;
+
+    // File: vk.xml Line: 12258 Column: 10
+    public static int VK_DEVICE_FAULT_ADDRESS_TYPE_READ_INVALID_EXT => 1;
+
+    // File: vk.xml Line: 12259 Column: 10
+    public static int VK_DEVICE_FAULT_ADDRESS_TYPE_WRITE_INVALID_EXT => 2;
+
+    // File: vk.xml Line: 12260 Column: 10
+    public static int VK_DEVICE_FAULT_ADDRESS_TYPE_EXECUTE_INVALID_EXT => 3;
+
+    // File: vk.xml Line: 12261 Column: 10
+    public static int VK_DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_UNKNOWN_EXT => 4;
+
+    // File: vk.xml Line: 12262 Column: 10
+    public static int VK_DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_INVALID_EXT => 5;
+
+    // File: vk.xml Line: 12263 Column: 10
+    public static int VK_DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_FAULT_EXT => 6;
+
+    // File: vk.xml Line: 12266 Column: 10
+    public static int VK_DEVICE_FAULT_VENDOR_BINARY_HEADER_VERSION_ONE_EXT => 1;
+
+    // File: vk.xml Line: 12273 Column: 10
+    public static int VK_INDIRECT_EXECUTION_SET_INFO_TYPE_PIPELINES_EXT => 0;
+
+    // File: vk.xml Line: 12274 Column: 10
+    public static int VK_INDIRECT_EXECUTION_SET_INFO_TYPE_SHADER_OBJECTS_EXT => 1;
+
+    // File: vk.xml Line: 12281 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_EXECUTION_SET_EXT => 0;
+
+    // File: vk.xml Line: 12282 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_PUSH_CONSTANT_EXT => 1;
+
+    // File: vk.xml Line: 12283 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_SEQUENCE_INDEX_EXT => 2;
+
+    // File: vk.xml Line: 12284 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_INDEX_BUFFER_EXT => 3;
+
+    // File: vk.xml Line: 12285 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_VERTEX_BUFFER_EXT => 4;
+
+    // File: vk.xml Line: 12286 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_EXT => 5;
+
+    // File: vk.xml Line: 12287 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_EXT => 6;
+
+    // File: vk.xml Line: 12288 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_INDEXED_COUNT_EXT => 7;
+
+    // File: vk.xml Line: 12289 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_COUNT_EXT => 8;
+
+    // File: vk.xml Line: 12290 Column: 10
+    public static int VK_INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_EXT => 9;
+
+    // File: vk.xml Line: 12293 Column: 10
+    public static int VK_DISPLACEMENT_MICROMAP_FORMAT_64_TRIANGLES_64_BYTES_NV => 1;
+
+    // File: vk.xml Line: 12294 Column: 10
+    public static int VK_DISPLACEMENT_MICROMAP_FORMAT_256_TRIANGLES_128_BYTES_NV => 2;
+
+    // File: vk.xml Line: 12295 Column: 10
+    public static int VK_DISPLACEMENT_MICROMAP_FORMAT_1024_TRIANGLES_128_BYTES_NV => 3;
+
+    // File: vk.xml Line: 12301 Column: 10
+    public static int VK_SHADER_CODE_TYPE_BINARY_EXT => 0;
+
+    // File: vk.xml Line: 12302 Column: 10
+    public static int VK_SHADER_CODE_TYPE_SPIRV_EXT => 1;
+
+    // File: vk.xml Line: 12305 Column: 10
+    public static int VK_SCOPE_DEVICE_KHR => 1;
+
+    // File: vk.xml Line: 12306 Column: 10
+    public static int VK_SCOPE_WORKGROUP_KHR => 2;
+
+    // File: vk.xml Line: 12307 Column: 10
+    public static int VK_SCOPE_SUBGROUP_KHR => 3;
+
+    // File: vk.xml Line: 12308 Column: 10
+    public static int VK_SCOPE_QUEUE_FAMILY_KHR => 5;
+
+    // File: vk.xml Line: 12311 Column: 10
+    public static int VK_COMPONENT_TYPE_FLOAT16_KHR => 0;
+
+    // File: vk.xml Line: 12312 Column: 10
+    public static int VK_COMPONENT_TYPE_FLOAT32_KHR => 1;
+
+    // File: vk.xml Line: 12313 Column: 10
+    public static int VK_COMPONENT_TYPE_FLOAT64_KHR => 2;
+
+    // File: vk.xml Line: 12314 Column: 10
+    public static int VK_COMPONENT_TYPE_SINT8_KHR => 3;
+
+    // File: vk.xml Line: 12315 Column: 10
+    public static int VK_COMPONENT_TYPE_SINT16_KHR => 4;
+
+    // File: vk.xml Line: 12316 Column: 10
+    public static int VK_COMPONENT_TYPE_SINT32_KHR => 5;
+
+    // File: vk.xml Line: 12317 Column: 10
+    public static int VK_COMPONENT_TYPE_SINT64_KHR => 6;
+
+    // File: vk.xml Line: 12318 Column: 10
+    public static int VK_COMPONENT_TYPE_UINT8_KHR => 7;
+
+    // File: vk.xml Line: 12319 Column: 10
+    public static int VK_COMPONENT_TYPE_UINT16_KHR => 8;
+
+    // File: vk.xml Line: 12320 Column: 10
+    public static int VK_COMPONENT_TYPE_UINT32_KHR => 9;
+
+    // File: vk.xml Line: 12321 Column: 10
+    public static int VK_COMPONENT_TYPE_UINT64_KHR => 10;
+
+    // File: vk.xml Line: 12324 Column: 10
+    public static int VK_CUBIC_FILTER_WEIGHTS_CATMULL_ROM_QCOM => 0;
+
+    // File: vk.xml Line: 12325 Column: 10
+    public static int VK_CUBIC_FILTER_WEIGHTS_ZERO_TANGENT_CARDINAL_QCOM => 1;
+
+    // File: vk.xml Line: 12326 Column: 10
+    public static int VK_CUBIC_FILTER_WEIGHTS_B_SPLINE_QCOM => 2;
+
+    // File: vk.xml Line: 12327 Column: 10
+    public static int VK_CUBIC_FILTER_WEIGHTS_MITCHELL_NETRAVALI_QCOM => 3;
+
+    // File: vk.xml Line: 12330 Column: 10
+    public static int VK_BLOCK_MATCH_WINDOW_COMPARE_MODE_MIN_QCOM => 0;
+
+    // File: vk.xml Line: 12331 Column: 10
+    public static int VK_BLOCK_MATCH_WINDOW_COMPARE_MODE_MAX_QCOM => 1;
+
+    // File: vk.xml Line: 12334 Column: 10
+    public static int VK_PHYSICAL_DEVICE_LAYERED_API_VULKAN_KHR => 0;
+
+    // File: vk.xml Line: 12335 Column: 10
+    public static int VK_PHYSICAL_DEVICE_LAYERED_API_D3D12_KHR => 1;
+
+    // File: vk.xml Line: 12336 Column: 10
+    public static int VK_PHYSICAL_DEVICE_LAYERED_API_METAL_KHR => 2;
+
+    // File: vk.xml Line: 12337 Column: 10
+    public static int VK_PHYSICAL_DEVICE_LAYERED_API_OPENGL_KHR => 3;
+
+    // File: vk.xml Line: 12338 Column: 10
+    public static int VK_PHYSICAL_DEVICE_LAYERED_API_OPENGLES_KHR => 4;
+
+    // File: vk.xml Line: 12341 Column: 10
+    public static int VK_LAYERED_DRIVER_UNDERLYING_API_NONE_MSFT => 0;
+
+    // File: vk.xml Line: 12342 Column: 10
+    public static int VK_LAYERED_DRIVER_UNDERLYING_API_D3D12_MSFT => 1;
+
+    // File: vk.xml Line: 12345 Column: 10
+    public static int VK_LATENCY_MARKER_SIMULATION_START_NV => 0;
+
+    // File: vk.xml Line: 12346 Column: 10
+    public static int VK_LATENCY_MARKER_SIMULATION_END_NV => 1;
+
+    // File: vk.xml Line: 12347 Column: 10
+    public static int VK_LATENCY_MARKER_RENDERSUBMIT_START_NV => 2;
+
+    // File: vk.xml Line: 12348 Column: 10
+    public static int VK_LATENCY_MARKER_RENDERSUBMIT_END_NV => 3;
+
+    // File: vk.xml Line: 12349 Column: 10
+    public static int VK_LATENCY_MARKER_PRESENT_START_NV => 4;
+
+    // File: vk.xml Line: 12350 Column: 10
+    public static int VK_LATENCY_MARKER_PRESENT_END_NV => 5;
+
+    // File: vk.xml Line: 12351 Column: 10
+    public static int VK_LATENCY_MARKER_INPUT_SAMPLE_NV => 6;
+
+    // File: vk.xml Line: 12352 Column: 10
+    public static int VK_LATENCY_MARKER_TRIGGER_FLASH_NV => 7;
+
+    // File: vk.xml Line: 12353 Column: 10
+    public static int VK_LATENCY_MARKER_OUT_OF_BAND_RENDERSUBMIT_START_NV => 8;
+
+    // File: vk.xml Line: 12354 Column: 10
+    public static int VK_LATENCY_MARKER_OUT_OF_BAND_RENDERSUBMIT_END_NV => 9;
+
+    // File: vk.xml Line: 12355 Column: 10
+    public static int VK_LATENCY_MARKER_OUT_OF_BAND_PRESENT_START_NV => 10;
+
+    // File: vk.xml Line: 12356 Column: 10
+    public static int VK_LATENCY_MARKER_OUT_OF_BAND_PRESENT_END_NV => 11;
+
+    // File: vk.xml Line: 12359 Column: 10
+    public static int VK_OUT_OF_BAND_QUEUE_TYPE_RENDER_NV => 0;
+
+    // File: vk.xml Line: 12360 Column: 10
+    public static int VK_OUT_OF_BAND_QUEUE_TYPE_PRESENT_NV => 1;
+
+    // File: vk.xml Line: 12367 Column: 10
+    public static int VK_DEPTH_CLAMP_MODE_VIEWPORT_RANGE_EXT => 0;
+
+    // File: vk.xml Line: 12368 Column: 10
+    public static int VK_DEPTH_CLAMP_MODE_USER_DEFINED_RANGE_EXT => 1;
+
+    // File: vk.xml Line: 12371 Column: 10
+    public static int VK_ACCESS_3_NONE_KHR => 0;
+
+    // File: vk.xml Line: 12374 Column: 10
+    public static int VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_ROW_MAJOR_NV => 0;
+
+    // File: vk.xml Line: 12375 Column: 10
+    public static int VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_COLUMN_MAJOR_NV => 1;
+
+    // File: vk.xml Line: 12376 Column: 10
+    public static int VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_INFERENCING_OPTIMAL_NV => 2;
+
+    // File: vk.xml Line: 12377 Column: 10
+    public static int VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_TRAINING_OPTIMAL_NV => 3;
+
+    // File: vk.xml Line: 17555 Column: 14
+    public static int VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_FEATURES => 49;
+
+    // File: vk.xml Line: 17556 Column: 14
+    public static int VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_PROPERTIES => 50;
+
+    // File: vk.xml Line: 17557 Column: 14
+    public static int VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES => 51;
+
+    // File: vk.xml Line: 17558 Column: 14
+    public static int VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_PROPERTIES => 52;
+
+    // File: vk.xml Line: 18733 Column: 18
+    public static int VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE => 4;
+
+    // File: vk.xml Line: 17806 Column: 14
+    public static int VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES => 53;
+
+    // File: vk.xml Line: 17807 Column: 14
+    public static int VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_PROPERTIES => 54;
+
+    // File: vk.xml Line: 17878 Column: 14
+    public static int VK_PIPELINE_STAGE_NONE => 0;
+
+    // File: vk.xml Line: 17879 Column: 14
+    public static int VK_ACCESS_NONE => 0;
+
+    // File: vk.xml Line: 18075 Column: 14
+    public static int VK_IMAGE_ASPECT_NONE => 0;
+
+    // File: vk.xml Line: 18106 Column: 14
+    public static int VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_4_FEATURES => 55;
+
+    // File: vk.xml Line: 18107 Column: 14
+    public static int VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_4_PROPERTIES => 56;
+
+    // File: vk.xml Line: 18259 Column: 14
+    public static int VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_PUSH_DESCRIPTORS => 1;
+
+    // File: vk.xml Line: 18502 Column: 18
+    public static int VK_KHR_SURFACE_SPEC_VERSION => 25;
+
+    // File: vk.xml Line: 18503 Column: 18
+    public static string VK_KHR_SURFACE_EXTENSION_NAME => "VK_KHR_surface";
+
+    // File: vk.xml Line: 18524 Column: 18
+    public static int VK_KHR_SWAPCHAIN_SPEC_VERSION => 70;
+
+    // File: vk.xml Line: 18525 Column: 18
+    public static string VK_KHR_SWAPCHAIN_EXTENSION_NAME => "VK_KHR_swapchain";
+
+    // File: vk.xml Line: 18569 Column: 18
+    public static int VK_KHR_DISPLAY_SPEC_VERSION => 23;
+
+    // File: vk.xml Line: 18570 Column: 18
+    public static string VK_KHR_DISPLAY_EXTENSION_NAME => "VK_KHR_display";
+
+    // File: vk.xml Line: 18600 Column: 18
+    public static int VK_KHR_DISPLAY_SWAPCHAIN_SPEC_VERSION => 10;
+
+    // File: vk.xml Line: 18601 Column: 18
+    public static string VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME => "VK_KHR_display_swapchain";
+
+    // File: vk.xml Line: 18610 Column: 18
+    public static int VK_KHR_XLIB_SURFACE_SPEC_VERSION => 6;
+
+    // File: vk.xml Line: 18611 Column: 18
+    public static string VK_KHR_XLIB_SURFACE_EXTENSION_NAME => "VK_KHR_xlib_surface";
+
+    // File: vk.xml Line: 18621 Column: 18
+    public static int VK_KHR_XCB_SURFACE_SPEC_VERSION => 6;
+
+    // File: vk.xml Line: 18622 Column: 18
+    public static string VK_KHR_XCB_SURFACE_EXTENSION_NAME => "VK_KHR_xcb_surface";
+
+    // File: vk.xml Line: 18632 Column: 18
+    public static int VK_KHR_WAYLAND_SURFACE_SPEC_VERSION => 6;
+
+    // File: vk.xml Line: 18633 Column: 18
+    public static string VK_KHR_WAYLAND_SURFACE_EXTENSION_NAME => "VK_KHR_wayland_surface";
+
+    // File: vk.xml Line: 18643 Column: 18
+    public static int VK_KHR_MIR_SURFACE_SPEC_VERSION => 4;
+
+    // File: vk.xml Line: 18644 Column: 18
+    public static string VK_KHR_MIR_SURFACE_EXTENSION_NAME => "VK_KHR_mir_surface";
+
+    // File: vk.xml Line: 18649 Column: 18
+    public static int VK_KHR_ANDROID_SURFACE_SPEC_VERSION => 6;
+
+    // File: vk.xml Line: 18650 Column: 18
+    public static string VK_KHR_ANDROID_SURFACE_EXTENSION_NAME => "VK_KHR_android_surface";
+
+    // File: vk.xml Line: 18660 Column: 18
+    public static int VK_KHR_WIN32_SURFACE_SPEC_VERSION => 6;
+
+    // File: vk.xml Line: 18661 Column: 18
+    public static string VK_KHR_WIN32_SURFACE_EXTENSION_NAME => "VK_KHR_win32_surface";
+
+    // File: vk.xml Line: 18672 Column: 18
+    public static int VK_ANDROID_NATIVE_BUFFER_SPEC_VERSION => 8;
+
+    // File: vk.xml Line: 18673 Column: 18
+    public static int VK_ANDROID_NATIVE_BUFFER_NUMBER => 11;
+
+    // File: vk.xml Line: 18674 Column: 18
+    public static string VK_ANDROID_NATIVE_BUFFER_EXTENSION_NAME => "VK_ANDROID_native_buffer";
+
+    // File: vk.xml Line: 18693 Column: 18
+    public static int VK_EXT_DEBUG_REPORT_SPEC_VERSION => 10;
+
+    // File: vk.xml Line: 18694 Column: 18
+    public static string VK_EXT_DEBUG_REPORT_EXTENSION_NAME => "VK_EXT_debug_report";
+
+    // File: vk.xml Line: 18718 Column: 18
+    public static int VK_NV_GLSL_SHADER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 18719 Column: 18
+    public static string VK_NV_GLSL_SHADER_EXTENSION_NAME => "VK_NV_glsl_shader";
+
+    // File: vk.xml Line: 18725 Column: 18
+    public static int VK_EXT_DEPTH_RANGE_UNRESTRICTED_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 18726 Column: 18
+    public static string VK_EXT_DEPTH_RANGE_UNRESTRICTED_EXTENSION_NAME => "VK_EXT_depth_range_unrestricted";
+
+    // File: vk.xml Line: 18731 Column: 18
+    public static int VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 18732 Column: 18
+    public static string VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_EXTENSION_NAME => "VK_KHR_sampler_mirror_clamp_to_edge";
+
+    // File: vk.xml Line: 18739 Column: 18
+    public static int VK_IMG_FILTER_CUBIC_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 18740 Column: 18
+    public static string VK_IMG_FILTER_CUBIC_EXTENSION_NAME => "VK_IMG_filter_cubic";
+
+    // File: vk.xml Line: 18747 Column: 18
+    public static int VK_AMD_EXTENSION_17_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 18748 Column: 18
+    public static string VK_AMD_EXTENSION_17_EXTENSION_NAME => "VK_AMD_extension_17";
+
+    // File: vk.xml Line: 18753 Column: 18
+    public static int VK_AMD_EXTENSION_18_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 18754 Column: 18
+    public static string VK_AMD_EXTENSION_18_EXTENSION_NAME => "VK_AMD_extension_18";
+
+    // File: vk.xml Line: 18759 Column: 18
+    public static int VK_AMD_RASTERIZATION_ORDER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 18760 Column: 18
+    public static string VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME => "VK_AMD_rasterization_order";
+
+    // File: vk.xml Line: 18768 Column: 18
+    public static int VK_AMD_EXTENSION_20_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 18769 Column: 18
+    public static string VK_AMD_EXTENSION_20_EXTENSION_NAME => "VK_AMD_extension_20";
+
+    // File: vk.xml Line: 18774 Column: 18
+    public static int VK_AMD_SHADER_TRINARY_MINMAX_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 18775 Column: 18
+    public static string VK_AMD_SHADER_TRINARY_MINMAX_EXTENSION_NAME => "VK_AMD_shader_trinary_minmax";
+
+    // File: vk.xml Line: 18780 Column: 18
+    public static int VK_AMD_SHADER_EXPLICIT_VERTEX_PARAMETER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 18781 Column: 18
+    public static string VK_AMD_SHADER_EXPLICIT_VERTEX_PARAMETER_EXTENSION_NAME => "VK_AMD_shader_explicit_vertex_parameter";
+
+    // File: vk.xml Line: 18786 Column: 18
+    public static int VK_EXT_DEBUG_MARKER_SPEC_VERSION => 4;
+
+    // File: vk.xml Line: 18787 Column: 18
+    public static string VK_EXT_DEBUG_MARKER_EXTENSION_NAME => "VK_EXT_debug_marker";
+
+    // File: vk.xml Line: 18804 Column: 18
+    public static int VK_KHR_VIDEO_QUEUE_SPEC_VERSION => 8;
+
+    // File: vk.xml Line: 18805 Column: 18
+    public static string VK_KHR_VIDEO_QUEUE_EXTENSION_NAME => "VK_KHR_video_queue";
+
+    // File: vk.xml Line: 18893 Column: 18
+    public static int VK_KHR_VIDEO_DECODE_QUEUE_SPEC_VERSION => 8;
+
+    // File: vk.xml Line: 18894 Column: 18
+    public static string VK_KHR_VIDEO_DECODE_QUEUE_EXTENSION_NAME => "VK_KHR_video_decode_queue";
+
+    // File: vk.xml Line: 18934 Column: 18
+    public static int VK_AMD_GCN_SHADER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 18935 Column: 18
+    public static string VK_AMD_GCN_SHADER_EXTENSION_NAME => "VK_AMD_gcn_shader";
+
+    // File: vk.xml Line: 18940 Column: 18
+    public static int VK_NV_DEDICATED_ALLOCATION_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 18941 Column: 18
+    public static string VK_NV_DEDICATED_ALLOCATION_EXTENSION_NAME => "VK_NV_dedicated_allocation";
+
+    // File: vk.xml Line: 18952 Column: 18
+    public static int VK_EXT_EXTENSION_28_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 18953 Column: 18
+    public static string VK_EXT_EXTENSION_28_EXTENSION_NAME => "VK_EXT_extension_28";
+
+    // File: vk.xml Line: 18958 Column: 18
+    public static int VK_EXT_TRANSFORM_FEEDBACK_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 18959 Column: 18
+    public static string VK_EXT_TRANSFORM_FEEDBACK_EXTENSION_NAME => "VK_EXT_transform_feedback";
+
+    // File: vk.xml Line: 18992 Column: 18
+    public static int VK_NVX_BINARY_IMPORT_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 18993 Column: 18
+    public static string VK_NVX_BINARY_IMPORT_EXTENSION_NAME => "VK_NVX_binary_import";
+
+    // File: vk.xml Line: 19019 Column: 18
+    public static int VK_NVX_IMAGE_VIEW_HANDLE_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 19020 Column: 18
+    public static string VK_NVX_IMAGE_VIEW_HANDLE_EXTENSION_NAME => "VK_NVX_image_view_handle";
+
+    // File: vk.xml Line: 19032 Column: 18
+    public static int VK_AMD_EXTENSION_32_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 19033 Column: 18
+    public static string VK_AMD_EXTENSION_32_EXTENSION_NAME => "VK_AMD_extension_32";
+
+    // File: vk.xml Line: 19038 Column: 18
+    public static int VK_AMD_EXTENSION_33_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 19039 Column: 18
+    public static string VK_AMD_EXTENSION_33_EXTENSION_NAME => "VK_AMD_extension_33";
+
+    // File: vk.xml Line: 19044 Column: 18
+    public static int VK_AMD_DRAW_INDIRECT_COUNT_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 19045 Column: 18
+    public static string VK_AMD_DRAW_INDIRECT_COUNT_EXTENSION_NAME => "VK_AMD_draw_indirect_count";
+
+    // File: vk.xml Line: 19052 Column: 18
+    public static int VK_AMD_EXTENSION_35_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 19053 Column: 18
+    public static string VK_AMD_EXTENSION_35_EXTENSION_NAME => "VK_AMD_extension_35";
+
+    // File: vk.xml Line: 19058 Column: 18
+    public static int VK_AMD_NEGATIVE_VIEWPORT_HEIGHT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19059 Column: 18
+    public static string VK_AMD_NEGATIVE_VIEWPORT_HEIGHT_EXTENSION_NAME => "VK_AMD_negative_viewport_height";
+
+    // File: vk.xml Line: 19064 Column: 18
+    public static int VK_AMD_GPU_SHADER_HALF_FLOAT_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 19065 Column: 18
+    public static string VK_AMD_GPU_SHADER_HALF_FLOAT_EXTENSION_NAME => "VK_AMD_gpu_shader_half_float";
+
+    // File: vk.xml Line: 19070 Column: 18
+    public static int VK_AMD_SHADER_BALLOT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19071 Column: 18
+    public static string VK_AMD_SHADER_BALLOT_EXTENSION_NAME => "VK_AMD_shader_ballot";
+
+    // File: vk.xml Line: 19076 Column: 18
+    public static int VK_KHR_VIDEO_ENCODE_H264_SPEC_VERSION => 14;
+
+    // File: vk.xml Line: 19077 Column: 18
+    public static string VK_KHR_VIDEO_ENCODE_H264_EXTENSION_NAME => "VK_KHR_video_encode_h264";
+
+    // File: vk.xml Line: 19120 Column: 18
+    public static int VK_KHR_VIDEO_ENCODE_H265_SPEC_VERSION => 14;
+
+    // File: vk.xml Line: 19121 Column: 18
+    public static string VK_KHR_VIDEO_ENCODE_H265_EXTENSION_NAME => "VK_KHR_video_encode_h265";
+
+    // File: vk.xml Line: 19168 Column: 18
+    public static int VK_KHR_VIDEO_DECODE_H264_SPEC_VERSION => 9;
+
+    // File: vk.xml Line: 19169 Column: 18
+    public static string VK_KHR_VIDEO_DECODE_H264_EXTENSION_NAME => "VK_KHR_video_decode_h264";
+
+    // File: vk.xml Line: 19189 Column: 18
+    public static int VK_AMD_TEXTURE_GATHER_BIAS_LOD_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19190 Column: 18
+    public static string VK_AMD_TEXTURE_GATHER_BIAS_LOD_EXTENSION_NAME => "VK_AMD_texture_gather_bias_lod";
+
+    // File: vk.xml Line: 19197 Column: 18
+    public static int VK_AMD_SHADER_INFO_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19198 Column: 18
+    public static string VK_AMD_SHADER_INFO_EXTENSION_NAME => "VK_AMD_shader_info";
+
+    // File: vk.xml Line: 19207 Column: 18
+    public static int VK_AMD_EXTENSION_44_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 19208 Column: 18
+    public static string VK_AMD_EXTENSION_44_EXTENSION_NAME => "VK_AMD_extension_44";
+
+    // File: vk.xml Line: 19213 Column: 18
+    public static int VK_KHR_DYNAMIC_RENDERING_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19214 Column: 18
+    public static string VK_KHR_DYNAMIC_RENDERING_EXTENSION_NAME => "VK_KHR_dynamic_rendering";
+
+    // File: vk.xml Line: 19238 Column: 18
+    public static int VK_AMD_EXTENSION_46_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 19239 Column: 18
+    public static string VK_AMD_EXTENSION_46_EXTENSION_NAME => "VK_AMD_extension_46";
+
+    // File: vk.xml Line: 19244 Column: 18
+    public static int VK_AMD_SHADER_IMAGE_LOAD_STORE_LOD_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19245 Column: 18
+    public static string VK_AMD_SHADER_IMAGE_LOAD_STORE_LOD_EXTENSION_NAME => "VK_AMD_shader_image_load_store_lod";
+
+    // File: vk.xml Line: 19250 Column: 18
+    public static int VK_NVX_EXTENSION_48_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 19251 Column: 18
+    public static string VK_NVX_EXTENSION_48_EXTENSION_NAME => "VK_NVX_extension_48";
+
+    // File: vk.xml Line: 19256 Column: 18
+    public static int VK_GOOGLE_EXTENSION_49_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 19257 Column: 18
+    public static string VK_GOOGLE_EXTENSION_49_EXTENSION_NAME => "VK_GOOGLE_extension_49";
+
+    // File: vk.xml Line: 19262 Column: 18
+    public static int VK_GGP_STREAM_DESCRIPTOR_SURFACE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19263 Column: 18
+    public static string VK_GGP_STREAM_DESCRIPTOR_SURFACE_EXTENSION_NAME => "VK_GGP_stream_descriptor_surface";
+
+    // File: vk.xml Line: 19272 Column: 18
+    public static int VK_NV_CORNER_SAMPLED_IMAGE_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 19273 Column: 18
+    public static string VK_NV_CORNER_SAMPLED_IMAGE_EXTENSION_NAME => "VK_NV_corner_sampled_image";
+
+    // File: vk.xml Line: 19282 Column: 18
+    public static int VK_NV_PRIVATE_VENDOR_INFO_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 19283 Column: 18
+    public static string VK_NV_PRIVATE_VENDOR_INFO_EXTENSION_NAME => "VK_NV_private_vendor_info";
+
+    // File: vk.xml Line: 19289 Column: 18
+    public static int VK_NV_EXTENSION_53_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 19290 Column: 18
+    public static string VK_NV_EXTENSION_53_EXTENSION_NAME => "VK_NV_extension_53";
+
+    // File: vk.xml Line: 19295 Column: 18
+    public static int VK_KHR_MULTIVIEW_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19296 Column: 18
+    public static string VK_KHR_MULTIVIEW_EXTENSION_NAME => "VK_KHR_multiview";
+
+    // File: vk.xml Line: 19309 Column: 18
+    public static int VK_IMG_FORMAT_PVRTC_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19310 Column: 18
+    public static string VK_IMG_FORMAT_PVRTC_EXTENSION_NAME => "VK_IMG_format_pvrtc";
+
+    // File: vk.xml Line: 19323 Column: 18
+    public static int VK_NV_EXTERNAL_MEMORY_CAPABILITIES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19324 Column: 18
+    public static string VK_NV_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME => "VK_NV_external_memory_capabilities";
+
+    // File: vk.xml Line: 19335 Column: 18
+    public static int VK_NV_EXTERNAL_MEMORY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19336 Column: 18
+    public static string VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME => "VK_NV_external_memory";
+
+    // File: vk.xml Line: 19345 Column: 18
+    public static int VK_NV_EXTERNAL_MEMORY_WIN32_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19346 Column: 18
+    public static string VK_NV_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME => "VK_NV_external_memory_win32";
+
+    // File: vk.xml Line: 19356 Column: 18
+    public static int VK_NV_WIN32_KEYED_MUTEX_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 19357 Column: 18
+    public static string VK_NV_WIN32_KEYED_MUTEX_EXTENSION_NAME => "VK_NV_win32_keyed_mutex";
+
+    // File: vk.xml Line: 19364 Column: 18
+    public static int VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 19365 Column: 18
+    public static string VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME => "VK_KHR_get_physical_device_properties2";
+
+    // File: vk.xml Line: 19395 Column: 18
+    public static int VK_KHR_DEVICE_GROUP_SPEC_VERSION => 4;
+
+    // File: vk.xml Line: 19396 Column: 18
+    public static string VK_KHR_DEVICE_GROUP_EXTENSION_NAME => "VK_KHR_device_group";
+
+    // File: vk.xml Line: 19456 Column: 18
+    public static int VK_EXT_VALIDATION_FLAGS_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 19457 Column: 18
+    public static string VK_EXT_VALIDATION_FLAGS_EXTENSION_NAME => "VK_EXT_validation_flags";
+
+    // File: vk.xml Line: 19465 Column: 18
+    public static int VK_NN_VI_SURFACE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19466 Column: 18
+    public static string VK_NN_VI_SURFACE_EXTENSION_NAME => "VK_NN_vi_surface";
+
+    // File: vk.xml Line: 19475 Column: 18
+    public static int VK_KHR_SHADER_DRAW_PARAMETERS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19476 Column: 18
+    public static string VK_KHR_SHADER_DRAW_PARAMETERS_EXTENSION_NAME => "VK_KHR_shader_draw_parameters";
+
+    // File: vk.xml Line: 19481 Column: 18
+    public static int VK_EXT_SHADER_SUBGROUP_BALLOT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19482 Column: 18
+    public static string VK_EXT_SHADER_SUBGROUP_BALLOT_EXTENSION_NAME => "VK_EXT_shader_subgroup_ballot";
+
+    // File: vk.xml Line: 19487 Column: 18
+    public static int VK_EXT_SHADER_SUBGROUP_VOTE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19488 Column: 18
+    public static string VK_EXT_SHADER_SUBGROUP_VOTE_EXTENSION_NAME => "VK_EXT_shader_subgroup_vote";
+
+    // File: vk.xml Line: 19493 Column: 18
+    public static int VK_EXT_TEXTURE_COMPRESSION_ASTC_HDR_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19494 Column: 18
+    public static string VK_EXT_TEXTURE_COMPRESSION_ASTC_HDR_EXTENSION_NAME => "VK_EXT_texture_compression_astc_hdr";
+
+    // File: vk.xml Line: 19516 Column: 18
+    public static int VK_EXT_ASTC_DECODE_MODE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19517 Column: 18
+    public static string VK_EXT_ASTC_DECODE_MODE_EXTENSION_NAME => "VK_EXT_astc_decode_mode";
+
+    // File: vk.xml Line: 19526 Column: 18
+    public static int VK_EXT_PIPELINE_ROBUSTNESS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19527 Column: 18
+    public static string VK_EXT_PIPELINE_ROBUSTNESS_EXTENSION_NAME => "VK_EXT_pipeline_robustness";
+
+    // File: vk.xml Line: 19549 Column: 18
+    public static int VK_KHR_MAINTENANCE_1_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 19550 Column: 18
+    public static string VK_KHR_MAINTENANCE_1_EXTENSION_NAME => "VK_KHR_maintenance1";
+
+    // File: vk.xml Line: 19563 Column: 18
+    public static int VK_KHR_DEVICE_GROUP_CREATION_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19564 Column: 18
+    public static string VK_KHR_DEVICE_GROUP_CREATION_EXTENSION_NAME => "VK_KHR_device_group_creation";
+
+    // File: vk.xml Line: 19576 Column: 18
+    public static int VK_KHR_EXTERNAL_MEMORY_CAPABILITIES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19577 Column: 18
+    public static string VK_KHR_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME => "VK_KHR_external_memory_capabilities";
+
+    // File: vk.xml Line: 19609 Column: 18
+    public static int VK_KHR_EXTERNAL_MEMORY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19610 Column: 18
+    public static string VK_KHR_EXTERNAL_MEMORY_EXTENSION_NAME => "VK_KHR_external_memory";
+
+    // File: vk.xml Line: 19623 Column: 18
+    public static int VK_KHR_EXTERNAL_MEMORY_WIN32_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19624 Column: 18
+    public static string VK_KHR_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME => "VK_KHR_external_memory_win32";
+
+    // File: vk.xml Line: 19639 Column: 18
+    public static int VK_KHR_EXTERNAL_MEMORY_FD_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19640 Column: 18
+    public static string VK_KHR_EXTERNAL_MEMORY_FD_EXTENSION_NAME => "VK_KHR_external_memory_fd";
+
+    // File: vk.xml Line: 19653 Column: 18
+    public static int VK_KHR_WIN32_KEYED_MUTEX_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19654 Column: 18
+    public static string VK_KHR_WIN32_KEYED_MUTEX_EXTENSION_NAME => "VK_KHR_win32_keyed_mutex";
+
+    // File: vk.xml Line: 19661 Column: 18
+    public static int VK_KHR_EXTERNAL_SEMAPHORE_CAPABILITIES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19662 Column: 18
+    public static string VK_KHR_EXTERNAL_SEMAPHORE_CAPABILITIES_EXTENSION_NAME => "VK_KHR_external_semaphore_capabilities";
+
+    // File: vk.xml Line: 19686 Column: 18
+    public static int VK_KHR_EXTERNAL_SEMAPHORE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19687 Column: 18
+    public static string VK_KHR_EXTERNAL_SEMAPHORE_EXTENSION_NAME => "VK_KHR_external_semaphore";
+
+    // File: vk.xml Line: 19697 Column: 18
+    public static int VK_KHR_EXTERNAL_SEMAPHORE_WIN32_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19698 Column: 18
+    public static string VK_KHR_EXTERNAL_SEMAPHORE_WIN32_EXTENSION_NAME => "VK_KHR_external_semaphore_win32";
+
+    // File: vk.xml Line: 19713 Column: 18
+    public static int VK_KHR_EXTERNAL_SEMAPHORE_FD_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19714 Column: 18
+    public static string VK_KHR_EXTERNAL_SEMAPHORE_FD_EXTENSION_NAME => "VK_KHR_external_semaphore_fd";
+
+    // File: vk.xml Line: 19725 Column: 18
+    public static int VK_KHR_PUSH_DESCRIPTOR_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 19726 Column: 18
+    public static string VK_KHR_PUSH_DESCRIPTOR_EXTENSION_NAME => "VK_KHR_push_descriptor";
+
+    // File: vk.xml Line: 19739 Column: 18
+    public static int VK_EXT_CONDITIONAL_RENDERING_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 19740 Column: 18
+    public static string VK_EXT_CONDITIONAL_RENDERING_EXTENSION_NAME => "VK_EXT_conditional_rendering";
+
+    // File: vk.xml Line: 19759 Column: 18
+    public static int VK_KHR_SHADER_FLOAT16_INT8_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19760 Column: 18
+    public static string VK_KHR_SHADER_FLOAT16_INT8_EXTENSION_NAME => "VK_KHR_shader_float16_int8";
+
+    // File: vk.xml Line: 19770 Column: 18
+    public static int VK_KHR_16BIT_STORAGE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19771 Column: 18
+    public static string VK_KHR_16BIT_STORAGE_EXTENSION_NAME => "VK_KHR_16bit_storage";
+
+    // File: vk.xml Line: 19779 Column: 18
+    public static int VK_KHR_INCREMENTAL_PRESENT_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 19780 Column: 18
+    public static string VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME => "VK_KHR_incremental_present";
+
+    // File: vk.xml Line: 19789 Column: 18
+    public static int VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19790 Column: 18
+    public static string VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_EXTENSION_NAME => "VK_KHR_descriptor_update_template";
+
+    // File: vk.xml Line: 19813 Column: 18
+    public static int VK_NVX_DEVICE_GENERATED_COMMANDS_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 19814 Column: 18
+    public static string VK_NVX_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME => "VK_NVX_device_generated_commands";
+
+    // File: vk.xml Line: 19819 Column: 18
+    public static int VK_NV_CLIP_SPACE_W_SCALING_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19820 Column: 18
+    public static string VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME => "VK_NV_clip_space_w_scaling";
+
+    // File: vk.xml Line: 19830 Column: 18
+    public static int VK_EXT_DIRECT_MODE_DISPLAY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19831 Column: 18
+    public static string VK_EXT_DIRECT_MODE_DISPLAY_EXTENSION_NAME => "VK_EXT_direct_mode_display";
+
+    // File: vk.xml Line: 19837 Column: 18
+    public static int VK_EXT_ACQUIRE_XLIB_DISPLAY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19838 Column: 18
+    public static string VK_EXT_ACQUIRE_XLIB_DISPLAY_EXTENSION_NAME => "VK_EXT_acquire_xlib_display";
+
+    // File: vk.xml Line: 19845 Column: 18
+    public static int VK_EXT_DISPLAY_SURFACE_COUNTER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19846 Column: 18
+    public static string VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME => "VK_EXT_display_surface_counter";
+
+    // File: vk.xml Line: 19857 Column: 18
+    public static int VK_EXT_DISPLAY_CONTROL_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19858 Column: 18
+    public static string VK_EXT_DISPLAY_CONTROL_EXTENSION_NAME => "VK_EXT_display_control";
+
+    // File: vk.xml Line: 19878 Column: 18
+    public static int VK_GOOGLE_DISPLAY_TIMING_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19879 Column: 18
+    public static string VK_GOOGLE_DISPLAY_TIMING_EXTENSION_NAME => "VK_GOOGLE_display_timing";
+
+    // File: vk.xml Line: 19891 Column: 18
+    public static int VK_RESERVED_DO_NOT_USE_94_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19892 Column: 18
+    public static string VK_RESERVED_DO_NOT_USE_94_EXTENSION_NAME => "VK_RESERVED_do_not_use_94";
+
+    // File: vk.xml Line: 19897 Column: 18
+    public static int VK_NV_SAMPLE_MASK_OVERRIDE_COVERAGE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19898 Column: 18
+    public static string VK_NV_SAMPLE_MASK_OVERRIDE_COVERAGE_EXTENSION_NAME => "VK_NV_sample_mask_override_coverage";
+
+    // File: vk.xml Line: 19908 Column: 18
+    public static int VK_NV_GEOMETRY_SHADER_PASSTHROUGH_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19909 Column: 18
+    public static string VK_NV_GEOMETRY_SHADER_PASSTHROUGH_EXTENSION_NAME => "VK_NV_geometry_shader_passthrough";
+
+    // File: vk.xml Line: 19914 Column: 18
+    public static int VK_NV_VIEWPORT_ARRAY_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19915 Column: 18
+    public static string VK_NV_VIEWPORT_ARRAY_2_EXTENSION_NAME => "VK_NV_viewport_array2";
+
+    // File: vk.xml Line: 19922 Column: 18
+    public static int VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19923 Column: 18
+    public static string VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_EXTENSION_NAME => "VK_NVX_multiview_per_view_attributes";
+
+    // File: vk.xml Line: 19936 Column: 18
+    public static int VK_NV_VIEWPORT_SWIZZLE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19937 Column: 18
+    public static string VK_NV_VIEWPORT_SWIZZLE_EXTENSION_NAME => "VK_NV_viewport_swizzle";
+
+    // File: vk.xml Line: 19947 Column: 18
+    public static int VK_EXT_DISCARD_RECTANGLES_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 19948 Column: 18
+    public static string VK_EXT_DISCARD_RECTANGLES_EXTENSION_NAME => "VK_EXT_discard_rectangles";
+
+    // File: vk.xml Line: 19965 Column: 18
+    public static int VK_NV_EXTENSION_101_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 19966 Column: 18
+    public static string VK_NV_EXTENSION_101_EXTENSION_NAME => "VK_NV_extension_101";
+
+    // File: vk.xml Line: 19971 Column: 18
+    public static int VK_EXT_CONSERVATIVE_RASTERIZATION_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19972 Column: 18
+    public static string VK_EXT_CONSERVATIVE_RASTERIZATION_EXTENSION_NAME => "VK_EXT_conservative_rasterization";
+
+    // File: vk.xml Line: 19983 Column: 18
+    public static int VK_EXT_DEPTH_CLIP_ENABLE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 19984 Column: 18
+    public static string VK_EXT_DEPTH_CLIP_ENABLE_EXTENSION_NAME => "VK_EXT_depth_clip_enable";
+
+    // File: vk.xml Line: 19995 Column: 18
+    public static int VK_NV_EXTENSION_104_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 19996 Column: 18
+    public static string VK_NV_EXTENSION_104_EXTENSION_NAME => "VK_NV_extension_104";
+
+    // File: vk.xml Line: 20002 Column: 18
+    public static int VK_EXT_SWAPCHAIN_COLOR_SPACE_SPEC_VERSION => 5;
+
+    // File: vk.xml Line: 20003 Column: 18
+    public static string VK_EXT_SWAPCHAIN_COLOR_SPACE_EXTENSION_NAME => "VK_EXT_swapchain_colorspace";
+
+    // File: vk.xml Line: 20023 Column: 18
+    public static int VK_EXT_HDR_METADATA_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 20024 Column: 18
+    public static string VK_EXT_HDR_METADATA_EXTENSION_NAME => "VK_EXT_hdr_metadata";
+
+    // File: vk.xml Line: 20033 Column: 18
+    public static int VK_IMG_EXTENSION_107_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 20034 Column: 18
+    public static string VK_IMG_EXTENSION_107_EXTENSION_NAME => "VK_IMG_extension_107";
+
+    // File: vk.xml Line: 20039 Column: 18
+    public static int VK_IMG_EXTENSION_108_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 20040 Column: 18
+    public static string VK_IMG_EXTENSION_108_EXTENSION_NAME => "VK_IMG_extension_108";
+
+    // File: vk.xml Line: 20045 Column: 18
+    public static int VK_KHR_IMAGELESS_FRAMEBUFFER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20046 Column: 18
+    public static string VK_KHR_IMAGELESS_FRAMEBUFFER_EXTENSION_NAME => "VK_KHR_imageless_framebuffer";
+
+    // File: vk.xml Line: 20061 Column: 18
+    public static int VK_KHR_CREATE_RENDERPASS_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20062 Column: 18
+    public static string VK_KHR_CREATE_RENDERPASS_2_EXTENSION_NAME => "VK_KHR_create_renderpass2";
+
+    // File: vk.xml Line: 20085 Column: 18
+    public static int VK_IMG_RELAXED_LINE_RASTERIZATION_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20086 Column: 18
+    public static string VK_IMG_RELAXED_LINE_RASTERIZATION_EXTENSION_NAME => "VK_IMG_relaxed_line_rasterization";
+
+    // File: vk.xml Line: 20094 Column: 18
+    public static int VK_KHR_SHARED_PRESENTABLE_IMAGE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20095 Column: 18
+    public static string VK_KHR_SHARED_PRESENTABLE_IMAGE_EXTENSION_NAME => "VK_KHR_shared_presentable_image";
+
+    // File: vk.xml Line: 20106 Column: 18
+    public static int VK_KHR_EXTERNAL_FENCE_CAPABILITIES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20107 Column: 18
+    public static string VK_KHR_EXTERNAL_FENCE_CAPABILITIES_EXTENSION_NAME => "VK_KHR_external_fence_capabilities";
+
+    // File: vk.xml Line: 20130 Column: 18
+    public static int VK_KHR_EXTERNAL_FENCE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20131 Column: 18
+    public static string VK_KHR_EXTERNAL_FENCE_EXTENSION_NAME => "VK_KHR_external_fence";
+
+    // File: vk.xml Line: 20141 Column: 18
+    public static int VK_KHR_EXTERNAL_FENCE_WIN32_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20142 Column: 18
+    public static string VK_KHR_EXTERNAL_FENCE_WIN32_EXTENSION_NAME => "VK_KHR_external_fence_win32";
+
+    // File: vk.xml Line: 20155 Column: 18
+    public static int VK_KHR_EXTERNAL_FENCE_FD_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20156 Column: 18
+    public static string VK_KHR_EXTERNAL_FENCE_FD_EXTENSION_NAME => "VK_KHR_external_fence_fd";
+
+    // File: vk.xml Line: 20167 Column: 18
+    public static int VK_KHR_PERFORMANCE_QUERY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20168 Column: 18
+    public static string VK_KHR_PERFORMANCE_QUERY_EXTENSION_NAME => "VK_KHR_performance_query";
+
+    // File: vk.xml Line: 20205 Column: 18
+    public static int VK_KHR_MAINTENANCE_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20206 Column: 18
+    public static string VK_KHR_MAINTENANCE_2_EXTENSION_NAME => "VK_KHR_maintenance2";
+
+    // File: vk.xml Line: 20232 Column: 18
+    public static int VK_KHR_EXTENSION_119_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 20233 Column: 18
+    public static string VK_KHR_EXTENSION_119_EXTENSION_NAME => "VK_KHR_extension_119";
+
+    // File: vk.xml Line: 20238 Column: 18
+    public static int VK_KHR_GET_SURFACE_CAPABILITIES_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20239 Column: 18
+    public static string VK_KHR_GET_SURFACE_CAPABILITIES_2_EXTENSION_NAME => "VK_KHR_get_surface_capabilities2";
+
+    // File: vk.xml Line: 20252 Column: 18
+    public static int VK_KHR_VARIABLE_POINTERS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20253 Column: 18
+    public static string VK_KHR_VARIABLE_POINTERS_EXTENSION_NAME => "VK_KHR_variable_pointers";
+
+    // File: vk.xml Line: 20263 Column: 18
+    public static int VK_KHR_GET_DISPLAY_PROPERTIES_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20264 Column: 18
+    public static string VK_KHR_GET_DISPLAY_PROPERTIES_2_EXTENSION_NAME => "VK_KHR_get_display_properties2";
+
+    // File: vk.xml Line: 20283 Column: 18
+    public static int VK_MVK_IOS_SURFACE_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 20284 Column: 18
+    public static string VK_MVK_IOS_SURFACE_EXTENSION_NAME => "VK_MVK_ios_surface";
+
+    // File: vk.xml Line: 20293 Column: 18
+    public static int VK_MVK_MACOS_SURFACE_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 20294 Column: 18
+    public static string VK_MVK_MACOS_SURFACE_EXTENSION_NAME => "VK_MVK_macos_surface";
+
+    // File: vk.xml Line: 20303 Column: 18
+    public static int VK_MVK_MOLTENVK_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 20304 Column: 18
+    public static string VK_MVK_MOLTENVK_EXTENSION_NAME => "VK_MVK_moltenvk";
+
+    // File: vk.xml Line: 20309 Column: 18
+    public static int VK_EXT_EXTERNAL_MEMORY_DMA_BUF_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20310 Column: 18
+    public static string VK_EXT_EXTERNAL_MEMORY_DMA_BUF_EXTENSION_NAME => "VK_EXT_external_memory_dma_buf";
+
+    // File: vk.xml Line: 20316 Column: 18
+    public static int VK_EXT_QUEUE_FAMILY_FOREIGN_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20317 Column: 18
+    public static string VK_EXT_QUEUE_FAMILY_FOREIGN_EXTENSION_NAME => "VK_EXT_queue_family_foreign";
+
+    // File: vk.xml Line: 20323 Column: 18
+    public static int VK_KHR_DEDICATED_ALLOCATION_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 20324 Column: 18
+    public static string VK_KHR_DEDICATED_ALLOCATION_EXTENSION_NAME => "VK_KHR_dedicated_allocation";
+
+    // File: vk.xml Line: 20333 Column: 18
+    public static int VK_EXT_DEBUG_UTILS_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 20334 Column: 18
+    public static string VK_EXT_DEBUG_UTILS_EXTENSION_NAME => "VK_EXT_debug_utils";
+
+    // File: vk.xml Line: 20369 Column: 18
+    public static int VK_ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER_SPEC_VERSION => 5;
+
+    // File: vk.xml Line: 20370 Column: 18
+    public static string VK_ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER_EXTENSION_NAME => "VK_ANDROID_external_memory_android_hardware_buffer";
+
+    // File: vk.xml Line: 20395 Column: 18
+    public static int VK_EXT_SAMPLER_FILTER_MINMAX_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 20396 Column: 18
+    public static string VK_EXT_SAMPLER_FILTER_MINMAX_EXTENSION_NAME => "VK_EXT_sampler_filter_minmax";
+
+    // File: vk.xml Line: 20410 Column: 18
+    public static int VK_KHR_STORAGE_BUFFER_STORAGE_CLASS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20411 Column: 18
+    public static string VK_KHR_STORAGE_BUFFER_STORAGE_CLASS_EXTENSION_NAME => "VK_KHR_storage_buffer_storage_class";
+
+    // File: vk.xml Line: 20416 Column: 18
+    public static int VK_AMD_GPU_SHADER_INT16_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 20417 Column: 18
+    public static string VK_AMD_GPU_SHADER_INT16_EXTENSION_NAME => "VK_AMD_gpu_shader_int16";
+
+    // File: vk.xml Line: 20422 Column: 18
+    public static int VK_AMD_EXTENSION_134_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 20423 Column: 18
+    public static string VK_AMD_EXTENSION_134_EXTENSION_NAME => "VK_AMD_extension_134";
+
+    // File: vk.xml Line: 20428 Column: 18
+    public static int VK_AMDX_SHADER_ENQUEUE_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 20429 Column: 18
+    public static string VK_AMDX_SHADER_ENQUEUE_EXTENSION_NAME => "VK_AMDX_shader_enqueue";
+
+    // File: vk.xml Line: 20465 Column: 18
+    public static int VK_KHR_EXTENSION_136_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 20466 Column: 18
+    public static string VK_KHR_EXTENSION_136_EXTENSION_NAME => "VK_KHR_extension_136";
+
+    // File: vk.xml Line: 20484 Column: 18
+    public static int VK_AMD_MIXED_ATTACHMENT_SAMPLES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20485 Column: 18
+    public static string VK_AMD_MIXED_ATTACHMENT_SAMPLES_EXTENSION_NAME => "VK_AMD_mixed_attachment_samples";
+
+    // File: vk.xml Line: 20494 Column: 18
+    public static int VK_AMD_SHADER_FRAGMENT_MASK_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20495 Column: 18
+    public static string VK_AMD_SHADER_FRAGMENT_MASK_EXTENSION_NAME => "VK_AMD_shader_fragment_mask";
+
+    // File: vk.xml Line: 20500 Column: 18
+    public static int VK_EXT_INLINE_UNIFORM_BLOCK_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20501 Column: 18
+    public static string VK_EXT_INLINE_UNIFORM_BLOCK_EXTENSION_NAME => "VK_EXT_inline_uniform_block";
+
+    // File: vk.xml Line: 20522 Column: 18
+    public static int VK_AMD_EXTENSION_140_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 20523 Column: 18
+    public static string VK_AMD_EXTENSION_140_EXTENSION_NAME => "VK_AMD_extension_140";
+
+    // File: vk.xml Line: 20528 Column: 18
+    public static int VK_EXT_SHADER_STENCIL_EXPORT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20529 Column: 18
+    public static string VK_EXT_SHADER_STENCIL_EXPORT_EXTENSION_NAME => "VK_EXT_shader_stencil_export";
+
+    // File: vk.xml Line: 20534 Column: 18
+    public static int VK_AMD_EXTENSION_142_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 20535 Column: 18
+    public static string VK_AMD_EXTENSION_142_EXTENSION_NAME => "VK_AMD_extension_142";
+
+    // File: vk.xml Line: 20540 Column: 18
+    public static int VK_AMD_EXTENSION_143_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 20541 Column: 18
+    public static string VK_AMD_EXTENSION_143_EXTENSION_NAME => "VK_AMD_extension_143";
+
+    // File: vk.xml Line: 20546 Column: 18
+    public static int VK_EXT_SAMPLE_LOCATIONS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20547 Column: 18
+    public static string VK_EXT_SAMPLE_LOCATIONS_EXTENSION_NAME => "VK_EXT_sample_locations";
+
+    // File: vk.xml Line: 20569 Column: 18
+    public static int VK_KHR_RELAXED_BLOCK_LAYOUT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20570 Column: 18
+    public static string VK_KHR_RELAXED_BLOCK_LAYOUT_EXTENSION_NAME => "VK_KHR_relaxed_block_layout";
+
+    // File: vk.xml Line: 20575 Column: 18
+    public static int VK_RESERVED_DO_NOT_USE_146_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20576 Column: 18
+    public static string VK_RESERVED_DO_NOT_USE_146_EXTENSION_NAME => "VK_RESERVED_do_not_use_146";
+
+    // File: vk.xml Line: 20581 Column: 18
+    public static int VK_KHR_GET_MEMORY_REQUIREMENTS_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20582 Column: 18
+    public static string VK_KHR_GET_MEMORY_REQUIREMENTS_2_EXTENSION_NAME => "VK_KHR_get_memory_requirements2";
+
+    // File: vk.xml Line: 20600 Column: 18
+    public static int VK_KHR_IMAGE_FORMAT_LIST_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20601 Column: 18
+    public static string VK_KHR_IMAGE_FORMAT_LIST_EXTENSION_NAME => "VK_KHR_image_format_list";
+
+    // File: vk.xml Line: 20608 Column: 18
+    public static int VK_EXT_BLEND_OPERATION_ADVANCED_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 20609 Column: 18
+    public static string VK_EXT_BLEND_OPERATION_ADVANCED_EXTENSION_NAME => "VK_EXT_blend_operation_advanced";
+
+    // File: vk.xml Line: 20668 Column: 18
+    public static int VK_NV_FRAGMENT_COVERAGE_TO_COLOR_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20669 Column: 18
+    public static string VK_NV_FRAGMENT_COVERAGE_TO_COLOR_EXTENSION_NAME => "VK_NV_fragment_coverage_to_color";
+
+    // File: vk.xml Line: 20677 Column: 18
+    public static int VK_KHR_ACCELERATION_STRUCTURE_SPEC_VERSION => 13;
+
+    // File: vk.xml Line: 20678 Column: 18
+    public static string VK_KHR_ACCELERATION_STRUCTURE_EXTENSION_NAME => "VK_KHR_acceleration_structure";
+
+    // File: vk.xml Line: 20705 Column: 18
+    public static int VK_COPY_ACCELERATION_STRUCTURE_MODE_SERIALIZE_KHR => 2;
+
+    // File: vk.xml Line: 20706 Column: 18
+    public static int VK_COPY_ACCELERATION_STRUCTURE_MODE_DESERIALIZE_KHR => 3;
+
+    // File: vk.xml Line: 20776 Column: 18
+    public static int VK_KHR_RAY_TRACING_PIPELINE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20777 Column: 18
+    public static string VK_KHR_RAY_TRACING_PIPELINE_EXTENSION_NAME => "VK_KHR_ray_tracing_pipeline";
+
+    // File: vk.xml Line: 20827 Column: 18
+    public static int VK_KHR_RAY_QUERY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20828 Column: 18
+    public static string VK_KHR_RAY_QUERY_EXTENSION_NAME => "VK_KHR_ray_query";
+
+    // File: vk.xml Line: 20836 Column: 18
+    public static int VK_NV_EXTENSION_152_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 20837 Column: 18
+    public static string VK_NV_EXTENSION_152_EXTENSION_NAME => "VK_NV_extension_152";
+
+    // File: vk.xml Line: 20842 Column: 18
+    public static int VK_NV_FRAMEBUFFER_MIXED_SAMPLES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20843 Column: 18
+    public static string VK_NV_FRAMEBUFFER_MIXED_SAMPLES_EXTENSION_NAME => "VK_NV_framebuffer_mixed_samples";
+
+    // File: vk.xml Line: 20856 Column: 18
+    public static int VK_NV_FILL_RECTANGLE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20857 Column: 18
+    public static string VK_NV_FILL_RECTANGLE_EXTENSION_NAME => "VK_NV_fill_rectangle";
+
+    // File: vk.xml Line: 20863 Column: 18
+    public static int VK_NV_SHADER_SM_BUILTINS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20864 Column: 18
+    public static string VK_NV_SHADER_SM_BUILTINS_EXTENSION_NAME => "VK_NV_shader_sm_builtins";
+
+    // File: vk.xml Line: 20874 Column: 18
+    public static int VK_EXT_POST_DEPTH_COVERAGE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20875 Column: 18
+    public static string VK_EXT_POST_DEPTH_COVERAGE_EXTENSION_NAME => "VK_EXT_post_depth_coverage";
+
+    // File: vk.xml Line: 20880 Column: 18
+    public static int VK_KHR_SAMPLER_YCBCR_CONVERSION_SPEC_VERSION => 14;
+
+    // File: vk.xml Line: 20881 Column: 18
+    public static string VK_KHR_SAMPLER_YCBCR_CONVERSION_EXTENSION_NAME => "VK_KHR_sampler_ycbcr_conversion";
+
+    // File: vk.xml Line: 20964 Column: 18
+    public static int VK_KHR_BIND_MEMORY_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 20965 Column: 18
+    public static string VK_KHR_BIND_MEMORY_2_EXTENSION_NAME => "VK_KHR_bind_memory2";
+
+    // File: vk.xml Line: 20977 Column: 18
+    public static int VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 20978 Column: 18
+    public static string VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_EXTENSION_NAME => "VK_EXT_image_drm_format_modifier";
+
+    // File: vk.xml Line: 21006 Column: 18
+    public static int VK_EXT_EXTENSION_160_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21007 Column: 18
+    public static string VK_EXT_EXTENSION_160_EXTENSION_NAME => "VK_EXT_extension_160";
+
+    // File: vk.xml Line: 21012 Column: 18
+    public static int VK_EXT_VALIDATION_CACHE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21013 Column: 18
+    public static string VK_EXT_VALIDATION_CACHE_EXTENSION_NAME => "VK_EXT_validation_cache";
+
+    // File: vk.xml Line: 21030 Column: 18
+    public static int VK_EXT_DESCRIPTOR_INDEXING_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21031 Column: 18
+    public static string VK_EXT_DESCRIPTOR_INDEXING_EXTENSION_NAME => "VK_EXT_descriptor_indexing";
+
+    // File: vk.xml Line: 21070 Column: 18
+    public static int VK_EXT_SHADER_VIEWPORT_INDEX_LAYER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21071 Column: 18
+    public static string VK_EXT_SHADER_VIEWPORT_INDEX_LAYER_EXTENSION_NAME => "VK_EXT_shader_viewport_index_layer";
+
+    // File: vk.xml Line: 21076 Column: 18
+    public static int VK_KHR_PORTABILITY_SUBSET_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21077 Column: 18
+    public static string VK_KHR_PORTABILITY_SUBSET_EXTENSION_NAME => "VK_KHR_portability_subset";
+
+    // File: vk.xml Line: 21089 Column: 18
+    public static int VK_NV_SHADING_RATE_IMAGE_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 21090 Column: 18
+    public static string VK_NV_SHADING_RATE_IMAGE_EXTENSION_NAME => "VK_NV_shading_rate_image";
+
+    // File: vk.xml Line: 21118 Column: 18
+    public static int VK_NV_RAY_TRACING_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 21119 Column: 18
+    public static string VK_NV_RAY_TRACING_EXTENSION_NAME => "VK_NV_ray_tracing";
+
+    // File: vk.xml Line: 21218 Column: 18
+    public static int VK_NV_REPRESENTATIVE_FRAGMENT_TEST_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21219 Column: 18
+    public static string VK_NV_REPRESENTATIVE_FRAGMENT_TEST_EXTENSION_NAME => "VK_NV_representative_fragment_test";
+
+    // File: vk.xml Line: 21229 Column: 18
+    public static int VK_NV_EXTENSION_168_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21230 Column: 18
+    public static string VK_NV_EXTENSION_168_EXTENSION_NAME => "VK_NV_extension_168";
+
+    // File: vk.xml Line: 21235 Column: 18
+    public static int VK_KHR_MAINTENANCE_3_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21236 Column: 18
+    public static string VK_KHR_MAINTENANCE_3_EXTENSION_NAME => "VK_KHR_maintenance3";
+
+    // File: vk.xml Line: 21248 Column: 18
+    public static int VK_KHR_DRAW_INDIRECT_COUNT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21249 Column: 18
+    public static string VK_KHR_DRAW_INDIRECT_COUNT_EXTENSION_NAME => "VK_KHR_draw_indirect_count";
+
+    // File: vk.xml Line: 21256 Column: 18
+    public static int VK_EXT_FILTER_CUBIC_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 21257 Column: 18
+    public static string VK_EXT_FILTER_CUBIC_EXTENSION_NAME => "VK_EXT_filter_cubic";
+
+    // File: vk.xml Line: 21268 Column: 18
+    public static int VK_QCOM_RENDER_PASS_SHADER_RESOLVE_SPEC_VERSION => 4;
+
+    // File: vk.xml Line: 21269 Column: 18
+    public static string VK_QCOM_RENDER_PASS_SHADER_RESOLVE_EXTENSION_NAME => "VK_QCOM_render_pass_shader_resolve";
+
+    // File: vk.xml Line: 21276 Column: 18
+    public static int VK_QCOM_EXTENSION_173_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21277 Column: 18
+    public static string VK_QCOM_EXTENSION_173_EXTENSION_NAME => "VK_QCOM_extension_173";
+
+    // File: vk.xml Line: 21282 Column: 18
+    public static int VK_QCOM_EXTENSION_174_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21283 Column: 18
+    public static string VK_QCOM_EXTENSION_174_EXTENSION_NAME => "VK_QCOM_extension_174";
+
+    // File: vk.xml Line: 21288 Column: 18
+    public static int VK_EXT_GLOBAL_PRIORITY_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21289 Column: 18
+    public static string VK_EXT_GLOBAL_PRIORITY_EXTENSION_NAME => "VK_EXT_global_priority";
+
+    // File: vk.xml Line: 21302 Column: 18
+    public static int VK_KHR_SHADER_SUBGROUP_EXTENDED_TYPES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21303 Column: 18
+    public static string VK_KHR_SHADER_SUBGROUP_EXTENDED_TYPES_EXTENSION_NAME => "VK_KHR_shader_subgroup_extended_types";
+
+    // File: vk.xml Line: 21311 Column: 18
+    public static int VK_EXT_EXTENSION_177_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21312 Column: 18
+    public static string VK_EXT_EXTENSION_177_EXTENSION_NAME => "VK_EXT_extension_177";
+
+    // File: vk.xml Line: 21317 Column: 18
+    public static int VK_KHR_8BIT_STORAGE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21318 Column: 18
+    public static string VK_KHR_8BIT_STORAGE_EXTENSION_NAME => "VK_KHR_8bit_storage";
+
+    // File: vk.xml Line: 21326 Column: 18
+    public static int VK_EXT_EXTERNAL_MEMORY_HOST_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21327 Column: 18
+    public static string VK_EXT_EXTERNAL_MEMORY_HOST_EXTENSION_NAME => "VK_EXT_external_memory_host";
+
+    // File: vk.xml Line: 21341 Column: 18
+    public static int VK_AMD_BUFFER_MARKER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21342 Column: 18
+    public static string VK_AMD_BUFFER_MARKER_EXTENSION_NAME => "VK_AMD_buffer_marker";
+
+    // File: vk.xml Line: 21351 Column: 18
+    public static int VK_KHR_SHADER_ATOMIC_INT64_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21352 Column: 18
+    public static string VK_KHR_SHADER_ATOMIC_INT64_EXTENSION_NAME => "VK_KHR_shader_atomic_int64";
+
+    // File: vk.xml Line: 21360 Column: 18
+    public static int VK_KHR_SHADER_CLOCK_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21361 Column: 18
+    public static string VK_KHR_SHADER_CLOCK_EXTENSION_NAME => "VK_KHR_shader_clock";
+
+    // File: vk.xml Line: 21369 Column: 18
+    public static int VK_AMD_EXTENSION_183_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21370 Column: 18
+    public static string VK_AMD_EXTENSION_183_EXTENSION_NAME => "VK_AMD_extension_183";
+
+    // File: vk.xml Line: 21375 Column: 18
+    public static int VK_AMD_PIPELINE_COMPILER_CONTROL_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21376 Column: 18
+    public static string VK_AMD_PIPELINE_COMPILER_CONTROL_EXTENSION_NAME => "VK_AMD_pipeline_compiler_control";
+
+    // File: vk.xml Line: 21385 Column: 18
+    public static int VK_EXT_CALIBRATED_TIMESTAMPS_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21386 Column: 18
+    public static string VK_EXT_CALIBRATED_TIMESTAMPS_EXTENSION_NAME => "VK_EXT_calibrated_timestamps";
+
+    // File: vk.xml Line: 21400 Column: 18
+    public static int VK_AMD_SHADER_CORE_PROPERTIES_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21401 Column: 18
+    public static string VK_AMD_SHADER_CORE_PROPERTIES_EXTENSION_NAME => "VK_AMD_shader_core_properties";
+
+    // File: vk.xml Line: 21408 Column: 18
+    public static int VK_AMD_EXTENSION_187_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21409 Column: 18
+    public static string VK_AMD_EXTENSION_187_EXTENSION_NAME => "VK_AMD_extension_187";
+
+    // File: vk.xml Line: 21414 Column: 18
+    public static int VK_KHR_VIDEO_DECODE_H265_SPEC_VERSION => 8;
+
+    // File: vk.xml Line: 21415 Column: 18
+    public static string VK_KHR_VIDEO_DECODE_H265_EXTENSION_NAME => "VK_KHR_video_decode_h265";
+
+    // File: vk.xml Line: 21435 Column: 18
+    public static int VK_KHR_GLOBAL_PRIORITY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21436 Column: 18
+    public static string VK_KHR_GLOBAL_PRIORITY_EXTENSION_NAME => "VK_KHR_global_priority";
+
+    // File: vk.xml Line: 21455 Column: 18
+    public static int VK_AMD_MEMORY_OVERALLOCATION_BEHAVIOR_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21456 Column: 18
+    public static string VK_AMD_MEMORY_OVERALLOCATION_BEHAVIOR_EXTENSION_NAME => "VK_AMD_memory_overallocation_behavior";
+
+    // File: vk.xml Line: 21464 Column: 18
+    public static int VK_EXT_VERTEX_ATTRIBUTE_DIVISOR_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 21465 Column: 18
+    public static string VK_EXT_VERTEX_ATTRIBUTE_DIVISOR_EXTENSION_NAME => "VK_EXT_vertex_attribute_divisor";
+
+    // File: vk.xml Line: 21478 Column: 18
+    public static int VK_GGP_FRAME_TOKEN_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21479 Column: 18
+    public static string VK_GGP_FRAME_TOKEN_EXTENSION_NAME => "VK_GGP_frame_token";
+
+    // File: vk.xml Line: 21486 Column: 18
+    public static int VK_EXT_PIPELINE_CREATION_FEEDBACK_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21487 Column: 18
+    public static string VK_EXT_PIPELINE_CREATION_FEEDBACK_EXTENSION_NAME => "VK_EXT_pipeline_creation_feedback";
+
+    // File: vk.xml Line: 21500 Column: 18
+    public static int VK_GOOGLE_EXTENSION_194_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21501 Column: 18
+    public static string VK_GOOGLE_EXTENSION_194_EXTENSION_NAME => "VK_GOOGLE_extension_194";
+
+    // File: vk.xml Line: 21506 Column: 18
+    public static int VK_GOOGLE_EXTENSION_195_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21507 Column: 18
+    public static string VK_GOOGLE_EXTENSION_195_EXTENSION_NAME => "VK_GOOGLE_extension_195";
+
+    // File: vk.xml Line: 21512 Column: 18
+    public static int VK_GOOGLE_EXTENSION_196_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21513 Column: 18
+    public static string VK_GOOGLE_EXTENSION_196_EXTENSION_NAME => "VK_GOOGLE_extension_196";
+
+    // File: vk.xml Line: 21518 Column: 18
+    public static int VK_KHR_DRIVER_PROPERTIES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21519 Column: 18
+    public static string VK_KHR_DRIVER_PROPERTIES_EXTENSION_NAME => "VK_KHR_driver_properties";
+
+    // File: vk.xml Line: 21542 Column: 18
+    public static int VK_KHR_SHADER_FLOAT_CONTROLS_SPEC_VERSION => 4;
+
+    // File: vk.xml Line: 21543 Column: 18
+    public static string VK_KHR_SHADER_FLOAT_CONTROLS_EXTENSION_NAME => "VK_KHR_shader_float_controls";
+
+    // File: vk.xml Line: 21554 Column: 18
+    public static int VK_NV_SHADER_SUBGROUP_PARTITIONED_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21555 Column: 18
+    public static string VK_NV_SHADER_SUBGROUP_PARTITIONED_EXTENSION_NAME => "VK_NV_shader_subgroup_partitioned";
+
+    // File: vk.xml Line: 21561 Column: 18
+    public static int VK_KHR_DEPTH_STENCIL_RESOLVE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21562 Column: 18
+    public static string VK_KHR_DEPTH_STENCIL_RESOLVE_EXTENSION_NAME => "VK_KHR_depth_stencil_resolve";
+
+    // File: vk.xml Line: 21578 Column: 18
+    public static int VK_KHR_SWAPCHAIN_MUTABLE_FORMAT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21579 Column: 18
+    public static string VK_KHR_SWAPCHAIN_MUTABLE_FORMAT_EXTENSION_NAME => "VK_KHR_swapchain_mutable_format";
+
+    // File: vk.xml Line: 21585 Column: 18
+    public static int VK_NV_COMPUTE_SHADER_DERIVATIVES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21586 Column: 18
+    public static string VK_NV_COMPUTE_SHADER_DERIVATIVES_EXTENSION_NAME => "VK_NV_compute_shader_derivatives";
+
+    // File: vk.xml Line: 21594 Column: 18
+    public static int VK_NV_MESH_SHADER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21595 Column: 18
+    public static string VK_NV_MESH_SHADER_EXTENSION_NAME => "VK_NV_mesh_shader";
+
+    // File: vk.xml Line: 21619 Column: 18
+    public static int VK_NV_FRAGMENT_SHADER_BARYCENTRIC_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21620 Column: 18
+    public static string VK_NV_FRAGMENT_SHADER_BARYCENTRIC_EXTENSION_NAME => "VK_NV_fragment_shader_barycentric";
+
+    // File: vk.xml Line: 21627 Column: 18
+    public static int VK_NV_SHADER_IMAGE_FOOTPRINT_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21628 Column: 18
+    public static string VK_NV_SHADER_IMAGE_FOOTPRINT_EXTENSION_NAME => "VK_NV_shader_image_footprint";
+
+    // File: vk.xml Line: 21636 Column: 18
+    public static int VK_NV_SCISSOR_EXCLUSIVE_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21637 Column: 18
+    public static string VK_NV_SCISSOR_EXCLUSIVE_EXTENSION_NAME => "VK_NV_scissor_exclusive";
+
+    // File: vk.xml Line: 21651 Column: 18
+    public static int VK_NV_DEVICE_DIAGNOSTIC_CHECKPOINTS_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21652 Column: 18
+    public static string VK_NV_DEVICE_DIAGNOSTIC_CHECKPOINTS_EXTENSION_NAME => "VK_NV_device_diagnostic_checkpoints";
+
+    // File: vk.xml Line: 21670 Column: 18
+    public static int VK_KHR_TIMELINE_SEMAPHORE_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21671 Column: 18
+    public static string VK_KHR_TIMELINE_SEMAPHORE_EXTENSION_NAME => "VK_KHR_timeline_semaphore";
+
+    // File: vk.xml Line: 21698 Column: 18
+    public static int VK_KHR_EXTENSION_209_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21699 Column: 18
+    public static string VK_KHR_EXTENSION_209_EXTENSION_NAME => "VK_KHR_extension_209";
+
+    // File: vk.xml Line: 21704 Column: 18
+    public static int VK_INTEL_SHADER_INTEGER_FUNCTIONS_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21705 Column: 18
+    public static string VK_INTEL_SHADER_INTEGER_FUNCTIONS_2_EXTENSION_NAME => "VK_INTEL_shader_integer_functions2";
+
+    // File: vk.xml Line: 21713 Column: 18
+    public static int VK_INTEL_PERFORMANCE_QUERY_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21714 Column: 18
+    public static string VK_INTEL_PERFORMANCE_QUERY_EXTENSION_NAME => "VK_INTEL_performance_query";
+
+    // File: vk.xml Line: 21752 Column: 18
+    public static int VK_KHR_VULKAN_MEMORY_MODEL_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 21753 Column: 18
+    public static string VK_KHR_VULKAN_MEMORY_MODEL_EXTENSION_NAME => "VK_KHR_vulkan_memory_model";
+
+    // File: vk.xml Line: 21761 Column: 18
+    public static int VK_EXT_PCI_BUS_INFO_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21762 Column: 18
+    public static string VK_EXT_PCI_BUS_INFO_EXTENSION_NAME => "VK_EXT_pci_bus_info";
+
+    // File: vk.xml Line: 21769 Column: 18
+    public static int VK_AMD_DISPLAY_NATIVE_HDR_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21770 Column: 18
+    public static string VK_AMD_DISPLAY_NATIVE_HDR_EXTENSION_NAME => "VK_AMD_display_native_hdr";
+
+    // File: vk.xml Line: 21781 Column: 18
+    public static int VK_FUCHSIA_IMAGEPIPE_SURFACE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21782 Column: 18
+    public static string VK_FUCHSIA_IMAGEPIPE_SURFACE_EXTENSION_NAME => "VK_FUCHSIA_imagepipe_surface";
+
+    // File: vk.xml Line: 21791 Column: 18
+    public static int VK_KHR_SHADER_TERMINATE_INVOCATION_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21792 Column: 18
+    public static string VK_KHR_SHADER_TERMINATE_INVOCATION_EXTENSION_NAME => "VK_KHR_shader_terminate_invocation";
+
+    // File: vk.xml Line: 21800 Column: 18
+    public static int VK_GOOGLE_EXTENSION_217_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21801 Column: 18
+    public static string VK_GOOGLE_EXTENSION_217_EXTENSION_NAME => "VK_GOOGLE_extension_217";
+
+    // File: vk.xml Line: 21806 Column: 18
+    public static int VK_EXT_METAL_SURFACE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21807 Column: 18
+    public static string VK_EXT_METAL_SURFACE_EXTENSION_NAME => "VK_EXT_metal_surface";
+
+    // File: vk.xml Line: 21817 Column: 18
+    public static int VK_EXT_FRAGMENT_DENSITY_MAP_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21818 Column: 18
+    public static string VK_EXT_FRAGMENT_DENSITY_MAP_EXTENSION_NAME => "VK_EXT_fragment_density_map";
+
+    // File: vk.xml Line: 21848 Column: 18
+    public static int VK_EXT_EXTENSION_220_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21849 Column: 18
+    public static string VK_EXT_EXTENSION_220_EXTENSION_NAME => "VK_EXT_extension_220";
+
+    // File: vk.xml Line: 21854 Column: 18
+    public static int VK_KHR_EXTENSION_221_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21855 Column: 18
+    public static string VK_KHR_EXTENSION_221_EXTENSION_NAME => "VK_KHR_extension_221";
+
+    // File: vk.xml Line: 21861 Column: 18
+    public static int VK_EXT_SCALAR_BLOCK_LAYOUT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21862 Column: 18
+    public static string VK_EXT_SCALAR_BLOCK_LAYOUT_EXTENSION_NAME => "VK_EXT_scalar_block_layout";
+
+    // File: vk.xml Line: 21870 Column: 18
+    public static int VK_EXT_EXTENSION_223_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21871 Column: 18
+    public static string VK_EXT_EXTENSION_223_EXTENSION_NAME => "VK_EXT_extension_223";
+
+    // File: vk.xml Line: 21876 Column: 18
+    public static int VK_GOOGLE_HLSL_FUNCTIONALITY_1_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21877 Column: 18
+    public static string VK_GOOGLE_HLSL_FUNCTIONALITY_1_EXTENSION_NAME => "VK_GOOGLE_hlsl_functionality1";
+
+    // File: vk.xml Line: 21884 Column: 18
+    public static int VK_GOOGLE_DECORATE_STRING_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21885 Column: 18
+    public static string VK_GOOGLE_DECORATE_STRING_EXTENSION_NAME => "VK_GOOGLE_decorate_string";
+
+    // File: vk.xml Line: 21890 Column: 18
+    public static int VK_EXT_SUBGROUP_SIZE_CONTROL_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21891 Column: 18
+    public static string VK_EXT_SUBGROUP_SIZE_CONTROL_EXTENSION_NAME => "VK_EXT_subgroup_size_control";
+
+    // File: vk.xml Line: 21906 Column: 18
+    public static int VK_KHR_FRAGMENT_SHADING_RATE_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 21907 Column: 18
+    public static string VK_KHR_FRAGMENT_SHADING_RATE_EXTENSION_NAME => "VK_KHR_fragment_shading_rate";
+
+    // File: vk.xml Line: 21943 Column: 18
+    public static int VK_AMD_SHADER_CORE_PROPERTIES_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21944 Column: 18
+    public static string VK_AMD_SHADER_CORE_PROPERTIES_2_EXTENSION_NAME => "VK_AMD_shader_core_properties2";
+
+    // File: vk.xml Line: 21953 Column: 18
+    public static int VK_AMD_EXTENSION_229_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21954 Column: 18
+    public static string VK_AMD_EXTENSION_229_EXTENSION_NAME => "VK_AMD_extension_229";
+
+    // File: vk.xml Line: 21959 Column: 18
+    public static int VK_AMD_DEVICE_COHERENT_MEMORY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21960 Column: 18
+    public static string VK_AMD_DEVICE_COHERENT_MEMORY_EXTENSION_NAME => "VK_AMD_device_coherent_memory";
+
+    // File: vk.xml Line: 21970 Column: 18
+    public static int VK_AMD_EXTENSION_231_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21971 Column: 18
+    public static string VK_AMD_EXTENSION_231_EXTENSION_NAME => "VK_AMD_extension_231";
+
+    // File: vk.xml Line: 21976 Column: 18
+    public static int VK_AMD_EXTENSION_232_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21977 Column: 18
+    public static string VK_AMD_EXTENSION_232_EXTENSION_NAME => "VK_AMD_extension_232";
+
+    // File: vk.xml Line: 21982 Column: 18
+    public static int VK_KHR_DYNAMIC_RENDERING_LOCAL_READ_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 21983 Column: 18
+    public static string VK_KHR_DYNAMIC_RENDERING_LOCAL_READ_EXTENSION_NAME => "VK_KHR_dynamic_rendering_local_read";
+
+    // File: vk.xml Line: 21998 Column: 18
+    public static int VK_AMD_EXTENSION_234_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 21999 Column: 18
+    public static string VK_AMD_EXTENSION_234_EXTENSION_NAME => "VK_AMD_extension_234";
+
+    // File: vk.xml Line: 22004 Column: 18
+    public static int VK_EXT_SHADER_IMAGE_ATOMIC_INT64_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22005 Column: 18
+    public static string VK_EXT_SHADER_IMAGE_ATOMIC_INT64_EXTENSION_NAME => "VK_EXT_shader_image_atomic_int64";
+
+    // File: vk.xml Line: 22014 Column: 18
+    public static int VK_KHR_SHADER_QUAD_CONTROL_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22015 Column: 18
+    public static string VK_KHR_SHADER_QUAD_CONTROL_EXTENSION_NAME => "VK_KHR_shader_quad_control";
+
+    // File: vk.xml Line: 22023 Column: 18
+    public static int VK_KHR_SPIRV_1_4_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22024 Column: 18
+    public static string VK_KHR_SPIRV_1_4_EXTENSION_NAME => "VK_KHR_spirv_1_4";
+
+    // File: vk.xml Line: 22029 Column: 18
+    public static int VK_EXT_MEMORY_BUDGET_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22030 Column: 18
+    public static string VK_EXT_MEMORY_BUDGET_EXTENSION_NAME => "VK_EXT_memory_budget";
+
+    // File: vk.xml Line: 22037 Column: 18
+    public static int VK_EXT_MEMORY_PRIORITY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22038 Column: 18
+    public static string VK_EXT_MEMORY_PRIORITY_EXTENSION_NAME => "VK_EXT_memory_priority";
+
+    // File: vk.xml Line: 22048 Column: 18
+    public static int VK_KHR_SURFACE_PROTECTED_CAPABILITIES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22049 Column: 18
+    public static string VK_KHR_SURFACE_PROTECTED_CAPABILITIES_EXTENSION_NAME => "VK_KHR_surface_protected_capabilities";
+
+    // File: vk.xml Line: 22056 Column: 18
+    public static int VK_NV_DEDICATED_ALLOCATION_IMAGE_ALIASING_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22057 Column: 18
+    public static string VK_NV_DEDICATED_ALLOCATION_IMAGE_ALIASING_EXTENSION_NAME => "VK_NV_dedicated_allocation_image_aliasing";
+
+    // File: vk.xml Line: 22065 Column: 18
+    public static int VK_KHR_SEPARATE_DEPTH_STENCIL_LAYOUTS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22066 Column: 18
+    public static string VK_KHR_SEPARATE_DEPTH_STENCIL_LAYOUTS_EXTENSION_NAME => "VK_KHR_separate_depth_stencil_layouts";
+
+    // File: vk.xml Line: 22082 Column: 18
+    public static int VK_INTEL_EXTENSION_243_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 22083 Column: 18
+    public static string VK_INTEL_EXTENSION_243_EXTENSION_NAME => "VK_INTEL_extension_243";
+
+    // File: vk.xml Line: 22089 Column: 18
+    public static int VK_MESA_EXTENSION_244_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 22090 Column: 18
+    public static string VK_MESA_EXTENSION_244_EXTENSION_NAME => "VK_MESA_extension_244";
+
+    // File: vk.xml Line: 22095 Column: 18
+    public static int VK_EXT_BUFFER_DEVICE_ADDRESS_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 22096 Column: 18
+    public static string VK_EXT_BUFFER_DEVICE_ADDRESS_EXTENSION_NAME => "VK_EXT_buffer_device_address";
+
+    // File: vk.xml Line: 22114 Column: 18
+    public static int VK_EXT_TOOLING_INFO_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22115 Column: 18
+    public static string VK_EXT_TOOLING_INFO_EXTENSION_NAME => "VK_EXT_tooling_info";
+
+    // File: vk.xml Line: 22140 Column: 18
+    public static int VK_EXT_SEPARATE_STENCIL_USAGE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22141 Column: 18
+    public static string VK_EXT_SEPARATE_STENCIL_USAGE_EXTENSION_NAME => "VK_EXT_separate_stencil_usage";
+
+    // File: vk.xml Line: 22148 Column: 18
+    public static int VK_EXT_VALIDATION_FEATURES_SPEC_VERSION => 6;
+
+    // File: vk.xml Line: 22149 Column: 18
+    public static string VK_EXT_VALIDATION_FEATURES_EXTENSION_NAME => "VK_EXT_validation_features";
+
+    // File: vk.xml Line: 22158 Column: 18
+    public static int VK_KHR_PRESENT_WAIT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22159 Column: 18
+    public static string VK_KHR_PRESENT_WAIT_EXTENSION_NAME => "VK_KHR_present_wait";
+
+    // File: vk.xml Line: 22168 Column: 18
+    public static int VK_NV_COOPERATIVE_MATRIX_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22169 Column: 18
+    public static string VK_NV_COOPERATIVE_MATRIX_EXTENSION_NAME => "VK_NV_cooperative_matrix";
+
+    // File: vk.xml Line: 22199 Column: 18
+    public static int VK_NV_COVERAGE_REDUCTION_MODE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22200 Column: 18
+    public static string VK_NV_COVERAGE_REDUCTION_MODE_EXTENSION_NAME => "VK_NV_coverage_reduction_mode";
+
+    // File: vk.xml Line: 22215 Column: 18
+    public static int VK_EXT_FRAGMENT_SHADER_INTERLOCK_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22216 Column: 18
+    public static string VK_EXT_FRAGMENT_SHADER_INTERLOCK_EXTENSION_NAME => "VK_EXT_fragment_shader_interlock";
+
+    // File: vk.xml Line: 22224 Column: 18
+    public static int VK_EXT_YCBCR_IMAGE_ARRAYS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22225 Column: 18
+    public static string VK_EXT_YCBCR_IMAGE_ARRAYS_EXTENSION_NAME => "VK_EXT_ycbcr_image_arrays";
+
+    // File: vk.xml Line: 22233 Column: 18
+    public static int VK_KHR_UNIFORM_BUFFER_STANDARD_LAYOUT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22234 Column: 18
+    public static string VK_KHR_UNIFORM_BUFFER_STANDARD_LAYOUT_EXTENSION_NAME => "VK_KHR_uniform_buffer_standard_layout";
+
+    // File: vk.xml Line: 22242 Column: 18
+    public static int VK_EXT_PROVOKING_VERTEX_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22243 Column: 18
+    public static string VK_EXT_PROVOKING_VERTEX_EXTENSION_NAME => "VK_EXT_provoking_vertex";
+
+    // File: vk.xml Line: 22256 Column: 18
+    public static int VK_EXT_FULL_SCREEN_EXCLUSIVE_SPEC_VERSION => 4;
+
+    // File: vk.xml Line: 22257 Column: 18
+    public static string VK_EXT_FULL_SCREEN_EXCLUSIVE_EXTENSION_NAME => "VK_EXT_full_screen_exclusive";
+
+    // File: vk.xml Line: 22278 Column: 18
+    public static int VK_EXT_HEADLESS_SURFACE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22279 Column: 18
+    public static string VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME => "VK_EXT_headless_surface";
+
+    // File: vk.xml Line: 22288 Column: 18
+    public static int VK_KHR_BUFFER_DEVICE_ADDRESS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22289 Column: 18
+    public static string VK_KHR_BUFFER_DEVICE_ADDRESS_EXTENSION_NAME => "VK_KHR_buffer_device_address";
+
+    // File: vk.xml Line: 22313 Column: 18
+    public static int VK_EXT_EXTENSION_259_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 22314 Column: 18
+    public static string VK_EXT_EXTENSION_259_EXTENSION_NAME => "VK_EXT_extension_259";
+
+    // File: vk.xml Line: 22323 Column: 18
+    public static int VK_EXT_LINE_RASTERIZATION_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22324 Column: 18
+    public static string VK_EXT_LINE_RASTERIZATION_EXTENSION_NAME => "VK_EXT_line_rasterization";
+
+    // File: vk.xml Line: 22343 Column: 18
+    public static int VK_EXT_SHADER_ATOMIC_FLOAT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22344 Column: 18
+    public static string VK_EXT_SHADER_ATOMIC_FLOAT_EXTENSION_NAME => "VK_EXT_shader_atomic_float";
+
+    // File: vk.xml Line: 22358 Column: 18
+    public static int VK_EXT_HOST_QUERY_RESET_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22359 Column: 18
+    public static string VK_EXT_HOST_QUERY_RESET_EXTENSION_NAME => "VK_EXT_host_query_reset";
+
+    // File: vk.xml Line: 22368 Column: 18
+    public static int VK_GGP_EXTENSION_263_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 22369 Column: 18
+    public static string VK_GGP_EXTENSION_263_EXTENSION_NAME => "VK_GGP_extension_263";
+
+    // File: vk.xml Line: 22374 Column: 18
+    public static int VK_BRCM_EXTENSION_264_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 22375 Column: 18
+    public static string VK_BRCM_EXTENSION_264_EXTENSION_NAME => "VK_BRCM_extension_264";
+
+    // File: vk.xml Line: 22380 Column: 18
+    public static int VK_BRCM_EXTENSION_265_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 22381 Column: 18
+    public static string VK_BRCM_EXTENSION_265_EXTENSION_NAME => "VK_BRCM_extension_265";
+
+    // File: vk.xml Line: 22386 Column: 18
+    public static int VK_EXT_INDEX_TYPE_UINT8_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22387 Column: 18
+    public static string VK_EXT_INDEX_TYPE_UINT8_EXTENSION_NAME => "VK_EXT_index_type_uint8";
+
+    // File: vk.xml Line: 22396 Column: 18
+    public static int VK_EXT_EXTENSION_267_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 22397 Column: 18
+    public static string VK_EXT_EXTENSION_267_EXTENSION_NAME => "VK_EXT_extension_267";
+
+    // File: vk.xml Line: 22402 Column: 18
+    public static int VK_EXT_EXTENDED_DYNAMIC_STATE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22403 Column: 18
+    public static string VK_EXT_EXTENDED_DYNAMIC_STATE_EXTENSION_NAME => "VK_EXT_extended_dynamic_state";
+
+    // File: vk.xml Line: 22435 Column: 18
+    public static int VK_KHR_DEFERRED_HOST_OPERATIONS_SPEC_VERSION => 4;
+
+    // File: vk.xml Line: 22436 Column: 18
+    public static string VK_KHR_DEFERRED_HOST_OPERATIONS_EXTENSION_NAME => "VK_KHR_deferred_host_operations";
+
+    // File: vk.xml Line: 22452 Column: 18
+    public static int VK_KHR_PIPELINE_EXECUTABLE_PROPERTIES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22453 Column: 18
+    public static string VK_KHR_PIPELINE_EXECUTABLE_PROPERTIES_EXTENSION_NAME => "VK_KHR_pipeline_executable_properties";
+
+    // File: vk.xml Line: 22478 Column: 18
+    public static int VK_EXT_HOST_IMAGE_COPY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22479 Column: 18
+    public static string VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME => "VK_EXT_host_image_copy";
+
+    // File: vk.xml Line: 22517 Column: 18
+    public static int VK_KHR_MAP_MEMORY_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22518 Column: 18
+    public static string VK_KHR_MAP_MEMORY_2_EXTENSION_NAME => "VK_KHR_map_memory2";
+
+    // File: vk.xml Line: 22531 Column: 18
+    public static int VK_EXT_MAP_MEMORY_PLACED_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22532 Column: 18
+    public static string VK_EXT_MAP_MEMORY_PLACED_EXTENSION_NAME => "VK_EXT_map_memory_placed";
+
+    // File: vk.xml Line: 22546 Column: 18
+    public static int VK_EXT_SHADER_ATOMIC_FLOAT_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22547 Column: 18
+    public static string VK_EXT_SHADER_ATOMIC_FLOAT_2_EXTENSION_NAME => "VK_EXT_shader_atomic_float2";
+
+    // File: vk.xml Line: 22558 Column: 18
+    public static int VK_EXT_SURFACE_MAINTENANCE_1_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22559 Column: 18
+    public static string VK_EXT_SURFACE_MAINTENANCE_1_EXTENSION_NAME => "VK_EXT_surface_maintenance1";
+
+    // File: vk.xml Line: 22574 Column: 18
+    public static int VK_EXT_SWAPCHAIN_MAINTENANCE_1_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22575 Column: 18
+    public static string VK_EXT_SWAPCHAIN_MAINTENANCE_1_EXTENSION_NAME => "VK_EXT_swapchain_maintenance1";
+
+    // File: vk.xml Line: 22595 Column: 18
+    public static int VK_EXT_SHADER_DEMOTE_TO_HELPER_INVOCATION_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22596 Column: 18
+    public static string VK_EXT_SHADER_DEMOTE_TO_HELPER_INVOCATION_EXTENSION_NAME => "VK_EXT_shader_demote_to_helper_invocation";
+
+    // File: vk.xml Line: 22608 Column: 18
+    public static int VK_NV_DEVICE_GENERATED_COMMANDS_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 22609 Column: 18
+    public static string VK_NV_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME => "VK_NV_device_generated_commands";
+
+    // File: vk.xml Line: 22653 Column: 18
+    public static int VK_NV_INHERITED_VIEWPORT_SCISSOR_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22654 Column: 18
+    public static string VK_NV_INHERITED_VIEWPORT_SCISSOR_EXTENSION_NAME => "VK_NV_inherited_viewport_scissor";
+
+    // File: vk.xml Line: 22664 Column: 18
+    public static int VK_KHR_EXTENSION_280_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 22665 Column: 18
+    public static string VK_KHR_EXTENSION_280_EXTENSION_NAME => "VK_KHR_extension_280";
+
+    // File: vk.xml Line: 22670 Column: 18
+    public static int VK_KHR_SHADER_INTEGER_DOT_PRODUCT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22671 Column: 18
+    public static string VK_KHR_SHADER_INTEGER_DOT_PRODUCT_EXTENSION_NAME => "VK_KHR_shader_integer_dot_product";
+
+    // File: vk.xml Line: 22681 Column: 18
+    public static int VK_EXT_TEXEL_BUFFER_ALIGNMENT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22682 Column: 18
+    public static string VK_EXT_TEXEL_BUFFER_ALIGNMENT_EXTENSION_NAME => "VK_EXT_texel_buffer_alignment";
+
+    // File: vk.xml Line: 22692 Column: 18
+    public static int VK_QCOM_RENDER_PASS_TRANSFORM_SPEC_VERSION => 4;
+
+    // File: vk.xml Line: 22693 Column: 18
+    public static string VK_QCOM_RENDER_PASS_TRANSFORM_EXTENSION_NAME => "VK_QCOM_render_pass_transform";
+
+    // File: vk.xml Line: 22703 Column: 18
+    public static int VK_EXT_DEPTH_BIAS_CONTROL_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22704 Column: 18
+    public static string VK_EXT_DEPTH_BIAS_CONTROL_EXTENSION_NAME => "VK_EXT_depth_bias_control";
+
+    // File: vk.xml Line: 22718 Column: 18
+    public static int VK_EXT_DEVICE_MEMORY_REPORT_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 22719 Column: 18
+    public static string VK_EXT_DEVICE_MEMORY_REPORT_EXTENSION_NAME => "VK_EXT_device_memory_report";
+
+    // File: vk.xml Line: 22734 Column: 18
+    public static int VK_EXT_ACQUIRE_DRM_DISPLAY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22735 Column: 18
+    public static string VK_EXT_ACQUIRE_DRM_DISPLAY_EXTENSION_NAME => "VK_EXT_acquire_drm_display";
+
+    // File: vk.xml Line: 22742 Column: 18
+    public static int VK_EXT_ROBUSTNESS_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22743 Column: 18
+    public static string VK_EXT_ROBUSTNESS_2_EXTENSION_NAME => "VK_EXT_robustness2";
+
+    // File: vk.xml Line: 22753 Column: 18
+    public static int VK_EXT_CUSTOM_BORDER_COLOR_SPEC_VERSION => 12;
+
+    // File: vk.xml Line: 22754 Column: 18
+    public static string VK_EXT_CUSTOM_BORDER_COLOR_EXTENSION_NAME => "VK_EXT_custom_border_color";
+
+    // File: vk.xml Line: 22773 Column: 18
+    public static int VK_EXT_EXTENSION_289_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 22774 Column: 18
+    public static string VK_EXT_EXTENSION_289_EXTENSION_NAME => "VK_EXT_extension_289";
+
+    // File: vk.xml Line: 22809 Column: 18
+    public static int VK_GOOGLE_USER_TYPE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22810 Column: 18
+    public static string VK_GOOGLE_USER_TYPE_EXTENSION_NAME => "VK_GOOGLE_user_type";
+
+    // File: vk.xml Line: 22815 Column: 18
+    public static int VK_KHR_PIPELINE_LIBRARY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22816 Column: 18
+    public static string VK_KHR_PIPELINE_LIBRARY_EXTENSION_NAME => "VK_KHR_pipeline_library";
+
+    // File: vk.xml Line: 22824 Column: 18
+    public static int VK_NV_EXTENSION_292_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 22825 Column: 18
+    public static string VK_NV_EXTENSION_292_EXTENSION_NAME => "VK_NV_extension_292";
+
+    // File: vk.xml Line: 22830 Column: 18
+    public static int VK_NV_PRESENT_BARRIER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22831 Column: 18
+    public static string VK_NV_PRESENT_BARRIER_EXTENSION_NAME => "VK_NV_present_barrier";
+
+    // File: vk.xml Line: 22843 Column: 18
+    public static int VK_KHR_SHADER_NON_SEMANTIC_INFO_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22844 Column: 18
+    public static string VK_KHR_SHADER_NON_SEMANTIC_INFO_EXTENSION_NAME => "VK_KHR_shader_non_semantic_info";
+
+    // File: vk.xml Line: 22849 Column: 18
+    public static int VK_KHR_PRESENT_ID_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22850 Column: 18
+    public static string VK_KHR_PRESENT_ID_EXTENSION_NAME => "VK_KHR_present_id";
+
+    // File: vk.xml Line: 22860 Column: 18
+    public static int VK_EXT_PRIVATE_DATA_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 22861 Column: 18
+    public static string VK_EXT_PRIVATE_DATA_EXTENSION_NAME => "VK_EXT_private_data";
+
+    // File: vk.xml Line: 22880 Column: 18
+    public static int VK_KHR_EXTENSION_297_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 22881 Column: 18
+    public static string VK_KHR_EXTENSION_297_EXTENSION_NAME => "VK_KHR_extension_297";
+
+    // File: vk.xml Line: 22887 Column: 18
+    public static int VK_EXT_PIPELINE_CREATION_CACHE_CONTROL_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 22888 Column: 18
+    public static string VK_EXT_PIPELINE_CREATION_CACHE_CONTROL_EXTENSION_NAME => "VK_EXT_pipeline_creation_cache_control";
+
+    // File: vk.xml Line: 22902 Column: 18
+    public static int VK_KHR_EXTENSION_299_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 22903 Column: 18
+    public static string VK_KHR_EXTENSION_299_EXTENSION_NAME => "VK_KHR_extension_299";
+
+    // File: vk.xml Line: 22908 Column: 18
+    public static int VK_KHR_VIDEO_ENCODE_QUEUE_SPEC_VERSION => 12;
+
+    // File: vk.xml Line: 22909 Column: 18
+    public static string VK_KHR_VIDEO_ENCODE_QUEUE_EXTENSION_NAME => "VK_KHR_video_encode_queue";
+
+    // File: vk.xml Line: 22986 Column: 18
+    public static int VK_NV_DEVICE_DIAGNOSTICS_CONFIG_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 22987 Column: 18
+    public static string VK_NV_DEVICE_DIAGNOSTICS_CONFIG_EXTENSION_NAME => "VK_NV_device_diagnostics_config";
+
+    // File: vk.xml Line: 22999 Column: 18
+    public static int VK_QCOM_RENDER_PASS_STORE_OPS_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 23000 Column: 18
+    public static string VK_QCOM_RENDER_PASS_STORE_OPS_EXTENSION_NAME => "VK_QCOM_render_pass_store_ops";
+
+    // File: vk.xml Line: 23006 Column: 18
+    public static int VK_QCOM_EXTENSION_303_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23007 Column: 18
+    public static string VK_QCOM_EXTENSION_303_EXTENSION_NAME => "VK_QCOM_extension_303";
+
+    // File: vk.xml Line: 23012 Column: 18
+    public static int VK_QCOM_EXTENSION_304_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23013 Column: 18
+    public static string VK_QCOM_EXTENSION_304_EXTENSION_NAME => "VK_QCOM_extension_304";
+
+    // File: vk.xml Line: 23018 Column: 18
+    public static int VK_QCOM_EXTENSION_305_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23019 Column: 18
+    public static string VK_QCOM_EXTENSION_305_EXTENSION_NAME => "VK_QCOM_extension_305";
+
+    // File: vk.xml Line: 23024 Column: 18
+    public static int VK_QCOM_EXTENSION_306_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23025 Column: 18
+    public static string VK_QCOM_EXTENSION_306_EXTENSION_NAME => "VK_QCOM_extension_306";
+
+    // File: vk.xml Line: 23030 Column: 18
+    public static int VK_QCOM_EXTENSION_307_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23031 Column: 18
+    public static string VK_QCOM_EXTENSION_307_EXTENSION_NAME => "VK_QCOM_extension_307";
+
+    // File: vk.xml Line: 23036 Column: 18
+    public static int VK_NV_CUDA_KERNEL_LAUNCH_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 23037 Column: 18
+    public static string VK_NV_CUDA_KERNEL_LAUNCH_EXTENSION_NAME => "VK_NV_cuda_kernel_launch";
+
+    // File: vk.xml Line: 23067 Column: 18
+    public static int VK_KHR_OBJECT_REFRESH_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23068 Column: 18
+    public static string VK_KHR_OBJECT_REFRESH_EXTENSION_NAME => "VK_KHR_object_refresh";
+
+    // File: vk.xml Line: 23080 Column: 18
+    public static int VK_QCOM_EXTENSION_310_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23081 Column: 18
+    public static string VK_QCOM_EXTENSION_310_EXTENSION_NAME => "VK_QCOM_extension_310";
+
+    // File: vk.xml Line: 23090 Column: 18
+    public static int VK_NV_LOW_LATENCY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23091 Column: 18
+    public static string VK_NV_LOW_LATENCY_EXTENSION_NAME => "VK_NV_low_latency";
+
+    // File: vk.xml Line: 23098 Column: 18
+    public static int VK_EXT_METAL_OBJECTS_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 23099 Column: 18
+    public static string VK_EXT_METAL_OBJECTS_EXTENSION_NAME => "VK_EXT_metal_objects";
+
+    // File: vk.xml Line: 23137 Column: 18
+    public static int VK_EXT_EXTENSION_313_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23138 Column: 18
+    public static string VK_EXT_EXTENSION_313_EXTENSION_NAME => "VK_EXT_extension_313";
+
+    // File: vk.xml Line: 23143 Column: 18
+    public static int VK_AMD_EXTENSION_314_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23144 Column: 18
+    public static string VK_AMD_EXTENSION_314_EXTENSION_NAME => "VK_AMD_extension_314";
+
+    // File: vk.xml Line: 23149 Column: 18
+    public static int VK_KHR_SYNCHRONIZATION_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23150 Column: 18
+    public static string VK_KHR_SYNCHRONIZATION_2_EXTENSION_NAME => "VK_KHR_synchronization2";
+
+    // File: vk.xml Line: 23295 Column: 18
+    public static int VK_AMD_EXTENSION_316_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23296 Column: 18
+    public static string VK_AMD_EXTENSION_316_EXTENSION_NAME => "VK_AMD_extension_316";
+
+    // File: vk.xml Line: 23301 Column: 18
+    public static int VK_EXT_DESCRIPTOR_BUFFER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23302 Column: 18
+    public static string VK_EXT_DESCRIPTOR_BUFFER_EXTENSION_NAME => "VK_EXT_descriptor_buffer";
+
+    // File: vk.xml Line: 23360 Column: 18
+    public static int VK_AMD_EXTENSION_318_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23361 Column: 18
+    public static string VK_AMD_EXTENSION_318_EXTENSION_NAME => "VK_AMD_extension_318";
+
+    // File: vk.xml Line: 23366 Column: 18
+    public static int VK_AMD_EXTENSION_319_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23367 Column: 18
+    public static string VK_AMD_EXTENSION_319_EXTENSION_NAME => "VK_AMD_extension_319";
+
+    // File: vk.xml Line: 23374 Column: 18
+    public static int VK_AMD_EXTENSION_320_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23375 Column: 18
+    public static string VK_AMD_EXTENSION_320_EXTENSION_NAME => "VK_AMD_extension_320";
+
+    // File: vk.xml Line: 23380 Column: 18
+    public static int VK_EXT_GRAPHICS_PIPELINE_LIBRARY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23381 Column: 18
+    public static string VK_EXT_GRAPHICS_PIPELINE_LIBRARY_EXTENSION_NAME => "VK_EXT_graphics_pipeline_library";
+
+    // File: vk.xml Line: 23399 Column: 18
+    public static int VK_AMD_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23400 Column: 18
+    public static string VK_AMD_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_EXTENSION_NAME => "VK_AMD_shader_early_and_late_fragment_tests";
+
+    // File: vk.xml Line: 23408 Column: 18
+    public static int VK_KHR_FRAGMENT_SHADER_BARYCENTRIC_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23409 Column: 18
+    public static string VK_KHR_FRAGMENT_SHADER_BARYCENTRIC_EXTENSION_NAME => "VK_KHR_fragment_shader_barycentric";
+
+    // File: vk.xml Line: 23419 Column: 18
+    public static int VK_KHR_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23420 Column: 18
+    public static string VK_KHR_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_EXTENSION_NAME => "VK_KHR_shader_subgroup_uniform_control_flow";
+
+    // File: vk.xml Line: 23428 Column: 18
+    public static int VK_KHR_EXTENSION_325_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23429 Column: 18
+    public static string VK_KHR_EXTENSION_325_EXTENSION_NAME => "VK_KHR_extension_325";
+
+    // File: vk.xml Line: 23434 Column: 18
+    public static int VK_KHR_ZERO_INITIALIZE_WORKGROUP_MEMORY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23435 Column: 18
+    public static string VK_KHR_ZERO_INITIALIZE_WORKGROUP_MEMORY_EXTENSION_NAME => "VK_KHR_zero_initialize_workgroup_memory";
+
+    // File: vk.xml Line: 23443 Column: 18
+    public static int VK_NV_FRAGMENT_SHADING_RATE_ENUMS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23444 Column: 18
+    public static string VK_NV_FRAGMENT_SHADING_RATE_ENUMS_EXTENSION_NAME => "VK_NV_fragment_shading_rate_enums";
+
+    // File: vk.xml Line: 23459 Column: 18
+    public static int VK_NV_RAY_TRACING_MOTION_BLUR_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23460 Column: 18
+    public static string VK_NV_RAY_TRACING_MOTION_BLUR_EXTENSION_NAME => "VK_NV_ray_tracing_motion_blur";
+
+    // File: vk.xml Line: 23483 Column: 18
+    public static int VK_EXT_MESH_SHADER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23484 Column: 18
+    public static string VK_EXT_MESH_SHADER_EXTENSION_NAME => "VK_EXT_mesh_shader";
+
+    // File: vk.xml Line: 23518 Column: 18
+    public static int VK_NV_EXTENSION_330_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23519 Column: 18
+    public static string VK_NV_EXTENSION_330_EXTENSION_NAME => "VK_NV_extension_330";
+
+    // File: vk.xml Line: 23529 Column: 18
+    public static int VK_EXT_YCBCR_2PLANE_444_FORMATS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23530 Column: 18
+    public static string VK_EXT_YCBCR_2PLANE_444_FORMATS_EXTENSION_NAME => "VK_EXT_ycbcr_2plane_444_formats";
+
+    // File: vk.xml Line: 23542 Column: 18
+    public static int VK_NV_EXTENSION_332_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23543 Column: 18
+    public static string VK_NV_EXTENSION_332_EXTENSION_NAME => "VK_NV_extension_332";
+
+    // File: vk.xml Line: 23548 Column: 18
+    public static int VK_EXT_FRAGMENT_DENSITY_MAP_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23549 Column: 18
+    public static string VK_EXT_FRAGMENT_DENSITY_MAP_2_EXTENSION_NAME => "VK_EXT_fragment_density_map2";
+
+    // File: vk.xml Line: 23560 Column: 18
+    public static int VK_QCOM_ROTATED_COPY_COMMANDS_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 23561 Column: 18
+    public static string VK_QCOM_ROTATED_COPY_COMMANDS_EXTENSION_NAME => "VK_QCOM_rotated_copy_commands";
+
+    // File: vk.xml Line: 23568 Column: 18
+    public static int VK_KHR_EXTENSION_335_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23569 Column: 18
+    public static string VK_KHR_EXTENSION_335_EXTENSION_NAME => "VK_KHR_extension_335";
+
+    // File: vk.xml Line: 23574 Column: 18
+    public static int VK_EXT_IMAGE_ROBUSTNESS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23575 Column: 18
+    public static string VK_EXT_IMAGE_ROBUSTNESS_EXTENSION_NAME => "VK_EXT_image_robustness";
+
+    // File: vk.xml Line: 23583 Column: 18
+    public static int VK_KHR_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23584 Column: 18
+    public static string VK_KHR_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_EXTENSION_NAME => "VK_KHR_workgroup_memory_explicit_layout";
+
+    // File: vk.xml Line: 23592 Column: 18
+    public static int VK_KHR_COPY_COMMANDS_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23593 Column: 18
+    public static string VK_KHR_COPY_COMMANDS_2_EXTENSION_NAME => "VK_KHR_copy_commands2";
+
+    // File: vk.xml Line: 23626 Column: 18
+    public static int VK_EXT_IMAGE_COMPRESSION_CONTROL_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23627 Column: 18
+    public static string VK_EXT_IMAGE_COMPRESSION_CONTROL_EXTENSION_NAME => "VK_EXT_image_compression_control";
+
+    // File: vk.xml Line: 23649 Column: 18
+    public static int VK_EXT_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 23650 Column: 18
+    public static string VK_EXT_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_EXTENSION_NAME => "VK_EXT_attachment_feedback_loop_layout";
+
+    // File: vk.xml Line: 23668 Column: 18
+    public static int VK_EXT_4444_FORMATS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23669 Column: 18
+    public static string VK_EXT_4444_FORMATS_EXTENSION_NAME => "VK_EXT_4444_formats";
+
+    // File: vk.xml Line: 23679 Column: 18
+    public static int VK_EXT_DEVICE_FAULT_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 23680 Column: 18
+    public static string VK_EXT_DEVICE_FAULT_EXTENSION_NAME => "VK_EXT_device_fault";
+
+    // File: vk.xml Line: 23698 Column: 18
+    public static int VK_ARM_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23699 Column: 18
+    public static string VK_ARM_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_EXTENSION_NAME => "VK_ARM_rasterization_order_attachment_access";
+
+    // File: vk.xml Line: 23712 Column: 18
+    public static int VK_ARM_EXTENSION_344_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23713 Column: 18
+    public static string VK_ARM_EXTENSION_344_EXTENSION_NAME => "VK_ARM_extension_344";
+
+    // File: vk.xml Line: 23718 Column: 22
+    public static int VK_EXT_RGBA10X6_FORMATS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23719 Column: 22
+    public static string VK_EXT_RGBA10X6_FORMATS_EXTENSION_NAME => "VK_EXT_rgba10x6_formats";
+
+    // File: vk.xml Line: 23727 Column: 18
+    public static int VK_NV_ACQUIRE_WINRT_DISPLAY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23728 Column: 18
+    public static string VK_NV_ACQUIRE_WINRT_DISPLAY_EXTENSION_NAME => "VK_NV_acquire_winrt_display";
+
+    // File: vk.xml Line: 23735 Column: 18
+    public static int VK_EXT_DIRECTFB_SURFACE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23736 Column: 18
+    public static string VK_EXT_DIRECTFB_SURFACE_EXTENSION_NAME => "VK_EXT_directfb_surface";
+
+    // File: vk.xml Line: 23746 Column: 18
+    public static int VK_KHR_EXTENSION_350_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23747 Column: 18
+    public static string VK_KHR_EXTENSION_350_EXTENSION_NAME => "VK_KHR_extension_350";
+
+    // File: vk.xml Line: 23752 Column: 18
+    public static int VK_NV_EXTENSION_351_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23753 Column: 18
+    public static string VK_NV_EXTENSION_351_EXTENSION_NAME => "VK_NV_extension_351";
+
+    // File: vk.xml Line: 23758 Column: 18
+    public static int VK_VALVE_MUTABLE_DESCRIPTOR_TYPE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23759 Column: 18
+    public static string VK_VALVE_MUTABLE_DESCRIPTOR_TYPE_EXTENSION_NAME => "VK_VALVE_mutable_descriptor_type";
+
+    // File: vk.xml Line: 23773 Column: 18
+    public static int VK_EXT_VERTEX_INPUT_DYNAMIC_STATE_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 23774 Column: 18
+    public static string VK_EXT_VERTEX_INPUT_DYNAMIC_STATE_EXTENSION_NAME => "VK_EXT_vertex_input_dynamic_state";
+
+    // File: vk.xml Line: 23788 Column: 18
+    public static int VK_EXT_PHYSICAL_DEVICE_DRM_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23789 Column: 18
+    public static string VK_EXT_PHYSICAL_DEVICE_DRM_EXTENSION_NAME => "VK_EXT_physical_device_drm";
+
+    // File: vk.xml Line: 23796 Column: 18
+    public static int VK_EXT_DEVICE_ADDRESS_BINDING_REPORT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23797 Column: 18
+    public static string VK_EXT_DEVICE_ADDRESS_BINDING_REPORT_EXTENSION_NAME => "VK_EXT_device_address_binding_report";
+
+    // File: vk.xml Line: 23811 Column: 18
+    public static int VK_EXT_DEPTH_CLIP_CONTROL_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23812 Column: 18
+    public static string VK_EXT_DEPTH_CLIP_CONTROL_EXTENSION_NAME => "VK_EXT_depth_clip_control";
+
+    // File: vk.xml Line: 23822 Column: 18
+    public static int VK_EXT_PRIMITIVE_TOPOLOGY_LIST_RESTART_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23823 Column: 18
+    public static string VK_EXT_PRIMITIVE_TOPOLOGY_LIST_RESTART_EXTENSION_NAME => "VK_EXT_primitive_topology_list_restart";
+
+    // File: vk.xml Line: 23831 Column: 18
+    public static int VK_KHR_EXTENSION_358_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23832 Column: 18
+    public static string VK_KHR_EXTENSION_358_EXTENSION_NAME => "VK_KHR_extension_358";
+
+    // File: vk.xml Line: 23837 Column: 18
+    public static int VK_EXT_EXTENSION_359_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23838 Column: 18
+    public static string VK_EXT_EXTENSION_359_EXTENSION_NAME => "VK_EXT_extension_359";
+
+    // File: vk.xml Line: 23843 Column: 18
+    public static int VK_EXT_EXTENSION_360_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23844 Column: 18
+    public static string VK_EXT_EXTENSION_360_EXTENSION_NAME => "VK_EXT_extension_360";
+
+    // File: vk.xml Line: 23849 Column: 18
+    public static int VK_KHR_FORMAT_FEATURE_FLAGS_2_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 23850 Column: 18
+    public static string VK_KHR_FORMAT_FEATURE_FLAGS_2_EXTENSION_NAME => "VK_KHR_format_feature_flags2";
+
+    // File: vk.xml Line: 23890 Column: 18
+    public static int VK_EXT_PRESENT_MODE_FIFO_LATEST_READY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23891 Column: 18
+    public static string VK_EXT_PRESENT_MODE_FIFO_LATEST_READY_EXTENSION_NAME => "VK_EXT_present_mode_fifo_latest_ready";
+
+    // File: vk.xml Line: 23900 Column: 18
+    public static int VK_EXT_EXTENSION_363_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23901 Column: 18
+    public static string VK_EXT_EXTENSION_363_EXTENSION_NAME => "VK_EXT_extension_363";
+
+    // File: vk.xml Line: 23906 Column: 18
+    public static int VK_FUCHSIA_EXTENSION_364_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23907 Column: 18
+    public static string VK_FUCHSIA_EXTENSION_364_EXTENSION_NAME => "VK_FUCHSIA_extension_364";
+
+    // File: vk.xml Line: 23912 Column: 18
+    public static int VK_FUCHSIA_EXTERNAL_MEMORY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23913 Column: 18
+    public static string VK_FUCHSIA_EXTERNAL_MEMORY_EXTENSION_NAME => "VK_FUCHSIA_external_memory";
+
+    // File: vk.xml Line: 23927 Column: 18
+    public static int VK_FUCHSIA_EXTERNAL_SEMAPHORE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 23928 Column: 18
+    public static string VK_FUCHSIA_EXTERNAL_SEMAPHORE_EXTENSION_NAME => "VK_FUCHSIA_external_semaphore";
+
+    // File: vk.xml Line: 23940 Column: 18
+    public static int VK_FUCHSIA_BUFFER_COLLECTION_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 23941 Column: 18
+    public static string VK_FUCHSIA_BUFFER_COLLECTION_EXTENSION_NAME => "VK_FUCHSIA_buffer_collection";
+
+    // File: vk.xml Line: 23979 Column: 18
+    public static int VK_FUCHSIA_EXTENSION_368_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23980 Column: 18
+    public static string VK_FUCHSIA_EXTENSION_368_EXTENSION_NAME => "VK_FUCHSIA_extension_368";
+
+    // File: vk.xml Line: 23985 Column: 18
+    public static int VK_QCOM_EXTENSION_369_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 23986 Column: 18
+    public static string VK_QCOM_EXTENSION_369_EXTENSION_NAME => "VK_QCOM_extension_369";
+
+    // File: vk.xml Line: 23992 Column: 18
+    public static int VK_HUAWEI_SUBPASS_SHADING_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 23993 Column: 18
+    public static string VK_HUAWEI_SUBPASS_SHADING_EXTENSION_NAME => "VK_HUAWEI_subpass_shading";
+
+    // File: vk.xml Line: 24011 Column: 18
+    public static int VK_HUAWEI_INVOCATION_MASK_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24012 Column: 18
+    public static string VK_HUAWEI_INVOCATION_MASK_EXTENSION_NAME => "VK_HUAWEI_invocation_mask";
+
+    // File: vk.xml Line: 24024 Column: 18
+    public static int VK_NV_EXTERNAL_MEMORY_RDMA_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24025 Column: 18
+    public static string VK_NV_EXTERNAL_MEMORY_RDMA_EXTENSION_NAME => "VK_NV_external_memory_rdma";
+
+    // File: vk.xml Line: 24039 Column: 18
+    public static int VK_EXT_PIPELINE_PROPERTIES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24040 Column: 18
+    public static string VK_EXT_PIPELINE_PROPERTIES_EXTENSION_NAME => "VK_EXT_pipeline_properties";
+
+    // File: vk.xml Line: 24053 Column: 18
+    public static int VK_NV_EXTERNAL_SCI_SYNC_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 24054 Column: 18
+    public static string VK_NV_EXTERNAL_SCI_SYNC_EXTENSION_NAME => "VK_NV_external_sci_sync";
+
+    // File: vk.xml Line: 24089 Column: 18
+    public static int VK_NV_EXTERNAL_MEMORY_SCI_BUF_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 24090 Column: 18
+    public static string VK_NV_EXTERNAL_MEMORY_SCI_BUF_EXTENSION_NAME => "VK_NV_external_memory_sci_buf";
+
+    // File: vk.xml Line: 24112 Column: 18
+    public static int VK_EXT_FRAME_BOUNDARY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24113 Column: 18
+    public static string VK_EXT_FRAME_BOUNDARY_EXTENSION_NAME => "VK_EXT_frame_boundary";
+
+    // File: vk.xml Line: 24125 Column: 18
+    public static int VK_EXT_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24126 Column: 18
+    public static string VK_EXT_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_EXTENSION_NAME => "VK_EXT_multisampled_render_to_single_sampled";
+
+    // File: vk.xml Line: 24139 Column: 18
+    public static int VK_EXT_EXTENDED_DYNAMIC_STATE_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24140 Column: 18
+    public static string VK_EXT_EXTENDED_DYNAMIC_STATE_2_EXTENSION_NAME => "VK_EXT_extended_dynamic_state2";
+
+    // File: vk.xml Line: 24158 Column: 18
+    public static int VK_QNX_SCREEN_SURFACE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24159 Column: 18
+    public static string VK_QNX_SCREEN_SURFACE_EXTENSION_NAME => "VK_QNX_screen_surface";
+
+    // File: vk.xml Line: 24169 Column: 18
+    public static int VK_KHR_EXTENSION_380_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24170 Column: 18
+    public static string VK_KHR_EXTENSION_380_EXTENSION_NAME => "VK_KHR_extension_380";
+
+    // File: vk.xml Line: 24175 Column: 18
+    public static int VK_KHR_EXTENSION_381_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24176 Column: 18
+    public static string VK_KHR_EXTENSION_381_EXTENSION_NAME => "VK_KHR_extension_381";
+
+    // File: vk.xml Line: 24181 Column: 18
+    public static int VK_EXT_COLOR_WRITE_ENABLE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24182 Column: 18
+    public static string VK_EXT_COLOR_WRITE_ENABLE_EXTENSION_NAME => "VK_EXT_color_write_enable";
+
+    // File: vk.xml Line: 24194 Column: 18
+    public static int VK_EXT_PRIMITIVES_GENERATED_QUERY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24195 Column: 18
+    public static string VK_EXT_PRIMITIVES_GENERATED_QUERY_EXTENSION_NAME => "VK_EXT_primitives_generated_query";
+
+    // File: vk.xml Line: 24204 Column: 18
+    public static int VK_EXT_EXTENSION_384_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24205 Column: 18
+    public static string VK_EXT_EXTENSION_384_EXTENSION_NAME => "VK_EXT_extension_384";
+
+    // File: vk.xml Line: 24210 Column: 18
+    public static int VK_MESA_EXTENSION_385_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24211 Column: 18
+    public static string VK_MESA_EXTENSION_385_EXTENSION_NAME => "VK_MESA_extension_385";
+
+    // File: vk.xml Line: 24216 Column: 18
+    public static int VK_GOOGLE_EXTENSION_386_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24217 Column: 18
+    public static string VK_GOOGLE_EXTENSION_386_EXTENSION_NAME => "VK_GOOGLE_extension_386";
+
+    // File: vk.xml Line: 24222 Column: 18
+    public static int VK_KHR_RAY_TRACING_MAINTENANCE_1_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24223 Column: 18
+    public static string VK_KHR_RAY_TRACING_MAINTENANCE_1_EXTENSION_NAME => "VK_KHR_ray_tracing_maintenance1";
+
+    // File: vk.xml Line: 24247 Column: 18
+    public static int VK_EXT_EXTENSION_388_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24248 Column: 18
+    public static string VK_EXT_EXTENSION_388_EXTENSION_NAME => "VK_EXT_extension_388";
+
+    // File: vk.xml Line: 24253 Column: 18
+    public static int VK_EXT_GLOBAL_PRIORITY_QUERY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24254 Column: 18
+    public static string VK_EXT_GLOBAL_PRIORITY_QUERY_EXTENSION_NAME => "VK_EXT_global_priority_query";
+
+    // File: vk.xml Line: 24265 Column: 18
+    public static int VK_EXT_EXTENSION_390_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24266 Column: 18
+    public static string VK_EXT_EXTENSION_390_EXTENSION_NAME => "VK_EXT_extension_390";
+
+    // File: vk.xml Line: 24271 Column: 18
+    public static int VK_EXT_EXTENSION_391_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24272 Column: 18
+    public static string VK_EXT_EXTENSION_391_EXTENSION_NAME => "VK_EXT_extension_391";
+
+    // File: vk.xml Line: 24277 Column: 18
+    public static int VK_EXT_IMAGE_VIEW_MIN_LOD_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24278 Column: 18
+    public static string VK_EXT_IMAGE_VIEW_MIN_LOD_EXTENSION_NAME => "VK_EXT_image_view_min_lod";
+
+    // File: vk.xml Line: 24288 Column: 18
+    public static int VK_EXT_MULTI_DRAW_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24289 Column: 18
+    public static string VK_EXT_MULTI_DRAW_EXTENSION_NAME => "VK_EXT_multi_draw";
+
+    // File: vk.xml Line: 24303 Column: 18
+    public static int VK_EXT_IMAGE_2D_VIEW_OF_3D_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24304 Column: 18
+    public static string VK_EXT_IMAGE_2D_VIEW_OF_3D_EXTENSION_NAME => "VK_EXT_image_2d_view_of_3d";
+
+    // File: vk.xml Line: 24313 Column: 18
+    public static int VK_KHR_PORTABILITY_ENUMERATION_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24314 Column: 18
+    public static string VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME => "VK_KHR_portability_enumeration";
+
+    // File: vk.xml Line: 24320 Column: 18
+    public static int VK_EXT_SHADER_TILE_IMAGE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24321 Column: 18
+    public static string VK_EXT_SHADER_TILE_IMAGE_EXTENSION_NAME => "VK_EXT_shader_tile_image";
+
+    // File: vk.xml Line: 24331 Column: 18
+    public static int VK_EXT_OPACITY_MICROMAP_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 24332 Column: 18
+    public static string VK_EXT_OPACITY_MICROMAP_EXTENSION_NAME => "VK_EXT_opacity_micromap";
+
+    // File: vk.xml Line: 24398 Column: 18
+    public static int VK_NV_DISPLACEMENT_MICROMAP_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 24399 Column: 18
+    public static string VK_NV_DISPLACEMENT_MICROMAP_EXTENSION_NAME => "VK_NV_displacement_micromap";
+
+    // File: vk.xml Line: 24415 Column: 18
+    public static int VK_JUICE_EXTENSION_399_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24416 Column: 18
+    public static string VK_JUICE_EXTENSION_399_EXTENSION_NAME => "VK_JUICE_extension_399";
+
+    // File: vk.xml Line: 24421 Column: 18
+    public static int VK_JUICE_EXTENSION_400_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24422 Column: 18
+    public static string VK_JUICE_EXTENSION_400_EXTENSION_NAME => "VK_JUICE_extension_400";
+
+    // File: vk.xml Line: 24427 Column: 18
+    public static int VK_EXT_LOAD_STORE_OP_NONE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24428 Column: 18
+    public static string VK_EXT_LOAD_STORE_OP_NONE_EXTENSION_NAME => "VK_EXT_load_store_op_none";
+
+    // File: vk.xml Line: 24435 Column: 18
+    public static int VK_FB_EXTENSION_402_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24436 Column: 18
+    public static string VK_FB_EXTENSION_402_EXTENSION_NAME => "VK_FB_extension_402";
+
+    // File: vk.xml Line: 24441 Column: 18
+    public static int VK_FB_EXTENSION_403_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24442 Column: 18
+    public static string VK_FB_EXTENSION_403_EXTENSION_NAME => "VK_FB_extension_403";
+
+    // File: vk.xml Line: 24447 Column: 18
+    public static int VK_FB_EXTENSION_404_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24448 Column: 18
+    public static string VK_FB_EXTENSION_404_EXTENSION_NAME => "VK_FB_extension_404";
+
+    // File: vk.xml Line: 24453 Column: 18
+    public static int VK_HUAWEI_CLUSTER_CULLING_SHADER_SPEC_VERSION => 3;
+
+    // File: vk.xml Line: 24454 Column: 18
+    public static string VK_HUAWEI_CLUSTER_CULLING_SHADER_EXTENSION_NAME => "VK_HUAWEI_cluster_culling_shader";
+
+    // File: vk.xml Line: 24471 Column: 18
+    public static int VK_HUAWEI_EXTENSION_406_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24472 Column: 18
+    public static string VK_HUAWEI_EXTENSION_406_EXTENSION_NAME => "VK_HUAWEI_extension_406";
+
+    // File: vk.xml Line: 24477 Column: 18
+    public static int VK_GGP_EXTENSION_407_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24478 Column: 18
+    public static string VK_GGP_EXTENSION_407_EXTENSION_NAME => "VK_GGP_extension_407";
+
+    // File: vk.xml Line: 24483 Column: 18
+    public static int VK_GGP_EXTENSION_408_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24484 Column: 18
+    public static string VK_GGP_EXTENSION_408_EXTENSION_NAME => "VK_GGP_extension_408";
+
+    // File: vk.xml Line: 24489 Column: 18
+    public static int VK_GGP_EXTENSION_409_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24490 Column: 18
+    public static string VK_GGP_EXTENSION_409_EXTENSION_NAME => "VK_GGP_extension_409";
+
+    // File: vk.xml Line: 24495 Column: 18
+    public static int VK_GGP_EXTENSION_410_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24496 Column: 18
+    public static string VK_GGP_EXTENSION_410_EXTENSION_NAME => "VK_GGP_extension_410";
+
+    // File: vk.xml Line: 24501 Column: 18
+    public static int VK_GGP_EXTENSION_411_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24502 Column: 18
+    public static string VK_GGP_EXTENSION_411_EXTENSION_NAME => "VK_GGP_extension_411";
+
+    // File: vk.xml Line: 24507 Column: 18
+    public static int VK_EXT_BORDER_COLOR_SWIZZLE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24508 Column: 18
+    public static string VK_EXT_BORDER_COLOR_SWIZZLE_EXTENSION_NAME => "VK_EXT_border_color_swizzle";
+
+    // File: vk.xml Line: 24518 Column: 18
+    public static int VK_EXT_PAGEABLE_DEVICE_LOCAL_MEMORY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24519 Column: 18
+    public static string VK_EXT_PAGEABLE_DEVICE_LOCAL_MEMORY_EXTENSION_NAME => "VK_EXT_pageable_device_local_memory";
+
+    // File: vk.xml Line: 24528 Column: 18
+    public static int VK_KHR_MAINTENANCE_4_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 24529 Column: 18
+    public static string VK_KHR_MAINTENANCE_4_EXTENSION_NAME => "VK_KHR_maintenance4";
+
+    // File: vk.xml Line: 24547 Column: 18
+    public static int VK_HUAWEI_EXTENSION_415_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24548 Column: 18
+    public static string VK_HUAWEI_EXTENSION_415_EXTENSION_NAME => "VK_HUAWEI_extension_415";
+
+    // File: vk.xml Line: 24553 Column: 18
+    public static int VK_ARM_SHADER_CORE_PROPERTIES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24554 Column: 18
+    public static string VK_ARM_SHADER_CORE_PROPERTIES_EXTENSION_NAME => "VK_ARM_shader_core_properties";
+
+    // File: vk.xml Line: 24561 Column: 18
+    public static int VK_KHR_SHADER_SUBGROUP_ROTATE_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 24562 Column: 18
+    public static string VK_KHR_SHADER_SUBGROUP_ROTATE_EXTENSION_NAME => "VK_KHR_shader_subgroup_rotate";
+
+    // File: vk.xml Line: 24572 Column: 18
+    public static int VK_ARM_SCHEDULING_CONTROLS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24573 Column: 18
+    public static string VK_ARM_SCHEDULING_CONTROLS_EXTENSION_NAME => "VK_ARM_scheduling_controls";
+
+    // File: vk.xml Line: 24587 Column: 18
+    public static int VK_EXT_IMAGE_SLICED_VIEW_OF_3D_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24588 Column: 18
+    public static string VK_EXT_IMAGE_SLICED_VIEW_OF_3D_EXTENSION_NAME => "VK_EXT_image_sliced_view_of_3d";
+
+    // File: vk.xml Line: 24599 Column: 18
+    public static int VK_EXT_EXTENSION_420_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24600 Column: 18
+    public static string VK_EXT_EXTENSION_420_EXTENSION_NAME => "VK_EXT_extension_420";
+
+    // File: vk.xml Line: 24606 Column: 18
+    public static int VK_VALVE_DESCRIPTOR_SET_HOST_MAPPING_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24607 Column: 18
+    public static string VK_VALVE_DESCRIPTOR_SET_HOST_MAPPING_EXTENSION_NAME => "VK_VALVE_descriptor_set_host_mapping";
+
+    // File: vk.xml Line: 24621 Column: 18
+    public static int VK_EXT_DEPTH_CLAMP_ZERO_ONE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24622 Column: 18
+    public static string VK_EXT_DEPTH_CLAMP_ZERO_ONE_EXTENSION_NAME => "VK_EXT_depth_clamp_zero_one";
+
+    // File: vk.xml Line: 24630 Column: 18
+    public static int VK_EXT_NON_SEAMLESS_CUBE_MAP_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24631 Column: 18
+    public static string VK_EXT_NON_SEAMLESS_CUBE_MAP_EXTENSION_NAME => "VK_EXT_non_seamless_cube_map";
+
+    // File: vk.xml Line: 24640 Column: 18
+    public static int VK_ARM_EXTENSION_424_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24641 Column: 18
+    public static string VK_ARM_EXTENSION_424_EXTENSION_NAME => "VK_ARM_extension_424";
+
+    // File: vk.xml Line: 24646 Column: 18
+    public static int VK_ARM_RENDER_PASS_STRIPED_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24647 Column: 18
+    public static string VK_ARM_RENDER_PASS_STRIPED_EXTENSION_NAME => "VK_ARM_render_pass_striped";
+
+    // File: vk.xml Line: 24663 Column: 18
+    public static int VK_QCOM_FRAGMENT_DENSITY_MAP_OFFSET_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 24664 Column: 18
+    public static string VK_QCOM_FRAGMENT_DENSITY_MAP_OFFSET_EXTENSION_NAME => "VK_QCOM_fragment_density_map_offset";
+
+    // File: vk.xml Line: 24677 Column: 18
+    public static int VK_NV_COPY_MEMORY_INDIRECT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24678 Column: 18
+    public static string VK_NV_COPY_MEMORY_INDIRECT_EXTENSION_NAME => "VK_NV_copy_memory_indirect";
+
+    // File: vk.xml Line: 24692 Column: 18
+    public static int VK_NV_MEMORY_DECOMPRESSION_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24693 Column: 18
+    public static string VK_NV_MEMORY_DECOMPRESSION_EXTENSION_NAME => "VK_NV_memory_decompression";
+
+    // File: vk.xml Line: 24708 Column: 18
+    public static int VK_NV_DEVICE_GENERATED_COMMANDS_COMPUTE_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 24709 Column: 18
+    public static string VK_NV_DEVICE_GENERATED_COMMANDS_COMPUTE_EXTENSION_NAME => "VK_NV_device_generated_commands_compute";
+
+    // File: vk.xml Line: 24728 Column: 18
+    public static int VK_NV_RAY_TRACING_LINEAR_SWEPT_SPHERES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24729 Column: 18
+    public static string VK_NV_RAY_TRACING_LINEAR_SWEPT_SPHERES_EXTENSION_NAME => "VK_NV_ray_tracing_linear_swept_spheres";
+
+    // File: vk.xml Line: 24747 Column: 18
+    public static int VK_NV_LINEAR_COLOR_ATTACHMENT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24748 Column: 18
+    public static string VK_NV_LINEAR_COLOR_ATTACHMENT_EXTENSION_NAME => "VK_NV_linear_color_attachment";
+
+    // File: vk.xml Line: 24759 Column: 18
+    public static int VK_NV_EXTENSION_432_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24760 Column: 18
+    public static string VK_NV_EXTENSION_432_EXTENSION_NAME => "VK_NV_extension_432";
+
+    // File: vk.xml Line: 24765 Column: 18
+    public static int VK_NV_EXTENSION_433_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24766 Column: 18
+    public static string VK_NV_EXTENSION_433_EXTENSION_NAME => "VK_NV_extension_433";
+
+    // File: vk.xml Line: 24771 Column: 18
+    public static int VK_GOOGLE_SURFACELESS_QUERY_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 24772 Column: 18
+    public static string VK_GOOGLE_SURFACELESS_QUERY_EXTENSION_NAME => "VK_GOOGLE_surfaceless_query";
+
+    // File: vk.xml Line: 24777 Column: 18
+    public static int VK_KHR_SHADER_MAXIMAL_RECONVERGENCE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24778 Column: 18
+    public static string VK_KHR_SHADER_MAXIMAL_RECONVERGENCE_EXTENSION_NAME => "VK_KHR_shader_maximal_reconvergence";
+
+    // File: vk.xml Line: 24786 Column: 18
+    public static int VK_EXT_APPLICATION_PARAMETERS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24787 Column: 18
+    public static string VK_EXT_APPLICATION_PARAMETERS_EXTENSION_NAME => "VK_EXT_application_parameters";
+
+    // File: vk.xml Line: 24794 Column: 18
+    public static int VK_EXT_EXTENSION_437_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24795 Column: 18
+    public static string VK_EXT_EXTENSION_437_EXTENSION_NAME => "VK_EXT_extension_437";
+
+    // File: vk.xml Line: 24800 Column: 18
+    public static int VK_EXT_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24801 Column: 18
+    public static string VK_EXT_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_EXTENSION_NAME => "VK_EXT_image_compression_control_swapchain";
+
+    // File: vk.xml Line: 24809 Column: 18
+    public static int VK_SEC_EXTENSION_439_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24810 Column: 18
+    public static string VK_SEC_EXTENSION_439_EXTENSION_NAME => "VK_SEC_extension_439";
+
+    // File: vk.xml Line: 24815 Column: 18
+    public static int VK_QCOM_EXTENSION_440_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24816 Column: 18
+    public static string VK_QCOM_EXTENSION_440_EXTENSION_NAME => "VK_QCOM_extension_440";
+
+    // File: vk.xml Line: 24823 Column: 18
+    public static int VK_QCOM_IMAGE_PROCESSING_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24824 Column: 18
+    public static string VK_QCOM_IMAGE_PROCESSING_EXTENSION_NAME => "VK_QCOM_image_processing";
+
+    // File: vk.xml Line: 24849 Column: 18
+    public static int VK_COREAVI_EXTENSION_442_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24850 Column: 18
+    public static string VK_COREAVI_EXTENSION_442_EXTENSION_NAME => "VK_COREAVI_extension_442";
+
+    // File: vk.xml Line: 24855 Column: 18
+    public static int VK_COREAVI_EXTENSION_443_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24856 Column: 18
+    public static string VK_COREAVI_EXTENSION_443_EXTENSION_NAME => "VK_COREAVI_extension_443";
+
+    // File: vk.xml Line: 24861 Column: 18
+    public static int VK_COREAVI_EXTENSION_444_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24862 Column: 18
+    public static string VK_COREAVI_EXTENSION_444_EXTENSION_NAME => "VK_COREAVI_extension_444";
+
+    // File: vk.xml Line: 24868 Column: 18
+    public static int VK_COREAVI_EXTENSION_445_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24869 Column: 18
+    public static string VK_COREAVI_EXTENSION_445_EXTENSION_NAME => "VK_COREAVI_extension_445";
+
+    // File: vk.xml Line: 24874 Column: 18
+    public static int VK_COREAVI_EXTENSION_446_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24875 Column: 18
+    public static string VK_COREAVI_EXTENSION_446_EXTENSION_NAME => "VK_COREAVI_extension_446";
+
+    // File: vk.xml Line: 24881 Column: 18
+    public static int VK_COREAVI_EXTENSION_447_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24882 Column: 18
+    public static string VK_COREAVI_EXTENSION_447_EXTENSION_NAME => "VK_COREAVI_extension_447";
+
+    // File: vk.xml Line: 24887 Column: 18
+    public static int VK_SEC_EXTENSION_448_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24888 Column: 18
+    public static string VK_SEC_EXTENSION_448_EXTENSION_NAME => "VK_SEC_extension_448";
+
+    // File: vk.xml Line: 24893 Column: 18
+    public static int VK_SEC_EXTENSION_449_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24894 Column: 18
+    public static string VK_SEC_EXTENSION_449_EXTENSION_NAME => "VK_SEC_extension_449";
+
+    // File: vk.xml Line: 24899 Column: 18
+    public static int VK_SEC_EXTENSION_450_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24900 Column: 18
+    public static string VK_SEC_EXTENSION_450_EXTENSION_NAME => "VK_SEC_extension_450";
+
+    // File: vk.xml Line: 24905 Column: 18
+    public static int VK_SEC_EXTENSION_451_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24906 Column: 18
+    public static string VK_SEC_EXTENSION_451_EXTENSION_NAME => "VK_SEC_extension_451";
+
+    // File: vk.xml Line: 24911 Column: 18
+    public static int VK_EXT_NESTED_COMMAND_BUFFER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24912 Column: 18
+    public static string VK_EXT_NESTED_COMMAND_BUFFER_EXTENSION_NAME => "VK_EXT_nested_command_buffer";
+
+    // File: vk.xml Line: 24924 Column: 18
+    public static int VK_ARM_EXTENSION_453_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24925 Column: 18
+    public static string VK_ARM_EXTENSION_453_EXTENSION_NAME => "VK_ARM_extension_453";
+
+    // File: vk.xml Line: 24935 Column: 18
+    public static int VK_EXT_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 24936 Column: 18
+    public static string VK_EXT_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_EXTENSION_NAME => "VK_EXT_external_memory_acquire_unmodified";
+
+    // File: vk.xml Line: 24943 Column: 18
+    public static int VK_GOOGLE_EXTENSION_455_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 24944 Column: 18
+    public static string VK_GOOGLE_EXTENSION_455_EXTENSION_NAME => "VK_GOOGLE_extension_455";
+
+    // File: vk.xml Line: 24949 Column: 18
+    public static int VK_EXT_EXTENDED_DYNAMIC_STATE_3_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 24950 Column: 18
+    public static string VK_EXT_EXTENDED_DYNAMIC_STATE_3_EXTENSION_NAME => "VK_EXT_extended_dynamic_state3";
+
+    // File: vk.xml Line: 25073 Column: 18
+    public static int VK_EXT_EXTENSION_457_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25074 Column: 18
+    public static string VK_EXT_EXTENSION_457_EXTENSION_NAME => "VK_EXT_extension_457";
+
+    // File: vk.xml Line: 25079 Column: 18
+    public static int VK_EXT_EXTENSION_458_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25080 Column: 18
+    public static string VK_EXT_EXTENSION_458_EXTENSION_NAME => "VK_EXT_extension_458";
+
+    // File: vk.xml Line: 25085 Column: 18
+    public static int VK_EXT_SUBPASS_MERGE_FEEDBACK_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 25086 Column: 18
+    public static string VK_EXT_SUBPASS_MERGE_FEEDBACK_EXTENSION_NAME => "VK_EXT_subpass_merge_feedback";
+
+    // File: vk.xml Line: 25103 Column: 18
+    public static int VK_LUNARG_DIRECT_DRIVER_LOADING_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25104 Column: 18
+    public static string VK_LUNARG_DIRECT_DRIVER_LOADING_EXTENSION_NAME => "VK_LUNARG_direct_driver_loading";
+
+    // File: vk.xml Line: 25116 Column: 18
+    public static int VK_EXT_EXTENSION_461_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25117 Column: 18
+    public static string VK_EXT_EXTENSION_461_EXTENSION_NAME => "VK_EXT_extension_461";
+
+    // File: vk.xml Line: 25124 Column: 18
+    public static int VK_EXT_EXTENSION_462_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25125 Column: 18
+    public static string VK_EXT_EXTENSION_462_EXTENSION_NAME => "VK_EXT_extension_462";
+
+    // File: vk.xml Line: 25130 Column: 18
+    public static int VK_EXT_SHADER_MODULE_IDENTIFIER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25131 Column: 18
+    public static string VK_EXT_SHADER_MODULE_IDENTIFIER_EXTENSION_NAME => "VK_EXT_shader_module_identifier";
+
+    // File: vk.xml Line: 25148 Column: 18
+    public static int VK_EXT_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25149 Column: 18
+    public static string VK_EXT_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_EXTENSION_NAME => "VK_EXT_rasterization_order_attachment_access";
+
+    // File: vk.xml Line: 25164 Column: 18
+    public static int VK_NV_OPTICAL_FLOW_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25165 Column: 18
+    public static string VK_NV_OPTICAL_FLOW_EXTENSION_NAME => "VK_NV_optical_flow";
+
+    // File: vk.xml Line: 25211 Column: 18
+    public static int VK_EXT_LEGACY_DITHERING_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 25212 Column: 18
+    public static string VK_EXT_LEGACY_DITHERING_EXTENSION_NAME => "VK_EXT_legacy_dithering";
+
+    // File: vk.xml Line: 25225 Column: 18
+    public static int VK_EXT_PIPELINE_PROTECTED_ACCESS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25226 Column: 18
+    public static string VK_EXT_PIPELINE_PROTECTED_ACCESS_EXTENSION_NAME => "VK_EXT_pipeline_protected_access";
+
+    // File: vk.xml Line: 25236 Column: 18
+    public static int VK_EXT_EXTENSION_468_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25237 Column: 18
+    public static string VK_EXT_EXTENSION_468_EXTENSION_NAME => "VK_EXT_extension_468";
+
+    // File: vk.xml Line: 25242 Column: 18
+    public static int VK_ANDROID_EXTERNAL_FORMAT_RESOLVE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25243 Column: 18
+    public static string VK_ANDROID_EXTERNAL_FORMAT_RESOLVE_EXTENSION_NAME => "VK_ANDROID_external_format_resolve";
+
+    // File: vk.xml Line: 25258 Column: 18
+    public static int VK_AMD_EXTENSION_470_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25259 Column: 18
+    public static string VK_AMD_EXTENSION_470_EXTENSION_NAME => "VK_AMD_extension_470";
+
+    // File: vk.xml Line: 25264 Column: 18
+    public static int VK_KHR_MAINTENANCE_5_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25265 Column: 18
+    public static string VK_KHR_MAINTENANCE_5_EXTENSION_NAME => "VK_KHR_maintenance5";
+
+    // File: vk.xml Line: 25409 Column: 18
+    public static int VK_AMD_EXTENSION_472_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25410 Column: 18
+    public static string VK_AMD_EXTENSION_472_EXTENSION_NAME => "VK_AMD_extension_472";
+
+    // File: vk.xml Line: 25415 Column: 18
+    public static int VK_AMD_EXTENSION_473_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25416 Column: 18
+    public static string VK_AMD_EXTENSION_473_EXTENSION_NAME => "VK_AMD_extension_473";
+
+    // File: vk.xml Line: 25421 Column: 18
+    public static int VK_AMD_EXTENSION_474_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25422 Column: 18
+    public static string VK_AMD_EXTENSION_474_EXTENSION_NAME => "VK_AMD_extension_474";
+
+    // File: vk.xml Line: 25427 Column: 18
+    public static int VK_AMD_EXTENSION_475_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25428 Column: 18
+    public static string VK_AMD_EXTENSION_475_EXTENSION_NAME => "VK_AMD_extension_475";
+
+    // File: vk.xml Line: 25433 Column: 18
+    public static int VK_AMD_EXTENSION_476_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25434 Column: 18
+    public static string VK_AMD_EXTENSION_476_EXTENSION_NAME => "VK_AMD_extension_476";
+
+    // File: vk.xml Line: 25439 Column: 18
+    public static int VK_AMD_ANTI_LAG_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25440 Column: 18
+    public static string VK_AMD_ANTI_LAG_EXTENSION_NAME => "VK_AMD_anti_lag";
+
+    // File: vk.xml Line: 25455 Column: 18
+    public static int VK_AMD_EXTENSION_478_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25456 Column: 18
+    public static string VK_AMD_EXTENSION_478_EXTENSION_NAME => "VK_AMD_extension_478";
+
+    // File: vk.xml Line: 25461 Column: 18
+    public static int VK_AMD_EXTENSION_479_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25462 Column: 18
+    public static string VK_AMD_EXTENSION_479_EXTENSION_NAME => "VK_AMD_extension_479";
+
+    // File: vk.xml Line: 25467 Column: 18
+    public static int VK_EXT_EXTENSION_480_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25468 Column: 18
+    public static string VK_EXT_EXTENSION_480_EXTENSION_NAME => "VK_EXT_extension_480";
+
+    // File: vk.xml Line: 25473 Column: 18
+    public static int VK_EXT_EXTENSION_481_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25474 Column: 18
+    public static string VK_EXT_EXTENSION_481_EXTENSION_NAME => "VK_EXT_extension_481";
+
+    // File: vk.xml Line: 25479 Column: 18
+    public static int VK_KHR_RAY_TRACING_POSITION_FETCH_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25480 Column: 18
+    public static string VK_KHR_RAY_TRACING_POSITION_FETCH_EXTENSION_NAME => "VK_KHR_ray_tracing_position_fetch";
+
+    // File: vk.xml Line: 25489 Column: 18
+    public static int VK_EXT_SHADER_OBJECT_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25490 Column: 18
+    public static string VK_EXT_SHADER_OBJECT_EXTENSION_NAME => "VK_EXT_shader_object";
+
+    // File: vk.xml Line: 25619 Column: 18
+    public static int VK_KHR_PIPELINE_BINARY_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25620 Column: 18
+    public static string VK_KHR_PIPELINE_BINARY_EXTENSION_NAME => "VK_KHR_pipeline_binary";
+
+    // File: vk.xml Line: 25659 Column: 18
+    public static int VK_QCOM_TILE_PROPERTIES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25660 Column: 18
+    public static string VK_QCOM_TILE_PROPERTIES_EXTENSION_NAME => "VK_QCOM_tile_properties";
+
+    // File: vk.xml Line: 25675 Column: 18
+    public static int VK_SEC_AMIGO_PROFILING_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25676 Column: 18
+    public static string VK_SEC_AMIGO_PROFILING_EXTENSION_NAME => "VK_SEC_amigo_profiling";
+
+    // File: vk.xml Line: 25686 Column: 18
+    public static int VK_EXT_EXTENSION_487_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25687 Column: 18
+    public static string VK_EXT_EXTENSION_487_EXTENSION_NAME => "VK_EXT_extension_487";
+
+    // File: vk.xml Line: 25692 Column: 18
+    public static int VK_EXT_EXTENSION_488_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25693 Column: 18
+    public static string VK_EXT_EXTENSION_488_EXTENSION_NAME => "VK_EXT_extension_488";
+
+    // File: vk.xml Line: 25698 Column: 18
+    public static int VK_QCOM_MULTIVIEW_PER_VIEW_VIEWPORTS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25699 Column: 18
+    public static string VK_QCOM_MULTIVIEW_PER_VIEW_VIEWPORTS_EXTENSION_NAME => "VK_QCOM_multiview_per_view_viewports";
+
+    // File: vk.xml Line: 25707 Column: 18
+    public static int VK_NV_EXTERNAL_SCI_SYNC_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25708 Column: 18
+    public static string VK_NV_EXTERNAL_SCI_SYNC_2_EXTENSION_NAME => "VK_NV_external_sci_sync2";
+
+    // File: vk.xml Line: 25748 Column: 18
+    public static int VK_NV_RAY_TRACING_INVOCATION_REORDER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25749 Column: 18
+    public static string VK_NV_RAY_TRACING_INVOCATION_REORDER_EXTENSION_NAME => "VK_NV_ray_tracing_invocation_reorder";
+
+    // File: vk.xml Line: 25760 Column: 18
+    public static int VK_NV_COOPERATIVE_VECTOR_SPEC_VERSION => 4;
+
+    // File: vk.xml Line: 25761 Column: 18
+    public static string VK_NV_COOPERATIVE_VECTOR_EXTENSION_NAME => "VK_NV_cooperative_vector";
+
+    // File: vk.xml Line: 25787 Column: 18
+    public static int VK_NV_EXTENDED_SPARSE_ADDRESS_SPACE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25788 Column: 18
+    public static string VK_NV_EXTENDED_SPARSE_ADDRESS_SPACE_EXTENSION_NAME => "VK_NV_extended_sparse_address_space";
+
+    // File: vk.xml Line: 25798 Column: 18
+    public static int VK_NV_EXTENSION_494_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25799 Column: 18
+    public static string VK_NV_EXTENSION_494_EXTENSION_NAME => "VK_NV_extension_494";
+
+    // File: vk.xml Line: 25804 Column: 18
+    public static int VK_EXT_MUTABLE_DESCRIPTOR_TYPE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25805 Column: 18
+    public static string VK_EXT_MUTABLE_DESCRIPTOR_TYPE_EXTENSION_NAME => "VK_EXT_mutable_descriptor_type";
+
+    // File: vk.xml Line: 25819 Column: 18
+    public static int VK_EXT_LEGACY_VERTEX_ATTRIBUTES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25820 Column: 18
+    public static string VK_EXT_LEGACY_VERTEX_ATTRIBUTES_EXTENSION_NAME => "VK_EXT_legacy_vertex_attributes";
+
+    // File: vk.xml Line: 25830 Column: 18
+    public static int VK_EXT_LAYER_SETTINGS_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 25831 Column: 18
+    public static string VK_EXT_LAYER_SETTINGS_EXTENSION_NAME => "VK_EXT_layer_settings";
+
+    // File: vk.xml Line: 25840 Column: 18
+    public static int VK_ARM_SHADER_CORE_BUILTINS_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 25841 Column: 18
+    public static string VK_ARM_SHADER_CORE_BUILTINS_EXTENSION_NAME => "VK_ARM_shader_core_builtins";
+
+    // File: vk.xml Line: 25851 Column: 18
+    public static int VK_EXT_PIPELINE_LIBRARY_GROUP_HANDLES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25852 Column: 18
+    public static string VK_EXT_PIPELINE_LIBRARY_GROUP_HANDLES_EXTENSION_NAME => "VK_EXT_pipeline_library_group_handles";
+
+    // File: vk.xml Line: 25860 Column: 18
+    public static int VK_EXT_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25861 Column: 18
+    public static string VK_EXT_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_EXTENSION_NAME => "VK_EXT_dynamic_rendering_unused_attachments";
+
+    // File: vk.xml Line: 25869 Column: 18
+    public static int VK_EXT_EXTENSION_501_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25870 Column: 18
+    public static string VK_EXT_EXTENSION_501_EXTENSION_NAME => "VK_EXT_extension_501";
+
+    // File: vk.xml Line: 25875 Column: 18
+    public static int VK_EXT_EXTENSION_502_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25876 Column: 18
+    public static string VK_EXT_EXTENSION_502_EXTENSION_NAME => "VK_EXT_extension_502";
+
+    // File: vk.xml Line: 25881 Column: 18
+    public static int VK_EXT_EXTENSION_503_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25882 Column: 18
+    public static string VK_EXT_EXTENSION_503_EXTENSION_NAME => "VK_EXT_extension_503";
+
+    // File: vk.xml Line: 25887 Column: 18
+    public static int VK_NV_EXTENSION_504_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25888 Column: 18
+    public static string VK_NV_EXTENSION_504_EXTENSION_NAME => "VK_NV_extension_504";
+
+    // File: vk.xml Line: 25893 Column: 18
+    public static int VK_EXT_EXTENSION_505_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25894 Column: 18
+    public static string VK_EXT_EXTENSION_505_EXTENSION_NAME => "VK_EXT_extension_505";
+
+    // File: vk.xml Line: 25900 Column: 18
+    public static int VK_NV_LOW_LATENCY_2_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 25901 Column: 18
+    public static string VK_NV_LOW_LATENCY_2_EXTENSION_NAME => "VK_NV_low_latency2";
+
+    // File: vk.xml Line: 25931 Column: 18
+    public static int VK_KHR_COOPERATIVE_MATRIX_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 25932 Column: 18
+    public static string VK_KHR_COOPERATIVE_MATRIX_EXTENSION_NAME => "VK_KHR_cooperative_matrix";
+
+    // File: vk.xml Line: 25947 Column: 18
+    public static int VK_EXT_EXTENSION_508_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25948 Column: 18
+    public static string VK_EXT_EXTENSION_508_EXTENSION_NAME => "VK_EXT_extension_508";
+
+    // File: vk.xml Line: 25958 Column: 18
+    public static int VK_EXT_EXTENSION_509_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25959 Column: 18
+    public static string VK_EXT_EXTENSION_509_EXTENSION_NAME => "VK_EXT_extension_509";
+
+    // File: vk.xml Line: 25964 Column: 18
+    public static int VK_MESA_EXTENSION_510_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 25965 Column: 18
+    public static string VK_MESA_EXTENSION_510_EXTENSION_NAME => "VK_MESA_extension_510";
+
+    // File: vk.xml Line: 25970 Column: 18
+    public static int VK_QCOM_MULTIVIEW_PER_VIEW_RENDER_AREAS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25971 Column: 18
+    public static string VK_QCOM_MULTIVIEW_PER_VIEW_RENDER_AREAS_EXTENSION_NAME => "VK_QCOM_multiview_per_view_render_areas";
+
+    // File: vk.xml Line: 25981 Column: 18
+    public static int VK_KHR_COMPUTE_SHADER_DERIVATIVES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25982 Column: 18
+    public static string VK_KHR_COMPUTE_SHADER_DERIVATIVES_EXTENSION_NAME => "VK_KHR_compute_shader_derivatives";
+
+    // File: vk.xml Line: 25992 Column: 18
+    public static int VK_KHR_VIDEO_DECODE_AV1_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 25993 Column: 18
+    public static string VK_KHR_VIDEO_DECODE_AV1_EXTENSION_NAME => "VK_KHR_video_decode_av1";
+
+    // File: vk.xml Line: 26010 Column: 18
+    public static int VK_KHR_VIDEO_ENCODE_AV1_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26011 Column: 18
+    public static string VK_KHR_VIDEO_ENCODE_AV1_EXTENSION_NAME => "VK_KHR_video_encode_av1";
+
+    // File: vk.xml Line: 26053 Column: 18
+    public static int VK_KHR_EXTENSION_515_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26054 Column: 18
+    public static string VK_KHR_EXTENSION_515_EXTENSION_NAME => "VK_KHR_extension_515";
+
+    // File: vk.xml Line: 26059 Column: 18
+    public static int VK_KHR_VIDEO_MAINTENANCE_1_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26060 Column: 18
+    public static string VK_KHR_VIDEO_MAINTENANCE_1_EXTENSION_NAME => "VK_KHR_video_maintenance1";
+
+    // File: vk.xml Line: 26073 Column: 18
+    public static int VK_NV_PER_STAGE_DESCRIPTOR_SET_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26074 Column: 18
+    public static string VK_NV_PER_STAGE_DESCRIPTOR_SET_EXTENSION_NAME => "VK_NV_per_stage_descriptor_set";
+
+    // File: vk.xml Line: 26083 Column: 18
+    public static int VK_MESA_EXTENSION_518_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26084 Column: 18
+    public static string VK_MESA_EXTENSION_518_EXTENSION_NAME => "VK_MESA_extension_518";
+
+    // File: vk.xml Line: 26089 Column: 18
+    public static int VK_QCOM_IMAGE_PROCESSING_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26090 Column: 18
+    public static string VK_QCOM_IMAGE_PROCESSING_2_EXTENSION_NAME => "VK_QCOM_image_processing2";
+
+    // File: vk.xml Line: 26103 Column: 18
+    public static int VK_QCOM_FILTER_CUBIC_WEIGHTS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26104 Column: 18
+    public static string VK_QCOM_FILTER_CUBIC_WEIGHTS_EXTENSION_NAME => "VK_QCOM_filter_cubic_weights";
+
+    // File: vk.xml Line: 26117 Column: 18
+    public static int VK_QCOM_YCBCR_DEGAMMA_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26118 Column: 18
+    public static string VK_QCOM_YCBCR_DEGAMMA_EXTENSION_NAME => "VK_QCOM_ycbcr_degamma";
+
+    // File: vk.xml Line: 26128 Column: 18
+    public static int VK_QCOM_FILTER_CUBIC_CLAMP_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26129 Column: 18
+    public static string VK_QCOM_FILTER_CUBIC_CLAMP_EXTENSION_NAME => "VK_QCOM_filter_cubic_clamp";
+
+    // File: vk.xml Line: 26138 Column: 18
+    public static int VK_EXT_EXTENSION_523_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26139 Column: 18
+    public static string VK_EXT_EXTENSION_523_EXTENSION_NAME => "VK_EXT_extension_523";
+
+    // File: vk.xml Line: 26144 Column: 18
+    public static int VK_EXT_EXTENSION_524_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26145 Column: 18
+    public static string VK_EXT_EXTENSION_524_EXTENSION_NAME => "VK_EXT_extension_524";
+
+    // File: vk.xml Line: 26150 Column: 18
+    public static int VK_EXT_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26151 Column: 18
+    public static string VK_EXT_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_EXTENSION_NAME => "VK_EXT_attachment_feedback_loop_dynamic_state";
+
+    // File: vk.xml Line: 26161 Column: 18
+    public static int VK_KHR_VERTEX_ATTRIBUTE_DIVISOR_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26162 Column: 18
+    public static string VK_KHR_VERTEX_ATTRIBUTE_DIVISOR_EXTENSION_NAME => "VK_KHR_vertex_attribute_divisor";
+
+    // File: vk.xml Line: 26175 Column: 18
+    public static int VK_KHR_LOAD_STORE_OP_NONE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26176 Column: 18
+    public static string VK_KHR_LOAD_STORE_OP_NONE_EXTENSION_NAME => "VK_KHR_load_store_op_none";
+
+    // File: vk.xml Line: 26183 Column: 18
+    public static int VK_EXT_EXTENSION_528_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26184 Column: 18
+    public static string VK_EXT_EXTENSION_528_EXTENSION_NAME => "VK_EXT_extension_528";
+
+    // File: vk.xml Line: 26189 Column: 18
+    public static int VK_KHR_SHADER_FLOAT_CONTROLS_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26190 Column: 18
+    public static string VK_KHR_SHADER_FLOAT_CONTROLS_2_EXTENSION_NAME => "VK_KHR_shader_float_controls2";
+
+    // File: vk.xml Line: 26198 Column: 18
+    public static int VK_QNX_EXTERNAL_MEMORY_SCREEN_BUFFER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26199 Column: 18
+    public static string VK_QNX_EXTERNAL_MEMORY_SCREEN_BUFFER_EXTENSION_NAME => "VK_QNX_external_memory_screen_buffer";
+
+    // File: vk.xml Line: 26217 Column: 18
+    public static int VK_MSFT_LAYERED_DRIVER_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26218 Column: 18
+    public static string VK_MSFT_LAYERED_DRIVER_EXTENSION_NAME => "VK_MSFT_layered_driver";
+
+    // File: vk.xml Line: 26226 Column: 18
+    public static int VK_KHR_EXTENSION_532_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26227 Column: 18
+    public static string VK_KHR_EXTENSION_532_EXTENSION_NAME => "VK_KHR_extension_532";
+
+    // File: vk.xml Line: 26232 Column: 18
+    public static int VK_EXT_EXTENSION_533_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26233 Column: 18
+    public static string VK_EXT_EXTENSION_533_EXTENSION_NAME => "VK_EXT_extension_533";
+
+    // File: vk.xml Line: 26238 Column: 18
+    public static int VK_KHR_INDEX_TYPE_UINT8_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26239 Column: 18
+    public static string VK_KHR_INDEX_TYPE_UINT8_EXTENSION_NAME => "VK_KHR_index_type_uint8";
+
+    // File: vk.xml Line: 26248 Column: 18
+    public static int VK_KHR_LINE_RASTERIZATION_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26249 Column: 18
+    public static string VK_KHR_LINE_RASTERIZATION_EXTENSION_NAME => "VK_KHR_line_rasterization";
+
+    // File: vk.xml Line: 26268 Column: 18
+    public static int VK_QCOM_EXTENSION_536_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26269 Column: 18
+    public static string VK_QCOM_EXTENSION_536_EXTENSION_NAME => "VK_QCOM_extension_536";
+
+    // File: vk.xml Line: 26274 Column: 18
+    public static int VK_EXT_EXTENSION_537_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26275 Column: 18
+    public static string VK_EXT_EXTENSION_537_EXTENSION_NAME => "VK_EXT_extension_537";
+
+    // File: vk.xml Line: 26280 Column: 18
+    public static int VK_EXT_EXTENSION_538_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26281 Column: 18
+    public static string VK_EXT_EXTENSION_538_EXTENSION_NAME => "VK_EXT_extension_538";
+
+    // File: vk.xml Line: 26286 Column: 18
+    public static int VK_EXT_EXTENSION_539_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26287 Column: 18
+    public static string VK_EXT_EXTENSION_539_EXTENSION_NAME => "VK_EXT_extension_539";
+
+    // File: vk.xml Line: 26292 Column: 18
+    public static int VK_EXT_EXTENSION_540_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26293 Column: 18
+    public static string VK_EXT_EXTENSION_540_EXTENSION_NAME => "VK_EXT_extension_540";
+
+    // File: vk.xml Line: 26298 Column: 18
+    public static int VK_EXT_EXTENSION_541_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26299 Column: 18
+    public static string VK_EXT_EXTENSION_541_EXTENSION_NAME => "VK_EXT_extension_541";
+
+    // File: vk.xml Line: 26304 Column: 18
+    public static int VK_EXT_EXTENSION_542_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26305 Column: 18
+    public static string VK_EXT_EXTENSION_542_EXTENSION_NAME => "VK_EXT_extension_542";
+
+    // File: vk.xml Line: 26310 Column: 18
+    public static int VK_EXT_EXTENSION_543_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26311 Column: 18
+    public static string VK_EXT_EXTENSION_543_EXTENSION_NAME => "VK_EXT_extension_543";
+
+    // File: vk.xml Line: 26316 Column: 18
+    public static int VK_KHR_CALIBRATED_TIMESTAMPS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26317 Column: 18
+    public static string VK_KHR_CALIBRATED_TIMESTAMPS_EXTENSION_NAME => "VK_KHR_calibrated_timestamps";
+
+    // File: vk.xml Line: 26327 Column: 18
+    public static int VK_KHR_SHADER_EXPECT_ASSUME_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26328 Column: 18
+    public static string VK_KHR_SHADER_EXPECT_ASSUME_EXTENSION_NAME => "VK_KHR_shader_expect_assume";
+
+    // File: vk.xml Line: 26336 Column: 18
+    public static int VK_KHR_MAINTENANCE_6_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26337 Column: 18
+    public static string VK_KHR_MAINTENANCE_6_EXTENSION_NAME => "VK_KHR_maintenance6";
+
+    // File: vk.xml Line: 26373 Column: 18
+    public static int VK_NV_DESCRIPTOR_POOL_OVERALLOCATION_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26374 Column: 18
+    public static string VK_NV_DESCRIPTOR_POOL_OVERALLOCATION_EXTENSION_NAME => "VK_NV_descriptor_pool_overallocation";
+
+    // File: vk.xml Line: 26384 Column: 18
+    public static int VK_QCOM_EXTENSION_548_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26385 Column: 18
+    public static string VK_QCOM_EXTENSION_548_EXTENSION_NAME => "VK_QCOM_extension_548";
+
+    // File: vk.xml Line: 26394 Column: 18
+    public static int VK_NV_EXTENSION_549_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26395 Column: 18
+    public static string VK_NV_EXTENSION_549_EXTENSION_NAME => "VK_NV_extension_549";
+
+    // File: vk.xml Line: 26400 Column: 18
+    public static int VK_NV_EXTENSION_550_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26401 Column: 18
+    public static string VK_NV_EXTENSION_550_EXTENSION_NAME => "VK_NV_extension_550";
+
+    // File: vk.xml Line: 26407 Column: 18
+    public static int VK_NV_EXTENSION_551_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26408 Column: 18
+    public static string VK_NV_EXTENSION_551_EXTENSION_NAME => "VK_NV_extension_551";
+
+    // File: vk.xml Line: 26417 Column: 18
+    public static int VK_NV_DISPLAY_STEREO_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26418 Column: 18
+    public static string VK_NV_DISPLAY_STEREO_EXTENSION_NAME => "VK_NV_display_stereo";
+
+    // File: vk.xml Line: 26428 Column: 18
+    public static int VK_KHR_EXTENSION_553_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26429 Column: 18
+    public static string VK_KHR_EXTENSION_553_EXTENSION_NAME => "VK_KHR_extension_553";
+
+    // File: vk.xml Line: 26437 Column: 18
+    public static int VK_KHR_VIDEO_ENCODE_QUANTIZATION_MAP_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 26438 Column: 18
+    public static string VK_KHR_VIDEO_ENCODE_QUANTIZATION_MAP_EXTENSION_NAME => "VK_KHR_video_encode_quantization_map";
+
+    // File: vk.xml Line: 26486 Column: 18
+    public static int VK_IMG_EXTENSION_555_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26487 Column: 18
+    public static string VK_IMG_EXTENSION_555_EXTENSION_NAME => "VK_IMG_extension_555";
+
+    // File: vk.xml Line: 26492 Column: 18
+    public static int VK_NV_RAW_ACCESS_CHAINS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26493 Column: 18
+    public static string VK_NV_RAW_ACCESS_CHAINS_EXTENSION_NAME => "VK_NV_raw_access_chains";
+
+    // File: vk.xml Line: 26501 Column: 18
+    public static int VK_NV_EXTENSION_557_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26502 Column: 18
+    public static string VK_NV_EXTENSION_557_EXTENSION_NAME => "VK_NV_extension_557";
+
+    // File: vk.xml Line: 26507 Column: 18
+    public static int VK_KHR_EXTENSION_558_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26508 Column: 18
+    public static string VK_KHR_EXTENSION_558_EXTENSION_NAME => "VK_KHR_extension_558";
+
+    // File: vk.xml Line: 26513 Column: 18
+    public static int VK_KHR_SHADER_RELAXED_EXTENDED_INSTRUCTION_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26514 Column: 18
+    public static string VK_KHR_SHADER_RELAXED_EXTENDED_INSTRUCTION_EXTENSION_NAME => "VK_KHR_shader_relaxed_extended_instruction";
+
+    // File: vk.xml Line: 26522 Column: 18
+    public static int VK_NV_COMMAND_BUFFER_INHERITANCE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26523 Column: 18
+    public static string VK_NV_COMMAND_BUFFER_INHERITANCE_EXTENSION_NAME => "VK_NV_command_buffer_inheritance";
+
+    // File: vk.xml Line: 26531 Column: 18
+    public static int VK_EXT_EXTENSION_561_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26532 Column: 18
+    public static string VK_EXT_EXTENSION_561_EXTENSION_NAME => "VK_EXT_extension_561";
+
+    // File: vk.xml Line: 26537 Column: 18
+    public static int VK_KHR_EXTENSION_562_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26538 Column: 18
+    public static string VK_KHR_EXTENSION_562_EXTENSION_NAME => "VK_KHR_extension_562";
+
+    // File: vk.xml Line: 26543 Column: 18
+    public static int VK_KHR_MAINTENANCE_7_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26544 Column: 18
+    public static string VK_KHR_MAINTENANCE_7_EXTENSION_NAME => "VK_KHR_maintenance7";
+
+    // File: vk.xml Line: 26563 Column: 18
+    public static int VK_NV_SHADER_ATOMIC_FLOAT16_VECTOR_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26564 Column: 18
+    public static string VK_NV_SHADER_ATOMIC_FLOAT16_VECTOR_EXTENSION_NAME => "VK_NV_shader_atomic_float16_vector";
+
+    // File: vk.xml Line: 26572 Column: 18
+    public static int VK_EXT_SHADER_REPLICATED_COMPOSITES_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26573 Column: 18
+    public static string VK_EXT_SHADER_REPLICATED_COMPOSITES_EXTENSION_NAME => "VK_EXT_shader_replicated_composites";
+
+    // File: vk.xml Line: 26581 Column: 18
+    public static int VK_ARM_EXTENSION_566_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26582 Column: 18
+    public static string VK_ARM_EXTENSION_566_EXTENSION_NAME => "VK_ARM_extension_566";
+
+    // File: vk.xml Line: 26587 Column: 18
+    public static int VK_ARM_EXTENSION_567_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26588 Column: 18
+    public static string VK_ARM_EXTENSION_567_EXTENSION_NAME => "VK_ARM_extension_567";
+
+    // File: vk.xml Line: 26593 Column: 18
+    public static int VK_ARM_EXTENSION_568_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26594 Column: 18
+    public static string VK_ARM_EXTENSION_568_EXTENSION_NAME => "VK_ARM_extension_568";
+
+    // File: vk.xml Line: 26599 Column: 18
+    public static int VK_NV_RAY_TRACING_VALIDATION_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26600 Column: 18
+    public static string VK_NV_RAY_TRACING_VALIDATION_EXTENSION_NAME => "VK_NV_ray_tracing_validation";
+
+    // File: vk.xml Line: 26608 Column: 18
+    public static int VK_NV_CLUSTER_ACCELERATION_STRUCTURE_SPEC_VERSION => 2;
+
+    // File: vk.xml Line: 26609 Column: 18
+    public static string VK_NV_CLUSTER_ACCELERATION_STRUCTURE_EXTENSION_NAME => "VK_NV_cluster_acceleration_structure";
+
+    // File: vk.xml Line: 26649 Column: 18
+    public static int VK_OPACITY_MICROMAP_SPECIAL_INDEX_CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP_NV => -5;
+
+    // File: vk.xml Line: 26657 Column: 18
+    public static int VK_NV_PARTITIONED_ACCELERATION_STRUCTURE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26658 Column: 18
+    public static string VK_NV_PARTITIONED_ACCELERATION_STRUCTURE_EXTENSION_NAME => "VK_NV_partitioned_acceleration_structure";
+
+    // File: vk.xml Line: 26687 Column: 18
+    public static int VK_NV_EXTENSION_572_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26688 Column: 18
+    public static string VK_NV_EXTENSION_572_EXTENSION_NAME => "VK_NV_extension_572";
+
+    // File: vk.xml Line: 26693 Column: 18
+    public static int VK_EXT_DEVICE_GENERATED_COMMANDS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26694 Column: 18
+    public static string VK_EXT_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME => "VK_EXT_device_generated_commands";
+
+    // File: vk.xml Line: 26771 Column: 18
+    public static int VK_KHR_EXTENSION_574_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26772 Column: 18
+    public static string VK_KHR_EXTENSION_574_EXTENSION_NAME => "VK_KHR_extension_574";
+
+    // File: vk.xml Line: 26777 Column: 18
+    public static int VK_KHR_MAINTENANCE_8_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26778 Column: 18
+    public static string VK_KHR_MAINTENANCE_8_EXTENSION_NAME => "VK_KHR_maintenance8";
+
+    // File: vk.xml Line: 26792 Column: 18
+    public static int VK_MESA_IMAGE_ALIGNMENT_CONTROL_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26793 Column: 18
+    public static string VK_MESA_IMAGE_ALIGNMENT_CONTROL_EXTENSION_NAME => "VK_MESA_image_alignment_control";
+
+    // File: vk.xml Line: 26805 Column: 18
+    public static int VK_HUAWEI_EXTENSION_577_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26806 Column: 18
+    public static string VK_HUAWEI_EXTENSION_577_EXTENSION_NAME => "VK_HUAWEI_extension_577";
+
+    // File: vk.xml Line: 26812 Column: 18
+    public static int VK_EXT_EXTENSION_578_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26813 Column: 18
+    public static string VK_EXT_EXTENSION_578_EXTENSION_NAME => "VK_EXT_extension_578";
+
+    // File: vk.xml Line: 26818 Column: 18
+    public static int VK_EXT_EXTENSION_579_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26819 Column: 18
+    public static string VK_EXT_EXTENSION_579_EXTENSION_NAME => "VK_EXT_extension_579";
+
+    // File: vk.xml Line: 26826 Column: 18
+    public static int VK_EXT_EXTENSION_580_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26827 Column: 18
+    public static string VK_EXT_EXTENSION_580_EXTENSION_NAME => "VK_EXT_extension_580";
+
+    // File: vk.xml Line: 26832 Column: 18
+    public static int VK_NV_EXTENSION_581_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26833 Column: 18
+    public static string VK_NV_EXTENSION_581_EXTENSION_NAME => "VK_NV_extension_581";
+
+    // File: vk.xml Line: 26838 Column: 18
+    public static int VK_EXT_EXTENSION_582_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26839 Column: 18
+    public static string VK_EXT_EXTENSION_582_EXTENSION_NAME => "VK_EXT_extension_582";
+
+    // File: vk.xml Line: 26844 Column: 18
+    public static int VK_EXT_DEPTH_CLAMP_CONTROL_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26845 Column: 18
+    public static string VK_EXT_DEPTH_CLAMP_CONTROL_EXTENSION_NAME => "VK_EXT_depth_clamp_control";
+
+    // File: vk.xml Line: 26859 Column: 18
+    public static int VK_EXT_EXTENSION_584_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26860 Column: 18
+    public static string VK_EXT_EXTENSION_584_EXTENSION_NAME => "VK_EXT_extension_584";
+
+    // File: vk.xml Line: 26865 Column: 18
+    public static int VK_EXT_EXTENSION_585_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26866 Column: 18
+    public static string VK_EXT_EXTENSION_585_EXTENSION_NAME => "VK_EXT_extension_585";
+
+    // File: vk.xml Line: 26872 Column: 18
+    public static int VK_IMG_EXTENSION_586_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26873 Column: 18
+    public static string VK_IMG_EXTENSION_586_EXTENSION_NAME => "VK_IMG_extension_586";
+
+    // File: vk.xml Line: 26879 Column: 18
+    public static int VK_KHR_VIDEO_MAINTENANCE_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26880 Column: 18
+    public static string VK_KHR_VIDEO_MAINTENANCE_2_EXTENSION_NAME => "VK_KHR_video_maintenance2";
+
+    // File: vk.xml Line: 26903 Column: 18
+    public static int VK_HUAWEI_EXTENSION_588_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26904 Column: 18
+    public static string VK_HUAWEI_EXTENSION_588_EXTENSION_NAME => "VK_HUAWEI_extension_588";
+
+    // File: vk.xml Line: 26909 Column: 18
+    public static int VK_HUAWEI_EXTENSION_589_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26910 Column: 18
+    public static string VK_HUAWEI_EXTENSION_589_EXTENSION_NAME => "VK_HUAWEI_extension_589";
+
+    // File: vk.xml Line: 26915 Column: 18
+    public static int VK_HUAWEI_EXTENSION_590_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26916 Column: 18
+    public static string VK_HUAWEI_EXTENSION_590_EXTENSION_NAME => "VK_HUAWEI_extension_590";
+
+    // File: vk.xml Line: 26922 Column: 18
+    public static int VK_HUAWEI_HDR_VIVID_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26923 Column: 18
+    public static string VK_HUAWEI_HDR_VIVID_EXTENSION_NAME => "VK_HUAWEI_hdr_vivid";
+
+    // File: vk.xml Line: 26933 Column: 18
+    public static int VK_NV_EXTENSION_592_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26934 Column: 18
+    public static string VK_NV_EXTENSION_592_EXTENSION_NAME => "VK_NV_extension_592";
+
+    // File: vk.xml Line: 26939 Column: 18
+    public static int VK_NV_EXTENSION_593_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26940 Column: 18
+    public static string VK_NV_EXTENSION_593_EXTENSION_NAME => "VK_NV_extension_593";
+
+    // File: vk.xml Line: 26945 Column: 18
+    public static int VK_NV_COOPERATIVE_MATRIX_2_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26946 Column: 18
+    public static string VK_NV_COOPERATIVE_MATRIX_2_EXTENSION_NAME => "VK_NV_cooperative_matrix2";
+
+    // File: vk.xml Line: 26959 Column: 18
+    public static int VK_NV_EXTENSION_595_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26960 Column: 18
+    public static string VK_NV_EXTENSION_595_EXTENSION_NAME => "VK_NV_extension_595";
+
+    // File: vk.xml Line: 26966 Column: 18
+    public static int VK_KHR_EXTENSION_596_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26967 Column: 18
+    public static string VK_KHR_EXTENSION_596_EXTENSION_NAME => "VK_KHR_extension_596";
+
+    // File: vk.xml Line: 26972 Column: 18
+    public static int VK_ARM_PIPELINE_OPACITY_MICROMAP_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 26973 Column: 18
+    public static string VK_ARM_PIPELINE_OPACITY_MICROMAP_EXTENSION_NAME => "VK_ARM_pipeline_opacity_micromap";
+
+    // File: vk.xml Line: 26982 Column: 18
+    public static int VK_KHR_EXTENSION_598_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26983 Column: 18
+    public static string VK_KHR_EXTENSION_598_EXTENSION_NAME => "VK_KHR_extension_598";
+
+    // File: vk.xml Line: 26988 Column: 18
+    public static int VK_KHR_EXTENSION_599_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26989 Column: 18
+    public static string VK_KHR_EXTENSION_599_EXTENSION_NAME => "VK_KHR_extension_599";
+
+    // File: vk.xml Line: 26994 Column: 18
+    public static int VK_IMG_EXTENSION_600_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 26995 Column: 18
+    public static string VK_IMG_EXTENSION_600_EXTENSION_NAME => "VK_IMG_extension_600";
+
+    // File: vk.xml Line: 27000 Column: 18
+    public static int VK_IMG_EXTENSION_601_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27001 Column: 18
+    public static string VK_IMG_EXTENSION_601_EXTENSION_NAME => "VK_IMG_extension_601";
+
+    // File: vk.xml Line: 27006 Column: 18
+    public static int VK_EXT_EXTENSION_602_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27007 Column: 18
+    public static string VK_EXT_EXTENSION_602_EXTENSION_NAME => "VK_EXT_extension_602";
+
+    // File: vk.xml Line: 27012 Column: 18
+    public static int VK_EXT_EXTERNAL_MEMORY_METAL_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 27013 Column: 18
+    public static string VK_EXT_EXTERNAL_MEMORY_METAL_EXTENSION_NAME => "VK_EXT_external_memory_metal";
+
+    // File: vk.xml Line: 27029 Column: 18
+    public static int VK_EXT_EXTENSION_604_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27030 Column: 18
+    public static string VK_EXT_EXTENSION_604_EXTENSION_NAME => "VK_EXT_extension_604";
+
+    // File: vk.xml Line: 27036 Column: 18
+    public static int VK_KHR_DEPTH_CLAMP_ZERO_ONE_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 27037 Column: 18
+    public static string VK_KHR_DEPTH_CLAMP_ZERO_ONE_EXTENSION_NAME => "VK_KHR_depth_clamp_zero_one";
+
+    // File: vk.xml Line: 27045 Column: 18
+    public static int VK_KHR_EXTENSION_606_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27046 Column: 18
+    public static string VK_KHR_EXTENSION_606_EXTENSION_NAME => "VK_KHR_extension_606";
+
+    // File: vk.xml Line: 27051 Column: 18
+    public static int VK_KHR_EXTENSION_607_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27052 Column: 18
+    public static string VK_KHR_EXTENSION_607_EXTENSION_NAME => "VK_KHR_extension_607";
+
+    // File: vk.xml Line: 27057 Column: 18
+    public static int VK_KHR_EXTENSION_608_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27058 Column: 18
+    public static string VK_KHR_EXTENSION_608_EXTENSION_NAME => "VK_KHR_extension_608";
+
+    // File: vk.xml Line: 27063 Column: 18
+    public static int VK_EXT_VERTEX_ATTRIBUTE_ROBUSTNESS_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 27064 Column: 18
+    public static string VK_EXT_VERTEX_ATTRIBUTE_ROBUSTNESS_EXTENSION_NAME => "VK_EXT_vertex_attribute_robustness";
+
+    // File: vk.xml Line: 27072 Column: 18
+    public static int VK_ARM_EXTENSION_610_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27073 Column: 18
+    public static string VK_ARM_EXTENSION_610_EXTENSION_NAME => "VK_ARM_extension_610";
+
+    // File: vk.xml Line: 27078 Column: 18
+    public static int VK_NV_EXTENSION_611_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27079 Column: 18
+    public static string VK_NV_EXTENSION_611_EXTENSION_NAME => "VK_NV_extension_611";
+
+    // File: vk.xml Line: 27084 Column: 18
+    public static int VK_EXT_EXTENSION_612_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27085 Column: 18
+    public static string VK_EXT_EXTENSION_612_EXTENSION_NAME => "VK_EXT_extension_612";
+
+    // File: vk.xml Line: 27090 Column: 18
+    public static int VK_KHR_EXTENSION_613_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27091 Column: 18
+    public static string VK_KHR_EXTENSION_613_EXTENSION_NAME => "VK_KHR_extension_613";
+
+    // File: vk.xml Line: 27096 Column: 18
+    public static int VK_NV_PRESENT_METERING_SPEC_VERSION => 1;
+
+    // File: vk.xml Line: 27097 Column: 18
+    public static string VK_NV_PRESENT_METERING_EXTENSION_NAME => "VK_NV_present_metering";
+
+    // File: vk.xml Line: 27107 Column: 18
+    public static int VK_QCOM_EXTENSION_615_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27108 Column: 18
+    public static string VK_QCOM_EXTENSION_615_EXTENSION_NAME => "VK_QCOM_extension_615";
+
+    // File: vk.xml Line: 27113 Column: 18
+    public static int VK_EXT_EXTENSION_616_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27114 Column: 18
+    public static string VK_EXT_EXTENSION_616_EXTENSION_NAME => "VK_EXT_extension_616";
+
+    // File: vk.xml Line: 27119 Column: 18
+    public static int VK_EXT_EXTENSION_617_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27120 Column: 18
+    public static string VK_EXT_EXTENSION_617_EXTENSION_NAME => "VK_EXT_extension_617";
+
+    // File: vk.xml Line: 27125 Column: 18
+    public static int VK_EXT_EXTENSION_618_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27126 Column: 18
+    public static string VK_EXT_EXTENSION_618_EXTENSION_NAME => "VK_EXT_extension_618";
+
+    // File: vk.xml Line: 27131 Column: 18
+    public static int VK_EXT_EXTENSION_619_SPEC_VERSION => 0;
+
+    // File: vk.xml Line: 27132 Column: 18
+    public static string VK_EXT_EXTENSION_619_EXTENSION_NAME => "VK_EXT_extension_619";
+
+    // File: vk.xml Line: 10782 Column: 10
+    public static int VK_QUEUE_GRAPHICS_BIT => 0;
+
+    // File: vk.xml Line: 10783 Column: 10
+    public static int VK_QUEUE_COMPUTE_BIT => 1;
+
+    // File: vk.xml Line: 10784 Column: 10
+    public static int VK_QUEUE_TRANSFER_BIT => 2;
+
+    // File: vk.xml Line: 10785 Column: 10
+    public static int VK_QUEUE_SPARSE_BINDING_BIT => 3;
+
+    // File: vk.xml Line: 10789 Column: 10
+    public static int VK_CULL_MODE_FRONT_BIT => 0;
+
+    // File: vk.xml Line: 10790 Column: 10
+    public static int VK_CULL_MODE_BACK_BIT => 1;
+
+    // File: vk.xml Line: 10798 Column: 10
+    public static int VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT => 0;
+
+    // File: vk.xml Line: 10799 Column: 10
+    public static int VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT => 1;
+
+    // File: vk.xml Line: 10800 Column: 10
+    public static int VK_MEMORY_PROPERTY_HOST_COHERENT_BIT => 2;
+
+    // File: vk.xml Line: 10801 Column: 10
+    public static int VK_MEMORY_PROPERTY_HOST_CACHED_BIT => 3;
+
+    // File: vk.xml Line: 10802 Column: 10
+    public static int VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT => 4;
+
+    // File: vk.xml Line: 10805 Column: 10
+    public static int VK_MEMORY_HEAP_DEVICE_LOCAL_BIT => 0;
+
+    // File: vk.xml Line: 10808 Column: 10
+    public static int VK_ACCESS_INDIRECT_COMMAND_READ_BIT => 0;
+
+    // File: vk.xml Line: 10809 Column: 10
+    public static int VK_ACCESS_INDEX_READ_BIT => 1;
+
+    // File: vk.xml Line: 10810 Column: 10
+    public static int VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT => 2;
+
+    // File: vk.xml Line: 10811 Column: 10
+    public static int VK_ACCESS_UNIFORM_READ_BIT => 3;
+
+    // File: vk.xml Line: 10812 Column: 10
+    public static int VK_ACCESS_INPUT_ATTACHMENT_READ_BIT => 4;
+
+    // File: vk.xml Line: 10813 Column: 10
+    public static int VK_ACCESS_SHADER_READ_BIT => 5;
+
+    // File: vk.xml Line: 10814 Column: 10
+    public static int VK_ACCESS_SHADER_WRITE_BIT => 6;
+
+    // File: vk.xml Line: 10815 Column: 10
+    public static int VK_ACCESS_COLOR_ATTACHMENT_READ_BIT => 7;
+
+    // File: vk.xml Line: 10816 Column: 10
+    public static int VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT => 8;
+
+    // File: vk.xml Line: 10817 Column: 10
+    public static int VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT => 9;
+
+    // File: vk.xml Line: 10818 Column: 10
+    public static int VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT => 10;
+
+    // File: vk.xml Line: 10819 Column: 10
+    public static int VK_ACCESS_TRANSFER_READ_BIT => 11;
+
+    // File: vk.xml Line: 10820 Column: 10
+    public static int VK_ACCESS_TRANSFER_WRITE_BIT => 12;
+
+    // File: vk.xml Line: 10821 Column: 10
+    public static int VK_ACCESS_HOST_READ_BIT => 13;
+
+    // File: vk.xml Line: 10822 Column: 10
+    public static int VK_ACCESS_HOST_WRITE_BIT => 14;
+
+    // File: vk.xml Line: 10823 Column: 10
+    public static int VK_ACCESS_MEMORY_READ_BIT => 15;
+
+    // File: vk.xml Line: 10824 Column: 10
+    public static int VK_ACCESS_MEMORY_WRITE_BIT => 16;
+
+    // File: vk.xml Line: 10827 Column: 10
+    public static int VK_BUFFER_USAGE_TRANSFER_SRC_BIT => 0;
+
+    // File: vk.xml Line: 10828 Column: 10
+    public static int VK_BUFFER_USAGE_TRANSFER_DST_BIT => 1;
+
+    // File: vk.xml Line: 10829 Column: 10
+    public static int VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT => 2;
+
+    // File: vk.xml Line: 10830 Column: 10
+    public static int VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT => 3;
+
+    // File: vk.xml Line: 10831 Column: 10
+    public static int VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT => 4;
+
+    // File: vk.xml Line: 10832 Column: 10
+    public static int VK_BUFFER_USAGE_STORAGE_BUFFER_BIT => 5;
+
+    // File: vk.xml Line: 10833 Column: 10
+    public static int VK_BUFFER_USAGE_INDEX_BUFFER_BIT => 6;
+
+    // File: vk.xml Line: 10834 Column: 10
+    public static int VK_BUFFER_USAGE_VERTEX_BUFFER_BIT => 7;
+
+    // File: vk.xml Line: 10835 Column: 10
+    public static int VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT => 8;
+
+    // File: vk.xml Line: 10838 Column: 10
+    public static int VK_BUFFER_USAGE_2_TRANSFER_SRC_BIT => 0;
+
+    // File: vk.xml Line: 10839 Column: 10
+    public static int VK_BUFFER_USAGE_2_TRANSFER_DST_BIT => 1;
+
+    // File: vk.xml Line: 10840 Column: 10
+    public static int VK_BUFFER_USAGE_2_UNIFORM_TEXEL_BUFFER_BIT => 2;
+
+    // File: vk.xml Line: 10841 Column: 10
+    public static int VK_BUFFER_USAGE_2_STORAGE_TEXEL_BUFFER_BIT => 3;
+
+    // File: vk.xml Line: 10842 Column: 10
+    public static int VK_BUFFER_USAGE_2_UNIFORM_BUFFER_BIT => 4;
+
+    // File: vk.xml Line: 10843 Column: 10
+    public static int VK_BUFFER_USAGE_2_STORAGE_BUFFER_BIT => 5;
+
+    // File: vk.xml Line: 10844 Column: 10
+    public static int VK_BUFFER_USAGE_2_INDEX_BUFFER_BIT => 6;
+
+    // File: vk.xml Line: 10845 Column: 10
+    public static int VK_BUFFER_USAGE_2_VERTEX_BUFFER_BIT => 7;
+
+    // File: vk.xml Line: 10846 Column: 10
+    public static int VK_BUFFER_USAGE_2_INDIRECT_BUFFER_BIT => 8;
+
+    // File: vk.xml Line: 10849 Column: 10
+    public static int VK_BUFFER_CREATE_SPARSE_BINDING_BIT => 0;
+
+    // File: vk.xml Line: 10850 Column: 10
+    public static int VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT => 1;
+
+    // File: vk.xml Line: 10851 Column: 10
+    public static int VK_BUFFER_CREATE_SPARSE_ALIASED_BIT => 2;
+
+    // File: vk.xml Line: 10854 Column: 10
+    public static int VK_SHADER_STAGE_VERTEX_BIT => 0;
+
+    // File: vk.xml Line: 10855 Column: 10
+    public static int VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT => 1;
+
+    // File: vk.xml Line: 10856 Column: 10
+    public static int VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT => 2;
+
+    // File: vk.xml Line: 10857 Column: 10
+    public static int VK_SHADER_STAGE_GEOMETRY_BIT => 3;
+
+    // File: vk.xml Line: 10858 Column: 10
+    public static int VK_SHADER_STAGE_FRAGMENT_BIT => 4;
+
+    // File: vk.xml Line: 10859 Column: 10
+    public static int VK_SHADER_STAGE_COMPUTE_BIT => 5;
+
+    // File: vk.xml Line: 10864 Column: 10
+    public static int VK_IMAGE_USAGE_TRANSFER_SRC_BIT => 0;
+
+    // File: vk.xml Line: 10865 Column: 10
+    public static int VK_IMAGE_USAGE_TRANSFER_DST_BIT => 1;
+
+    // File: vk.xml Line: 10866 Column: 10
+    public static int VK_IMAGE_USAGE_SAMPLED_BIT => 2;
+
+    // File: vk.xml Line: 10867 Column: 10
+    public static int VK_IMAGE_USAGE_STORAGE_BIT => 3;
+
+    // File: vk.xml Line: 10868 Column: 10
+    public static int VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT => 4;
+
+    // File: vk.xml Line: 10869 Column: 10
+    public static int VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT => 5;
+
+    // File: vk.xml Line: 10870 Column: 10
+    public static int VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT => 6;
+
+    // File: vk.xml Line: 10871 Column: 10
+    public static int VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT => 7;
+
+    // File: vk.xml Line: 10874 Column: 10
+    public static int VK_IMAGE_CREATE_SPARSE_BINDING_BIT => 0;
+
+    // File: vk.xml Line: 10875 Column: 10
+    public static int VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT => 1;
+
+    // File: vk.xml Line: 10876 Column: 10
+    public static int VK_IMAGE_CREATE_SPARSE_ALIASED_BIT => 2;
+
+    // File: vk.xml Line: 10877 Column: 10
+    public static int VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT => 3;
+
+    // File: vk.xml Line: 10878 Column: 10
+    public static int VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT => 4;
+
+    // File: vk.xml Line: 10885 Column: 10
+    public static int VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT => 0;
+
+    // File: vk.xml Line: 10886 Column: 10
+    public static int VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT => 1;
+
+    // File: vk.xml Line: 10887 Column: 10
+    public static int VK_PIPELINE_CREATE_DERIVATIVE_BIT => 2;
+
+    // File: vk.xml Line: 10890 Column: 10
+    public static int VK_PIPELINE_CREATE_2_DISABLE_OPTIMIZATION_BIT => 0;
+
+    // File: vk.xml Line: 10891 Column: 10
+    public static int VK_PIPELINE_CREATE_2_ALLOW_DERIVATIVES_BIT => 1;
+
+    // File: vk.xml Line: 10892 Column: 10
+    public static int VK_PIPELINE_CREATE_2_DERIVATIVE_BIT => 2;
+
+    // File: vk.xml Line: 10893 Column: 10
+    public static int VK_PIPELINE_CREATE_2_VIEW_INDEX_FROM_DEVICE_INDEX_BIT => 3;
+
+    // File: vk.xml Line: 10894 Column: 10
+    public static int VK_PIPELINE_CREATE_2_DISPATCH_BASE_BIT => 4;
+
+    // File: vk.xml Line: 10895 Column: 10
+    public static int VK_PIPELINE_CREATE_2_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT => 8;
+
+    // File: vk.xml Line: 10896 Column: 10
+    public static int VK_PIPELINE_CREATE_2_EARLY_RETURN_ON_FAILURE_BIT => 9;
+
+    // File: vk.xml Line: 10897 Column: 10
+    public static int VK_PIPELINE_CREATE_2_NO_PROTECTED_ACCESS_BIT => 27;
+
+    // File: vk.xml Line: 10898 Column: 10
+    public static int VK_PIPELINE_CREATE_2_PROTECTED_ACCESS_ONLY_BIT => 30;
+
+    // File: vk.xml Line: 10903 Column: 10
+    public static int VK_COLOR_COMPONENT_R_BIT => 0;
+
+    // File: vk.xml Line: 10904 Column: 10
+    public static int VK_COLOR_COMPONENT_G_BIT => 1;
+
+    // File: vk.xml Line: 10905 Column: 10
+    public static int VK_COLOR_COMPONENT_B_BIT => 2;
+
+    // File: vk.xml Line: 10906 Column: 10
+    public static int VK_COLOR_COMPONENT_A_BIT => 3;
+
+    // File: vk.xml Line: 10909 Column: 10
+    public static int VK_FENCE_CREATE_SIGNALED_BIT => 0;
+
+    // File: vk.xml Line: 10914 Column: 10
+    public static int VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT => 0;
+
+    // File: vk.xml Line: 10915 Column: 10
+    public static int VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT => 1;
+
+    // File: vk.xml Line: 10916 Column: 10
+    public static int VK_FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT => 2;
+
+    // File: vk.xml Line: 10917 Column: 10
+    public static int VK_FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT => 3;
+
+    // File: vk.xml Line: 10918 Column: 10
+    public static int VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT => 4;
+
+    // File: vk.xml Line: 10919 Column: 10
+    public static int VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT => 5;
+
+    // File: vk.xml Line: 10920 Column: 10
+    public static int VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT => 6;
+
+    // File: vk.xml Line: 10921 Column: 10
+    public static int VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT => 7;
+
+    // File: vk.xml Line: 10922 Column: 10
+    public static int VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT => 8;
+
+    // File: vk.xml Line: 10923 Column: 10
+    public static int VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT => 9;
+
+    // File: vk.xml Line: 10924 Column: 10
+    public static int VK_FORMAT_FEATURE_BLIT_SRC_BIT => 10;
+
+    // File: vk.xml Line: 10925 Column: 10
+    public static int VK_FORMAT_FEATURE_BLIT_DST_BIT => 11;
+
+    // File: vk.xml Line: 10926 Column: 10
+    public static int VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT => 12;
+
+    // File: vk.xml Line: 10929 Column: 10
+    public static int VK_QUERY_CONTROL_PRECISE_BIT => 0;
+
+    // File: vk.xml Line: 10932 Column: 10
+    public static int VK_QUERY_RESULT_64_BIT => 0;
+
+    // File: vk.xml Line: 10933 Column: 10
+    public static int VK_QUERY_RESULT_WAIT_BIT => 1;
+
+    // File: vk.xml Line: 10934 Column: 10
+    public static int VK_QUERY_RESULT_WITH_AVAILABILITY_BIT => 2;
+
+    // File: vk.xml Line: 10935 Column: 10
+    public static int VK_QUERY_RESULT_PARTIAL_BIT => 3;
+
+    // File: vk.xml Line: 10938 Column: 10
+    public static int VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT => 0;
+
+    // File: vk.xml Line: 10939 Column: 10
+    public static int VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT => 1;
+
+    // File: vk.xml Line: 10940 Column: 10
+    public static int VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT => 2;
+
+    // File: vk.xml Line: 10943 Column: 10
+    public static int VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT => 0;
+
+    // File: vk.xml Line: 10944 Column: 10
+    public static int VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_PRIMITIVES_BIT => 1;
+
+    // File: vk.xml Line: 10945 Column: 10
+    public static int VK_QUERY_PIPELINE_STATISTIC_VERTEX_SHADER_INVOCATIONS_BIT => 2;
+
+    // File: vk.xml Line: 10946 Column: 10
+    public static int VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_INVOCATIONS_BIT => 3;
+
+    // File: vk.xml Line: 10947 Column: 10
+    public static int VK_QUERY_PIPELINE_STATISTIC_GEOMETRY_SHADER_PRIMITIVES_BIT => 4;
+
+    // File: vk.xml Line: 10948 Column: 10
+    public static int VK_QUERY_PIPELINE_STATISTIC_CLIPPING_INVOCATIONS_BIT => 5;
+
+    // File: vk.xml Line: 10949 Column: 10
+    public static int VK_QUERY_PIPELINE_STATISTIC_CLIPPING_PRIMITIVES_BIT => 6;
+
+    // File: vk.xml Line: 10950 Column: 10
+    public static int VK_QUERY_PIPELINE_STATISTIC_FRAGMENT_SHADER_INVOCATIONS_BIT => 7;
+
+    // File: vk.xml Line: 10951 Column: 10
+    public static int VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_CONTROL_SHADER_PATCHES_BIT => 8;
+
+    // File: vk.xml Line: 10952 Column: 10
+    public static int VK_QUERY_PIPELINE_STATISTIC_TESSELLATION_EVALUATION_SHADER_INVOCATIONS_BIT => 9;
+
+    // File: vk.xml Line: 10953 Column: 10
+    public static int VK_QUERY_PIPELINE_STATISTIC_COMPUTE_SHADER_INVOCATIONS_BIT => 10;
+
+    // File: vk.xml Line: 10958 Column: 10
+    public static int VK_IMAGE_ASPECT_COLOR_BIT => 0;
+
+    // File: vk.xml Line: 10959 Column: 10
+    public static int VK_IMAGE_ASPECT_DEPTH_BIT => 1;
+
+    // File: vk.xml Line: 10960 Column: 10
+    public static int VK_IMAGE_ASPECT_STENCIL_BIT => 2;
+
+    // File: vk.xml Line: 10961 Column: 10
+    public static int VK_IMAGE_ASPECT_METADATA_BIT => 3;
+
+    // File: vk.xml Line: 10964 Column: 10
+    public static int VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT => 0;
+
+    // File: vk.xml Line: 10965 Column: 10
+    public static int VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT => 1;
+
+    // File: vk.xml Line: 10966 Column: 10
+    public static int VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT => 2;
+
+    // File: vk.xml Line: 10969 Column: 10
+    public static int VK_SPARSE_MEMORY_BIND_METADATA_BIT => 0;
+
+    // File: vk.xml Line: 10972 Column: 10
+    public static int VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT => 0;
+
+    // File: vk.xml Line: 10973 Column: 10
+    public static int VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT => 1;
+
+    // File: vk.xml Line: 10974 Column: 10
+    public static int VK_PIPELINE_STAGE_VERTEX_INPUT_BIT => 2;
+
+    // File: vk.xml Line: 10975 Column: 10
+    public static int VK_PIPELINE_STAGE_VERTEX_SHADER_BIT => 3;
+
+    // File: vk.xml Line: 10976 Column: 10
+    public static int VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT => 4;
+
+    // File: vk.xml Line: 10977 Column: 10
+    public static int VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT => 5;
+
+    // File: vk.xml Line: 10978 Column: 10
+    public static int VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT => 6;
+
+    // File: vk.xml Line: 10979 Column: 10
+    public static int VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT => 7;
+
+    // File: vk.xml Line: 10980 Column: 10
+    public static int VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT => 8;
+
+    // File: vk.xml Line: 10981 Column: 10
+    public static int VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT => 9;
+
+    // File: vk.xml Line: 10982 Column: 10
+    public static int VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT => 10;
+
+    // File: vk.xml Line: 10983 Column: 10
+    public static int VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT => 11;
+
+    // File: vk.xml Line: 10984 Column: 10
+    public static int VK_PIPELINE_STAGE_TRANSFER_BIT => 12;
+
+    // File: vk.xml Line: 10985 Column: 10
+    public static int VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT => 13;
+
+    // File: vk.xml Line: 10986 Column: 10
+    public static int VK_PIPELINE_STAGE_HOST_BIT => 14;
+
+    // File: vk.xml Line: 10987 Column: 10
+    public static int VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT => 15;
+
+    // File: vk.xml Line: 10988 Column: 10
+    public static int VK_PIPELINE_STAGE_ALL_COMMANDS_BIT => 16;
+
+    // File: vk.xml Line: 10991 Column: 10
+    public static int VK_COMMAND_POOL_CREATE_TRANSIENT_BIT => 0;
+
+    // File: vk.xml Line: 10992 Column: 10
+    public static int VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT => 1;
+
+    // File: vk.xml Line: 10995 Column: 10
+    public static int VK_COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT => 0;
+
+    // File: vk.xml Line: 10998 Column: 10
+    public static int VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT => 0;
+
+    // File: vk.xml Line: 11001 Column: 10
+    public static int VK_SAMPLE_COUNT_1_BIT => 0;
+
+    // File: vk.xml Line: 11002 Column: 10
+    public static int VK_SAMPLE_COUNT_2_BIT => 1;
+
+    // File: vk.xml Line: 11003 Column: 10
+    public static int VK_SAMPLE_COUNT_4_BIT => 2;
+
+    // File: vk.xml Line: 11004 Column: 10
+    public static int VK_SAMPLE_COUNT_8_BIT => 3;
+
+    // File: vk.xml Line: 11005 Column: 10
+    public static int VK_SAMPLE_COUNT_16_BIT => 4;
+
+    // File: vk.xml Line: 11006 Column: 10
+    public static int VK_SAMPLE_COUNT_32_BIT => 5;
+
+    // File: vk.xml Line: 11007 Column: 10
+    public static int VK_SAMPLE_COUNT_64_BIT => 6;
+
+    // File: vk.xml Line: 11010 Column: 10
+    public static int VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT => 0;
+
+    // File: vk.xml Line: 11013 Column: 10
+    public static int VK_STENCIL_FACE_FRONT_BIT => 0;
+
+    // File: vk.xml Line: 11014 Column: 10
+    public static int VK_STENCIL_FACE_BACK_BIT => 1;
+
+    // File: vk.xml Line: 11019 Column: 10
+    public static int VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT => 0;
+
+    // File: vk.xml Line: 11022 Column: 10
+    public static int VK_DEPENDENCY_BY_REGION_BIT => 0;
+
+    // File: vk.xml Line: 11029 Column: 10
+    public static int VK_SEMAPHORE_WAIT_ANY_BIT => 0;
+
+    // File: vk.xml Line: 11044 Column: 10
+    public static int VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11045 Column: 10
+    public static int VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11046 Column: 10
+    public static int VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11047 Column: 10
+    public static int VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR => 3;
+
+    // File: vk.xml Line: 11050 Column: 10
+    public static int VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11051 Column: 10
+    public static int VK_COMPOSITE_ALPHA_PRE_MULTIPLIED_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11052 Column: 10
+    public static int VK_COMPOSITE_ALPHA_POST_MULTIPLIED_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11053 Column: 10
+    public static int VK_COMPOSITE_ALPHA_INHERIT_BIT_KHR => 3;
+
+    // File: vk.xml Line: 11056 Column: 10
+    public static int VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11057 Column: 10
+    public static int VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11058 Column: 10
+    public static int VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11059 Column: 10
+    public static int VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR => 3;
+
+    // File: vk.xml Line: 11060 Column: 10
+    public static int VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_BIT_KHR => 4;
+
+    // File: vk.xml Line: 11061 Column: 10
+    public static int VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_90_BIT_KHR => 5;
+
+    // File: vk.xml Line: 11062 Column: 10
+    public static int VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_180_BIT_KHR => 6;
+
+    // File: vk.xml Line: 11063 Column: 10
+    public static int VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_270_BIT_KHR => 7;
+
+    // File: vk.xml Line: 11064 Column: 10
+    public static int VK_SURFACE_TRANSFORM_INHERIT_BIT_KHR => 8;
+
+    // File: vk.xml Line: 11073 Column: 8
+    public static int VK_SWAPCHAIN_IMAGE_USAGE_SHARED_BIT_ANDROID => 0;
+
+    // File: vk.xml Line: 11082 Column: 10
+    public static int VK_DEBUG_REPORT_INFORMATION_BIT_EXT => 0;
+
+    // File: vk.xml Line: 11083 Column: 10
+    public static int VK_DEBUG_REPORT_WARNING_BIT_EXT => 1;
+
+    // File: vk.xml Line: 11084 Column: 10
+    public static int VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT => 2;
+
+    // File: vk.xml Line: 11085 Column: 10
+    public static int VK_DEBUG_REPORT_ERROR_BIT_EXT => 3;
+
+    // File: vk.xml Line: 11086 Column: 10
+    public static int VK_DEBUG_REPORT_DEBUG_BIT_EXT => 4;
+
+    // File: vk.xml Line: 11140 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV => 0;
+
+    // File: vk.xml Line: 11141 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV => 1;
+
+    // File: vk.xml Line: 11142 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV => 2;
+
+    // File: vk.xml Line: 11143 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV => 3;
+
+    // File: vk.xml Line: 11146 Column: 10
+    public static int VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_NV => 0;
+
+    // File: vk.xml Line: 11147 Column: 10
+    public static int VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_NV => 1;
+
+    // File: vk.xml Line: 11148 Column: 10
+    public static int VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_NV => 2;
+
+    // File: vk.xml Line: 11151 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_INDEX_FORMAT_8BIT_NV => 0;
+
+    // File: vk.xml Line: 11152 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_INDEX_FORMAT_16BIT_NV => 1;
+
+    // File: vk.xml Line: 11153 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_INDEX_FORMAT_32BIT_NV => 2;
+
+    // File: vk.xml Line: 11173 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_CLUSTER_ALLOW_DISABLE_OPACITY_MICROMAPS_NV => 0;
+
+    // File: vk.xml Line: 11176 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_GEOMETRY_CULL_DISABLE_BIT_NV => 0;
+
+    // File: vk.xml Line: 11177 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_GEOMETRY_NO_DUPLICATE_ANYHIT_INVOCATION_BIT_NV => 1;
+
+    // File: vk.xml Line: 11178 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_GEOMETRY_OPAQUE_BIT_NV => 2;
+
+    // File: vk.xml Line: 11181 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_DST_IMPLICIT_DATA_BIT_NV => 0;
+
+    // File: vk.xml Line: 11182 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_SCRATCH_DATA_BIT_NV => 1;
+
+    // File: vk.xml Line: 11183 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_DST_ADDRESS_ARRAY_BIT_NV => 2;
+
+    // File: vk.xml Line: 11184 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_DST_SIZES_ARRAY_BIT_NV => 3;
+
+    // File: vk.xml Line: 11185 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_SRC_INFOS_ARRAY_BIT_NV => 4;
+
+    // File: vk.xml Line: 11186 Column: 10
+    public static int VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_SRC_INFOS_COUNT_BIT_NV => 5;
+
+    // File: vk.xml Line: 11220 Column: 10
+    public static int VK_SUBGROUP_FEATURE_BASIC_BIT => 0;
+
+    // File: vk.xml Line: 11221 Column: 10
+    public static int VK_SUBGROUP_FEATURE_VOTE_BIT => 1;
+
+    // File: vk.xml Line: 11222 Column: 10
+    public static int VK_SUBGROUP_FEATURE_ARITHMETIC_BIT => 2;
+
+    // File: vk.xml Line: 11223 Column: 10
+    public static int VK_SUBGROUP_FEATURE_BALLOT_BIT => 3;
+
+    // File: vk.xml Line: 11224 Column: 10
+    public static int VK_SUBGROUP_FEATURE_SHUFFLE_BIT => 4;
+
+    // File: vk.xml Line: 11225 Column: 10
+    public static int VK_SUBGROUP_FEATURE_SHUFFLE_RELATIVE_BIT => 5;
+
+    // File: vk.xml Line: 11226 Column: 10
+    public static int VK_SUBGROUP_FEATURE_CLUSTERED_BIT => 6;
+
+    // File: vk.xml Line: 11227 Column: 10
+    public static int VK_SUBGROUP_FEATURE_QUAD_BIT => 7;
+
+    // File: vk.xml Line: 11230 Column: 10
+    public static int VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EXPLICIT_PREPROCESS_BIT_NV => 0;
+
+    // File: vk.xml Line: 11231 Column: 10
+    public static int VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NV => 1;
+
+    // File: vk.xml Line: 11232 Column: 10
+    public static int VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NV => 2;
+
+    // File: vk.xml Line: 11235 Column: 10
+    public static int VK_INDIRECT_STATE_FLAG_FRONTFACE_BIT_NV => 0;
+
+    // File: vk.xml Line: 11252 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT => 0;
+
+    // File: vk.xml Line: 11253 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT => 1;
+
+    // File: vk.xml Line: 11254 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT => 2;
+
+    // File: vk.xml Line: 11255 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT => 3;
+
+    // File: vk.xml Line: 11256 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT => 4;
+
+    // File: vk.xml Line: 11257 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_HEAP_BIT => 5;
+
+    // File: vk.xml Line: 11258 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT => 6;
+
+    // File: vk.xml Line: 11261 Column: 10
+    public static int VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT => 0;
+
+    // File: vk.xml Line: 11262 Column: 10
+    public static int VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT => 1;
+
+    // File: vk.xml Line: 11263 Column: 10
+    public static int VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT => 2;
+
+    // File: vk.xml Line: 11266 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT => 0;
+
+    // File: vk.xml Line: 11267 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT => 1;
+
+    // File: vk.xml Line: 11268 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT => 2;
+
+    // File: vk.xml Line: 11269 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT => 3;
+
+    // File: vk.xml Line: 11271 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD_BIT => 4;
+
+    // File: vk.xml Line: 11274 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_FEATURE_EXPORTABLE_BIT => 0;
+
+    // File: vk.xml Line: 11275 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_FEATURE_IMPORTABLE_BIT => 1;
+
+    // File: vk.xml Line: 11278 Column: 10
+    public static int VK_SEMAPHORE_IMPORT_TEMPORARY_BIT => 0;
+
+    // File: vk.xml Line: 11281 Column: 10
+    public static int VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT => 0;
+
+    // File: vk.xml Line: 11282 Column: 10
+    public static int VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT => 1;
+
+    // File: vk.xml Line: 11283 Column: 10
+    public static int VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT => 2;
+
+    // File: vk.xml Line: 11284 Column: 10
+    public static int VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT => 3;
+
+    // File: vk.xml Line: 11287 Column: 10
+    public static int VK_EXTERNAL_FENCE_FEATURE_EXPORTABLE_BIT => 0;
+
+    // File: vk.xml Line: 11288 Column: 10
+    public static int VK_EXTERNAL_FENCE_FEATURE_IMPORTABLE_BIT => 1;
+
+    // File: vk.xml Line: 11291 Column: 10
+    public static int VK_FENCE_IMPORT_TEMPORARY_BIT => 0;
+
+    // File: vk.xml Line: 11294 Column: 10
+    public static int VK_SURFACE_COUNTER_VBLANK_BIT_EXT => 0;
+
+    // File: vk.xml Line: 11309 Column: 10
+    public static int VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT => 0;
+
+    // File: vk.xml Line: 11310 Column: 10
+    public static int VK_PEER_MEMORY_FEATURE_COPY_DST_BIT => 1;
+
+    // File: vk.xml Line: 11311 Column: 10
+    public static int VK_PEER_MEMORY_FEATURE_GENERIC_SRC_BIT => 2;
+
+    // File: vk.xml Line: 11312 Column: 10
+    public static int VK_PEER_MEMORY_FEATURE_GENERIC_DST_BIT => 3;
+
+    // File: vk.xml Line: 11315 Column: 10
+    public static int VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT => 0;
+
+    // File: vk.xml Line: 11318 Column: 10
+    public static int VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11319 Column: 10
+    public static int VK_DEVICE_GROUP_PRESENT_MODE_REMOTE_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11320 Column: 10
+    public static int VK_DEVICE_GROUP_PRESENT_MODE_SUM_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11321 Column: 10
+    public static int VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_MULTI_DEVICE_BIT_KHR => 3;
+
+    // File: vk.xml Line: 11399 Column: 10
+    public static int VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT => 0;
+
+    // File: vk.xml Line: 11400 Column: 10
+    public static int VK_DEBUG_UTILS_MESSAGE_SEVERITY_INFO_BIT_EXT => 4;
+
+    // File: vk.xml Line: 11401 Column: 10
+    public static int VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT => 8;
+
+    // File: vk.xml Line: 11402 Column: 10
+    public static int VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT => 12;
+
+    // File: vk.xml Line: 11405 Column: 10
+    public static int VK_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT => 0;
+
+    // File: vk.xml Line: 11406 Column: 10
+    public static int VK_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT => 1;
+
+    // File: vk.xml Line: 11407 Column: 10
+    public static int VK_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT => 2;
+
+    // File: vk.xml Line: 11415 Column: 10
+    public static int VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT => 0;
+
+    // File: vk.xml Line: 11416 Column: 10
+    public static int VK_DESCRIPTOR_BINDING_UPDATE_UNUSED_WHILE_PENDING_BIT => 1;
+
+    // File: vk.xml Line: 11417 Column: 10
+    public static int VK_DESCRIPTOR_BINDING_PARTIALLY_BOUND_BIT => 2;
+
+    // File: vk.xml Line: 11418 Column: 10
+    public static int VK_DESCRIPTOR_BINDING_VARIABLE_DESCRIPTOR_COUNT_BIT => 3;
+
+    // File: vk.xml Line: 11467 Column: 10
+    public static int VK_CONDITIONAL_RENDERING_INVERTED_BIT_EXT => 0;
+
+    // File: vk.xml Line: 11471 Column: 10
+    public static int VK_RESOLVE_MODE_SAMPLE_ZERO_BIT => 0;
+
+    // File: vk.xml Line: 11472 Column: 10
+    public static int VK_RESOLVE_MODE_AVERAGE_BIT => 1;
+
+    // File: vk.xml Line: 11473 Column: 10
+    public static int VK_RESOLVE_MODE_MIN_BIT => 2;
+
+    // File: vk.xml Line: 11474 Column: 10
+    public static int VK_RESOLVE_MODE_MAX_BIT => 3;
+
+    // File: vk.xml Line: 11497 Column: 10
+    public static int VK_GEOMETRY_INSTANCE_TRIANGLE_FACING_CULL_DISABLE_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11498 Column: 10
+    public static int VK_GEOMETRY_INSTANCE_TRIANGLE_FLIP_FACING_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11499 Column: 10
+    public static int VK_GEOMETRY_INSTANCE_FORCE_OPAQUE_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11500 Column: 10
+    public static int VK_GEOMETRY_INSTANCE_FORCE_NO_OPAQUE_BIT_KHR => 3;
+
+    // File: vk.xml Line: 11504 Column: 10
+    public static int VK_GEOMETRY_OPAQUE_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11505 Column: 10
+    public static int VK_GEOMETRY_NO_DUPLICATE_ANY_HIT_INVOCATION_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11508 Column: 10
+    public static int VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_UPDATE_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11509 Column: 10
+    public static int VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_COMPACTION_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11510 Column: 10
+    public static int VK_BUILD_ACCELERATION_STRUCTURE_PREFER_FAST_TRACE_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11511 Column: 10
+    public static int VK_BUILD_ACCELERATION_STRUCTURE_PREFER_FAST_BUILD_BIT_KHR => 3;
+
+    // File: vk.xml Line: 11512 Column: 10
+    public static int VK_BUILD_ACCELERATION_STRUCTURE_LOW_MEMORY_BIT_KHR => 4;
+
+    // File: vk.xml Line: 11515 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11568 Column: 10
+    public static int VK_DEVICE_DIAGNOSTICS_CONFIG_ENABLE_SHADER_DEBUG_INFO_BIT_NV => 0;
+
+    // File: vk.xml Line: 11569 Column: 10
+    public static int VK_DEVICE_DIAGNOSTICS_CONFIG_ENABLE_RESOURCE_TRACKING_BIT_NV => 1;
+
+    // File: vk.xml Line: 11570 Column: 10
+    public static int VK_DEVICE_DIAGNOSTICS_CONFIG_ENABLE_AUTOMATIC_CHECKPOINTS_BIT_NV => 2;
+
+    // File: vk.xml Line: 11571 Column: 10
+    public static int VK_DEVICE_DIAGNOSTICS_CONFIG_ENABLE_SHADER_ERROR_REPORTING_BIT_NV => 3;
+
+    // File: vk.xml Line: 11574 Column: 10
+    public static int VK_PIPELINE_CREATION_FEEDBACK_VALID_BIT => 0;
+
+    // File: vk.xml Line: 11575 Column: 10
+    public static int VK_PIPELINE_CREATION_FEEDBACK_APPLICATION_PIPELINE_CACHE_HIT_BIT => 1;
+
+    // File: vk.xml Line: 11576 Column: 10
+    public static int VK_PIPELINE_CREATION_FEEDBACK_BASE_PIPELINE_ACCELERATION_BIT => 2;
+
+    // File: vk.xml Line: 11593 Column: 10
+    public static int VK_MEMORY_DECOMPRESSION_METHOD_GDEFLATE_1_0_BIT_NV => 0;
+
+    // File: vk.xml Line: 11617 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_DESCRIPTION_PERFORMANCE_IMPACTING_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11619 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_DESCRIPTION_CONCURRENTLY_IMPACTED_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11689 Column: 10
+    public static int VK_TOOL_PURPOSE_VALIDATION_BIT => 0;
+
+    // File: vk.xml Line: 11690 Column: 10
+    public static int VK_TOOL_PURPOSE_PROFILING_BIT => 1;
+
+    // File: vk.xml Line: 11691 Column: 10
+    public static int VK_TOOL_PURPOSE_TRACING_BIT => 2;
+
+    // File: vk.xml Line: 11692 Column: 10
+    public static int VK_TOOL_PURPOSE_ADDITIONAL_FEATURES_BIT => 3;
+
+    // File: vk.xml Line: 11693 Column: 10
+    public static int VK_TOOL_PURPOSE_MODIFYING_FEATURES_BIT => 4;
+
+    // File: vk.xml Line: 11741 Column: 10
+    public static int VK_ACCESS_2_INDIRECT_COMMAND_READ_BIT => 0;
+
+    // File: vk.xml Line: 11742 Column: 10
+    public static int VK_ACCESS_2_INDEX_READ_BIT => 1;
+
+    // File: vk.xml Line: 11743 Column: 10
+    public static int VK_ACCESS_2_VERTEX_ATTRIBUTE_READ_BIT => 2;
+
+    // File: vk.xml Line: 11744 Column: 10
+    public static int VK_ACCESS_2_UNIFORM_READ_BIT => 3;
+
+    // File: vk.xml Line: 11745 Column: 10
+    public static int VK_ACCESS_2_INPUT_ATTACHMENT_READ_BIT => 4;
+
+    // File: vk.xml Line: 11746 Column: 10
+    public static int VK_ACCESS_2_SHADER_READ_BIT => 5;
+
+    // File: vk.xml Line: 11747 Column: 10
+    public static int VK_ACCESS_2_SHADER_WRITE_BIT => 6;
+
+    // File: vk.xml Line: 11748 Column: 10
+    public static int VK_ACCESS_2_COLOR_ATTACHMENT_READ_BIT => 7;
+
+    // File: vk.xml Line: 11749 Column: 10
+    public static int VK_ACCESS_2_COLOR_ATTACHMENT_WRITE_BIT => 8;
+
+    // File: vk.xml Line: 11750 Column: 10
+    public static int VK_ACCESS_2_DEPTH_STENCIL_ATTACHMENT_READ_BIT => 9;
+
+    // File: vk.xml Line: 11751 Column: 10
+    public static int VK_ACCESS_2_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT => 10;
+
+    // File: vk.xml Line: 11752 Column: 10
+    public static int VK_ACCESS_2_TRANSFER_READ_BIT => 11;
+
+    // File: vk.xml Line: 11753 Column: 10
+    public static int VK_ACCESS_2_TRANSFER_WRITE_BIT => 12;
+
+    // File: vk.xml Line: 11754 Column: 10
+    public static int VK_ACCESS_2_HOST_READ_BIT => 13;
+
+    // File: vk.xml Line: 11755 Column: 10
+    public static int VK_ACCESS_2_HOST_WRITE_BIT => 14;
+
+    // File: vk.xml Line: 11756 Column: 10
+    public static int VK_ACCESS_2_MEMORY_READ_BIT => 15;
+
+    // File: vk.xml Line: 11757 Column: 10
+    public static int VK_ACCESS_2_MEMORY_WRITE_BIT => 16;
+
+    // File: vk.xml Line: 11759 Column: 10
+    public static int VK_ACCESS_2_SHADER_SAMPLED_READ_BIT => 32;
+
+    // File: vk.xml Line: 11760 Column: 10
+    public static int VK_ACCESS_2_SHADER_STORAGE_READ_BIT => 33;
+
+    // File: vk.xml Line: 11761 Column: 10
+    public static int VK_ACCESS_2_SHADER_STORAGE_WRITE_BIT => 34;
+
+    // File: vk.xml Line: 11765 Column: 10
+    public static int VK_PIPELINE_STAGE_2_TOP_OF_PIPE_BIT => 0;
+
+    // File: vk.xml Line: 11766 Column: 10
+    public static int VK_PIPELINE_STAGE_2_DRAW_INDIRECT_BIT => 1;
+
+    // File: vk.xml Line: 11767 Column: 10
+    public static int VK_PIPELINE_STAGE_2_VERTEX_INPUT_BIT => 2;
+
+    // File: vk.xml Line: 11768 Column: 10
+    public static int VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT => 3;
+
+    // File: vk.xml Line: 11769 Column: 10
+    public static int VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT => 4;
+
+    // File: vk.xml Line: 11770 Column: 10
+    public static int VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT => 5;
+
+    // File: vk.xml Line: 11771 Column: 10
+    public static int VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT => 6;
+
+    // File: vk.xml Line: 11772 Column: 10
+    public static int VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT => 7;
+
+    // File: vk.xml Line: 11773 Column: 10
+    public static int VK_PIPELINE_STAGE_2_EARLY_FRAGMENT_TESTS_BIT => 8;
+
+    // File: vk.xml Line: 11774 Column: 10
+    public static int VK_PIPELINE_STAGE_2_LATE_FRAGMENT_TESTS_BIT => 9;
+
+    // File: vk.xml Line: 11775 Column: 10
+    public static int VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT => 10;
+
+    // File: vk.xml Line: 11776 Column: 10
+    public static int VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT => 11;
+
+    // File: vk.xml Line: 11777 Column: 10
+    public static int VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT => 12;
+
+    // File: vk.xml Line: 11779 Column: 10
+    public static int VK_PIPELINE_STAGE_2_BOTTOM_OF_PIPE_BIT => 13;
+
+    // File: vk.xml Line: 11780 Column: 10
+    public static int VK_PIPELINE_STAGE_2_HOST_BIT => 14;
+
+    // File: vk.xml Line: 11781 Column: 10
+    public static int VK_PIPELINE_STAGE_2_ALL_GRAPHICS_BIT => 15;
+
+    // File: vk.xml Line: 11782 Column: 10
+    public static int VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT => 16;
+
+    // File: vk.xml Line: 11784 Column: 10
+    public static int VK_PIPELINE_STAGE_2_COPY_BIT => 32;
+
+    // File: vk.xml Line: 11785 Column: 10
+    public static int VK_PIPELINE_STAGE_2_RESOLVE_BIT => 33;
+
+    // File: vk.xml Line: 11786 Column: 10
+    public static int VK_PIPELINE_STAGE_2_BLIT_BIT => 34;
+
+    // File: vk.xml Line: 11787 Column: 10
+    public static int VK_PIPELINE_STAGE_2_CLEAR_BIT => 35;
+
+    // File: vk.xml Line: 11788 Column: 10
+    public static int VK_PIPELINE_STAGE_2_INDEX_INPUT_BIT => 36;
+
+    // File: vk.xml Line: 11789 Column: 10
+    public static int VK_PIPELINE_STAGE_2_VERTEX_ATTRIBUTE_INPUT_BIT => 37;
+
+    // File: vk.xml Line: 11790 Column: 10
+    public static int VK_PIPELINE_STAGE_2_PRE_RASTERIZATION_SHADERS_BIT => 38;
+
+    // File: vk.xml Line: 11793 Column: 10
+    public static int VK_SUBMIT_PROTECTED_BIT => 0;
+
+    // File: vk.xml Line: 11825 Column: 10
+    public static int VK_GRAPHICS_PIPELINE_LIBRARY_VERTEX_INPUT_INTERFACE_BIT_EXT => 0;
+
+    // File: vk.xml Line: 11826 Column: 10
+    public static int VK_GRAPHICS_PIPELINE_LIBRARY_PRE_RASTERIZATION_SHADERS_BIT_EXT => 1;
+
+    // File: vk.xml Line: 11827 Column: 10
+    public static int VK_GRAPHICS_PIPELINE_LIBRARY_FRAGMENT_SHADER_BIT_EXT => 2;
+
+    // File: vk.xml Line: 11828 Column: 10
+    public static int VK_GRAPHICS_PIPELINE_LIBRARY_FRAGMENT_OUTPUT_INTERFACE_BIT_EXT => 3;
+
+    // File: vk.xml Line: 11831 Column: 10
+    public static int VK_DEVICE_ADDRESS_BINDING_INTERNAL_OBJECT_BIT_EXT => 0;
+
+    // File: vk.xml Line: 11838 Column: 10
+    public static int VK_FRAME_BOUNDARY_FRAME_END_BIT_EXT => 0;
+
+    // File: vk.xml Line: 11841 Column: 10
+    public static int VK_PRESENT_SCALING_ONE_TO_ONE_BIT_EXT => 0;
+
+    // File: vk.xml Line: 11842 Column: 10
+    public static int VK_PRESENT_SCALING_ASPECT_RATIO_STRETCH_BIT_EXT => 1;
+
+    // File: vk.xml Line: 11843 Column: 10
+    public static int VK_PRESENT_SCALING_STRETCH_BIT_EXT => 2;
+
+    // File: vk.xml Line: 11846 Column: 10
+    public static int VK_PRESENT_GRAVITY_MIN_BIT_EXT => 0;
+
+    // File: vk.xml Line: 11847 Column: 10
+    public static int VK_PRESENT_GRAVITY_MAX_BIT_EXT => 1;
+
+    // File: vk.xml Line: 11848 Column: 10
+    public static int VK_PRESENT_GRAVITY_CENTERED_BIT_EXT => 2;
+
+    // File: vk.xml Line: 11851 Column: 10
+    public static int VK_PHYSICAL_DEVICE_SCHEDULING_CONTROLS_SHADER_CORE_COUNT_ARM => 0;
+
+    // File: vk.xml Line: 11859 Column: 10
+    public static int VK_VIDEO_CHROMA_SUBSAMPLING_MONOCHROME_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11860 Column: 10
+    public static int VK_VIDEO_CHROMA_SUBSAMPLING_420_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11861 Column: 10
+    public static int VK_VIDEO_CHROMA_SUBSAMPLING_422_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11862 Column: 10
+    public static int VK_VIDEO_CHROMA_SUBSAMPLING_444_BIT_KHR => 3;
+
+    // File: vk.xml Line: 11866 Column: 10
+    public static int VK_VIDEO_COMPONENT_BIT_DEPTH_8_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11867 Column: 10
+    public static int VK_VIDEO_COMPONENT_BIT_DEPTH_10_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11868 Column: 10
+    public static int VK_VIDEO_COMPONENT_BIT_DEPTH_12_BIT_KHR => 4;
+
+    // File: vk.xml Line: 11871 Column: 10
+    public static int VK_VIDEO_CAPABILITY_PROTECTED_CONTENT_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11872 Column: 10
+    public static int VK_VIDEO_CAPABILITY_SEPARATE_REFERENCE_IMAGES_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11875 Column: 10
+    public static int VK_VIDEO_SESSION_CREATE_PROTECTED_CONTENT_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11881 Column: 10
+    public static int VK_VIDEO_DECODE_H264_PICTURE_LAYOUT_INTERLACED_INTERLEAVED_LINES_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11882 Column: 10
+    public static int VK_VIDEO_DECODE_H264_PICTURE_LAYOUT_INTERLACED_SEPARATE_PLANES_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11885 Column: 10
+    public static int VK_VIDEO_CODING_CONTROL_RESET_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11894 Column: 10
+    public static int VK_VIDEO_DECODE_USAGE_TRANSCODING_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11895 Column: 10
+    public static int VK_VIDEO_DECODE_USAGE_OFFLINE_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11896 Column: 10
+    public static int VK_VIDEO_DECODE_USAGE_STREAMING_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11899 Column: 10
+    public static int VK_VIDEO_DECODE_CAPABILITY_DPB_AND_OUTPUT_COINCIDE_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11900 Column: 10
+    public static int VK_VIDEO_DECODE_CAPABILITY_DPB_AND_OUTPUT_DISTINCT_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11906 Column: 10
+    public static int VK_VIDEO_ENCODE_USAGE_TRANSCODING_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11907 Column: 10
+    public static int VK_VIDEO_ENCODE_USAGE_STREAMING_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11908 Column: 10
+    public static int VK_VIDEO_ENCODE_USAGE_RECORDING_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11909 Column: 10
+    public static int VK_VIDEO_ENCODE_USAGE_CONFERENCING_BIT_KHR => 3;
+
+    // File: vk.xml Line: 11913 Column: 10
+    public static int VK_VIDEO_ENCODE_CONTENT_CAMERA_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11914 Column: 10
+    public static int VK_VIDEO_ENCODE_CONTENT_DESKTOP_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11915 Column: 10
+    public static int VK_VIDEO_ENCODE_CONTENT_RENDERED_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11925 Column: 10
+    public static int VK_VIDEO_ENCODE_CAPABILITY_PRECEDING_EXTERNALLY_ENCODED_BYTES_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11926 Column: 10
+    public static int VK_VIDEO_ENCODE_CAPABILITY_INSUFFICIENT_BITSTREAM_BUFFER_RANGE_DETECTION_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11929 Column: 10
+    public static int VK_VIDEO_ENCODE_FEEDBACK_BITSTREAM_BUFFER_OFFSET_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11930 Column: 10
+    public static int VK_VIDEO_ENCODE_FEEDBACK_BITSTREAM_BYTES_WRITTEN_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11931 Column: 10
+    public static int VK_VIDEO_ENCODE_FEEDBACK_BITSTREAM_HAS_OVERRIDES_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11935 Column: 10
+    public static int VK_VIDEO_ENCODE_RATE_CONTROL_MODE_DISABLED_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11936 Column: 10
+    public static int VK_VIDEO_ENCODE_RATE_CONTROL_MODE_CBR_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11937 Column: 10
+    public static int VK_VIDEO_ENCODE_RATE_CONTROL_MODE_VBR_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11940 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_CAPABILITY_HRD_COMPLIANCE_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11941 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_CAPABILITY_PREDICTION_WEIGHT_TABLE_GENERATED_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11942 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_CAPABILITY_ROW_UNALIGNED_SLICE_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11943 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_CAPABILITY_DIFFERENT_SLICE_TYPE_BIT_KHR => 3;
+
+    // File: vk.xml Line: 11944 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_CAPABILITY_B_FRAME_IN_L0_LIST_BIT_KHR => 4;
+
+    // File: vk.xml Line: 11945 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_CAPABILITY_B_FRAME_IN_L1_LIST_BIT_KHR => 5;
+
+    // File: vk.xml Line: 11946 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_CAPABILITY_PER_PICTURE_TYPE_MIN_MAX_QP_BIT_KHR => 6;
+
+    // File: vk.xml Line: 11947 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_CAPABILITY_PER_SLICE_CONSTANT_QP_BIT_KHR => 7;
+
+    // File: vk.xml Line: 11948 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_CAPABILITY_GENERATE_PREFIX_NALU_BIT_KHR => 8;
+
+    // File: vk.xml Line: 11951 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_SEPARATE_COLOR_PLANE_FLAG_SET_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11952 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_QPPRIME_Y_ZERO_TRANSFORM_BYPASS_FLAG_SET_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11953 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_SCALING_MATRIX_PRESENT_FLAG_SET_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11954 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_CHROMA_QP_INDEX_OFFSET_BIT_KHR => 3;
+
+    // File: vk.xml Line: 11955 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_SECOND_CHROMA_QP_INDEX_OFFSET_BIT_KHR => 4;
+
+    // File: vk.xml Line: 11956 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_PIC_INIT_QP_MINUS26_BIT_KHR => 5;
+
+    // File: vk.xml Line: 11957 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_WEIGHTED_PRED_FLAG_SET_BIT_KHR => 6;
+
+    // File: vk.xml Line: 11958 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_WEIGHTED_BIPRED_IDC_EXPLICIT_BIT_KHR => 7;
+
+    // File: vk.xml Line: 11959 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_WEIGHTED_BIPRED_IDC_IMPLICIT_BIT_KHR => 8;
+
+    // File: vk.xml Line: 11960 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_TRANSFORM_8X8_MODE_FLAG_SET_BIT_KHR => 9;
+
+    // File: vk.xml Line: 11961 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_DIRECT_SPATIAL_MV_PRED_FLAG_UNSET_BIT_KHR => 10;
+
+    // File: vk.xml Line: 11962 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_ENTROPY_CODING_MODE_FLAG_UNSET_BIT_KHR => 11;
+
+    // File: vk.xml Line: 11963 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_ENTROPY_CODING_MODE_FLAG_SET_BIT_KHR => 12;
+
+    // File: vk.xml Line: 11964 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_DIRECT_8X8_INFERENCE_FLAG_UNSET_BIT_KHR => 13;
+
+    // File: vk.xml Line: 11965 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_CONSTRAINED_INTRA_PRED_FLAG_SET_BIT_KHR => 14;
+
+    // File: vk.xml Line: 11966 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_DEBLOCKING_FILTER_DISABLED_BIT_KHR => 15;
+
+    // File: vk.xml Line: 11967 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_DEBLOCKING_FILTER_ENABLED_BIT_KHR => 16;
+
+    // File: vk.xml Line: 11968 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_DEBLOCKING_FILTER_PARTIAL_BIT_KHR => 17;
+
+    // File: vk.xml Line: 11969 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_SLICE_QP_DELTA_BIT_KHR => 19;
+
+    // File: vk.xml Line: 11970 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_STD_DIFFERENT_SLICE_QP_DELTA_BIT_KHR => 20;
+
+    // File: vk.xml Line: 11973 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_RATE_CONTROL_ATTEMPT_HRD_COMPLIANCE_BIT_KHR => 0;
+
+    // File: vk.xml Line: 11974 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_RATE_CONTROL_REGULAR_GOP_BIT_KHR => 1;
+
+    // File: vk.xml Line: 11975 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_RATE_CONTROL_REFERENCE_PATTERN_FLAT_BIT_KHR => 2;
+
+    // File: vk.xml Line: 11976 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_RATE_CONTROL_REFERENCE_PATTERN_DYADIC_BIT_KHR => 3;
+
+    // File: vk.xml Line: 11977 Column: 10
+    public static int VK_VIDEO_ENCODE_H264_RATE_CONTROL_TEMPORAL_LAYER_PATTERN_DYADIC_BIT_KHR => 4;
+
+    // File: vk.xml Line: 11980 Column: 10
+    public static int VK_HOST_IMAGE_COPY_MEMCPY => 0;
+
+    // File: vk.xml Line: 11988 Column: 10
+    public static int VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_TRIANGLE_FACING_CULL_DISABLE_BIT_NV => 0;
+
+    // File: vk.xml Line: 11989 Column: 10
+    public static int VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_TRIANGLE_FLIP_FACING_BIT_NV => 1;
+
+    // File: vk.xml Line: 11990 Column: 10
+    public static int VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_FORCE_OPAQUE_BIT_NV => 2;
+
+    // File: vk.xml Line: 11991 Column: 10
+    public static int VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_FORCE_NO_OPAQUE_BIT_NV => 3;
+
+    // File: vk.xml Line: 11992 Column: 10
+    public static int VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_ENABLE_EXPLICIT_BOUNDING_BOX_NV => 4;
+
+    // File: vk.xml Line: 11997 Column: 10
+    public static int VK_IMAGE_CONSTRAINTS_INFO_CPU_READ_RARELY_FUCHSIA => 0;
+
+    // File: vk.xml Line: 11998 Column: 10
+    public static int VK_IMAGE_CONSTRAINTS_INFO_CPU_READ_OFTEN_FUCHSIA => 1;
+
+    // File: vk.xml Line: 11999 Column: 10
+    public static int VK_IMAGE_CONSTRAINTS_INFO_CPU_WRITE_RARELY_FUCHSIA => 2;
+
+    // File: vk.xml Line: 12000 Column: 10
+    public static int VK_IMAGE_CONSTRAINTS_INFO_CPU_WRITE_OFTEN_FUCHSIA => 3;
+
+    // File: vk.xml Line: 12001 Column: 10
+    public static int VK_IMAGE_CONSTRAINTS_INFO_PROTECTED_OPTIONAL_FUCHSIA => 4;
+
+    // File: vk.xml Line: 12004 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_BIT => 0;
+
+    // File: vk.xml Line: 12005 Column: 10
+    public static int VK_FORMAT_FEATURE_2_STORAGE_IMAGE_BIT => 1;
+
+    // File: vk.xml Line: 12006 Column: 10
+    public static int VK_FORMAT_FEATURE_2_STORAGE_IMAGE_ATOMIC_BIT => 2;
+
+    // File: vk.xml Line: 12007 Column: 10
+    public static int VK_FORMAT_FEATURE_2_UNIFORM_TEXEL_BUFFER_BIT => 3;
+
+    // File: vk.xml Line: 12008 Column: 10
+    public static int VK_FORMAT_FEATURE_2_STORAGE_TEXEL_BUFFER_BIT => 4;
+
+    // File: vk.xml Line: 12009 Column: 10
+    public static int VK_FORMAT_FEATURE_2_STORAGE_TEXEL_BUFFER_ATOMIC_BIT => 5;
+
+    // File: vk.xml Line: 12010 Column: 10
+    public static int VK_FORMAT_FEATURE_2_VERTEX_BUFFER_BIT => 6;
+
+    // File: vk.xml Line: 12011 Column: 10
+    public static int VK_FORMAT_FEATURE_2_COLOR_ATTACHMENT_BIT => 7;
+
+    // File: vk.xml Line: 12012 Column: 10
+    public static int VK_FORMAT_FEATURE_2_COLOR_ATTACHMENT_BLEND_BIT => 8;
+
+    // File: vk.xml Line: 12013 Column: 10
+    public static int VK_FORMAT_FEATURE_2_DEPTH_STENCIL_ATTACHMENT_BIT => 9;
+
+    // File: vk.xml Line: 12014 Column: 10
+    public static int VK_FORMAT_FEATURE_2_BLIT_SRC_BIT => 10;
+
+    // File: vk.xml Line: 12015 Column: 10
+    public static int VK_FORMAT_FEATURE_2_BLIT_DST_BIT => 11;
+
+    // File: vk.xml Line: 12016 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_FILTER_LINEAR_BIT => 12;
+
+    // File: vk.xml Line: 12018 Column: 10
+    public static int VK_FORMAT_FEATURE_2_TRANSFER_SRC_BIT => 14;
+
+    // File: vk.xml Line: 12019 Column: 10
+    public static int VK_FORMAT_FEATURE_2_TRANSFER_DST_BIT => 15;
+
+    // File: vk.xml Line: 12020 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_FILTER_MINMAX_BIT => 16;
+
+    // File: vk.xml Line: 12021 Column: 10
+    public static int VK_FORMAT_FEATURE_2_MIDPOINT_CHROMA_SAMPLES_BIT => 17;
+
+    // File: vk.xml Line: 12022 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_YCBCR_CONVERSION_LINEAR_FILTER_BIT => 18;
+
+    // File: vk.xml Line: 12023 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER_BIT => 19;
+
+    // File: vk.xml Line: 12024 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_BIT => 20;
+
+    // File: vk.xml Line: 12025 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE_BIT => 21;
+
+    // File: vk.xml Line: 12026 Column: 10
+    public static int VK_FORMAT_FEATURE_2_DISJOINT_BIT => 22;
+
+    // File: vk.xml Line: 12027 Column: 10
+    public static int VK_FORMAT_FEATURE_2_COSITED_CHROMA_SAMPLES_BIT => 23;
+
+    // File: vk.xml Line: 12028 Column: 10
+    public static int VK_FORMAT_FEATURE_2_STORAGE_READ_WITHOUT_FORMAT_BIT => 31;
+
+    // File: vk.xml Line: 12029 Column: 10
+    public static int VK_FORMAT_FEATURE_2_STORAGE_WRITE_WITHOUT_FORMAT_BIT => 32;
+
+    // File: vk.xml Line: 12030 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_DEPTH_COMPARISON_BIT => 33;
+
+    // File: vk.xml Line: 12033 Column: 10
+    public static int VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT => 0;
+
+    // File: vk.xml Line: 12034 Column: 10
+    public static int VK_RENDERING_SUSPENDING_BIT => 1;
+
+    // File: vk.xml Line: 12035 Column: 10
+    public static int VK_RENDERING_RESUMING_BIT => 2;
+
+    // File: vk.xml Line: 12038 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_CAPABILITY_HRD_COMPLIANCE_BIT_KHR => 0;
+
+    // File: vk.xml Line: 12039 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_CAPABILITY_PREDICTION_WEIGHT_TABLE_GENERATED_BIT_KHR => 1;
+
+    // File: vk.xml Line: 12040 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_CAPABILITY_ROW_UNALIGNED_SLICE_SEGMENT_BIT_KHR => 2;
+
+    // File: vk.xml Line: 12041 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_CAPABILITY_DIFFERENT_SLICE_SEGMENT_TYPE_BIT_KHR => 3;
+
+    // File: vk.xml Line: 12042 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_CAPABILITY_B_FRAME_IN_L0_LIST_BIT_KHR => 4;
+
+    // File: vk.xml Line: 12043 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_CAPABILITY_B_FRAME_IN_L1_LIST_BIT_KHR => 5;
+
+    // File: vk.xml Line: 12044 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_CAPABILITY_PER_PICTURE_TYPE_MIN_MAX_QP_BIT_KHR => 6;
+
+    // File: vk.xml Line: 12045 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_CAPABILITY_PER_SLICE_SEGMENT_CONSTANT_QP_BIT_KHR => 7;
+
+    // File: vk.xml Line: 12046 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_CAPABILITY_MULTIPLE_TILES_PER_SLICE_SEGMENT_BIT_KHR => 8;
+
+    // File: vk.xml Line: 12047 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_CAPABILITY_MULTIPLE_SLICE_SEGMENTS_PER_TILE_BIT_KHR => 9;
+
+    // File: vk.xml Line: 12050 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_SEPARATE_COLOR_PLANE_FLAG_SET_BIT_KHR => 0;
+
+    // File: vk.xml Line: 12051 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_SAMPLE_ADAPTIVE_OFFSET_ENABLED_FLAG_SET_BIT_KHR => 1;
+
+    // File: vk.xml Line: 12052 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_SCALING_LIST_DATA_PRESENT_FLAG_SET_BIT_KHR => 2;
+
+    // File: vk.xml Line: 12053 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_PCM_ENABLED_FLAG_SET_BIT_KHR => 3;
+
+    // File: vk.xml Line: 12054 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_SPS_TEMPORAL_MVP_ENABLED_FLAG_SET_BIT_KHR => 4;
+
+    // File: vk.xml Line: 12055 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_INIT_QP_MINUS26_BIT_KHR => 5;
+
+    // File: vk.xml Line: 12056 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_WEIGHTED_PRED_FLAG_SET_BIT_KHR => 6;
+
+    // File: vk.xml Line: 12057 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_WEIGHTED_BIPRED_FLAG_SET_BIT_KHR => 7;
+
+    // File: vk.xml Line: 12058 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_LOG2_PARALLEL_MERGE_LEVEL_MINUS2_BIT_KHR => 8;
+
+    // File: vk.xml Line: 12059 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_SIGN_DATA_HIDING_ENABLED_FLAG_SET_BIT_KHR => 9;
+
+    // File: vk.xml Line: 12060 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_TRANSFORM_SKIP_ENABLED_FLAG_SET_BIT_KHR => 10;
+
+    // File: vk.xml Line: 12061 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_TRANSFORM_SKIP_ENABLED_FLAG_UNSET_BIT_KHR => 11;
+
+    // File: vk.xml Line: 12062 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_PPS_SLICE_CHROMA_QP_OFFSETS_PRESENT_FLAG_SET_BIT_KHR => 12;
+
+    // File: vk.xml Line: 12063 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_TRANSQUANT_BYPASS_ENABLED_FLAG_SET_BIT_KHR => 13;
+
+    // File: vk.xml Line: 12064 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_CONSTRAINED_INTRA_PRED_FLAG_SET_BIT_KHR => 14;
+
+    // File: vk.xml Line: 12065 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_ENTROPY_CODING_SYNC_ENABLED_FLAG_SET_BIT_KHR => 15;
+
+    // File: vk.xml Line: 12066 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_DEBLOCKING_FILTER_OVERRIDE_ENABLED_FLAG_SET_BIT_KHR => 16;
+
+    // File: vk.xml Line: 12067 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_DEPENDENT_SLICE_SEGMENTS_ENABLED_FLAG_SET_BIT_KHR => 17;
+
+    // File: vk.xml Line: 12068 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_DEPENDENT_SLICE_SEGMENT_FLAG_SET_BIT_KHR => 18;
+
+    // File: vk.xml Line: 12069 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_SLICE_QP_DELTA_BIT_KHR => 19;
+
+    // File: vk.xml Line: 12070 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_STD_DIFFERENT_SLICE_QP_DELTA_BIT_KHR => 20;
+
+    // File: vk.xml Line: 12073 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_RATE_CONTROL_ATTEMPT_HRD_COMPLIANCE_BIT_KHR => 0;
+
+    // File: vk.xml Line: 12074 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_RATE_CONTROL_REGULAR_GOP_BIT_KHR => 1;
+
+    // File: vk.xml Line: 12075 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_RATE_CONTROL_REFERENCE_PATTERN_FLAT_BIT_KHR => 2;
+
+    // File: vk.xml Line: 12076 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_RATE_CONTROL_REFERENCE_PATTERN_DYADIC_BIT_KHR => 3;
+
+    // File: vk.xml Line: 12077 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_RATE_CONTROL_TEMPORAL_SUB_LAYER_PATTERN_DYADIC_BIT_KHR => 4;
+
+    // File: vk.xml Line: 12080 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_CTB_SIZE_16_BIT_KHR => 0;
+
+    // File: vk.xml Line: 12081 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_CTB_SIZE_32_BIT_KHR => 1;
+
+    // File: vk.xml Line: 12082 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_CTB_SIZE_64_BIT_KHR => 2;
+
+    // File: vk.xml Line: 12085 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_TRANSFORM_BLOCK_SIZE_4_BIT_KHR => 0;
+
+    // File: vk.xml Line: 12086 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_TRANSFORM_BLOCK_SIZE_8_BIT_KHR => 1;
+
+    // File: vk.xml Line: 12087 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_TRANSFORM_BLOCK_SIZE_16_BIT_KHR => 2;
+
+    // File: vk.xml Line: 12088 Column: 10
+    public static int VK_VIDEO_ENCODE_H265_TRANSFORM_BLOCK_SIZE_32_BIT_KHR => 3;
+
+    // File: vk.xml Line: 12091 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_CAPABILITY_PER_RATE_CONTROL_GROUP_MIN_MAX_Q_INDEX_BIT_KHR => 0;
+
+    // File: vk.xml Line: 12092 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_CAPABILITY_GENERATE_OBU_EXTENSION_HEADER_BIT_KHR => 1;
+
+    // File: vk.xml Line: 12093 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_CAPABILITY_PRIMARY_REFERENCE_CDF_ONLY_BIT_KHR => 2;
+
+    // File: vk.xml Line: 12094 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_CAPABILITY_FRAME_SIZE_OVERRIDE_BIT_KHR => 3;
+
+    // File: vk.xml Line: 12095 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_CAPABILITY_MOTION_VECTOR_SCALING_BIT_KHR => 4;
+
+    // File: vk.xml Line: 12098 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_STD_UNIFORM_TILE_SPACING_FLAG_SET_BIT_KHR => 0;
+
+    // File: vk.xml Line: 12099 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_STD_SKIP_MODE_PRESENT_UNSET_BIT_KHR => 1;
+
+    // File: vk.xml Line: 12100 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_STD_PRIMARY_REF_FRAME_BIT_KHR => 2;
+
+    // File: vk.xml Line: 12101 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_STD_DELTA_Q_BIT_KHR => 3;
+
+    // File: vk.xml Line: 12104 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_RATE_CONTROL_REGULAR_GOP_BIT_KHR => 0;
+
+    // File: vk.xml Line: 12105 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_RATE_CONTROL_TEMPORAL_LAYER_PATTERN_DYADIC_BIT_KHR => 1;
+
+    // File: vk.xml Line: 12106 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_RATE_CONTROL_REFERENCE_PATTERN_FLAT_BIT_KHR => 2;
+
+    // File: vk.xml Line: 12107 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_RATE_CONTROL_REFERENCE_PATTERN_DYADIC_BIT_KHR => 3;
+
+    // File: vk.xml Line: 12110 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_SUPERBLOCK_SIZE_64_BIT_KHR => 0;
+
+    // File: vk.xml Line: 12111 Column: 10
+    public static int VK_VIDEO_ENCODE_AV1_SUPERBLOCK_SIZE_128_BIT_KHR => 1;
+
+    // File: vk.xml Line: 12125 Column: 10
+    public static int VK_EXPORT_METAL_OBJECT_TYPE_METAL_DEVICE_BIT_EXT => 0;
+
+    // File: vk.xml Line: 12126 Column: 10
+    public static int VK_EXPORT_METAL_OBJECT_TYPE_METAL_COMMAND_QUEUE_BIT_EXT => 1;
+
+    // File: vk.xml Line: 12127 Column: 10
+    public static int VK_EXPORT_METAL_OBJECT_TYPE_METAL_BUFFER_BIT_EXT => 2;
+
+    // File: vk.xml Line: 12128 Column: 10
+    public static int VK_EXPORT_METAL_OBJECT_TYPE_METAL_TEXTURE_BIT_EXT => 3;
+
+    // File: vk.xml Line: 12129 Column: 10
+    public static int VK_EXPORT_METAL_OBJECT_TYPE_METAL_IOSURFACE_BIT_EXT => 4;
+
+    // File: vk.xml Line: 12130 Column: 10
+    public static int VK_EXPORT_METAL_OBJECT_TYPE_METAL_SHARED_EVENT_BIT_EXT => 5;
+
+    // File: vk.xml Line: 12136 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_DEFAULT_EXT => 0;
+
+    // File: vk.xml Line: 12137 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_EXPLICIT_EXT => 1;
+
+    // File: vk.xml Line: 12138 Column: 10
+    public static int VK_IMAGE_COMPRESSION_DISABLED_EXT => 2;
+
+    // File: vk.xml Line: 12142 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_1BPC_BIT_EXT => 0;
+
+    // File: vk.xml Line: 12143 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_2BPC_BIT_EXT => 1;
+
+    // File: vk.xml Line: 12144 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_3BPC_BIT_EXT => 2;
+
+    // File: vk.xml Line: 12145 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_4BPC_BIT_EXT => 3;
+
+    // File: vk.xml Line: 12146 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_5BPC_BIT_EXT => 4;
+
+    // File: vk.xml Line: 12147 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_6BPC_BIT_EXT => 5;
+
+    // File: vk.xml Line: 12148 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_7BPC_BIT_EXT => 6;
+
+    // File: vk.xml Line: 12149 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_8BPC_BIT_EXT => 7;
+
+    // File: vk.xml Line: 12150 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_9BPC_BIT_EXT => 8;
+
+    // File: vk.xml Line: 12151 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_10BPC_BIT_EXT => 9;
+
+    // File: vk.xml Line: 12152 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_11BPC_BIT_EXT => 10;
+
+    // File: vk.xml Line: 12153 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_12BPC_BIT_EXT => 11;
+
+    // File: vk.xml Line: 12154 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_13BPC_BIT_EXT => 12;
+
+    // File: vk.xml Line: 12155 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_14BPC_BIT_EXT => 13;
+
+    // File: vk.xml Line: 12156 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_15BPC_BIT_EXT => 14;
+
+    // File: vk.xml Line: 12157 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_16BPC_BIT_EXT => 15;
+
+    // File: vk.xml Line: 12158 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_17BPC_BIT_EXT => 16;
+
+    // File: vk.xml Line: 12159 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_18BPC_BIT_EXT => 17;
+
+    // File: vk.xml Line: 12160 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_19BPC_BIT_EXT => 18;
+
+    // File: vk.xml Line: 12161 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_20BPC_BIT_EXT => 19;
+
+    // File: vk.xml Line: 12162 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_21BPC_BIT_EXT => 20;
+
+    // File: vk.xml Line: 12163 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_22BPC_BIT_EXT => 21;
+
+    // File: vk.xml Line: 12164 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_23BPC_BIT_EXT => 22;
+
+    // File: vk.xml Line: 12165 Column: 10
+    public static int VK_IMAGE_COMPRESSION_FIXED_RATE_24BPC_BIT_EXT => 23;
+
+    // File: vk.xml Line: 12181 Column: 10
+    public static int VK_OPTICAL_FLOW_GRID_SIZE_1X1_BIT_NV => 0;
+
+    // File: vk.xml Line: 12182 Column: 10
+    public static int VK_OPTICAL_FLOW_GRID_SIZE_2X2_BIT_NV => 1;
+
+    // File: vk.xml Line: 12183 Column: 10
+    public static int VK_OPTICAL_FLOW_GRID_SIZE_4X4_BIT_NV => 2;
+
+    // File: vk.xml Line: 12184 Column: 10
+    public static int VK_OPTICAL_FLOW_GRID_SIZE_8X8_BIT_NV => 3;
+
+    // File: vk.xml Line: 12188 Column: 10
+    public static int VK_OPTICAL_FLOW_USAGE_INPUT_BIT_NV => 0;
+
+    // File: vk.xml Line: 12189 Column: 10
+    public static int VK_OPTICAL_FLOW_USAGE_OUTPUT_BIT_NV => 1;
+
+    // File: vk.xml Line: 12190 Column: 10
+    public static int VK_OPTICAL_FLOW_USAGE_HINT_BIT_NV => 2;
+
+    // File: vk.xml Line: 12191 Column: 10
+    public static int VK_OPTICAL_FLOW_USAGE_COST_BIT_NV => 3;
+
+    // File: vk.xml Line: 12192 Column: 10
+    public static int VK_OPTICAL_FLOW_USAGE_GLOBAL_FLOW_BIT_NV => 4;
+
+    // File: vk.xml Line: 12212 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_CREATE_ENABLE_HINT_BIT_NV => 0;
+
+    // File: vk.xml Line: 12213 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_CREATE_ENABLE_COST_BIT_NV => 1;
+
+    // File: vk.xml Line: 12214 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_CREATE_ENABLE_GLOBAL_FLOW_BIT_NV => 2;
+
+    // File: vk.xml Line: 12215 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_CREATE_ALLOW_REGIONS_BIT_NV => 3;
+
+    // File: vk.xml Line: 12216 Column: 10
+    public static int VK_OPTICAL_FLOW_SESSION_CREATE_BOTH_DIRECTIONS_BIT_NV => 4;
+
+    // File: vk.xml Line: 12219 Column: 10
+    public static int VK_OPTICAL_FLOW_EXECUTE_DISABLE_TEMPORAL_HINTS_BIT_NV => 0;
+
+    // File: vk.xml Line: 12225 Column: 10
+    public static int VK_BUILD_MICROMAP_PREFER_FAST_TRACE_BIT_EXT => 0;
+
+    // File: vk.xml Line: 12226 Column: 10
+    public static int VK_BUILD_MICROMAP_PREFER_FAST_BUILD_BIT_EXT => 1;
+
+    // File: vk.xml Line: 12227 Column: 10
+    public static int VK_BUILD_MICROMAP_ALLOW_COMPACTION_BIT_EXT => 2;
+
+    // File: vk.xml Line: 12230 Column: 10
+    public static int VK_MICROMAP_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT_EXT => 0;
+
+    // File: vk.xml Line: 12269 Column: 10
+    public static int VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EXPLICIT_PREPROCESS_BIT_EXT => 0;
+
+    // File: vk.xml Line: 12270 Column: 10
+    public static int VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_EXT => 1;
+
+    // File: vk.xml Line: 12277 Column: 10
+    public static int VK_INDIRECT_COMMANDS_INPUT_MODE_VULKAN_INDEX_BUFFER_EXT => 0;
+
+    // File: vk.xml Line: 12278 Column: 10
+    public static int VK_INDIRECT_COMMANDS_INPUT_MODE_DXGI_INDEX_BUFFER_EXT => 1;
+
+    // File: vk.xml Line: 12298 Column: 10
+    public static int VK_SHADER_CREATE_LINK_STAGE_BIT_EXT => 0;
+
+    // File: vk.xml Line: 156 Column: 10
     public static uint VK_MAKE_API_VERSION(uint variant, uint major, uint minor, uint patch)
     {
         var version = (((variant) << 29) | ((major) << 22) | ((minor) << 12) | ((uint)(patch)));
         return (uint)version;
     }
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 69 Column: 9
-    public static uint VK_API_VERSION_1_0 => VK_MAKE_API_VERSION(0,1,0,0);
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 72 Column: 9
-    public static uint VK_HEADER_VERSION => 309;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 75 Column: 9
-    public static uint VK_HEADER_VERSION_COMPLETE => VK_MAKE_API_VERSION(0,1,4,VK_HEADER_VERSION);
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 94 Column: 9
+    // File: vk.xml Line: 158 Column: 10
     public static uint VK_API_VERSION_VARIANT(byte variant)
     {
         return (uint)(variant>>22);
     }
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 95 Column: 9
+    // File: vk.xml Line: 159 Column: 10
     public static uint VK_API_VERSION_MAJOR(byte major)
     {
         return (uint)(major>>22);
     }
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 96 Column: 9
+    // File: vk.xml Line: 160 Column: 10
     public static uint VK_API_VERSION_MINOR(byte minor)
     {
         return (uint)(minor>>22);
     }
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 97 Column: 9
+    // File: vk.xml Line: 161 Column: 10
     public static uint VK_API_VERSION_PATCH(byte patch)
     {
         return (uint)(patch>>22);
     }
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 128 Column: 9
-    public static uint VK_ATTACHMENT_UNUSED => ~0U;
+    // File: vk.xml Line: 163 Column: 10
+    public static int VKSC_API_VARIANT => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 129 Column: 9
-    public static uint VK_FALSE => 0U;
+    // File: vk.xml Line: 166 Column: 10
+    public static uint VK_API_VERSION => VK_MAKE_API_VERSION(0, 1, 0, 0);
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 130 Column: 9
-    public static float VK_LOD_CLAMP_NONE => 1000.0F;
+    // File: vk.xml Line: 168 Column: 10
+    public static uint VK_API_VERSION_1_0 => VK_MAKE_API_VERSION(0, 1, 0, 0);
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 131 Column: 9
-    public static uint VK_QUEUE_FAMILY_IGNORED => ~0U;
+    // File: vk.xml Line: 170 Column: 10
+    public static uint VK_API_VERSION_1_1 => VK_MAKE_API_VERSION(0, 1, 1, 0);
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 132 Column: 9
-    public static uint VK_REMAINING_ARRAY_LAYERS => ~0U;
+    // File: vk.xml Line: 172 Column: 10
+    public static uint VK_API_VERSION_1_2 => VK_MAKE_API_VERSION(0, 1, 2, 0);
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 133 Column: 9
-    public static uint VK_REMAINING_MIP_LEVELS => ~0U;
+    // File: vk.xml Line: 174 Column: 10
+    public static uint VK_API_VERSION_1_3 => VK_MAKE_API_VERSION(0, 1, 3, 0);
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 134 Column: 9
-    public static uint VK_SUBPASS_EXTERNAL => ~0U;
+    // File: vk.xml Line: 176 Column: 10
+    public static uint VK_API_VERSION_1_4 => VK_MAKE_API_VERSION(0, 1, 4, 0);
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 135 Column: 9
-    public static uint VK_TRUE => 1U;
+    // File: vk.xml Line: 185 Column: 10
+    public static uint VK_HEADER_VERSION => 17;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 136 Column: 9
-    public static ulong VK_WHOLE_SIZE => ~0UL;
+    // File: vk.xml Line: 11015 Column: 10
+    public static int VK_STENCIL_FRONT_AND_BACK => 0x00000003;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 137 Column: 9
-    public static uint VK_MAX_MEMORY_TYPES => 32U;
+    // File: vk.xml Line: 11040 Column: 10
+    public static int VK_COLORSPACE_SRGB_NONLINEAR_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 138 Column: 9
-    public static uint VK_MAX_PHYSICAL_DEVICE_NAME_SIZE => 256U;
+    // File: vk.xml Line: 11117 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT => 28;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 139 Column: 9
-    public static uint VK_UUID_SIZE => 16U;
+    // File: vk.xml Line: 11125 Column: 10
+    public static int VK_DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT => 33;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 140 Column: 9
-    public static uint VK_MAX_EXTENSION_NAME_SIZE => 256U;
+    // File: vk.xml Line: 11269 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D11_FENCE_BIT => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 141 Column: 9
-    public static uint VK_MAX_DESCRIPTION_SIZE => 256U;
+    // File: vk.xml Line: 11294 Column: 10
+    public static int VK_SURFACE_COUNTER_VBLANK_EXT => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 142 Column: 9
-    public static uint VK_MAX_MEMORY_HEAPS => 16U;
+    // File: vk.xml Line: 11498 Column: 10
+    public static int VK_GEOMETRY_INSTANCE_TRIANGLE_FRONT_COUNTERCLOCKWISE_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5092 Column: 9
-    public static uint VK_VERSION_1_1 => 1;
+    // File: vk.xml Line: 11585 Column: 10
+    public static int VK_QUERY_SCOPE_COMMAND_BUFFER_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5094 Column: 9
-    public static uint VK_API_VERSION_1_1 => VK_MAKE_API_VERSION(0,1,1,0);
+    // File: vk.xml Line: 11586 Column: 10
+    public static int VK_QUERY_SCOPE_RENDER_PASS_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5098 Column: 9
-    public static uint VK_MAX_DEVICE_GROUP_SIZE => 32U;
+    // File: vk.xml Line: 11587 Column: 10
+    public static int VK_QUERY_SCOPE_COMMAND_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5099 Column: 9
-    public static uint VK_LUID_SIZE => 8U;
+    // File: vk.xml Line: 11617 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_DESCRIPTION_PERFORMANCE_IMPACTING_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5100 Column: 9
-    public static uint VK_QUEUE_FAMILY_EXTERNAL => ~1U;
+    // File: vk.xml Line: 11619 Column: 10
+    public static int VK_PERFORMANCE_COUNTER_DESCRIPTION_CONCURRENTLY_IMPACTED_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5967 Column: 9
-    public static uint VK_VERSION_1_2 => 1;
+    // File: vk.xml Line: 11777 Column: 10
+    public static int VK_PIPELINE_STAGE_2_TRANSFER_BIT => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5969 Column: 9
-    public static uint VK_API_VERSION_1_2 => VK_MAKE_API_VERSION(0,1,2,0);
+    // File: vk.xml Line: 18674 Column: 18
+    public static string VK_ANDROID_NATIVE_BUFFER_NAME => "VK_ANDROID_native_buffer";
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5971 Column: 9
-    public static uint VK_MAX_DRIVER_NAME_SIZE => 256U;
+    // File: vk.xml Line: 18733 Column: 18
+    public static int VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE_KHR => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5972 Column: 9
-    public static uint VK_MAX_DRIVER_INFO_SIZE => 256U;
+    // File: vk.xml Line: 12033 Column: 10
+    public static int VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6726 Column: 9
-    public static uint VK_VERSION_1_3 => 1;
+    // File: vk.xml Line: 12034 Column: 10
+    public static int VK_RENDERING_SUSPENDING_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6728 Column: 9
-    public static uint VK_API_VERSION_1_3 => VK_MAKE_API_VERSION(0,1,3,0);
+    // File: vk.xml Line: 12035 Column: 10
+    public static int VK_RENDERING_RESUMING_BIT_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7771 Column: 9
-    public static uint VK_VERSION_1_4 => 1;
+    // File: vk.xml Line: 11309 Column: 10
+    public static int VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7773 Column: 9
-    public static uint VK_API_VERSION_1_4 => VK_MAKE_API_VERSION(0,1,4,0);
+    // File: vk.xml Line: 11310 Column: 10
+    public static int VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7775 Column: 9
-    public static uint VK_MAX_GLOBAL_PRIORITY_SIZE => 16U;
+    // File: vk.xml Line: 11311 Column: 10
+    public static int VK_PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8499 Column: 9
-    public static uint VK_KHR_surface => 1;
+    // File: vk.xml Line: 11312 Column: 10
+    public static int VK_PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8501 Column: 9
-    public static uint VK_KHR_SURFACE_SPEC_VERSION => 25;
+    // File: vk.xml Line: 11315 Column: 10
+    public static int VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8502 Column: 9
-    public static string VK_KHR_SURFACE_EXTENSION_NAME => "VK_KHR_surface";
+    // File: vk.xml Line: 12168 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DEVICE_DEFAULT_EXT => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8618 Column: 9
-    public static uint VK_KHR_swapchain => 1;
+    // File: vk.xml Line: 12169 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DISABLED_EXT => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8620 Column: 9
-    public static uint VK_KHR_SWAPCHAIN_SPEC_VERSION => 70;
+    // File: vk.xml Line: 12170 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_EXT => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8621 Column: 9
-    public static string VK_KHR_SWAPCHAIN_EXTENSION_NAME => "VK_KHR_swapchain";
+    // File: vk.xml Line: 12171 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2_EXT => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8779 Column: 9
-    public static uint VK_KHR_display => 1;
+    // File: vk.xml Line: 12174 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_DEVICE_DEFAULT_EXT => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8782 Column: 9
-    public static uint VK_KHR_DISPLAY_SPEC_VERSION => 23;
+    // File: vk.xml Line: 12175 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_DISABLED_EXT => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8783 Column: 9
-    public static string VK_KHR_DISPLAY_EXTENSION_NAME => "VK_KHR_display";
+    // File: vk.xml Line: 12176 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS_EXT => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8905 Column: 9
-    public static uint VK_KHR_display_swapchain => 1;
+    // File: vk.xml Line: 12177 Column: 10
+    public static int VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS_2_EXT => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8906 Column: 9
-    public static uint VK_KHR_DISPLAY_SWAPCHAIN_SPEC_VERSION => 10;
+    // File: vk.xml Line: 19549 Column: 18
+    public static int VK_KHR_MAINTENANCE1_SPEC_VERSION => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8907 Column: 9
-    public static string VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME => "VK_KHR_display_swapchain";
+    // File: vk.xml Line: 19550 Column: 18
+    public static string VK_KHR_MAINTENANCE1_EXTENSION_NAME => "VK_KHR_maintenance1";
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8929 Column: 9
-    public static uint VK_KHR_sampler_mirror_clamp_to_edge => 1;
+    // File: vk.xml Line: 10203 Column: 10
+    public static int VK_MAX_DEVICE_GROUP_SIZE_KHR => 32;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8930 Column: 9
-    public static uint VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_SPEC_VERSION => 3;
+    // File: vk.xml Line: 10186 Column: 10
+    public static int VK_LUID_SIZE_KHR => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8931 Column: 9
-    public static string VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_EXTENSION_NAME => "VK_KHR_sampler_mirror_clamp_to_edge";
+    // File: vk.xml Line: 11252 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8935 Column: 9
-    public static uint VK_KHR_video_queue => 1;
+    // File: vk.xml Line: 11253 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8938 Column: 9
-    public static uint VK_KHR_VIDEO_QUEUE_SPEC_VERSION => 8;
+    // File: vk.xml Line: 11254 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8939 Column: 9
-    public static string VK_KHR_VIDEO_QUEUE_EXTENSION_NAME => "VK_KHR_video_queue";
+    // File: vk.xml Line: 11255 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_BIT_KHR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9233 Column: 9
-    public static uint VK_KHR_video_decode_queue => 1;
+    // File: vk.xml Line: 11256 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_TEXTURE_KMT_BIT_KHR => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9234 Column: 9
-    public static uint VK_KHR_VIDEO_DECODE_QUEUE_SPEC_VERSION => 8;
+    // File: vk.xml Line: 11257 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_HEAP_BIT_KHR => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9235 Column: 9
-    public static string VK_KHR_VIDEO_DECODE_QUEUE_EXTENSION_NAME => "VK_KHR_video_decode_queue";
+    // File: vk.xml Line: 11258 Column: 10
+    public static int VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT_KHR => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9288 Column: 9
-    public static uint VK_KHR_video_encode_h264 => 1;
+    // File: vk.xml Line: 11261 Column: 10
+    public static int VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9291 Column: 9
-    public static uint VK_KHR_VIDEO_ENCODE_H264_SPEC_VERSION => 14;
+    // File: vk.xml Line: 11262 Column: 10
+    public static int VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9292 Column: 9
-    public static string VK_KHR_VIDEO_ENCODE_H264_EXTENSION_NAME => "VK_KHR_video_encode_h264";
+    // File: vk.xml Line: 11263 Column: 10
+    public static int VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9488 Column: 9
-    public static uint VK_KHR_video_encode_h265 => 1;
+    // File: vk.xml Line: 10200 Column: 10
+    public static uint VK_QUEUE_FAMILY_EXTERNAL_KHR => ~1U;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9491 Column: 9
-    public static uint VK_KHR_VIDEO_ENCODE_H265_SPEC_VERSION => 14;
+    // File: vk.xml Line: 11266 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9492 Column: 9
-    public static string VK_KHR_VIDEO_ENCODE_H265_EXTENSION_NAME => "VK_KHR_video_encode_h265";
+    // File: vk.xml Line: 11267 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9714 Column: 9
-    public static uint VK_KHR_video_decode_h264 => 1;
+    // File: vk.xml Line: 11268 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9716 Column: 9
-    public static uint VK_KHR_VIDEO_DECODE_H264_SPEC_VERSION => 9;
+    // File: vk.xml Line: 11269 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9717 Column: 9
-    public static string VK_KHR_VIDEO_DECODE_H264_EXTENSION_NAME => "VK_KHR_video_decode_h264";
+    // File: vk.xml Line: 11271 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD_BIT_KHR => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9774 Column: 9
-    public static uint VK_KHR_dynamic_rendering => 1;
+    // File: vk.xml Line: 11274 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_FEATURE_EXPORTABLE_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9775 Column: 9
-    public static uint VK_KHR_DYNAMIC_RENDERING_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11275 Column: 10
+    public static int VK_EXTERNAL_SEMAPHORE_FEATURE_IMPORTABLE_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9776 Column: 9
-    public static string VK_KHR_DYNAMIC_RENDERING_EXTENSION_NAME => "VK_KHR_dynamic_rendering";
+    // File: vk.xml Line: 11278 Column: 10
+    public static int VK_SEMAPHORE_IMPORT_TEMPORARY_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9805 Column: 9
-    public static uint VK_KHR_multiview => 1;
+    // File: vk.xml Line: 18259 Column: 14
+    public static int VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_PUSH_DESCRIPTORS_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9806 Column: 9
-    public static uint VK_KHR_MULTIVIEW_SPEC_VERSION => 1;
+    // File: vk.xml Line: 10724 Column: 10
+    public static int VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_DESCRIPTOR_SET_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9807 Column: 9
-    public static string VK_KHR_MULTIVIEW_EXTENSION_NAME => "VK_KHR_multiview";
+    // File: vk.xml Line: 19914 Column: 18
+    public static int VK_NV_VIEWPORT_ARRAY2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9817 Column: 9
-    public static uint VK_KHR_get_physical_device_properties2 => 1;
+    // File: vk.xml Line: 19915 Column: 18
+    public static string VK_NV_VIEWPORT_ARRAY2_EXTENSION_NAME => "VK_NV_viewport_array2";
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9818 Column: 9
-    public static uint VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_SPEC_VERSION => 2;
+    // File: vk.xml Line: 11281 Column: 10
+    public static int VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9819 Column: 9
-    public static string VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME => "VK_KHR_get_physical_device_properties2";
+    // File: vk.xml Line: 11282 Column: 10
+    public static int VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9883 Column: 9
-    public static uint VK_KHR_device_group => 1;
+    // File: vk.xml Line: 11283 Column: 10
+    public static int VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9884 Column: 9
-    public static uint VK_KHR_DEVICE_GROUP_SPEC_VERSION => 4;
+    // File: vk.xml Line: 11284 Column: 10
+    public static int VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT_KHR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9885 Column: 9
-    public static string VK_KHR_DEVICE_GROUP_EXTENSION_NAME => "VK_KHR_device_group";
+    // File: vk.xml Line: 11287 Column: 10
+    public static int VK_EXTERNAL_FENCE_FEATURE_EXPORTABLE_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9936 Column: 9
-    public static uint VK_KHR_shader_draw_parameters => 1;
+    // File: vk.xml Line: 11288 Column: 10
+    public static int VK_EXTERNAL_FENCE_FEATURE_IMPORTABLE_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9937 Column: 9
-    public static uint VK_KHR_SHADER_DRAW_PARAMETERS_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11291 Column: 10
+    public static int VK_FENCE_IMPORT_TEMPORARY_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9938 Column: 9
-    public static string VK_KHR_SHADER_DRAW_PARAMETERS_EXTENSION_NAME => "VK_KHR_shader_draw_parameters";
+    // File: vk.xml Line: 20205 Column: 18
+    public static int VK_KHR_MAINTENANCE2_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9942 Column: 9
-    public static uint VK_KHR_maintenance1 => 1;
+    // File: vk.xml Line: 20206 Column: 18
+    public static string VK_KHR_MAINTENANCE2_EXTENSION_NAME => "VK_KHR_maintenance2";
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9943 Column: 9
-    public static uint VK_KHR_MAINTENANCE_1_SPEC_VERSION => 2;
+    // File: vk.xml Line: 11342 Column: 10
+    public static int VK_POINT_CLIPPING_BEHAVIOR_ALL_CLIP_PLANES_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9944 Column: 9
-    public static string VK_KHR_MAINTENANCE_1_EXTENSION_NAME => "VK_KHR_maintenance1";
+    // File: vk.xml Line: 11343 Column: 10
+    public static int VK_POINT_CLIPPING_BEHAVIOR_USER_CLIP_PLANES_ONLY_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9946 Column: 9
-    public static uint VK_KHR_MAINTENANCE1_SPEC_VERSION => VK_KHR_MAINTENANCE_1_SPEC_VERSION;
+    // File: vk.xml Line: 11351 Column: 10
+    public static int VK_TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9948 Column: 9
-    public static string VK_KHR_MAINTENANCE1_EXTENSION_NAME => VK_KHR_MAINTENANCE_1_EXTENSION_NAME;
+    // File: vk.xml Line: 11352 Column: 10
+    public static int VK_TESSELLATION_DOMAIN_ORIGIN_LOWER_LEFT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9962 Column: 9
-    public static uint VK_KHR_device_group_creation => 1;
+    // File: vk.xml Line: 11346 Column: 10
+    public static int VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE_EXT => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9963 Column: 9
-    public static uint VK_KHR_DEVICE_GROUP_CREATION_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11347 Column: 10
+    public static int VK_SAMPLER_REDUCTION_MODE_MIN_EXT => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9964 Column: 9
-    public static string VK_KHR_DEVICE_GROUP_CREATION_EXTENSION_NAME => "VK_KHR_device_group_creation";
+    // File: vk.xml Line: 11348 Column: 10
+    public static int VK_SAMPLER_REDUCTION_MODE_MAX_EXT => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9965 Column: 9
-    public static uint VK_MAX_DEVICE_GROUP_SIZE_KHR => VK_MAX_DEVICE_GROUP_SIZE;
+    // File: vk.xml Line: 11355 Column: 10
+    public static int VK_SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9981 Column: 9
-    public static uint VK_KHR_external_memory_capabilities => 1;
+    // File: vk.xml Line: 11356 Column: 10
+    public static int VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_IDENTITY_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9982 Column: 9
-    public static uint VK_KHR_EXTERNAL_MEMORY_CAPABILITIES_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11357 Column: 10
+    public static int VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_709_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9983 Column: 9
-    public static string VK_KHR_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME => "VK_KHR_external_memory_capabilities";
+    // File: vk.xml Line: 11358 Column: 10
+    public static int VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_601_KHR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9984 Column: 9
-    public static uint VK_LUID_SIZE_KHR => VK_LUID_SIZE;
+    // File: vk.xml Line: 11359 Column: 10
+    public static int VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_2020_KHR => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10016 Column: 9
-    public static uint VK_KHR_external_memory => 1;
+    // File: vk.xml Line: 11362 Column: 10
+    public static int VK_SAMPLER_YCBCR_RANGE_ITU_FULL_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10017 Column: 9
-    public static uint VK_KHR_EXTERNAL_MEMORY_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11363 Column: 10
+    public static int VK_SAMPLER_YCBCR_RANGE_ITU_NARROW_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10018 Column: 9
-    public static string VK_KHR_EXTERNAL_MEMORY_EXTENSION_NAME => "VK_KHR_external_memory";
+    // File: vk.xml Line: 11366 Column: 10
+    public static int VK_CHROMA_LOCATION_COSITED_EVEN_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10019 Column: 9
-    public static uint VK_QUEUE_FAMILY_EXTERNAL_KHR => VK_QUEUE_FAMILY_EXTERNAL;
+    // File: vk.xml Line: 11367 Column: 10
+    public static int VK_CHROMA_LOCATION_MIDPOINT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10029 Column: 9
-    public static uint VK_KHR_external_memory_fd => 1;
+    // File: vk.xml Line: 11415 Column: 10
+    public static int VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT_EXT => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10030 Column: 9
-    public static uint VK_KHR_EXTERNAL_MEMORY_FD_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11416 Column: 10
+    public static int VK_DESCRIPTOR_BINDING_UPDATE_UNUSED_WHILE_PENDING_BIT_EXT => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10031 Column: 9
-    public static string VK_KHR_EXTERNAL_MEMORY_FD_EXTENSION_NAME => "VK_KHR_external_memory_fd";
+    // File: vk.xml Line: 11417 Column: 10
+    public static int VK_DESCRIPTOR_BINDING_PARTIALLY_BOUND_BIT_EXT => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10070 Column: 9
-    public static uint VK_KHR_external_semaphore_capabilities => 1;
+    // File: vk.xml Line: 11418 Column: 10
+    public static int VK_DESCRIPTOR_BINDING_VARIABLE_DESCRIPTOR_COUNT_BIT_EXT => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10071 Column: 9
-    public static uint VK_KHR_EXTERNAL_SEMAPHORE_CAPABILITIES_SPEC_VERSION => 1;
+    // File: vk.xml Line: 10206 Column: 10
+    public static uint VK_SHADER_UNUSED_NV => ~0U;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10072 Column: 9
-    public static string VK_KHR_EXTERNAL_SEMAPHORE_CAPABILITIES_EXTENSION_NAME => "VK_KHR_external_semaphore_capabilities";
+    // File: vk.xml Line: 11546 Column: 10
+    public static int VK_RAY_TRACING_SHADER_GROUP_TYPE_GENERAL_NV => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10096 Column: 9
-    public static uint VK_KHR_external_semaphore => 1;
+    // File: vk.xml Line: 11547 Column: 10
+    public static int VK_RAY_TRACING_SHADER_GROUP_TYPE_TRIANGLES_HIT_GROUP_NV => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10097 Column: 9
-    public static uint VK_KHR_EXTERNAL_SEMAPHORE_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11548 Column: 10
+    public static int VK_RAY_TRACING_SHADER_GROUP_TYPE_PROCEDURAL_HIT_GROUP_NV => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10098 Column: 9
-    public static string VK_KHR_EXTERNAL_SEMAPHORE_EXTENSION_NAME => "VK_KHR_external_semaphore";
+    // File: vk.xml Line: 11531 Column: 10
+    public static int VK_GEOMETRY_TYPE_TRIANGLES_NV => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10108 Column: 9
-    public static uint VK_KHR_external_semaphore_fd => 1;
+    // File: vk.xml Line: 11532 Column: 10
+    public static int VK_GEOMETRY_TYPE_AABBS_NV => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10109 Column: 9
-    public static uint VK_KHR_EXTERNAL_SEMAPHORE_FD_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11526 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_TYPE_TOP_LEVEL_NV => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10110 Column: 9
-    public static string VK_KHR_EXTERNAL_SEMAPHORE_FD_EXTENSION_NAME => "VK_KHR_external_semaphore_fd";
+    // File: vk.xml Line: 11527 Column: 10
+    public static int VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_NV => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10143 Column: 9
-    public static uint VK_KHR_push_descriptor => 1;
+    // File: vk.xml Line: 11504 Column: 10
+    public static int VK_GEOMETRY_OPAQUE_BIT_NV => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10144 Column: 9
-    public static uint VK_KHR_PUSH_DESCRIPTOR_SPEC_VERSION => 2;
+    // File: vk.xml Line: 11505 Column: 10
+    public static int VK_GEOMETRY_NO_DUPLICATE_ANY_HIT_INVOCATION_BIT_NV => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10145 Column: 9
-    public static string VK_KHR_PUSH_DESCRIPTOR_EXTENSION_NAME => "VK_KHR_push_descriptor";
+    // File: vk.xml Line: 11497 Column: 10
+    public static int VK_GEOMETRY_INSTANCE_TRIANGLE_CULL_DISABLE_BIT_NV => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10170 Column: 9
-    public static uint VK_KHR_shader_float16_int8 => 1;
+    // File: vk.xml Line: 11498 Column: 10
+    public static int VK_GEOMETRY_INSTANCE_TRIANGLE_FRONT_COUNTERCLOCKWISE_BIT_NV => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10171 Column: 9
-    public static uint VK_KHR_SHADER_FLOAT16_INT8_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11499 Column: 10
+    public static int VK_GEOMETRY_INSTANCE_FORCE_OPAQUE_BIT_NV => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10172 Column: 9
-    public static string VK_KHR_SHADER_FLOAT16_INT8_EXTENSION_NAME => "VK_KHR_shader_float16_int8";
+    // File: vk.xml Line: 11500 Column: 10
+    public static int VK_GEOMETRY_INSTANCE_FORCE_NO_OPAQUE_BIT_NV => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10180 Column: 9
-    public static uint VK_KHR_16bit_storage => 1;
+    // File: vk.xml Line: 11508 Column: 10
+    public static int VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_UPDATE_BIT_NV => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10181 Column: 9
-    public static uint VK_KHR_16BIT_STORAGE_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11509 Column: 10
+    public static int VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_COMPACTION_BIT_NV => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10182 Column: 9
-    public static string VK_KHR_16BIT_STORAGE_EXTENSION_NAME => "VK_KHR_16bit_storage";
+    // File: vk.xml Line: 11510 Column: 10
+    public static int VK_BUILD_ACCELERATION_STRUCTURE_PREFER_FAST_TRACE_BIT_NV => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10188 Column: 9
-    public static uint VK_KHR_incremental_present => 1;
+    // File: vk.xml Line: 11511 Column: 10
+    public static int VK_BUILD_ACCELERATION_STRUCTURE_PREFER_FAST_BUILD_BIT_NV => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10189 Column: 9
-    public static uint VK_KHR_INCREMENTAL_PRESENT_SPEC_VERSION => 2;
+    // File: vk.xml Line: 11512 Column: 10
+    public static int VK_BUILD_ACCELERATION_STRUCTURE_LOW_MEMORY_BIT_NV => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10190 Column: 9
-    public static string VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME => "VK_KHR_incremental_present";
+    // File: vk.xml Line: 11518 Column: 10
+    public static int VK_COPY_ACCELERATION_STRUCTURE_MODE_CLONE_NV => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10212 Column: 9
-    public static uint VK_KHR_descriptor_update_template => 1;
+    // File: vk.xml Line: 11519 Column: 10
+    public static int VK_COPY_ACCELERATION_STRUCTURE_MODE_COMPACT_NV => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10215 Column: 9
-    public static uint VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_SPEC_VERSION => 1;
+    // File: vk.xml Line: 21235 Column: 18
+    public static int VK_KHR_MAINTENANCE3_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10216 Column: 9
-    public static string VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_EXTENSION_NAME => "VK_KHR_descriptor_update_template";
+    // File: vk.xml Line: 21236 Column: 18
+    public static string VK_KHR_MAINTENANCE3_EXTENSION_NAME => "VK_KHR_maintenance3";
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10250 Column: 9
-    public static uint VK_KHR_imageless_framebuffer => 1;
+    // File: vk.xml Line: 11393 Column: 10
+    public static int VK_QUEUE_GLOBAL_PRIORITY_LOW_EXT => 128;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10251 Column: 9
-    public static uint VK_KHR_IMAGELESS_FRAMEBUFFER_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11394 Column: 10
+    public static int VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_EXT => 256;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10252 Column: 9
-    public static string VK_KHR_IMAGELESS_FRAMEBUFFER_EXTENSION_NAME => "VK_KHR_imageless_framebuffer";
+    // File: vk.xml Line: 11395 Column: 10
+    public static int VK_QUEUE_GLOBAL_PRIORITY_HIGH_EXT => 512;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10264 Column: 9
-    public static uint VK_KHR_create_renderpass2 => 1;
+    // File: vk.xml Line: 11396 Column: 10
+    public static int VK_QUEUE_GLOBAL_PRIORITY_REALTIME_EXT => 1024;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10265 Column: 9
-    public static uint VK_KHR_CREATE_RENDERPASS_2_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11076 Column: 10
+    public static int VK_TIME_DOMAIN_DEVICE_EXT => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10266 Column: 9
-    public static string VK_KHR_CREATE_RENDERPASS_2_EXTENSION_NAME => "VK_KHR_create_renderpass2";
+    // File: vk.xml Line: 11077 Column: 10
+    public static int VK_TIME_DOMAIN_CLOCK_MONOTONIC_EXT => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10310 Column: 9
-    public static uint VK_KHR_shared_presentable_image => 1;
+    // File: vk.xml Line: 11078 Column: 10
+    public static int VK_TIME_DOMAIN_CLOCK_MONOTONIC_RAW_EXT => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10311 Column: 9
-    public static uint VK_KHR_SHARED_PRESENTABLE_IMAGE_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11079 Column: 10
+    public static int VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10312 Column: 9
-    public static string VK_KHR_SHARED_PRESENTABLE_IMAGE_EXTENSION_NAME => "VK_KHR_shared_presentable_image";
+    // File: vk.xml Line: 10207 Column: 10
+    public static int VK_MAX_GLOBAL_PRIORITY_SIZE_KHR => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10329 Column: 9
-    public static uint VK_KHR_external_fence_capabilities => 1;
+    // File: vk.xml Line: 11393 Column: 10
+    public static int VK_QUEUE_GLOBAL_PRIORITY_LOW_KHR => 128;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10330 Column: 9
-    public static uint VK_KHR_EXTERNAL_FENCE_CAPABILITIES_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11394 Column: 10
+    public static int VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR => 256;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10331 Column: 9
-    public static string VK_KHR_EXTERNAL_FENCE_CAPABILITIES_EXTENSION_NAME => "VK_KHR_external_fence_capabilities";
+    // File: vk.xml Line: 11395 Column: 10
+    public static int VK_QUEUE_GLOBAL_PRIORITY_HIGH_KHR => 512;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10355 Column: 9
-    public static uint VK_KHR_external_fence => 1;
+    // File: vk.xml Line: 11396 Column: 10
+    public static int VK_QUEUE_GLOBAL_PRIORITY_REALTIME_KHR => 1024;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10356 Column: 9
-    public static uint VK_KHR_EXTERNAL_FENCE_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11574 Column: 10
+    public static int VK_PIPELINE_CREATION_FEEDBACK_VALID_BIT_EXT => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10357 Column: 9
-    public static string VK_KHR_EXTERNAL_FENCE_EXTENSION_NAME => "VK_KHR_external_fence";
+    // File: vk.xml Line: 11575 Column: 10
+    public static int VK_PIPELINE_CREATION_FEEDBACK_APPLICATION_PIPELINE_CACHE_HIT_BIT_EXT => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10367 Column: 9
-    public static uint VK_KHR_external_fence_fd => 1;
+    // File: vk.xml Line: 11576 Column: 10
+    public static int VK_PIPELINE_CREATION_FEEDBACK_BASE_PIPELINE_ACCELERATION_BIT_EXT => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10368 Column: 9
-    public static uint VK_KHR_EXTERNAL_FENCE_FD_SPEC_VERSION => 1;
+    // File: vk.xml Line: 10204 Column: 10
+    public static int VK_MAX_DRIVER_NAME_SIZE_KHR => 256;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10369 Column: 9
-    public static string VK_KHR_EXTERNAL_FENCE_FD_EXTENSION_NAME => "VK_KHR_external_fence_fd";
+    // File: vk.xml Line: 10205 Column: 10
+    public static int VK_MAX_DRIVER_INFO_SIZE_KHR => 256;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10402 Column: 9
-    public static uint VK_KHR_performance_query => 1;
+    // File: vk.xml Line: 11438 Column: 10
+    public static int VK_DRIVER_ID_AMD_PROPRIETARY_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10403 Column: 9
-    public static uint VK_KHR_PERFORMANCE_QUERY_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11439 Column: 10
+    public static int VK_DRIVER_ID_AMD_OPEN_SOURCE_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10404 Column: 9
-    public static string VK_KHR_PERFORMANCE_QUERY_EXTENSION_NAME => "VK_KHR_performance_query";
+    // File: vk.xml Line: 11440 Column: 10
+    public static int VK_DRIVER_ID_MESA_RADV_KHR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10548 Column: 9
-    public static uint VK_KHR_maintenance2 => 1;
+    // File: vk.xml Line: 11441 Column: 10
+    public static int VK_DRIVER_ID_NVIDIA_PROPRIETARY_KHR => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10549 Column: 9
-    public static uint VK_KHR_MAINTENANCE_2_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11442 Column: 10
+    public static int VK_DRIVER_ID_INTEL_PROPRIETARY_WINDOWS_KHR => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10550 Column: 9
-    public static string VK_KHR_MAINTENANCE_2_EXTENSION_NAME => "VK_KHR_maintenance2";
+    // File: vk.xml Line: 11443 Column: 10
+    public static int VK_DRIVER_ID_INTEL_OPEN_SOURCE_MESA_KHR => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10552 Column: 9
-    public static uint VK_KHR_MAINTENANCE2_SPEC_VERSION => VK_KHR_MAINTENANCE_2_SPEC_VERSION;
+    // File: vk.xml Line: 11444 Column: 10
+    public static int VK_DRIVER_ID_IMAGINATION_PROPRIETARY_KHR => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10554 Column: 9
-    public static string VK_KHR_MAINTENANCE2_EXTENSION_NAME => VK_KHR_MAINTENANCE_2_EXTENSION_NAME;
+    // File: vk.xml Line: 11445 Column: 10
+    public static int VK_DRIVER_ID_QUALCOMM_PROPRIETARY_KHR => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10572 Column: 9
-    public static uint VK_KHR_get_surface_capabilities2 => 1;
+    // File: vk.xml Line: 11446 Column: 10
+    public static int VK_DRIVER_ID_ARM_PROPRIETARY_KHR => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10573 Column: 9
-    public static uint VK_KHR_GET_SURFACE_CAPABILITIES_2_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11447 Column: 10
+    public static int VK_DRIVER_ID_GOOGLE_SWIFTSHADER_KHR => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10574 Column: 9
-    public static string VK_KHR_GET_SURFACE_CAPABILITIES_2_EXTENSION_NAME => "VK_KHR_get_surface_capabilities2";
+    // File: vk.xml Line: 11448 Column: 10
+    public static int VK_DRIVER_ID_GGP_PROPRIETARY_KHR => 11;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10611 Column: 9
-    public static uint VK_KHR_variable_pointers => 1;
+    // File: vk.xml Line: 11449 Column: 10
+    public static int VK_DRIVER_ID_BROADCOM_PROPRIETARY_KHR => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10612 Column: 9
-    public static uint VK_KHR_VARIABLE_POINTERS_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11650 Column: 10
+    public static int VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_32_BIT_ONLY_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10613 Column: 9
-    public static string VK_KHR_VARIABLE_POINTERS_EXTENSION_NAME => "VK_KHR_variable_pointers";
+    // File: vk.xml Line: 11651 Column: 10
+    public static int VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_ALL_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10621 Column: 9
-    public static uint VK_KHR_get_display_properties2 => 1;
+    // File: vk.xml Line: 11652 Column: 10
+    public static int VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_NONE_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10622 Column: 9
-    public static uint VK_KHR_GET_DISPLAY_PROPERTIES_2_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11470 Column: 10
+    public static int VK_RESOLVE_MODE_NONE_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10623 Column: 9
-    public static string VK_KHR_GET_DISPLAY_PROPERTIES_2_EXTENSION_NAME => "VK_KHR_get_display_properties2";
+    // File: vk.xml Line: 11471 Column: 10
+    public static int VK_RESOLVE_MODE_SAMPLE_ZERO_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10685 Column: 9
-    public static uint VK_KHR_dedicated_allocation => 1;
+    // File: vk.xml Line: 11472 Column: 10
+    public static int VK_RESOLVE_MODE_AVERAGE_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10686 Column: 9
-    public static uint VK_KHR_DEDICATED_ALLOCATION_SPEC_VERSION => 3;
+    // File: vk.xml Line: 11473 Column: 10
+    public static int VK_RESOLVE_MODE_MIN_BIT_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10687 Column: 9
-    public static string VK_KHR_DEDICATED_ALLOCATION_EXTENSION_NAME => "VK_KHR_dedicated_allocation";
+    // File: vk.xml Line: 11474 Column: 10
+    public static int VK_RESOLVE_MODE_MAX_BIT_KHR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10695 Column: 9
-    public static uint VK_KHR_storage_buffer_storage_class => 1;
+    // File: vk.xml Line: 11025 Column: 10
+    public static int VK_SEMAPHORE_TYPE_BINARY_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10696 Column: 9
-    public static uint VK_KHR_STORAGE_BUFFER_STORAGE_CLASS_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11026 Column: 10
+    public static int VK_SEMAPHORE_TYPE_TIMELINE_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10697 Column: 9
-    public static string VK_KHR_STORAGE_BUFFER_STORAGE_CLASS_EXTENSION_NAME => "VK_KHR_storage_buffer_storage_class";
+    // File: vk.xml Line: 11029 Column: 10
+    public static int VK_SEMAPHORE_WAIT_ANY_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10701 Column: 9
-    public static uint VK_KHR_relaxed_block_layout => 1;
+    // File: vk.xml Line: 21876 Column: 18
+    public static int VK_GOOGLE_HLSL_FUNCTIONALITY1_SPEC_VERSION => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10702 Column: 9
-    public static uint VK_KHR_RELAXED_BLOCK_LAYOUT_SPEC_VERSION => 1;
+    // File: vk.xml Line: 21877 Column: 18
+    public static string VK_GOOGLE_HLSL_FUNCTIONALITY1_EXTENSION_NAME => "VK_GOOGLE_hlsl_functionality1";
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10703 Column: 9
-    public static string VK_KHR_RELAXED_BLOCK_LAYOUT_EXTENSION_NAME => "VK_KHR_relaxed_block_layout";
+    // File: vk.xml Line: 11689 Column: 10
+    public static int VK_TOOL_PURPOSE_VALIDATION_BIT_EXT => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10707 Column: 9
-    public static uint VK_KHR_get_memory_requirements2 => 1;
+    // File: vk.xml Line: 11690 Column: 10
+    public static int VK_TOOL_PURPOSE_PROFILING_BIT_EXT => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10708 Column: 9
-    public static uint VK_KHR_GET_MEMORY_REQUIREMENTS_2_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11691 Column: 10
+    public static int VK_TOOL_PURPOSE_TRACING_BIT_EXT => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10709 Column: 9
-    public static string VK_KHR_GET_MEMORY_REQUIREMENTS_2_EXTENSION_NAME => "VK_KHR_get_memory_requirements2";
+    // File: vk.xml Line: 11692 Column: 10
+    public static int VK_TOOL_PURPOSE_ADDITIONAL_FEATURES_BIT_EXT => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10744 Column: 9
-    public static uint VK_KHR_image_format_list => 1;
+    // File: vk.xml Line: 11693 Column: 10
+    public static int VK_TOOL_PURPOSE_MODIFYING_FEATURES_BIT_EXT => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10745 Column: 9
-    public static uint VK_KHR_IMAGE_FORMAT_LIST_SPEC_VERSION => 1;
+    // File: vk.xml Line: 12305 Column: 10
+    public static int VK_SCOPE_DEVICE_NV => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10746 Column: 9
-    public static string VK_KHR_IMAGE_FORMAT_LIST_EXTENSION_NAME => "VK_KHR_image_format_list";
+    // File: vk.xml Line: 12306 Column: 10
+    public static int VK_SCOPE_WORKGROUP_NV => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10752 Column: 9
-    public static uint VK_KHR_sampler_ycbcr_conversion => 1;
+    // File: vk.xml Line: 12307 Column: 10
+    public static int VK_SCOPE_SUBGROUP_NV => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10755 Column: 9
-    public static uint VK_KHR_SAMPLER_YCBCR_CONVERSION_SPEC_VERSION => 14;
+    // File: vk.xml Line: 12308 Column: 10
+    public static int VK_SCOPE_QUEUE_FAMILY_NV => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10756 Column: 9
-    public static string VK_KHR_SAMPLER_YCBCR_CONVERSION_EXTENSION_NAME => "VK_KHR_sampler_ycbcr_conversion";
+    // File: vk.xml Line: 12311 Column: 10
+    public static int VK_COMPONENT_TYPE_FLOAT16_NV => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10793 Column: 9
-    public static uint VK_KHR_bind_memory2 => 1;
+    // File: vk.xml Line: 12312 Column: 10
+    public static int VK_COMPONENT_TYPE_FLOAT32_NV => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10794 Column: 9
-    public static uint VK_KHR_BIND_MEMORY_2_SPEC_VERSION => 1;
+    // File: vk.xml Line: 12313 Column: 10
+    public static int VK_COMPONENT_TYPE_FLOAT64_NV => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10795 Column: 9
-    public static string VK_KHR_BIND_MEMORY_2_EXTENSION_NAME => "VK_KHR_bind_memory2";
+    // File: vk.xml Line: 12314 Column: 10
+    public static int VK_COMPONENT_TYPE_SINT8_NV => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10817 Column: 9
-    public static uint VK_KHR_maintenance3 => 1;
+    // File: vk.xml Line: 12315 Column: 10
+    public static int VK_COMPONENT_TYPE_SINT16_NV => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10818 Column: 9
-    public static uint VK_KHR_MAINTENANCE_3_SPEC_VERSION => 1;
+    // File: vk.xml Line: 12316 Column: 10
+    public static int VK_COMPONENT_TYPE_SINT32_NV => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10819 Column: 9
-    public static string VK_KHR_MAINTENANCE_3_EXTENSION_NAME => "VK_KHR_maintenance3";
+    // File: vk.xml Line: 12317 Column: 10
+    public static int VK_COMPONENT_TYPE_SINT64_NV => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10821 Column: 9
-    public static uint VK_KHR_MAINTENANCE3_SPEC_VERSION => VK_KHR_MAINTENANCE_3_SPEC_VERSION;
+    // File: vk.xml Line: 12318 Column: 10
+    public static int VK_COMPONENT_TYPE_UINT8_NV => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10823 Column: 9
-    public static string VK_KHR_MAINTENANCE3_EXTENSION_NAME => VK_KHR_MAINTENANCE_3_EXTENSION_NAME;
+    // File: vk.xml Line: 12319 Column: 10
+    public static int VK_COMPONENT_TYPE_UINT16_NV => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10839 Column: 9
-    public static uint VK_KHR_draw_indirect_count => 1;
+    // File: vk.xml Line: 12320 Column: 10
+    public static int VK_COMPONENT_TYPE_UINT32_NV => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10840 Column: 9
-    public static uint VK_KHR_DRAW_INDIRECT_COUNT_SPEC_VERSION => 1;
+    // File: vk.xml Line: 12321 Column: 10
+    public static int VK_COMPONENT_TYPE_UINT64_NV => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10841 Column: 9
-    public static string VK_KHR_DRAW_INDIRECT_COUNT_EXTENSION_NAME => "VK_KHR_draw_indirect_count";
+    // File: vk.xml Line: 11661 Column: 10
+    public static int VK_LINE_RASTERIZATION_MODE_DEFAULT_EXT => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10867 Column: 9
-    public static uint VK_KHR_shader_subgroup_extended_types => 1;
+    // File: vk.xml Line: 11662 Column: 10
+    public static int VK_LINE_RASTERIZATION_MODE_RECTANGULAR_EXT => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10868 Column: 9
-    public static uint VK_KHR_SHADER_SUBGROUP_EXTENDED_TYPES_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11663 Column: 10
+    public static int VK_LINE_RASTERIZATION_MODE_BRESENHAM_EXT => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10869 Column: 9
-    public static string VK_KHR_SHADER_SUBGROUP_EXTENDED_TYPES_EXTENSION_NAME => "VK_KHR_shader_subgroup_extended_types";
+    // File: vk.xml Line: 11664 Column: 10
+    public static int VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH_EXT => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10875 Column: 9
-    public static uint VK_KHR_8bit_storage => 1;
+    // File: vk.xml Line: 11980 Column: 10
+    public static int VK_HOST_IMAGE_COPY_MEMCPY_EXT => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10876 Column: 9
-    public static uint VK_KHR_8BIT_STORAGE_SPEC_VERSION => 1;
+    // File: vk.xml Line: 17878 Column: 14
+    public static int VK_PIPELINE_STAGE_NONE_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10877 Column: 9
-    public static string VK_KHR_8BIT_STORAGE_EXTENSION_NAME => "VK_KHR_8bit_storage";
+    // File: vk.xml Line: 17879 Column: 14
+    public static int VK_ACCESS_NONE_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10883 Column: 9
-    public static uint VK_KHR_shader_atomic_int64 => 1;
+    // File: vk.xml Line: 11740 Column: 10
+    public static int VK_ACCESS_2_NONE_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10884 Column: 9
-    public static uint VK_KHR_SHADER_ATOMIC_INT64_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11741 Column: 10
+    public static int VK_ACCESS_2_INDIRECT_COMMAND_READ_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10885 Column: 9
-    public static string VK_KHR_SHADER_ATOMIC_INT64_EXTENSION_NAME => "VK_KHR_shader_atomic_int64";
+    // File: vk.xml Line: 11742 Column: 10
+    public static int VK_ACCESS_2_INDEX_READ_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10891 Column: 9
-    public static uint VK_KHR_shader_clock => 1;
+    // File: vk.xml Line: 11743 Column: 10
+    public static int VK_ACCESS_2_VERTEX_ATTRIBUTE_READ_BIT_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10892 Column: 9
-    public static uint VK_KHR_SHADER_CLOCK_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11744 Column: 10
+    public static int VK_ACCESS_2_UNIFORM_READ_BIT_KHR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10893 Column: 9
-    public static string VK_KHR_SHADER_CLOCK_EXTENSION_NAME => "VK_KHR_shader_clock";
+    // File: vk.xml Line: 11745 Column: 10
+    public static int VK_ACCESS_2_INPUT_ATTACHMENT_READ_BIT_KHR => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10904 Column: 9
-    public static uint VK_KHR_video_decode_h265 => 1;
+    // File: vk.xml Line: 11746 Column: 10
+    public static int VK_ACCESS_2_SHADER_READ_BIT_KHR => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10906 Column: 9
-    public static uint VK_KHR_VIDEO_DECODE_H265_SPEC_VERSION => 8;
+    // File: vk.xml Line: 11747 Column: 10
+    public static int VK_ACCESS_2_SHADER_WRITE_BIT_KHR => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10907 Column: 9
-    public static string VK_KHR_VIDEO_DECODE_H265_EXTENSION_NAME => "VK_KHR_video_decode_h265";
+    // File: vk.xml Line: 11748 Column: 10
+    public static int VK_ACCESS_2_COLOR_ATTACHMENT_READ_BIT_KHR => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10957 Column: 9
-    public static uint VK_KHR_global_priority => 1;
+    // File: vk.xml Line: 11749 Column: 10
+    public static int VK_ACCESS_2_COLOR_ATTACHMENT_WRITE_BIT_KHR => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10958 Column: 9
-    public static uint VK_KHR_GLOBAL_PRIORITY_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11750 Column: 10
+    public static int VK_ACCESS_2_DEPTH_STENCIL_ATTACHMENT_READ_BIT_KHR => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10959 Column: 9
-    public static string VK_KHR_GLOBAL_PRIORITY_EXTENSION_NAME => "VK_KHR_global_priority";
+    // File: vk.xml Line: 11751 Column: 10
+    public static int VK_ACCESS_2_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT_KHR => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10960 Column: 9
-    public static uint VK_MAX_GLOBAL_PRIORITY_SIZE_KHR => VK_MAX_GLOBAL_PRIORITY_SIZE;
+    // File: vk.xml Line: 11752 Column: 10
+    public static int VK_ACCESS_2_TRANSFER_READ_BIT_KHR => 11;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10972 Column: 9
-    public static uint VK_KHR_driver_properties => 1;
+    // File: vk.xml Line: 11753 Column: 10
+    public static int VK_ACCESS_2_TRANSFER_WRITE_BIT_KHR => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10973 Column: 9
-    public static uint VK_KHR_DRIVER_PROPERTIES_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11754 Column: 10
+    public static int VK_ACCESS_2_HOST_READ_BIT_KHR => 13;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10974 Column: 9
-    public static string VK_KHR_DRIVER_PROPERTIES_EXTENSION_NAME => "VK_KHR_driver_properties";
+    // File: vk.xml Line: 11755 Column: 10
+    public static int VK_ACCESS_2_HOST_WRITE_BIT_KHR => 14;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10975 Column: 9
-    public static uint VK_MAX_DRIVER_NAME_SIZE_KHR => VK_MAX_DRIVER_NAME_SIZE;
+    // File: vk.xml Line: 11756 Column: 10
+    public static int VK_ACCESS_2_MEMORY_READ_BIT_KHR => 15;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10976 Column: 9
-    public static uint VK_MAX_DRIVER_INFO_SIZE_KHR => VK_MAX_DRIVER_INFO_SIZE;
+    // File: vk.xml Line: 11757 Column: 10
+    public static int VK_ACCESS_2_MEMORY_WRITE_BIT_KHR => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10986 Column: 9
-    public static uint VK_KHR_shader_float_controls => 1;
+    // File: vk.xml Line: 11759 Column: 10
+    public static int VK_ACCESS_2_SHADER_SAMPLED_READ_BIT_KHR => 32;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10987 Column: 9
-    public static uint VK_KHR_SHADER_FLOAT_CONTROLS_SPEC_VERSION => 4;
+    // File: vk.xml Line: 11760 Column: 10
+    public static int VK_ACCESS_2_SHADER_STORAGE_READ_BIT_KHR => 33;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10988 Column: 9
-    public static string VK_KHR_SHADER_FLOAT_CONTROLS_EXTENSION_NAME => "VK_KHR_shader_float_controls";
+    // File: vk.xml Line: 11761 Column: 10
+    public static int VK_ACCESS_2_SHADER_STORAGE_WRITE_BIT_KHR => 34;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10996 Column: 9
-    public static uint VK_KHR_depth_stencil_resolve => 1;
+    // File: vk.xml Line: 11764 Column: 10
+    public static int VK_PIPELINE_STAGE_2_NONE_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10997 Column: 9
-    public static uint VK_KHR_DEPTH_STENCIL_RESOLVE_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11765 Column: 10
+    public static int VK_PIPELINE_STAGE_2_TOP_OF_PIPE_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10998 Column: 9
-    public static string VK_KHR_DEPTH_STENCIL_RESOLVE_EXTENSION_NAME => "VK_KHR_depth_stencil_resolve";
+    // File: vk.xml Line: 11766 Column: 10
+    public static int VK_PIPELINE_STAGE_2_DRAW_INDIRECT_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11010 Column: 9
-    public static uint VK_KHR_swapchain_mutable_format => 1;
+    // File: vk.xml Line: 11767 Column: 10
+    public static int VK_PIPELINE_STAGE_2_VERTEX_INPUT_BIT_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11011 Column: 9
-    public static uint VK_KHR_SWAPCHAIN_MUTABLE_FORMAT_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11768 Column: 10
+    public static int VK_PIPELINE_STAGE_2_VERTEX_SHADER_BIT_KHR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11012 Column: 9
-    public static string VK_KHR_SWAPCHAIN_MUTABLE_FORMAT_EXTENSION_NAME => "VK_KHR_swapchain_mutable_format";
+    // File: vk.xml Line: 11769 Column: 10
+    public static int VK_PIPELINE_STAGE_2_TESSELLATION_CONTROL_SHADER_BIT_KHR => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11016 Column: 9
-    public static uint VK_KHR_timeline_semaphore => 1;
+    // File: vk.xml Line: 11770 Column: 10
+    public static int VK_PIPELINE_STAGE_2_TESSELLATION_EVALUATION_SHADER_BIT_KHR => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11017 Column: 9
-    public static uint VK_KHR_TIMELINE_SEMAPHORE_SPEC_VERSION => 2;
+    // File: vk.xml Line: 11771 Column: 10
+    public static int VK_PIPELINE_STAGE_2_GEOMETRY_SHADER_BIT_KHR => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11018 Column: 9
-    public static string VK_KHR_TIMELINE_SEMAPHORE_EXTENSION_NAME => "VK_KHR_timeline_semaphore";
+    // File: vk.xml Line: 11772 Column: 10
+    public static int VK_PIPELINE_STAGE_2_FRAGMENT_SHADER_BIT_KHR => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11059 Column: 9
-    public static uint VK_KHR_vulkan_memory_model => 1;
+    // File: vk.xml Line: 11773 Column: 10
+    public static int VK_PIPELINE_STAGE_2_EARLY_FRAGMENT_TESTS_BIT_KHR => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11060 Column: 9
-    public static uint VK_KHR_VULKAN_MEMORY_MODEL_SPEC_VERSION => 3;
+    // File: vk.xml Line: 11774 Column: 10
+    public static int VK_PIPELINE_STAGE_2_LATE_FRAGMENT_TESTS_BIT_KHR => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11061 Column: 9
-    public static string VK_KHR_VULKAN_MEMORY_MODEL_EXTENSION_NAME => "VK_KHR_vulkan_memory_model";
+    // File: vk.xml Line: 11775 Column: 10
+    public static int VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT_KHR => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11067 Column: 9
-    public static uint VK_KHR_shader_terminate_invocation => 1;
+    // File: vk.xml Line: 11776 Column: 10
+    public static int VK_PIPELINE_STAGE_2_COMPUTE_SHADER_BIT_KHR => 11;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11068 Column: 9
-    public static uint VK_KHR_SHADER_TERMINATE_INVOCATION_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11777 Column: 10
+    public static int VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT_KHR => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11069 Column: 9
-    public static string VK_KHR_SHADER_TERMINATE_INVOCATION_EXTENSION_NAME => "VK_KHR_shader_terminate_invocation";
+    // File: vk.xml Line: 11777 Column: 10
+    public static int VK_PIPELINE_STAGE_2_TRANSFER_BIT_KHR => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11075 Column: 9
-    public static uint VK_KHR_fragment_shading_rate => 1;
+    // File: vk.xml Line: 11779 Column: 10
+    public static int VK_PIPELINE_STAGE_2_BOTTOM_OF_PIPE_BIT_KHR => 13;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11076 Column: 9
-    public static uint VK_KHR_FRAGMENT_SHADING_RATE_SPEC_VERSION => 2;
+    // File: vk.xml Line: 11780 Column: 10
+    public static int VK_PIPELINE_STAGE_2_HOST_BIT_KHR => 14;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11077 Column: 9
-    public static string VK_KHR_FRAGMENT_SHADING_RATE_EXTENSION_NAME => "VK_KHR_fragment_shading_rate";
+    // File: vk.xml Line: 11781 Column: 10
+    public static int VK_PIPELINE_STAGE_2_ALL_GRAPHICS_BIT_KHR => 15;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11163 Column: 9
-    public static uint VK_KHR_dynamic_rendering_local_read => 1;
+    // File: vk.xml Line: 11782 Column: 10
+    public static int VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT_KHR => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11164 Column: 9
-    public static uint VK_KHR_DYNAMIC_RENDERING_LOCAL_READ_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11784 Column: 10
+    public static int VK_PIPELINE_STAGE_2_COPY_BIT_KHR => 32;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11165 Column: 9
-    public static string VK_KHR_DYNAMIC_RENDERING_LOCAL_READ_EXTENSION_NAME => "VK_KHR_dynamic_rendering_local_read";
+    // File: vk.xml Line: 11785 Column: 10
+    public static int VK_PIPELINE_STAGE_2_RESOLVE_BIT_KHR => 33;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11187 Column: 9
-    public static uint VK_KHR_shader_quad_control => 1;
+    // File: vk.xml Line: 11786 Column: 10
+    public static int VK_PIPELINE_STAGE_2_BLIT_BIT_KHR => 34;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11188 Column: 9
-    public static uint VK_KHR_SHADER_QUAD_CONTROL_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11787 Column: 10
+    public static int VK_PIPELINE_STAGE_2_CLEAR_BIT_KHR => 35;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11189 Column: 9
-    public static string VK_KHR_SHADER_QUAD_CONTROL_EXTENSION_NAME => "VK_KHR_shader_quad_control";
+    // File: vk.xml Line: 11788 Column: 10
+    public static int VK_PIPELINE_STAGE_2_INDEX_INPUT_BIT_KHR => 36;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11199 Column: 9
-    public static uint VK_KHR_spirv_1_4 => 1;
+    // File: vk.xml Line: 11789 Column: 10
+    public static int VK_PIPELINE_STAGE_2_VERTEX_ATTRIBUTE_INPUT_BIT_KHR => 37;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11200 Column: 9
-    public static uint VK_KHR_SPIRV_1_4_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11790 Column: 10
+    public static int VK_PIPELINE_STAGE_2_PRE_RASTERIZATION_SHADERS_BIT_KHR => 38;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11201 Column: 9
-    public static string VK_KHR_SPIRV_1_4_EXTENSION_NAME => "VK_KHR_spirv_1_4";
+    // File: vk.xml Line: 11793 Column: 10
+    public static int VK_SUBMIT_PROTECTED_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11205 Column: 9
-    public static uint VK_KHR_surface_protected_capabilities => 1;
+    // File: vk.xml Line: 12004 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11206 Column: 9
-    public static uint VK_KHR_SURFACE_PROTECTED_CAPABILITIES_SPEC_VERSION => 1;
+    // File: vk.xml Line: 12005 Column: 10
+    public static int VK_FORMAT_FEATURE_2_STORAGE_IMAGE_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11207 Column: 9
-    public static string VK_KHR_SURFACE_PROTECTED_CAPABILITIES_EXTENSION_NAME => "VK_KHR_surface_protected_capabilities";
+    // File: vk.xml Line: 12006 Column: 10
+    public static int VK_FORMAT_FEATURE_2_STORAGE_IMAGE_ATOMIC_BIT_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11217 Column: 9
-    public static uint VK_KHR_separate_depth_stencil_layouts => 1;
+    // File: vk.xml Line: 12007 Column: 10
+    public static int VK_FORMAT_FEATURE_2_UNIFORM_TEXEL_BUFFER_BIT_KHR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11218 Column: 9
-    public static uint VK_KHR_SEPARATE_DEPTH_STENCIL_LAYOUTS_SPEC_VERSION => 1;
+    // File: vk.xml Line: 12008 Column: 10
+    public static int VK_FORMAT_FEATURE_2_STORAGE_TEXEL_BUFFER_BIT_KHR => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11219 Column: 9
-    public static string VK_KHR_SEPARATE_DEPTH_STENCIL_LAYOUTS_EXTENSION_NAME => "VK_KHR_separate_depth_stencil_layouts";
+    // File: vk.xml Line: 12009 Column: 10
+    public static int VK_FORMAT_FEATURE_2_STORAGE_TEXEL_BUFFER_ATOMIC_BIT_KHR => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11229 Column: 9
-    public static uint VK_KHR_present_wait => 1;
+    // File: vk.xml Line: 12010 Column: 10
+    public static int VK_FORMAT_FEATURE_2_VERTEX_BUFFER_BIT_KHR => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11230 Column: 9
-    public static uint VK_KHR_PRESENT_WAIT_SPEC_VERSION => 1;
+    // File: vk.xml Line: 12011 Column: 10
+    public static int VK_FORMAT_FEATURE_2_COLOR_ATTACHMENT_BIT_KHR => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11231 Column: 9
-    public static string VK_KHR_PRESENT_WAIT_EXTENSION_NAME => "VK_KHR_present_wait";
+    // File: vk.xml Line: 12012 Column: 10
+    public static int VK_FORMAT_FEATURE_2_COLOR_ATTACHMENT_BLEND_BIT_KHR => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11250 Column: 9
-    public static uint VK_KHR_uniform_buffer_standard_layout => 1;
+    // File: vk.xml Line: 12013 Column: 10
+    public static int VK_FORMAT_FEATURE_2_DEPTH_STENCIL_ATTACHMENT_BIT_KHR => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11251 Column: 9
-    public static uint VK_KHR_UNIFORM_BUFFER_STANDARD_LAYOUT_SPEC_VERSION => 1;
+    // File: vk.xml Line: 12014 Column: 10
+    public static int VK_FORMAT_FEATURE_2_BLIT_SRC_BIT_KHR => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11252 Column: 9
-    public static string VK_KHR_UNIFORM_BUFFER_STANDARD_LAYOUT_EXTENSION_NAME => "VK_KHR_uniform_buffer_standard_layout";
+    // File: vk.xml Line: 12015 Column: 10
+    public static int VK_FORMAT_FEATURE_2_BLIT_DST_BIT_KHR => 11;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11258 Column: 9
-    public static uint VK_KHR_buffer_device_address => 1;
+    // File: vk.xml Line: 12016 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_FILTER_LINEAR_BIT_KHR => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11259 Column: 9
-    public static uint VK_KHR_BUFFER_DEVICE_ADDRESS_SPEC_VERSION => 1;
+    // File: vk.xml Line: 12018 Column: 10
+    public static int VK_FORMAT_FEATURE_2_TRANSFER_SRC_BIT_KHR => 14;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11260 Column: 9
-    public static string VK_KHR_BUFFER_DEVICE_ADDRESS_EXTENSION_NAME => "VK_KHR_buffer_device_address";
+    // File: vk.xml Line: 12019 Column: 10
+    public static int VK_FORMAT_FEATURE_2_TRANSFER_DST_BIT_KHR => 15;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11291 Column: 9
-    public static uint VK_KHR_deferred_host_operations => 1;
+    // File: vk.xml Line: 12021 Column: 10
+    public static int VK_FORMAT_FEATURE_2_MIDPOINT_CHROMA_SAMPLES_BIT_KHR => 17;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11293 Column: 9
-    public static uint VK_KHR_DEFERRED_HOST_OPERATIONS_SPEC_VERSION => 4;
+    // File: vk.xml Line: 12022 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_YCBCR_CONVERSION_LINEAR_FILTER_BIT_KHR => 18;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11294 Column: 9
-    public static string VK_KHR_DEFERRED_HOST_OPERATIONS_EXTENSION_NAME => "VK_KHR_deferred_host_operations";
+    // File: vk.xml Line: 12023 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER_BIT_KHR => 19;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11327 Column: 9
-    public static uint VK_KHR_pipeline_executable_properties => 1;
+    // File: vk.xml Line: 12024 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_BIT_KHR => 20;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11328 Column: 9
-    public static uint VK_KHR_PIPELINE_EXECUTABLE_PROPERTIES_SPEC_VERSION => 1;
+    // File: vk.xml Line: 12025 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE_BIT_KHR => 21;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11329 Column: 9
-    public static string VK_KHR_PIPELINE_EXECUTABLE_PROPERTIES_EXTENSION_NAME => "VK_KHR_pipeline_executable_properties";
+    // File: vk.xml Line: 12026 Column: 10
+    public static int VK_FORMAT_FEATURE_2_DISJOINT_BIT_KHR => 22;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11418 Column: 9
-    public static uint VK_KHR_map_memory2 => 1;
+    // File: vk.xml Line: 12027 Column: 10
+    public static int VK_FORMAT_FEATURE_2_COSITED_CHROMA_SAMPLES_BIT_KHR => 23;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11419 Column: 9
-    public static uint VK_KHR_MAP_MEMORY_2_SPEC_VERSION => 1;
+    // File: vk.xml Line: 12028 Column: 10
+    public static int VK_FORMAT_FEATURE_2_STORAGE_READ_WITHOUT_FORMAT_BIT_KHR => 31;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11420 Column: 9
-    public static string VK_KHR_MAP_MEMORY_2_EXTENSION_NAME => "VK_KHR_map_memory2";
+    // File: vk.xml Line: 12029 Column: 10
+    public static int VK_FORMAT_FEATURE_2_STORAGE_WRITE_WITHOUT_FORMAT_BIT_KHR => 32;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11445 Column: 9
-    public static uint VK_KHR_shader_integer_dot_product => 1;
+    // File: vk.xml Line: 12030 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_DEPTH_COMPARISON_BIT_KHR => 33;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11446 Column: 9
-    public static uint VK_KHR_SHADER_INTEGER_DOT_PRODUCT_SPEC_VERSION => 1;
+    // File: vk.xml Line: 12020 Column: 10
+    public static int VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_FILTER_MINMAX_BIT_KHR => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11447 Column: 9
-    public static string VK_KHR_SHADER_INTEGER_DOT_PRODUCT_EXTENSION_NAME => "VK_KHR_shader_integer_dot_product";
+    // File: vk.xml Line: 10207 Column: 10
+    public static int VK_MAX_GLOBAL_PRIORITY_SIZE_EXT => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11455 Column: 9
-    public static uint VK_KHR_pipeline_library => 1;
+    // File: vk.xml Line: 18075 Column: 14
+    public static int VK_IMAGE_ASPECT_NONE_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11456 Column: 9
-    public static uint VK_KHR_PIPELINE_LIBRARY_SPEC_VERSION => 1;
+    // File: vk.xml Line: 10890 Column: 10
+    public static int VK_PIPELINE_CREATE_2_DISABLE_OPTIMIZATION_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11457 Column: 9
-    public static string VK_KHR_PIPELINE_LIBRARY_EXTENSION_NAME => "VK_KHR_pipeline_library";
+    // File: vk.xml Line: 10891 Column: 10
+    public static int VK_PIPELINE_CREATE_2_ALLOW_DERIVATIVES_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11468 Column: 9
-    public static uint VK_KHR_shader_non_semantic_info => 1;
+    // File: vk.xml Line: 10892 Column: 10
+    public static int VK_PIPELINE_CREATE_2_DERIVATIVE_BIT_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11469 Column: 9
-    public static uint VK_KHR_SHADER_NON_SEMANTIC_INFO_SPEC_VERSION => 1;
+    // File: vk.xml Line: 10893 Column: 10
+    public static int VK_PIPELINE_CREATE_2_VIEW_INDEX_FROM_DEVICE_INDEX_BIT_KHR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11470 Column: 9
-    public static string VK_KHR_SHADER_NON_SEMANTIC_INFO_EXTENSION_NAME => "VK_KHR_shader_non_semantic_info";
+    // File: vk.xml Line: 10894 Column: 10
+    public static int VK_PIPELINE_CREATE_2_DISPATCH_BASE_BIT_KHR => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11474 Column: 9
-    public static uint VK_KHR_present_id => 1;
+    // File: vk.xml Line: 10838 Column: 10
+    public static int VK_BUFFER_USAGE_2_TRANSFER_SRC_BIT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11475 Column: 9
-    public static uint VK_KHR_PRESENT_ID_SPEC_VERSION => 1;
+    // File: vk.xml Line: 10839 Column: 10
+    public static int VK_BUFFER_USAGE_2_TRANSFER_DST_BIT_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11476 Column: 9
-    public static string VK_KHR_PRESENT_ID_EXTENSION_NAME => "VK_KHR_present_id";
+    // File: vk.xml Line: 10840 Column: 10
+    public static int VK_BUFFER_USAGE_2_UNIFORM_TEXEL_BUFFER_BIT_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11493 Column: 9
-    public static uint VK_KHR_video_encode_queue => 1;
+    // File: vk.xml Line: 10841 Column: 10
+    public static int VK_BUFFER_USAGE_2_STORAGE_TEXEL_BUFFER_BIT_KHR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11494 Column: 9
-    public static uint VK_KHR_VIDEO_ENCODE_QUEUE_SPEC_VERSION => 12;
+    // File: vk.xml Line: 10842 Column: 10
+    public static int VK_BUFFER_USAGE_2_UNIFORM_BUFFER_BIT_KHR => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11495 Column: 9
-    public static string VK_KHR_VIDEO_ENCODE_QUEUE_EXTENSION_NAME => "VK_KHR_video_encode_queue";
+    // File: vk.xml Line: 10843 Column: 10
+    public static int VK_BUFFER_USAGE_2_STORAGE_BUFFER_BIT_KHR => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11674 Column: 9
-    public static uint VK_KHR_synchronization2 => 1;
+    // File: vk.xml Line: 10844 Column: 10
+    public static int VK_BUFFER_USAGE_2_INDEX_BUFFER_BIT_KHR => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11675 Column: 9
-    public static uint VK_KHR_SYNCHRONIZATION_2_SPEC_VERSION => 1;
+    // File: vk.xml Line: 10845 Column: 10
+    public static int VK_BUFFER_USAGE_2_VERTEX_BUFFER_BIT_KHR => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11676 Column: 9
-    public static string VK_KHR_SYNCHRONIZATION_2_EXTENSION_NAME => "VK_KHR_synchronization2";
+    // File: vk.xml Line: 10846 Column: 10
+    public static int VK_BUFFER_USAGE_2_INDIRECT_BUFFER_BIT_KHR => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11748 Column: 9
-    public static uint VK_KHR_fragment_shader_barycentric => 1;
+    // File: vk.xml Line: 10895 Column: 10
+    public static int VK_PIPELINE_CREATE_2_FAIL_ON_PIPELINE_COMPILE_REQUIRED_BIT_KHR => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11749 Column: 9
-    public static uint VK_KHR_FRAGMENT_SHADER_BARYCENTRIC_SPEC_VERSION => 1;
+    // File: vk.xml Line: 10896 Column: 10
+    public static int VK_PIPELINE_CREATE_2_EARLY_RETURN_ON_FAILURE_BIT_KHR => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11750 Column: 9
-    public static string VK_KHR_FRAGMENT_SHADER_BARYCENTRIC_EXTENSION_NAME => "VK_KHR_fragment_shader_barycentric";
+    // File: vk.xml Line: 10897 Column: 10
+    public static int VK_PIPELINE_CREATE_2_NO_PROTECTED_ACCESS_BIT_EXT => 27;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11766 Column: 9
-    public static uint VK_KHR_shader_subgroup_uniform_control_flow => 1;
+    // File: vk.xml Line: 10898 Column: 10
+    public static int VK_PIPELINE_CREATE_2_PROTECTED_ACCESS_ONLY_BIT_EXT => 30;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11767 Column: 9
-    public static uint VK_KHR_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11661 Column: 10
+    public static int VK_LINE_RASTERIZATION_MODE_DEFAULT_KHR => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11768 Column: 9
-    public static string VK_KHR_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_EXTENSION_NAME => "VK_KHR_shader_subgroup_uniform_control_flow";
+    // File: vk.xml Line: 11662 Column: 10
+    public static int VK_LINE_RASTERIZATION_MODE_RECTANGULAR_KHR => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11778 Column: 9
-    public static uint VK_KHR_zero_initialize_workgroup_memory => 1;
+    // File: vk.xml Line: 11663 Column: 10
+    public static int VK_LINE_RASTERIZATION_MODE_BRESENHAM_KHR => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11779 Column: 9
-    public static uint VK_KHR_ZERO_INITIALIZE_WORKGROUP_MEMORY_SPEC_VERSION => 1;
+    // File: vk.xml Line: 11664 Column: 10
+    public static int VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH_KHR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11780 Column: 9
-    public static string VK_KHR_ZERO_INITIALIZE_WORKGROUP_MEMORY_EXTENSION_NAME => "VK_KHR_zero_initialize_workgroup_memory";
+    // File: video.xml Line: 1224 Column: 10
+    public static int STD_VIDEO_H264_CHROMA_FORMAT_IDC_MONOCHROME => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11786 Column: 9
-    public static uint VK_KHR_workgroup_memory_explicit_layout => 1;
+    // File: video.xml Line: 1225 Column: 10
+    public static int STD_VIDEO_H264_CHROMA_FORMAT_IDC_420 => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11787 Column: 9
-    public static uint VK_KHR_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_SPEC_VERSION => 1;
+    // File: video.xml Line: 1226 Column: 10
+    public static int STD_VIDEO_H264_CHROMA_FORMAT_IDC_422 => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11788 Column: 9
-    public static string VK_KHR_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_EXTENSION_NAME => "VK_KHR_workgroup_memory_explicit_layout";
+    // File: video.xml Line: 1227 Column: 10
+    public static int STD_VIDEO_H264_CHROMA_FORMAT_IDC_444 => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11801 Column: 9
-    public static uint VK_KHR_copy_commands2 => 1;
+    // File: video.xml Line: 1228 Column: 10
+    public static int STD_VIDEO_H264_CHROMA_FORMAT_IDC_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11802 Column: 9
-    public static uint VK_KHR_COPY_COMMANDS_2_SPEC_VERSION => 1;
+    // File: video.xml Line: 1231 Column: 10
+    public static int STD_VIDEO_H264_PROFILE_IDC_BASELINE => 66;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11803 Column: 9
-    public static string VK_KHR_COPY_COMMANDS_2_EXTENSION_NAME => "VK_KHR_copy_commands2";
+    // File: video.xml Line: 1232 Column: 10
+    public static int STD_VIDEO_H264_PROFILE_IDC_MAIN => 77;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11861 Column: 9
-    public static uint VK_KHR_format_feature_flags2 => 1;
+    // File: video.xml Line: 1233 Column: 10
+    public static int STD_VIDEO_H264_PROFILE_IDC_HIGH => 100;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11862 Column: 9
-    public static uint VK_KHR_FORMAT_FEATURE_FLAGS_2_SPEC_VERSION => 2;
+    // File: video.xml Line: 1234 Column: 10
+    public static int STD_VIDEO_H264_PROFILE_IDC_HIGH_444_PREDICTIVE => 244;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11863 Column: 9
-    public static string VK_KHR_FORMAT_FEATURE_FLAGS_2_EXTENSION_NAME => "VK_KHR_format_feature_flags2";
+    // File: video.xml Line: 1235 Column: 10
+    public static int STD_VIDEO_H264_PROFILE_IDC_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11873 Column: 9
-    public static uint VK_KHR_ray_tracing_maintenance1 => 1;
+    // File: video.xml Line: 1238 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_1_0 => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11874 Column: 9
-    public static uint VK_KHR_RAY_TRACING_MAINTENANCE_1_SPEC_VERSION => 1;
+    // File: video.xml Line: 1239 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_1_1 => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11875 Column: 9
-    public static string VK_KHR_RAY_TRACING_MAINTENANCE_1_EXTENSION_NAME => "VK_KHR_ray_tracing_maintenance1";
+    // File: video.xml Line: 1240 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_1_2 => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11910 Column: 9
-    public static uint VK_KHR_portability_enumeration => 1;
+    // File: video.xml Line: 1241 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_1_3 => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11911 Column: 9
-    public static uint VK_KHR_PORTABILITY_ENUMERATION_SPEC_VERSION => 1;
+    // File: video.xml Line: 1242 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_2_0 => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11912 Column: 9
-    public static string VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME => "VK_KHR_portability_enumeration";
+    // File: video.xml Line: 1243 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_2_1 => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11916 Column: 9
-    public static uint VK_KHR_maintenance4 => 1;
+    // File: video.xml Line: 1244 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_2_2 => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11917 Column: 9
-    public static uint VK_KHR_MAINTENANCE_4_SPEC_VERSION => 2;
+    // File: video.xml Line: 1245 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_3_0 => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11918 Column: 9
-    public static string VK_KHR_MAINTENANCE_4_EXTENSION_NAME => "VK_KHR_maintenance4";
+    // File: video.xml Line: 1246 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_3_1 => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11951 Column: 9
-    public static uint VK_KHR_shader_subgroup_rotate => 1;
+    // File: video.xml Line: 1247 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_3_2 => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11952 Column: 9
-    public static uint VK_KHR_SHADER_SUBGROUP_ROTATE_SPEC_VERSION => 2;
+    // File: video.xml Line: 1248 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_4_0 => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11953 Column: 9
-    public static string VK_KHR_SHADER_SUBGROUP_ROTATE_EXTENSION_NAME => "VK_KHR_shader_subgroup_rotate";
+    // File: video.xml Line: 1249 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_4_1 => 11;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11959 Column: 9
-    public static uint VK_KHR_shader_maximal_reconvergence => 1;
+    // File: video.xml Line: 1250 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_4_2 => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11960 Column: 9
-    public static uint VK_KHR_SHADER_MAXIMAL_RECONVERGENCE_SPEC_VERSION => 1;
+    // File: video.xml Line: 1251 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_5_0 => 13;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11961 Column: 9
-    public static string VK_KHR_SHADER_MAXIMAL_RECONVERGENCE_EXTENSION_NAME => "VK_KHR_shader_maximal_reconvergence";
+    // File: video.xml Line: 1252 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_5_1 => 14;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11971 Column: 9
-    public static uint VK_KHR_maintenance5 => 1;
+    // File: video.xml Line: 1253 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_5_2 => 15;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11972 Column: 9
-    public static uint VK_KHR_MAINTENANCE_5_SPEC_VERSION => 1;
+    // File: video.xml Line: 1254 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_6_0 => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11973 Column: 9
-    public static string VK_KHR_MAINTENANCE_5_EXTENSION_NAME => "VK_KHR_maintenance5";
+    // File: video.xml Line: 1255 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_6_1 => 17;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12030 Column: 9
-    public static uint VK_KHR_ray_tracing_position_fetch => 1;
+    // File: video.xml Line: 1256 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_6_2 => 18;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12031 Column: 9
-    public static uint VK_KHR_RAY_TRACING_POSITION_FETCH_SPEC_VERSION => 1;
+    // File: video.xml Line: 1257 Column: 10
+    public static int STD_VIDEO_H264_LEVEL_IDC_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12032 Column: 9
-    public static string VK_KHR_RAY_TRACING_POSITION_FETCH_EXTENSION_NAME => "VK_KHR_ray_tracing_position_fetch";
+    // File: video.xml Line: 1260 Column: 10
+    public static int STD_VIDEO_H264_POC_TYPE_0 => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12042 Column: 9
-    public static uint VK_KHR_pipeline_binary => 1;
+    // File: video.xml Line: 1261 Column: 10
+    public static int STD_VIDEO_H264_POC_TYPE_1 => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12044 Column: 9
-    public static uint VK_MAX_PIPELINE_BINARY_KEY_SIZE_KHR => 32U;
+    // File: video.xml Line: 1262 Column: 10
+    public static int STD_VIDEO_H264_POC_TYPE_2 => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12045 Column: 9
-    public static uint VK_KHR_PIPELINE_BINARY_SPEC_VERSION => 1;
+    // File: video.xml Line: 1263 Column: 10
+    public static int STD_VIDEO_H264_POC_TYPE_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12046 Column: 9
-    public static string VK_KHR_PIPELINE_BINARY_EXTENSION_NAME => "VK_KHR_pipeline_binary";
+    // File: video.xml Line: 1266 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_UNSPECIFIED => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12164 Column: 9
-    public static uint VK_KHR_cooperative_matrix => 1;
+    // File: video.xml Line: 1267 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_SQUARE => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12165 Column: 9
-    public static uint VK_KHR_COOPERATIVE_MATRIX_SPEC_VERSION => 2;
+    // File: video.xml Line: 1268 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_12_11 => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12166 Column: 9
-    public static string VK_KHR_COOPERATIVE_MATRIX_EXTENSION_NAME => "VK_KHR_cooperative_matrix";
+    // File: video.xml Line: 1269 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_10_11 => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12247 Column: 9
-    public static uint VK_KHR_compute_shader_derivatives => 1;
+    // File: video.xml Line: 1270 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_16_11 => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12248 Column: 9
-    public static uint VK_KHR_COMPUTE_SHADER_DERIVATIVES_SPEC_VERSION => 1;
+    // File: video.xml Line: 1271 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_40_33 => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12249 Column: 9
-    public static string VK_KHR_COMPUTE_SHADER_DERIVATIVES_EXTENSION_NAME => "VK_KHR_compute_shader_derivatives";
+    // File: video.xml Line: 1272 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_24_11 => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12266 Column: 9
-    public static uint VK_KHR_video_decode_av1 => 1;
+    // File: video.xml Line: 1273 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_20_11 => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12269 Column: 9
-    public static uint VK_MAX_VIDEO_AV1_REFERENCES_PER_FRAME_KHR => 7U;
+    // File: video.xml Line: 1274 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_32_11 => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12270 Column: 9
-    public static uint VK_KHR_VIDEO_DECODE_AV1_SPEC_VERSION => 1;
+    // File: video.xml Line: 1275 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_80_33 => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12271 Column: 9
-    public static string VK_KHR_VIDEO_DECODE_AV1_EXTENSION_NAME => "VK_KHR_video_decode_av1";
+    // File: video.xml Line: 1276 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_18_11 => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12311 Column: 9
-    public static uint VK_KHR_video_encode_av1 => 1;
+    // File: video.xml Line: 1277 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_15_11 => 11;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12313 Column: 9
-    public static uint VK_KHR_VIDEO_ENCODE_AV1_SPEC_VERSION => 1;
+    // File: video.xml Line: 1278 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_64_33 => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12314 Column: 9
-    public static string VK_KHR_VIDEO_ENCODE_AV1_EXTENSION_NAME => "VK_KHR_video_encode_av1";
+    // File: video.xml Line: 1279 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_160_99 => 13;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12505 Column: 9
-    public static uint VK_KHR_video_maintenance1 => 1;
+    // File: video.xml Line: 1280 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_4_3 => 14;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12506 Column: 9
-    public static uint VK_KHR_VIDEO_MAINTENANCE_1_SPEC_VERSION => 1;
+    // File: video.xml Line: 1281 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_3_2 => 15;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12507 Column: 9
-    public static string VK_KHR_VIDEO_MAINTENANCE_1_EXTENSION_NAME => "VK_KHR_video_maintenance1";
+    // File: video.xml Line: 1282 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_2_1 => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12525 Column: 9
-    public static uint VK_KHR_vertex_attribute_divisor => 1;
+    // File: video.xml Line: 1283 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_EXTENDED_SAR => 255;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12526 Column: 9
-    public static uint VK_KHR_VERTEX_ATTRIBUTE_DIVISOR_SPEC_VERSION => 1;
+    // File: video.xml Line: 1284 Column: 10
+    public static int STD_VIDEO_H264_ASPECT_RATIO_IDC_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12527 Column: 9
-    public static string VK_KHR_VERTEX_ATTRIBUTE_DIVISOR_EXTENSION_NAME => "VK_KHR_vertex_attribute_divisor";
+    // File: video.xml Line: 1287 Column: 10
+    public static int STD_VIDEO_H264_WEIGHTED_BIPRED_IDC_DEFAULT => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12539 Column: 9
-    public static uint VK_KHR_load_store_op_none => 1;
+    // File: video.xml Line: 1288 Column: 10
+    public static int STD_VIDEO_H264_WEIGHTED_BIPRED_IDC_EXPLICIT => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12540 Column: 9
-    public static uint VK_KHR_LOAD_STORE_OP_NONE_SPEC_VERSION => 1;
+    // File: video.xml Line: 1289 Column: 10
+    public static int STD_VIDEO_H264_WEIGHTED_BIPRED_IDC_IMPLICIT => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12541 Column: 9
-    public static string VK_KHR_LOAD_STORE_OP_NONE_EXTENSION_NAME => "VK_KHR_load_store_op_none";
+    // File: video.xml Line: 1290 Column: 10
+    public static int STD_VIDEO_H264_WEIGHTED_BIPRED_IDC_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12545 Column: 9
-    public static uint VK_KHR_shader_float_controls2 => 1;
+    // File: video.xml Line: 1293 Column: 10
+    public static int STD_VIDEO_H264_MODIFICATION_OF_PIC_NUMS_IDC_SHORT_TERM_SUBTRACT => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12546 Column: 9
-    public static uint VK_KHR_SHADER_FLOAT_CONTROLS_2_SPEC_VERSION => 1;
+    // File: video.xml Line: 1294 Column: 10
+    public static int STD_VIDEO_H264_MODIFICATION_OF_PIC_NUMS_IDC_SHORT_TERM_ADD => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12547 Column: 9
-    public static string VK_KHR_SHADER_FLOAT_CONTROLS_2_EXTENSION_NAME => "VK_KHR_shader_float_controls2";
+    // File: video.xml Line: 1295 Column: 10
+    public static int STD_VIDEO_H264_MODIFICATION_OF_PIC_NUMS_IDC_LONG_TERM => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12553 Column: 9
-    public static uint VK_KHR_index_type_uint8 => 1;
+    // File: video.xml Line: 1296 Column: 10
+    public static int STD_VIDEO_H264_MODIFICATION_OF_PIC_NUMS_IDC_END => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12554 Column: 9
-    public static uint VK_KHR_INDEX_TYPE_UINT8_SPEC_VERSION => 1;
+    // File: video.xml Line: 1297 Column: 10
+    public static int STD_VIDEO_H264_MODIFICATION_OF_PIC_NUMS_IDC_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12555 Column: 9
-    public static string VK_KHR_INDEX_TYPE_UINT8_EXTENSION_NAME => "VK_KHR_index_type_uint8";
+    // File: video.xml Line: 1300 Column: 10
+    public static int STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_END => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12561 Column: 9
-    public static uint VK_KHR_line_rasterization => 1;
+    // File: video.xml Line: 1301 Column: 10
+    public static int STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_UNMARK_SHORT_TERM => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12562 Column: 9
-    public static uint VK_KHR_LINE_RASTERIZATION_SPEC_VERSION => 1;
+    // File: video.xml Line: 1302 Column: 10
+    public static int STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_UNMARK_LONG_TERM => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12563 Column: 9
-    public static string VK_KHR_LINE_RASTERIZATION_EXTENSION_NAME => "VK_KHR_line_rasterization";
+    // File: video.xml Line: 1303 Column: 10
+    public static int STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_MARK_LONG_TERM => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12583 Column: 9
-    public static uint VK_KHR_calibrated_timestamps => 1;
+    // File: video.xml Line: 1304 Column: 10
+    public static int STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_SET_MAX_LONG_TERM_INDEX => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12584 Column: 9
-    public static uint VK_KHR_CALIBRATED_TIMESTAMPS_SPEC_VERSION => 1;
+    // File: video.xml Line: 1305 Column: 10
+    public static int STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_UNMARK_ALL => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12585 Column: 9
-    public static string VK_KHR_CALIBRATED_TIMESTAMPS_EXTENSION_NAME => "VK_KHR_calibrated_timestamps";
+    // File: video.xml Line: 1306 Column: 10
+    public static int STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_MARK_CURRENT_AS_LONG_TERM => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12623 Column: 9
-    public static uint VK_KHR_shader_expect_assume => 1;
+    // File: video.xml Line: 1307 Column: 10
+    public static int STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12624 Column: 9
-    public static uint VK_KHR_SHADER_EXPECT_ASSUME_SPEC_VERSION => 1;
+    // File: video.xml Line: 1310 Column: 10
+    public static int STD_VIDEO_H264_CABAC_INIT_IDC_0 => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12625 Column: 9
-    public static string VK_KHR_SHADER_EXPECT_ASSUME_EXTENSION_NAME => "VK_KHR_shader_expect_assume";
+    // File: video.xml Line: 1311 Column: 10
+    public static int STD_VIDEO_H264_CABAC_INIT_IDC_1 => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12631 Column: 9
-    public static uint VK_KHR_maintenance6 => 1;
+    // File: video.xml Line: 1312 Column: 10
+    public static int STD_VIDEO_H264_CABAC_INIT_IDC_2 => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12632 Column: 9
-    public static uint VK_KHR_MAINTENANCE_6_SPEC_VERSION => 1;
+    // File: video.xml Line: 1313 Column: 10
+    public static int STD_VIDEO_H264_CABAC_INIT_IDC_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12633 Column: 9
-    public static string VK_KHR_MAINTENANCE_6_EXTENSION_NAME => "VK_KHR_maintenance6";
+    // File: video.xml Line: 1316 Column: 10
+    public static int STD_VIDEO_H264_DISABLE_DEBLOCKING_FILTER_IDC_DISABLED => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12702 Column: 9
-    public static uint VK_KHR_video_encode_quantization_map => 1;
+    // File: video.xml Line: 1317 Column: 10
+    public static int STD_VIDEO_H264_DISABLE_DEBLOCKING_FILTER_IDC_ENABLED => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12703 Column: 9
-    public static uint VK_KHR_VIDEO_ENCODE_QUANTIZATION_MAP_SPEC_VERSION => 2;
+    // File: video.xml Line: 1318 Column: 10
+    public static int STD_VIDEO_H264_DISABLE_DEBLOCKING_FILTER_IDC_PARTIAL => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12704 Column: 9
-    public static string VK_KHR_VIDEO_ENCODE_QUANTIZATION_MAP_EXTENSION_NAME => "VK_KHR_video_encode_quantization_map";
+    // File: video.xml Line: 1319 Column: 10
+    public static int STD_VIDEO_H264_DISABLE_DEBLOCKING_FILTER_IDC_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12772 Column: 9
-    public static uint VK_KHR_shader_relaxed_extended_instruction => 1;
+    // File: video.xml Line: 1322 Column: 10
+    public static int STD_VIDEO_H264_SLICE_TYPE_P => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12773 Column: 9
-    public static uint VK_KHR_SHADER_RELAXED_EXTENDED_INSTRUCTION_SPEC_VERSION => 1;
+    // File: video.xml Line: 1323 Column: 10
+    public static int STD_VIDEO_H264_SLICE_TYPE_B => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12774 Column: 9
-    public static string VK_KHR_SHADER_RELAXED_EXTENDED_INSTRUCTION_EXTENSION_NAME => "VK_KHR_shader_relaxed_extended_instruction";
+    // File: video.xml Line: 1324 Column: 10
+    public static int STD_VIDEO_H264_SLICE_TYPE_I => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12784 Column: 9
-    public static uint VK_KHR_maintenance7 => 1;
+    // File: video.xml Line: 1329 Column: 10
+    public static int STD_VIDEO_H264_SLICE_TYPE_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12785 Column: 9
-    public static uint VK_KHR_MAINTENANCE_7_SPEC_VERSION => 1;
+    // File: video.xml Line: 1332 Column: 10
+    public static int STD_VIDEO_H264_PICTURE_TYPE_P => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12786 Column: 9
-    public static string VK_KHR_MAINTENANCE_7_EXTENSION_NAME => "VK_KHR_maintenance7";
+    // File: video.xml Line: 1333 Column: 10
+    public static int STD_VIDEO_H264_PICTURE_TYPE_B => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12840 Column: 9
-    public static uint VK_KHR_maintenance8 => 1;
+    // File: video.xml Line: 1334 Column: 10
+    public static int STD_VIDEO_H264_PICTURE_TYPE_I => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12841 Column: 9
-    public static uint VK_KHR_MAINTENANCE_8_SPEC_VERSION => 1;
+    // File: video.xml Line: 1339 Column: 10
+    public static int STD_VIDEO_H264_PICTURE_TYPE_IDR => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12842 Column: 9
-    public static string VK_KHR_MAINTENANCE_8_EXTENSION_NAME => "VK_KHR_maintenance8";
+    // File: video.xml Line: 1340 Column: 10
+    public static int STD_VIDEO_H264_PICTURE_TYPE_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12865 Column: 9
-    public static uint VK_KHR_video_maintenance2 => 1;
+    // File: video.xml Line: 1343 Column: 10
+    public static int STD_VIDEO_H264_NON_VCL_NALU_TYPE_SPS => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12866 Column: 9
-    public static uint VK_KHR_VIDEO_MAINTENANCE_2_SPEC_VERSION => 1;
+    // File: video.xml Line: 1344 Column: 10
+    public static int STD_VIDEO_H264_NON_VCL_NALU_TYPE_PPS => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12867 Column: 9
-    public static string VK_KHR_VIDEO_MAINTENANCE_2_EXTENSION_NAME => "VK_KHR_video_maintenance2";
+    // File: video.xml Line: 1345 Column: 10
+    public static int STD_VIDEO_H264_NON_VCL_NALU_TYPE_AUD => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12898 Column: 9
-    public static uint VK_KHR_depth_clamp_zero_one => 1;
+    // File: video.xml Line: 1346 Column: 10
+    public static int STD_VIDEO_H264_NON_VCL_NALU_TYPE_PREFIX => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12899 Column: 9
-    public static uint VK_KHR_DEPTH_CLAMP_ZERO_ONE_SPEC_VERSION => 1;
+    // File: video.xml Line: 1347 Column: 10
+    public static int STD_VIDEO_H264_NON_VCL_NALU_TYPE_END_OF_SEQUENCE => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12900 Column: 9
-    public static string VK_KHR_DEPTH_CLAMP_ZERO_ONE_EXTENSION_NAME => "VK_KHR_depth_clamp_zero_one";
+    // File: video.xml Line: 1348 Column: 10
+    public static int STD_VIDEO_H264_NON_VCL_NALU_TYPE_END_OF_STREAM => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12910 Column: 9
-    public static uint VK_EXT_debug_report => 1;
+    // File: video.xml Line: 1349 Column: 10
+    public static int STD_VIDEO_H264_NON_VCL_NALU_TYPE_PRECODED => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12912 Column: 9
-    public static uint VK_EXT_DEBUG_REPORT_SPEC_VERSION => 10;
+    // File: video.xml Line: 1350 Column: 10
+    public static int STD_VIDEO_H264_NON_VCL_NALU_TYPE_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12913 Column: 9
-    public static string VK_EXT_DEBUG_REPORT_EXTENSION_NAME => "VK_EXT_debug_report";
+    // File: video.xml Line: 1355 Column: 10
+    public static int STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_TOP => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13022 Column: 9
-    public static uint VK_NV_glsl_shader => 1;
+    // File: video.xml Line: 1356 Column: 10
+    public static int STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_BOTTOM => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13023 Column: 9
-    public static uint VK_NV_GLSL_SHADER_SPEC_VERSION => 1;
+    // File: video.xml Line: 1357 Column: 10
+    public static int STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13024 Column: 9
-    public static string VK_NV_GLSL_SHADER_EXTENSION_NAME => "VK_NV_glsl_shader";
+    // File: video.xml Line: 1362 Column: 10
+    public static int STD_VIDEO_H265_CHROMA_FORMAT_IDC_MONOCHROME => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13028 Column: 9
-    public static uint VK_EXT_depth_range_unrestricted => 1;
+    // File: video.xml Line: 1363 Column: 10
+    public static int STD_VIDEO_H265_CHROMA_FORMAT_IDC_420 => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13029 Column: 9
-    public static uint VK_EXT_DEPTH_RANGE_UNRESTRICTED_SPEC_VERSION => 1;
+    // File: video.xml Line: 1364 Column: 10
+    public static int STD_VIDEO_H265_CHROMA_FORMAT_IDC_422 => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13030 Column: 9
-    public static string VK_EXT_DEPTH_RANGE_UNRESTRICTED_EXTENSION_NAME => "VK_EXT_depth_range_unrestricted";
+    // File: video.xml Line: 1365 Column: 10
+    public static int STD_VIDEO_H265_CHROMA_FORMAT_IDC_444 => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13034 Column: 9
-    public static uint VK_IMG_filter_cubic => 1;
+    // File: video.xml Line: 1366 Column: 10
+    public static int STD_VIDEO_H265_CHROMA_FORMAT_IDC_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13035 Column: 9
-    public static uint VK_IMG_FILTER_CUBIC_SPEC_VERSION => 1;
+    // File: video.xml Line: 1369 Column: 10
+    public static int STD_VIDEO_H265_PROFILE_IDC_MAIN => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13036 Column: 9
-    public static string VK_IMG_FILTER_CUBIC_EXTENSION_NAME => "VK_IMG_filter_cubic";
+    // File: video.xml Line: 1370 Column: 10
+    public static int STD_VIDEO_H265_PROFILE_IDC_MAIN_10 => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13040 Column: 9
-    public static uint VK_AMD_rasterization_order => 1;
+    // File: video.xml Line: 1371 Column: 10
+    public static int STD_VIDEO_H265_PROFILE_IDC_MAIN_STILL_PICTURE => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13041 Column: 9
-    public static uint VK_AMD_RASTERIZATION_ORDER_SPEC_VERSION => 1;
+    // File: video.xml Line: 1372 Column: 10
+    public static int STD_VIDEO_H265_PROFILE_IDC_FORMAT_RANGE_EXTENSIONS => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13042 Column: 9
-    public static string VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME => "VK_AMD_rasterization_order";
+    // File: video.xml Line: 1373 Column: 10
+    public static int STD_VIDEO_H265_PROFILE_IDC_SCC_EXTENSIONS => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13058 Column: 9
-    public static uint VK_AMD_shader_trinary_minmax => 1;
+    // File: video.xml Line: 1374 Column: 10
+    public static int STD_VIDEO_H265_PROFILE_IDC_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13059 Column: 9
-    public static uint VK_AMD_SHADER_TRINARY_MINMAX_SPEC_VERSION => 1;
+    // File: video.xml Line: 1377 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_1_0 => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13060 Column: 9
-    public static string VK_AMD_SHADER_TRINARY_MINMAX_EXTENSION_NAME => "VK_AMD_shader_trinary_minmax";
+    // File: video.xml Line: 1378 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_2_0 => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13064 Column: 9
-    public static uint VK_AMD_shader_explicit_vertex_parameter => 1;
+    // File: video.xml Line: 1379 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_2_1 => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13065 Column: 9
-    public static uint VK_AMD_SHADER_EXPLICIT_VERTEX_PARAMETER_SPEC_VERSION => 1;
+    // File: video.xml Line: 1380 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_3_0 => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13066 Column: 9
-    public static string VK_AMD_SHADER_EXPLICIT_VERTEX_PARAMETER_EXTENSION_NAME => "VK_AMD_shader_explicit_vertex_parameter";
+    // File: video.xml Line: 1381 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_3_1 => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13070 Column: 9
-    public static uint VK_EXT_debug_marker => 1;
+    // File: video.xml Line: 1382 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_4_0 => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13071 Column: 9
-    public static uint VK_EXT_DEBUG_MARKER_SPEC_VERSION => 4;
+    // File: video.xml Line: 1383 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_4_1 => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13072 Column: 9
-    public static string VK_EXT_DEBUG_MARKER_EXTENSION_NAME => "VK_EXT_debug_marker";
+    // File: video.xml Line: 1384 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_5_0 => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13127 Column: 9
-    public static uint VK_AMD_gcn_shader => 1;
+    // File: video.xml Line: 1385 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_5_1 => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13128 Column: 9
-    public static uint VK_AMD_GCN_SHADER_SPEC_VERSION => 1;
+    // File: video.xml Line: 1386 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_5_2 => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13129 Column: 9
-    public static string VK_AMD_GCN_SHADER_EXTENSION_NAME => "VK_AMD_gcn_shader";
+    // File: video.xml Line: 1387 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_6_0 => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13133 Column: 9
-    public static uint VK_NV_dedicated_allocation => 1;
+    // File: video.xml Line: 1388 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_6_1 => 11;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13134 Column: 9
-    public static uint VK_NV_DEDICATED_ALLOCATION_SPEC_VERSION => 1;
+    // File: video.xml Line: 1389 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_6_2 => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13135 Column: 9
-    public static string VK_NV_DEDICATED_ALLOCATION_EXTENSION_NAME => "VK_NV_dedicated_allocation";
+    // File: video.xml Line: 1390 Column: 10
+    public static int STD_VIDEO_H265_LEVEL_IDC_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13158 Column: 9
-    public static uint VK_EXT_transform_feedback => 1;
+    // File: video.xml Line: 1393 Column: 10
+    public static int STD_VIDEO_H265_SLICE_TYPE_B => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13159 Column: 9
-    public static uint VK_EXT_TRANSFORM_FEEDBACK_SPEC_VERSION => 1;
+    // File: video.xml Line: 1394 Column: 10
+    public static int STD_VIDEO_H265_SLICE_TYPE_P => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13160 Column: 9
-    public static string VK_EXT_TRANSFORM_FEEDBACK_EXTENSION_NAME => "VK_EXT_transform_feedback";
+    // File: video.xml Line: 1395 Column: 10
+    public static int STD_VIDEO_H265_SLICE_TYPE_I => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13246 Column: 9
-    public static uint VK_NVX_binary_import => 1;
+    // File: video.xml Line: 1396 Column: 10
+    public static int STD_VIDEO_H265_SLICE_TYPE_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13249 Column: 9
-    public static uint VK_NVX_BINARY_IMPORT_SPEC_VERSION => 2;
+    // File: video.xml Line: 1399 Column: 10
+    public static int STD_VIDEO_H265_PICTURE_TYPE_P => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13250 Column: 9
-    public static string VK_NVX_BINARY_IMPORT_EXTENSION_NAME => "VK_NVX_binary_import";
+    // File: video.xml Line: 1400 Column: 10
+    public static int STD_VIDEO_H265_PICTURE_TYPE_B => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13324 Column: 9
-    public static uint VK_NVX_image_view_handle => 1;
+    // File: video.xml Line: 1401 Column: 10
+    public static int STD_VIDEO_H265_PICTURE_TYPE_I => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13325 Column: 9
-    public static uint VK_NVX_IMAGE_VIEW_HANDLE_SPEC_VERSION => 3;
+    // File: video.xml Line: 1402 Column: 10
+    public static int STD_VIDEO_H265_PICTURE_TYPE_IDR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13326 Column: 9
-    public static string VK_NVX_IMAGE_VIEW_HANDLE_EXTENSION_NAME => "VK_NVX_image_view_handle";
+    // File: video.xml Line: 1403 Column: 10
+    public static int STD_VIDEO_H265_PICTURE_TYPE_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13363 Column: 9
-    public static uint VK_AMD_draw_indirect_count => 1;
+    // File: video.xml Line: 1406 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_UNSPECIFIED => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13364 Column: 9
-    public static uint VK_AMD_DRAW_INDIRECT_COUNT_SPEC_VERSION => 2;
+    // File: video.xml Line: 1407 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_SQUARE => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13365 Column: 9
-    public static string VK_AMD_DRAW_INDIRECT_COUNT_EXTENSION_NAME => "VK_AMD_draw_indirect_count";
+    // File: video.xml Line: 1408 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_12_11 => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13391 Column: 9
-    public static uint VK_AMD_negative_viewport_height => 1;
+    // File: video.xml Line: 1409 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_10_11 => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13392 Column: 9
-    public static uint VK_AMD_NEGATIVE_VIEWPORT_HEIGHT_SPEC_VERSION => 1;
+    // File: video.xml Line: 1410 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_16_11 => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13393 Column: 9
-    public static string VK_AMD_NEGATIVE_VIEWPORT_HEIGHT_EXTENSION_NAME => "VK_AMD_negative_viewport_height";
+    // File: video.xml Line: 1411 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_40_33 => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13397 Column: 9
-    public static uint VK_AMD_gpu_shader_half_float => 1;
+    // File: video.xml Line: 1412 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_24_11 => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13398 Column: 9
-    public static uint VK_AMD_GPU_SHADER_HALF_FLOAT_SPEC_VERSION => 2;
+    // File: video.xml Line: 1413 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_20_11 => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13399 Column: 9
-    public static string VK_AMD_GPU_SHADER_HALF_FLOAT_EXTENSION_NAME => "VK_AMD_gpu_shader_half_float";
+    // File: video.xml Line: 1414 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_32_11 => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13403 Column: 9
-    public static uint VK_AMD_shader_ballot => 1;
+    // File: video.xml Line: 1415 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_80_33 => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13404 Column: 9
-    public static uint VK_AMD_SHADER_BALLOT_SPEC_VERSION => 1;
+    // File: video.xml Line: 1416 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_18_11 => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13405 Column: 9
-    public static string VK_AMD_SHADER_BALLOT_EXTENSION_NAME => "VK_AMD_shader_ballot";
+    // File: video.xml Line: 1417 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_15_11 => 11;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13409 Column: 9
-    public static uint VK_AMD_texture_gather_bias_lod => 1;
+    // File: video.xml Line: 1418 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_64_33 => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13410 Column: 9
-    public static uint VK_AMD_TEXTURE_GATHER_BIAS_LOD_SPEC_VERSION => 1;
+    // File: video.xml Line: 1419 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_160_99 => 13;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13411 Column: 9
-    public static string VK_AMD_TEXTURE_GATHER_BIAS_LOD_EXTENSION_NAME => "VK_AMD_texture_gather_bias_lod";
+    // File: video.xml Line: 1420 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_4_3 => 14;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13421 Column: 9
-    public static uint VK_AMD_shader_info => 1;
+    // File: video.xml Line: 1421 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_3_2 => 15;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13422 Column: 9
-    public static uint VK_AMD_SHADER_INFO_SPEC_VERSION => 1;
+    // File: video.xml Line: 1422 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_2_1 => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13423 Column: 9
-    public static string VK_AMD_SHADER_INFO_EXTENSION_NAME => "VK_AMD_shader_info";
+    // File: video.xml Line: 1423 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_EXTENDED_SAR => 255;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13463 Column: 9
-    public static uint VK_AMD_shader_image_load_store_lod => 1;
+    // File: video.xml Line: 1424 Column: 10
+    public static int STD_VIDEO_H265_ASPECT_RATIO_IDC_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13464 Column: 9
-    public static uint VK_AMD_SHADER_IMAGE_LOAD_STORE_LOD_SPEC_VERSION => 1;
+    // File: video.xml Line: 1429 Column: 10
+    public static int STD_VIDEO_AV1_PROFILE_MAIN => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13465 Column: 9
-    public static string VK_AMD_SHADER_IMAGE_LOAD_STORE_LOD_EXTENSION_NAME => "VK_AMD_shader_image_load_store_lod";
+    // File: video.xml Line: 1430 Column: 10
+    public static int STD_VIDEO_AV1_PROFILE_HIGH => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13469 Column: 9
-    public static uint VK_NV_corner_sampled_image => 1;
+    // File: video.xml Line: 1431 Column: 10
+    public static int STD_VIDEO_AV1_PROFILE_PROFESSIONAL => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13470 Column: 9
-    public static uint VK_NV_CORNER_SAMPLED_IMAGE_SPEC_VERSION => 2;
+    // File: video.xml Line: 1432 Column: 10
+    public static int STD_VIDEO_AV1_PROFILE_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13471 Column: 9
-    public static string VK_NV_CORNER_SAMPLED_IMAGE_EXTENSION_NAME => "VK_NV_corner_sampled_image";
+    // File: video.xml Line: 1435 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_2_0 => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13481 Column: 9
-    public static uint VK_IMG_format_pvrtc => 1;
+    // File: video.xml Line: 1436 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_2_1 => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13482 Column: 9
-    public static uint VK_IMG_FORMAT_PVRTC_SPEC_VERSION => 1;
+    // File: video.xml Line: 1437 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_2_2 => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13483 Column: 9
-    public static string VK_IMG_FORMAT_PVRTC_EXTENSION_NAME => "VK_IMG_format_pvrtc";
+    // File: video.xml Line: 1438 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_2_3 => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13487 Column: 9
-    public static uint VK_NV_external_memory_capabilities => 1;
+    // File: video.xml Line: 1439 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_3_0 => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13488 Column: 9
-    public static uint VK_NV_EXTERNAL_MEMORY_CAPABILITIES_SPEC_VERSION => 1;
+    // File: video.xml Line: 1440 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_3_1 => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13489 Column: 9
-    public static string VK_NV_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME => "VK_NV_external_memory_capabilities";
+    // File: video.xml Line: 1441 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_3_2 => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13530 Column: 9
-    public static uint VK_NV_external_memory => 1;
+    // File: video.xml Line: 1442 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_3_3 => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13531 Column: 9
-    public static uint VK_NV_EXTERNAL_MEMORY_SPEC_VERSION => 1;
+    // File: video.xml Line: 1443 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_4_0 => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13532 Column: 9
-    public static string VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME => "VK_NV_external_memory";
+    // File: video.xml Line: 1444 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_4_1 => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13548 Column: 9
-    public static uint VK_EXT_validation_flags => 1;
+    // File: video.xml Line: 1445 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_4_2 => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13549 Column: 9
-    public static uint VK_EXT_VALIDATION_FLAGS_SPEC_VERSION => 3;
+    // File: video.xml Line: 1446 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_4_3 => 11;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13550 Column: 9
-    public static string VK_EXT_VALIDATION_FLAGS_EXTENSION_NAME => "VK_EXT_validation_flags";
+    // File: video.xml Line: 1447 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_5_0 => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13567 Column: 9
-    public static uint VK_EXT_shader_subgroup_ballot => 1;
+    // File: video.xml Line: 1448 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_5_1 => 13;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13568 Column: 9
-    public static uint VK_EXT_SHADER_SUBGROUP_BALLOT_SPEC_VERSION => 1;
+    // File: video.xml Line: 1449 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_5_2 => 14;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13569 Column: 9
-    public static string VK_EXT_SHADER_SUBGROUP_BALLOT_EXTENSION_NAME => "VK_EXT_shader_subgroup_ballot";
+    // File: video.xml Line: 1450 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_5_3 => 15;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13573 Column: 9
-    public static uint VK_EXT_shader_subgroup_vote => 1;
+    // File: video.xml Line: 1451 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_6_0 => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13574 Column: 9
-    public static uint VK_EXT_SHADER_SUBGROUP_VOTE_SPEC_VERSION => 1;
+    // File: video.xml Line: 1452 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_6_1 => 17;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13575 Column: 9
-    public static string VK_EXT_SHADER_SUBGROUP_VOTE_EXTENSION_NAME => "VK_EXT_shader_subgroup_vote";
+    // File: video.xml Line: 1453 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_6_2 => 18;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13579 Column: 9
-    public static uint VK_EXT_texture_compression_astc_hdr => 1;
+    // File: video.xml Line: 1454 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_6_3 => 19;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13580 Column: 9
-    public static uint VK_EXT_TEXTURE_COMPRESSION_ASTC_HDR_SPEC_VERSION => 1;
+    // File: video.xml Line: 1455 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_7_0 => 20;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13581 Column: 9
-    public static string VK_EXT_TEXTURE_COMPRESSION_ASTC_HDR_EXTENSION_NAME => "VK_EXT_texture_compression_astc_hdr";
+    // File: video.xml Line: 1456 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_7_1 => 21;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13587 Column: 9
-    public static uint VK_EXT_astc_decode_mode => 1;
+    // File: video.xml Line: 1457 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_7_2 => 22;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13588 Column: 9
-    public static uint VK_EXT_ASTC_DECODE_MODE_SPEC_VERSION => 1;
+    // File: video.xml Line: 1458 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_7_3 => 23;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13589 Column: 9
-    public static string VK_EXT_ASTC_DECODE_MODE_EXTENSION_NAME => "VK_EXT_astc_decode_mode";
+    // File: video.xml Line: 1459 Column: 10
+    public static int STD_VIDEO_AV1_LEVEL_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13605 Column: 9
-    public static uint VK_EXT_pipeline_robustness => 1;
+    // File: video.xml Line: 1462 Column: 10
+    public static int STD_VIDEO_AV1_FRAME_TYPE_KEY => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13606 Column: 9
-    public static uint VK_EXT_PIPELINE_ROBUSTNESS_SPEC_VERSION => 1;
+    // File: video.xml Line: 1463 Column: 10
+    public static int STD_VIDEO_AV1_FRAME_TYPE_INTER => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13607 Column: 9
-    public static string VK_EXT_PIPELINE_ROBUSTNESS_EXTENSION_NAME => "VK_EXT_pipeline_robustness";
+    // File: video.xml Line: 1464 Column: 10
+    public static int STD_VIDEO_AV1_FRAME_TYPE_INTRA_ONLY => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13621 Column: 9
-    public static uint VK_EXT_conditional_rendering => 1;
+    // File: video.xml Line: 1465 Column: 10
+    public static int STD_VIDEO_AV1_FRAME_TYPE_SWITCH => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13622 Column: 9
-    public static uint VK_EXT_CONDITIONAL_RENDERING_SPEC_VERSION => 2;
+    // File: video.xml Line: 1466 Column: 10
+    public static int STD_VIDEO_AV1_FRAME_TYPE_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13623 Column: 9
-    public static string VK_EXT_CONDITIONAL_RENDERING_EXTENSION_NAME => "VK_EXT_conditional_rendering";
+    // File: video.xml Line: 1469 Column: 10
+    public static int STD_VIDEO_AV1_REFERENCE_NAME_INTRA_FRAME => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13665 Column: 9
-    public static uint VK_NV_clip_space_w_scaling => 1;
+    // File: video.xml Line: 1470 Column: 10
+    public static int STD_VIDEO_AV1_REFERENCE_NAME_LAST_FRAME => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13666 Column: 9
-    public static uint VK_NV_CLIP_SPACE_W_SCALING_SPEC_VERSION => 1;
+    // File: video.xml Line: 1471 Column: 10
+    public static int STD_VIDEO_AV1_REFERENCE_NAME_LAST2_FRAME => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13667 Column: 9
-    public static string VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME => "VK_NV_clip_space_w_scaling";
+    // File: video.xml Line: 1472 Column: 10
+    public static int STD_VIDEO_AV1_REFERENCE_NAME_LAST3_FRAME => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13693 Column: 9
-    public static uint VK_EXT_direct_mode_display => 1;
+    // File: video.xml Line: 1473 Column: 10
+    public static int STD_VIDEO_AV1_REFERENCE_NAME_GOLDEN_FRAME => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13694 Column: 9
-    public static uint VK_EXT_DIRECT_MODE_DISPLAY_SPEC_VERSION => 1;
+    // File: video.xml Line: 1474 Column: 10
+    public static int STD_VIDEO_AV1_REFERENCE_NAME_BWDREF_FRAME => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13695 Column: 9
-    public static string VK_EXT_DIRECT_MODE_DISPLAY_EXTENSION_NAME => "VK_EXT_direct_mode_display";
+    // File: video.xml Line: 1475 Column: 10
+    public static int STD_VIDEO_AV1_REFERENCE_NAME_ALTREF2_FRAME => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13706 Column: 9
-    public static uint VK_EXT_display_surface_counter => 1;
+    // File: video.xml Line: 1476 Column: 10
+    public static int STD_VIDEO_AV1_REFERENCE_NAME_ALTREF_FRAME => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13707 Column: 9
-    public static uint VK_EXT_DISPLAY_SURFACE_COUNTER_SPEC_VERSION => 1;
+    // File: video.xml Line: 1477 Column: 10
+    public static int STD_VIDEO_AV1_REFERENCE_NAME_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13708 Column: 9
-    public static string VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME => "VK_EXT_display_surface_counter";
+    // File: video.xml Line: 1480 Column: 10
+    public static int STD_VIDEO_AV1_INTERPOLATION_FILTER_EIGHTTAP => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13744 Column: 9
-    public static uint VK_EXT_display_control => 1;
+    // File: video.xml Line: 1481 Column: 10
+    public static int STD_VIDEO_AV1_INTERPOLATION_FILTER_EIGHTTAP_SMOOTH => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13745 Column: 9
-    public static uint VK_EXT_DISPLAY_CONTROL_SPEC_VERSION => 1;
+    // File: video.xml Line: 1482 Column: 10
+    public static int STD_VIDEO_AV1_INTERPOLATION_FILTER_EIGHTTAP_SHARP => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13746 Column: 9
-    public static string VK_EXT_DISPLAY_CONTROL_EXTENSION_NAME => "VK_EXT_display_control";
+    // File: video.xml Line: 1483 Column: 10
+    public static int STD_VIDEO_AV1_INTERPOLATION_FILTER_BILINEAR => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13821 Column: 9
-    public static uint VK_GOOGLE_display_timing => 1;
+    // File: video.xml Line: 1484 Column: 10
+    public static int STD_VIDEO_AV1_INTERPOLATION_FILTER_SWITCHABLE => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13822 Column: 9
-    public static uint VK_GOOGLE_DISPLAY_TIMING_SPEC_VERSION => 1;
+    // File: video.xml Line: 1485 Column: 10
+    public static int STD_VIDEO_AV1_INTERPOLATION_FILTER_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13823 Column: 9
-    public static string VK_GOOGLE_DISPLAY_TIMING_EXTENSION_NAME => "VK_GOOGLE_display_timing";
+    // File: video.xml Line: 1488 Column: 10
+    public static int STD_VIDEO_AV1_TX_MODE_ONLY_4X4 => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13866 Column: 9
-    public static uint VK_NV_sample_mask_override_coverage => 1;
+    // File: video.xml Line: 1489 Column: 10
+    public static int STD_VIDEO_AV1_TX_MODE_LARGEST => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13867 Column: 9
-    public static uint VK_NV_SAMPLE_MASK_OVERRIDE_COVERAGE_SPEC_VERSION => 1;
+    // File: video.xml Line: 1490 Column: 10
+    public static int STD_VIDEO_AV1_TX_MODE_SELECT => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13868 Column: 9
-    public static string VK_NV_SAMPLE_MASK_OVERRIDE_COVERAGE_EXTENSION_NAME => "VK_NV_sample_mask_override_coverage";
+    // File: video.xml Line: 1491 Column: 10
+    public static int STD_VIDEO_AV1_TX_MODE_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13872 Column: 9
-    public static uint VK_NV_geometry_shader_passthrough => 1;
+    // File: video.xml Line: 1494 Column: 10
+    public static int STD_VIDEO_AV1_FRAME_RESTORATION_TYPE_NONE => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13873 Column: 9
-    public static uint VK_NV_GEOMETRY_SHADER_PASSTHROUGH_SPEC_VERSION => 1;
+    // File: video.xml Line: 1495 Column: 10
+    public static int STD_VIDEO_AV1_FRAME_RESTORATION_TYPE_WIENER => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13874 Column: 9
-    public static string VK_NV_GEOMETRY_SHADER_PASSTHROUGH_EXTENSION_NAME => "VK_NV_geometry_shader_passthrough";
+    // File: video.xml Line: 1496 Column: 10
+    public static int STD_VIDEO_AV1_FRAME_RESTORATION_TYPE_SGRPROJ => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13878 Column: 9
-    public static uint VK_NV_viewport_array2 => 1;
+    // File: video.xml Line: 1497 Column: 10
+    public static int STD_VIDEO_AV1_FRAME_RESTORATION_TYPE_SWITCHABLE => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13879 Column: 9
-    public static uint VK_NV_VIEWPORT_ARRAY_2_SPEC_VERSION => 1;
+    // File: video.xml Line: 1498 Column: 10
+    public static int STD_VIDEO_AV1_FRAME_RESTORATION_TYPE_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13880 Column: 9
-    public static string VK_NV_VIEWPORT_ARRAY_2_EXTENSION_NAME => "VK_NV_viewport_array2";
+    // File: video.xml Line: 1501 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_BT_709 => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13882 Column: 9
-    public static uint VK_NV_VIEWPORT_ARRAY2_SPEC_VERSION => VK_NV_VIEWPORT_ARRAY_2_SPEC_VERSION;
+    // File: video.xml Line: 1502 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_UNSPECIFIED => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13884 Column: 9
-    public static string VK_NV_VIEWPORT_ARRAY2_EXTENSION_NAME => VK_NV_VIEWPORT_ARRAY_2_EXTENSION_NAME;
+    // File: video.xml Line: 1504 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_BT_470_M => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13888 Column: 9
-    public static uint VK_NVX_multiview_per_view_attributes => 1;
+    // File: video.xml Line: 1505 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_BT_470_B_G => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13889 Column: 9
-    public static uint VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_SPEC_VERSION => 1;
+    // File: video.xml Line: 1506 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_BT_601 => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13890 Column: 9
-    public static string VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_EXTENSION_NAME => "VK_NVX_multiview_per_view_attributes";
+    // File: video.xml Line: 1507 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_SMPTE_240 => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13907 Column: 9
-    public static uint VK_NV_viewport_swizzle => 1;
+    // File: video.xml Line: 1508 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_GENERIC_FILM => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13908 Column: 9
-    public static uint VK_NV_VIEWPORT_SWIZZLE_SPEC_VERSION => 1;
+    // File: video.xml Line: 1509 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_BT_2020 => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13909 Column: 9
-    public static string VK_NV_VIEWPORT_SWIZZLE_EXTENSION_NAME => "VK_NV_viewport_swizzle";
+    // File: video.xml Line: 1510 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_XYZ => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13941 Column: 9
-    public static uint VK_EXT_discard_rectangles => 1;
+    // File: video.xml Line: 1511 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_SMPTE_431 => 11;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13942 Column: 9
-    public static uint VK_EXT_DISCARD_RECTANGLES_SPEC_VERSION => 2;
+    // File: video.xml Line: 1512 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_SMPTE_432 => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13943 Column: 9
-    public static string VK_EXT_DISCARD_RECTANGLES_EXTENSION_NAME => "VK_EXT_discard_rectangles";
+    // File: video.xml Line: 1513 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_EBU_3213 => 22;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13988 Column: 9
-    public static uint VK_EXT_conservative_rasterization => 1;
+    // File: video.xml Line: 1514 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13989 Column: 9
-    public static uint VK_EXT_CONSERVATIVE_RASTERIZATION_SPEC_VERSION => 1;
+    // File: video.xml Line: 1517 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_RESERVED_0 => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13990 Column: 9
-    public static string VK_EXT_CONSERVATIVE_RASTERIZATION_EXTENSION_NAME => "VK_EXT_conservative_rasterization";
+    // File: video.xml Line: 1518 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_709 => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14024 Column: 9
-    public static uint VK_EXT_depth_clip_enable => 1;
+    // File: video.xml Line: 1519 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_UNSPECIFIED => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14025 Column: 9
-    public static uint VK_EXT_DEPTH_CLIP_ENABLE_SPEC_VERSION => 1;
+    // File: video.xml Line: 1520 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_RESERVED_3 => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14026 Column: 9
-    public static string VK_EXT_DEPTH_CLIP_ENABLE_EXTENSION_NAME => "VK_EXT_depth_clip_enable";
+    // File: video.xml Line: 1521 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_470_M => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14044 Column: 9
-    public static uint VK_EXT_swapchain_colorspace => 1;
+    // File: video.xml Line: 1522 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_470_B_G => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14045 Column: 9
-    public static uint VK_EXT_SWAPCHAIN_COLOR_SPACE_SPEC_VERSION => 5;
+    // File: video.xml Line: 1523 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_601 => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14046 Column: 9
-    public static string VK_EXT_SWAPCHAIN_COLOR_SPACE_EXTENSION_NAME => "VK_EXT_swapchain_colorspace";
+    // File: video.xml Line: 1524 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_SMPTE_240 => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14050 Column: 9
-    public static uint VK_EXT_hdr_metadata => 1;
+    // File: video.xml Line: 1525 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_LINEAR => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14051 Column: 9
-    public static uint VK_EXT_HDR_METADATA_SPEC_VERSION => 3;
+    // File: video.xml Line: 1526 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_LOG_100 => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14052 Column: 9
-    public static string VK_EXT_HDR_METADATA_EXTENSION_NAME => "VK_EXT_hdr_metadata";
+    // File: video.xml Line: 1527 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_LOG_100_SQRT10 => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14083 Column: 9
-    public static uint VK_IMG_relaxed_line_rasterization => 1;
+    // File: video.xml Line: 1528 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_IEC_61966 => 11;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14084 Column: 9
-    public static uint VK_IMG_RELAXED_LINE_RASTERIZATION_SPEC_VERSION => 1;
+    // File: video.xml Line: 1529 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_1361 => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14085 Column: 9
-    public static string VK_IMG_RELAXED_LINE_RASTERIZATION_EXTENSION_NAME => "VK_IMG_relaxed_line_rasterization";
+    // File: video.xml Line: 1530 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_SRGB => 13;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14095 Column: 9
-    public static uint VK_EXT_external_memory_dma_buf => 1;
+    // File: video.xml Line: 1531 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_2020_10_BIT => 14;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14096 Column: 9
-    public static uint VK_EXT_EXTERNAL_MEMORY_DMA_BUF_SPEC_VERSION => 1;
+    // File: video.xml Line: 1532 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_BT_2020_12_BIT => 15;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14097 Column: 9
-    public static string VK_EXT_EXTERNAL_MEMORY_DMA_BUF_EXTENSION_NAME => "VK_EXT_external_memory_dma_buf";
+    // File: video.xml Line: 1533 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_SMPTE_2084 => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14101 Column: 9
-    public static uint VK_EXT_queue_family_foreign => 1;
+    // File: video.xml Line: 1534 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_SMPTE_428 => 17;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14102 Column: 9
-    public static uint VK_EXT_QUEUE_FAMILY_FOREIGN_SPEC_VERSION => 1;
+    // File: video.xml Line: 1535 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_HLG => 18;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14103 Column: 9
-    public static string VK_EXT_QUEUE_FAMILY_FOREIGN_EXTENSION_NAME => "VK_EXT_queue_family_foreign";
+    // File: video.xml Line: 1536 Column: 10
+    public static int STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14104 Column: 9
-    public static uint VK_QUEUE_FAMILY_FOREIGN_EXT => ~2U;
+    // File: video.xml Line: 1539 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_IDENTITY => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14108 Column: 9
-    public static uint VK_EXT_debug_utils => 1;
+    // File: video.xml Line: 1540 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_BT_709 => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14110 Column: 9
-    public static uint VK_EXT_DEBUG_UTILS_SPEC_VERSION => 2;
+    // File: video.xml Line: 1541 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_UNSPECIFIED => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14111 Column: 9
-    public static string VK_EXT_DEBUG_UTILS_EXTENSION_NAME => "VK_EXT_debug_utils";
+    // File: video.xml Line: 1542 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_RESERVED_3 => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14251 Column: 9
-    public static uint VK_EXT_sampler_filter_minmax => 1;
+    // File: video.xml Line: 1543 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_FCC => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14252 Column: 9
-    public static uint VK_EXT_SAMPLER_FILTER_MINMAX_SPEC_VERSION => 2;
+    // File: video.xml Line: 1544 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_BT_470_B_G => 5;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14253 Column: 9
-    public static string VK_EXT_SAMPLER_FILTER_MINMAX_EXTENSION_NAME => "VK_EXT_sampler_filter_minmax";
+    // File: video.xml Line: 1545 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_BT_601 => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14263 Column: 9
-    public static uint VK_AMD_gpu_shader_int16 => 1;
+    // File: video.xml Line: 1546 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_SMPTE_240 => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14264 Column: 9
-    public static uint VK_AMD_GPU_SHADER_INT16_SPEC_VERSION => 2;
+    // File: video.xml Line: 1547 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_SMPTE_YCGCO => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14265 Column: 9
-    public static string VK_AMD_GPU_SHADER_INT16_EXTENSION_NAME => "VK_AMD_gpu_shader_int16";
+    // File: video.xml Line: 1548 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_BT_2020_NCL => 9;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14269 Column: 9
-    public static uint VK_AMD_mixed_attachment_samples => 1;
+    // File: video.xml Line: 1549 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_BT_2020_CL => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14270 Column: 9
-    public static uint VK_AMD_MIXED_ATTACHMENT_SAMPLES_SPEC_VERSION => 1;
+    // File: video.xml Line: 1550 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_SMPTE_2085 => 11;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14271 Column: 9
-    public static string VK_AMD_MIXED_ATTACHMENT_SAMPLES_EXTENSION_NAME => "VK_AMD_mixed_attachment_samples";
+    // File: video.xml Line: 1551 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_CHROMAT_NCL => 12;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14283 Column: 9
-    public static uint VK_AMD_shader_fragment_mask => 1;
+    // File: video.xml Line: 1552 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_CHROMAT_CL => 13;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14284 Column: 9
-    public static uint VK_AMD_SHADER_FRAGMENT_MASK_SPEC_VERSION => 1;
+    // File: video.xml Line: 1553 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_ICTCP => 14;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14285 Column: 9
-    public static string VK_AMD_SHADER_FRAGMENT_MASK_EXTENSION_NAME => "VK_AMD_shader_fragment_mask";
+    // File: video.xml Line: 1554 Column: 10
+    public static int STD_VIDEO_AV1_MATRIX_COEFFICIENTS_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14289 Column: 9
-    public static uint VK_EXT_inline_uniform_block => 1;
+    // File: video.xml Line: 1557 Column: 10
+    public static int STD_VIDEO_AV1_CHROMA_SAMPLE_POSITION_UNKNOWN => 0;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14290 Column: 9
-    public static uint VK_EXT_INLINE_UNIFORM_BLOCK_SPEC_VERSION => 1;
+    // File: video.xml Line: 1558 Column: 10
+    public static int STD_VIDEO_AV1_CHROMA_SAMPLE_POSITION_VERTICAL => 1;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14291 Column: 9
-    public static string VK_EXT_INLINE_UNIFORM_BLOCK_EXTENSION_NAME => "VK_EXT_inline_uniform_block";
+    // File: video.xml Line: 1559 Column: 10
+    public static int STD_VIDEO_AV1_CHROMA_SAMPLE_POSITION_COLOCATED => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14303 Column: 9
-    public static uint VK_EXT_shader_stencil_export => 1;
+    // File: video.xml Line: 1560 Column: 10
+    public static int STD_VIDEO_AV1_CHROMA_SAMPLE_POSITION_RESERVED => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14304 Column: 9
-    public static uint VK_EXT_SHADER_STENCIL_EXPORT_SPEC_VERSION => 1;
+    // File: video.xml Line: 1561 Column: 10
+    public static int STD_VIDEO_AV1_CHROMA_SAMPLE_POSITION_INVALID => 0x7FFFFFFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14305 Column: 9
-    public static string VK_EXT_SHADER_STENCIL_EXPORT_EXTENSION_NAME => "VK_EXT_shader_stencil_export";
+    // File: video.xml Line: 1575 Column: 18
+    public static int STD_VIDEO_H264_CPB_CNT_LIST_SIZE => 32;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14309 Column: 9
-    public static uint VK_EXT_sample_locations => 1;
+    // File: video.xml Line: 1576 Column: 18
+    public static int STD_VIDEO_H264_SCALING_LIST_4X4_NUM_LISTS => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14310 Column: 9
-    public static uint VK_EXT_SAMPLE_LOCATIONS_SPEC_VERSION => 1;
+    // File: video.xml Line: 1577 Column: 18
+    public static int STD_VIDEO_H264_SCALING_LIST_4X4_NUM_ELEMENTS => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14311 Column: 9
-    public static string VK_EXT_SAMPLE_LOCATIONS_EXTENSION_NAME => "VK_EXT_sample_locations";
+    // File: video.xml Line: 1578 Column: 18
+    public static int STD_VIDEO_H264_SCALING_LIST_8X8_NUM_LISTS => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14384 Column: 9
-    public static uint VK_EXT_blend_operation_advanced => 1;
+    // File: video.xml Line: 1579 Column: 18
+    public static int STD_VIDEO_H264_SCALING_LIST_8X8_NUM_ELEMENTS => 64;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14385 Column: 9
-    public static uint VK_EXT_BLEND_OPERATION_ADVANCED_SPEC_VERSION => 2;
+    // File: video.xml Line: 1580 Column: 18
+    public static int STD_VIDEO_H264_MAX_NUM_LIST_REF => 32;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14386 Column: 9
-    public static string VK_EXT_BLEND_OPERATION_ADVANCED_EXTENSION_NAME => "VK_EXT_blend_operation_advanced";
+    // File: video.xml Line: 1581 Column: 18
+    public static int STD_VIDEO_H264_MAX_CHROMA_PLANES => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14422 Column: 9
-    public static uint VK_NV_fragment_coverage_to_color => 1;
+    // File: video.xml Line: 1582 Column: 18
+    public static int STD_VIDEO_H264_NO_REFERENCE_PICTURE => 0xFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14423 Column: 9
-    public static uint VK_NV_FRAGMENT_COVERAGE_TO_COLOR_SPEC_VERSION => 1;
+    // File: video.xml Line: 1614 Column: 18
+    public static string VK_STD_VULKAN_VIDEO_CODEC_H264_DECODE_EXTENSION_NAME => "VK_STD_vulkan_video_codec_h264_decode";
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14424 Column: 9
-    public static string VK_NV_FRAGMENT_COVERAGE_TO_COLOR_EXTENSION_NAME => "VK_NV_fragment_coverage_to_color";
+    // File: video.xml Line: 1616 Column: 18
+    public static int STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_LIST_SIZE => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14437 Column: 9
-    public static uint VK_NV_framebuffer_mixed_samples => 1;
+    // File: video.xml Line: 1631 Column: 18
+    public static string VK_STD_VULKAN_VIDEO_CODEC_H264_ENCODE_EXTENSION_NAME => "VK_STD_vulkan_video_codec_h264_encode";
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14438 Column: 9
-    public static uint VK_NV_FRAMEBUFFER_MIXED_SAMPLES_SPEC_VERSION => 1;
+    // File: video.xml Line: 1651 Column: 18
+    public static int STD_VIDEO_H265_CPB_CNT_LIST_SIZE => 32;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14439 Column: 9
-    public static string VK_NV_FRAMEBUFFER_MIXED_SAMPLES_EXTENSION_NAME => "VK_NV_framebuffer_mixed_samples";
+    // File: video.xml Line: 1652 Column: 18
+    public static int STD_VIDEO_H265_SUBLAYERS_LIST_SIZE => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14464 Column: 9
-    public static uint VK_NV_fill_rectangle => 1;
+    // File: video.xml Line: 1653 Column: 18
+    public static int STD_VIDEO_H265_SCALING_LIST_4X4_NUM_LISTS => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14465 Column: 9
-    public static uint VK_NV_FILL_RECTANGLE_SPEC_VERSION => 1;
+    // File: video.xml Line: 1654 Column: 18
+    public static int STD_VIDEO_H265_SCALING_LIST_4X4_NUM_ELEMENTS => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14466 Column: 9
-    public static string VK_NV_FILL_RECTANGLE_EXTENSION_NAME => "VK_NV_fill_rectangle";
+    // File: video.xml Line: 1655 Column: 18
+    public static int STD_VIDEO_H265_SCALING_LIST_8X8_NUM_LISTS => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14470 Column: 9
-    public static uint VK_NV_shader_sm_builtins => 1;
+    // File: video.xml Line: 1656 Column: 18
+    public static int STD_VIDEO_H265_SCALING_LIST_8X8_NUM_ELEMENTS => 64;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14471 Column: 9
-    public static uint VK_NV_SHADER_SM_BUILTINS_SPEC_VERSION => 1;
+    // File: video.xml Line: 1657 Column: 18
+    public static int STD_VIDEO_H265_SCALING_LIST_16X16_NUM_LISTS => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14472 Column: 9
-    public static string VK_NV_SHADER_SM_BUILTINS_EXTENSION_NAME => "VK_NV_shader_sm_builtins";
+    // File: video.xml Line: 1658 Column: 18
+    public static int STD_VIDEO_H265_SCALING_LIST_16X16_NUM_ELEMENTS => 64;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14489 Column: 9
-    public static uint VK_EXT_post_depth_coverage => 1;
+    // File: video.xml Line: 1659 Column: 18
+    public static int STD_VIDEO_H265_SCALING_LIST_32X32_NUM_LISTS => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14490 Column: 9
-    public static uint VK_EXT_POST_DEPTH_COVERAGE_SPEC_VERSION => 1;
+    // File: video.xml Line: 1660 Column: 18
+    public static int STD_VIDEO_H265_SCALING_LIST_32X32_NUM_ELEMENTS => 64;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14491 Column: 9
-    public static string VK_EXT_POST_DEPTH_COVERAGE_EXTENSION_NAME => "VK_EXT_post_depth_coverage";
+    // File: video.xml Line: 1661 Column: 18
+    public static int STD_VIDEO_H265_CHROMA_QP_OFFSET_LIST_SIZE => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14495 Column: 9
-    public static uint VK_EXT_image_drm_format_modifier => 1;
+    // File: video.xml Line: 1662 Column: 18
+    public static int STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_COLS_LIST_SIZE => 19;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14496 Column: 9
-    public static uint VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_SPEC_VERSION => 2;
+    // File: video.xml Line: 1663 Column: 18
+    public static int STD_VIDEO_H265_CHROMA_QP_OFFSET_TILE_ROWS_LIST_SIZE => 21;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14497 Column: 9
-    public static string VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_EXTENSION_NAME => "VK_EXT_image_drm_format_modifier";
+    // File: video.xml Line: 1664 Column: 18
+    public static int STD_VIDEO_H265_PREDICTOR_PALETTE_COMPONENTS_LIST_SIZE => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14565 Column: 9
-    public static uint VK_EXT_validation_cache => 1;
+    // File: video.xml Line: 1665 Column: 18
+    public static int STD_VIDEO_H265_PREDICTOR_PALETTE_COMP_ENTRIES_LIST_SIZE => 128;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14567 Column: 9
-    public static uint VK_EXT_VALIDATION_CACHE_SPEC_VERSION => 1;
+    // File: video.xml Line: 1666 Column: 18
+    public static int STD_VIDEO_H265_MAX_NUM_LIST_REF => 15;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14568 Column: 9
-    public static string VK_EXT_VALIDATION_CACHE_EXTENSION_NAME => "VK_EXT_validation_cache";
+    // File: video.xml Line: 1667 Column: 18
+    public static int STD_VIDEO_H265_MAX_CHROMA_PLANES => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14621 Column: 9
-    public static uint VK_EXT_descriptor_indexing => 1;
+    // File: video.xml Line: 1668 Column: 18
+    public static int STD_VIDEO_H265_MAX_SHORT_TERM_REF_PIC_SETS => 64;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14622 Column: 9
-    public static uint VK_EXT_DESCRIPTOR_INDEXING_SPEC_VERSION => 2;
+    // File: video.xml Line: 1669 Column: 18
+    public static int STD_VIDEO_H265_MAX_DPB_SIZE => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14623 Column: 9
-    public static string VK_EXT_DESCRIPTOR_INDEXING_EXTENSION_NAME => "VK_EXT_descriptor_indexing";
+    // File: video.xml Line: 1670 Column: 18
+    public static int STD_VIDEO_H265_MAX_LONG_TERM_REF_PICS_SPS => 32;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14641 Column: 9
-    public static uint VK_EXT_shader_viewport_index_layer => 1;
+    // File: video.xml Line: 1671 Column: 18
+    public static int STD_VIDEO_H265_MAX_LONG_TERM_PICS => 16;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14642 Column: 9
-    public static uint VK_EXT_SHADER_VIEWPORT_INDEX_LAYER_SPEC_VERSION => 1;
+    // File: video.xml Line: 1672 Column: 18
+    public static int STD_VIDEO_H265_MAX_DELTA_POC => 48;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14643 Column: 9
-    public static string VK_EXT_SHADER_VIEWPORT_INDEX_LAYER_EXTENSION_NAME => "VK_EXT_shader_viewport_index_layer";
+    // File: video.xml Line: 1673 Column: 18
+    public static int STD_VIDEO_H265_NO_REFERENCE_PICTURE => 0xFF;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14647 Column: 9
-    public static uint VK_NV_shading_rate_image => 1;
+    // File: video.xml Line: 1708 Column: 18
+    public static string VK_STD_VULKAN_VIDEO_CODEC_H265_DECODE_EXTENSION_NAME => "VK_STD_vulkan_video_codec_h265_decode";
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14648 Column: 9
-    public static uint VK_NV_SHADING_RATE_IMAGE_SPEC_VERSION => 3;
+    // File: video.xml Line: 1710 Column: 18
+    public static int STD_VIDEO_DECODE_H265_REF_PIC_SET_LIST_SIZE => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14649 Column: 9
-    public static string VK_NV_SHADING_RATE_IMAGE_EXTENSION_NAME => "VK_NV_shading_rate_image";
+    // File: video.xml Line: 1724 Column: 18
+    public static string VK_STD_VULKAN_VIDEO_CODEC_H265_ENCODE_EXTENSION_NAME => "VK_STD_vulkan_video_codec_h265_encode";
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14748 Column: 9
-    public static uint VK_NV_ray_tracing => 1;
+    // File: video.xml Line: 1743 Column: 18
+    public static int STD_VIDEO_AV1_NUM_REF_FRAMES => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14750 Column: 9
-    public static uint VK_NV_RAY_TRACING_SPEC_VERSION => 3;
+    // File: video.xml Line: 1744 Column: 18
+    public static int STD_VIDEO_AV1_REFS_PER_FRAME => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14751 Column: 9
-    public static string VK_NV_RAY_TRACING_EXTENSION_NAME => "VK_NV_ray_tracing";
+    // File: video.xml Line: 1745 Column: 18
+    public static int STD_VIDEO_AV1_TOTAL_REFS_PER_FRAME => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14752 Column: 9
-    public static uint VK_SHADER_UNUSED_KHR => ~0U;
+    // File: video.xml Line: 1746 Column: 18
+    public static int STD_VIDEO_AV1_MAX_TILE_COLS => 64;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14753 Column: 9
-    public static uint VK_SHADER_UNUSED_NV => VK_SHADER_UNUSED_KHR;
+    // File: video.xml Line: 1747 Column: 18
+    public static int STD_VIDEO_AV1_MAX_TILE_ROWS => 64;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15129 Column: 9
-    public static uint VK_NV_representative_fragment_test => 1;
+    // File: video.xml Line: 1748 Column: 18
+    public static int STD_VIDEO_AV1_MAX_SEGMENTS => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15130 Column: 9
-    public static uint VK_NV_REPRESENTATIVE_FRAGMENT_TEST_SPEC_VERSION => 2;
+    // File: video.xml Line: 1749 Column: 18
+    public static int STD_VIDEO_AV1_SEG_LVL_MAX => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15131 Column: 9
-    public static string VK_NV_REPRESENTATIVE_FRAGMENT_TEST_EXTENSION_NAME => "VK_NV_representative_fragment_test";
+    // File: video.xml Line: 1750 Column: 18
+    public static int STD_VIDEO_AV1_PRIMARY_REF_NONE => 7;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15147 Column: 9
-    public static uint VK_EXT_filter_cubic => 1;
+    // File: video.xml Line: 1751 Column: 18
+    public static int STD_VIDEO_AV1_SELECT_INTEGER_MV => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15148 Column: 9
-    public static uint VK_EXT_FILTER_CUBIC_SPEC_VERSION => 3;
+    // File: video.xml Line: 1752 Column: 18
+    public static int STD_VIDEO_AV1_SELECT_SCREEN_CONTENT_TOOLS => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15149 Column: 9
-    public static string VK_EXT_FILTER_CUBIC_EXTENSION_NAME => "VK_EXT_filter_cubic";
+    // File: video.xml Line: 1753 Column: 18
+    public static int STD_VIDEO_AV1_SKIP_MODE_FRAMES => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15166 Column: 9
-    public static uint VK_QCOM_render_pass_shader_resolve => 1;
+    // File: video.xml Line: 1754 Column: 18
+    public static int STD_VIDEO_AV1_MAX_LOOP_FILTER_STRENGTHS => 4;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15167 Column: 9
-    public static uint VK_QCOM_RENDER_PASS_SHADER_RESOLVE_SPEC_VERSION => 4;
+    // File: video.xml Line: 1755 Column: 18
+    public static int STD_VIDEO_AV1_LOOP_FILTER_ADJUSTMENTS => 2;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15168 Column: 9
-    public static string VK_QCOM_RENDER_PASS_SHADER_RESOLVE_EXTENSION_NAME => "VK_QCOM_render_pass_shader_resolve";
+    // File: video.xml Line: 1756 Column: 18
+    public static int STD_VIDEO_AV1_MAX_CDEF_FILTER_STRENGTHS => 8;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15172 Column: 9
-    public static uint VK_EXT_global_priority => 1;
+    // File: video.xml Line: 1757 Column: 18
+    public static int STD_VIDEO_AV1_MAX_NUM_PLANES => 3;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15173 Column: 9
-    public static uint VK_EXT_GLOBAL_PRIORITY_SPEC_VERSION => 2;
+    // File: video.xml Line: 1758 Column: 18
+    public static int STD_VIDEO_AV1_GLOBAL_MOTION_PARAMS => 6;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15174 Column: 9
-    public static string VK_EXT_GLOBAL_PRIORITY_EXTENSION_NAME => "VK_EXT_global_priority";
+    // File: video.xml Line: 1759 Column: 18
+    public static int STD_VIDEO_AV1_MAX_NUM_Y_POINTS => 14;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15182 Column: 9
-    public static uint VK_EXT_external_memory_host => 1;
+    // File: video.xml Line: 1760 Column: 18
+    public static int STD_VIDEO_AV1_MAX_NUM_CB_POINTS => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15183 Column: 9
-    public static uint VK_EXT_EXTERNAL_MEMORY_HOST_SPEC_VERSION => 1;
+    // File: video.xml Line: 1761 Column: 18
+    public static int STD_VIDEO_AV1_MAX_NUM_CR_POINTS => 10;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15184 Column: 9
-    public static string VK_EXT_EXTERNAL_MEMORY_HOST_EXTENSION_NAME => "VK_EXT_external_memory_host";
+    // File: video.xml Line: 1762 Column: 18
+    public static int STD_VIDEO_AV1_MAX_NUM_POS_LUMA => 24;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15216 Column: 9
-    public static uint VK_AMD_buffer_marker => 1;
+    // File: video.xml Line: 1763 Column: 18
+    public static int STD_VIDEO_AV1_MAX_NUM_POS_CHROMA => 25;
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15217 Column: 9
-    public static uint VK_AMD_BUFFER_MARKER_SPEC_VERSION => 1;
+    // File: video.xml Line: 1803 Column: 18
+    public static string VK_STD_VULKAN_VIDEO_CODEC_AV1_DECODE_EXTENSION_NAME => "VK_STD_vulkan_video_codec_av1_decode";
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15218 Column: 9
-    public static string VK_AMD_BUFFER_MARKER_EXTENSION_NAME => "VK_AMD_buffer_marker";
+    // File: video.xml Line: 1817 Column: 18
+    public static string VK_STD_VULKAN_VIDEO_CODEC_AV1_ENCODE_EXTENSION_NAME => "VK_STD_vulkan_video_codec_av1_encode";
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15240 Column: 9
-    public static uint VK_AMD_pipeline_compiler_control => 1;
+    // File: video.xml Line: 35 Column: 10
+    public static uint VK_MAKE_VIDEO_STD_VERSION(byte major, byte minor, byte patch)
+    {
+        var version = ((((uint)(major)) << 22) | (((uint)(minor)) << 12) | ((uint)(patch)));
+        return (uint)version;
+    }
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15241 Column: 9
-    public static uint VK_AMD_PIPELINE_COMPILER_CONTROL_SPEC_VERSION => 1;
+    // File: video.xml Line: 39 Column: 10
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_H264_DECODE_API_VERSION_1_0_0 => VK_MAKE_VIDEO_STD_VERSION(1, 0, 0);
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15242 Column: 9
-    public static string VK_AMD_PIPELINE_COMPILER_CONTROL_EXTENSION_NAME => "VK_AMD_pipeline_compiler_control";
+    // File: video.xml Line: 43 Column: 10
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_H264_ENCODE_API_VERSION_1_0_0 => VK_MAKE_VIDEO_STD_VERSION(1, 0, 0);
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15257 Column: 9
-    public static uint VK_EXT_calibrated_timestamps => 1;
+    // File: video.xml Line: 47 Column: 10
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_H265_DECODE_API_VERSION_1_0_0 => VK_MAKE_VIDEO_STD_VERSION(1, 0, 0);
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15258 Column: 9
-    public static uint VK_EXT_CALIBRATED_TIMESTAMPS_SPEC_VERSION => 2;
+    // File: video.xml Line: 51 Column: 10
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_H265_ENCODE_API_VERSION_1_0_0 => VK_MAKE_VIDEO_STD_VERSION(1, 0, 0);
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15259 Column: 9
-    public static string VK_EXT_CALIBRATED_TIMESTAMPS_EXTENSION_NAME => "VK_EXT_calibrated_timestamps";
+    // File: video.xml Line: 55 Column: 10
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_AV1_DECODE_API_VERSION_1_0_0 => VK_MAKE_VIDEO_STD_VERSION(1, 0, 0);
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15283 Column: 9
-    public static uint VK_AMD_shader_core_properties => 1;
+    // File: video.xml Line: 59 Column: 10
+    public static uint VK_STD_VULKAN_VIDEO_CODEC_AV1_ENCODE_API_VERSION_1_0_0 => VK_MAKE_VIDEO_STD_VERSION(1, 0, 0);
 
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15284 Column: 9
-    public static uint VK_AMD_SHADER_CORE_PROPERTIES_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15285 Column: 9
-    public static string VK_AMD_SHADER_CORE_PROPERTIES_EXTENSION_NAME => "VK_AMD_shader_core_properties";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15308 Column: 9
-    public static uint VK_AMD_memory_overallocation_behavior => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15309 Column: 9
-    public static uint VK_AMD_MEMORY_OVERALLOCATION_BEHAVIOR_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15310 Column: 9
-    public static string VK_AMD_MEMORY_OVERALLOCATION_BEHAVIOR_EXTENSION_NAME => "VK_AMD_memory_overallocation_behavior";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15327 Column: 9
-    public static uint VK_EXT_vertex_attribute_divisor => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15328 Column: 9
-    public static uint VK_EXT_VERTEX_ATTRIBUTE_DIVISOR_SPEC_VERSION => 3;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15329 Column: 9
-    public static string VK_EXT_VERTEX_ATTRIBUTE_DIVISOR_EXTENSION_NAME => "VK_EXT_vertex_attribute_divisor";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15345 Column: 9
-    public static uint VK_EXT_pipeline_creation_feedback => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15346 Column: 9
-    public static uint VK_EXT_PIPELINE_CREATION_FEEDBACK_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15347 Column: 9
-    public static string VK_EXT_PIPELINE_CREATION_FEEDBACK_EXTENSION_NAME => "VK_EXT_pipeline_creation_feedback";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15359 Column: 9
-    public static uint VK_NV_shader_subgroup_partitioned => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15360 Column: 9
-    public static uint VK_NV_SHADER_SUBGROUP_PARTITIONED_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15361 Column: 9
-    public static string VK_NV_SHADER_SUBGROUP_PARTITIONED_EXTENSION_NAME => "VK_NV_shader_subgroup_partitioned";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15365 Column: 9
-    public static uint VK_NV_compute_shader_derivatives => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15366 Column: 9
-    public static uint VK_NV_COMPUTE_SHADER_DERIVATIVES_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15367 Column: 9
-    public static string VK_NV_COMPUTE_SHADER_DERIVATIVES_EXTENSION_NAME => "VK_NV_compute_shader_derivatives";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15373 Column: 9
-    public static uint VK_NV_mesh_shader => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15374 Column: 9
-    public static uint VK_NV_MESH_SHADER_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15375 Column: 9
-    public static string VK_NV_MESH_SHADER_EXTENSION_NAME => "VK_NV_mesh_shader";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15435 Column: 9
-    public static uint VK_NV_fragment_shader_barycentric => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15436 Column: 9
-    public static uint VK_NV_FRAGMENT_SHADER_BARYCENTRIC_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15437 Column: 9
-    public static string VK_NV_FRAGMENT_SHADER_BARYCENTRIC_EXTENSION_NAME => "VK_NV_fragment_shader_barycentric";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15443 Column: 9
-    public static uint VK_NV_shader_image_footprint => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15444 Column: 9
-    public static uint VK_NV_SHADER_IMAGE_FOOTPRINT_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15445 Column: 9
-    public static string VK_NV_SHADER_IMAGE_FOOTPRINT_EXTENSION_NAME => "VK_NV_shader_image_footprint";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15455 Column: 9
-    public static uint VK_NV_scissor_exclusive => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15456 Column: 9
-    public static uint VK_NV_SCISSOR_EXCLUSIVE_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15457 Column: 9
-    public static string VK_NV_SCISSOR_EXCLUSIVE_EXTENSION_NAME => "VK_NV_scissor_exclusive";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15490 Column: 9
-    public static uint VK_NV_device_diagnostic_checkpoints => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15491 Column: 9
-    public static uint VK_NV_DEVICE_DIAGNOSTIC_CHECKPOINTS_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15492 Column: 9
-    public static string VK_NV_DEVICE_DIAGNOSTIC_CHECKPOINTS_EXTENSION_NAME => "VK_NV_device_diagnostic_checkpoints";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15541 Column: 9
-    public static uint VK_INTEL_shader_integer_functions2 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15542 Column: 9
-    public static uint VK_INTEL_SHADER_INTEGER_FUNCTIONS_2_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15543 Column: 9
-    public static string VK_INTEL_SHADER_INTEGER_FUNCTIONS_2_EXTENSION_NAME => "VK_INTEL_shader_integer_functions2";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15553 Column: 9
-    public static uint VK_INTEL_performance_query => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15555 Column: 9
-    public static uint VK_INTEL_PERFORMANCE_QUERY_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15556 Column: 9
-    public static string VK_INTEL_PERFORMANCE_QUERY_EXTENSION_NAME => "VK_INTEL_performance_query";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15692 Column: 9
-    public static uint VK_EXT_pci_bus_info => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15693 Column: 9
-    public static uint VK_EXT_PCI_BUS_INFO_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15694 Column: 9
-    public static string VK_EXT_PCI_BUS_INFO_EXTENSION_NAME => "VK_EXT_pci_bus_info";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15707 Column: 9
-    public static uint VK_AMD_display_native_hdr => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15708 Column: 9
-    public static uint VK_AMD_DISPLAY_NATIVE_HDR_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15709 Column: 9
-    public static string VK_AMD_DISPLAY_NATIVE_HDR_EXTENSION_NAME => "VK_AMD_display_native_hdr";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15733 Column: 9
-    public static uint VK_EXT_fragment_density_map => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15734 Column: 9
-    public static uint VK_EXT_FRAGMENT_DENSITY_MAP_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15735 Column: 9
-    public static string VK_EXT_FRAGMENT_DENSITY_MAP_EXTENSION_NAME => "VK_EXT_fragment_density_map";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15768 Column: 9
-    public static uint VK_EXT_scalar_block_layout => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15769 Column: 9
-    public static uint VK_EXT_SCALAR_BLOCK_LAYOUT_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15770 Column: 9
-    public static string VK_EXT_SCALAR_BLOCK_LAYOUT_EXTENSION_NAME => "VK_EXT_scalar_block_layout";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15776 Column: 9
-    public static uint VK_GOOGLE_hlsl_functionality1 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15777 Column: 9
-    public static uint VK_GOOGLE_HLSL_FUNCTIONALITY_1_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15778 Column: 9
-    public static string VK_GOOGLE_HLSL_FUNCTIONALITY_1_EXTENSION_NAME => "VK_GOOGLE_hlsl_functionality1";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15780 Column: 9
-    public static uint VK_GOOGLE_HLSL_FUNCTIONALITY1_SPEC_VERSION => VK_GOOGLE_HLSL_FUNCTIONALITY_1_SPEC_VERSION;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15782 Column: 9
-    public static string VK_GOOGLE_HLSL_FUNCTIONALITY1_EXTENSION_NAME => VK_GOOGLE_HLSL_FUNCTIONALITY_1_EXTENSION_NAME;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15786 Column: 9
-    public static uint VK_GOOGLE_decorate_string => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15787 Column: 9
-    public static uint VK_GOOGLE_DECORATE_STRING_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15788 Column: 9
-    public static string VK_GOOGLE_DECORATE_STRING_EXTENSION_NAME => "VK_GOOGLE_decorate_string";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15792 Column: 9
-    public static uint VK_EXT_subgroup_size_control => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15793 Column: 9
-    public static uint VK_EXT_SUBGROUP_SIZE_CONTROL_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15794 Column: 9
-    public static string VK_EXT_SUBGROUP_SIZE_CONTROL_EXTENSION_NAME => "VK_EXT_subgroup_size_control";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15804 Column: 9
-    public static uint VK_AMD_shader_core_properties2 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15805 Column: 9
-    public static uint VK_AMD_SHADER_CORE_PROPERTIES_2_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15806 Column: 9
-    public static string VK_AMD_SHADER_CORE_PROPERTIES_2_EXTENSION_NAME => "VK_AMD_shader_core_properties2";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15822 Column: 9
-    public static uint VK_AMD_device_coherent_memory => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15823 Column: 9
-    public static uint VK_AMD_DEVICE_COHERENT_MEMORY_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15824 Column: 9
-    public static string VK_AMD_DEVICE_COHERENT_MEMORY_EXTENSION_NAME => "VK_AMD_device_coherent_memory";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15834 Column: 9
-    public static uint VK_EXT_shader_image_atomic_int64 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15835 Column: 9
-    public static uint VK_EXT_SHADER_IMAGE_ATOMIC_INT64_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15836 Column: 9
-    public static string VK_EXT_SHADER_IMAGE_ATOMIC_INT64_EXTENSION_NAME => "VK_EXT_shader_image_atomic_int64";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15847 Column: 9
-    public static uint VK_EXT_memory_budget => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15848 Column: 9
-    public static uint VK_EXT_MEMORY_BUDGET_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15849 Column: 9
-    public static string VK_EXT_MEMORY_BUDGET_EXTENSION_NAME => "VK_EXT_memory_budget";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15860 Column: 9
-    public static uint VK_EXT_memory_priority => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15861 Column: 9
-    public static uint VK_EXT_MEMORY_PRIORITY_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15862 Column: 9
-    public static string VK_EXT_MEMORY_PRIORITY_EXTENSION_NAME => "VK_EXT_memory_priority";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15878 Column: 9
-    public static uint VK_NV_dedicated_allocation_image_aliasing => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15879 Column: 9
-    public static uint VK_NV_DEDICATED_ALLOCATION_IMAGE_ALIASING_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15880 Column: 9
-    public static string VK_NV_DEDICATED_ALLOCATION_IMAGE_ALIASING_EXTENSION_NAME => "VK_NV_dedicated_allocation_image_aliasing";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15890 Column: 9
-    public static uint VK_EXT_buffer_device_address => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15891 Column: 9
-    public static uint VK_EXT_BUFFER_DEVICE_ADDRESS_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15892 Column: 9
-    public static string VK_EXT_BUFFER_DEVICE_ADDRESS_EXTENSION_NAME => "VK_EXT_buffer_device_address";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15921 Column: 9
-    public static uint VK_EXT_tooling_info => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15922 Column: 9
-    public static uint VK_EXT_TOOLING_INFO_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15923 Column: 9
-    public static string VK_EXT_TOOLING_INFO_EXTENSION_NAME => "VK_EXT_tooling_info";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15941 Column: 9
-    public static uint VK_EXT_separate_stencil_usage => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15942 Column: 9
-    public static uint VK_EXT_SEPARATE_STENCIL_USAGE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15943 Column: 9
-    public static string VK_EXT_SEPARATE_STENCIL_USAGE_EXTENSION_NAME => "VK_EXT_separate_stencil_usage";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15949 Column: 9
-    public static uint VK_EXT_validation_features => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15950 Column: 9
-    public static uint VK_EXT_VALIDATION_FEATURES_SPEC_VERSION => 6;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15951 Column: 9
-    public static string VK_EXT_VALIDATION_FEATURES_EXTENSION_NAME => "VK_EXT_validation_features";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15985 Column: 9
-    public static uint VK_NV_cooperative_matrix => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15986 Column: 9
-    public static uint VK_NV_COOPERATIVE_MATRIX_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15987 Column: 9
-    public static string VK_NV_COOPERATIVE_MATRIX_EXTENSION_NAME => "VK_NV_cooperative_matrix";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16029 Column: 9
-    public static uint VK_NV_coverage_reduction_mode => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16030 Column: 9
-    public static uint VK_NV_COVERAGE_REDUCTION_MODE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16031 Column: 9
-    public static string VK_NV_COVERAGE_REDUCTION_MODE_EXTENSION_NAME => "VK_NV_coverage_reduction_mode";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16072 Column: 9
-    public static uint VK_EXT_fragment_shader_interlock => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16073 Column: 9
-    public static uint VK_EXT_FRAGMENT_SHADER_INTERLOCK_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16074 Column: 9
-    public static string VK_EXT_FRAGMENT_SHADER_INTERLOCK_EXTENSION_NAME => "VK_EXT_fragment_shader_interlock";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16086 Column: 9
-    public static uint VK_EXT_ycbcr_image_arrays => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16087 Column: 9
-    public static uint VK_EXT_YCBCR_IMAGE_ARRAYS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16088 Column: 9
-    public static string VK_EXT_YCBCR_IMAGE_ARRAYS_EXTENSION_NAME => "VK_EXT_ycbcr_image_arrays";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16098 Column: 9
-    public static uint VK_EXT_provoking_vertex => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16099 Column: 9
-    public static uint VK_EXT_PROVOKING_VERTEX_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16100 Column: 9
-    public static string VK_EXT_PROVOKING_VERTEX_EXTENSION_NAME => "VK_EXT_provoking_vertex";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16130 Column: 9
-    public static uint VK_EXT_headless_surface => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16131 Column: 9
-    public static uint VK_EXT_HEADLESS_SURFACE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16132 Column: 9
-    public static string VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME => "VK_EXT_headless_surface";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16152 Column: 9
-    public static uint VK_EXT_line_rasterization => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16153 Column: 9
-    public static uint VK_EXT_LINE_RASTERIZATION_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16154 Column: 9
-    public static string VK_EXT_LINE_RASTERIZATION_EXTENSION_NAME => "VK_EXT_line_rasterization";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16174 Column: 9
-    public static uint VK_EXT_shader_atomic_float => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16175 Column: 9
-    public static uint VK_EXT_SHADER_ATOMIC_FLOAT_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16176 Column: 9
-    public static string VK_EXT_SHADER_ATOMIC_FLOAT_EXTENSION_NAME => "VK_EXT_shader_atomic_float";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16197 Column: 9
-    public static uint VK_EXT_host_query_reset => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16198 Column: 9
-    public static uint VK_EXT_HOST_QUERY_RESET_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16199 Column: 9
-    public static string VK_EXT_HOST_QUERY_RESET_EXTENSION_NAME => "VK_EXT_host_query_reset";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16214 Column: 9
-    public static uint VK_EXT_index_type_uint8 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16215 Column: 9
-    public static uint VK_EXT_INDEX_TYPE_UINT8_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16216 Column: 9
-    public static string VK_EXT_INDEX_TYPE_UINT8_EXTENSION_NAME => "VK_EXT_index_type_uint8";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16222 Column: 9
-    public static uint VK_EXT_extended_dynamic_state => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16223 Column: 9
-    public static uint VK_EXT_EXTENDED_DYNAMIC_STATE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16224 Column: 9
-    public static string VK_EXT_EXTENDED_DYNAMIC_STATE_EXTENSION_NAME => "VK_EXT_extended_dynamic_state";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16307 Column: 9
-    public static uint VK_EXT_host_image_copy => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16308 Column: 9
-    public static uint VK_EXT_HOST_IMAGE_COPY_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16309 Column: 9
-    public static string VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME => "VK_EXT_host_image_copy";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16371 Column: 9
-    public static uint VK_EXT_map_memory_placed => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16372 Column: 9
-    public static uint VK_EXT_MAP_MEMORY_PLACED_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16373 Column: 9
-    public static string VK_EXT_MAP_MEMORY_PLACED_EXTENSION_NAME => "VK_EXT_map_memory_placed";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16397 Column: 9
-    public static uint VK_EXT_shader_atomic_float2 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16398 Column: 9
-    public static uint VK_EXT_SHADER_ATOMIC_FLOAT_2_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16399 Column: 9
-    public static string VK_EXT_SHADER_ATOMIC_FLOAT_2_EXTENSION_NAME => "VK_EXT_shader_atomic_float2";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16420 Column: 9
-    public static uint VK_EXT_surface_maintenance1 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16421 Column: 9
-    public static uint VK_EXT_SURFACE_MAINTENANCE_1_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16422 Column: 9
-    public static string VK_EXT_SURFACE_MAINTENANCE_1_EXTENSION_NAME => "VK_EXT_surface_maintenance1";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16465 Column: 9
-    public static uint VK_EXT_swapchain_maintenance1 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16466 Column: 9
-    public static uint VK_EXT_SWAPCHAIN_MAINTENANCE_1_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16467 Column: 9
-    public static string VK_EXT_SWAPCHAIN_MAINTENANCE_1_EXTENSION_NAME => "VK_EXT_swapchain_maintenance1";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16521 Column: 9
-    public static uint VK_EXT_shader_demote_to_helper_invocation => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16522 Column: 9
-    public static uint VK_EXT_SHADER_DEMOTE_TO_HELPER_INVOCATION_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16523 Column: 9
-    public static string VK_EXT_SHADER_DEMOTE_TO_HELPER_INVOCATION_EXTENSION_NAME => "VK_EXT_shader_demote_to_helper_invocation";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16529 Column: 9
-    public static uint VK_NV_device_generated_commands => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16531 Column: 9
-    public static uint VK_NV_DEVICE_GENERATED_COMMANDS_SPEC_VERSION => 3;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16532 Column: 9
-    public static string VK_NV_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME => "VK_NV_device_generated_commands";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16723 Column: 9
-    public static uint VK_NV_inherited_viewport_scissor => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16724 Column: 9
-    public static uint VK_NV_INHERITED_VIEWPORT_SCISSOR_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16725 Column: 9
-    public static string VK_NV_INHERITED_VIEWPORT_SCISSOR_EXTENSION_NAME => "VK_NV_inherited_viewport_scissor";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16743 Column: 9
-    public static uint VK_EXT_texel_buffer_alignment => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16744 Column: 9
-    public static uint VK_EXT_TEXEL_BUFFER_ALIGNMENT_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16745 Column: 9
-    public static string VK_EXT_TEXEL_BUFFER_ALIGNMENT_EXTENSION_NAME => "VK_EXT_texel_buffer_alignment";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16757 Column: 9
-    public static uint VK_QCOM_render_pass_transform => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16758 Column: 9
-    public static uint VK_QCOM_RENDER_PASS_TRANSFORM_SPEC_VERSION => 4;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16759 Column: 9
-    public static string VK_QCOM_RENDER_PASS_TRANSFORM_EXTENSION_NAME => "VK_QCOM_render_pass_transform";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16776 Column: 9
-    public static uint VK_EXT_depth_bias_control => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16777 Column: 9
-    public static uint VK_EXT_DEPTH_BIAS_CONTROL_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16778 Column: 9
-    public static string VK_EXT_DEPTH_BIAS_CONTROL_EXTENSION_NAME => "VK_EXT_depth_bias_control";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16820 Column: 9
-    public static uint VK_EXT_device_memory_report => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16821 Column: 9
-    public static uint VK_EXT_DEVICE_MEMORY_REPORT_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16822 Column: 9
-    public static string VK_EXT_DEVICE_MEMORY_REPORT_EXTENSION_NAME => "VK_EXT_device_memory_report";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16866 Column: 9
-    public static uint VK_EXT_acquire_drm_display => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16867 Column: 9
-    public static uint VK_EXT_ACQUIRE_DRM_DISPLAY_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16868 Column: 9
-    public static string VK_EXT_ACQUIRE_DRM_DISPLAY_EXTENSION_NAME => "VK_EXT_acquire_drm_display";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16887 Column: 9
-    public static uint VK_EXT_robustness2 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16888 Column: 9
-    public static uint VK_EXT_ROBUSTNESS_2_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16889 Column: 9
-    public static string VK_EXT_ROBUSTNESS_2_EXTENSION_NAME => "VK_EXT_robustness2";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16908 Column: 9
-    public static uint VK_EXT_custom_border_color => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16909 Column: 9
-    public static uint VK_EXT_CUSTOM_BORDER_COLOR_SPEC_VERSION => 12;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16910 Column: 9
-    public static string VK_EXT_CUSTOM_BORDER_COLOR_EXTENSION_NAME => "VK_EXT_custom_border_color";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16934 Column: 9
-    public static uint VK_GOOGLE_user_type => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16935 Column: 9
-    public static uint VK_GOOGLE_USER_TYPE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16936 Column: 9
-    public static string VK_GOOGLE_USER_TYPE_EXTENSION_NAME => "VK_GOOGLE_user_type";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16940 Column: 9
-    public static uint VK_NV_present_barrier => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16941 Column: 9
-    public static uint VK_NV_PRESENT_BARRIER_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16942 Column: 9
-    public static string VK_NV_PRESENT_BARRIER_EXTENSION_NAME => "VK_NV_present_barrier";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16964 Column: 9
-    public static uint VK_EXT_private_data => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16967 Column: 9
-    public static uint VK_EXT_PRIVATE_DATA_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16968 Column: 9
-    public static string VK_EXT_PRIVATE_DATA_EXTENSION_NAME => "VK_EXT_private_data";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17011 Column: 9
-    public static uint VK_EXT_pipeline_creation_cache_control => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17012 Column: 9
-    public static uint VK_EXT_PIPELINE_CREATION_CACHE_CONTROL_SPEC_VERSION => 3;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17013 Column: 9
-    public static string VK_EXT_PIPELINE_CREATION_CACHE_CONTROL_EXTENSION_NAME => "VK_EXT_pipeline_creation_cache_control";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17019 Column: 9
-    public static uint VK_NV_device_diagnostics_config => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17020 Column: 9
-    public static uint VK_NV_DEVICE_DIAGNOSTICS_CONFIG_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17021 Column: 9
-    public static string VK_NV_DEVICE_DIAGNOSTICS_CONFIG_EXTENSION_NAME => "VK_NV_device_diagnostics_config";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17046 Column: 9
-    public static uint VK_QCOM_render_pass_store_ops => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17047 Column: 9
-    public static uint VK_QCOM_RENDER_PASS_STORE_OPS_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17048 Column: 9
-    public static string VK_QCOM_RENDER_PASS_STORE_OPS_EXTENSION_NAME => "VK_QCOM_render_pass_store_ops";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17052 Column: 9
-    public static uint VK_NV_cuda_kernel_launch => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17055 Column: 9
-    public static uint VK_NV_CUDA_KERNEL_LAUNCH_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17056 Column: 9
-    public static string VK_NV_CUDA_KERNEL_LAUNCH_EXTENSION_NAME => "VK_NV_cuda_kernel_launch";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17144 Column: 9
-    public static uint VK_NV_low_latency => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17145 Column: 9
-    public static uint VK_NV_LOW_LATENCY_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17146 Column: 9
-    public static string VK_NV_LOW_LATENCY_EXTENSION_NAME => "VK_NV_low_latency";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17156 Column: 9
-    public static uint VK_EXT_descriptor_buffer => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17158 Column: 9
-    public static uint VK_EXT_DESCRIPTOR_BUFFER_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17159 Column: 9
-    public static string VK_EXT_DESCRIPTOR_BUFFER_EXTENSION_NAME => "VK_EXT_descriptor_buffer";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17369 Column: 9
-    public static uint VK_EXT_graphics_pipeline_library => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17370 Column: 9
-    public static uint VK_EXT_GRAPHICS_PIPELINE_LIBRARY_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17371 Column: 9
-    public static string VK_EXT_GRAPHICS_PIPELINE_LIBRARY_EXTENSION_NAME => "VK_EXT_graphics_pipeline_library";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17403 Column: 9
-    public static uint VK_AMD_shader_early_and_late_fragment_tests => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17404 Column: 9
-    public static uint VK_AMD_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17405 Column: 9
-    public static string VK_AMD_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_EXTENSION_NAME => "VK_AMD_shader_early_and_late_fragment_tests";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17415 Column: 9
-    public static uint VK_NV_fragment_shading_rate_enums => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17416 Column: 9
-    public static uint VK_NV_FRAGMENT_SHADING_RATE_ENUMS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17417 Column: 9
-    public static string VK_NV_FRAGMENT_SHADING_RATE_ENUMS_EXTENSION_NAME => "VK_NV_fragment_shading_rate_enums";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17473 Column: 9
-    public static uint VK_NV_ray_tracing_motion_blur => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17474 Column: 9
-    public static uint VK_NV_RAY_TRACING_MOTION_BLUR_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17475 Column: 9
-    public static string VK_NV_RAY_TRACING_MOTION_BLUR_EXTENSION_NAME => "VK_NV_ray_tracing_motion_blur";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17564 Column: 9
-    public static uint VK_EXT_ycbcr_2plane_444_formats => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17565 Column: 9
-    public static uint VK_EXT_YCBCR_2PLANE_444_FORMATS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17566 Column: 9
-    public static string VK_EXT_YCBCR_2PLANE_444_FORMATS_EXTENSION_NAME => "VK_EXT_ycbcr_2plane_444_formats";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17576 Column: 9
-    public static uint VK_EXT_fragment_density_map2 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17577 Column: 9
-    public static uint VK_EXT_FRAGMENT_DENSITY_MAP_2_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17578 Column: 9
-    public static string VK_EXT_FRAGMENT_DENSITY_MAP_2_EXTENSION_NAME => "VK_EXT_fragment_density_map2";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17597 Column: 9
-    public static uint VK_QCOM_rotated_copy_commands => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17598 Column: 9
-    public static uint VK_QCOM_ROTATED_COPY_COMMANDS_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17599 Column: 9
-    public static string VK_QCOM_ROTATED_COPY_COMMANDS_EXTENSION_NAME => "VK_QCOM_rotated_copy_commands";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17609 Column: 9
-    public static uint VK_EXT_image_robustness => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17610 Column: 9
-    public static uint VK_EXT_IMAGE_ROBUSTNESS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17611 Column: 9
-    public static string VK_EXT_IMAGE_ROBUSTNESS_EXTENSION_NAME => "VK_EXT_image_robustness";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17617 Column: 9
-    public static uint VK_EXT_image_compression_control => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17618 Column: 9
-    public static uint VK_EXT_IMAGE_COMPRESSION_CONTROL_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17619 Column: 9
-    public static string VK_EXT_IMAGE_COMPRESSION_CONTROL_EXTENSION_NAME => "VK_EXT_image_compression_control";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17683 Column: 9
-    public static uint VK_EXT_attachment_feedback_loop_layout => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17684 Column: 9
-    public static uint VK_EXT_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17685 Column: 9
-    public static string VK_EXT_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_EXTENSION_NAME => "VK_EXT_attachment_feedback_loop_layout";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17695 Column: 9
-    public static uint VK_EXT_4444_formats => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17696 Column: 9
-    public static uint VK_EXT_4444_FORMATS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17697 Column: 9
-    public static string VK_EXT_4444_FORMATS_EXTENSION_NAME => "VK_EXT_4444_formats";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17708 Column: 9
-    public static uint VK_EXT_device_fault => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17709 Column: 9
-    public static uint VK_EXT_DEVICE_FAULT_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17710 Column: 9
-    public static string VK_EXT_DEVICE_FAULT_EXTENSION_NAME => "VK_EXT_device_fault";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17788 Column: 9
-    public static uint VK_ARM_rasterization_order_attachment_access => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17789 Column: 9
-    public static uint VK_ARM_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17790 Column: 9
-    public static string VK_ARM_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_EXTENSION_NAME => "VK_ARM_rasterization_order_attachment_access";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17804 Column: 9
-    public static uint VK_EXT_rgba10x6_formats => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17805 Column: 9
-    public static uint VK_EXT_RGBA10X6_FORMATS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17806 Column: 9
-    public static string VK_EXT_RGBA10X6_FORMATS_EXTENSION_NAME => "VK_EXT_rgba10x6_formats";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17816 Column: 9
-    public static uint VK_VALVE_mutable_descriptor_type => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17817 Column: 9
-    public static uint VK_VALVE_MUTABLE_DESCRIPTOR_TYPE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17818 Column: 9
-    public static string VK_VALVE_MUTABLE_DESCRIPTOR_TYPE_EXTENSION_NAME => "VK_VALVE_mutable_descriptor_type";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17846 Column: 9
-    public static uint VK_EXT_vertex_input_dynamic_state => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17847 Column: 9
-    public static uint VK_EXT_VERTEX_INPUT_DYNAMIC_STATE_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17848 Column: 9
-    public static string VK_EXT_VERTEX_INPUT_DYNAMIC_STATE_EXTENSION_NAME => "VK_EXT_vertex_input_dynamic_state";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17886 Column: 9
-    public static uint VK_EXT_physical_device_drm => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17887 Column: 9
-    public static uint VK_EXT_PHYSICAL_DEVICE_DRM_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17888 Column: 9
-    public static string VK_EXT_PHYSICAL_DEVICE_DRM_EXTENSION_NAME => "VK_EXT_physical_device_drm";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17903 Column: 9
-    public static uint VK_EXT_device_address_binding_report => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17904 Column: 9
-    public static uint VK_EXT_DEVICE_ADDRESS_BINDING_REPORT_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17905 Column: 9
-    public static string VK_EXT_DEVICE_ADDRESS_BINDING_REPORT_EXTENSION_NAME => "VK_EXT_device_address_binding_report";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17936 Column: 9
-    public static uint VK_EXT_depth_clip_control => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17937 Column: 9
-    public static uint VK_EXT_DEPTH_CLIP_CONTROL_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17938 Column: 9
-    public static string VK_EXT_DEPTH_CLIP_CONTROL_EXTENSION_NAME => "VK_EXT_depth_clip_control";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17954 Column: 9
-    public static uint VK_EXT_primitive_topology_list_restart => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17955 Column: 9
-    public static uint VK_EXT_PRIMITIVE_TOPOLOGY_LIST_RESTART_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17956 Column: 9
-    public static string VK_EXT_PRIMITIVE_TOPOLOGY_LIST_RESTART_EXTENSION_NAME => "VK_EXT_primitive_topology_list_restart";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17967 Column: 9
-    public static uint VK_EXT_present_mode_fifo_latest_ready => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17968 Column: 9
-    public static uint VK_EXT_PRESENT_MODE_FIFO_LATEST_READY_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17969 Column: 9
-    public static string VK_EXT_PRESENT_MODE_FIFO_LATEST_READY_EXTENSION_NAME => "VK_EXT_present_mode_fifo_latest_ready";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17979 Column: 9
-    public static uint VK_HUAWEI_subpass_shading => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17980 Column: 9
-    public static uint VK_HUAWEI_SUBPASS_SHADING_SPEC_VERSION => 3;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17981 Column: 9
-    public static string VK_HUAWEI_SUBPASS_SHADING_EXTENSION_NAME => "VK_HUAWEI_subpass_shading";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18016 Column: 9
-    public static uint VK_HUAWEI_invocation_mask => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18017 Column: 9
-    public static uint VK_HUAWEI_INVOCATION_MASK_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18018 Column: 9
-    public static string VK_HUAWEI_INVOCATION_MASK_EXTENSION_NAME => "VK_HUAWEI_invocation_mask";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18036 Column: 9
-    public static uint VK_NV_external_memory_rdma => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18038 Column: 9
-    public static uint VK_NV_EXTERNAL_MEMORY_RDMA_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18039 Column: 9
-    public static string VK_NV_EXTERNAL_MEMORY_RDMA_EXTENSION_NAME => "VK_NV_external_memory_rdma";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18064 Column: 9
-    public static uint VK_EXT_pipeline_properties => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18065 Column: 9
-    public static uint VK_EXT_PIPELINE_PROPERTIES_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18066 Column: 9
-    public static string VK_EXT_PIPELINE_PROPERTIES_EXTENSION_NAME => "VK_EXT_pipeline_properties";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18092 Column: 9
-    public static uint VK_EXT_frame_boundary => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18093 Column: 9
-    public static uint VK_EXT_FRAME_BOUNDARY_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18094 Column: 9
-    public static string VK_EXT_FRAME_BOUNDARY_EXTENSION_NAME => "VK_EXT_frame_boundary";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18124 Column: 9
-    public static uint VK_EXT_multisampled_render_to_single_sampled => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18125 Column: 9
-    public static uint VK_EXT_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18126 Column: 9
-    public static string VK_EXT_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_EXTENSION_NAME => "VK_EXT_multisampled_render_to_single_sampled";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18149 Column: 9
-    public static uint VK_EXT_extended_dynamic_state2 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18150 Column: 9
-    public static uint VK_EXT_EXTENDED_DYNAMIC_STATE_2_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18151 Column: 9
-    public static string VK_EXT_EXTENDED_DYNAMIC_STATE_2_EXTENSION_NAME => "VK_EXT_extended_dynamic_state2";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18190 Column: 9
-    public static uint VK_EXT_color_write_enable => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18191 Column: 9
-    public static uint VK_EXT_COLOR_WRITE_ENABLE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18192 Column: 9
-    public static string VK_EXT_COLOR_WRITE_ENABLE_EXTENSION_NAME => "VK_EXT_color_write_enable";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18217 Column: 9
-    public static uint VK_EXT_primitives_generated_query => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18218 Column: 9
-    public static uint VK_EXT_PRIMITIVES_GENERATED_QUERY_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18219 Column: 9
-    public static string VK_EXT_PRIMITIVES_GENERATED_QUERY_EXTENSION_NAME => "VK_EXT_primitives_generated_query";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18231 Column: 9
-    public static uint VK_EXT_global_priority_query => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18232 Column: 9
-    public static uint VK_EXT_GLOBAL_PRIORITY_QUERY_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18233 Column: 9
-    public static string VK_EXT_GLOBAL_PRIORITY_QUERY_EXTENSION_NAME => "VK_EXT_global_priority_query";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18234 Column: 9
-    public static uint VK_MAX_GLOBAL_PRIORITY_SIZE_EXT => VK_MAX_GLOBAL_PRIORITY_SIZE;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18242 Column: 9
-    public static uint VK_EXT_image_view_min_lod => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18243 Column: 9
-    public static uint VK_EXT_IMAGE_VIEW_MIN_LOD_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18244 Column: 9
-    public static string VK_EXT_IMAGE_VIEW_MIN_LOD_EXTENSION_NAME => "VK_EXT_image_view_min_lod";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18260 Column: 9
-    public static uint VK_EXT_multi_draw => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18261 Column: 9
-    public static uint VK_EXT_MULTI_DRAW_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18262 Column: 9
-    public static string VK_EXT_MULTI_DRAW_EXTENSION_NAME => "VK_EXT_multi_draw";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18310 Column: 9
-    public static uint VK_EXT_image_2d_view_of_3d => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18311 Column: 9
-    public static uint VK_EXT_IMAGE_2D_VIEW_OF_3D_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18312 Column: 9
-    public static string VK_EXT_IMAGE_2D_VIEW_OF_3D_EXTENSION_NAME => "VK_EXT_image_2d_view_of_3d";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18323 Column: 9
-    public static uint VK_EXT_shader_tile_image => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18324 Column: 9
-    public static uint VK_EXT_SHADER_TILE_IMAGE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18325 Column: 9
-    public static string VK_EXT_SHADER_TILE_IMAGE_EXTENSION_NAME => "VK_EXT_shader_tile_image";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18345 Column: 9
-    public static uint VK_EXT_opacity_micromap => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18347 Column: 9
-    public static uint VK_EXT_OPACITY_MICROMAP_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18348 Column: 9
-    public static string VK_EXT_OPACITY_MICROMAP_EXTENSION_NAME => "VK_EXT_opacity_micromap";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18618 Column: 9
-    public static uint VK_EXT_load_store_op_none => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18619 Column: 9
-    public static uint VK_EXT_LOAD_STORE_OP_NONE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18620 Column: 9
-    public static string VK_EXT_LOAD_STORE_OP_NONE_EXTENSION_NAME => "VK_EXT_load_store_op_none";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18624 Column: 9
-    public static uint VK_HUAWEI_cluster_culling_shader => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18625 Column: 9
-    public static uint VK_HUAWEI_CLUSTER_CULLING_SHADER_SPEC_VERSION => 3;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18626 Column: 9
-    public static string VK_HUAWEI_CLUSTER_CULLING_SHADER_EXTENSION_NAME => "VK_HUAWEI_cluster_culling_shader";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18667 Column: 9
-    public static uint VK_EXT_border_color_swizzle => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18668 Column: 9
-    public static uint VK_EXT_BORDER_COLOR_SWIZZLE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18669 Column: 9
-    public static string VK_EXT_BORDER_COLOR_SWIZZLE_EXTENSION_NAME => "VK_EXT_border_color_swizzle";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18687 Column: 9
-    public static uint VK_EXT_pageable_device_local_memory => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18688 Column: 9
-    public static uint VK_EXT_PAGEABLE_DEVICE_LOCAL_MEMORY_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18689 Column: 9
-    public static string VK_EXT_PAGEABLE_DEVICE_LOCAL_MEMORY_EXTENSION_NAME => "VK_EXT_pageable_device_local_memory";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18707 Column: 9
-    public static uint VK_ARM_shader_core_properties => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18708 Column: 9
-    public static uint VK_ARM_SHADER_CORE_PROPERTIES_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18709 Column: 9
-    public static string VK_ARM_SHADER_CORE_PROPERTIES_EXTENSION_NAME => "VK_ARM_shader_core_properties";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18721 Column: 9
-    public static uint VK_ARM_scheduling_controls => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18722 Column: 9
-    public static uint VK_ARM_SCHEDULING_CONTROLS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18723 Column: 9
-    public static string VK_ARM_SCHEDULING_CONTROLS_EXTENSION_NAME => "VK_ARM_scheduling_controls";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18751 Column: 9
-    public static uint VK_EXT_image_sliced_view_of_3d => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18752 Column: 9
-    public static uint VK_EXT_IMAGE_SLICED_VIEW_OF_3D_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18753 Column: 9
-    public static string VK_EXT_IMAGE_SLICED_VIEW_OF_3D_EXTENSION_NAME => "VK_EXT_image_sliced_view_of_3d";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18754 Column: 9
-    public static uint VK_REMAINING_3D_SLICES_EXT => ~0U;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18771 Column: 9
-    public static uint VK_VALVE_descriptor_set_host_mapping => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18772 Column: 9
-    public static uint VK_VALVE_DESCRIPTOR_SET_HOST_MAPPING_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18773 Column: 9
-    public static string VK_VALVE_DESCRIPTOR_SET_HOST_MAPPING_EXTENSION_NAME => "VK_VALVE_descriptor_set_host_mapping";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18811 Column: 9
-    public static uint VK_EXT_depth_clamp_zero_one => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18812 Column: 9
-    public static uint VK_EXT_DEPTH_CLAMP_ZERO_ONE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18813 Column: 9
-    public static string VK_EXT_DEPTH_CLAMP_ZERO_ONE_EXTENSION_NAME => "VK_EXT_depth_clamp_zero_one";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18819 Column: 9
-    public static uint VK_EXT_non_seamless_cube_map => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18820 Column: 9
-    public static uint VK_EXT_NON_SEAMLESS_CUBE_MAP_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18821 Column: 9
-    public static string VK_EXT_NON_SEAMLESS_CUBE_MAP_EXTENSION_NAME => "VK_EXT_non_seamless_cube_map";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18831 Column: 9
-    public static uint VK_ARM_render_pass_striped => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18832 Column: 9
-    public static uint VK_ARM_RENDER_PASS_STRIPED_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18833 Column: 9
-    public static string VK_ARM_RENDER_PASS_STRIPED_EXTENSION_NAME => "VK_ARM_render_pass_striped";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18870 Column: 9
-    public static uint VK_QCOM_fragment_density_map_offset => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18871 Column: 9
-    public static uint VK_QCOM_FRAGMENT_DENSITY_MAP_OFFSET_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18872 Column: 9
-    public static string VK_QCOM_FRAGMENT_DENSITY_MAP_OFFSET_EXTENSION_NAME => "VK_QCOM_fragment_density_map_offset";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18895 Column: 9
-    public static uint VK_NV_copy_memory_indirect => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18896 Column: 9
-    public static uint VK_NV_COPY_MEMORY_INDIRECT_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18897 Column: 9
-    public static string VK_NV_COPY_MEMORY_INDIRECT_EXTENSION_NAME => "VK_NV_copy_memory_indirect";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18947 Column: 9
-    public static uint VK_NV_memory_decompression => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18948 Column: 9
-    public static uint VK_NV_MEMORY_DECOMPRESSION_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18949 Column: 9
-    public static string VK_NV_MEMORY_DECOMPRESSION_EXTENSION_NAME => "VK_NV_memory_decompression";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18995 Column: 9
-    public static uint VK_NV_device_generated_commands_compute => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18996 Column: 9
-    public static uint VK_NV_DEVICE_GENERATED_COMMANDS_COMPUTE_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18997 Column: 9
-    public static string VK_NV_DEVICE_GENERATED_COMMANDS_COMPUTE_EXTENSION_NAME => "VK_NV_device_generated_commands_compute";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19047 Column: 9
-    public static uint VK_NV_ray_tracing_linear_swept_spheres => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19048 Column: 9
-    public static uint VK_NV_RAY_TRACING_LINEAR_SWEPT_SPHERES_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19049 Column: 9
-    public static string VK_NV_RAY_TRACING_LINEAR_SWEPT_SPHERES_EXTENSION_NAME => "VK_NV_ray_tracing_linear_swept_spheres";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19102 Column: 9
-    public static uint VK_NV_linear_color_attachment => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19103 Column: 9
-    public static uint VK_NV_LINEAR_COLOR_ATTACHMENT_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19104 Column: 9
-    public static string VK_NV_LINEAR_COLOR_ATTACHMENT_EXTENSION_NAME => "VK_NV_linear_color_attachment";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19114 Column: 9
-    public static uint VK_GOOGLE_surfaceless_query => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19115 Column: 9
-    public static uint VK_GOOGLE_SURFACELESS_QUERY_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19116 Column: 9
-    public static string VK_GOOGLE_SURFACELESS_QUERY_EXTENSION_NAME => "VK_GOOGLE_surfaceless_query";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19120 Column: 9
-    public static uint VK_EXT_image_compression_control_swapchain => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19121 Column: 9
-    public static uint VK_EXT_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19122 Column: 9
-    public static string VK_EXT_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_EXTENSION_NAME => "VK_EXT_image_compression_control_swapchain";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19132 Column: 9
-    public static uint VK_QCOM_image_processing => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19133 Column: 9
-    public static uint VK_QCOM_IMAGE_PROCESSING_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19134 Column: 9
-    public static string VK_QCOM_IMAGE_PROCESSING_EXTENSION_NAME => "VK_QCOM_image_processing";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19163 Column: 9
-    public static uint VK_EXT_nested_command_buffer => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19164 Column: 9
-    public static uint VK_EXT_NESTED_COMMAND_BUFFER_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19165 Column: 9
-    public static string VK_EXT_NESTED_COMMAND_BUFFER_EXTENSION_NAME => "VK_EXT_nested_command_buffer";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19183 Column: 9
-    public static uint VK_EXT_external_memory_acquire_unmodified => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19184 Column: 9
-    public static uint VK_EXT_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19185 Column: 9
-    public static string VK_EXT_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_EXTENSION_NAME => "VK_EXT_external_memory_acquire_unmodified";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19195 Column: 9
-    public static uint VK_EXT_extended_dynamic_state3 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19196 Column: 9
-    public static uint VK_EXT_EXTENDED_DYNAMIC_STATE_3_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19197 Column: 9
-    public static string VK_EXT_EXTENDED_DYNAMIC_STATE_3_EXTENSION_NAME => "VK_EXT_extended_dynamic_state3";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19429 Column: 9
-    public static uint VK_EXT_subpass_merge_feedback => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19430 Column: 9
-    public static uint VK_EXT_SUBPASS_MERGE_FEEDBACK_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19431 Column: 9
-    public static string VK_EXT_SUBPASS_MERGE_FEEDBACK_EXTENSION_NAME => "VK_EXT_subpass_merge_feedback";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19487 Column: 9
-    public static uint VK_LUNARG_direct_driver_loading => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19488 Column: 9
-    public static uint VK_LUNARG_DIRECT_DRIVER_LOADING_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19489 Column: 9
-    public static string VK_LUNARG_DIRECT_DRIVER_LOADING_EXTENSION_NAME => "VK_LUNARG_direct_driver_loading";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19518 Column: 9
-    public static uint VK_EXT_shader_module_identifier => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19519 Column: 9
-    public static uint VK_MAX_SHADER_MODULE_IDENTIFIER_SIZE_EXT => 32U;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19520 Column: 9
-    public static uint VK_EXT_SHADER_MODULE_IDENTIFIER_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19521 Column: 9
-    public static string VK_EXT_SHADER_MODULE_IDENTIFIER_EXTENSION_NAME => "VK_EXT_shader_module_identifier";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19565 Column: 9
-    public static uint VK_EXT_rasterization_order_attachment_access => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19566 Column: 9
-    public static uint VK_EXT_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19567 Column: 9
-    public static string VK_EXT_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_EXTENSION_NAME => "VK_EXT_rasterization_order_attachment_access";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19571 Column: 9
-    public static uint VK_NV_optical_flow => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19573 Column: 9
-    public static uint VK_NV_OPTICAL_FLOW_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19574 Column: 9
-    public static string VK_NV_OPTICAL_FLOW_EXTENSION_NAME => "VK_NV_optical_flow";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19736 Column: 9
-    public static uint VK_EXT_legacy_dithering => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19737 Column: 9
-    public static uint VK_EXT_LEGACY_DITHERING_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19738 Column: 9
-    public static string VK_EXT_LEGACY_DITHERING_EXTENSION_NAME => "VK_EXT_legacy_dithering";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19748 Column: 9
-    public static uint VK_EXT_pipeline_protected_access => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19749 Column: 9
-    public static uint VK_EXT_PIPELINE_PROTECTED_ACCESS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19750 Column: 9
-    public static string VK_EXT_PIPELINE_PROTECTED_ACCESS_EXTENSION_NAME => "VK_EXT_pipeline_protected_access";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19756 Column: 9
-    public static uint VK_AMD_anti_lag => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19757 Column: 9
-    public static uint VK_AMD_ANTI_LAG_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19758 Column: 9
-    public static string VK_AMD_ANTI_LAG_EXTENSION_NAME => "VK_AMD_anti_lag";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19803 Column: 9
-    public static uint VK_EXT_shader_object => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19805 Column: 9
-    public static uint VK_EXT_SHADER_OBJECT_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19806 Column: 9
-    public static string VK_EXT_SHADER_OBJECT_EXTENSION_NAME => "VK_EXT_shader_object";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19908 Column: 9
-    public static uint VK_QCOM_tile_properties => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19909 Column: 9
-    public static uint VK_QCOM_TILE_PROPERTIES_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19910 Column: 9
-    public static string VK_QCOM_TILE_PROPERTIES_EXTENSION_NAME => "VK_QCOM_tile_properties";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19943 Column: 9
-    public static uint VK_SEC_amigo_profiling => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19944 Column: 9
-    public static uint VK_SEC_AMIGO_PROFILING_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19945 Column: 9
-    public static string VK_SEC_AMIGO_PROFILING_EXTENSION_NAME => "VK_SEC_amigo_profiling";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19962 Column: 9
-    public static uint VK_QCOM_multiview_per_view_viewports => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19963 Column: 9
-    public static uint VK_QCOM_MULTIVIEW_PER_VIEW_VIEWPORTS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19964 Column: 9
-    public static string VK_QCOM_MULTIVIEW_PER_VIEW_VIEWPORTS_EXTENSION_NAME => "VK_QCOM_multiview_per_view_viewports";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19974 Column: 9
-    public static uint VK_NV_ray_tracing_invocation_reorder => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19975 Column: 9
-    public static uint VK_NV_RAY_TRACING_INVOCATION_REORDER_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19976 Column: 9
-    public static string VK_NV_RAY_TRACING_INVOCATION_REORDER_EXTENSION_NAME => "VK_NV_ray_tracing_invocation_reorder";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19998 Column: 9
-    public static uint VK_NV_cooperative_vector => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19999 Column: 9
-    public static uint VK_NV_COOPERATIVE_VECTOR_SPEC_VERSION => 4;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20000 Column: 9
-    public static string VK_NV_COOPERATIVE_VECTOR_EXTENSION_NAME => "VK_NV_cooperative_vector";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20075 Column: 9
-    public static uint VK_NV_extended_sparse_address_space => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20076 Column: 9
-    public static uint VK_NV_EXTENDED_SPARSE_ADDRESS_SPACE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20077 Column: 9
-    public static string VK_NV_EXTENDED_SPARSE_ADDRESS_SPACE_EXTENSION_NAME => "VK_NV_extended_sparse_address_space";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20095 Column: 9
-    public static uint VK_EXT_mutable_descriptor_type => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20096 Column: 9
-    public static uint VK_EXT_MUTABLE_DESCRIPTOR_TYPE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20097 Column: 9
-    public static string VK_EXT_MUTABLE_DESCRIPTOR_TYPE_EXTENSION_NAME => "VK_EXT_mutable_descriptor_type";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20101 Column: 9
-    public static uint VK_EXT_legacy_vertex_attributes => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20102 Column: 9
-    public static uint VK_EXT_LEGACY_VERTEX_ATTRIBUTES_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20103 Column: 9
-    public static string VK_EXT_LEGACY_VERTEX_ATTRIBUTES_EXTENSION_NAME => "VK_EXT_legacy_vertex_attributes";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20119 Column: 9
-    public static uint VK_EXT_layer_settings => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20120 Column: 9
-    public static uint VK_EXT_LAYER_SETTINGS_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20121 Column: 9
-    public static string VK_EXT_LAYER_SETTINGS_EXTENSION_NAME => "VK_EXT_layer_settings";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20152 Column: 9
-    public static uint VK_ARM_shader_core_builtins => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20153 Column: 9
-    public static uint VK_ARM_SHADER_CORE_BUILTINS_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20154 Column: 9
-    public static string VK_ARM_SHADER_CORE_BUILTINS_EXTENSION_NAME => "VK_ARM_shader_core_builtins";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20172 Column: 9
-    public static uint VK_EXT_pipeline_library_group_handles => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20173 Column: 9
-    public static uint VK_EXT_PIPELINE_LIBRARY_GROUP_HANDLES_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20174 Column: 9
-    public static string VK_EXT_PIPELINE_LIBRARY_GROUP_HANDLES_EXTENSION_NAME => "VK_EXT_pipeline_library_group_handles";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20184 Column: 9
-    public static uint VK_EXT_dynamic_rendering_unused_attachments => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20185 Column: 9
-    public static uint VK_EXT_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20186 Column: 9
-    public static string VK_EXT_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_EXTENSION_NAME => "VK_EXT_dynamic_rendering_unused_attachments";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20196 Column: 9
-    public static uint VK_NV_low_latency2 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20197 Column: 9
-    public static uint VK_NV_LOW_LATENCY_2_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20198 Column: 9
-    public static string VK_NV_LOW_LATENCY_2_EXTENSION_NAME => "VK_NV_low_latency2";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20328 Column: 9
-    public static uint VK_QCOM_multiview_per_view_render_areas => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20329 Column: 9
-    public static uint VK_QCOM_MULTIVIEW_PER_VIEW_RENDER_AREAS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20330 Column: 9
-    public static string VK_QCOM_MULTIVIEW_PER_VIEW_RENDER_AREAS_EXTENSION_NAME => "VK_QCOM_multiview_per_view_render_areas";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20347 Column: 9
-    public static uint VK_NV_per_stage_descriptor_set => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20348 Column: 9
-    public static uint VK_NV_PER_STAGE_DESCRIPTOR_SET_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20349 Column: 9
-    public static string VK_NV_PER_STAGE_DESCRIPTOR_SET_EXTENSION_NAME => "VK_NV_per_stage_descriptor_set";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20360 Column: 9
-    public static uint VK_QCOM_image_processing2 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20361 Column: 9
-    public static uint VK_QCOM_IMAGE_PROCESSING_2_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20362 Column: 9
-    public static string VK_QCOM_IMAGE_PROCESSING_2_EXTENSION_NAME => "VK_QCOM_image_processing2";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20391 Column: 9
-    public static uint VK_QCOM_filter_cubic_weights => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20392 Column: 9
-    public static uint VK_QCOM_FILTER_CUBIC_WEIGHTS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20393 Column: 9
-    public static string VK_QCOM_FILTER_CUBIC_WEIGHTS_EXTENSION_NAME => "VK_QCOM_filter_cubic_weights";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20423 Column: 9
-    public static uint VK_QCOM_ycbcr_degamma => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20424 Column: 9
-    public static uint VK_QCOM_YCBCR_DEGAMMA_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20425 Column: 9
-    public static string VK_QCOM_YCBCR_DEGAMMA_EXTENSION_NAME => "VK_QCOM_ycbcr_degamma";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20442 Column: 9
-    public static uint VK_QCOM_filter_cubic_clamp => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20443 Column: 9
-    public static uint VK_QCOM_FILTER_CUBIC_CLAMP_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20444 Column: 9
-    public static string VK_QCOM_FILTER_CUBIC_CLAMP_EXTENSION_NAME => "VK_QCOM_filter_cubic_clamp";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20454 Column: 9
-    public static uint VK_EXT_attachment_feedback_loop_dynamic_state => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20455 Column: 9
-    public static uint VK_EXT_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20456 Column: 9
-    public static string VK_EXT_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_EXTENSION_NAME => "VK_EXT_attachment_feedback_loop_dynamic_state";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20473 Column: 9
-    public static uint VK_MSFT_layered_driver => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20474 Column: 9
-    public static uint VK_MSFT_LAYERED_DRIVER_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20475 Column: 9
-    public static string VK_MSFT_LAYERED_DRIVER_EXTENSION_NAME => "VK_MSFT_layered_driver";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20491 Column: 9
-    public static uint VK_NV_descriptor_pool_overallocation => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20492 Column: 9
-    public static uint VK_NV_DESCRIPTOR_POOL_OVERALLOCATION_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20493 Column: 9
-    public static string VK_NV_DESCRIPTOR_POOL_OVERALLOCATION_EXTENSION_NAME => "VK_NV_descriptor_pool_overallocation";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20503 Column: 9
-    public static uint VK_NV_display_stereo => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20504 Column: 9
-    public static uint VK_NV_DISPLAY_STEREO_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20505 Column: 9
-    public static string VK_NV_DISPLAY_STEREO_EXTENSION_NAME => "VK_NV_display_stereo";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20529 Column: 9
-    public static uint VK_NV_raw_access_chains => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20530 Column: 9
-    public static uint VK_NV_RAW_ACCESS_CHAINS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20531 Column: 9
-    public static string VK_NV_RAW_ACCESS_CHAINS_EXTENSION_NAME => "VK_NV_raw_access_chains";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20541 Column: 9
-    public static uint VK_NV_command_buffer_inheritance => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20542 Column: 9
-    public static uint VK_NV_COMMAND_BUFFER_INHERITANCE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20543 Column: 9
-    public static string VK_NV_COMMAND_BUFFER_INHERITANCE_EXTENSION_NAME => "VK_NV_command_buffer_inheritance";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20553 Column: 9
-    public static uint VK_NV_shader_atomic_float16_vector => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20554 Column: 9
-    public static uint VK_NV_SHADER_ATOMIC_FLOAT16_VECTOR_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20555 Column: 9
-    public static string VK_NV_SHADER_ATOMIC_FLOAT16_VECTOR_EXTENSION_NAME => "VK_NV_shader_atomic_float16_vector";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20565 Column: 9
-    public static uint VK_EXT_shader_replicated_composites => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20566 Column: 9
-    public static uint VK_EXT_SHADER_REPLICATED_COMPOSITES_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20567 Column: 9
-    public static string VK_EXT_SHADER_REPLICATED_COMPOSITES_EXTENSION_NAME => "VK_EXT_shader_replicated_composites";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20577 Column: 9
-    public static uint VK_NV_ray_tracing_validation => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20578 Column: 9
-    public static uint VK_NV_RAY_TRACING_VALIDATION_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20579 Column: 9
-    public static string VK_NV_RAY_TRACING_VALIDATION_EXTENSION_NAME => "VK_NV_ray_tracing_validation";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20589 Column: 9
-    public static uint VK_NV_cluster_acceleration_structure => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20590 Column: 9
-    public static uint VK_NV_CLUSTER_ACCELERATION_STRUCTURE_SPEC_VERSION => 2;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20591 Column: 9
-    public static string VK_NV_CLUSTER_ACCELERATION_STRUCTURE_EXTENSION_NAME => "VK_NV_cluster_acceleration_structure";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20830 Column: 9
-    public static uint VK_NV_partitioned_acceleration_structure => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20831 Column: 9
-    public static uint VK_NV_PARTITIONED_ACCELERATION_STRUCTURE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20832 Column: 9
-    public static string VK_NV_PARTITIONED_ACCELERATION_STRUCTURE_EXTENSION_NAME => "VK_NV_partitioned_acceleration_structure";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20833 Column: 9
-    public static uint VK_PARTITIONED_ACCELERATION_STRUCTURE_PARTITION_INDEX_GLOBAL_NV => ~0U;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20942 Column: 9
-    public static uint VK_EXT_device_generated_commands => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20945 Column: 9
-    public static uint VK_EXT_DEVICE_GENERATED_COMMANDS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20946 Column: 9
-    public static string VK_EXT_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME => "VK_EXT_device_generated_commands";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21222 Column: 9
-    public static uint VK_MESA_image_alignment_control => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21223 Column: 9
-    public static uint VK_MESA_IMAGE_ALIGNMENT_CONTROL_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21224 Column: 9
-    public static string VK_MESA_IMAGE_ALIGNMENT_CONTROL_EXTENSION_NAME => "VK_MESA_image_alignment_control";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21246 Column: 9
-    public static uint VK_EXT_depth_clamp_control => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21247 Column: 9
-    public static uint VK_EXT_DEPTH_CLAMP_CONTROL_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21248 Column: 9
-    public static string VK_EXT_DEPTH_CLAMP_CONTROL_EXTENSION_NAME => "VK_EXT_depth_clamp_control";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21265 Column: 9
-    public static uint VK_HUAWEI_hdr_vivid => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21266 Column: 9
-    public static uint VK_HUAWEI_HDR_VIVID_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21267 Column: 9
-    public static string VK_HUAWEI_HDR_VIVID_EXTENSION_NAME => "VK_HUAWEI_hdr_vivid";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21284 Column: 9
-    public static uint VK_NV_cooperative_matrix2 => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21285 Column: 9
-    public static uint VK_NV_COOPERATIVE_MATRIX_2_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21286 Column: 9
-    public static string VK_NV_COOPERATIVE_MATRIX_2_EXTENSION_NAME => "VK_NV_cooperative_matrix2";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21333 Column: 9
-    public static uint VK_ARM_pipeline_opacity_micromap => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21334 Column: 9
-    public static uint VK_ARM_PIPELINE_OPACITY_MICROMAP_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21335 Column: 9
-    public static string VK_ARM_PIPELINE_OPACITY_MICROMAP_EXTENSION_NAME => "VK_ARM_pipeline_opacity_micromap";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21345 Column: 9
-    public static uint VK_EXT_vertex_attribute_robustness => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21346 Column: 9
-    public static uint VK_EXT_VERTEX_ATTRIBUTE_ROBUSTNESS_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21347 Column: 9
-    public static string VK_EXT_VERTEX_ATTRIBUTE_ROBUSTNESS_EXTENSION_NAME => "VK_EXT_vertex_attribute_robustness";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21357 Column: 9
-    public static uint VK_NV_present_metering => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21358 Column: 9
-    public static uint VK_NV_PRESENT_METERING_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21359 Column: 9
-    public static string VK_NV_PRESENT_METERING_EXTENSION_NAME => "VK_NV_present_metering";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21376 Column: 9
-    public static uint VK_KHR_acceleration_structure => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21377 Column: 9
-    public static uint VK_KHR_ACCELERATION_STRUCTURE_SPEC_VERSION => 13;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21378 Column: 9
-    public static string VK_KHR_ACCELERATION_STRUCTURE_EXTENSION_NAME => "VK_KHR_acceleration_structure";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21644 Column: 9
-    public static uint VK_KHR_ray_tracing_pipeline => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21645 Column: 9
-    public static uint VK_KHR_RAY_TRACING_PIPELINE_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21646 Column: 9
-    public static string VK_KHR_RAY_TRACING_PIPELINE_EXTENSION_NAME => "VK_KHR_ray_tracing_pipeline";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21775 Column: 9
-    public static uint VK_KHR_ray_query => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21776 Column: 9
-    public static uint VK_KHR_RAY_QUERY_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21777 Column: 9
-    public static string VK_KHR_RAY_QUERY_EXTENSION_NAME => "VK_KHR_ray_query";
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21787 Column: 9
-    public static uint VK_EXT_mesh_shader => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21788 Column: 9
-    public static uint VK_EXT_MESH_SHADER_SPEC_VERSION => 1;
-
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21789 Column: 9
-    public static string VK_EXT_MESH_SHADER_EXTENSION_NAME => "VK_EXT_mesh_shader";
+    // File: video.xml Line: 1502 Column: 10
+    public static int STD_VIDEO_AV1_COLOR_PRIMARIES_BT_UNSPECIFIED => 2;
 
 }
 

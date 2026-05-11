@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7842 Column: 40
+// File: vk.xml Line: 10889 Column: 6
 [Flags]
 public enum PipelineCreateFlagBits2 : ulong
 {
@@ -32,60 +32,6 @@ public enum PipelineCreateFlagBits2 : ulong
     NoProtectedAccessBit = 134217728,
 
     ProtectedAccessOnlyBit = 1073741824,
-
-    RayTracingSkipBuiltInPrimitivesBitKhr = 4096,
-
-    RayTracingAllowSpheresAndLinearSweptSpheresBitNv = 8589934592,
-
-    EnableLegacyDitheringBitExt = 17179869184,
-
-    DeferCompileBitNv = 32,
-
-    CaptureStatisticsBitKhr = 64,
-
-    CaptureInternalRepresentationsBitKhr = 128,
-
-    LinkTimeOptimizationBitExt = 1024,
-
-    RetainLinkTimeOptimizationInfoBitExt = 8388608,
-
-    LibraryBitKhr = 2048,
-
-    RayTracingSkipAabbsBitKhr = 8192,
-
-    RayTracingNoNullAnyHitShadersBitKhr = 16384,
-
-    RayTracingNoNullClosestHitShadersBitKhr = 32768,
-
-    RayTracingNoNullMissShadersBitKhr = 65536,
-
-    RayTracingNoNullIntersectionShadersBitKhr = 131072,
-
-    RayTracingShaderGroupHandleCaptureReplayBitKhr = 524288,
-
-    IndirectBindableBitNv = 262144,
-
-    RayTracingAllowMotionBitNv = 1048576,
-
-    RenderingFragmentShadingRateAttachmentBitKhr = 2097152,
-
-    RenderingFragmentDensityMapAttachmentBitExt = 4194304,
-
-    RayTracingOpacityMicromapBitExt = 16777216,
-
-    ColorAttachmentFeedbackLoopBitExt = 33554432,
-
-    DepthStencilAttachmentFeedbackLoopBitExt = 67108864,
-
-    RayTracingDisplacementMicromapBitNv = 268435456,
-
-    DescriptorBufferBitExt = 536870912,
-
-    DisallowOpacityMicromapBitArm = 137438953472,
-
-    CaptureDataBitKhr = 2147483648,
-
-    IndirectBindableBitExt = 274877906944,
 
 }
 

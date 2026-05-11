@@ -8,11 +8,11 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using AdamantiumVulkan;
+using AdamantiumVulkan.Core;
 
-namespace AdamantiumVulkan.Interop;
+namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 233 Column: 16
+// File: video.xml Line: 496 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoH265SequenceParameterSetVui
 {
@@ -41,7 +41,7 @@ public unsafe partial struct StdVideoH265SequenceParameterSetVui
     public byte max_bits_per_min_cu_denom;
     public byte log2_max_mv_length_horizontal;
     public byte log2_max_mv_length_vertical;
-    public AdamantiumVulkan.Interop.StdVideoH265HrdParameters* pHrdParameters;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265HrdParameters* pHrdParameters;
 }
 
 

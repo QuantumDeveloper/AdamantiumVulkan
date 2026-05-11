@@ -8,11 +8,11 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using AdamantiumVulkan;
+using AdamantiumVulkan.Core;
 
-namespace AdamantiumVulkan.Interop;
+namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_av1std.h Line: 372 Column: 16
+// File: video.xml Line: 914 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoAV1SequenceHeader
 {
@@ -28,8 +28,8 @@ public unsafe partial struct StdVideoAV1SequenceHeader
     public byte seq_force_integer_mv;
     public byte seq_force_screen_content_tools;
     public unsafe fixed byte reserved1[5];
-    public AdamantiumVulkan.Interop.StdVideoAV1ColorConfig* pColorConfig;
-    public AdamantiumVulkan.Interop.StdVideoAV1TimingInfo* pTimingInfo;
+    public AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfig* pColorConfig;
+    public AdamantiumVulkan.Core.Interop.StdVideoAV1TimingInfo* pTimingInfo;
 }
 
 

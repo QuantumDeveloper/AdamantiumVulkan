@@ -23,7 +23,7 @@ public unsafe partial class ImageCopy2 : IMarshallableObject, IMarshallable<Adam
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ImageCopy2;
     public object PNext { get; set; }
     public ImageSubresourceLayers SrcSubresource { get; set; }
     public Offset3D SrcOffset { get; set; }
@@ -53,7 +53,6 @@ public unsafe partial class ImageCopy2 : IMarshallableObject, IMarshallable<Adam
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkImageCopy2 native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         SrcSubresource = new ImageSubresourceLayers(native.srcSubresource);
         SrcOffset = new Offset3D(native.srcOffset);
@@ -62,14 +61,14 @@ public unsafe partial class ImageCopy2 : IMarshallableObject, IMarshallable<Adam
         Extent = new Extent3D(native.extent);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageCopy2>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageCopy2>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageCopy2Marshaller
     {
@@ -83,11 +82,11 @@ public unsafe partial class ImageCopy2 : IMarshallableObject, IMarshallable<Adam
             }
             else if (imageCopy2.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (imageCopy2.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (imageCopy2.SrcSubresource != default)

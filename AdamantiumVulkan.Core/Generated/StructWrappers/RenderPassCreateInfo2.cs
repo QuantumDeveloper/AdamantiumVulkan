@@ -23,17 +23,17 @@ public unsafe partial class RenderPassCreateInfo2 : IMarshallableObject, IMarsha
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.RenderPassCreateInfo2;
     public object PNext { get; set; }
-    public VkRenderPassCreateFlags Flags { get; set; }
+    public RenderPassCreateFlagBits Flags { get; set; }
     public uint AttachmentCount { get; set; }
-    public AttachmentDescription2 PAttachments { get; set; }
+    public System.ReadOnlyMemory<AttachmentDescription2> PAttachments { get; set; }
     public uint SubpassCount { get; set; }
-    public SubpassDescription2 PSubpasses { get; set; }
+    public System.ReadOnlyMemory<SubpassDescription2> PSubpasses { get; set; }
     public uint DependencyCount { get; set; }
-    public SubpassDependency2 PDependencies { get; set; }
+    public System.ReadOnlyMemory<SubpassDependency2> PDependencies { get; set; }
     public uint CorrelatedViewMaskCount { get; set; }
-    public uint? PCorrelatedViewMasks { get; set; }
+    public System.ReadOnlyMemory<uint> PCorrelatedViewMasks { get; set; }
 
     public static implicit operator RenderPassCreateInfo2(AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2 r)
     {
@@ -47,18 +47,38 @@ public unsafe partial class RenderPassCreateInfo2 : IMarshallableObject, IMarsha
         {
             size += marshallable.GetSize();
         }
-        if (PAttachments != default)
+        if (!PAttachments.IsEmpty)
         {
-            size += PAttachments.GetSize();
+            for (int i = 0; i < PAttachments.Length; i++)
+            {
+                if (PAttachments.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkAttachmentDescription2>();
+                else
+                    size += PAttachments.Span[i].GetSize();
+            }
         }
-        if (PSubpasses != default)
+        if (!PSubpasses.IsEmpty)
         {
-            size += PSubpasses.GetSize();
+            for (int i = 0; i < PSubpasses.Length; i++)
+            {
+                if (PSubpasses.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSubpassDescription2>();
+                else
+                    size += PSubpasses.Span[i].GetSize();
+            }
         }
-        if (PDependencies != default)
+        if (!PDependencies.IsEmpty)
         {
-            size += PDependencies.GetSize();
+            for (int i = 0; i < PDependencies.Length; i++)
+            {
+                if (PDependencies.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSubpassDependency2>();
+                else
+                    size += PDependencies.Span[i].GetSize();
+            }
         }
+        if (!PCorrelatedViewMasks.IsEmpty)
+            size += PCorrelatedViewMasks.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -69,34 +89,53 @@ public unsafe partial class RenderPassCreateInfo2 : IMarshallableObject, IMarsha
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2 native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         AttachmentCount = native.attachmentCount;
-        PAttachments = new AttachmentDescription2(in *native.pAttachments);
-        NativeUtils.Free(native.pAttachments);
-        SubpassCount = native.subpassCount;
-        PSubpasses = new SubpassDescription2(in *native.pSubpasses);
-        NativeUtils.Free(native.pSubpasses);
-        DependencyCount = native.dependencyCount;
-        PDependencies = new SubpassDependency2(in *native.pDependencies);
-        NativeUtils.Free(native.pDependencies);
-        CorrelatedViewMaskCount = native.correlatedViewMaskCount;
-        if (native.pCorrelatedViewMasks != null)
+        var arrayLengthPAttachments = native.attachmentCount;
+        var tmpPAttachments = new AttachmentDescription2[arrayLengthPAttachments];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentDescription2[arrayLengthPAttachments];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAttachments, arrayLengthPAttachments, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
-            PCorrelatedViewMasks = *native.pCorrelatedViewMasks;
-            NativeUtils.Free(native.pCorrelatedViewMasks);
+            tmpPAttachments[i] = new AttachmentDescription2(in nativeTmpArray0[i]);
         }
+        PAttachments = tmpPAttachments;
+        SubpassCount = native.subpassCount;
+        var arrayLengthPSubpasses = native.subpassCount;
+        var tmpPSubpasses = new SubpassDescription2[arrayLengthPSubpasses];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkSubpassDescription2[arrayLengthPSubpasses];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSubpasses, arrayLengthPSubpasses, nativeTmpArray1);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        {
+            tmpPSubpasses[i] = new SubpassDescription2(in nativeTmpArray1[i]);
+        }
+        PSubpasses = tmpPSubpasses;
+        DependencyCount = native.dependencyCount;
+        var arrayLengthPDependencies = native.dependencyCount;
+        var tmpPDependencies = new SubpassDependency2[arrayLengthPDependencies];
+        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkSubpassDependency2[arrayLengthPDependencies];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDependencies, arrayLengthPDependencies, nativeTmpArray2);
+        for (int i = 0; i < nativeTmpArray2.Length; ++i)
+        {
+            tmpPDependencies[i] = new SubpassDependency2(in nativeTmpArray2[i]);
+        }
+        PDependencies = tmpPDependencies;
+        CorrelatedViewMaskCount = native.correlatedViewMaskCount;
+        var arrayLengthPCorrelatedViewMasks = native.correlatedViewMaskCount;
+        var tmpPCorrelatedViewMasks = new uint[arrayLengthPCorrelatedViewMasks];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCorrelatedViewMasks, arrayLengthPCorrelatedViewMasks, tmpPCorrelatedViewMasks);
+        PCorrelatedViewMasks = tmpPCorrelatedViewMasks;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderPassCreateInfo2Marshaller
     {
@@ -110,59 +149,41 @@ public unsafe partial class RenderPassCreateInfo2 : IMarshallableObject, IMarsha
             }
             else if (renderPassCreateInfo2.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderPassCreateInfo2.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (renderPassCreateInfo2.Flags != (uint)default)
-            {
-                context.Destination[0].flags = renderPassCreateInfo2.Flags;
-            }
+            context.Destination[0].flags = renderPassCreateInfo2.Flags;
 
             context.Destination[0].attachmentCount = renderPassCreateInfo2.AttachmentCount;
 
-            if (renderPassCreateInfo2.PAttachments != default)
+            if (!renderPassCreateInfo2.PAttachments.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkAttachmentDescription2));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkAttachmentDescription2>(structSlice0).Slice(0, 1);
-                context.Destination[0].pAttachments = (AdamantiumVulkan.Core.Interop.VkAttachmentDescription2*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkAttachmentDescription2>(structDestination0, context.DataCursor);
-                renderPassCreateInfo2.PAttachments.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pAttachments = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.AttachmentDescription2, AdamantiumVulkan.Core.Interop.VkAttachmentDescription2, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2>(renderPassCreateInfo2.PAttachments, ref context);
             }
 
             context.Destination[0].subpassCount = renderPassCreateInfo2.SubpassCount;
 
-            if (renderPassCreateInfo2.PSubpasses != default)
+            if (!renderPassCreateInfo2.PSubpasses.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkSubpassDescription2));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSubpassDescription2>(structSlice0).Slice(0, 1);
-                context.Destination[0].pSubpasses = (AdamantiumVulkan.Core.Interop.VkSubpassDescription2*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSubpassDescription2>(structDestination0, context.DataCursor);
-                renderPassCreateInfo2.PSubpasses.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pSubpasses = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.SubpassDescription2, AdamantiumVulkan.Core.Interop.VkSubpassDescription2, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2>(renderPassCreateInfo2.PSubpasses, ref context);
             }
 
             context.Destination[0].dependencyCount = renderPassCreateInfo2.DependencyCount;
 
-            if (renderPassCreateInfo2.PDependencies != default)
+            if (!renderPassCreateInfo2.PDependencies.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkSubpassDependency2));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSubpassDependency2>(structSlice0).Slice(0, 1);
-                context.Destination[0].pDependencies = (AdamantiumVulkan.Core.Interop.VkSubpassDependency2*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSubpassDependency2>(structDestination0, context.DataCursor);
-                renderPassCreateInfo2.PDependencies.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pDependencies = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.SubpassDependency2, AdamantiumVulkan.Core.Interop.VkSubpassDependency2, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2>(renderPassCreateInfo2.PDependencies, ref context);
             }
 
             context.Destination[0].correlatedViewMaskCount = renderPassCreateInfo2.CorrelatedViewMaskCount;
 
-            if (renderPassCreateInfo2.PCorrelatedViewMasks.HasValue)
+            if (!renderPassCreateInfo2.PCorrelatedViewMasks.IsEmpty)
             {
-                context.Destination[0].pCorrelatedViewMasks = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(renderPassCreateInfo2.PCorrelatedViewMasks.Value, ref context);
+                context.Destination[0].pCorrelatedViewMasks = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2>(renderPassCreateInfo2.PCorrelatedViewMasks.Span, ref context);
             }
 
         }

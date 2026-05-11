@@ -9,17 +9,16 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using AdamantiumVulkan.Core;
-using AdamantiumVulkan;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9343 Column: 16
+// File: vk.xml Line: 7774 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkVideoEncodeH264CapabilitiesKHR
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkVideoEncodeH264CapabilityFlagsKHR flags;
+    public void* pNext;
+    public VideoEncodeH264CapabilityFlagBitsKHR flags;
     public StdVideoH264LevelIdc maxLevelIdc;
     public uint maxSliceCount;
     public uint maxPPictureL0ReferenceCount;
@@ -31,7 +30,7 @@ public unsafe partial struct VkVideoEncodeH264CapabilitiesKHR
     public int maxQp;
     public VkBool32 prefersGopRemainingFrames;
     public VkBool32 requiresGopRemainingFrames;
-    public VkVideoEncodeH264StdFlagsKHR stdSyntaxFlags;
+    public VideoEncodeH264StdFlagBitsKHR stdSyntaxFlags;
 }
 
 

@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20395 Column: 14
-public enum CubicFilterWeightsQCOM : uint
+// File: vk.xml Line: 12323 Column: 6
+public enum CubicFilterWeightsQCOM : int
 {
     CatmullRomQcom = 0,
 
@@ -21,8 +21,6 @@ public enum CubicFilterWeightsQCOM : uint
     BSplineQcom = 2,
 
     MitchellNetravaliQcom = 3,
-
-    MaxEnumQcom = 2147483647,
 
 }
 

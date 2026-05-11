@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6377 Column: 16
+// File: vk.xml Line: 4327 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceDescriptorIndexingFeatures
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkBool32 shaderInputAttachmentArrayDynamicIndexing;
     public VkBool32 shaderUniformTexelBufferArrayDynamicIndexing;
     public VkBool32 shaderStorageTexelBufferArrayDynamicIndexing;

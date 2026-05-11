@@ -1,0 +1,206 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Xml.Linq;
+using AdamantiumVulkan.Generator.Extensions;
+using AdamantiumVulkan.Generator.Parser.Schema;
+
+namespace AdamantiumVulkan.Generator.Parser;
+
+public static class ParserExtensions
+{
+    public static bool IsCompileTimeConstant(this VulkanRegistry registry, string expression)
+    {
+        // Find all worlds (words) that are not numbers
+        var tokens = Regex.Matches(expression, @"[a-zA-Z_][a-zA-Z0-9_]*");
+    
+        foreach (Match match in tokens)
+        {
+            string word = match.Value;
+            // If this is not a number and it is not in the constant dictionary - it is a dynamic field (runtime)
+            if (!registry.Constants.ContainsKey(word))
+                return false;
+        }
+        return true;
+    }
+    
+    public static long ResolveConstant(this VulkanRegistry registry, string name)
+    {
+        if (string.IsNullOrEmpty(name)) return 0;
+        
+        ReadOnlySpan<char> nameSpan = name.AsSpan();
+
+        if (TryParseVulkanNumeric(nameSpan, out long result))
+        {
+            return result;
+        }
+
+        if (registry.Constants.TryGetValue(name, out var constant))
+            return constant.NumericValue;
+
+        throw new Exception($"Cannot find value for constant : {name}");
+    }
+    
+    public static long ResolveExpression(this VulkanRegistry registry, string expression)
+    {
+        if (string.IsNullOrEmpty(expression)) return 0;
+
+        // If it's just a number or a constant name without any operators'
+        if (!expression.Any(c => "+-*/".Contains(c)))
+        {
+            return registry.ResolveConstant(expression.Trim());
+        }
+
+        if (expression.Contains('*'))
+        {
+            var parts = expression.Split('*');
+            return registry.ResolveExpression(parts[0]) * registry.ResolveExpression(parts[1]);
+        }
+    
+        if (expression.Contains('/'))
+        {
+            var parts = expression.Split('/');
+            var divisor = registry.ResolveExpression(parts[1]);
+            return divisor == 0 ? 0 : registry.ResolveExpression(parts[0]) / divisor;
+        }
+
+        return registry.ResolveConstant(expression.Trim());
+    }
+    
+    public static bool TryParseVulkanNumeric(this ReadOnlySpan<char> input, out long result)
+    {
+        result = 0;
+        if (input.IsEmpty) return false;
+
+        var cleanInput = input.Trim("() ".AsSpan());
+    
+        if (cleanInput.IsEmpty) return false;
+
+        if (cleanInput.StartsWith("~".AsSpan()))
+        {
+            result = -1L; // The same as ~0 in C# for long
+            return true;
+        }
+
+        cleanInput = cleanInput.TrimEnd("uUlLfF".AsSpan());
+
+        if (cleanInput.StartsWith("0x".AsSpan(), StringComparison.OrdinalIgnoreCase))
+        {
+            return long.TryParse(cleanInput.Slice(2), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out result);
+        }
+
+        return long.TryParse(cleanInput, NumberStyles.Integer, CultureInfo.InvariantCulture, out result);
+    }
+    
+    public static long ParseVulkanNumeric(this string rawValue)
+    {
+        if (rawValue.AsSpan().TryParseVulkanNumeric(out long result))
+        {
+            return result;
+        }
+        return 0;
+    }
+    
+    public static string GetMasterName(this VulkanRegistry registry, IEnumerable<string> aliases)
+    {
+        return aliases
+            .OrderBy(name => GetWeight(registry, name))
+            .ThenBy(name => name.Length)
+            .ThenBy(name => name)
+            .First();
+    }
+
+    public static int GetWeight(this VulkanRegistry registry, string name)
+    {
+        bool hasImplementation = registry.Structs.ContainsKey(name) ||
+                                 registry.Unions.ContainsKey(name) ||
+                                 registry.Commands.ContainsKey(name) ||
+                                 registry.Enums.ContainsKey(name) ||
+                                 registry.Handles.ContainsKey(name) ||
+                                 registry.Typedefs.ContainsKey(name);
+
+        if (!hasImplementation) return 1000;
+        
+        if (HasVendorSuffix(registry, name))
+        {
+            if (name.EndsWith("KHR")) return 1;
+            if (name.EndsWith("EXT")) return 2;
+            
+            return 3;
+        }
+
+        if (name.EndsWith("KHR")) return 1;
+        if (name.EndsWith("EXT")) return 2;
+
+        return 0;
+    }
+
+    public static bool HasVendorSuffix(this VulkanRegistry registry, string name)
+    {
+        if (string.IsNullOrEmpty(name)) return false;
+
+        foreach (var tag in registry.VendorTags)
+        {
+            if (name.EndsWith(tag))
+            {
+                int tagIndex = name.Length - tag.Length;
+                if (tagIndex > 0)
+                {
+                    char charBeforeTag = name[tagIndex - 1];
+                    if (char.IsLower(charBeforeTag)) continue; 
+                }
+            
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static bool IsVulkanProp(this XElement node)
+    {
+        var api = node.Attribute("api")?.Value;
+        return api == null || api.Split(',').Any(s => s.Trim() == "vulkan");
+    }
+    
+    public static bool IsTypeAllowed(this VulkanRegistry registry, VulkanParserSettings settings, HashSet<string> allowedPlatforms, string name)
+    {
+        if (string.IsNullOrEmpty(name)) return false;
+        
+        if (!settings.IncludeVideoExtensions)
+        {
+            if (registry.ForbiddenVideoTypes.Contains(name)) 
+                return false;
+
+            if (registry.TypeToExtensionMap.TryGetValue(name, out var ext_Name))
+            {
+                if (registry.VideoExtensions.Contains(ext_Name))
+                    return false;
+            }
+        }
+        
+        if (registry.ExtensionPlatformMap.TryGetValue(name, out var platform))
+        {
+            if (!allowedPlatforms.Contains(platform))
+                return false;
+        }
+        
+        return true;
+    }
+
+    public static bool IsVideoType(this string name)
+    {
+        if (string.IsNullOrEmpty(name)) 
+            return false;
+
+        return name.StartsWith("StdVideo") || name.StartsWith("vk_video") || name.StartsWith("VkVideo");
+    }
+    
+    public static string SanitizeLengthExpression(string expression)
+    {
+        if (string.IsNullOrEmpty(expression)) return "";
+        string sanitized = expression.Replace("->", ".");
+        return sanitized;
+    }
+}

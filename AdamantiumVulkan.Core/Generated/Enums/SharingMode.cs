@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 1967 Column: 14
+// File: vk.xml Line: 10323 Column: 6
 [Flags]
-public enum SharingMode : uint
+public enum SharingMode : int
 {
     Exclusive = 0,
 
     Concurrent = 1,
-
-    MaxEnum = 2147483647,
 
 }
 

@@ -23,10 +23,10 @@ public unsafe partial class SwapchainPresentFenceInfoEXT : IMarshallableObject, 
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.SwapchainPresentFenceInfoExt;
     public object PNext { get; set; }
     public uint SwapchainCount { get; set; }
-    public Fence PFences { get; set; }
+    public System.ReadOnlyMemory<Fence> PFences { get; set; }
 
     public static implicit operator SwapchainPresentFenceInfoEXT(AdamantiumVulkan.Core.Interop.VkSwapchainPresentFenceInfoEXT s)
     {
@@ -40,6 +40,8 @@ public unsafe partial class SwapchainPresentFenceInfoEXT : IMarshallableObject, 
         {
             size += marshallable.GetSize();
         }
+        if (!PFences.IsEmpty)
+            size += PFences.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkFence_T>();
         return size;
     }
 
@@ -50,21 +52,27 @@ public unsafe partial class SwapchainPresentFenceInfoEXT : IMarshallableObject, 
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkSwapchainPresentFenceInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         SwapchainCount = native.swapchainCount;
-        PFences = new Fence(in *native.pFences);
-        NativeUtils.Free(native.pFences);
+        var arrayLengthPFences = native.swapchainCount;
+        var tmpPFences = new Fence[arrayLengthPFences];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkFence_T[arrayLengthPFences];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pFences, arrayLengthPFences, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPFences[i] = new Fence(in nativeTmpArray0[i]);
+        }
+        PFences = tmpPFences;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSwapchainPresentFenceInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSwapchainPresentFenceInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSwapchainPresentFenceInfoEXTMarshaller
     {
@@ -78,19 +86,26 @@ public unsafe partial class SwapchainPresentFenceInfoEXT : IMarshallableObject, 
             }
             else if (swapchainPresentFenceInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (swapchainPresentFenceInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].swapchainCount = swapchainPresentFenceInfoEXT.SwapchainCount;
 
-            if (swapchainPresentFenceInfoEXT.PFences != default)
+            if (!swapchainPresentFenceInfoEXT.PFences.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkFence_T struct0 = swapchainPresentFenceInfoEXT.PFences;
-                context.Destination[0].pFences = (AdamantiumVulkan.Core.Interop.VkFence_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.Fence> sourceSpan = swapchainPresentFenceInfoEXT.PFences.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkFence_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkFence_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkFence_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pFences = pDestination;
             }
 
         }

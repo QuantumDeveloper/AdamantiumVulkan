@@ -405,11 +405,11 @@ public static partial class VulkanBindings
             .WithField("pIndexTypeValues")
             .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), arraySizeSource: "indexTypeCount");
 
-        api.Class("VkCuLaunchInfoNVX")
-            .WithField("pParams")
-            .InterpretAsPointerToPrimitiveType(PrimitiveType.Void, pointerDepth: 2)
-            .WithField("pExtras")
-            .InterpretAsPointerToPrimitiveType(PrimitiveType.Void, pointerDepth: 2);
+        // api.Class("VkCuLaunchInfoNVX")
+        //     .WithField("pParams")
+        //     .InterpretAsPointerToPrimitiveType(PrimitiveType.Void, pointerDepth: 2)
+        //     .WithField("pExtras")
+        //     .InterpretAsPointerToPrimitiveType(PrimitiveType.Void, pointerDepth: 2);
 
         api.Class("VkPipelineColorWriteCreateInfoEXT")
             .WithField("pColorWriteEnables")
@@ -419,6 +419,16 @@ public static partial class VulkanBindings
             .WithParameterName("pVertexAttributeDescriptions")
             .InterpretAsPointerToArray(new CustomType("VkVertexInputAttributeDescription2EXT"),
                 arraySizeSource: "vertexAttributeDescriptionCount");
+
+        api.Function("vkMapMemory")
+            .WithParameterName("ppData")
+            .InterpretAsIs()
+            .SetParameterKind(ParameterKind.Out);
+        
+        api.Function("vkAcquireNextImageKHR")
+            .WithParameterName("pImageIndex")
+            .InterpretAsIs()
+            .SetParameterKind(ParameterKind.Ref);
         
         //api.Function("vkGetPhysicalDeviceSurfaceCapabilitiesKHR").
         //    WithParameterName("pSurfaceCapabilities").

@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Windows;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 268 Column: 14
-public enum FullScreenExclusiveEXT : uint
+// File: vk.xml Line: 11578 Column: 6
+public enum FullScreenExclusiveEXT : int
 {
     DefaultExt = 0,
 
@@ -21,8 +21,6 @@ public enum FullScreenExclusiveEXT : uint
     DisallowedExt = 2,
 
     ApplicationControlledExt = 3,
-
-    MaxEnumExt = 2147483647,
 
 }
 

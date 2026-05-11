@@ -9,8 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core;
 
@@ -25,7 +23,7 @@ public unsafe partial class VideoEncodeAV1DpbSlotInfoKHR : IMarshallableObject, 
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeAv1DpbSlotInfoKhr;
     public object PNext { get; set; }
     public StdVideoEncodeAV1ReferenceInfo PStdReferenceInfo { get; set; }
 
@@ -55,20 +53,19 @@ public unsafe partial class VideoEncodeAV1DpbSlotInfoKHR : IMarshallableObject, 
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1DpbSlotInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PStdReferenceInfo = new StdVideoEncodeAV1ReferenceInfo(in *native.pStdReferenceInfo);
         NativeUtils.Free(native.pStdReferenceInfo);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1DpbSlotInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1DpbSlotInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeAV1DpbSlotInfoKHRMarshaller
     {
@@ -82,19 +79,19 @@ public unsafe partial class VideoEncodeAV1DpbSlotInfoKHR : IMarshallableObject, 
             }
             else if (videoEncodeAV1DpbSlotInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeAV1DpbSlotInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoEncodeAV1DpbSlotInfoKHR.PStdReferenceInfo != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoEncodeAV1ReferenceInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoEncodeAV1ReferenceInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStdReferenceInfo = (AdamantiumVulkan.Interop.StdVideoEncodeAV1ReferenceInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1ReferenceInfo>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ReferenceInfo));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ReferenceInfo>(structSlice0).Slice(0, 1);
+                context.Destination[0].pStdReferenceInfo = (AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ReferenceInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ReferenceInfo>(structDestination0, context.DataCursor);
                 videoEncodeAV1DpbSlotInfoKHR.PStdReferenceInfo.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }

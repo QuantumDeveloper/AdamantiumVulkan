@@ -9,8 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core;
 
@@ -25,11 +23,11 @@ public unsafe partial class VideoDecodeH265PictureInfoKHR : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoDecodeH265PictureInfoKhr;
     public object PNext { get; set; }
     public StdVideoDecodeH265PictureInfo PStdPictureInfo { get; set; }
     public uint SliceSegmentCount { get; set; }
-    public uint? PSliceSegmentOffsets { get; set; }
+    public System.ReadOnlyMemory<uint> PSliceSegmentOffsets { get; set; }
 
     public static implicit operator VideoDecodeH265PictureInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeH265PictureInfoKHR v)
     {
@@ -47,6 +45,8 @@ public unsafe partial class VideoDecodeH265PictureInfoKHR : IMarshallableObject,
         {
             size += PStdPictureInfo.GetSize();
         }
+        if (!PSliceSegmentOffsets.IsEmpty)
+            size += PSliceSegmentOffsets.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -57,26 +57,24 @@ public unsafe partial class VideoDecodeH265PictureInfoKHR : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoDecodeH265PictureInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PStdPictureInfo = new StdVideoDecodeH265PictureInfo(in *native.pStdPictureInfo);
         NativeUtils.Free(native.pStdPictureInfo);
         SliceSegmentCount = native.sliceSegmentCount;
-        if (native.pSliceSegmentOffsets != null)
-        {
-            PSliceSegmentOffsets = *native.pSliceSegmentOffsets;
-            NativeUtils.Free(native.pSliceSegmentOffsets);
-        }
+        var arrayLengthPSliceSegmentOffsets = native.sliceSegmentCount;
+        var tmpPSliceSegmentOffsets = new uint[arrayLengthPSliceSegmentOffsets];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSliceSegmentOffsets, arrayLengthPSliceSegmentOffsets, tmpPSliceSegmentOffsets);
+        PSliceSegmentOffsets = tmpPSliceSegmentOffsets;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoDecodeH265PictureInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoDecodeH265PictureInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoDecodeH265PictureInfoKHRMarshaller
     {
@@ -90,28 +88,28 @@ public unsafe partial class VideoDecodeH265PictureInfoKHR : IMarshallableObject,
             }
             else if (videoDecodeH265PictureInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoDecodeH265PictureInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoDecodeH265PictureInfoKHR.PStdPictureInfo != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoDecodeH265PictureInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoDecodeH265PictureInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStdPictureInfo = (AdamantiumVulkan.Interop.StdVideoDecodeH265PictureInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoDecodeH265PictureInfo>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoDecodeH265PictureInfo));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoDecodeH265PictureInfo>(structSlice0).Slice(0, 1);
+                context.Destination[0].pStdPictureInfo = (AdamantiumVulkan.Core.Interop.StdVideoDecodeH265PictureInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoDecodeH265PictureInfo>(structDestination0, context.DataCursor);
                 videoDecodeH265PictureInfoKHR.PStdPictureInfo.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             context.Destination[0].sliceSegmentCount = videoDecodeH265PictureInfoKHR.SliceSegmentCount;
 
-            if (videoDecodeH265PictureInfoKHR.PSliceSegmentOffsets.HasValue)
+            if (!videoDecodeH265PictureInfoKHR.PSliceSegmentOffsets.IsEmpty)
             {
-                context.Destination[0].pSliceSegmentOffsets = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(videoDecodeH265PictureInfoKHR.PSliceSegmentOffsets.Value, ref context);
+                context.Destination[0].pSliceSegmentOffsets = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkVideoDecodeH265PictureInfoKHR>(videoDecodeH265PictureInfoKHR.PSliceSegmentOffsets.Span, ref context);
             }
 
         }

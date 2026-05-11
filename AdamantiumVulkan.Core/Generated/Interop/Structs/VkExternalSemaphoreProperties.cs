@@ -12,15 +12,15 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5760 Column: 16
+// File: vk.xml Line: 3045 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkExternalSemaphoreProperties
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkExternalSemaphoreHandleTypeFlags exportFromImportedHandleTypes;
-    public VkExternalSemaphoreHandleTypeFlags compatibleHandleTypes;
-    public VkExternalSemaphoreFeatureFlags externalSemaphoreFeatures;
+    public void* pNext;
+    public ExternalSemaphoreHandleTypeFlagBits exportFromImportedHandleTypes;
+    public ExternalSemaphoreHandleTypeFlagBits compatibleHandleTypes;
+    public ExternalSemaphoreFeatureFlagBits externalSemaphoreFeatures;
 }
 
 

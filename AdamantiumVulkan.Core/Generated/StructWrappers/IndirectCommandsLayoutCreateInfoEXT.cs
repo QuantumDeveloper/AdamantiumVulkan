@@ -23,14 +23,14 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoEXT : IMarshallableO
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.IndirectCommandsLayoutCreateInfoExt;
     public object PNext { get; set; }
-    public VkIndirectCommandsLayoutUsageFlagsEXT Flags { get; set; }
-    public VkShaderStageFlags ShaderStages { get; set; }
+    public IndirectCommandsLayoutUsageFlagBitsEXT Flags { get; set; }
+    public ShaderStageFlagBits ShaderStages { get; set; }
     public uint IndirectStride { get; set; }
     public PipelineLayout PipelineLayout { get; set; }
     public uint TokenCount { get; set; }
-    public IndirectCommandsLayoutTokenEXT PTokens { get; set; }
+    public System.ReadOnlyMemory<IndirectCommandsLayoutTokenEXT> PTokens { get; set; }
 
     public static implicit operator IndirectCommandsLayoutCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoEXT i)
     {
@@ -44,9 +44,15 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoEXT : IMarshallableO
         {
             size += marshallable.GetSize();
         }
-        if (PTokens != default)
+        if (!PTokens.IsEmpty)
         {
-            size += PTokens.GetSize();
+            for (int i = 0; i < PTokens.Length; i++)
+            {
+                if (PTokens.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT>();
+                else
+                    size += PTokens.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -58,25 +64,31 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoEXT : IMarshallableO
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         ShaderStages = native.shaderStages;
         IndirectStride = native.indirectStride;
         PipelineLayout = new PipelineLayout(native.pipelineLayout);
         TokenCount = native.tokenCount;
-        PTokens = new IndirectCommandsLayoutTokenEXT(in *native.pTokens);
-        NativeUtils.Free(native.pTokens);
+        var arrayLengthPTokens = native.tokenCount;
+        var tmpPTokens = new IndirectCommandsLayoutTokenEXT[arrayLengthPTokens];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT[arrayLengthPTokens];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pTokens, arrayLengthPTokens, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPTokens[i] = new IndirectCommandsLayoutTokenEXT(in nativeTmpArray0[i]);
+        }
+        PTokens = tmpPTokens;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkIndirectCommandsLayoutCreateInfoEXTMarshaller
     {
@@ -90,22 +102,16 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoEXT : IMarshallableO
             }
             else if (indirectCommandsLayoutCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (indirectCommandsLayoutCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (indirectCommandsLayoutCreateInfoEXT.Flags != (uint)default)
-            {
-                context.Destination[0].flags = indirectCommandsLayoutCreateInfoEXT.Flags;
-            }
+            context.Destination[0].flags = indirectCommandsLayoutCreateInfoEXT.Flags;
 
-            if (indirectCommandsLayoutCreateInfoEXT.ShaderStages != (uint)default)
-            {
-                context.Destination[0].shaderStages = indirectCommandsLayoutCreateInfoEXT.ShaderStages;
-            }
+            context.Destination[0].shaderStages = indirectCommandsLayoutCreateInfoEXT.ShaderStages;
 
             context.Destination[0].indirectStride = indirectCommandsLayoutCreateInfoEXT.IndirectStride;
 
@@ -116,14 +122,9 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoEXT : IMarshallableO
 
             context.Destination[0].tokenCount = indirectCommandsLayoutCreateInfoEXT.TokenCount;
 
-            if (indirectCommandsLayoutCreateInfoEXT.PTokens != default)
+            if (!indirectCommandsLayoutCreateInfoEXT.PTokens.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT>(structSlice0).Slice(0, 1);
-                context.Destination[0].pTokens = (AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT>(structDestination0, context.DataCursor);
-                indirectCommandsLayoutCreateInfoEXT.PTokens.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pTokens = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.IndirectCommandsLayoutTokenEXT, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoEXT>(indirectCommandsLayoutCreateInfoEXT.PTokens, ref context);
             }
 
         }

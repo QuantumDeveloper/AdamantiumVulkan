@@ -13,7 +13,7 @@ using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5789 Column: 30
+// File: video.xml Line: 12470 Column: 10
 public unsafe struct PFN_vkEnumerateInstanceVersion
 {
     public PFN_vkEnumerateInstanceVersion(nuint ptr) : this((void*) ptr) { }
@@ -21,24 +21,24 @@ public unsafe struct PFN_vkEnumerateInstanceVersion
     public PFN_vkEnumerateInstanceVersion(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<ref uint*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<uint*, Result>)ptr;
     }
 
-    private delegate* unmanaged<ref uint*, Result> InvokeFunc;
+    private delegate* unmanaged<uint*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(ref uint* pApiVersion)
+    public Result Invoke(uint* pApiVersion)
     {
-        return InvokeFunc(ref pApiVersion);
+        return InvokeFunc(pApiVersion);
     }
-    public static Result Invoke(void* ptr, ref uint* pApiVersion)
+    public static Result Invoke(void* ptr, uint* pApiVersion)
     {
-        return ((delegate* unmanaged<ref uint*, Result>)ptr)(ref pApiVersion);
+        return ((delegate* unmanaged<uint*, Result>)ptr)(pApiVersion);
     }
-    public static Result Invoke(nuint ptr, ref uint* pApiVersion)
+    public static Result Invoke(nuint ptr, uint* pApiVersion)
     {
-        return ((delegate* unmanaged<ref uint*, Result>)(void*)ptr)(ref pApiVersion);
+        return ((delegate* unmanaged<uint*, Result>)(void*)ptr)(pApiVersion);
     }
 
     public static explicit operator PFN_vkEnumerateInstanceVersion(void* ptr) => new(ptr);

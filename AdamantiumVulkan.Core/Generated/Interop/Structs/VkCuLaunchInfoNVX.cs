@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13271 Column: 16
+// File: vk.xml Line: 8222 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkCuLaunchInfoNVX
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkCuFunctionNVX_T function;
     public uint gridDimX;
     public uint gridDimY;
@@ -26,10 +26,10 @@ public unsafe partial struct VkCuLaunchInfoNVX
     public uint blockDimY;
     public uint blockDimZ;
     public uint sharedMemBytes;
-    public ulong paramCount;
-    public nuint pParams;
-    public ulong extraCount;
-    public nuint pExtras;
+    public nuint paramCount;
+    public void** pParams;
+    public nuint extraCount;
+    public void** pExtras;
 }
 
 

@@ -23,7 +23,7 @@ public unsafe partial class AttachmentReferenceStencilLayout : IMarshallableObje
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.AttachmentReferenceStencilLayout;
     public object PNext { get; set; }
     public ImageLayout StencilLayout { get; set; }
 
@@ -49,19 +49,18 @@ public unsafe partial class AttachmentReferenceStencilLayout : IMarshallableObje
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkAttachmentReferenceStencilLayout native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         StencilLayout = native.stencilLayout;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkAttachmentReferenceStencilLayout>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkAttachmentReferenceStencilLayout>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkAttachmentReferenceStencilLayoutMarshaller
     {
@@ -75,11 +74,11 @@ public unsafe partial class AttachmentReferenceStencilLayout : IMarshallableObje
             }
             else if (attachmentReferenceStencilLayout.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (attachmentReferenceStencilLayout.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].stencilLayout = attachmentReferenceStencilLayout.StencilLayout;

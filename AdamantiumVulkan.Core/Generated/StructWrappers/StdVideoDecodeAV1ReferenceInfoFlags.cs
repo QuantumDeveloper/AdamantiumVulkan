@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoDecodeAV1ReferenceInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoDecodeAV1ReferenceInfoFlags>
+public unsafe partial class StdVideoDecodeAV1ReferenceInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfoFlags>
 {
     public StdVideoDecodeAV1ReferenceInfoFlags()
     {
     }
 
-    public StdVideoDecodeAV1ReferenceInfoFlags(in AdamantiumVulkan.Interop.StdVideoDecodeAV1ReferenceInfoFlags native)
+    public StdVideoDecodeAV1ReferenceInfoFlags(in AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfoFlags native)
     {
         MarshalFrom(in native);
     }
@@ -27,41 +27,41 @@ public unsafe partial class StdVideoDecodeAV1ReferenceInfoFlags : IMarshallableO
     public uint Segmentation_enabled { get; set; }
     public uint Reserved { get; set; }
 
-    public static implicit operator StdVideoDecodeAV1ReferenceInfoFlags(AdamantiumVulkan.Interop.StdVideoDecodeAV1ReferenceInfoFlags s)
+    public static implicit operator StdVideoDecodeAV1ReferenceInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfoFlags s)
     {
         return new StdVideoDecodeAV1ReferenceInfoFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoDecodeAV1ReferenceInfoFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfoFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoDecodeAV1ReferenceInfoFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfoFlags> context)
     {
         new StdVideoDecodeAV1ReferenceInfoFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoDecodeAV1ReferenceInfoFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfoFlags native)
     {
         Disable_frame_end_update_cdf = native.disable_frame_end_update_cdf;
         Segmentation_enabled = native.segmentation_enabled;
         Reserved = native.reserved;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoDecodeAV1ReferenceInfoFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfoFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoDecodeAV1ReferenceInfoFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfoFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoDecodeAV1ReferenceInfoFlagsMarshaller
     {
-        public StdVideoDecodeAV1ReferenceInfoFlagsMarshaller(AdamantiumVulkan.StdVideoDecodeAV1ReferenceInfoFlags stdVideoDecodeAV1ReferenceInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoDecodeAV1ReferenceInfoFlags> context)
+        public StdVideoDecodeAV1ReferenceInfoFlagsMarshaller(AdamantiumVulkan.Core.StdVideoDecodeAV1ReferenceInfoFlags stdVideoDecodeAV1ReferenceInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfoFlags> context)
         {
             context.Destination[0].disable_frame_end_update_cdf = stdVideoDecodeAV1ReferenceInfoFlags.Disable_frame_end_update_cdf;
 

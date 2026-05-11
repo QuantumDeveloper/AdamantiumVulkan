@@ -26,7 +26,7 @@ public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : IMarshal
     public StructureType SType => StructureType.RenderPassInputAttachmentAspectCreateInfo;
     public object PNext { get; set; }
     public uint AspectReferenceCount { get; set; }
-    public InputAttachmentAspectReference PAspectReferences { get; set; }
+    public System.ReadOnlyMemory<InputAttachmentAspectReference> PAspectReferences { get; set; }
 
     public static implicit operator RenderPassInputAttachmentAspectCreateInfo(AdamantiumVulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo r)
     {
@@ -40,9 +40,15 @@ public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : IMarshal
         {
             size += marshallable.GetSize();
         }
-        if (PAspectReferences != default)
+        if (!PAspectReferences.IsEmpty)
         {
-            size += PAspectReferences.GetSize();
+            for (int i = 0; i < PAspectReferences.Length; i++)
+            {
+                if (PAspectReferences.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference>();
+                else
+                    size += PAspectReferences.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -56,18 +62,25 @@ public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : IMarshal
     {
         PNext = (System.IntPtr)native.pNext;
         AspectReferenceCount = native.aspectReferenceCount;
-        PAspectReferences = new InputAttachmentAspectReference(in *native.pAspectReferences);
-        NativeUtils.Free(native.pAspectReferences);
+        var arrayLengthPAspectReferences = native.aspectReferenceCount;
+        var tmpPAspectReferences = new InputAttachmentAspectReference[arrayLengthPAspectReferences];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference[arrayLengthPAspectReferences];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAspectReferences, arrayLengthPAspectReferences, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPAspectReferences[i] = new InputAttachmentAspectReference(in nativeTmpArray0[i]);
+        }
+        PAspectReferences = tmpPAspectReferences;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderPassInputAttachmentAspectCreateInfoMarshaller
     {
@@ -81,23 +94,18 @@ public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : IMarshal
             }
             else if (renderPassInputAttachmentAspectCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderPassInputAttachmentAspectCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].aspectReferenceCount = renderPassInputAttachmentAspectCreateInfo.AspectReferenceCount;
 
-            if (renderPassInputAttachmentAspectCreateInfo.PAspectReferences != default)
+            if (!renderPassInputAttachmentAspectCreateInfo.PAspectReferences.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference>(structSlice0).Slice(0, 1);
-                context.Destination[0].pAspectReferences = (AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference>(structDestination0, context.DataCursor);
-                renderPassInputAttachmentAspectCreateInfo.PAspectReferences.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pAspectReferences = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.InputAttachmentAspectReference, AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference, AdamantiumVulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo>(renderPassInputAttachmentAspectCreateInfo.PAspectReferences, ref context);
             }
 
         }

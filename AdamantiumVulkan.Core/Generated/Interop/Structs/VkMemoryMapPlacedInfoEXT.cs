@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16388 Column: 16
+// File: vk.xml Line: 10036 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkMemoryMapPlacedInfoEXT
 {
     public StructureType sType;
-    public nuint pNext;
-    public nuint pPlacedAddress;
+    public void* pNext;
+    public void* pPlacedAddress;
 }
 
 

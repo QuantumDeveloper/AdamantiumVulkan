@@ -11,17 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13992 Column: 14
+// File: vk.xml Line: 11409 Column: 6
 [Flags]
-public enum ConservativeRasterizationModeEXT : uint
+public enum ConservativeRasterizationModeEXT : int
 {
     DisabledExt = 0,
 
     OverestimateExt = 1,
 
     UnderestimateExt = 2,
-
-    MaxEnumExt = 2147483647,
 
 }
 

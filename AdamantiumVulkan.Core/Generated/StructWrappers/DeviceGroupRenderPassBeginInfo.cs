@@ -27,7 +27,7 @@ public unsafe partial class DeviceGroupRenderPassBeginInfo : IMarshallableObject
     public object PNext { get; set; }
     public uint DeviceMask { get; set; }
     public uint DeviceRenderAreaCount { get; set; }
-    public Rect2D PDeviceRenderAreas { get; set; }
+    public System.ReadOnlyMemory<Rect2D> PDeviceRenderAreas { get; set; }
 
     public static implicit operator DeviceGroupRenderPassBeginInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo d)
     {
@@ -41,9 +41,15 @@ public unsafe partial class DeviceGroupRenderPassBeginInfo : IMarshallableObject
         {
             size += marshallable.GetSize();
         }
-        if (PDeviceRenderAreas != default)
+        if (!PDeviceRenderAreas.IsEmpty)
         {
-            size += PDeviceRenderAreas.GetSize();
+            for (int i = 0; i < PDeviceRenderAreas.Length; i++)
+            {
+                if (PDeviceRenderAreas.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkRect2D>();
+                else
+                    size += PDeviceRenderAreas.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -58,18 +64,25 @@ public unsafe partial class DeviceGroupRenderPassBeginInfo : IMarshallableObject
         PNext = (System.IntPtr)native.pNext;
         DeviceMask = native.deviceMask;
         DeviceRenderAreaCount = native.deviceRenderAreaCount;
-        PDeviceRenderAreas = new Rect2D(in *native.pDeviceRenderAreas);
-        NativeUtils.Free(native.pDeviceRenderAreas);
+        var arrayLengthPDeviceRenderAreas = native.deviceRenderAreaCount;
+        var tmpPDeviceRenderAreas = new Rect2D[arrayLengthPDeviceRenderAreas];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkRect2D[arrayLengthPDeviceRenderAreas];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDeviceRenderAreas, arrayLengthPDeviceRenderAreas, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPDeviceRenderAreas[i] = new Rect2D(in nativeTmpArray0[i]);
+        }
+        PDeviceRenderAreas = tmpPDeviceRenderAreas;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDeviceGroupRenderPassBeginInfoMarshaller
     {
@@ -83,25 +96,20 @@ public unsafe partial class DeviceGroupRenderPassBeginInfo : IMarshallableObject
             }
             else if (deviceGroupRenderPassBeginInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (deviceGroupRenderPassBeginInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].deviceMask = deviceGroupRenderPassBeginInfo.DeviceMask;
 
             context.Destination[0].deviceRenderAreaCount = deviceGroupRenderPassBeginInfo.DeviceRenderAreaCount;
 
-            if (deviceGroupRenderPassBeginInfo.PDeviceRenderAreas != default)
+            if (!deviceGroupRenderPassBeginInfo.PDeviceRenderAreas.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkRect2D));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkRect2D>(structSlice0).Slice(0, 1);
-                context.Destination[0].pDeviceRenderAreas = (AdamantiumVulkan.Core.Interop.VkRect2D*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkRect2D>(structDestination0, context.DataCursor);
-                deviceGroupRenderPassBeginInfo.PDeviceRenderAreas.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pDeviceRenderAreas = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.Rect2D, AdamantiumVulkan.Core.Interop.VkRect2D, AdamantiumVulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo>(deviceGroupRenderPassBeginInfo.PDeviceRenderAreas, ref context);
             }
 
         }

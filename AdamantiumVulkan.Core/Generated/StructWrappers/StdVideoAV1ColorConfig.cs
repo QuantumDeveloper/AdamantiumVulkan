@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1ColorConfig : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1ColorConfig>
+public unsafe partial class StdVideoAV1ColorConfig : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfig>
 {
     public StdVideoAV1ColorConfig()
     {
     }
 
-    public StdVideoAV1ColorConfig(in AdamantiumVulkan.Interop.StdVideoAV1ColorConfig native)
+    public StdVideoAV1ColorConfig(in AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfig native)
     {
         MarshalFrom(in native);
     }
@@ -33,23 +33,23 @@ public unsafe partial class StdVideoAV1ColorConfig : IMarshallableObject, IMarsh
     public StdVideoAV1MatrixCoefficients Matrix_coefficients { get; set; }
     public StdVideoAV1ChromaSamplePosition Chroma_sample_position { get; set; }
 
-    public static implicit operator StdVideoAV1ColorConfig(AdamantiumVulkan.Interop.StdVideoAV1ColorConfig s)
+    public static implicit operator StdVideoAV1ColorConfig(AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfig s)
     {
         return new StdVideoAV1ColorConfig(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1ColorConfig>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfig>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1ColorConfig> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfig> context)
     {
         new StdVideoAV1ColorConfigMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1ColorConfig native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfig native)
     {
         Flags = new StdVideoAV1ColorConfigFlags(native.flags);
         BitDepth = native.BitDepth;
@@ -62,25 +62,25 @@ public unsafe partial class StdVideoAV1ColorConfig : IMarshallableObject, IMarsh
         Chroma_sample_position = native.chroma_sample_position;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1ColorConfig>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfig>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1ColorConfig>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfig>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1ColorConfigMarshaller
     {
-        public StdVideoAV1ColorConfigMarshaller(AdamantiumVulkan.StdVideoAV1ColorConfig stdVideoAV1ColorConfig, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1ColorConfig> context)
+        public StdVideoAV1ColorConfigMarshaller(AdamantiumVulkan.Core.StdVideoAV1ColorConfig stdVideoAV1ColorConfig, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfig> context)
         {
             if (stdVideoAV1ColorConfig.Flags != default)
             {
-                fixed (AdamantiumVulkan.Interop.StdVideoAV1ColorConfigFlags* pField = &context.Destination[0].flags)
+                fixed (AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfigFlags* pField = &context.Destination[0].flags)
                 {
-                    var fieldSpan = new System.Span<AdamantiumVulkan.Interop.StdVideoAV1ColorConfigFlags>(pField, 1);
-                    var childContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1ColorConfigFlags>(fieldSpan, context.DataCursor);
+                    var fieldSpan = new System.Span<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfigFlags>(pField, 1);
+                    var childContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfigFlags>(fieldSpan, context.DataCursor);
                     stdVideoAV1ColorConfig.Flags.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }

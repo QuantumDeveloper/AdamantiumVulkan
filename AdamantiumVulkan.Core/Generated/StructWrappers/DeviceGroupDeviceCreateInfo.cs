@@ -26,7 +26,7 @@ public unsafe partial class DeviceGroupDeviceCreateInfo : IMarshallableObject, I
     public StructureType SType => StructureType.DeviceGroupDeviceCreateInfo;
     public object PNext { get; set; }
     public uint PhysicalDeviceCount { get; set; }
-    public PhysicalDevice PhysicalDevices { get; set; }
+    public System.ReadOnlyMemory<PhysicalDevice> PhysicalDevices { get; set; }
 
     public static implicit operator DeviceGroupDeviceCreateInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupDeviceCreateInfo d)
     {
@@ -40,6 +40,8 @@ public unsafe partial class DeviceGroupDeviceCreateInfo : IMarshallableObject, I
         {
             size += marshallable.GetSize();
         }
+        if (!PhysicalDevices.IsEmpty)
+            size += PhysicalDevices.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T>();
         return size;
     }
 
@@ -52,18 +54,25 @@ public unsafe partial class DeviceGroupDeviceCreateInfo : IMarshallableObject, I
     {
         PNext = (System.IntPtr)native.pNext;
         PhysicalDeviceCount = native.physicalDeviceCount;
-        PhysicalDevices = new PhysicalDevice(in *native.pPhysicalDevices);
-        NativeUtils.Free(native.pPhysicalDevices);
+        var arrayLengthPhysicalDevices = native.physicalDeviceCount;
+        var tmpPhysicalDevices = new PhysicalDevice[arrayLengthPhysicalDevices];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T[arrayLengthPhysicalDevices];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPhysicalDevices, arrayLengthPhysicalDevices, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPhysicalDevices[i] = new PhysicalDevice(in nativeTmpArray0[i]);
+        }
+        PhysicalDevices = tmpPhysicalDevices;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDeviceGroupDeviceCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDeviceGroupDeviceCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDeviceGroupDeviceCreateInfoMarshaller
     {
@@ -77,19 +86,26 @@ public unsafe partial class DeviceGroupDeviceCreateInfo : IMarshallableObject, I
             }
             else if (deviceGroupDeviceCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (deviceGroupDeviceCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].physicalDeviceCount = deviceGroupDeviceCreateInfo.PhysicalDeviceCount;
 
-            if (deviceGroupDeviceCreateInfo.PhysicalDevices != default)
+            if (!deviceGroupDeviceCreateInfo.PhysicalDevices.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T struct0 = deviceGroupDeviceCreateInfo.PhysicalDevices;
-                context.Destination[0].pPhysicalDevices = (AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.PhysicalDevice> sourceSpan = deviceGroupDeviceCreateInfo.PhysicalDevices.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pPhysicalDevices = pDestination;
             }
 
         }

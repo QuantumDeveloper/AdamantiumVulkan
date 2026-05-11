@@ -23,12 +23,12 @@ public unsafe partial class VideoEncodeRateControlInfoKHR : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeRateControlInfoKhr;
     public object PNext { get; set; }
     public VkVideoEncodeRateControlFlagsKHR Flags { get; set; }
     public VideoEncodeRateControlModeFlagBitsKHR RateControlMode { get; set; }
     public uint LayerCount { get; set; }
-    public VideoEncodeRateControlLayerInfoKHR PLayers { get; set; }
+    public System.ReadOnlyMemory<VideoEncodeRateControlLayerInfoKHR> PLayers { get; set; }
     public uint VirtualBufferSizeInMs { get; set; }
     public uint InitialVirtualBufferSizeInMs { get; set; }
 
@@ -44,9 +44,15 @@ public unsafe partial class VideoEncodeRateControlInfoKHR : IMarshallableObject,
         {
             size += marshallable.GetSize();
         }
-        if (PLayers != default)
+        if (!PLayers.IsEmpty)
         {
-            size += PLayers.GetSize();
+            for (int i = 0; i < PLayers.Length; i++)
+            {
+                if (PLayers.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR>();
+                else
+                    size += PLayers.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -58,25 +64,31 @@ public unsafe partial class VideoEncodeRateControlInfoKHR : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         RateControlMode = native.rateControlMode;
         LayerCount = native.layerCount;
-        PLayers = new VideoEncodeRateControlLayerInfoKHR(in *native.pLayers);
-        NativeUtils.Free(native.pLayers);
+        var arrayLengthPLayers = native.layerCount;
+        var tmpPLayers = new VideoEncodeRateControlLayerInfoKHR[arrayLengthPLayers];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR[arrayLengthPLayers];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pLayers, arrayLengthPLayers, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPLayers[i] = new VideoEncodeRateControlLayerInfoKHR(in nativeTmpArray0[i]);
+        }
+        PLayers = tmpPLayers;
         VirtualBufferSizeInMs = native.virtualBufferSizeInMs;
         InitialVirtualBufferSizeInMs = native.initialVirtualBufferSizeInMs;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeRateControlInfoKHRMarshaller
     {
@@ -90,11 +102,11 @@ public unsafe partial class VideoEncodeRateControlInfoKHR : IMarshallableObject,
             }
             else if (videoEncodeRateControlInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeRateControlInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoEncodeRateControlInfoKHR.Flags != (uint)default)
@@ -106,14 +118,9 @@ public unsafe partial class VideoEncodeRateControlInfoKHR : IMarshallableObject,
 
             context.Destination[0].layerCount = videoEncodeRateControlInfoKHR.LayerCount;
 
-            if (videoEncodeRateControlInfoKHR.PLayers != default)
+            if (!videoEncodeRateControlInfoKHR.PLayers.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR>(structSlice0).Slice(0, 1);
-                context.Destination[0].pLayers = (AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR>(structDestination0, context.DataCursor);
-                videoEncodeRateControlInfoKHR.PLayers.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pLayers = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.VideoEncodeRateControlLayerInfoKHR, AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR, AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlInfoKHR>(videoEncodeRateControlInfoKHR.PLayers, ref context);
             }
 
             context.Destination[0].virtualBufferSizeInMs = videoEncodeRateControlInfoKHR.VirtualBufferSizeInMs;

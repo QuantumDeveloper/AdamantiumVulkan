@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2425 Column: 14
+// File: vk.xml Line: 10913 Column: 6
 [Flags]
 public enum FormatFeatureFlagBits : uint
 {
@@ -40,44 +40,6 @@ public enum FormatFeatureFlagBits : uint
     BlitDstBit = 2048,
 
     SampledImageFilterLinearBit = 4096,
-
-    TransferSrcBit = 16384,
-
-    TransferDstBit = 32768,
-
-    MidpointChromaSamplesBit = 131072,
-
-    SampledImageYcbcrConversionLinearFilterBit = 262144,
-
-    SampledImageYcbcrConversionSeparateReconstructionFilterBit = 524288,
-
-    SampledImageYcbcrConversionChromaReconstructionExplicitBit = 1048576,
-
-    SampledImageYcbcrConversionChromaReconstructionExplicitForceableBit = 2097152,
-
-    DisjointBit = 4194304,
-
-    CositedChromaSamplesBit = 8388608,
-
-    SampledImageFilterMinmaxBit = 65536,
-
-    VideoDecodeOutputBitKhr = 33554432,
-
-    VideoDecodeDpbBitKhr = 67108864,
-
-    AccelerationStructureVertexBufferBitKhr = 536870912,
-
-    SampledImageFilterCubicBitExt = 8192,
-
-    FragmentDensityMapBitExt = 16777216,
-
-    FragmentShadingRateAttachmentBitKhr = 1073741824,
-
-    VideoEncodeInputBitKhr = 134217728,
-
-    VideoEncodeDpbBitKhr = 268435456,
-
-    FlagBitsMaxEnum = 2147483647,
 
 }
 

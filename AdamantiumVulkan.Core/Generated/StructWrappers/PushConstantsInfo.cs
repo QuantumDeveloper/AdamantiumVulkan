@@ -23,13 +23,13 @@ public unsafe partial class PushConstantsInfo : IMarshallableObject, IMarshallab
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PushConstantsInfo;
     public object PNext { get; set; }
     public PipelineLayout Layout { get; set; }
-    public VkShaderStageFlags StageFlags { get; set; }
+    public ShaderStageFlagBits StageFlags { get; set; }
     public uint Offset { get; set; }
     public uint Size { get; set; }
-    public nuint PValues { get; set; }
+    public System.ReadOnlyMemory<byte> PValues { get; set; }
 
     public static implicit operator PushConstantsInfo(AdamantiumVulkan.Core.Interop.VkPushConstantsInfo p)
     {
@@ -43,6 +43,8 @@ public unsafe partial class PushConstantsInfo : IMarshallableObject, IMarshallab
         {
             size += marshallable.GetSize();
         }
+        if (!PValues.IsEmpty)
+            size += PValues.Span.Length * Marshal.SizeOf<System.Byte>();
         return size;
     }
 
@@ -53,23 +55,25 @@ public unsafe partial class PushConstantsInfo : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPushConstantsInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Layout = new PipelineLayout(native.layout);
         StageFlags = native.stageFlags;
         Offset = native.offset;
         Size = native.size;
-        PValues = native.pValues;
+        var arrayLengthPValues = native.size;
+        var tmpPValues = new byte[arrayLengthPValues];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pValues, arrayLengthPValues, tmpPValues);
+        PValues = tmpPValues;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPushConstantsInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPushConstantsInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPushConstantsInfoMarshaller
     {
@@ -83,11 +87,11 @@ public unsafe partial class PushConstantsInfo : IMarshallableObject, IMarshallab
             }
             else if (pushConstantsInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pushConstantsInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pushConstantsInfo.Layout != default)
@@ -95,16 +99,16 @@ public unsafe partial class PushConstantsInfo : IMarshallableObject, IMarshallab
                 context.Destination[0].layout = pushConstantsInfo.Layout;
             }
 
-            if (pushConstantsInfo.StageFlags != (uint)default)
-            {
-                context.Destination[0].stageFlags = pushConstantsInfo.StageFlags;
-            }
+            context.Destination[0].stageFlags = pushConstantsInfo.StageFlags;
 
             context.Destination[0].offset = pushConstantsInfo.Offset;
 
             context.Destination[0].size = pushConstantsInfo.Size;
 
-            context.Destination[0].pValues = pushConstantsInfo.PValues;
+            if (!pushConstantsInfo.PValues.IsEmpty)
+            {
+                context.Destination[0].pValues = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<byte, AdamantiumVulkan.Core.Interop.VkPushConstantsInfo>(pushConstantsInfo.PValues.Span, ref context);
+            }
 
         }
     }

@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14679 Column: 16
+// File: vk.xml Line: 4804 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineViewportShadingRateImageStateCreateInfoNV
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkBool32 shadingRateImageEnable;
     public uint viewportCount;
     public AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV* pShadingRatePalettes;

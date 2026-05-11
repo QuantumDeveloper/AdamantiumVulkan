@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10406 Column: 14
-public enum PerformanceCounterUnitKHR : uint
+// File: vk.xml Line: 11595 Column: 6
+public enum PerformanceCounterUnitKHR : int
 {
     GenericKhr = 0,
 
@@ -35,8 +35,6 @@ public enum PerformanceCounterUnitKHR : uint
     HertzKhr = 9,
 
     CyclesKhr = 10,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

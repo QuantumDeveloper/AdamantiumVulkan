@@ -28,7 +28,7 @@ public unsafe partial class QueryPoolCreateInfo : IMarshallableObject, IMarshall
     public VkQueryPoolCreateFlags Flags { get; set; }
     public QueryType QueryType { get; set; }
     public uint QueryCount { get; set; }
-    public VkQueryPipelineStatisticFlags PipelineStatistics { get; set; }
+    public QueryPipelineStatisticFlagBits PipelineStatistics { get; set; }
 
     public static implicit operator QueryPoolCreateInfo(AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo q)
     {
@@ -59,14 +59,14 @@ public unsafe partial class QueryPoolCreateInfo : IMarshallableObject, IMarshall
         PipelineStatistics = native.pipelineStatistics;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkQueryPoolCreateInfoMarshaller
     {
@@ -80,11 +80,11 @@ public unsafe partial class QueryPoolCreateInfo : IMarshallableObject, IMarshall
             }
             else if (queryPoolCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (queryPoolCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (queryPoolCreateInfo.Flags != (uint)default)
@@ -96,10 +96,7 @@ public unsafe partial class QueryPoolCreateInfo : IMarshallableObject, IMarshall
 
             context.Destination[0].queryCount = queryPoolCreateInfo.QueryCount;
 
-            if (queryPoolCreateInfo.PipelineStatistics != (uint)default)
-            {
-                context.Destination[0].pipelineStatistics = queryPoolCreateInfo.PipelineStatistics;
-            }
+            context.Destination[0].pipelineStatistics = queryPoolCreateInfo.PipelineStatistics;
 
         }
     }

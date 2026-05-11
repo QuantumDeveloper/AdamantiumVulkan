@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT :
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceGraphicsPipelineLibraryPropertiesExt;
     public object PNext { get; set; }
     public VkBool32 GraphicsPipelineLibraryFastLinking { get; set; }
     public VkBool32 GraphicsPipelineLibraryIndependentInterpolationDecoration { get; set; }
@@ -50,20 +50,19 @@ public unsafe partial class PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT :
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         GraphicsPipelineLibraryFastLinking = native.graphicsPipelineLibraryFastLinking;
         GraphicsPipelineLibraryIndependentInterpolationDecoration = native.graphicsPipelineLibraryIndependentInterpolationDecoration;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXTMarshaller
     {
@@ -77,11 +76,11 @@ public unsafe partial class PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT :
             }
             else if (physicalDeviceGraphicsPipelineLibraryPropertiesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceGraphicsPipelineLibraryPropertiesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceGraphicsPipelineLibraryPropertiesEXT.GraphicsPipelineLibraryFastLinking != (uint)default)

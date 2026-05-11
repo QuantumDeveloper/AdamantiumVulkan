@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8562 Column: 16
+// File: vk.xml Line: 2234 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkSurfaceCapabilitiesKHR
 {
@@ -22,10 +22,10 @@ public unsafe partial struct VkSurfaceCapabilitiesKHR
     public VkExtent2D minImageExtent;
     public VkExtent2D maxImageExtent;
     public uint maxImageArrayLayers;
-    public VkSurfaceTransformFlagsKHR supportedTransforms;
+    public SurfaceTransformFlagBitsKHR supportedTransforms;
     public SurfaceTransformFlagBitsKHR currentTransform;
-    public VkCompositeAlphaFlagsKHR supportedCompositeAlpha;
-    public VkImageUsageFlags supportedUsageFlags;
+    public CompositeAlphaFlagBitsKHR supportedCompositeAlpha;
+    public ImageUsageFlagBits supportedUsageFlags;
 }
 
 

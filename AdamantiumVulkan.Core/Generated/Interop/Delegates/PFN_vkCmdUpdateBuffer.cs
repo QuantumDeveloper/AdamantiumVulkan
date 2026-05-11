@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4270 Column: 26
+// File: video.xml Line: 13338 Column: 10
 public unsafe struct PFN_vkCmdUpdateBuffer
 {
     public PFN_vkCmdUpdateBuffer(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkCmdUpdateBuffer
     public PFN_vkCmdUpdateBuffer(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, nuint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, byte*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, nuint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, byte*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize dataSize, nuint pData)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize dataSize, byte* pData)
     {
          InvokeFunc(commandBuffer, dstBuffer, dstOffset, dataSize, pData);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize dataSize, nuint pData)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize dataSize, byte* pData)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, nuint, void>)ptr)(commandBuffer, dstBuffer, dstOffset, dataSize, pData);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, byte*, void>)ptr)(commandBuffer, dstBuffer, dstOffset, dataSize, pData);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize dataSize, nuint pData)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, VkDeviceSize dataSize, byte* pData)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, nuint, void>)(void*)ptr)(commandBuffer, dstBuffer, dstOffset, dataSize, pData);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkBuffer_T, VkDeviceSize, VkDeviceSize, byte*, void>)(void*)ptr)(commandBuffer, dstBuffer, dstOffset, dataSize, pData);
     }
 
     public static explicit operator PFN_vkCmdUpdateBuffer(void* ptr) => new(ptr);

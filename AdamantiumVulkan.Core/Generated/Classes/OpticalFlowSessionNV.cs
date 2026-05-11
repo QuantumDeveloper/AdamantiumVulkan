@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19572 Column: 1
+// File: vk.xml Line: 595 Column: 10
 public unsafe partial class OpticalFlowSessionNV : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T>
 {
     internal VkOpticalFlowSessionNV_T __Instance;

@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2283 Column: 14
-public enum DescriptorType : uint
+// File: vk.xml Line: 10275 Column: 6
+public enum DescriptorType : int
 {
     Sampler = 0,
 
@@ -36,8 +36,6 @@ public enum DescriptorType : uint
 
     InputAttachment = 10,
 
-    InlineUniformBlock = 1000138000,
-
     AccelerationStructureKhr = 1000150000,
 
     AccelerationStructureNv = 1000165000,
@@ -50,7 +48,7 @@ public enum DescriptorType : uint
 
     PartitionedAccelerationStructureNv = 1000570000,
 
-    MaxEnum = 2147483647,
+    InlineUniformBlock = 1000138000,
 
 }
 

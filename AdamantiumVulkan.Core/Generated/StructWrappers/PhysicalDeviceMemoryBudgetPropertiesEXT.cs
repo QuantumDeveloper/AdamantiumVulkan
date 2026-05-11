@@ -25,8 +25,8 @@ public unsafe partial class PhysicalDeviceMemoryBudgetPropertiesEXT : IMarshalla
 
     public StructureType SType => StructureType.PhysicalDeviceMemoryBudgetPropertiesExt;
     public object PNext { get; set; }
-    public System.ReadOnlyMemory<ulong> HeapBudget { get; set; }
-    public System.ReadOnlyMemory<ulong> HeapUsage { get; set; }
+    public System.ReadOnlyMemory<VkDeviceSize> HeapBudget { get; set; }
+    public System.ReadOnlyMemory<VkDeviceSize> HeapUsage { get; set; }
 
     public static implicit operator PhysicalDeviceMemoryBudgetPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT p)
     {
@@ -51,24 +51,26 @@ public unsafe partial class PhysicalDeviceMemoryBudgetPropertiesEXT : IMarshalla
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT native)
     {
         PNext = (System.IntPtr)native.pNext;
-        var tmpHeapBudget = new ulong[16];
-        var pHeapBudget = (ulong*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.heapBudget[0]));
+        var tmpHeapBudget = new VkDeviceSize[16];
+        var heapBudgetp = native.heapBudget[0];
+        var pHeapBudget = (VkDeviceSize*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in heapBudgetp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pHeapBudget, 16, tmpHeapBudget);
         HeapBudget = tmpHeapBudget;
-        var tmpHeapUsage = new ulong[16];
-        var pHeapUsage = (ulong*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.heapUsage[0]));
+        var tmpHeapUsage = new VkDeviceSize[16];
+        var heapUsagep = native.heapUsage[0];
+        var pHeapUsage = (VkDeviceSize*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in heapUsagep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pHeapUsage, 16, tmpHeapUsage);
         HeapUsage = tmpHeapUsage;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceMemoryBudgetPropertiesEXTMarshaller
     {
@@ -82,23 +84,23 @@ public unsafe partial class PhysicalDeviceMemoryBudgetPropertiesEXT : IMarshalla
             }
             else if (physicalDeviceMemoryBudgetPropertiesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceMemoryBudgetPropertiesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             ref var tmpDestination0 = ref context.Destination[0];
-            fixed (ulong* pDest = tmpDestination0.heapBudget)
+            fixed (void* pDest = &tmpDestination0.heapBudget.item0)
             {
-                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(physicalDeviceMemoryBudgetPropertiesEXT.HeapBudget.Span, pDest, 16);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(physicalDeviceMemoryBudgetPropertiesEXT.HeapBudget.Span, (VkDeviceSize*)pDest, 16);
             }
 
             ref var tmpDestination1 = ref context.Destination[0];
-            fixed (ulong* pDest = tmpDestination1.heapUsage)
+            fixed (void* pDest = &tmpDestination1.heapUsage.item0)
             {
-                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(physicalDeviceMemoryBudgetPropertiesEXT.HeapUsage.Span, pDest, 16);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(physicalDeviceMemoryBudgetPropertiesEXT.HeapUsage.Span, (VkDeviceSize*)pDest, 16);
             }
 
         }

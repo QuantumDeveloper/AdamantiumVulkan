@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12043 Column: 1
+// File: vk.xml Line: 577 Column: 10
 public unsafe partial class PipelineBinaryKHR : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkPipelineBinaryKHR_T>
 {
     internal VkPipelineBinaryKHR_T __Instance;

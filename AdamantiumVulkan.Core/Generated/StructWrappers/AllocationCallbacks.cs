@@ -24,11 +24,11 @@ public unsafe partial class AllocationCallbacks : IMarshallableObject, IMarshall
     }
 
     public nuint PUserData { get; set; }
-    public delegate* unmanaged<nuint, ulong, ulong, SystemAllocationScope, nuint> PfnAllocation { get; set; }
-    public delegate* unmanaged<nuint, nuint, ulong, ulong, SystemAllocationScope, nuint> PfnReallocation { get; set; }
-    public delegate* unmanaged<nuint, nuint, void> PfnFree { get; set; }
-    public delegate* unmanaged<nuint, ulong, InternalAllocationType, SystemAllocationScope, void> PfnInternalAllocation { get; set; }
-    public delegate* unmanaged<nuint, ulong, InternalAllocationType, SystemAllocationScope, void> PfnInternalFree { get; set; }
+    public delegate* unmanaged<void*, nuint, nuint, SystemAllocationScope, void> PfnAllocation { get; set; }
+    public delegate* unmanaged<void*, void*, nuint, nuint, SystemAllocationScope, void> PfnReallocation { get; set; }
+    public delegate* unmanaged<void*, void*, void> PfnFree { get; set; }
+    public delegate* unmanaged<void*, nuint, InternalAllocationType, SystemAllocationScope, void> PfnInternalAllocation { get; set; }
+    public delegate* unmanaged<void*, nuint, InternalAllocationType, SystemAllocationScope, void> PfnInternalFree { get; set; }
 
     public static implicit operator AllocationCallbacks(AdamantiumVulkan.Core.Interop.VkAllocationCallbacks a)
     {
@@ -48,7 +48,7 @@ public unsafe partial class AllocationCallbacks : IMarshallableObject, IMarshall
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkAllocationCallbacks native)
     {
-        PUserData = native.pUserData;
+        PUserData = (nuint)native.pUserData;
         PfnAllocation = native.pfnAllocation;
         PfnReallocation = native.pfnReallocation;
         PfnFree = native.pfnFree;
@@ -56,20 +56,23 @@ public unsafe partial class AllocationCallbacks : IMarshallableObject, IMarshall
         PfnInternalFree = native.pfnInternalFree;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkAllocationCallbacksMarshaller
     {
         public VkAllocationCallbacksMarshaller(AdamantiumVulkan.Core.AllocationCallbacks allocationCallbacks, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkAllocationCallbacks> context)
         {
-            context.Destination[0].pUserData = allocationCallbacks.PUserData;
+            if (allocationCallbacks.PUserData != default)
+            {
+                context.Destination[0].pUserData = (void*)allocationCallbacks.PUserData;
+            }
 
             context.Destination[0].pfnAllocation = allocationCallbacks.PfnAllocation;
 

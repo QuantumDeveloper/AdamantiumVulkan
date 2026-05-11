@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3596 Column: 16
+// File: vk.xml Line: 1290 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkBufferViewCreateInfo
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public BufferUsageFlagBits flags;
     public VkBuffer_T buffer;
     public Format format;

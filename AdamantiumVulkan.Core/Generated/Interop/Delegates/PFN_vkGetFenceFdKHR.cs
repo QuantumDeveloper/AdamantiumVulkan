@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10387 Column: 30
+// File: video.xml Line: 14093 Column: 10
 public unsafe struct PFN_vkGetFenceFdKHR
 {
     public PFN_vkGetFenceFdKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetFenceFdKHR
     public PFN_vkGetFenceFdKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR*, ref int*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR*, int*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR*, ref int*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR*, int*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR* pGetFdInfo, ref int* pFd)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR* pGetFdInfo, int* pFd)
     {
-        return InvokeFunc(device, pGetFdInfo, ref pFd);
+        return InvokeFunc(device, pGetFdInfo, pFd);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR* pGetFdInfo, ref int* pFd)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR* pGetFdInfo, int* pFd)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR*, ref int*, Result>)ptr)(device, pGetFdInfo, ref pFd);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR*, int*, Result>)ptr)(device, pGetFdInfo, pFd);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR* pGetFdInfo, ref int* pFd)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR* pGetFdInfo, int* pFd)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR*, ref int*, Result>)(void*)ptr)(device, pGetFdInfo, ref pFd);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR*, int*, Result>)(void*)ptr)(device, pGetFdInfo, pFd);
     }
 
     public static explicit operator PFN_vkGetFenceFdKHR(void* ptr) => new(ptr);

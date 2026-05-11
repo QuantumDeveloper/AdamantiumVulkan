@@ -23,14 +23,14 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoNV : IMarshallableOb
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.IndirectCommandsLayoutCreateInfoNv;
     public object PNext { get; set; }
-    public VkIndirectCommandsLayoutUsageFlagsNV Flags { get; set; }
+    public IndirectCommandsLayoutUsageFlagBitsNV Flags { get; set; }
     public PipelineBindPoint PipelineBindPoint { get; set; }
     public uint TokenCount { get; set; }
-    public IndirectCommandsLayoutTokenNV PTokens { get; set; }
+    public System.ReadOnlyMemory<IndirectCommandsLayoutTokenNV> PTokens { get; set; }
     public uint StreamCount { get; set; }
-    public uint? PStreamStrides { get; set; }
+    public System.ReadOnlyMemory<uint> PStreamStrides { get; set; }
 
     public static implicit operator IndirectCommandsLayoutCreateInfoNV(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV i)
     {
@@ -44,10 +44,18 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoNV : IMarshallableOb
         {
             size += marshallable.GetSize();
         }
-        if (PTokens != default)
+        if (!PTokens.IsEmpty)
         {
-            size += PTokens.GetSize();
+            for (int i = 0; i < PTokens.Length; i++)
+            {
+                if (PTokens.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV>();
+                else
+                    size += PTokens.Span[i].GetSize();
+            }
         }
+        if (!PStreamStrides.IsEmpty)
+            size += PStreamStrides.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -58,29 +66,34 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoNV : IMarshallableOb
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         PipelineBindPoint = native.pipelineBindPoint;
         TokenCount = native.tokenCount;
-        PTokens = new IndirectCommandsLayoutTokenNV(in *native.pTokens);
-        NativeUtils.Free(native.pTokens);
-        StreamCount = native.streamCount;
-        if (native.pStreamStrides != null)
+        var arrayLengthPTokens = native.tokenCount;
+        var tmpPTokens = new IndirectCommandsLayoutTokenNV[arrayLengthPTokens];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV[arrayLengthPTokens];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pTokens, arrayLengthPTokens, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
-            PStreamStrides = *native.pStreamStrides;
-            NativeUtils.Free(native.pStreamStrides);
+            tmpPTokens[i] = new IndirectCommandsLayoutTokenNV(in nativeTmpArray0[i]);
         }
+        PTokens = tmpPTokens;
+        StreamCount = native.streamCount;
+        var arrayLengthPStreamStrides = native.streamCount;
+        var tmpPStreamStrides = new uint[arrayLengthPStreamStrides];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pStreamStrides, arrayLengthPStreamStrides, tmpPStreamStrides);
+        PStreamStrides = tmpPStreamStrides;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkIndirectCommandsLayoutCreateInfoNVMarshaller
     {
@@ -94,37 +107,29 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoNV : IMarshallableOb
             }
             else if (indirectCommandsLayoutCreateInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (indirectCommandsLayoutCreateInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (indirectCommandsLayoutCreateInfoNV.Flags != (uint)default)
-            {
-                context.Destination[0].flags = indirectCommandsLayoutCreateInfoNV.Flags;
-            }
+            context.Destination[0].flags = indirectCommandsLayoutCreateInfoNV.Flags;
 
             context.Destination[0].pipelineBindPoint = indirectCommandsLayoutCreateInfoNV.PipelineBindPoint;
 
             context.Destination[0].tokenCount = indirectCommandsLayoutCreateInfoNV.TokenCount;
 
-            if (indirectCommandsLayoutCreateInfoNV.PTokens != default)
+            if (!indirectCommandsLayoutCreateInfoNV.PTokens.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV>(structSlice0).Slice(0, 1);
-                context.Destination[0].pTokens = (AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV>(structDestination0, context.DataCursor);
-                indirectCommandsLayoutCreateInfoNV.PTokens.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pTokens = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.IndirectCommandsLayoutTokenNV, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV>(indirectCommandsLayoutCreateInfoNV.PTokens, ref context);
             }
 
             context.Destination[0].streamCount = indirectCommandsLayoutCreateInfoNV.StreamCount;
 
-            if (indirectCommandsLayoutCreateInfoNV.PStreamStrides.HasValue)
+            if (!indirectCommandsLayoutCreateInfoNV.PStreamStrides.IsEmpty)
             {
-                context.Destination[0].pStreamStrides = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(indirectCommandsLayoutCreateInfoNV.PStreamStrides.Value, ref context);
+                context.Destination[0].pStreamStrides = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV>(indirectCommandsLayoutCreateInfoNV.PStreamStrides.Span, ref context);
             }
 
         }

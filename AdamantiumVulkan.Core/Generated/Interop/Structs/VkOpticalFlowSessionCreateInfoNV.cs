@@ -12,21 +12,21 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19667 Column: 16
+// File: vk.xml Line: 9239 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkOpticalFlowSessionCreateInfoNV
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public uint width;
     public uint height;
     public Format imageFormat;
     public Format flowVectorFormat;
     public Format costFormat;
-    public VkOpticalFlowGridSizeFlagsNV outputGridSize;
-    public VkOpticalFlowGridSizeFlagsNV hintGridSize;
+    public OpticalFlowGridSizeFlagBitsNV outputGridSize;
+    public OpticalFlowGridSizeFlagBitsNV hintGridSize;
     public OpticalFlowPerformanceLevelNV performanceLevel;
-    public VkOpticalFlowSessionCreateFlagsNV flags;
+    public OpticalFlowSessionCreateFlagBitsNV flags;
 }
 
 

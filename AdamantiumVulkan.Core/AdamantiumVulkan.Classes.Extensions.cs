@@ -450,7 +450,7 @@ namespace AdamantiumVulkan.Core
             return deviceMemory;
         }
 
-        public nuint MapMemory(DeviceMemory memory, ulong offset, ulong size, uint flags)
+        public nuint MapMemory(DeviceMemory memory, ulong offset, ulong size, MemoryMapFlagBits flags)
         {
             var result = MapMemory(memory, offset, size, flags, out var data);
             ResultHelper.CheckResult(result, nameof(MapMemory));
@@ -459,8 +459,8 @@ namespace AdamantiumVulkan.Core
 
         public CommandBuffer[] AllocateCommandBuffers(CommandBufferAllocateInfo allocateInfo)
         {
-            var commandBuffers = new CommandBuffer[allocateInfo.CommandBufferCount];
-            var result = AllocateCommandBuffers(allocateInfo, commandBuffers);
+            //var commandBuffers = new CommandBuffer[allocateInfo.CommandBufferCount];
+            var result = AllocateCommandBuffers(allocateInfo, out var commandBuffers);
             ResultHelper.CheckResult(result, nameof(AllocateCommandBuffers));
             return commandBuffers;
         }
@@ -607,13 +607,15 @@ namespace AdamantiumVulkan.Core
 
         public uint GetDescriptorSetLayoutSize(DescriptorSetLayout layout)
         {
-            DescriptorSetLayoutSizeDelegate.Invoke(this, layout, out var deviceSize);
+            VkDeviceSize deviceSize = default;
+            DescriptorSetLayoutSizeDelegate.Invoke(this, layout, &deviceSize);
             return (uint)deviceSize;
         }
         
         public uint GetDescriptorSetLayoutOffset(DescriptorSetLayout layout, uint bindingSlot)
         {
-            DescriptorSetLayoutOffsetDelegate.Invoke(this, layout, bindingSlot, out var offsetSize);
+            VkDeviceSize offsetSize = default;
+            DescriptorSetLayoutOffsetDelegate.Invoke(this, layout, bindingSlot, &offsetSize);
             return (uint)offsetSize;
         }
 
@@ -621,7 +623,7 @@ namespace AdamantiumVulkan.Core
         {
             using var ctx = new NativeContext(descriptorInfo.GetSize(), stackalloc byte[(int)MarshalingUtils.StackAllocThreshold]);
             var infoPtr = descriptorInfo.MarshalToNative(ctx);
-            GetDescriptorDelegate.Invoke(this, &infoPtr, descriptorSize, descriptorPtr);
+            GetDescriptorDelegate.Invoke(this, &infoPtr, descriptorSize, (byte*)descriptorPtr);
         }
         
         public void BindDescriptorBuffers(CommandBuffer commandBuffer, DescriptorBufferBindingInfoEXT[] bindingInfos)
@@ -823,14 +825,27 @@ namespace AdamantiumVulkan.Core
         }
     }
 
+    public unsafe partial class ShaderModuleCreateInfo
+    {
+        public ReadOnlySpan<byte> PCodeBytes
+        {
+            set 
+            {
+                if (value.Length % 4 != 0) throw new ArgumentException("SPIR-V size must be % 4");
+                PCode = MemoryMarshal.Cast<byte, uint>(value).ToArray();
+                CodeSize = (nuint)value.Length;
+            }
+        }
+    }
+
     public unsafe partial class Framebuffer
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyFramebuffer(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -838,10 +853,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyImage(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -849,10 +864,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyImageView(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -860,10 +875,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyPipeline(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -871,10 +886,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroySwapchainKHR(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -882,10 +897,10 @@ namespace AdamantiumVulkan.Core
     {
         public void FreeMemory(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.FreeMemory(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -893,10 +908,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyBuffer(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -904,10 +919,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyBufferView(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -915,11 +930,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyDescriptorSetLayout(this);
-            __Instance.pointer = 0;
-
+            __Instance.pointer = null;
         }
     }
 
@@ -927,11 +941,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyPipelineLayout(this);
-            __Instance.pointer = 0;
-
+            __Instance.pointer = null;
         }
     }
 

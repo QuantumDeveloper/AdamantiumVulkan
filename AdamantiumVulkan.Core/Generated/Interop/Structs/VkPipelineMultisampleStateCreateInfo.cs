@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3772 Column: 16
+// File: vk.xml Line: 1610 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineMultisampleStateCreateInfo
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkPipelineMultisampleStateCreateFlags flags;
     public SampleCountFlagBits rasterizationSamples;
     public VkBool32 sampleShadingEnable;

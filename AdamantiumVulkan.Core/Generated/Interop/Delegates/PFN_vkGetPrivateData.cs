@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7553 Column: 26
+// File: video.xml Line: 15749 Column: 10
 public unsafe struct PFN_vkGetPrivateData
 {
     public PFN_vkGetPrivateData(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPrivateData
     public PFN_vkGetPrivateData(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ref ulong*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ulong*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ref ulong*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ulong*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ref ulong* pData)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ulong* pData)
     {
-         InvokeFunc(device, objectType, objectHandle, privateDataSlot, ref pData);
+         InvokeFunc(device, objectType, objectHandle, privateDataSlot, pData);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ref ulong* pData)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ulong* pData)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ref ulong*, void>)ptr)(device, objectType, objectHandle, privateDataSlot, ref pData);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ulong*, void>)ptr)(device, objectType, objectHandle, privateDataSlot, pData);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ref ulong* pData)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ulong* pData)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ref ulong*, void>)(void*)ptr)(device, objectType, objectHandle, privateDataSlot, ref pData);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ObjectType, ulong, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T, ulong*, void>)(void*)ptr)(device, objectType, objectHandle, privateDataSlot, pData);
     }
 
     public static explicit operator PFN_vkGetPrivateData(void* ptr) => new(ptr);

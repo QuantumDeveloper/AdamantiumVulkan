@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5148 Column: 14
+// File: vk.xml Line: 10723 Column: 6
 [Flags]
-public enum DescriptorUpdateTemplateType : uint
+public enum DescriptorUpdateTemplateType : int
 {
     DescriptorSet = 0,
 
     PushDescriptors = 1,
-
-    MaxEnum = 2147483647,
 
 }
 

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12604 Column: 30
+// File: video.xml Line: 14587 Column: 10
 public unsafe struct PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR
 {
     public PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR
     public PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, ref TimeDomainKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint*, TimeDomainKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, ref TimeDomainKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint*, TimeDomainKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pTimeDomainCount, ref TimeDomainKHR* pTimeDomains)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pTimeDomainCount, TimeDomainKHR* pTimeDomains)
     {
-        return InvokeFunc(physicalDevice, ref pTimeDomainCount, ref pTimeDomains);
+        return InvokeFunc(physicalDevice, pTimeDomainCount, pTimeDomains);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pTimeDomainCount, ref TimeDomainKHR* pTimeDomains)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pTimeDomainCount, TimeDomainKHR* pTimeDomains)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, ref TimeDomainKHR*, Result>)ptr)(physicalDevice, ref pTimeDomainCount, ref pTimeDomains);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint*, TimeDomainKHR*, Result>)ptr)(physicalDevice, pTimeDomainCount, pTimeDomains);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pTimeDomainCount, ref TimeDomainKHR* pTimeDomains)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pTimeDomainCount, TimeDomainKHR* pTimeDomains)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, ref TimeDomainKHR*, Result>)(void*)ptr)(physicalDevice, ref pTimeDomainCount, ref pTimeDomains);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint*, TimeDomainKHR*, Result>)(void*)ptr)(physicalDevice, pTimeDomainCount, pTimeDomains);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(void* ptr) => new(ptr);

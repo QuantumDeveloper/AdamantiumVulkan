@@ -23,7 +23,7 @@ public unsafe partial class MultiviewPerViewAttributesInfoNVX : IMarshallableObj
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.MultiviewPerViewAttributesInfoNvx;
     public object PNext { get; set; }
     public VkBool32 PerViewAttributes { get; set; }
     public VkBool32 PerViewAttributesPositionXOnly { get; set; }
@@ -50,20 +50,19 @@ public unsafe partial class MultiviewPerViewAttributesInfoNVX : IMarshallableObj
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkMultiviewPerViewAttributesInfoNVX native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PerViewAttributes = native.perViewAttributes;
         PerViewAttributesPositionXOnly = native.perViewAttributesPositionXOnly;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkMultiviewPerViewAttributesInfoNVX>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkMultiviewPerViewAttributesInfoNVX>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkMultiviewPerViewAttributesInfoNVXMarshaller
     {
@@ -77,11 +76,11 @@ public unsafe partial class MultiviewPerViewAttributesInfoNVX : IMarshallableObj
             }
             else if (multiviewPerViewAttributesInfoNVX.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (multiviewPerViewAttributesInfoNVX.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (multiviewPerViewAttributesInfoNVX.PerViewAttributes != (uint)default)

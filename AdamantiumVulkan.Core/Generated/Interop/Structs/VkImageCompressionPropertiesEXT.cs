@@ -12,14 +12,14 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17673 Column: 16
+// File: vk.xml Line: 8846 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkImageCompressionPropertiesEXT
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkImageCompressionFlagsEXT imageCompressionFlags;
-    public VkImageCompressionFixedRateFlagsEXT imageCompressionFixedRateFlags;
+    public void* pNext;
+    public ImageCompressionFlagBitsEXT imageCompressionFlags;
+    public ImageCompressionFixedRateFlagBitsEXT imageCompressionFixedRateFlags;
 }
 
 

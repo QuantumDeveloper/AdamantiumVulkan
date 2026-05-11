@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeAV1OperatingPointInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfoFlags>
+public unsafe partial class StdVideoEncodeAV1OperatingPointInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfoFlags>
 {
     public StdVideoEncodeAV1OperatingPointInfoFlags()
     {
     }
 
-    public StdVideoEncodeAV1OperatingPointInfoFlags(in AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfoFlags native)
+    public StdVideoEncodeAV1OperatingPointInfoFlags(in AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfoFlags native)
     {
         MarshalFrom(in native);
     }
@@ -28,23 +28,23 @@ public unsafe partial class StdVideoEncodeAV1OperatingPointInfoFlags : IMarshall
     public uint Initial_display_delay_present_for_this_op { get; set; }
     public uint Reserved { get; set; }
 
-    public static implicit operator StdVideoEncodeAV1OperatingPointInfoFlags(AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfoFlags s)
+    public static implicit operator StdVideoEncodeAV1OperatingPointInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfoFlags s)
     {
         return new StdVideoEncodeAV1OperatingPointInfoFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfoFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfoFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfoFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfoFlags> context)
     {
         new StdVideoEncodeAV1OperatingPointInfoFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfoFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfoFlags native)
     {
         Decoder_model_present_for_this_op = native.decoder_model_present_for_this_op;
         Low_delay_mode_flag = native.low_delay_mode_flag;
@@ -52,18 +52,18 @@ public unsafe partial class StdVideoEncodeAV1OperatingPointInfoFlags : IMarshall
         Reserved = native.reserved;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfoFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfoFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfoFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfoFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeAV1OperatingPointInfoFlagsMarshaller
     {
-        public StdVideoEncodeAV1OperatingPointInfoFlagsMarshaller(AdamantiumVulkan.StdVideoEncodeAV1OperatingPointInfoFlags stdVideoEncodeAV1OperatingPointInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfoFlags> context)
+        public StdVideoEncodeAV1OperatingPointInfoFlagsMarshaller(AdamantiumVulkan.Core.StdVideoEncodeAV1OperatingPointInfoFlags stdVideoEncodeAV1OperatingPointInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfoFlags> context)
         {
             context.Destination[0].decoder_model_present_for_this_op = stdVideoEncodeAV1OperatingPointInfoFlags.Decoder_model_present_for_this_op;
 

@@ -27,7 +27,7 @@ public unsafe partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV :
     public object PNext { get; set; }
     public CoarseSampleOrderTypeNV SampleOrderType { get; set; }
     public uint CustomSampleOrderCount { get; set; }
-    public CoarseSampleOrderCustomNV PCustomSampleOrders { get; set; }
+    public System.ReadOnlyMemory<CoarseSampleOrderCustomNV> PCustomSampleOrders { get; set; }
 
     public static implicit operator PipelineViewportCoarseSampleOrderStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV p)
     {
@@ -41,9 +41,15 @@ public unsafe partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV :
         {
             size += marshallable.GetSize();
         }
-        if (PCustomSampleOrders != default)
+        if (!PCustomSampleOrders.IsEmpty)
         {
-            size += PCustomSampleOrders.GetSize();
+            for (int i = 0; i < PCustomSampleOrders.Length; i++)
+            {
+                if (PCustomSampleOrders.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV>();
+                else
+                    size += PCustomSampleOrders.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -58,18 +64,25 @@ public unsafe partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV :
         PNext = (System.IntPtr)native.pNext;
         SampleOrderType = native.sampleOrderType;
         CustomSampleOrderCount = native.customSampleOrderCount;
-        PCustomSampleOrders = new CoarseSampleOrderCustomNV(in *native.pCustomSampleOrders);
-        NativeUtils.Free(native.pCustomSampleOrders);
+        var arrayLengthPCustomSampleOrders = native.customSampleOrderCount;
+        var tmpPCustomSampleOrders = new CoarseSampleOrderCustomNV[arrayLengthPCustomSampleOrders];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV[arrayLengthPCustomSampleOrders];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCustomSampleOrders, arrayLengthPCustomSampleOrders, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPCustomSampleOrders[i] = new CoarseSampleOrderCustomNV(in nativeTmpArray0[i]);
+        }
+        PCustomSampleOrders = tmpPCustomSampleOrders;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineViewportCoarseSampleOrderStateCreateInfoNVMarshaller
     {
@@ -83,25 +96,20 @@ public unsafe partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV :
             }
             else if (pipelineViewportCoarseSampleOrderStateCreateInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineViewportCoarseSampleOrderStateCreateInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].sampleOrderType = pipelineViewportCoarseSampleOrderStateCreateInfoNV.SampleOrderType;
 
             context.Destination[0].customSampleOrderCount = pipelineViewportCoarseSampleOrderStateCreateInfoNV.CustomSampleOrderCount;
 
-            if (pipelineViewportCoarseSampleOrderStateCreateInfoNV.PCustomSampleOrders != default)
+            if (!pipelineViewportCoarseSampleOrderStateCreateInfoNV.PCustomSampleOrders.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV>(structSlice0).Slice(0, 1);
-                context.Destination[0].pCustomSampleOrders = (AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV>(structDestination0, context.DataCursor);
-                pipelineViewportCoarseSampleOrderStateCreateInfoNV.PCustomSampleOrders.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pCustomSampleOrders = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.CoarseSampleOrderCustomNV, AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV, AdamantiumVulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV>(pipelineViewportCoarseSampleOrderStateCreateInfoNV.PCustomSampleOrders, ref context);
             }
 
         }

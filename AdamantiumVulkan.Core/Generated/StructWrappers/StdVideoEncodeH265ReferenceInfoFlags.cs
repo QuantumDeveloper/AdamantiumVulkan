@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeH265ReferenceInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceInfoFlags>
+public unsafe partial class StdVideoEncodeH265ReferenceInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceInfoFlags>
 {
     public StdVideoEncodeH265ReferenceInfoFlags()
     {
     }
 
-    public StdVideoEncodeH265ReferenceInfoFlags(in AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceInfoFlags native)
+    public StdVideoEncodeH265ReferenceInfoFlags(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceInfoFlags native)
     {
         MarshalFrom(in native);
     }
@@ -27,41 +27,41 @@ public unsafe partial class StdVideoEncodeH265ReferenceInfoFlags : IMarshallable
     public uint Unused_for_reference { get; set; }
     public uint Reserved { get; set; }
 
-    public static implicit operator StdVideoEncodeH265ReferenceInfoFlags(AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceInfoFlags s)
+    public static implicit operator StdVideoEncodeH265ReferenceInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceInfoFlags s)
     {
         return new StdVideoEncodeH265ReferenceInfoFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceInfoFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceInfoFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceInfoFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceInfoFlags> context)
     {
         new StdVideoEncodeH265ReferenceInfoFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceInfoFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceInfoFlags native)
     {
         Used_for_long_term_reference = native.used_for_long_term_reference;
         Unused_for_reference = native.unused_for_reference;
         Reserved = native.reserved;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceInfoFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceInfoFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceInfoFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceInfoFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeH265ReferenceInfoFlagsMarshaller
     {
-        public StdVideoEncodeH265ReferenceInfoFlagsMarshaller(AdamantiumVulkan.StdVideoEncodeH265ReferenceInfoFlags stdVideoEncodeH265ReferenceInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceInfoFlags> context)
+        public StdVideoEncodeH265ReferenceInfoFlagsMarshaller(AdamantiumVulkan.Core.StdVideoEncodeH265ReferenceInfoFlags stdVideoEncodeH265ReferenceInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceInfoFlags> context)
         {
             context.Destination[0].used_for_long_term_reference = stdVideoEncodeH265ReferenceInfoFlags.Used_for_long_term_reference;
 

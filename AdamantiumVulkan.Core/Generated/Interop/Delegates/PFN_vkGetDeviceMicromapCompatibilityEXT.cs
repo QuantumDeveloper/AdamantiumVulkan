@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18534 Column: 26
+// File: video.xml Line: 16358 Column: 10
 public unsafe struct PFN_vkGetDeviceMicromapCompatibilityEXT
 {
     public PFN_vkGetDeviceMicromapCompatibilityEXT(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetDeviceMicromapCompatibilityEXT
     public PFN_vkGetDeviceMicromapCompatibilityEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT*, ref AccelerationStructureCompatibilityKHR*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT*, AccelerationStructureCompatibilityKHR*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT*, ref AccelerationStructureCompatibilityKHR*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT*, AccelerationStructureCompatibilityKHR*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT* pVersionInfo, ref AccelerationStructureCompatibilityKHR* pCompatibility)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT* pVersionInfo, AccelerationStructureCompatibilityKHR* pCompatibility)
     {
-         InvokeFunc(device, pVersionInfo, ref pCompatibility);
+         InvokeFunc(device, pVersionInfo, pCompatibility);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT* pVersionInfo, ref AccelerationStructureCompatibilityKHR* pCompatibility)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT* pVersionInfo, AccelerationStructureCompatibilityKHR* pCompatibility)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT*, ref AccelerationStructureCompatibilityKHR*, void>)ptr)(device, pVersionInfo, ref pCompatibility);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT*, AccelerationStructureCompatibilityKHR*, void>)ptr)(device, pVersionInfo, pCompatibility);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT* pVersionInfo, ref AccelerationStructureCompatibilityKHR* pCompatibility)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT* pVersionInfo, AccelerationStructureCompatibilityKHR* pCompatibility)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT*, ref AccelerationStructureCompatibilityKHR*, void>)(void*)ptr)(device, pVersionInfo, ref pCompatibility);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT*, AccelerationStructureCompatibilityKHR*, void>)(void*)ptr)(device, pVersionInfo, pCompatibility);
     }
 
     public static explicit operator PFN_vkGetDeviceMicromapCompatibilityEXT(void* ptr) => new(ptr);

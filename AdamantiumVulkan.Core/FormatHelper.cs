@@ -12,7 +12,7 @@ namespace AdamantiumVulkan.Core
 
         public static bool IsValid(this Format format)
         {
-            return format != Format.UNDEFINED && format != Format.MAX_ENUM;
+            return format != Format.UNDEFINED;
         }
 
         public static bool IsCompressed(this Format format)

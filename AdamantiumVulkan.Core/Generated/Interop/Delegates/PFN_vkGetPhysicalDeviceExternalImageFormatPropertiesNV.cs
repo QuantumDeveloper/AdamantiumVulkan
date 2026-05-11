@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13514 Column: 30
+// File: video.xml Line: 13786 Column: 10
 public unsafe struct PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV
 {
     public PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV
     public PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, ImageType, ImageTiling, VkImageUsageFlags, VkImageCreateFlags, VkExternalMemoryHandleTypeFlagsNV, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, ImageType, ImageTiling, ImageUsageFlagBits, ImageCreateFlagBits, ExternalMemoryHandleTypeFlagBitsNV, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, ImageType, ImageTiling, VkImageUsageFlags, VkImageCreateFlags, VkExternalMemoryHandleTypeFlagsNV, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, ImageType, ImageTiling, ImageUsageFlagBits, ImageCreateFlagBits, ExternalMemoryHandleTypeFlagBitsNV, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, ImageTiling tiling, VkImageUsageFlags usage, VkImageCreateFlags flags, VkExternalMemoryHandleTypeFlagsNV externalHandleType, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV* pExternalImageFormatProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, ImageTiling tiling, ImageUsageFlagBits usage, ImageCreateFlagBits flags, ExternalMemoryHandleTypeFlagBitsNV externalHandleType, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV* pExternalImageFormatProperties)
     {
         return InvokeFunc(physicalDevice, format, type, tiling, usage, flags, externalHandleType, pExternalImageFormatProperties);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, ImageTiling tiling, VkImageUsageFlags usage, VkImageCreateFlags flags, VkExternalMemoryHandleTypeFlagsNV externalHandleType, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV* pExternalImageFormatProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, ImageTiling tiling, ImageUsageFlagBits usage, ImageCreateFlagBits flags, ExternalMemoryHandleTypeFlagBitsNV externalHandleType, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV* pExternalImageFormatProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, ImageType, ImageTiling, VkImageUsageFlags, VkImageCreateFlags, VkExternalMemoryHandleTypeFlagsNV, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV*, Result>)ptr)(physicalDevice, format, type, tiling, usage, flags, externalHandleType, pExternalImageFormatProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, ImageType, ImageTiling, ImageUsageFlagBits, ImageCreateFlagBits, ExternalMemoryHandleTypeFlagBitsNV, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV*, Result>)ptr)(physicalDevice, format, type, tiling, usage, flags, externalHandleType, pExternalImageFormatProperties);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, ImageTiling tiling, VkImageUsageFlags usage, VkImageCreateFlags flags, VkExternalMemoryHandleTypeFlagsNV externalHandleType, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV* pExternalImageFormatProperties)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, ImageTiling tiling, ImageUsageFlagBits usage, ImageCreateFlagBits flags, ExternalMemoryHandleTypeFlagBitsNV externalHandleType, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV* pExternalImageFormatProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, ImageType, ImageTiling, VkImageUsageFlags, VkImageCreateFlags, VkExternalMemoryHandleTypeFlagsNV, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV*, Result>)(void*)ptr)(physicalDevice, format, type, tiling, usage, flags, externalHandleType, pExternalImageFormatProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, Format, ImageType, ImageTiling, ImageUsageFlagBits, ImageCreateFlagBits, ExternalMemoryHandleTypeFlagBitsNV, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV*, Result>)(void*)ptr)(physicalDevice, format, type, tiling, usage, flags, externalHandleType, pExternalImageFormatProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV(void* ptr) => new(ptr);

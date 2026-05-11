@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2073 Column: 14
-public enum CompareOp : uint
+// File: vk.xml Line: 10350 Column: 6
+public enum CompareOp : int
 {
     Never = 0,
 
@@ -29,8 +29,6 @@ public enum CompareOp : uint
     GreaterOrEqual = 6,
 
     Always = 7,
-
-    MaxEnum = 2147483647,
 
 }
 

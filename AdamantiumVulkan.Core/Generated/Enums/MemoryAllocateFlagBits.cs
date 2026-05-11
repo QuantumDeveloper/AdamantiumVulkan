@@ -11,17 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5187 Column: 14
+// File: vk.xml Line: 11314 Column: 6
 [Flags]
 public enum MemoryAllocateFlagBits : uint
 {
     DeviceMaskBit = 1,
-
-    DeviceAddressBit = 2,
-
-    DeviceAddressCaptureReplayBit = 4,
-
-    FlagBitsMaxEnum = 2147483647,
 
 }
 

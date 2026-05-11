@@ -27,7 +27,7 @@ public unsafe partial class GeometryNV : IMarshallableObject, IMarshallable<Adam
     public object PNext { get; set; }
     public GeometryTypeKHR GeometryType { get; set; }
     public GeometryDataNV Geometry { get; set; }
-    public VkGeometryFlagsKHR Flags { get; set; }
+    public GeometryFlagBitsKHR Flags { get; set; }
 
     public static implicit operator GeometryNV(AdamantiumVulkan.Core.Interop.VkGeometryNV g)
     {
@@ -57,14 +57,14 @@ public unsafe partial class GeometryNV : IMarshallableObject, IMarshallable<Adam
         Flags = native.flags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkGeometryNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkGeometryNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkGeometryNVMarshaller
     {
@@ -78,11 +78,11 @@ public unsafe partial class GeometryNV : IMarshallableObject, IMarshallable<Adam
             }
             else if (geometryNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (geometryNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].geometryType = geometryNV.GeometryType;
@@ -98,10 +98,7 @@ public unsafe partial class GeometryNV : IMarshallableObject, IMarshallable<Adam
                 }
             }
 
-            if (geometryNV.Flags != (uint)default)
-            {
-                context.Destination[0].flags = geometryNV.Flags;
-            }
+            context.Destination[0].flags = geometryNV.Flags;
 
         }
     }

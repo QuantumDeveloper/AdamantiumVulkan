@@ -11,17 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14755 Column: 14
+// File: vk.xml Line: 11545 Column: 6
 [Flags]
-public enum RayTracingShaderGroupTypeKHR : uint
+public enum RayTracingShaderGroupTypeKHR : int
 {
     GeneralKhr = 0,
 
     TrianglesHitGroupKhr = 1,
 
     ProceduralHitGroupKhr = 2,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

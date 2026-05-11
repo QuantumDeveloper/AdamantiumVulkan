@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20973 Column: 14
+// File: vk.xml Line: 12276 Column: 6
 [Flags]
 public enum IndirectCommandsInputModeFlagBitsEXT : uint
 {
     VulkanIndexBufferExt = 1,
 
     DxgiIndexBufferExt = 2,
-
-    FlagBitsMaxEnumExt = 2147483647,
 
 }
 

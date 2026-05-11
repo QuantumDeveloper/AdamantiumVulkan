@@ -25,11 +25,11 @@ public unsafe partial class ShaderCreateInfoEXT : IMarshallableObject, IMarshall
 
     public StructureType SType => StructureType.ShaderCreateInfoExt;
     public object PNext { get; set; }
-    public VkShaderCreateFlagsEXT Flags { get; set; }
+    public ShaderCreateFlagBitsEXT Flags { get; set; }
     public ShaderStageFlagBits Stage { get; set; }
     public ShaderStageFlagBits NextStage { get; set; }
     public ShaderCodeTypeEXT CodeType { get; set; }
-    public ulong CodeSize { get; set; }
+    public nuint CodeSize { get; set; }
     public System.ReadOnlyMemory<byte> PCode { get; set; }
     public string PName { get; set; }
     public uint SetLayoutCount { get; set; }
@@ -88,18 +88,20 @@ public unsafe partial class ShaderCreateInfoEXT : IMarshallableObject, IMarshall
         CodeSize = native.codeSize;
         PName = new string(native.pName);
         SetLayoutCount = native.setLayoutCount;
-        var tmpPSetLayouts = new DescriptorSetLayout[native.setLayoutCount];
-        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[native.setLayoutCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSetLayouts, native.setLayoutCount, nativeTmpArray1);
+        var arrayLengthPSetLayouts = native.setLayoutCount;
+        var tmpPSetLayouts = new DescriptorSetLayout[arrayLengthPSetLayouts];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[arrayLengthPSetLayouts];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSetLayouts, arrayLengthPSetLayouts, nativeTmpArray1);
         for (int i = 0; i < nativeTmpArray1.Length; ++i)
         {
             tmpPSetLayouts[i] = new DescriptorSetLayout(in nativeTmpArray1[i]);
         }
         PSetLayouts = tmpPSetLayouts;
         PushConstantRangeCount = native.pushConstantRangeCount;
-        var tmpPushConstantRanges = new PushConstantRange[native.pushConstantRangeCount];
-        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkPushConstantRange[native.pushConstantRangeCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPushConstantRanges, native.pushConstantRangeCount, nativeTmpArray2);
+        var arrayLengthPushConstantRanges = native.pushConstantRangeCount;
+        var tmpPushConstantRanges = new PushConstantRange[arrayLengthPushConstantRanges];
+        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkPushConstantRange[arrayLengthPushConstantRanges];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPushConstantRanges, arrayLengthPushConstantRanges, nativeTmpArray2);
         for (int i = 0; i < nativeTmpArray2.Length; ++i)
         {
             tmpPushConstantRanges[i] = new PushConstantRange(in nativeTmpArray2[i]);
@@ -109,14 +111,14 @@ public unsafe partial class ShaderCreateInfoEXT : IMarshallableObject, IMarshall
         NativeUtils.Free(native.pSpecializationInfo);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkShaderCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkShaderCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkShaderCreateInfoEXTMarshaller
     {
@@ -130,17 +132,14 @@ public unsafe partial class ShaderCreateInfoEXT : IMarshallableObject, IMarshall
             }
             else if (shaderCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (shaderCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (shaderCreateInfoEXT.Flags != (uint)default)
-            {
-                context.Destination[0].flags = shaderCreateInfoEXT.Flags;
-            }
+            context.Destination[0].flags = shaderCreateInfoEXT.Flags;
 
             context.Destination[0].stage = shaderCreateInfoEXT.Stage;
 

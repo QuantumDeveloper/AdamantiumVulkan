@@ -10,7 +10,6 @@ using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Windows.Interop;
 using AdamantiumVulkan.Core;
-using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows;
 
@@ -25,10 +24,10 @@ public unsafe partial class ImportMemoryWin32HandleInfoNV : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ImportMemoryWin32HandleInfoNv;
     public object PNext { get; set; }
-    public VkExternalMemoryHandleTypeFlagsNV HandleType { get; set; }
-    public System.IntPtr Handle { get; set; }
+    public ExternalMemoryHandleTypeFlagBitsNV HandleType { get; set; }
+    public nuint Handle { get; set; }
 
     public static implicit operator ImportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV i)
     {
@@ -52,20 +51,19 @@ public unsafe partial class ImportMemoryWin32HandleInfoNV : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         HandleType = native.handleType;
         Handle = native.handle;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImportMemoryWin32HandleInfoNVMarshaller
     {
@@ -79,17 +77,14 @@ public unsafe partial class ImportMemoryWin32HandleInfoNV : IMarshallableObject,
             }
             else if (importMemoryWin32HandleInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (importMemoryWin32HandleInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (importMemoryWin32HandleInfoNV.HandleType != (uint)default)
-            {
-                context.Destination[0].handleType = importMemoryWin32HandleInfoNV.HandleType;
-            }
+            context.Destination[0].handleType = importMemoryWin32HandleInfoNV.HandleType;
 
             context.Destination[0].handle = importMemoryWin32HandleInfoNV.Handle;
 

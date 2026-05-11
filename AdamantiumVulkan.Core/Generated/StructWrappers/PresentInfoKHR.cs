@@ -64,37 +64,43 @@ public unsafe partial class PresentInfoKHR : IMarshallableObject, IMarshallable<
     {
         PNext = (System.IntPtr)native.pNext;
         WaitSemaphoreCount = native.waitSemaphoreCount;
-        var tmpPWaitSemaphores = new Semaphore[native.waitSemaphoreCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[native.waitSemaphoreCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pWaitSemaphores, native.waitSemaphoreCount, nativeTmpArray0);
+        var arrayLengthPWaitSemaphores = native.waitSemaphoreCount;
+        var tmpPWaitSemaphores = new Semaphore[arrayLengthPWaitSemaphores];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[arrayLengthPWaitSemaphores];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pWaitSemaphores, arrayLengthPWaitSemaphores, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPWaitSemaphores[i] = new Semaphore(in nativeTmpArray0[i]);
         }
         PWaitSemaphores = tmpPWaitSemaphores;
         SwapchainCount = native.swapchainCount;
-        var tmpPSwapchains = new SwapchainKHR[native.swapchainCount];
-        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T[native.swapchainCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSwapchains, native.swapchainCount, nativeTmpArray1);
+        var arrayLengthPSwapchains = native.swapchainCount;
+        var tmpPSwapchains = new SwapchainKHR[arrayLengthPSwapchains];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T[arrayLengthPSwapchains];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSwapchains, arrayLengthPSwapchains, nativeTmpArray1);
         for (int i = 0; i < nativeTmpArray1.Length; ++i)
         {
             tmpPSwapchains[i] = new SwapchainKHR(in nativeTmpArray1[i]);
         }
         PSwapchains = tmpPSwapchains;
-        var tmpPImageIndices = new uint[native.swapchainCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pImageIndices, native.swapchainCount, tmpPImageIndices);
-        var tmpPResults = new Result[native.swapchainCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pResults, native.swapchainCount, tmpPResults);
+        var arrayLengthPImageIndices = native.swapchainCount;
+        var tmpPImageIndices = new uint[arrayLengthPImageIndices];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pImageIndices, arrayLengthPImageIndices, tmpPImageIndices);
+        PImageIndices = tmpPImageIndices;
+        var arrayLengthPResults = native.swapchainCount;
+        var tmpPResults = new Result[arrayLengthPResults];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pResults, arrayLengthPResults, tmpPResults);
+        PResults = tmpPResults;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPresentInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPresentInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPresentInfoKHRMarshaller
     {
@@ -108,11 +114,11 @@ public unsafe partial class PresentInfoKHR : IMarshallableObject, IMarshallable<
             }
             else if (presentInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (presentInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].waitSemaphoreCount = presentInfoKHR.WaitSemaphoreCount;

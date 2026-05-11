@@ -42,7 +42,7 @@ public unsafe partial class PipelineDynamicStateCreateInfo : IMarshallableObject
             size += marshallable.GetSize();
         }
         if (!PDynamicStates.IsEmpty)
-            size += PDynamicStates.Span.Length * sizeof(uint);
+            size += PDynamicStates.Span.Length * sizeof(int);
         return size;
     }
 
@@ -56,18 +56,20 @@ public unsafe partial class PipelineDynamicStateCreateInfo : IMarshallableObject
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         DynamicStateCount = native.dynamicStateCount;
-        var tmpPDynamicStates = new DynamicState[native.dynamicStateCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDynamicStates, native.dynamicStateCount, tmpPDynamicStates);
+        var arrayLengthPDynamicStates = native.dynamicStateCount;
+        var tmpPDynamicStates = new DynamicState[arrayLengthPDynamicStates];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDynamicStates, arrayLengthPDynamicStates, tmpPDynamicStates);
+        PDynamicStates = tmpPDynamicStates;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineDynamicStateCreateInfoMarshaller
     {
@@ -81,11 +83,11 @@ public unsafe partial class PipelineDynamicStateCreateInfo : IMarshallableObject
             }
             else if (pipelineDynamicStateCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineDynamicStateCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineDynamicStateCreateInfo.Flags != (uint)default)
@@ -97,13 +99,13 @@ public unsafe partial class PipelineDynamicStateCreateInfo : IMarshallableObject
 
             if (!pipelineDynamicStateCreateInfo.PDynamicStates.IsEmpty)
             {
-                var sizeInBytes = sizeof(uint) * pipelineDynamicStateCreateInfo.PDynamicStates.Length;
+                var sizeInBytes = sizeof(int) * pipelineDynamicStateCreateInfo.PDynamicStates.Length;
                 var byteSpan = context.AllocateData(sizeInBytes);
-                var enumSpanPDynamicStates = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, uint>(byteSpan);
+                var enumSpanPDynamicStates = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, int>(byteSpan);
                 context.Destination[0].pDynamicStates = (AdamantiumVulkan.Core.DynamicState*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPDynamicStates));
                 for (int i = 0; i < enumSpanPDynamicStates.Length; i++)
                 {
-                    enumSpanPDynamicStates[i] = (uint)pipelineDynamicStateCreateInfo.PDynamicStates.Span[i];
+                    enumSpanPDynamicStates[i] = (int)pipelineDynamicStateCreateInfo.PDynamicStates.Span[i];
                 }
             }
 

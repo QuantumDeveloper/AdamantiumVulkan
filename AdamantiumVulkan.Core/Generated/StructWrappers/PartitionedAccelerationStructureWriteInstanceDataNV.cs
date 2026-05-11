@@ -28,7 +28,7 @@ public unsafe partial class PartitionedAccelerationStructureWriteInstanceDataNV 
     public uint InstanceID { get; set; }
     public uint InstanceMask { get; set; }
     public uint InstanceContributionToHitGroupIndex { get; set; }
-    public VkPartitionedAccelerationStructureInstanceFlagsNV InstanceFlags { get; set; }
+    public PartitionedAccelerationStructureInstanceFlagBitsNV InstanceFlags { get; set; }
     public uint InstanceIndex { get; set; }
     public uint PartitionIndex { get; set; }
     public VkDeviceAddress AccelerationStructure { get; set; }
@@ -53,7 +53,8 @@ public unsafe partial class PartitionedAccelerationStructureWriteInstanceDataNV 
     {
         Transform = new TransformMatrixKHR(native.transform);
         var tmpExplicitAABB = new float[6];
-        var pExplicitAABB = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.explicitAABB[0]));
+        var explicitAABBp = native.explicitAABB[0];
+        var pExplicitAABB = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in explicitAABBp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pExplicitAABB, 6, tmpExplicitAABB);
         ExplicitAABB = tmpExplicitAABB;
         InstanceID = native.instanceID;
@@ -65,14 +66,14 @@ public unsafe partial class PartitionedAccelerationStructureWriteInstanceDataNV 
         AccelerationStructure = native.accelerationStructure;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPartitionedAccelerationStructureWriteInstanceDataNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPartitionedAccelerationStructureWriteInstanceDataNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPartitionedAccelerationStructureWriteInstanceDataNVMarshaller
     {
@@ -101,10 +102,7 @@ public unsafe partial class PartitionedAccelerationStructureWriteInstanceDataNV 
 
             context.Destination[0].instanceContributionToHitGroupIndex = partitionedAccelerationStructureWriteInstanceDataNV.InstanceContributionToHitGroupIndex;
 
-            if (partitionedAccelerationStructureWriteInstanceDataNV.InstanceFlags != (uint)default)
-            {
-                context.Destination[0].instanceFlags = partitionedAccelerationStructureWriteInstanceDataNV.InstanceFlags;
-            }
+            context.Destination[0].instanceFlags = partitionedAccelerationStructureWriteInstanceDataNV.InstanceFlags;
 
             context.Destination[0].instanceIndex = partitionedAccelerationStructureWriteInstanceDataNV.InstanceIndex;
 

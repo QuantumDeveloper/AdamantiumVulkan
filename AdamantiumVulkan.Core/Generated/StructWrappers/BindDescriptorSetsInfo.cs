@@ -23,15 +23,15 @@ public unsafe partial class BindDescriptorSetsInfo : IMarshallableObject, IMarsh
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.BindDescriptorSetsInfo;
     public object PNext { get; set; }
-    public VkShaderStageFlags StageFlags { get; set; }
+    public ShaderStageFlagBits StageFlags { get; set; }
     public PipelineLayout Layout { get; set; }
     public uint FirstSet { get; set; }
     public uint DescriptorSetCount { get; set; }
-    public DescriptorSet PDescriptorSets { get; set; }
+    public System.ReadOnlyMemory<DescriptorSet> PDescriptorSets { get; set; }
     public uint DynamicOffsetCount { get; set; }
-    public uint? PDynamicOffsets { get; set; }
+    public System.ReadOnlyMemory<uint> PDynamicOffsets { get; set; }
 
     public static implicit operator BindDescriptorSetsInfo(AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfo b)
     {
@@ -45,6 +45,10 @@ public unsafe partial class BindDescriptorSetsInfo : IMarshallableObject, IMarsh
         {
             size += marshallable.GetSize();
         }
+        if (!PDescriptorSets.IsEmpty)
+            size += PDescriptorSets.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDescriptorSet_T>();
+        if (!PDynamicOffsets.IsEmpty)
+            size += PDynamicOffsets.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -55,30 +59,35 @@ public unsafe partial class BindDescriptorSetsInfo : IMarshallableObject, IMarsh
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         StageFlags = native.stageFlags;
         Layout = new PipelineLayout(native.layout);
         FirstSet = native.firstSet;
         DescriptorSetCount = native.descriptorSetCount;
-        PDescriptorSets = new DescriptorSet(in *native.pDescriptorSets);
-        NativeUtils.Free(native.pDescriptorSets);
-        DynamicOffsetCount = native.dynamicOffsetCount;
-        if (native.pDynamicOffsets != null)
+        var arrayLengthPDescriptorSets = native.descriptorSetCount;
+        var tmpPDescriptorSets = new DescriptorSet[arrayLengthPDescriptorSets];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSet_T[arrayLengthPDescriptorSets];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDescriptorSets, arrayLengthPDescriptorSets, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
-            PDynamicOffsets = *native.pDynamicOffsets;
-            NativeUtils.Free(native.pDynamicOffsets);
+            tmpPDescriptorSets[i] = new DescriptorSet(in nativeTmpArray0[i]);
         }
+        PDescriptorSets = tmpPDescriptorSets;
+        DynamicOffsetCount = native.dynamicOffsetCount;
+        var arrayLengthPDynamicOffsets = native.dynamicOffsetCount;
+        var tmpPDynamicOffsets = new uint[arrayLengthPDynamicOffsets];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDynamicOffsets, arrayLengthPDynamicOffsets, tmpPDynamicOffsets);
+        PDynamicOffsets = tmpPDynamicOffsets;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkBindDescriptorSetsInfoMarshaller
     {
@@ -92,17 +101,14 @@ public unsafe partial class BindDescriptorSetsInfo : IMarshallableObject, IMarsh
             }
             else if (bindDescriptorSetsInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (bindDescriptorSetsInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (bindDescriptorSetsInfo.StageFlags != (uint)default)
-            {
-                context.Destination[0].stageFlags = bindDescriptorSetsInfo.StageFlags;
-            }
+            context.Destination[0].stageFlags = bindDescriptorSetsInfo.StageFlags;
 
             if (bindDescriptorSetsInfo.Layout != default)
             {
@@ -113,17 +119,24 @@ public unsafe partial class BindDescriptorSetsInfo : IMarshallableObject, IMarsh
 
             context.Destination[0].descriptorSetCount = bindDescriptorSetsInfo.DescriptorSetCount;
 
-            if (bindDescriptorSetsInfo.PDescriptorSets != default)
+            if (!bindDescriptorSetsInfo.PDescriptorSets.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkDescriptorSet_T struct0 = bindDescriptorSetsInfo.PDescriptorSets;
-                context.Destination[0].pDescriptorSets = (AdamantiumVulkan.Core.Interop.VkDescriptorSet_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.DescriptorSet> sourceSpan = bindDescriptorSetsInfo.PDescriptorSets.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkDescriptorSet_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkDescriptorSet_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkDescriptorSet_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pDescriptorSets = pDestination;
             }
 
             context.Destination[0].dynamicOffsetCount = bindDescriptorSetsInfo.DynamicOffsetCount;
 
-            if (bindDescriptorSetsInfo.PDynamicOffsets.HasValue)
+            if (!bindDescriptorSetsInfo.PDynamicOffsets.IsEmpty)
             {
-                context.Destination[0].pDynamicOffsets = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(bindDescriptorSetsInfo.PDynamicOffsets.Value, ref context);
+                context.Destination[0].pDynamicOffsets = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfo>(bindDescriptorSetsInfo.PDynamicOffsets.Span, ref context);
             }
 
         }

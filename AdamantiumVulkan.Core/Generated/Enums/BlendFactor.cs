@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 1995 Column: 14
-public enum BlendFactor : uint
+// File: vk.xml Line: 10369 Column: 6
+public enum BlendFactor : int
 {
     Zero = 0,
 
@@ -51,8 +51,6 @@ public enum BlendFactor : uint
     Src1Alpha = 17,
 
     OneMinusSrc1Alpha = 18,
-
-    MaxEnum = 2147483647,
 
 }
 

@@ -11,17 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13748 Column: 14
+// File: vk.xml Line: 11297 Column: 6
 [Flags]
-public enum DisplayPowerStateEXT : uint
+public enum DisplayPowerStateEXT : int
 {
     OffExt = 0,
 
     SuspendExt = 1,
 
     OnExt = 2,
-
-    MaxEnumExt = 2147483647,
 
 }
 

@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16643 Column: 16
+// File: vk.xml Line: 2740 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkIndirectCommandsLayoutCreateInfoNV
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkIndirectCommandsLayoutUsageFlagsNV flags;
+    public void* pNext;
+    public IndirectCommandsLayoutUsageFlagBitsNV flags;
     public PipelineBindPoint pipelineBindPoint;
     public uint tokenCount;
     public AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV* pTokens;

@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17147 Column: 16
+// File: vk.xml Line: 9506 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkQueryLowLatencySupportNV
 {
     public StructureType sType;
-    public nuint pNext;
-    public nuint pQueriedLowLatencyData;
+    public void* pNext;
+    public void* pQueriedLowLatencyData;
 }
 
 

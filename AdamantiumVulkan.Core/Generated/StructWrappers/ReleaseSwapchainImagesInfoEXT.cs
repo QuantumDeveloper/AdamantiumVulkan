@@ -23,11 +23,11 @@ public unsafe partial class ReleaseSwapchainImagesInfoEXT : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ReleaseSwapchainImagesInfoExt;
     public object PNext { get; set; }
     public SwapchainKHR Swapchain { get; set; }
     public uint ImageIndexCount { get; set; }
-    public uint? PImageIndices { get; set; }
+    public System.ReadOnlyMemory<uint> PImageIndices { get; set; }
 
     public static implicit operator ReleaseSwapchainImagesInfoEXT(AdamantiumVulkan.Core.Interop.VkReleaseSwapchainImagesInfoEXT r)
     {
@@ -41,6 +41,8 @@ public unsafe partial class ReleaseSwapchainImagesInfoEXT : IMarshallableObject,
         {
             size += marshallable.GetSize();
         }
+        if (!PImageIndices.IsEmpty)
+            size += PImageIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -51,25 +53,23 @@ public unsafe partial class ReleaseSwapchainImagesInfoEXT : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkReleaseSwapchainImagesInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Swapchain = new SwapchainKHR(native.swapchain);
         ImageIndexCount = native.imageIndexCount;
-        if (native.pImageIndices != null)
-        {
-            PImageIndices = *native.pImageIndices;
-            NativeUtils.Free(native.pImageIndices);
-        }
+        var arrayLengthPImageIndices = native.imageIndexCount;
+        var tmpPImageIndices = new uint[arrayLengthPImageIndices];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pImageIndices, arrayLengthPImageIndices, tmpPImageIndices);
+        PImageIndices = tmpPImageIndices;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkReleaseSwapchainImagesInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkReleaseSwapchainImagesInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkReleaseSwapchainImagesInfoEXTMarshaller
     {
@@ -83,11 +83,11 @@ public unsafe partial class ReleaseSwapchainImagesInfoEXT : IMarshallableObject,
             }
             else if (releaseSwapchainImagesInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (releaseSwapchainImagesInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (releaseSwapchainImagesInfoEXT.Swapchain != default)
@@ -97,9 +97,9 @@ public unsafe partial class ReleaseSwapchainImagesInfoEXT : IMarshallableObject,
 
             context.Destination[0].imageIndexCount = releaseSwapchainImagesInfoEXT.ImageIndexCount;
 
-            if (releaseSwapchainImagesInfoEXT.PImageIndices.HasValue)
+            if (!releaseSwapchainImagesInfoEXT.PImageIndices.IsEmpty)
             {
-                context.Destination[0].pImageIndices = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(releaseSwapchainImagesInfoEXT.PImageIndices.Value, ref context);
+                context.Destination[0].pImageIndices = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkReleaseSwapchainImagesInfoEXT>(releaseSwapchainImagesInfoEXT.PImageIndices.Span, ref context);
             }
 
         }

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6943 Column: 39
+// File: vk.xml Line: 12003 Column: 6
 [Flags]
 public enum FormatFeatureFlagBits2 : ulong
 {
@@ -66,46 +66,6 @@ public enum FormatFeatureFlagBits2 : ulong
     StorageWriteWithoutFormatBit = 4294967296,
 
     SampledImageDepthComparisonBit = 8589934592,
-
-    SampledImageFilterCubicBit = 8192,
-
-    HostImageTransferBit = 70368744177664,
-
-    VideoDecodeOutputBitKhr = 33554432,
-
-    VideoDecodeDpbBitKhr = 67108864,
-
-    AccelerationStructureVertexBufferBitKhr = 536870912,
-
-    FragmentDensityMapBitExt = 16777216,
-
-    FragmentShadingRateAttachmentBitKhr = 1073741824,
-
-    VideoEncodeInputBitKhr = 134217728,
-
-    VideoEncodeDpbBitKhr = 268435456,
-
-    AccelerationStructureRadiusBufferBitNv = 2251799813685248,
-
-    LinearColorAttachmentBitNv = 274877906944,
-
-    WeightImageBitQcom = 17179869184,
-
-    WeightSampledImageBitQcom = 34359738368,
-
-    BlockMatchingBitQcom = 68719476736,
-
-    BoxFilterSampledBitQcom = 137438953472,
-
-    OpticalFlowImageBitNv = 1099511627776,
-
-    OpticalFlowVectorBitNv = 2199023255552,
-
-    OpticalFlowCostBitNv = 4398046511104,
-
-    VideoEncodeQuantizationDeltaMapBitKhr = 562949953421312,
-
-    VideoEncodeEmphasisMapBitKhr = 1125899906842624,
 
 }
 

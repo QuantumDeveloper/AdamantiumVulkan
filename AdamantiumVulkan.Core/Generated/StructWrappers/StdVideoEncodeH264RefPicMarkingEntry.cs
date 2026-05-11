@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeH264RefPicMarkingEntry : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeH264RefPicMarkingEntry>
+public unsafe partial class StdVideoEncodeH264RefPicMarkingEntry : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry>
 {
     public StdVideoEncodeH264RefPicMarkingEntry()
     {
     }
 
-    public StdVideoEncodeH264RefPicMarkingEntry(in AdamantiumVulkan.Interop.StdVideoEncodeH264RefPicMarkingEntry native)
+    public StdVideoEncodeH264RefPicMarkingEntry(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry native)
     {
         MarshalFrom(in native);
     }
@@ -29,23 +29,23 @@ public unsafe partial class StdVideoEncodeH264RefPicMarkingEntry : IMarshallable
     public ushort Long_term_frame_idx { get; set; }
     public ushort Max_long_term_frame_idx_plus1 { get; set; }
 
-    public static implicit operator StdVideoEncodeH264RefPicMarkingEntry(AdamantiumVulkan.Interop.StdVideoEncodeH264RefPicMarkingEntry s)
+    public static implicit operator StdVideoEncodeH264RefPicMarkingEntry(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry s)
     {
         return new StdVideoEncodeH264RefPicMarkingEntry(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeH264RefPicMarkingEntry>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264RefPicMarkingEntry> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry> context)
     {
         new StdVideoEncodeH264RefPicMarkingEntryMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeH264RefPicMarkingEntry native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry native)
     {
         Memory_management_control_operation = native.memory_management_control_operation;
         Difference_of_pic_nums_minus1 = native.difference_of_pic_nums_minus1;
@@ -54,18 +54,18 @@ public unsafe partial class StdVideoEncodeH264RefPicMarkingEntry : IMarshallable
         Max_long_term_frame_idx_plus1 = native.max_long_term_frame_idx_plus1;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeH264RefPicMarkingEntry>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264RefPicMarkingEntry>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeH264RefPicMarkingEntryMarshaller
     {
-        public StdVideoEncodeH264RefPicMarkingEntryMarshaller(AdamantiumVulkan.StdVideoEncodeH264RefPicMarkingEntry stdVideoEncodeH264RefPicMarkingEntry, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264RefPicMarkingEntry> context)
+        public StdVideoEncodeH264RefPicMarkingEntryMarshaller(AdamantiumVulkan.Core.StdVideoEncodeH264RefPicMarkingEntry stdVideoEncodeH264RefPicMarkingEntry, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry> context)
         {
             context.Destination[0].memory_management_control_operation = stdVideoEncodeH264RefPicMarkingEntry.Memory_management_control_operation;
 

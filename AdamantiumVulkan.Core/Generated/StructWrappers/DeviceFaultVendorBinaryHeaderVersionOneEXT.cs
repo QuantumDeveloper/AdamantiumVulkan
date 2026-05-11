@@ -59,7 +59,8 @@ public unsafe partial class DeviceFaultVendorBinaryHeaderVersionOneEXT : IMarsha
         DeviceID = native.deviceID;
         DriverVersion = native.driverVersion;
         var tmpPipelineCacheUUID = new byte[16];
-        var pPipelineCacheUUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.pipelineCacheUUID[0]));
+        var pipelineCacheUUIDp = native.pipelineCacheUUID[0];
+        var pPipelineCacheUUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in pipelineCacheUUIDp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pPipelineCacheUUID, 16, tmpPipelineCacheUUID);
         PipelineCacheUUID = tmpPipelineCacheUUID;
         ApplicationNameOffset = native.applicationNameOffset;
@@ -69,14 +70,14 @@ public unsafe partial class DeviceFaultVendorBinaryHeaderVersionOneEXT : IMarsha
         ApiVersion = native.apiVersion;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorBinaryHeaderVersionOneEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorBinaryHeaderVersionOneEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDeviceFaultVendorBinaryHeaderVersionOneEXTMarshaller
     {

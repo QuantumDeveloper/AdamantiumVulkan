@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2404 Column: 14
+// File: vk.xml Line: 10957 Column: 6
 [Flags]
 public enum ImageAspectFlagBits : uint
 {
@@ -23,23 +23,7 @@ public enum ImageAspectFlagBits : uint
 
     MetadataBit = 8,
 
-    Plane0Bit = 16,
-
-    Plane1Bit = 32,
-
-    Plane2Bit = 64,
-
     None = 0,
-
-    MemoryPlane0BitExt = 128,
-
-    MemoryPlane1BitExt = 256,
-
-    MemoryPlane2BitExt = 512,
-
-    MemoryPlane3BitExt = 1024,
-
-    FlagBitsMaxEnum = 2147483647,
 
 }
 

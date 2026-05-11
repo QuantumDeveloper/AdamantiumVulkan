@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2226 Column: 14
-public enum LogicOp : uint
+// File: vk.xml Line: 10407 Column: 6
+public enum LogicOp : int
 {
     Clear = 0,
 
@@ -45,8 +45,6 @@ public enum LogicOp : uint
     Nand = 14,
 
     Set = 15,
-
-    MaxEnum = 2147483647,
 
 }
 

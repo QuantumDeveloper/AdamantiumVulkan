@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12587 Column: 14
-public enum TimeDomainKHR : uint
+// File: vk.xml Line: 11075 Column: 6
+public enum TimeDomainKHR : int
 {
     DeviceKhr = 0,
 
@@ -21,8 +21,6 @@ public enum TimeDomainKHR : uint
     ClockMonotonicRawKhr = 2,
 
     QueryPerformanceCounterKhr = 3,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

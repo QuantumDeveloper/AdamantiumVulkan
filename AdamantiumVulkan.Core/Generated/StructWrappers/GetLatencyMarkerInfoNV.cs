@@ -23,10 +23,10 @@ public unsafe partial class GetLatencyMarkerInfoNV : IMarshallableObject, IMarsh
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.GetLatencyMarkerInfoNv;
     public object PNext { get; set; }
     public uint TimingCount { get; set; }
-    public LatencyTimingsFrameReportNV PTimings { get; set; }
+    public System.ReadOnlyMemory<LatencyTimingsFrameReportNV> PTimings { get; set; }
 
     public static implicit operator GetLatencyMarkerInfoNV(AdamantiumVulkan.Core.Interop.VkGetLatencyMarkerInfoNV g)
     {
@@ -40,9 +40,15 @@ public unsafe partial class GetLatencyMarkerInfoNV : IMarshallableObject, IMarsh
         {
             size += marshallable.GetSize();
         }
-        if (PTimings != default)
+        if (!PTimings.IsEmpty)
         {
-            size += PTimings.GetSize();
+            for (int i = 0; i < PTimings.Length; i++)
+            {
+                if (PTimings.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkLatencyTimingsFrameReportNV>();
+                else
+                    size += PTimings.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -54,21 +60,27 @@ public unsafe partial class GetLatencyMarkerInfoNV : IMarshallableObject, IMarsh
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkGetLatencyMarkerInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         TimingCount = native.timingCount;
-        PTimings = new LatencyTimingsFrameReportNV(in *native.pTimings);
-        NativeUtils.Free(native.pTimings);
+        var arrayLengthPTimings = native.timingCount;
+        var tmpPTimings = new LatencyTimingsFrameReportNV[arrayLengthPTimings];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkLatencyTimingsFrameReportNV[arrayLengthPTimings];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pTimings, arrayLengthPTimings, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPTimings[i] = new LatencyTimingsFrameReportNV(in nativeTmpArray0[i]);
+        }
+        PTimings = tmpPTimings;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkGetLatencyMarkerInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkGetLatencyMarkerInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkGetLatencyMarkerInfoNVMarshaller
     {
@@ -82,23 +94,18 @@ public unsafe partial class GetLatencyMarkerInfoNV : IMarshallableObject, IMarsh
             }
             else if (getLatencyMarkerInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (getLatencyMarkerInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].timingCount = getLatencyMarkerInfoNV.TimingCount;
 
-            if (getLatencyMarkerInfoNV.PTimings != default)
+            if (!getLatencyMarkerInfoNV.PTimings.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkLatencyTimingsFrameReportNV));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkLatencyTimingsFrameReportNV>(structSlice0).Slice(0, 1);
-                context.Destination[0].pTimings = (AdamantiumVulkan.Core.Interop.VkLatencyTimingsFrameReportNV*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkLatencyTimingsFrameReportNV>(structDestination0, context.DataCursor);
-                getLatencyMarkerInfoNV.PTimings.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pTimings = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.LatencyTimingsFrameReportNV, AdamantiumVulkan.Core.Interop.VkLatencyTimingsFrameReportNV, AdamantiumVulkan.Core.Interop.VkGetLatencyMarkerInfoNV>(getLatencyMarkerInfoNV.PTimings, ref context);
             }
 
         }

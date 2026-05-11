@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19978 Column: 14
+// File: vk.xml Line: 10754 Column: 6
 [Flags]
-public enum RayTracingInvocationReorderModeNV : uint
+public enum RayTracingInvocationReorderModeNV : int
 {
     NoneNv = 0,
 
     ReorderNv = 1,
-
-    MaxEnumNv = 2147483647,
 
 }
 

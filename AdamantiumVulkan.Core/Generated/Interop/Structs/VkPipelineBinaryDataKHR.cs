@@ -11,12 +11,12 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12076 Column: 16
+// File: vk.xml Line: 1751 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineBinaryDataKHR
 {
-    public ulong dataSize;
-    public nuint pData;
+    public nuint dataSize;
+    public byte* pData;
 }
 
 

@@ -23,10 +23,10 @@ public unsafe partial class RenderingInputAttachmentIndexInfo : IMarshallableObj
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.RenderingInputAttachmentIndexInfo;
     public object PNext { get; set; }
     public uint ColorAttachmentCount { get; set; }
-    public uint? PColorAttachmentInputIndices { get; set; }
+    public System.ReadOnlyMemory<uint> PColorAttachmentInputIndices { get; set; }
     public uint? PDepthInputAttachmentIndex { get; set; }
     public uint? PStencilInputAttachmentIndex { get; set; }
 
@@ -42,6 +42,8 @@ public unsafe partial class RenderingInputAttachmentIndexInfo : IMarshallableObj
         {
             size += marshallable.GetSize();
         }
+        if (!PColorAttachmentInputIndices.IsEmpty)
+            size += PColorAttachmentInputIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -52,14 +54,12 @@ public unsafe partial class RenderingInputAttachmentIndexInfo : IMarshallableObj
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkRenderingInputAttachmentIndexInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ColorAttachmentCount = native.colorAttachmentCount;
-        if (native.pColorAttachmentInputIndices != null)
-        {
-            PColorAttachmentInputIndices = *native.pColorAttachmentInputIndices;
-            NativeUtils.Free(native.pColorAttachmentInputIndices);
-        }
+        var arrayLengthPColorAttachmentInputIndices = native.colorAttachmentCount;
+        var tmpPColorAttachmentInputIndices = new uint[arrayLengthPColorAttachmentInputIndices];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pColorAttachmentInputIndices, arrayLengthPColorAttachmentInputIndices, tmpPColorAttachmentInputIndices);
+        PColorAttachmentInputIndices = tmpPColorAttachmentInputIndices;
         if (native.pDepthInputAttachmentIndex != null)
         {
             PDepthInputAttachmentIndex = *native.pDepthInputAttachmentIndex;
@@ -72,14 +72,14 @@ public unsafe partial class RenderingInputAttachmentIndexInfo : IMarshallableObj
         }
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderingInputAttachmentIndexInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderingInputAttachmentIndexInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderingInputAttachmentIndexInfoMarshaller
     {
@@ -93,18 +93,18 @@ public unsafe partial class RenderingInputAttachmentIndexInfo : IMarshallableObj
             }
             else if (renderingInputAttachmentIndexInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderingInputAttachmentIndexInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].colorAttachmentCount = renderingInputAttachmentIndexInfo.ColorAttachmentCount;
 
-            if (renderingInputAttachmentIndexInfo.PColorAttachmentInputIndices.HasValue)
+            if (!renderingInputAttachmentIndexInfo.PColorAttachmentInputIndices.IsEmpty)
             {
-                context.Destination[0].pColorAttachmentInputIndices = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(renderingInputAttachmentIndexInfo.PColorAttachmentInputIndices.Value, ref context);
+                context.Destination[0].pColorAttachmentInputIndices = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkRenderingInputAttachmentIndexInfo>(renderingInputAttachmentIndexInfo.PColorAttachmentInputIndices.Span, ref context);
             }
 
             if (renderingInputAttachmentIndexInfo.PDepthInputAttachmentIndex.HasValue)

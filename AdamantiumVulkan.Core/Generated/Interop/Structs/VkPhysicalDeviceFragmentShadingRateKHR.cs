@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11131 Column: 16
+// File: vk.xml Line: 6709 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceFragmentShadingRateKHR
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkSampleCountFlags sampleCounts;
+    public void* pNext;
+    public SampleCountFlagBits sampleCounts;
     public VkExtent2D fragmentSize;
 }
 

@@ -9,7 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
 
 namespace AdamantiumVulkan.Core;
 
@@ -24,7 +23,7 @@ public unsafe partial class VideoDecodeH265CapabilitiesKHR : IMarshallableObject
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoDecodeH265CapabilitiesKhr;
     public object PNext { get; set; }
     public StdVideoH265LevelIdc MaxLevelIdc { get; set; }
 
@@ -50,19 +49,18 @@ public unsafe partial class VideoDecodeH265CapabilitiesKHR : IMarshallableObject
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoDecodeH265CapabilitiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MaxLevelIdc = native.maxLevelIdc;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoDecodeH265CapabilitiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoDecodeH265CapabilitiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoDecodeH265CapabilitiesKHRMarshaller
     {
@@ -76,11 +74,11 @@ public unsafe partial class VideoDecodeH265CapabilitiesKHR : IMarshallableObject
             }
             else if (videoDecodeH265CapabilitiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoDecodeH265CapabilitiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].maxLevelIdc = videoDecodeH265CapabilitiesKHR.MaxLevelIdc;

@@ -23,7 +23,7 @@ public unsafe partial class BufferCaptureDescriptorDataInfoEXT : IMarshallableOb
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.BufferCaptureDescriptorDataInfoExt;
     public object PNext { get; set; }
     public Buffer Buffer { get; set; }
 
@@ -49,19 +49,18 @@ public unsafe partial class BufferCaptureDescriptorDataInfoEXT : IMarshallableOb
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Buffer = new Buffer(native.buffer);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkBufferCaptureDescriptorDataInfoEXTMarshaller
     {
@@ -75,11 +74,11 @@ public unsafe partial class BufferCaptureDescriptorDataInfoEXT : IMarshallableOb
             }
             else if (bufferCaptureDescriptorDataInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (bufferCaptureDescriptorDataInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (bufferCaptureDescriptorDataInfoEXT.Buffer != default)

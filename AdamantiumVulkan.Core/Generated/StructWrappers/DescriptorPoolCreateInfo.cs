@@ -25,7 +25,7 @@ public unsafe partial class DescriptorPoolCreateInfo : IMarshallableObject, IMar
 
     public StructureType SType => StructureType.DescriptorPoolCreateInfo;
     public object PNext { get; set; }
-    public VkDescriptorPoolCreateFlags Flags { get; set; }
+    public DescriptorPoolCreateFlagBits Flags { get; set; }
     public uint MaxSets { get; set; }
     public uint PoolSizeCount { get; set; }
     public System.ReadOnlyMemory<DescriptorPoolSize> PoolSizes { get; set; }
@@ -66,9 +66,10 @@ public unsafe partial class DescriptorPoolCreateInfo : IMarshallableObject, IMar
         Flags = native.flags;
         MaxSets = native.maxSets;
         PoolSizeCount = native.poolSizeCount;
-        var tmpPoolSizes = new DescriptorPoolSize[native.poolSizeCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize[native.poolSizeCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPoolSizes, native.poolSizeCount, nativeTmpArray0);
+        var arrayLengthPoolSizes = native.poolSizeCount;
+        var tmpPoolSizes = new DescriptorPoolSize[arrayLengthPoolSizes];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize[arrayLengthPoolSizes];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPoolSizes, arrayLengthPoolSizes, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPoolSizes[i] = new DescriptorPoolSize(in nativeTmpArray0[i]);
@@ -76,14 +77,14 @@ public unsafe partial class DescriptorPoolCreateInfo : IMarshallableObject, IMar
         PoolSizes = tmpPoolSizes;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDescriptorPoolCreateInfoMarshaller
     {
@@ -97,17 +98,14 @@ public unsafe partial class DescriptorPoolCreateInfo : IMarshallableObject, IMar
             }
             else if (descriptorPoolCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (descriptorPoolCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (descriptorPoolCreateInfo.Flags != (uint)default)
-            {
-                context.Destination[0].flags = descriptorPoolCreateInfo.Flags;
-            }
+            context.Destination[0].flags = descriptorPoolCreateInfo.Flags;
 
             context.Destination[0].maxSets = descriptorPoolCreateInfo.MaxSets;
 

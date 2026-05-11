@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceFragmentDensityMapOffsetPropertiesQcom;
     public object PNext { get; set; }
     public Extent2D FragmentDensityOffsetGranularity { get; set; }
 
@@ -49,19 +49,18 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         FragmentDensityOffsetGranularity = new Extent2D(native.fragmentDensityOffsetGranularity);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOMMarshaller
     {
@@ -75,11 +74,11 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM
             }
             else if (physicalDeviceFragmentDensityMapOffsetPropertiesQCOM.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceFragmentDensityMapOffsetPropertiesQCOM.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceFragmentDensityMapOffsetPropertiesQCOM.FragmentDensityOffsetGranularity != default)

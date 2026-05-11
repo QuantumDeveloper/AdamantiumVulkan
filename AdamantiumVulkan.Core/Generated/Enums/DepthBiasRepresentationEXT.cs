@@ -11,17 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16780 Column: 14
+// File: vk.xml Line: 12251 Column: 6
 [Flags]
-public enum DepthBiasRepresentationEXT : uint
+public enum DepthBiasRepresentationEXT : int
 {
     LeastRepresentableValueFormatExt = 0,
 
     LeastRepresentableValueForceUnormExt = 1,
 
     FloatExt = 2,
-
-    MaxEnumExt = 2147483647,
 
 }
 

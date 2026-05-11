@@ -23,7 +23,7 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.DeviceFaultInfoExt;
     public object PNext { get; set; }
     public string Description { get; set; }
     public DeviceFaultAddressInfoEXT PAddressInfos { get; set; }
@@ -60,7 +60,6 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         fixed(sbyte* pSource = native.description)
         {
@@ -70,17 +69,17 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
         NativeUtils.Free(native.pAddressInfos);
         PVendorInfos = new DeviceFaultVendorInfoEXT(in *native.pVendorInfos);
         NativeUtils.Free(native.pVendorInfos);
-        PVendorBinaryData = native.pVendorBinaryData;
+        PVendorBinaryData = (nuint)native.pVendorBinaryData;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDeviceFaultInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDeviceFaultInfoEXTMarshaller
     {
@@ -94,11 +93,11 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
             }
             else if (deviceFaultInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (deviceFaultInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             ref var tmpDestination0 = ref context.Destination[0];
@@ -128,7 +127,10 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
                 context.DataCursor = childContext.DataCursor;
             }
 
-            context.Destination[0].pVendorBinaryData = deviceFaultInfoEXT.PVendorBinaryData;
+            if (deviceFaultInfoEXT.PVendorBinaryData != default)
+            {
+                context.Destination[0].pVendorBinaryData = (void*)deviceFaultInfoEXT.PVendorBinaryData;
+            }
 
         }
     }

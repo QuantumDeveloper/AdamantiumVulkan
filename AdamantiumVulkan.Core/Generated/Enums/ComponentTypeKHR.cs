@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12168 Column: 14
-public enum ComponentTypeKHR : uint
+// File: vk.xml Line: 12310 Column: 6
+public enum ComponentTypeKHR : int
 {
     Float16Khr = 0,
 
@@ -43,8 +43,6 @@ public enum ComponentTypeKHR : uint
     FloatE4m3Nv = 1000491002,
 
     FloatE5m2Nv = 1000491003,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

@@ -28,8 +28,8 @@ public unsafe partial class PhysicalDeviceImageFormatInfo2 : IMarshallableObject
     public Format Format { get; set; }
     public ImageType Type { get; set; }
     public ImageTiling Tiling { get; set; }
-    public VkImageUsageFlags Usage { get; set; }
-    public VkImageCreateFlags Flags { get; set; }
+    public ImageUsageFlagBits Usage { get; set; }
+    public ImageCreateFlagBits Flags { get; set; }
 
     public static implicit operator PhysicalDeviceImageFormatInfo2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2 p)
     {
@@ -61,14 +61,14 @@ public unsafe partial class PhysicalDeviceImageFormatInfo2 : IMarshallableObject
         Flags = native.flags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceImageFormatInfo2Marshaller
     {
@@ -82,11 +82,11 @@ public unsafe partial class PhysicalDeviceImageFormatInfo2 : IMarshallableObject
             }
             else if (physicalDeviceImageFormatInfo2.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceImageFormatInfo2.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].format = physicalDeviceImageFormatInfo2.Format;
@@ -95,15 +95,9 @@ public unsafe partial class PhysicalDeviceImageFormatInfo2 : IMarshallableObject
 
             context.Destination[0].tiling = physicalDeviceImageFormatInfo2.Tiling;
 
-            if (physicalDeviceImageFormatInfo2.Usage != (uint)default)
-            {
-                context.Destination[0].usage = physicalDeviceImageFormatInfo2.Usage;
-            }
+            context.Destination[0].usage = physicalDeviceImageFormatInfo2.Usage;
 
-            if (physicalDeviceImageFormatInfo2.Flags != (uint)default)
-            {
-                context.Destination[0].flags = physicalDeviceImageFormatInfo2.Flags;
-            }
+            context.Destination[0].flags = physicalDeviceImageFormatInfo2.Flags;
 
         }
     }

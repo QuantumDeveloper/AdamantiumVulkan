@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20674 Column: 16
+// File: vk.xml Line: 2637 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkClusterAccelerationStructureTriangleClusterInputNV
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public Format vertexFormat;
     public uint maxGeometryIndexValue;
     public uint maxClusterUniqueGeometryCount;

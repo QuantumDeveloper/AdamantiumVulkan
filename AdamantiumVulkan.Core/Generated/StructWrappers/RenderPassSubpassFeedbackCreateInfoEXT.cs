@@ -23,7 +23,7 @@ public unsafe partial class RenderPassSubpassFeedbackCreateInfoEXT : IMarshallab
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.RenderPassSubpassFeedbackCreateInfoExt;
     public object PNext { get; set; }
     public RenderPassSubpassFeedbackInfoEXT PSubpassFeedback { get; set; }
 
@@ -53,20 +53,19 @@ public unsafe partial class RenderPassSubpassFeedbackCreateInfoEXT : IMarshallab
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkRenderPassSubpassFeedbackCreateInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PSubpassFeedback = new RenderPassSubpassFeedbackInfoEXT(in *native.pSubpassFeedback);
         NativeUtils.Free(native.pSubpassFeedback);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderPassSubpassFeedbackCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderPassSubpassFeedbackCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderPassSubpassFeedbackCreateInfoEXTMarshaller
     {
@@ -80,11 +79,11 @@ public unsafe partial class RenderPassSubpassFeedbackCreateInfoEXT : IMarshallab
             }
             else if (renderPassSubpassFeedbackCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderPassSubpassFeedbackCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (renderPassSubpassFeedbackCreateInfoEXT.PSubpassFeedback != default)

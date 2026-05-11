@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5253 Column: 14
+// File: vk.xml Line: 11286 Column: 6
 [Flags]
 public enum ExternalFenceFeatureFlagBits : uint
 {
     ExportableBit = 1,
 
     ImportableBit = 2,
-
-    FlagBitsMaxEnum = 2147483647,
 
 }
 

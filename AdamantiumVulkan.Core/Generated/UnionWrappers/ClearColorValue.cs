@@ -46,27 +46,30 @@ public unsafe partial class ClearColorValue : IMarshallableObject, IMarshallable
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkClearColorValue native)
     {
         var tmpFloat32 = new float[4];
-        var pFloat32 = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.float32[0]));
+        var float32p = native.float32[0];
+        var pFloat32 = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in float32p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pFloat32, 4, tmpFloat32);
         Float32 = tmpFloat32;
         var tmpInt32 = new int[4];
-        var pInt32 = (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.int32[0]));
+        var int32p = native.int32[0];
+        var pInt32 = (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in int32p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pInt32, 4, tmpInt32);
         Int32 = tmpInt32;
         var tmpUint32 = new uint[4];
-        var pUint32 = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.uint32[0]));
+        var uint32p = native.uint32[0];
+        var pUint32 = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in uint32p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pUint32, 4, tmpUint32);
         Uint32 = tmpUint32;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkClearColorValue>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkClearColorValue>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkClearColorValueMarshaller
     {

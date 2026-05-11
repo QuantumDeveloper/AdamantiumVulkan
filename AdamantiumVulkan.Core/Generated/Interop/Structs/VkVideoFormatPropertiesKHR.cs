@@ -12,18 +12,18 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9061 Column: 16
+// File: vk.xml Line: 7344 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkVideoFormatPropertiesKHR
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public Format format;
     public VkComponentMapping componentMapping;
-    public VkImageCreateFlags imageCreateFlags;
+    public ImageCreateFlagBits imageCreateFlags;
     public ImageType imageType;
     public ImageTiling imageTiling;
-    public VkImageUsageFlags imageUsageFlags;
+    public ImageUsageFlagBits imageUsageFlags;
 }
 
 

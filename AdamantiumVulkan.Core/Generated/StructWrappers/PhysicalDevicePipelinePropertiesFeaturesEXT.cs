@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDevicePipelinePropertiesFeaturesEXT : IMarsh
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDevicePipelinePropertiesFeaturesExt;
     public object PNext { get; set; }
     public VkBool32 PipelinePropertiesIdentifier { get; set; }
 
@@ -49,19 +49,18 @@ public unsafe partial class PhysicalDevicePipelinePropertiesFeaturesEXT : IMarsh
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelinePropertiesFeaturesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PipelinePropertiesIdentifier = native.pipelinePropertiesIdentifier;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelinePropertiesFeaturesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelinePropertiesFeaturesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDevicePipelinePropertiesFeaturesEXTMarshaller
     {
@@ -75,11 +74,11 @@ public unsafe partial class PhysicalDevicePipelinePropertiesFeaturesEXT : IMarsh
             }
             else if (physicalDevicePipelinePropertiesFeaturesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDevicePipelinePropertiesFeaturesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDevicePipelinePropertiesFeaturesEXT.PipelinePropertiesIdentifier != (uint)default)

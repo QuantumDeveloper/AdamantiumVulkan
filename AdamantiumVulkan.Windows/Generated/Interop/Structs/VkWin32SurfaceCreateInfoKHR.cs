@@ -12,15 +12,15 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 27 Column: 16
+// File: vk.xml Line: 2265 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkWin32SurfaceCreateInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkWin32SurfaceCreateFlagsKHR flags;
-    public System.IntPtr hinstance;
-    public System.IntPtr hwnd;
+    public nuint hinstance;
+    public nuint hwnd;
 }
 
 

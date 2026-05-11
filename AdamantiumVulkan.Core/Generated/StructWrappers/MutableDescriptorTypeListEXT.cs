@@ -24,7 +24,7 @@ public unsafe partial class MutableDescriptorTypeListEXT : IMarshallableObject, 
     }
 
     public uint DescriptorTypeCount { get; set; }
-    public DescriptorType? PDescriptorTypes { get; set; }
+    public System.ReadOnlyMemory<DescriptorType> PDescriptorTypes { get; set; }
 
     public static implicit operator MutableDescriptorTypeListEXT(AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT m)
     {
@@ -34,6 +34,8 @@ public unsafe partial class MutableDescriptorTypeListEXT : IMarshallableObject, 
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT>();
+        if (!PDescriptorTypes.IsEmpty)
+            size += PDescriptorTypes.Span.Length * sizeof(int);
         return size;
     }
 
@@ -45,17 +47,20 @@ public unsafe partial class MutableDescriptorTypeListEXT : IMarshallableObject, 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT native)
     {
         DescriptorTypeCount = native.descriptorTypeCount;
-        PDescriptorTypes = *native.pDescriptorTypes;
+        var arrayLengthPDescriptorTypes = native.descriptorTypeCount;
+        var tmpPDescriptorTypes = new DescriptorType[arrayLengthPDescriptorTypes];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDescriptorTypes, arrayLengthPDescriptorTypes, tmpPDescriptorTypes);
+        PDescriptorTypes = tmpPDescriptorTypes;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkMutableDescriptorTypeListEXTMarshaller
     {
@@ -63,10 +68,17 @@ public unsafe partial class MutableDescriptorTypeListEXT : IMarshallableObject, 
         {
             context.Destination[0].descriptorTypeCount = mutableDescriptorTypeListEXT.DescriptorTypeCount;
 
-            var enumSpanPDescriptorTypes = context.AllocateData(sizeof(uint));
-            ref uint enumValuePDescriptorTypes = ref System.Runtime.InteropServices.MemoryMarshal.AsRef<uint>(enumSpanPDescriptorTypes);
-            enumValuePDescriptorTypes = (uint)mutableDescriptorTypeListEXT.PDescriptorTypes;
-            context.Destination[0].pDescriptorTypes = (AdamantiumVulkan.Core.DescriptorType*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPDescriptorTypes));
+            if (!mutableDescriptorTypeListEXT.PDescriptorTypes.IsEmpty)
+            {
+                var sizeInBytes = sizeof(int) * mutableDescriptorTypeListEXT.PDescriptorTypes.Length;
+                var byteSpan = context.AllocateData(sizeInBytes);
+                var enumSpanPDescriptorTypes = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, int>(byteSpan);
+                context.Destination[0].pDescriptorTypes = (AdamantiumVulkan.Core.DescriptorType*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPDescriptorTypes));
+                for (int i = 0; i < enumSpanPDescriptorTypes.Length; i++)
+                {
+                    enumSpanPDescriptorTypes[i] = (int)mutableDescriptorTypeListEXT.PDescriptorTypes.Span[i];
+                }
+            }
 
         }
     }

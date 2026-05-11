@@ -9,7 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
 
 namespace AdamantiumVulkan.Core;
 
@@ -24,9 +23,9 @@ public unsafe partial class VideoEncodeH264CapabilitiesKHR : IMarshallableObject
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeH264CapabilitiesKhr;
     public object PNext { get; set; }
-    public VkVideoEncodeH264CapabilityFlagsKHR Flags { get; set; }
+    public VideoEncodeH264CapabilityFlagBitsKHR Flags { get; set; }
     public StdVideoH264LevelIdc MaxLevelIdc { get; set; }
     public uint MaxSliceCount { get; set; }
     public uint MaxPPictureL0ReferenceCount { get; set; }
@@ -38,7 +37,7 @@ public unsafe partial class VideoEncodeH264CapabilitiesKHR : IMarshallableObject
     public int MaxQp { get; set; }
     public VkBool32 PrefersGopRemainingFrames { get; set; }
     public VkBool32 RequiresGopRemainingFrames { get; set; }
-    public VkVideoEncodeH264StdFlagsKHR StdSyntaxFlags { get; set; }
+    public VideoEncodeH264StdFlagBitsKHR StdSyntaxFlags { get; set; }
 
     public static implicit operator VideoEncodeH264CapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH264CapabilitiesKHR v)
     {
@@ -62,7 +61,6 @@ public unsafe partial class VideoEncodeH264CapabilitiesKHR : IMarshallableObject
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeH264CapabilitiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         MaxLevelIdc = native.maxLevelIdc;
@@ -79,14 +77,14 @@ public unsafe partial class VideoEncodeH264CapabilitiesKHR : IMarshallableObject
         StdSyntaxFlags = native.stdSyntaxFlags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeH264CapabilitiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeH264CapabilitiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeH264CapabilitiesKHRMarshaller
     {
@@ -100,17 +98,14 @@ public unsafe partial class VideoEncodeH264CapabilitiesKHR : IMarshallableObject
             }
             else if (videoEncodeH264CapabilitiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeH264CapabilitiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (videoEncodeH264CapabilitiesKHR.Flags != (uint)default)
-            {
-                context.Destination[0].flags = videoEncodeH264CapabilitiesKHR.Flags;
-            }
+            context.Destination[0].flags = videoEncodeH264CapabilitiesKHR.Flags;
 
             context.Destination[0].maxLevelIdc = videoEncodeH264CapabilitiesKHR.MaxLevelIdc;
 
@@ -143,10 +138,7 @@ public unsafe partial class VideoEncodeH264CapabilitiesKHR : IMarshallableObject
                 context.Destination[0].requiresGopRemainingFrames = videoEncodeH264CapabilitiesKHR.RequiresGopRemainingFrames;
             }
 
-            if (videoEncodeH264CapabilitiesKHR.StdSyntaxFlags != (uint)default)
-            {
-                context.Destination[0].stdSyntaxFlags = videoEncodeH264CapabilitiesKHR.StdSyntaxFlags;
-            }
+            context.Destination[0].stdSyntaxFlags = videoEncodeH264CapabilitiesKHR.StdSyntaxFlags;
 
         }
     }

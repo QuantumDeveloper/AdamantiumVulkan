@@ -56,9 +56,10 @@ public unsafe partial class DescriptorSetAllocateInfo : IMarshallableObject, IMa
         PNext = (System.IntPtr)native.pNext;
         DescriptorPool = new DescriptorPool(native.descriptorPool);
         DescriptorSetCount = native.descriptorSetCount;
-        var tmpPSetLayouts = new DescriptorSetLayout[native.descriptorSetCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[native.descriptorSetCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSetLayouts, native.descriptorSetCount, nativeTmpArray0);
+        var arrayLengthPSetLayouts = native.descriptorSetCount;
+        var tmpPSetLayouts = new DescriptorSetLayout[arrayLengthPSetLayouts];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[arrayLengthPSetLayouts];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSetLayouts, arrayLengthPSetLayouts, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPSetLayouts[i] = new DescriptorSetLayout(in nativeTmpArray0[i]);
@@ -66,14 +67,14 @@ public unsafe partial class DescriptorSetAllocateInfo : IMarshallableObject, IMa
         PSetLayouts = tmpPSetLayouts;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDescriptorSetAllocateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorSetAllocateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDescriptorSetAllocateInfoMarshaller
     {
@@ -87,11 +88,11 @@ public unsafe partial class DescriptorSetAllocateInfo : IMarshallableObject, IMa
             }
             else if (descriptorSetAllocateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (descriptorSetAllocateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (descriptorSetAllocateInfo.DescriptorPool != default)

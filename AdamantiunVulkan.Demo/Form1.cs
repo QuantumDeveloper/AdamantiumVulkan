@@ -29,7 +29,7 @@ public unsafe partial class Form1 : Form
     const int MAX_FRAMES_IN_FLIGHT = 3;
 
     private bool enableDynamicRendering = true;
-    private bool enableValidationLayers = true;
+    private bool enableValidationLayers = false;
 
     Instance instance;
     PhysicalDevice physicalDevice;
@@ -87,10 +87,8 @@ public unsafe partial class Form1 : Form
         set => isInitialized = value;
     }
 
-    //private PFN_vkDebugUtilsMessengerCallbackEXT debugCallback;
-
     private delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, VkDebugUtilsMessengerCallbackDataEXT*,
-        nuint, uint> debugCallback;
+        void*, VkBool32> debugCallback;
         
     private string[] validationLayers = new[]
     {
@@ -103,7 +101,8 @@ public unsafe partial class Form1 : Form
     };
 
     private string[] deviceExtensions = new[]
-    { Core.Constants.VK_KHR_SWAPCHAIN_EXTENSION_NAME, 
+    { 
+        Core.Constants.VK_KHR_SWAPCHAIN_EXTENSION_NAME, 
         Core.Constants.VK_KHR_MAINTENANCE_4_EXTENSION_NAME,
         Core.Constants.VK_GOOGLE_HLSL_FUNCTIONALITY_1_EXTENSION_NAME,
         Core.Constants.VK_GOOGLE_USER_TYPE_EXTENSION_NAME,
@@ -118,8 +117,8 @@ public unsafe partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
-        AdamantiumVulkan.VulkanDllMap.Register();
-        this.ClientSize = new System.Drawing.Size(800, 600);
+        VulkanDllMap.Register();
+        ClientSize = new System.Drawing.Size(800, 600);
         _pauseEvent = new AutoResetEvent(false);
             
         var compilerOptions = new CompilerOptions();
@@ -153,6 +152,7 @@ public unsafe partial class Form1 : Form
         ClientSizeChanged += Form1_ClientSizeChanged;
         thread = new Thread(RenderThread);
         timer = Stopwatch.StartNew();
+        lastTime = timer.ElapsedTicks;
         thread.Start();
         FormClosing += Form1_FormClosing;
         //Paint += OnPaint;
@@ -234,6 +234,7 @@ public unsafe partial class Form1 : Form
     private void RenderThread()
     {
         timer = Stopwatch.StartNew();
+        lastTime = timer.ElapsedTicks;
         while (!stopRendering)
         {
             //Cleanup();
@@ -361,6 +362,8 @@ public unsafe partial class Form1 : Form
     Stopwatch timer;
     double fps = 0;
     int frames = 0;
+    long frequency = Stopwatch.Frequency;
+    long lastTime = 0;
     CommandBuffer[] renderCommandBuffers = new CommandBuffer[1];
     CommandBufferBeginInfo beginInfo;
     RenderPassBeginInfo[] renderPassInfos;
@@ -419,7 +422,6 @@ public unsafe partial class Form1 : Form
         if (enableDynamicRendering)
         {
             var colorAttachmentInfo = new RenderingAttachmentInfo();
-            colorAttachmentInfo.SType = StructureType.RenderingAttachmentInfo;
             colorAttachmentInfo.ImageView = swapchainImageViews[imageIndex];
             colorAttachmentInfo.ImageLayout = ImageLayout.ColorAttachmentOptimal;
             colorAttachmentInfo.ResolveMode = ResolveModeFlagBits.None;
@@ -428,7 +430,6 @@ public unsafe partial class Form1 : Form
             colorAttachmentInfo.ClearValue = clearValue;
 
             var depthAttachmentInfo = new RenderingAttachmentInfo();
-            depthAttachmentInfo.SType = StructureType.RenderingAttachmentInfo;
             depthAttachmentInfo.ImageView = depthStencilImageView;
             depthAttachmentInfo.ImageLayout = ImageLayout.DepthStencilAttachmentOptimal;
             depthAttachmentInfo.ResolveMode = ResolveModeFlagBits.None;
@@ -438,7 +439,6 @@ public unsafe partial class Form1 : Form
                 { DepthStencil = new ClearDepthStencilValue() { Depth = 0.0f, Stencil = 0 } };
 
             var renderingInfo = new RenderingInfo();
-            renderingInfo.SType = StructureType.RenderingInfo;
             renderingInfo.RenderArea = new Rect2D();
             renderingInfo.RenderArea.Extent = swapChainExtent;
             renderingInfo.RenderArea.Offset = new Offset2D();
@@ -607,14 +607,26 @@ public unsafe partial class Form1 : Form
 
         frames++;
 
-        if (timer.ElapsedMilliseconds >= 1000)
+        // if (timer.ElapsedMilliseconds >= 1000)
+        // {
+        //     timer.Stop();
+        //     fps = frames;
+        //     //Text = frames.ToString();
+        //     Console.WriteLine(frames);
+        //     frames = 0;
+        //     timer.Restart();
+        // }
+        long currentTime = timer.ElapsedTicks;
+
+        if (currentTime - lastTime >= frequency) // Прошла ровно 1 секунда в тиках
         {
-            timer.Stop();
-            fps = frames;
-            //Text = frames.ToString();
-            Console.WriteLine(frames);
+            double actualTime = (double)(currentTime - lastTime) / frequency;
+            fps = frames / actualTime; // Точный FPS с учетом микро-задержек
+    
+            Console.WriteLine($"FPS: {fps:F2} | FrameTime: {(1000.0 / fps):F4} ms");
+    
             frames = 0;
-            timer.Restart();
+            lastTime = currentTime; 
         }
 
         currentFrame = (currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
@@ -664,8 +676,8 @@ public unsafe partial class Form1 : Form
         barrier.SubresourceRange = subresourceRange;
 
         commandBuffer.PipelineBarrier(
-            (uint)sourceStageMask,
-            (uint)destinationStageMask,
+            sourceStageMask,
+            destinationStageMask,
             0,
             0,
             null,
@@ -693,7 +705,7 @@ public unsafe partial class Form1 : Form
         string[] ext = new[]
         {
             Core.Constants.VK_KHR_SURFACE_EXTENSION_NAME, 
-            AdamantiumVulkan.Windows.Constants.VK_KHR_WIN32_SURFACE_EXTENSION_NAME,
+            Core.Constants.VK_KHR_WIN32_SURFACE_EXTENSION_NAME,
             Core.Constants.VK_EXT_DEBUG_UTILS_EXTENSION_NAME,
             Core.Constants.VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME,
         };
@@ -719,8 +731,8 @@ public unsafe partial class Form1 : Form
         var ptr = instance.GetInstanceProcAddr("vkCreateDebugUtilsMessengerEXT");
         using var ctx = new NativeContext(pCreateInfo.GetSize(), stackalloc byte[pCreateInfo.GetSize()]);
         var createInfoPointer = pCreateInfo.MarshalToNative(ctx);
-        var result = PFN_vkCreateDebugUtilsMessengerEXT.Invoke(ptr, instance, &createInfoPointer, null,
-            out VkDebugUtilsMessengerEXT_T pDebugMessenger_t);
+        VkDebugUtilsMessengerEXT_T pDebugMessenger_t = default;
+        var result = PFN_vkCreateDebugUtilsMessengerEXT.Invoke(ptr, instance, &createInfoPointer, null, &pDebugMessenger_t);
         pDebugMessenger = new DebugUtilsMessengerEXT(pDebugMessenger_t);
 
         return result;
@@ -756,7 +768,7 @@ public unsafe partial class Form1 : Form
     }
 
     [UnmanagedCallersOnly]
-    private static unsafe uint DebugCallback(DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, DebugUtilsMessageTypeFlagBitsEXT messageTypes, VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, nuint pUserData)
+    private static VkBool32 DebugCallback(DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, DebugUtilsMessageTypeFlagBitsEXT messageTypes, VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData)
     {
         var data = *pCallbackData;
         Console.WriteLine(new string(data.pMessage));
@@ -801,7 +813,6 @@ public unsafe partial class Form1 : Form
         createInfo.PEnabledExtensionNames = deviceExtensions;
             
         var maintenance4Features = new PhysicalDeviceMaintenance4Features();
-        maintenance4Features.SType = StructureType.PhysicalDeviceMaintenance4Features;
         maintenance4Features.Maintenance4 = VkBool32.TRUE;
 
         if (enableDynamicRendering)
@@ -847,8 +858,8 @@ public unsafe partial class Form1 : Form
     private void CreateSurface()
     {
         var surfaceInfo = new Win32SurfaceCreateInfoKHR();
-        surfaceInfo.Hwnd = this.Handle;
-        surfaceInfo.Hinstance = Process.GetCurrentProcess().Handle;
+        surfaceInfo.Hwnd = (nuint)Handle;
+        surfaceInfo.Hinstance = (nuint)Process.GetCurrentProcess().Handle;
         surface = instance.CreateWin32Surface(surfaceInfo);
         //var headlessSurfaceInfo = new HeadlessSurfaceCreateInfoEXT();
         //var addr = instance.GetInstanceProcAddr("PFN_vkCreateHeadlessSurfaceEXT");
@@ -1147,7 +1158,6 @@ public unsafe partial class Form1 : Form
         dynamicState.DynamicStateCount = 1;
 
         var renderingCreateInfo = new PipelineRenderingCreateInfo();
-        renderingCreateInfo.SType = StructureType.PipelineRenderingCreateInfo;
         renderingCreateInfo.ColorAttachmentCount = 1U;
         renderingCreateInfo.PColorAttachmentFormats = new Format[] { swapChainImageFormat};
         renderingCreateInfo.DepthAttachmentFormat = Format.D32_SFLOAT_S8_UINT;
@@ -1412,8 +1422,8 @@ public unsafe partial class Form1 : Form
         }
 
         commandBuffer.PipelineBarrier(
-            (uint)sourceStage, 
-            (uint)destinationStage, 
+            sourceStage, 
+            destinationStage, 
             0, 
             0, 
             null, 
@@ -1631,8 +1641,7 @@ public unsafe partial class Form1 : Form
         allocInfo.DescriptorSetCount = (uint)swapchainImages.Length;
         allocInfo.PSetLayouts = layouts.ToArray();
 
-        descriptorSets = new DescriptorSet[allocInfo.DescriptorSetCount];
-        if (logicalDevice.AllocateDescriptorSets(allocInfo, descriptorSets) != Result.Success)
+        if (logicalDevice.AllocateDescriptorSets(allocInfo, out descriptorSets) != Result.Success)
         {
             throw new Exception("failed to allocate descriptor sets!");
         }
@@ -1719,14 +1728,13 @@ public unsafe partial class Form1 : Form
 
         imageAvailableSemaphores = logicalDevice.CreateSemaphores(semaphoreInfo, (uint)MAX_FRAMES_IN_FLIGHT);
         renderFinishedSemaphores = logicalDevice.CreateSemaphores(semaphoreInfo, (uint)MAX_FRAMES_IN_FLIGHT);
-        inFlightFences = logicalDevice.CreateFences(fenceInfo, (uint)MAX_FRAMES_IN_FLIGHT);
+        inFlightFences = logicalDevice.CreateFences(fenceInfo, MAX_FRAMES_IN_FLIGHT);
     }
 
     ShaderModule CreateShaderModule(byte[] code)
     {
-        ShaderModuleCreateInfo createInfo = new ShaderModuleCreateInfo();
-        createInfo.CodeSize = (ulong)code.Length;
-        createInfo.PCode = code;
+        var createInfo = new ShaderModuleCreateInfo();
+        createInfo.PCodeBytes = code;
 
         var shaderModule = logicalDevice.CreateShaderModule(createInfo);
         return shaderModule;

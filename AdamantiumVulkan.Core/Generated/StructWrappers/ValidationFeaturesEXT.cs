@@ -43,9 +43,9 @@ public unsafe partial class ValidationFeaturesEXT : IMarshallableObject, IMarsha
             size += marshallable.GetSize();
         }
         if (!PEnabledValidationFeatures.IsEmpty)
-            size += PEnabledValidationFeatures.Span.Length * sizeof(uint);
+            size += PEnabledValidationFeatures.Span.Length * sizeof(int);
         if (!PDisabledValidationFeatures.IsEmpty)
-            size += PDisabledValidationFeatures.Span.Length * sizeof(uint);
+            size += PDisabledValidationFeatures.Span.Length * sizeof(int);
         return size;
     }
 
@@ -58,21 +58,25 @@ public unsafe partial class ValidationFeaturesEXT : IMarshallableObject, IMarsha
     {
         PNext = (System.IntPtr)native.pNext;
         EnabledValidationFeatureCount = native.enabledValidationFeatureCount;
-        var tmpPEnabledValidationFeatures = new ValidationFeatureEnableEXT[native.enabledValidationFeatureCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pEnabledValidationFeatures, native.enabledValidationFeatureCount, tmpPEnabledValidationFeatures);
+        var arrayLengthPEnabledValidationFeatures = native.enabledValidationFeatureCount;
+        var tmpPEnabledValidationFeatures = new ValidationFeatureEnableEXT[arrayLengthPEnabledValidationFeatures];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pEnabledValidationFeatures, arrayLengthPEnabledValidationFeatures, tmpPEnabledValidationFeatures);
+        PEnabledValidationFeatures = tmpPEnabledValidationFeatures;
         DisabledValidationFeatureCount = native.disabledValidationFeatureCount;
-        var tmpPDisabledValidationFeatures = new ValidationFeatureDisableEXT[native.disabledValidationFeatureCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDisabledValidationFeatures, native.disabledValidationFeatureCount, tmpPDisabledValidationFeatures);
+        var arrayLengthPDisabledValidationFeatures = native.disabledValidationFeatureCount;
+        var tmpPDisabledValidationFeatures = new ValidationFeatureDisableEXT[arrayLengthPDisabledValidationFeatures];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDisabledValidationFeatures, arrayLengthPDisabledValidationFeatures, tmpPDisabledValidationFeatures);
+        PDisabledValidationFeatures = tmpPDisabledValidationFeatures;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkValidationFeaturesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkValidationFeaturesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkValidationFeaturesEXTMarshaller
     {
@@ -86,24 +90,24 @@ public unsafe partial class ValidationFeaturesEXT : IMarshallableObject, IMarsha
             }
             else if (validationFeaturesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (validationFeaturesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].enabledValidationFeatureCount = validationFeaturesEXT.EnabledValidationFeatureCount;
 
             if (!validationFeaturesEXT.PEnabledValidationFeatures.IsEmpty)
             {
-                var sizeInBytes = sizeof(uint) * validationFeaturesEXT.PEnabledValidationFeatures.Length;
+                var sizeInBytes = sizeof(int) * validationFeaturesEXT.PEnabledValidationFeatures.Length;
                 var byteSpan = context.AllocateData(sizeInBytes);
-                var enumSpanPEnabledValidationFeatures = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, uint>(byteSpan);
+                var enumSpanPEnabledValidationFeatures = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, int>(byteSpan);
                 context.Destination[0].pEnabledValidationFeatures = (AdamantiumVulkan.Core.ValidationFeatureEnableEXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPEnabledValidationFeatures));
                 for (int i = 0; i < enumSpanPEnabledValidationFeatures.Length; i++)
                 {
-                    enumSpanPEnabledValidationFeatures[i] = (uint)validationFeaturesEXT.PEnabledValidationFeatures.Span[i];
+                    enumSpanPEnabledValidationFeatures[i] = (int)validationFeaturesEXT.PEnabledValidationFeatures.Span[i];
                 }
             }
 
@@ -111,13 +115,13 @@ public unsafe partial class ValidationFeaturesEXT : IMarshallableObject, IMarsha
 
             if (!validationFeaturesEXT.PDisabledValidationFeatures.IsEmpty)
             {
-                var sizeInBytes = sizeof(uint) * validationFeaturesEXT.PDisabledValidationFeatures.Length;
+                var sizeInBytes = sizeof(int) * validationFeaturesEXT.PDisabledValidationFeatures.Length;
                 var byteSpan = context.AllocateData(sizeInBytes);
-                var enumSpanPDisabledValidationFeatures = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, uint>(byteSpan);
+                var enumSpanPDisabledValidationFeatures = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, int>(byteSpan);
                 context.Destination[0].pDisabledValidationFeatures = (AdamantiumVulkan.Core.ValidationFeatureDisableEXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPDisabledValidationFeatures));
                 for (int i = 0; i < enumSpanPDisabledValidationFeatures.Length; i++)
                 {
-                    enumSpanPDisabledValidationFeatures[i] = (uint)validationFeaturesEXT.PDisabledValidationFeatures.Span[i];
+                    enumSpanPDisabledValidationFeatures[i] = (int)validationFeaturesEXT.PDisabledValidationFeatures.Span[i];
                 }
             }
 

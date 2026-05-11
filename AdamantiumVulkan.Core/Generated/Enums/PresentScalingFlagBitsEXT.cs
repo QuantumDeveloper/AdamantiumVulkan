@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16424 Column: 14
+// File: vk.xml Line: 11840 Column: 6
 [Flags]
 public enum PresentScalingFlagBitsEXT : uint
 {
@@ -20,8 +20,6 @@ public enum PresentScalingFlagBitsEXT : uint
     AspectRatioStretchBitExt = 2,
 
     StretchBitExt = 4,
-
-    FlagBitsMaxEnumExt = 2147483647,
 
 }
 

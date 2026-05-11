@@ -11,16 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13710 Column: 14
+// File: vk.xml Line: 11293 Column: 6
 [Flags]
 public enum SurfaceCounterFlagBitsEXT : uint
 {
-    VblankBitExt = 1,
+    BitExt = 1,
 
-    ///<summary>
-    /// VK_SURFACE_COUNTER_VBLANK_EXT is a deprecated alias
-    ///</summary>
-    FlagBitsMaxEnumExt = 2147483647,
+    Ext = 0,
 
 }
 

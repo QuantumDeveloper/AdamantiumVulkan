@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceFragmentShadingRatePropertiesKHR : IMa
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceFragmentShadingRatePropertiesKhr;
     public object PNext { get; set; }
     public Extent2D MinFragmentShadingRateAttachmentTexelSize { get; set; }
     public Extent2D MaxFragmentShadingRateAttachmentTexelSize { get; set; }
@@ -65,7 +65,6 @@ public unsafe partial class PhysicalDeviceFragmentShadingRatePropertiesKHR : IMa
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MinFragmentShadingRateAttachmentTexelSize = new Extent2D(native.minFragmentShadingRateAttachmentTexelSize);
         MaxFragmentShadingRateAttachmentTexelSize = new Extent2D(native.maxFragmentShadingRateAttachmentTexelSize);
@@ -86,14 +85,14 @@ public unsafe partial class PhysicalDeviceFragmentShadingRatePropertiesKHR : IMa
         FragmentShadingRateStrictMultiplyCombiner = native.fragmentShadingRateStrictMultiplyCombiner;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceFragmentShadingRatePropertiesKHRMarshaller
     {
@@ -107,11 +106,11 @@ public unsafe partial class PhysicalDeviceFragmentShadingRatePropertiesKHR : IMa
             }
             else if (physicalDeviceFragmentShadingRatePropertiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceFragmentShadingRatePropertiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceFragmentShadingRatePropertiesKHR.MinFragmentShadingRateAttachmentTexelSize != default)

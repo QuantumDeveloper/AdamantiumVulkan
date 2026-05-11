@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 144 Column: 14
+// File: vk.xml Line: 10688 Column: 6
 public enum Result : int
 {
     Success = 0,
@@ -51,18 +51,6 @@ public enum Result : int
     ErrorFragmentedPool = -12,
 
     ErrorUnknown = -13,
-
-    ErrorOutOfPoolMemory = -1000069000,
-
-    ErrorInvalidExternalHandle = -1000072003,
-
-    ErrorFragmentation = -1000161000,
-
-    ErrorInvalidOpaqueCaptureAddress = -1000257000,
-
-    PipelineCompileRequired = 1000297000,
-
-    ErrorNotPermitted = -1000174001,
 
     ErrorSurfaceLostKhr = -1000000000,
 
@@ -112,10 +100,23 @@ public enum Result : int
 
     ErrorNotEnoughSpaceKhr = -1000483000,
 
-    ///<summary>
-    /// VK_ERROR_INCOMPATIBLE_SHADER_BINARY_EXT is a deprecated alias
-    ///</summary>
-    ResultMaxEnum = 2147483647,
+    ErrorOutOfPoolMemory = 1000069000,
+
+    ErrorInvalidExternalHandle = 1000072003,
+
+    ErrorFragmentation = 1000161000,
+
+    ErrorInvalidOpaqueCaptureAddress = 1000257000,
+
+    PipelineCompileRequired = 1000297000,
+
+    ErrorNotPermitted = 1000174001,
+
+    ErrorValidationFailed = 1000011001,
+
+    ErrorInvalidPipelineCacheData = 1000298000,
+
+    ErrorNoPipelineMatch = 1000298001,
 
 }
 

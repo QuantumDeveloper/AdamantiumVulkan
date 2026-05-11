@@ -11,25 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2696 Column: 14
+// File: vk.xml Line: 10848 Column: 6
 [Flags]
 public enum BufferCreateFlagBits : uint
 {
-    SparseBindingBit = 1,
+    BindingBit = 1,
 
-    SparseResidencyBit = 2,
+    ResidencyBit = 2,
 
-    SparseAliasedBit = 4,
-
-    ProtectedBit = 8,
-
-    DeviceAddressCaptureReplayBit = 16,
-
-    DescriptorBufferCaptureReplayBitExt = 32,
-
-    VideoProfileIndependentBitKhr = 64,
-
-    FlagBitsMaxEnum = 2147483647,
+    AliasedBit = 4,
 
 }
 

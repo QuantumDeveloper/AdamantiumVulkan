@@ -11,17 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6017 Column: 14
+// File: vk.xml Line: 11649 Column: 6
 [Flags]
-public enum ShaderFloatControlsIndependence : uint
+public enum ShaderFloatControlsIndependence : int
 {
     _32BitOnly = 0,
 
     All = 1,
 
     None = 2,
-
-    MaxEnum = 2147483647,
 
 }
 

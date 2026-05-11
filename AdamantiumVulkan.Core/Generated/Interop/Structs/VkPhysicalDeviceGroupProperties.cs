@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5404 Column: 16
+// File: vk.xml Line: 3308 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceGroupProperties
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public uint physicalDeviceCount;
     public VkPhysicalDevice_T0__FixedBuffer physicalDevices;
     public VkBool32 subsetAllocation;

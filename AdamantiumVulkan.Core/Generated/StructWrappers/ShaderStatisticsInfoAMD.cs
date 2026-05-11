@@ -23,7 +23,7 @@ public unsafe partial class ShaderStatisticsInfoAMD : IMarshallableObject, IMars
         MarshalFrom(in native);
     }
 
-    public VkShaderStageFlags ShaderStageMask { get; set; }
+    public ShaderStageFlagBits ShaderStageMask { get; set; }
     public ShaderResourceUsageAMD ResourceUsage { get; set; }
     public uint NumPhysicalVgprs { get; set; }
     public uint NumPhysicalSgprs { get; set; }
@@ -56,28 +56,26 @@ public unsafe partial class ShaderStatisticsInfoAMD : IMarshallableObject, IMars
         NumAvailableVgprs = native.numAvailableVgprs;
         NumAvailableSgprs = native.numAvailableSgprs;
         var tmpComputeWorkGroupSize = new uint[3];
-        var pComputeWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.computeWorkGroupSize[0]));
+        var computeWorkGroupSizep = native.computeWorkGroupSize[0];
+        var pComputeWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in computeWorkGroupSizep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pComputeWorkGroupSize, 3, tmpComputeWorkGroupSize);
         ComputeWorkGroupSize = tmpComputeWorkGroupSize;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkShaderStatisticsInfoAMD>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkShaderStatisticsInfoAMD>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkShaderStatisticsInfoAMDMarshaller
     {
         public VkShaderStatisticsInfoAMDMarshaller(AdamantiumVulkan.Core.ShaderStatisticsInfoAMD shaderStatisticsInfoAMD, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkShaderStatisticsInfoAMD> context)
         {
-            if (shaderStatisticsInfoAMD.ShaderStageMask != (uint)default)
-            {
-                context.Destination[0].shaderStageMask = shaderStatisticsInfoAMD.ShaderStageMask;
-            }
+            context.Destination[0].shaderStageMask = shaderStatisticsInfoAMD.ShaderStageMask;
 
             if (shaderStatisticsInfoAMD.ResourceUsage != default)
             {

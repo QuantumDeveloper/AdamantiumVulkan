@@ -23,17 +23,17 @@ public unsafe partial class FrameBoundaryEXT : IMarshallableObject, IMarshallabl
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.FrameBoundaryExt;
     public object PNext { get; set; }
-    public VkFrameBoundaryFlagsEXT Flags { get; set; }
+    public FrameBoundaryFlagBitsEXT Flags { get; set; }
     public ulong FrameID { get; set; }
     public uint ImageCount { get; set; }
-    public Image PImages { get; set; }
+    public System.ReadOnlyMemory<Image> PImages { get; set; }
     public uint BufferCount { get; set; }
-    public Buffer PBuffers { get; set; }
+    public System.ReadOnlyMemory<Buffer> PBuffers { get; set; }
     public ulong TagName { get; set; }
-    public ulong TagSize { get; set; }
-    public nuint PTag { get; set; }
+    public nuint TagSize { get; set; }
+    public System.ReadOnlyMemory<byte> PTag { get; set; }
 
     public static implicit operator FrameBoundaryEXT(AdamantiumVulkan.Core.Interop.VkFrameBoundaryEXT f)
     {
@@ -47,6 +47,12 @@ public unsafe partial class FrameBoundaryEXT : IMarshallableObject, IMarshallabl
         {
             size += marshallable.GetSize();
         }
+        if (!PImages.IsEmpty)
+            size += PImages.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkImage_T>();
+        if (!PBuffers.IsEmpty)
+            size += PBuffers.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkBuffer_T>();
+        if (!PTag.IsEmpty)
+            size += PTag.Span.Length * Marshal.SizeOf<System.Byte>();
         return size;
     }
 
@@ -57,29 +63,45 @@ public unsafe partial class FrameBoundaryEXT : IMarshallableObject, IMarshallabl
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkFrameBoundaryEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         FrameID = native.frameID;
         ImageCount = native.imageCount;
-        PImages = new Image(in *native.pImages);
-        NativeUtils.Free(native.pImages);
+        var arrayLengthPImages = native.imageCount;
+        var tmpPImages = new Image[arrayLengthPImages];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkImage_T[arrayLengthPImages];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pImages, arrayLengthPImages, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPImages[i] = new Image(in nativeTmpArray0[i]);
+        }
+        PImages = tmpPImages;
         BufferCount = native.bufferCount;
-        PBuffers = new Buffer(in *native.pBuffers);
-        NativeUtils.Free(native.pBuffers);
+        var arrayLengthPBuffers = native.bufferCount;
+        var tmpPBuffers = new Buffer[arrayLengthPBuffers];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkBuffer_T[arrayLengthPBuffers];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pBuffers, arrayLengthPBuffers, nativeTmpArray1);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        {
+            tmpPBuffers[i] = new Buffer(in nativeTmpArray1[i]);
+        }
+        PBuffers = tmpPBuffers;
         TagName = native.tagName;
         TagSize = native.tagSize;
-        PTag = native.pTag;
+        var arrayLengthPTag = native.tagSize;
+        var tmpPTag = new byte[arrayLengthPTag];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pTag, arrayLengthPTag, tmpPTag);
+        PTag = tmpPTag;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkFrameBoundaryEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkFrameBoundaryEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkFrameBoundaryEXTMarshaller
     {
@@ -93,41 +115,55 @@ public unsafe partial class FrameBoundaryEXT : IMarshallableObject, IMarshallabl
             }
             else if (frameBoundaryEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (frameBoundaryEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (frameBoundaryEXT.Flags != (uint)default)
-            {
-                context.Destination[0].flags = frameBoundaryEXT.Flags;
-            }
+            context.Destination[0].flags = frameBoundaryEXT.Flags;
 
             context.Destination[0].frameID = frameBoundaryEXT.FrameID;
 
             context.Destination[0].imageCount = frameBoundaryEXT.ImageCount;
 
-            if (frameBoundaryEXT.PImages != default)
+            if (!frameBoundaryEXT.PImages.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkImage_T struct0 = frameBoundaryEXT.PImages;
-                context.Destination[0].pImages = (AdamantiumVulkan.Core.Interop.VkImage_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.Image> sourceSpan = frameBoundaryEXT.PImages.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkImage_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkImage_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkImage_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pImages = pDestination;
             }
 
             context.Destination[0].bufferCount = frameBoundaryEXT.BufferCount;
 
-            if (frameBoundaryEXT.PBuffers != default)
+            if (!frameBoundaryEXT.PBuffers.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkBuffer_T struct0 = frameBoundaryEXT.PBuffers;
-                context.Destination[0].pBuffers = (AdamantiumVulkan.Core.Interop.VkBuffer_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.Buffer> sourceSpan = frameBoundaryEXT.PBuffers.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkBuffer_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkBuffer_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkBuffer_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pBuffers = pDestination;
             }
 
             context.Destination[0].tagName = frameBoundaryEXT.TagName;
 
             context.Destination[0].tagSize = frameBoundaryEXT.TagSize;
 
-            context.Destination[0].pTag = frameBoundaryEXT.PTag;
+            if (!frameBoundaryEXT.PTag.IsEmpty)
+            {
+                context.Destination[0].pTag = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<byte, AdamantiumVulkan.Core.Interop.VkFrameBoundaryEXT>(frameBoundaryEXT.PTag.Span, ref context);
+            }
 
         }
     }

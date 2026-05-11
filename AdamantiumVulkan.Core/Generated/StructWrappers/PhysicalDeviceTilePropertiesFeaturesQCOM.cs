@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceTilePropertiesFeaturesQCOM : IMarshall
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceTilePropertiesFeaturesQcom;
     public object PNext { get; set; }
     public VkBool32 TileProperties { get; set; }
 
@@ -49,19 +49,18 @@ public unsafe partial class PhysicalDeviceTilePropertiesFeaturesQCOM : IMarshall
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTilePropertiesFeaturesQCOM native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         TileProperties = native.tileProperties;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTilePropertiesFeaturesQCOM>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTilePropertiesFeaturesQCOM>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceTilePropertiesFeaturesQCOMMarshaller
     {
@@ -75,11 +74,11 @@ public unsafe partial class PhysicalDeviceTilePropertiesFeaturesQCOM : IMarshall
             }
             else if (physicalDeviceTilePropertiesFeaturesQCOM.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceTilePropertiesFeaturesQCOM.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceTilePropertiesFeaturesQCOM.TileProperties != (uint)default)

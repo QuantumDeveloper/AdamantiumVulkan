@@ -23,20 +23,20 @@ public unsafe partial class ConvertCooperativeVectorMatrixInfoNV : IMarshallable
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ConvertCooperativeVectorMatrixInfoNv;
     public object PNext { get; set; }
-    public ulong SrcSize { get; set; }
+    public nuint SrcSize { get; set; }
     public DeviceOrHostAddressConstKHR SrcData { get; set; }
-    public ulong? PDstSize { get; set; }
+    public nuint? PDstSize { get; set; }
     public DeviceOrHostAddressKHR DstData { get; set; }
     public ComponentTypeKHR SrcComponentType { get; set; }
     public ComponentTypeKHR DstComponentType { get; set; }
     public uint NumRows { get; set; }
     public uint NumColumns { get; set; }
     public CooperativeVectorMatrixLayoutNV SrcLayout { get; set; }
-    public ulong SrcStride { get; set; }
+    public nuint SrcStride { get; set; }
     public CooperativeVectorMatrixLayoutNV DstLayout { get; set; }
-    public ulong DstStride { get; set; }
+    public nuint DstStride { get; set; }
 
     public static implicit operator ConvertCooperativeVectorMatrixInfoNV(AdamantiumVulkan.Core.Interop.VkConvertCooperativeVectorMatrixInfoNV c)
     {
@@ -60,7 +60,6 @@ public unsafe partial class ConvertCooperativeVectorMatrixInfoNV : IMarshallable
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkConvertCooperativeVectorMatrixInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         SrcSize = native.srcSize;
         SrcData = new DeviceOrHostAddressConstKHR(native.srcData);
@@ -80,14 +79,14 @@ public unsafe partial class ConvertCooperativeVectorMatrixInfoNV : IMarshallable
         DstStride = native.dstStride;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkConvertCooperativeVectorMatrixInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkConvertCooperativeVectorMatrixInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkConvertCooperativeVectorMatrixInfoNVMarshaller
     {
@@ -101,11 +100,11 @@ public unsafe partial class ConvertCooperativeVectorMatrixInfoNV : IMarshallable
             }
             else if (convertCooperativeVectorMatrixInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (convertCooperativeVectorMatrixInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].srcSize = convertCooperativeVectorMatrixInfoNV.SrcSize;

@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14441 Column: 14
-public enum CoverageModulationModeNV : uint
+// File: vk.xml Line: 11374 Column: 6
+public enum CoverageModulationModeNV : int
 {
     NoneNv = 0,
 
@@ -21,8 +21,6 @@ public enum CoverageModulationModeNV : uint
     AlphaNv = 2,
 
     RgbaNv = 3,
-
-    MaxEnumNv = 2147483647,
 
 }
 

@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3722 Column: 16
+// File: vk.xml Line: 1573 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineInputAssemblyStateCreateInfo
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkPipelineInputAssemblyStateCreateFlags flags;
     public PrimitiveTopology topology;
     public VkBool32 primitiveRestartEnable;

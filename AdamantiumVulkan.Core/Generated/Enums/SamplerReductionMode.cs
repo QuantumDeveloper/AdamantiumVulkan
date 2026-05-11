@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6027 Column: 14
-public enum SamplerReductionMode : uint
+// File: vk.xml Line: 11345 Column: 6
+public enum SamplerReductionMode : int
 {
     WeightedAverage = 0,
 
@@ -21,8 +21,6 @@ public enum SamplerReductionMode : uint
     Max = 2,
 
     WeightedAverageRangeclampQcom = 1000521000,
-
-    MaxEnum = 2147483647,
 
 }
 

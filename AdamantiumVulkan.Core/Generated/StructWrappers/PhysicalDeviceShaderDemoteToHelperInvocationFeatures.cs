@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceShaderDemoteToHelperInvocationFeatures
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceShaderDemoteToHelperInvocationFeatures;
     public object PNext { get; set; }
     public VkBool32 ShaderDemoteToHelperInvocation { get; set; }
 
@@ -49,19 +49,18 @@ public unsafe partial class PhysicalDeviceShaderDemoteToHelperInvocationFeatures
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ShaderDemoteToHelperInvocation = native.shaderDemoteToHelperInvocation;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesMarshaller
     {
@@ -75,11 +74,11 @@ public unsafe partial class PhysicalDeviceShaderDemoteToHelperInvocationFeatures
             }
             else if (physicalDeviceShaderDemoteToHelperInvocationFeatures.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceShaderDemoteToHelperInvocationFeatures.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceShaderDemoteToHelperInvocationFeatures.ShaderDemoteToHelperInvocation != (uint)default)

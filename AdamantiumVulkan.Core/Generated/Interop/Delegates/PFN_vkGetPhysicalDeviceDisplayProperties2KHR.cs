@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10655 Column: 30
+// File: video.xml Line: 14416 Column: 10
 public unsafe struct PFN_vkGetPhysicalDeviceDisplayProperties2KHR
 {
     public PFN_vkGetPhysicalDeviceDisplayProperties2KHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPhysicalDeviceDisplayProperties2KHR
     public PFN_vkGetPhysicalDeviceDisplayProperties2KHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint*, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint*, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR* pProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR* pProperties)
     {
-        return InvokeFunc(physicalDevice, ref pPropertyCount, pProperties);
+        return InvokeFunc(physicalDevice, pPropertyCount, pProperties);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR* pProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR* pProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR*, Result>)ptr)(physicalDevice, ref pPropertyCount, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint*, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR*, Result>)ptr)(physicalDevice, pPropertyCount, pProperties);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR* pProperties)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR* pProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR*, Result>)(void*)ptr)(physicalDevice, ref pPropertyCount, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint*, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR*, Result>)(void*)ptr)(physicalDevice, pPropertyCount, pProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceDisplayProperties2KHR(void* ptr) => new(ptr);

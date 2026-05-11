@@ -23,7 +23,7 @@ public unsafe partial class ComputePipelineIndirectBufferInfoNV : IMarshallableO
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ComputePipelineIndirectBufferInfoNv;
     public object PNext { get; set; }
     public VkDeviceAddress DeviceAddress { get; set; }
     public VkDeviceSize Size { get; set; }
@@ -51,21 +51,20 @@ public unsafe partial class ComputePipelineIndirectBufferInfoNV : IMarshallableO
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkComputePipelineIndirectBufferInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         DeviceAddress = native.deviceAddress;
         Size = native.size;
         PipelineDeviceAddressCaptureReplay = native.pipelineDeviceAddressCaptureReplay;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkComputePipelineIndirectBufferInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkComputePipelineIndirectBufferInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkComputePipelineIndirectBufferInfoNVMarshaller
     {
@@ -79,11 +78,11 @@ public unsafe partial class ComputePipelineIndirectBufferInfoNV : IMarshallableO
             }
             else if (computePipelineIndirectBufferInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (computePipelineIndirectBufferInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (computePipelineIndirectBufferInfoNV.DeviceAddress != (ulong)default)

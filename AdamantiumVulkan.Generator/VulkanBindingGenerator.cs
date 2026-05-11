@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
+using AdamantiumVulkan.Generator.Extensions;
+using AdamantiumVulkan.Generator.Processors;
 using QuantumBinding.Generator.Utils;
 
 namespace AdamantiumVulkan.Generator
@@ -32,7 +34,7 @@ namespace AdamantiumVulkan.Generator
             string spirvCrossLibrary = "spirv-cross-c-shared";
             string spirvToolsLibrary = "SPIRV-Tools-shared";
             string mainNamespace = "AdamantiumVulkan";
-            string vulkanBasePath = @"C:\VulkanSDK\1.4.309.0\Include";
+            string vulkanBasePath = @"vk.xml";
             string interopSubNamespace = "Interop";
 
             var appRoot = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.LastIndexOf("bin"));
@@ -43,28 +45,31 @@ namespace AdamantiumVulkan.Generator
             string spirvPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Spirv", "Generated"));
             var spirvToolsPath = (Path.Combine(appRoot, "..", "AdamantiumVulkan.SpirvTools", "Generated"));
             
-            var vulkanPathManager = new PathManager();
-            vulkanPathManager.AddFilePath(OSPlatform.Windows, Path.Combine(vulkanBasePath, "vulkan", "vulkan.h"));
-            vulkanPathManager.AddFilePath(OSPlatform.OSX, Path.Combine("/usr", "local", "include", "vulkan", "vulkan.h"));
-
             options.GenerateSequentialLayout = true;
             options.PodTypesAsSimpleTypes = false;
             options.PathToBindingsFile = "VulkanBindingsMap.xml";
             options.DebugMode = true;
 
-            vkMainModule = Module.Create(vkMainLibrary);
+            var namespaceMappings = new List<NamespaceMapping>();
+            namespaceMappings.Add(new NamespaceMapping(){FileName = "vulkan_core", SubNamespace = "Core", OutputPath = corePath});
+            namespaceMappings.Add(new NamespaceMapping(){FileName = "vulkan_win32", SubNamespace = "Windows", OutputPath = spirvPath});
+            namespaceMappings.Add(new NamespaceMapping(){FileName = "vulkan_macos", SubNamespace = "MacOS", OutputPath = spirvToolsPath});
+            var parserSettings = new VulkanParserSettings(namespaceMappings,["win32", "macos"]);
+            parserSettings.IncludeVideoExtensions = true;
+            parserSettings.VideoExtensionsPath = "video.xml";
+            vkMainModule = Module.Create(vkMainLibrary, false).WithVulkanXmlParser(parserSettings);
             vkMainModule.GeneratorMode = GeneratorMode.Preview;
             vkMainModule.CleanPreviousGeneration = true;
             vkMainModule.EachTypeInSeparateFile = true;
             vkMainModule.FileHeader = header;
             vkMainModule.Name = "Core";
-            vkMainModule.IncludeDirs.Add(vulkanBasePath);                         
-            vkMainModule.IncludeDirs.Add(Path.Combine(vulkanBasePath, "vulkan"));
+            //vkMainModule.IncludeDirs.Add(vulkanBasePath);                         
+            //vkMainModule.IncludeDirs.Add(Path.Combine(vulkanBasePath, "vulkan"));
             vkMainModule.Defines.Add("_WIN32");
             vkMainModule.Defines.Add("_MSC_VER");
             vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
             vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
-            vkMainModule.Files.AddRange(vulkanPathManager.Files);
+            vkMainModule.Files.AddRange(vulkanBasePath);
             vkMainModule.ForceCallingConvention = false;
             vkMainModule.InteropClassAccessSpecifier = AccessSpecifier.Internal;
             vkMainModule.CallingConvention = CallingConvention.Winapi;
@@ -160,9 +165,9 @@ namespace AdamantiumVulkan.Generator
             spivToolsModule.TargetRuntime = TargetRuntime.NetStandard20;
             
             options.AddModule(vkMainModule);
-            options.AddModule(shaderModule);
-            options.AddModule(spivCrossModule);
-            options.AddModule(spivToolsModule);
+            //options.AddModule(shaderModule);
+            //options.AddModule(spivCrossModule);
+            //options.AddModule(spivToolsModule);
         }
 
         public override void OnBeforeSetupPasses(ProcessingContext context)
@@ -185,6 +190,7 @@ namespace AdamantiumVulkan.Generator
                 "vkCmdPipelineBarrier");
             
             context.AddPreGeneratorPass(functionToInstance, ExecutionPassKind.PerTranslationUnit);
+            context.AddPreGeneratorPass(new DispatchTableProcessorPass(), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new ForceCallingConventionPass(CallingConvention.Winapi), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new CheckFlagsEnumsPass(), ExecutionPassKind.PerTranslationUnit);
             context.AddPreGeneratorPass(new EnumItemsCleanupPass(), ExecutionPassKind.PerTranslationUnit);
@@ -230,7 +236,7 @@ namespace AdamantiumVulkan.Generator
             context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, shaderModule);
             context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
 
-            context.AddPreGeneratorPass(new PrepareStructsBeforeWrappingPass(VulkanBindings.PredefinedInput.GetPredefinedStructuresValues()), ExecutionPassKind.PerTranslationUnit);
+            //context.AddPreGeneratorPass(new PrepareStructsBeforeWrappingPass(VulkanBindings.PredefinedInput.GetPredefinedStructuresValues()), ExecutionPassKind.PerTranslationUnit);
 
             var disposableList = new List<DisposableExtension>();
             disposableList.Add(new DisposableExtension() { Name = "Instance", DisposableContent = "DestroyInstance();" });
@@ -256,7 +262,16 @@ namespace AdamantiumVulkan.Generator
             macroAction.IgnoreList.Add("VK_VERSION_MAJOR");
             macroAction.IgnoreList.Add("VK_VERSION_MINOR");
             macroAction.IgnoreList.Add("VK_VERSION_PATCH");
-
+            macroAction.IgnoreList.Add("VKSC_API_VERSION_1_0");
+            macroAction.IgnoreList.Add("VK_HEADER_VERSION_COMPLETE");
+            
+            macroAction.IgnoreList.Add("VK_STD_VULKAN_VIDEO_CODEC_AV1_DECODE_SPEC_VERSION");
+            macroAction.IgnoreList.Add("VK_STD_VULKAN_VIDEO_CODEC_AV1_ENCODE_SPEC_VERSION");
+            macroAction.IgnoreList.Add("VK_STD_VULKAN_VIDEO_CODEC_H264_ENCODE_SPEC_VERSION");
+            macroAction.IgnoreList.Add("VK_STD_VULKAN_VIDEO_CODEC_H264_DECODE_SPEC_VERSION");
+            macroAction.IgnoreList.Add("VK_STD_VULKAN_VIDEO_CODEC_H265_ENCODE_SPEC_VERSION");
+            macroAction.IgnoreList.Add("VK_STD_VULKAN_VIDEO_CODEC_H265_DECODE_SPEC_VERSION");
+            
             macroAction.SubstitutionList.Add("VK_MAKE_API_VERSION", VulkanBindings.MacroFunctions.CreateMakeApiVersionFunction());
             macroAction.SubstitutionList.Add("VK_API_VERSION_VARIANT", VulkanBindings.MacroFunctions.CreateApiVersionFor("variant"));
             macroAction.SubstitutionList.Add("VK_API_VERSION_MAJOR", VulkanBindings.MacroFunctions.CreateApiVersionFor("major"));
@@ -299,6 +314,7 @@ namespace AdamantiumVulkan.Generator
                 new RegexRenameRunItem("^vk", string.Empty, renameTargets, true),
             };
             context.AddPreGeneratorPass(new SequentialRegexRenamePass(vkRenameItems.ToArray()), ExecutionPassKind.PerTranslationUnit, vkMainModule);
+            context.AddCodeGenerationPass(new VulkanCodeGeneratorPass(), ExecutionPassKind.PerTranslationUnit);
         }
     }
 

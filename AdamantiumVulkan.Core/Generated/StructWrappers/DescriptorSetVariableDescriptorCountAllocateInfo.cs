@@ -23,10 +23,10 @@ public unsafe partial class DescriptorSetVariableDescriptorCountAllocateInfo : I
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.DescriptorSetVariableDescriptorCountAllocateInfo;
     public object PNext { get; set; }
     public uint DescriptorSetCount { get; set; }
-    public uint? PDescriptorCounts { get; set; }
+    public System.ReadOnlyMemory<uint> PDescriptorCounts { get; set; }
 
     public static implicit operator DescriptorSetVariableDescriptorCountAllocateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfo d)
     {
@@ -40,6 +40,8 @@ public unsafe partial class DescriptorSetVariableDescriptorCountAllocateInfo : I
         {
             size += marshallable.GetSize();
         }
+        if (!PDescriptorCounts.IsEmpty)
+            size += PDescriptorCounts.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -50,24 +52,22 @@ public unsafe partial class DescriptorSetVariableDescriptorCountAllocateInfo : I
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         DescriptorSetCount = native.descriptorSetCount;
-        if (native.pDescriptorCounts != null)
-        {
-            PDescriptorCounts = *native.pDescriptorCounts;
-            NativeUtils.Free(native.pDescriptorCounts);
-        }
+        var arrayLengthPDescriptorCounts = native.descriptorSetCount;
+        var tmpPDescriptorCounts = new uint[arrayLengthPDescriptorCounts];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDescriptorCounts, arrayLengthPDescriptorCounts, tmpPDescriptorCounts);
+        PDescriptorCounts = tmpPDescriptorCounts;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDescriptorSetVariableDescriptorCountAllocateInfoMarshaller
     {
@@ -81,18 +81,18 @@ public unsafe partial class DescriptorSetVariableDescriptorCountAllocateInfo : I
             }
             else if (descriptorSetVariableDescriptorCountAllocateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (descriptorSetVariableDescriptorCountAllocateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].descriptorSetCount = descriptorSetVariableDescriptorCountAllocateInfo.DescriptorSetCount;
 
-            if (descriptorSetVariableDescriptorCountAllocateInfo.PDescriptorCounts.HasValue)
+            if (!descriptorSetVariableDescriptorCountAllocateInfo.PDescriptorCounts.IsEmpty)
             {
-                context.Destination[0].pDescriptorCounts = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(descriptorSetVariableDescriptorCountAllocateInfo.PDescriptorCounts.Value, ref context);
+                context.Destination[0].pDescriptorCounts = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfo>(descriptorSetVariableDescriptorCountAllocateInfo.PDescriptorCounts.Span, ref context);
             }
 
         }

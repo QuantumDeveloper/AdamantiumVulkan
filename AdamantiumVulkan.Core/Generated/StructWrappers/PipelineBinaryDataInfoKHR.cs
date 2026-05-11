@@ -23,7 +23,7 @@ public unsafe partial class PipelineBinaryDataInfoKHR : IMarshallableObject, IMa
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PipelineBinaryDataInfoKhr;
     public object PNext { get; set; }
     public PipelineBinaryKHR PipelineBinary { get; set; }
 
@@ -49,19 +49,18 @@ public unsafe partial class PipelineBinaryDataInfoKHR : IMarshallableObject, IMa
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PipelineBinary = new PipelineBinaryKHR(native.pipelineBinary);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineBinaryDataInfoKHRMarshaller
     {
@@ -75,11 +74,11 @@ public unsafe partial class PipelineBinaryDataInfoKHR : IMarshallableObject, IMa
             }
             else if (pipelineBinaryDataInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineBinaryDataInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineBinaryDataInfoKHR.PipelineBinary != default)

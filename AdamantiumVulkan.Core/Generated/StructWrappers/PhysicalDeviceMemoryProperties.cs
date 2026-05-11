@@ -56,14 +56,14 @@ public unsafe partial class PhysicalDeviceMemoryProperties : IMarshallableObject
         MemoryHeaps = QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArrayOfStructs<AdamantiumVulkan.Core.MemoryHeap, AdamantiumVulkan.Core.Interop.VkMemoryHeap>(pMemoryHeaps, 16, 16);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceMemoryPropertiesMarshaller
     {
@@ -73,15 +73,15 @@ public unsafe partial class PhysicalDeviceMemoryProperties : IMarshallableObject
 
             ref var fixedField1 = ref context.Destination[0].memoryTypes;
             var fixedField1Span = physicalDeviceMemoryProperties.MemoryTypes.Span;
-            var pMemoryTypes = (VkMemoryType*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref fixedField1.item0);
-            QuantumBinding.Utils.MarshalingUtils.MarshalArrayOfWrappersToFixedBuffer(fixedField1Span , pMemoryTypes, 32, ref context.DataCursor);
+            var pMemoryTypes = (AdamantiumVulkan.Core.Interop.VkMemoryType*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref fixedField1.item0);
+            QuantumBinding.Utils.MarshalingUtils.MarshalArrayOfWrappersToFixedBuffer(fixedField1Span, pMemoryTypes, 32, ref context.DataCursor);
 
             context.Destination[0].memoryHeapCount = physicalDeviceMemoryProperties.MemoryHeapCount;
 
             ref var fixedField3 = ref context.Destination[0].memoryHeaps;
             var fixedField3Span = physicalDeviceMemoryProperties.MemoryHeaps.Span;
-            var pMemoryHeaps = (VkMemoryHeap*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref fixedField3.item0);
-            QuantumBinding.Utils.MarshalingUtils.MarshalArrayOfWrappersToFixedBuffer(fixedField3Span , pMemoryHeaps, 16, ref context.DataCursor);
+            var pMemoryHeaps = (AdamantiumVulkan.Core.Interop.VkMemoryHeap*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref fixedField3.item0);
+            QuantumBinding.Utils.MarshalingUtils.MarshalArrayOfWrappersToFixedBuffer(fixedField3Span, pMemoryHeaps, 16, ref context.DataCursor);
 
         }
     }

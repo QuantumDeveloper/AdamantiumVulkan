@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6325 Column: 16
+// File: vk.xml Line: 2859 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceDriverProperties
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public DriverId driverID;
     public unsafe fixed sbyte driverName[256];
     public unsafe fixed sbyte driverInfo[256];

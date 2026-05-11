@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1LoopFilterFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1LoopFilterFlags>
+public unsafe partial class StdVideoAV1LoopFilterFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilterFlags>
 {
     public StdVideoAV1LoopFilterFlags()
     {
     }
 
-    public StdVideoAV1LoopFilterFlags(in AdamantiumVulkan.Interop.StdVideoAV1LoopFilterFlags native)
+    public StdVideoAV1LoopFilterFlags(in AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilterFlags native)
     {
         MarshalFrom(in native);
     }
@@ -27,41 +27,41 @@ public unsafe partial class StdVideoAV1LoopFilterFlags : IMarshallableObject, IM
     public uint Loop_filter_delta_update { get; set; }
     public uint Reserved { get; set; }
 
-    public static implicit operator StdVideoAV1LoopFilterFlags(AdamantiumVulkan.Interop.StdVideoAV1LoopFilterFlags s)
+    public static implicit operator StdVideoAV1LoopFilterFlags(AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilterFlags s)
     {
         return new StdVideoAV1LoopFilterFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1LoopFilterFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilterFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1LoopFilterFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilterFlags> context)
     {
         new StdVideoAV1LoopFilterFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1LoopFilterFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilterFlags native)
     {
         Loop_filter_delta_enabled = native.loop_filter_delta_enabled;
         Loop_filter_delta_update = native.loop_filter_delta_update;
         Reserved = native.reserved;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1LoopFilterFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilterFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1LoopFilterFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilterFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1LoopFilterFlagsMarshaller
     {
-        public StdVideoAV1LoopFilterFlagsMarshaller(AdamantiumVulkan.StdVideoAV1LoopFilterFlags stdVideoAV1LoopFilterFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1LoopFilterFlags> context)
+        public StdVideoAV1LoopFilterFlagsMarshaller(AdamantiumVulkan.Core.StdVideoAV1LoopFilterFlags stdVideoAV1LoopFilterFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilterFlags> context)
         {
             context.Destination[0].loop_filter_delta_enabled = stdVideoAV1LoopFilterFlags.Loop_filter_delta_enabled;
 

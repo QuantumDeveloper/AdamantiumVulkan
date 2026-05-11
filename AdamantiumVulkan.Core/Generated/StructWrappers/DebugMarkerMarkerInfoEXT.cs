@@ -55,19 +55,20 @@ public unsafe partial class DebugMarkerMarkerInfoEXT : IMarshallableObject, IMar
         PNext = (System.IntPtr)native.pNext;
         PMarkerName = new string(native.pMarkerName);
         var tmpColor = new float[4];
-        var pColor = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.color[0]));
+        var colorp = native.color[0];
+        var pColor = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in colorp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pColor, 4, tmpColor);
         Color = tmpColor;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDebugMarkerMarkerInfoEXTMarshaller
     {
@@ -81,11 +82,11 @@ public unsafe partial class DebugMarkerMarkerInfoEXT : IMarshallableObject, IMar
             }
             else if (debugMarkerMarkerInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (debugMarkerMarkerInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (debugMarkerMarkerInfoEXT.PMarkerName != default)

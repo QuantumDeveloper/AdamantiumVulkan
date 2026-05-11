@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1FilmGrainFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1FilmGrainFlags>
+public unsafe partial class StdVideoAV1FilmGrainFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrainFlags>
 {
     public StdVideoAV1FilmGrainFlags()
     {
     }
 
-    public StdVideoAV1FilmGrainFlags(in AdamantiumVulkan.Interop.StdVideoAV1FilmGrainFlags native)
+    public StdVideoAV1FilmGrainFlags(in AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrainFlags native)
     {
         MarshalFrom(in native);
     }
@@ -29,23 +29,23 @@ public unsafe partial class StdVideoAV1FilmGrainFlags : IMarshallableObject, IMa
     public uint Update_grain { get; set; }
     public uint Reserved { get; set; }
 
-    public static implicit operator StdVideoAV1FilmGrainFlags(AdamantiumVulkan.Interop.StdVideoAV1FilmGrainFlags s)
+    public static implicit operator StdVideoAV1FilmGrainFlags(AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrainFlags s)
     {
         return new StdVideoAV1FilmGrainFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1FilmGrainFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrainFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1FilmGrainFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrainFlags> context)
     {
         new StdVideoAV1FilmGrainFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1FilmGrainFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrainFlags native)
     {
         Chroma_scaling_from_luma = native.chroma_scaling_from_luma;
         Overlap_flag = native.overlap_flag;
@@ -54,18 +54,18 @@ public unsafe partial class StdVideoAV1FilmGrainFlags : IMarshallableObject, IMa
         Reserved = native.reserved;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1FilmGrainFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrainFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1FilmGrainFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrainFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1FilmGrainFlagsMarshaller
     {
-        public StdVideoAV1FilmGrainFlagsMarshaller(AdamantiumVulkan.StdVideoAV1FilmGrainFlags stdVideoAV1FilmGrainFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1FilmGrainFlags> context)
+        public StdVideoAV1FilmGrainFlagsMarshaller(AdamantiumVulkan.Core.StdVideoAV1FilmGrainFlags stdVideoAV1FilmGrainFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrainFlags> context)
         {
             context.Destination[0].chroma_scaling_from_luma = stdVideoAV1FilmGrainFlags.Chroma_scaling_from_luma;
 

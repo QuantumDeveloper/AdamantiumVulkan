@@ -29,7 +29,7 @@ public unsafe partial class PipelineLayoutCreateInfo : IMarshallableObject, IMar
     public uint SetLayoutCount { get; set; }
     public System.ReadOnlyMemory<DescriptorSetLayout> PSetLayouts { get; set; }
     public uint PushConstantRangeCount { get; set; }
-    public PushConstantRange PushConstantRanges { get; set; }
+    public System.ReadOnlyMemory<PushConstantRange> PushConstantRanges { get; set; }
 
     public static implicit operator PipelineLayoutCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo p)
     {
@@ -45,9 +45,15 @@ public unsafe partial class PipelineLayoutCreateInfo : IMarshallableObject, IMar
         }
         if (!PSetLayouts.IsEmpty)
             size += PSetLayouts.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T>();
-        if (PushConstantRanges != default)
+        if (!PushConstantRanges.IsEmpty)
         {
-            size += PushConstantRanges.GetSize();
+            for (int i = 0; i < PushConstantRanges.Length; i++)
+            {
+                if (PushConstantRanges.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPushConstantRange>();
+                else
+                    size += PushConstantRanges.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -62,27 +68,35 @@ public unsafe partial class PipelineLayoutCreateInfo : IMarshallableObject, IMar
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         SetLayoutCount = native.setLayoutCount;
-        var tmpPSetLayouts = new DescriptorSetLayout[native.setLayoutCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[native.setLayoutCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSetLayouts, native.setLayoutCount, nativeTmpArray0);
+        var arrayLengthPSetLayouts = native.setLayoutCount;
+        var tmpPSetLayouts = new DescriptorSetLayout[arrayLengthPSetLayouts];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayout_T[arrayLengthPSetLayouts];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSetLayouts, arrayLengthPSetLayouts, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPSetLayouts[i] = new DescriptorSetLayout(in nativeTmpArray0[i]);
         }
         PSetLayouts = tmpPSetLayouts;
         PushConstantRangeCount = native.pushConstantRangeCount;
-        PushConstantRanges = new PushConstantRange(in *native.pPushConstantRanges);
-        NativeUtils.Free(native.pPushConstantRanges);
+        var arrayLengthPushConstantRanges = native.pushConstantRangeCount;
+        var tmpPushConstantRanges = new PushConstantRange[arrayLengthPushConstantRanges];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkPushConstantRange[arrayLengthPushConstantRanges];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPushConstantRanges, arrayLengthPushConstantRanges, nativeTmpArray1);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        {
+            tmpPushConstantRanges[i] = new PushConstantRange(in nativeTmpArray1[i]);
+        }
+        PushConstantRanges = tmpPushConstantRanges;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineLayoutCreateInfoMarshaller
     {
@@ -96,11 +110,11 @@ public unsafe partial class PipelineLayoutCreateInfo : IMarshallableObject, IMar
             }
             else if (pipelineLayoutCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineLayoutCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].flags = pipelineLayoutCreateInfo.Flags;
@@ -122,14 +136,9 @@ public unsafe partial class PipelineLayoutCreateInfo : IMarshallableObject, IMar
 
             context.Destination[0].pushConstantRangeCount = pipelineLayoutCreateInfo.PushConstantRangeCount;
 
-            if (pipelineLayoutCreateInfo.PushConstantRanges != default)
+            if (!pipelineLayoutCreateInfo.PushConstantRanges.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkPushConstantRange));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkPushConstantRange>(structSlice0).Slice(0, 1);
-                context.Destination[0].pPushConstantRanges = (AdamantiumVulkan.Core.Interop.VkPushConstantRange*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkPushConstantRange>(structDestination0, context.DataCursor);
-                pipelineLayoutCreateInfo.PushConstantRanges.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pPushConstantRanges = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.PushConstantRange, AdamantiumVulkan.Core.Interop.VkPushConstantRange, AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo>(pipelineLayoutCreateInfo.PushConstantRanges, ref context);
             }
 
         }

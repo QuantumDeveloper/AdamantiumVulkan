@@ -23,10 +23,10 @@ public unsafe partial class PipelineLibraryCreateInfoKHR : IMarshallableObject, 
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PipelineLibraryCreateInfoKhr;
     public object PNext { get; set; }
     public uint LibraryCount { get; set; }
-    public Pipeline PLibraries { get; set; }
+    public System.ReadOnlyMemory<Pipeline> PLibraries { get; set; }
 
     public static implicit operator PipelineLibraryCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR p)
     {
@@ -40,6 +40,8 @@ public unsafe partial class PipelineLibraryCreateInfoKHR : IMarshallableObject, 
         {
             size += marshallable.GetSize();
         }
+        if (!PLibraries.IsEmpty)
+            size += PLibraries.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPipeline_T>();
         return size;
     }
 
@@ -50,21 +52,27 @@ public unsafe partial class PipelineLibraryCreateInfoKHR : IMarshallableObject, 
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         LibraryCount = native.libraryCount;
-        PLibraries = new Pipeline(in *native.pLibraries);
-        NativeUtils.Free(native.pLibraries);
+        var arrayLengthPLibraries = native.libraryCount;
+        var tmpPLibraries = new Pipeline[arrayLengthPLibraries];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipeline_T[arrayLengthPLibraries];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pLibraries, arrayLengthPLibraries, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPLibraries[i] = new Pipeline(in nativeTmpArray0[i]);
+        }
+        PLibraries = tmpPLibraries;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineLibraryCreateInfoKHRMarshaller
     {
@@ -78,19 +86,26 @@ public unsafe partial class PipelineLibraryCreateInfoKHR : IMarshallableObject, 
             }
             else if (pipelineLibraryCreateInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineLibraryCreateInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].libraryCount = pipelineLibraryCreateInfoKHR.LibraryCount;
 
-            if (pipelineLibraryCreateInfoKHR.PLibraries != default)
+            if (!pipelineLibraryCreateInfoKHR.PLibraries.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkPipeline_T struct0 = pipelineLibraryCreateInfoKHR.PLibraries;
-                context.Destination[0].pLibraries = (AdamantiumVulkan.Core.Interop.VkPipeline_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.Pipeline> sourceSpan = pipelineLibraryCreateInfoKHR.PLibraries.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkPipeline_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkPipeline_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkPipeline_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pLibraries = pDestination;
             }
 
         }

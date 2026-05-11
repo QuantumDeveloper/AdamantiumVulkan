@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1TimingInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1TimingInfoFlags>
+public unsafe partial class StdVideoAV1TimingInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1TimingInfoFlags>
 {
     public StdVideoAV1TimingInfoFlags()
     {
     }
 
-    public StdVideoAV1TimingInfoFlags(in AdamantiumVulkan.Interop.StdVideoAV1TimingInfoFlags native)
+    public StdVideoAV1TimingInfoFlags(in AdamantiumVulkan.Core.Interop.StdVideoAV1TimingInfoFlags native)
     {
         MarshalFrom(in native);
     }
@@ -26,40 +26,40 @@ public unsafe partial class StdVideoAV1TimingInfoFlags : IMarshallableObject, IM
     public uint Equal_picture_interval { get; set; }
     public uint Reserved { get; set; }
 
-    public static implicit operator StdVideoAV1TimingInfoFlags(AdamantiumVulkan.Interop.StdVideoAV1TimingInfoFlags s)
+    public static implicit operator StdVideoAV1TimingInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoAV1TimingInfoFlags s)
     {
         return new StdVideoAV1TimingInfoFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1TimingInfoFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1TimingInfoFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1TimingInfoFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1TimingInfoFlags> context)
     {
         new StdVideoAV1TimingInfoFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1TimingInfoFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1TimingInfoFlags native)
     {
         Equal_picture_interval = native.equal_picture_interval;
         Reserved = native.reserved;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1TimingInfoFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1TimingInfoFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1TimingInfoFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1TimingInfoFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1TimingInfoFlagsMarshaller
     {
-        public StdVideoAV1TimingInfoFlagsMarshaller(AdamantiumVulkan.StdVideoAV1TimingInfoFlags stdVideoAV1TimingInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1TimingInfoFlags> context)
+        public StdVideoAV1TimingInfoFlagsMarshaller(AdamantiumVulkan.Core.StdVideoAV1TimingInfoFlags stdVideoAV1TimingInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1TimingInfoFlags> context)
         {
             context.Destination[0].equal_picture_interval = stdVideoAV1TimingInfoFlags.Equal_picture_interval;
 

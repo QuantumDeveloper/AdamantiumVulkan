@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4255 Column: 26
+// File: video.xml Line: 13154 Column: 10
 public unsafe struct PFN_vkCmdSetStencilReference
 {
     public PFN_vkCmdSetStencilReference(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkCmdSetStencilReference
     public PFN_vkCmdSetStencilReference(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, uint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, StencilFaceFlagBits, uint, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, uint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, StencilFaceFlagBits, uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, uint reference)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, StencilFaceFlagBits faceMask, uint reference)
     {
          InvokeFunc(commandBuffer, faceMask, reference);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, uint reference)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, StencilFaceFlagBits faceMask, uint reference)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, uint, void>)ptr)(commandBuffer, faceMask, reference);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, StencilFaceFlagBits, uint, void>)ptr)(commandBuffer, faceMask, reference);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkStencilFaceFlags faceMask, uint reference)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, StencilFaceFlagBits faceMask, uint reference)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkStencilFaceFlags, uint, void>)(void*)ptr)(commandBuffer, faceMask, reference);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, StencilFaceFlagBits, uint, void>)(void*)ptr)(commandBuffer, faceMask, reference);
     }
 
     public static explicit operator PFN_vkCmdSetStencilReference(void* ptr) => new(ptr);

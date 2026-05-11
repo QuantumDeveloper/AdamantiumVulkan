@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoH264HrdParameters : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoH264HrdParameters>
+public unsafe partial class StdVideoH264HrdParameters : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters>
 {
     public StdVideoH264HrdParameters()
     {
     }
 
-    public StdVideoH264HrdParameters(in AdamantiumVulkan.Interop.StdVideoH264HrdParameters native)
+    public StdVideoH264HrdParameters(in AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters native)
     {
         MarshalFrom(in native);
     }
@@ -35,38 +35,41 @@ public unsafe partial class StdVideoH264HrdParameters : IMarshallableObject, IMa
     public uint Dpb_output_delay_length_minus1 { get; set; }
     public uint Time_offset_length { get; set; }
 
-    public static implicit operator StdVideoH264HrdParameters(AdamantiumVulkan.Interop.StdVideoH264HrdParameters s)
+    public static implicit operator StdVideoH264HrdParameters(AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters s)
     {
         return new StdVideoH264HrdParameters(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoH264HrdParameters>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoH264HrdParameters> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters> context)
     {
         new StdVideoH264HrdParametersMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoH264HrdParameters native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters native)
     {
         Cpb_cnt_minus1 = native.cpb_cnt_minus1;
         Bit_rate_scale = native.bit_rate_scale;
         Cpb_size_scale = native.cpb_size_scale;
         Reserved1 = native.reserved1;
         var tmpBit_rate_value_minus1 = new uint[32];
-        var pBit_rate_value_minus1 = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.bit_rate_value_minus1[0]));
+        var bit_rate_value_minus1p = native.bit_rate_value_minus1[0];
+        var pBit_rate_value_minus1 = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in bit_rate_value_minus1p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pBit_rate_value_minus1, 32, tmpBit_rate_value_minus1);
         Bit_rate_value_minus1 = tmpBit_rate_value_minus1;
         var tmpCpb_size_value_minus1 = new uint[32];
-        var pCpb_size_value_minus1 = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.cpb_size_value_minus1[0]));
+        var cpb_size_value_minus1p = native.cpb_size_value_minus1[0];
+        var pCpb_size_value_minus1 = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in cpb_size_value_minus1p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pCpb_size_value_minus1, 32, tmpCpb_size_value_minus1);
         Cpb_size_value_minus1 = tmpCpb_size_value_minus1;
         var tmpCbr_flag = new byte[32];
-        var pCbr_flag = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.cbr_flag[0]));
+        var cbr_flagp = native.cbr_flag[0];
+        var pCbr_flag = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in cbr_flagp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pCbr_flag, 32, tmpCbr_flag);
         Cbr_flag = tmpCbr_flag;
         Initial_cpb_removal_delay_length_minus1 = native.initial_cpb_removal_delay_length_minus1;
@@ -75,18 +78,18 @@ public unsafe partial class StdVideoH264HrdParameters : IMarshallableObject, IMa
         Time_offset_length = native.time_offset_length;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoH264HrdParameters>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH264HrdParameters>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoH264HrdParametersMarshaller
     {
-        public StdVideoH264HrdParametersMarshaller(AdamantiumVulkan.StdVideoH264HrdParameters stdVideoH264HrdParameters, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH264HrdParameters> context)
+        public StdVideoH264HrdParametersMarshaller(AdamantiumVulkan.Core.StdVideoH264HrdParameters stdVideoH264HrdParameters, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters> context)
         {
             context.Destination[0].cpb_cnt_minus1 = stdVideoH264HrdParameters.Cpb_cnt_minus1;
 

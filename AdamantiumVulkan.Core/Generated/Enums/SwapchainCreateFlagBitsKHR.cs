@@ -11,20 +11,10 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8623 Column: 14
+// File: vk.xml Line: 11323 Column: 6
 [Flags]
 public enum SwapchainCreateFlagBitsKHR : uint
 {
-    SplitInstanceBindRegionsBitKhr = 1,
-
-    ProtectedBitKhr = 2,
-
-    MutableFormatBitKhr = 4,
-
-    DeferredMemoryAllocationBitExt = 8,
-
-    FlagBitsMaxEnumKhr = 2147483647,
-
 }
 
 

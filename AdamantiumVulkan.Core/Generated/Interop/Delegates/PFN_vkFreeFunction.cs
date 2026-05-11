@@ -13,7 +13,7 @@ using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3140 Column: 26
+// File: vk.xml Line: 1016 Column: 10
 public unsafe struct PFN_vkFreeFunction
 {
     public PFN_vkFreeFunction(nuint ptr) : this((void*) ptr) { }
@@ -21,24 +21,24 @@ public unsafe struct PFN_vkFreeFunction
     public PFN_vkFreeFunction(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<nuint, nuint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<void*, void*, void>)ptr;
     }
 
-    private delegate* unmanaged<nuint, nuint, void> InvokeFunc;
+    private delegate* unmanaged<void*, void*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(nuint pUserData, nuint pMemory)
+    public void Invoke(void* pUserData, void* pMemory)
     {
          InvokeFunc(pUserData, pMemory);
     }
-    public static void Invoke(void* ptr, nuint pUserData, nuint pMemory)
+    public static void Invoke(void* ptr, void* pUserData, void* pMemory)
     {
-         ((delegate* unmanaged<nuint, nuint, void>)ptr)(pUserData, pMemory);
+         ((delegate* unmanaged<void*, void*, void>)ptr)(pUserData, pMemory);
     }
-    public static void Invoke(nuint ptr, nuint pUserData, nuint pMemory)
+    public static void Invoke(nuint ptr, void* pUserData, void* pMemory)
     {
-         ((delegate* unmanaged<nuint, nuint, void>)(void*)ptr)(pUserData, pMemory);
+         ((delegate* unmanaged<void*, void*, void>)(void*)ptr)(pUserData, pMemory);
     }
 
     public static explicit operator PFN_vkFreeFunction(void* ptr) => new(ptr);

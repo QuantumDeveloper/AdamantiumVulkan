@@ -23,11 +23,11 @@ public unsafe partial class PhysicalDeviceExtendedSparseAddressSpacePropertiesNV
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceExtendedSparseAddressSpacePropertiesNv;
     public object PNext { get; set; }
     public VkDeviceSize ExtendedSparseAddressSpaceSize { get; set; }
-    public VkImageUsageFlags ExtendedSparseImageUsageFlags { get; set; }
-    public VkBufferUsageFlags ExtendedSparseBufferUsageFlags { get; set; }
+    public ImageUsageFlagBits ExtendedSparseImageUsageFlags { get; set; }
+    public BufferUsageFlagBits ExtendedSparseBufferUsageFlags { get; set; }
 
     public static implicit operator PhysicalDeviceExtendedSparseAddressSpacePropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV p)
     {
@@ -51,21 +51,20 @@ public unsafe partial class PhysicalDeviceExtendedSparseAddressSpacePropertiesNV
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ExtendedSparseAddressSpaceSize = native.extendedSparseAddressSpaceSize;
         ExtendedSparseImageUsageFlags = native.extendedSparseImageUsageFlags;
         ExtendedSparseBufferUsageFlags = native.extendedSparseBufferUsageFlags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNVMarshaller
     {
@@ -79,11 +78,11 @@ public unsafe partial class PhysicalDeviceExtendedSparseAddressSpacePropertiesNV
             }
             else if (physicalDeviceExtendedSparseAddressSpacePropertiesNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceExtendedSparseAddressSpacePropertiesNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceExtendedSparseAddressSpacePropertiesNV.ExtendedSparseAddressSpaceSize != (ulong)default)
@@ -91,15 +90,9 @@ public unsafe partial class PhysicalDeviceExtendedSparseAddressSpacePropertiesNV
                 context.Destination[0].extendedSparseAddressSpaceSize = physicalDeviceExtendedSparseAddressSpacePropertiesNV.ExtendedSparseAddressSpaceSize;
             }
 
-            if (physicalDeviceExtendedSparseAddressSpacePropertiesNV.ExtendedSparseImageUsageFlags != (uint)default)
-            {
-                context.Destination[0].extendedSparseImageUsageFlags = physicalDeviceExtendedSparseAddressSpacePropertiesNV.ExtendedSparseImageUsageFlags;
-            }
+            context.Destination[0].extendedSparseImageUsageFlags = physicalDeviceExtendedSparseAddressSpacePropertiesNV.ExtendedSparseImageUsageFlags;
 
-            if (physicalDeviceExtendedSparseAddressSpacePropertiesNV.ExtendedSparseBufferUsageFlags != (uint)default)
-            {
-                context.Destination[0].extendedSparseBufferUsageFlags = physicalDeviceExtendedSparseAddressSpacePropertiesNV.ExtendedSparseBufferUsageFlags;
-            }
+            context.Destination[0].extendedSparseBufferUsageFlags = physicalDeviceExtendedSparseAddressSpacePropertiesNV.ExtendedSparseBufferUsageFlags;
 
         }
     }

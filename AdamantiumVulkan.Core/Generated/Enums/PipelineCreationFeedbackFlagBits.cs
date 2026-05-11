@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6733 Column: 14
+// File: vk.xml Line: 11573 Column: 6
 [Flags]
 public enum PipelineCreationFeedbackFlagBits : uint
 {
@@ -20,8 +20,6 @@ public enum PipelineCreationFeedbackFlagBits : uint
     ApplicationPipelineCacheHitBit = 2,
 
     BasePipelineAccelerationBit = 4,
-
-    FlagBitsMaxEnum = 2147483647,
 
 }
 

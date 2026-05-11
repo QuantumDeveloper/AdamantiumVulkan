@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeH264ReferenceInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfoFlags>
+public unsafe partial class StdVideoEncodeH264ReferenceInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceInfoFlags>
 {
     public StdVideoEncodeH264ReferenceInfoFlags()
     {
     }
 
-    public StdVideoEncodeH264ReferenceInfoFlags(in AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfoFlags native)
+    public StdVideoEncodeH264ReferenceInfoFlags(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceInfoFlags native)
     {
         MarshalFrom(in native);
     }
@@ -26,40 +26,40 @@ public unsafe partial class StdVideoEncodeH264ReferenceInfoFlags : IMarshallable
     public uint Used_for_long_term_reference { get; set; }
     public uint Reserved { get; set; }
 
-    public static implicit operator StdVideoEncodeH264ReferenceInfoFlags(AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfoFlags s)
+    public static implicit operator StdVideoEncodeH264ReferenceInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceInfoFlags s)
     {
         return new StdVideoEncodeH264ReferenceInfoFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfoFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceInfoFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfoFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceInfoFlags> context)
     {
         new StdVideoEncodeH264ReferenceInfoFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfoFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceInfoFlags native)
     {
         Used_for_long_term_reference = native.used_for_long_term_reference;
         Reserved = native.reserved;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfoFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceInfoFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfoFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceInfoFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeH264ReferenceInfoFlagsMarshaller
     {
-        public StdVideoEncodeH264ReferenceInfoFlagsMarshaller(AdamantiumVulkan.StdVideoEncodeH264ReferenceInfoFlags stdVideoEncodeH264ReferenceInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264ReferenceInfoFlags> context)
+        public StdVideoEncodeH264ReferenceInfoFlagsMarshaller(AdamantiumVulkan.Core.StdVideoEncodeH264ReferenceInfoFlags stdVideoEncodeH264ReferenceInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceInfoFlags> context)
         {
             context.Destination[0].used_for_long_term_reference = stdVideoEncodeH264ReferenceInfoFlags.Used_for_long_term_reference;
 

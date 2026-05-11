@@ -12,15 +12,15 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16495 Column: 16
+// File: vk.xml Line: 9414 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkSwapchainPresentScalingCreateInfoEXT
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkPresentScalingFlagsEXT scalingBehavior;
-    public VkPresentGravityFlagsEXT presentGravityX;
-    public VkPresentGravityFlagsEXT presentGravityY;
+    public void* pNext;
+    public PresentScalingFlagBitsEXT scalingBehavior;
+    public PresentGravityFlagBitsEXT presentGravityX;
+    public PresentGravityFlagBitsEXT presentGravityY;
 }
 
 

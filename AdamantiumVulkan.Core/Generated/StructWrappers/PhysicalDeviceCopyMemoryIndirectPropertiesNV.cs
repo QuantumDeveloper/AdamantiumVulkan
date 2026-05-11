@@ -23,9 +23,9 @@ public unsafe partial class PhysicalDeviceCopyMemoryIndirectPropertiesNV : IMars
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceCopyMemoryIndirectPropertiesNv;
     public object PNext { get; set; }
-    public VkQueueFlags SupportedQueues { get; set; }
+    public QueueFlagBits SupportedQueues { get; set; }
 
     public static implicit operator PhysicalDeviceCopyMemoryIndirectPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCopyMemoryIndirectPropertiesNV p)
     {
@@ -49,19 +49,18 @@ public unsafe partial class PhysicalDeviceCopyMemoryIndirectPropertiesNV : IMars
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCopyMemoryIndirectPropertiesNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         SupportedQueues = native.supportedQueues;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCopyMemoryIndirectPropertiesNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCopyMemoryIndirectPropertiesNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceCopyMemoryIndirectPropertiesNVMarshaller
     {
@@ -75,17 +74,14 @@ public unsafe partial class PhysicalDeviceCopyMemoryIndirectPropertiesNV : IMars
             }
             else if (physicalDeviceCopyMemoryIndirectPropertiesNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceCopyMemoryIndirectPropertiesNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (physicalDeviceCopyMemoryIndirectPropertiesNV.SupportedQueues != (uint)default)
-            {
-                context.Destination[0].supportedQueues = physicalDeviceCopyMemoryIndirectPropertiesNV.SupportedQueues;
-            }
+            context.Destination[0].supportedQueues = physicalDeviceCopyMemoryIndirectPropertiesNV.SupportedQueues;
 
         }
     }

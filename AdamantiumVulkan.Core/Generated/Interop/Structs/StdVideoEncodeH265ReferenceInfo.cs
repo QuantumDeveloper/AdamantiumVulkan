@@ -8,11 +8,11 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using AdamantiumVulkan;
+using AdamantiumVulkan.Core;
 
-namespace AdamantiumVulkan.Interop;
+namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_h265std_encode.h Line: 145 Column: 16
+// File: video.xml Line: 839 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoEncodeH265ReferenceInfo
 {

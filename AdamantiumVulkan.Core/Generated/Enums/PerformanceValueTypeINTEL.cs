@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15580 Column: 14
-public enum PerformanceValueTypeINTEL : uint
+// File: vk.xml Line: 11642 Column: 6
+public enum PerformanceValueTypeINTEL : int
 {
     Uint32Intel = 0,
 
@@ -23,8 +23,6 @@ public enum PerformanceValueTypeINTEL : uint
     BoolIntel = 3,
 
     StringIntel = 4,
-
-    MaxEnumIntel = 2147483647,
 
 }
 

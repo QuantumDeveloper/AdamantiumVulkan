@@ -23,7 +23,7 @@ public unsafe partial class VideoDecodeInfoKHR : IMarshallableObject, IMarshalla
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoDecodeInfoKhr;
     public object PNext { get; set; }
     public VkVideoDecodeFlagsKHR Flags { get; set; }
     public Buffer SrcBuffer { get; set; }
@@ -32,7 +32,7 @@ public unsafe partial class VideoDecodeInfoKHR : IMarshallableObject, IMarshalla
     public VideoPictureResourceInfoKHR DstPictureResource { get; set; }
     public VideoReferenceSlotInfoKHR PSetupReferenceSlot { get; set; }
     public uint ReferenceSlotCount { get; set; }
-    public VideoReferenceSlotInfoKHR PReferenceSlots { get; set; }
+    public System.ReadOnlyMemory<VideoReferenceSlotInfoKHR> PReferenceSlots { get; set; }
 
     public static implicit operator VideoDecodeInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeInfoKHR v)
     {
@@ -50,9 +50,15 @@ public unsafe partial class VideoDecodeInfoKHR : IMarshallableObject, IMarshalla
         {
             size += PSetupReferenceSlot.GetSize();
         }
-        if (PReferenceSlots != default)
+        if (!PReferenceSlots.IsEmpty)
         {
-            size += PReferenceSlots.GetSize();
+            for (int i = 0; i < PReferenceSlots.Length; i++)
+            {
+                if (PReferenceSlots.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkVideoReferenceSlotInfoKHR>();
+                else
+                    size += PReferenceSlots.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -64,7 +70,6 @@ public unsafe partial class VideoDecodeInfoKHR : IMarshallableObject, IMarshalla
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoDecodeInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         SrcBuffer = new Buffer(native.srcBuffer);
@@ -74,18 +79,25 @@ public unsafe partial class VideoDecodeInfoKHR : IMarshallableObject, IMarshalla
         PSetupReferenceSlot = new VideoReferenceSlotInfoKHR(in *native.pSetupReferenceSlot);
         NativeUtils.Free(native.pSetupReferenceSlot);
         ReferenceSlotCount = native.referenceSlotCount;
-        PReferenceSlots = new VideoReferenceSlotInfoKHR(in *native.pReferenceSlots);
-        NativeUtils.Free(native.pReferenceSlots);
+        var arrayLengthPReferenceSlots = native.referenceSlotCount;
+        var tmpPReferenceSlots = new VideoReferenceSlotInfoKHR[arrayLengthPReferenceSlots];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkVideoReferenceSlotInfoKHR[arrayLengthPReferenceSlots];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pReferenceSlots, arrayLengthPReferenceSlots, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPReferenceSlots[i] = new VideoReferenceSlotInfoKHR(in nativeTmpArray0[i]);
+        }
+        PReferenceSlots = tmpPReferenceSlots;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoDecodeInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoDecodeInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoDecodeInfoKHRMarshaller
     {
@@ -99,11 +111,11 @@ public unsafe partial class VideoDecodeInfoKHR : IMarshallableObject, IMarshalla
             }
             else if (videoDecodeInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoDecodeInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoDecodeInfoKHR.Flags != (uint)default)
@@ -149,14 +161,9 @@ public unsafe partial class VideoDecodeInfoKHR : IMarshallableObject, IMarshalla
 
             context.Destination[0].referenceSlotCount = videoDecodeInfoKHR.ReferenceSlotCount;
 
-            if (videoDecodeInfoKHR.PReferenceSlots != default)
+            if (!videoDecodeInfoKHR.PReferenceSlots.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkVideoReferenceSlotInfoKHR));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkVideoReferenceSlotInfoKHR>(structSlice0).Slice(0, 1);
-                context.Destination[0].pReferenceSlots = (AdamantiumVulkan.Core.Interop.VkVideoReferenceSlotInfoKHR*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoReferenceSlotInfoKHR>(structDestination0, context.DataCursor);
-                videoDecodeInfoKHR.PReferenceSlots.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pReferenceSlots = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.VideoReferenceSlotInfoKHR, AdamantiumVulkan.Core.Interop.VkVideoReferenceSlotInfoKHR, AdamantiumVulkan.Core.Interop.VkVideoDecodeInfoKHR>(videoDecodeInfoKHR.PReferenceSlots, ref context);
             }
 
         }

@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceShaderImageAtomicInt64FeaturesEXT : IM
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceShaderImageAtomicInt64FeaturesExt;
     public object PNext { get; set; }
     public VkBool32 ShaderImageInt64Atomics { get; set; }
     public VkBool32 SparseImageInt64Atomics { get; set; }
@@ -50,20 +50,19 @@ public unsafe partial class PhysicalDeviceShaderImageAtomicInt64FeaturesEXT : IM
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ShaderImageInt64Atomics = native.shaderImageInt64Atomics;
         SparseImageInt64Atomics = native.sparseImageInt64Atomics;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXTMarshaller
     {
@@ -77,11 +76,11 @@ public unsafe partial class PhysicalDeviceShaderImageAtomicInt64FeaturesEXT : IM
             }
             else if (physicalDeviceShaderImageAtomicInt64FeaturesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceShaderImageAtomicInt64FeaturesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceShaderImageAtomicInt64FeaturesEXT.ShaderImageInt64Atomics != (uint)default)

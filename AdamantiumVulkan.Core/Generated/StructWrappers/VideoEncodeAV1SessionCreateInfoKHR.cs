@@ -9,7 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
 
 namespace AdamantiumVulkan.Core;
 
@@ -24,7 +23,7 @@ public unsafe partial class VideoEncodeAV1SessionCreateInfoKHR : IMarshallableOb
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeAv1SessionCreateInfoKhr;
     public object PNext { get; set; }
     public VkBool32 UseMaxLevel { get; set; }
     public StdVideoAV1Level MaxLevel { get; set; }
@@ -51,20 +50,19 @@ public unsafe partial class VideoEncodeAV1SessionCreateInfoKHR : IMarshallableOb
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1SessionCreateInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         UseMaxLevel = native.useMaxLevel;
         MaxLevel = native.maxLevel;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1SessionCreateInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1SessionCreateInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeAV1SessionCreateInfoKHRMarshaller
     {
@@ -78,11 +76,11 @@ public unsafe partial class VideoEncodeAV1SessionCreateInfoKHR : IMarshallableOb
             }
             else if (videoEncodeAV1SessionCreateInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeAV1SessionCreateInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoEncodeAV1SessionCreateInfoKHR.UseMaxLevel != (uint)default)

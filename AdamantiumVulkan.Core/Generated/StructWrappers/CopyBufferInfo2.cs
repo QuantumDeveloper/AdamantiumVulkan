@@ -23,12 +23,12 @@ public unsafe partial class CopyBufferInfo2 : IMarshallableObject, IMarshallable
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.CopyBufferInfo2;
     public object PNext { get; set; }
     public Buffer SrcBuffer { get; set; }
     public Buffer DstBuffer { get; set; }
     public uint RegionCount { get; set; }
-    public BufferCopy2 PRegions { get; set; }
+    public System.ReadOnlyMemory<BufferCopy2> PRegions { get; set; }
 
     public static implicit operator CopyBufferInfo2(AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2 c)
     {
@@ -42,9 +42,15 @@ public unsafe partial class CopyBufferInfo2 : IMarshallableObject, IMarshallable
         {
             size += marshallable.GetSize();
         }
-        if (PRegions != default)
+        if (!PRegions.IsEmpty)
         {
-            size += PRegions.GetSize();
+            for (int i = 0; i < PRegions.Length; i++)
+            {
+                if (PRegions.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkBufferCopy2>();
+                else
+                    size += PRegions.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -56,23 +62,29 @@ public unsafe partial class CopyBufferInfo2 : IMarshallableObject, IMarshallable
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2 native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         SrcBuffer = new Buffer(native.srcBuffer);
         DstBuffer = new Buffer(native.dstBuffer);
         RegionCount = native.regionCount;
-        PRegions = new BufferCopy2(in *native.pRegions);
-        NativeUtils.Free(native.pRegions);
+        var arrayLengthPRegions = native.regionCount;
+        var tmpPRegions = new BufferCopy2[arrayLengthPRegions];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkBufferCopy2[arrayLengthPRegions];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pRegions, arrayLengthPRegions, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPRegions[i] = new BufferCopy2(in nativeTmpArray0[i]);
+        }
+        PRegions = tmpPRegions;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkCopyBufferInfo2Marshaller
     {
@@ -86,11 +98,11 @@ public unsafe partial class CopyBufferInfo2 : IMarshallableObject, IMarshallable
             }
             else if (copyBufferInfo2.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (copyBufferInfo2.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (copyBufferInfo2.SrcBuffer != default)
@@ -105,14 +117,9 @@ public unsafe partial class CopyBufferInfo2 : IMarshallableObject, IMarshallable
 
             context.Destination[0].regionCount = copyBufferInfo2.RegionCount;
 
-            if (copyBufferInfo2.PRegions != default)
+            if (!copyBufferInfo2.PRegions.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkBufferCopy2));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkBufferCopy2>(structSlice0).Slice(0, 1);
-                context.Destination[0].pRegions = (AdamantiumVulkan.Core.Interop.VkBufferCopy2*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkBufferCopy2>(structDestination0, context.DataCursor);
-                copyBufferInfo2.PRegions.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pRegions = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.BufferCopy2, AdamantiumVulkan.Core.Interop.VkBufferCopy2, AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2>(copyBufferInfo2.PRegions, ref context);
             }
 
         }

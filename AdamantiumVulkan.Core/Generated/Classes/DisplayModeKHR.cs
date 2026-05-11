@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8781 Column: 1
+// File: vk.xml Line: 601 Column: 10
 public unsafe partial class DisplayModeKHR : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkDisplayModeKHR_T>
 {
     internal VkDisplayModeKHR_T __Instance;
@@ -27,7 +27,7 @@ public unsafe partial class DisplayModeKHR : IUnmanagedWrapper<AdamantiumVulkan.
     }
 
     public AdamantiumVulkan.Core.Interop.VkDisplayModeKHR_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public ref readonly VkDisplayModeKHR_T GetPinnableReference() => ref __Instance;
 

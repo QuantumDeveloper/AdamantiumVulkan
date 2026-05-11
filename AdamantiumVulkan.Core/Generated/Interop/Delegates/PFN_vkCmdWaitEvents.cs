@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4278 Column: 26
+// File: video.xml Line: 13402 Column: 10
 public unsafe struct PFN_vkCmdWaitEvents
 {
     public PFN_vkCmdWaitEvents(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkCmdWaitEvents
     public PFN_vkCmdWaitEvents(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkEvent_T*, VkPipelineStageFlags, VkPipelineStageFlags, uint, AdamantiumVulkan.Core.Interop.VkMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkEvent_T*, PipelineStageFlagBits, PipelineStageFlagBits, uint, AdamantiumVulkan.Core.Interop.VkMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkEvent_T*, VkPipelineStageFlags, VkPipelineStageFlags, uint, AdamantiumVulkan.Core.Interop.VkMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkEvent_T*, PipelineStageFlagBits, PipelineStageFlagBits, uint, AdamantiumVulkan.Core.Interop.VkMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint eventCount, AdamantiumVulkan.Core.Interop.VkEvent_T* pEvents, VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask, uint memoryBarrierCount, AdamantiumVulkan.Core.Interop.VkMemoryBarrier* pMemoryBarriers, uint bufferMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier* pBufferMemoryBarriers, uint imageMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier* pImageMemoryBarriers)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint eventCount, AdamantiumVulkan.Core.Interop.VkEvent_T* pEvents, PipelineStageFlagBits srcStageMask, PipelineStageFlagBits dstStageMask, uint memoryBarrierCount, AdamantiumVulkan.Core.Interop.VkMemoryBarrier* pMemoryBarriers, uint bufferMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier* pBufferMemoryBarriers, uint imageMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier* pImageMemoryBarriers)
     {
          InvokeFunc(commandBuffer, eventCount, pEvents, srcStageMask, dstStageMask, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint eventCount, AdamantiumVulkan.Core.Interop.VkEvent_T* pEvents, VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask, uint memoryBarrierCount, AdamantiumVulkan.Core.Interop.VkMemoryBarrier* pMemoryBarriers, uint bufferMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier* pBufferMemoryBarriers, uint imageMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier* pImageMemoryBarriers)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint eventCount, AdamantiumVulkan.Core.Interop.VkEvent_T* pEvents, PipelineStageFlagBits srcStageMask, PipelineStageFlagBits dstStageMask, uint memoryBarrierCount, AdamantiumVulkan.Core.Interop.VkMemoryBarrier* pMemoryBarriers, uint bufferMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier* pBufferMemoryBarriers, uint imageMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier* pImageMemoryBarriers)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkEvent_T*, VkPipelineStageFlags, VkPipelineStageFlags, uint, AdamantiumVulkan.Core.Interop.VkMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier*, void>)ptr)(commandBuffer, eventCount, pEvents, srcStageMask, dstStageMask, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkEvent_T*, PipelineStageFlagBits, PipelineStageFlagBits, uint, AdamantiumVulkan.Core.Interop.VkMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier*, void>)ptr)(commandBuffer, eventCount, pEvents, srcStageMask, dstStageMask, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint eventCount, AdamantiumVulkan.Core.Interop.VkEvent_T* pEvents, VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask, uint memoryBarrierCount, AdamantiumVulkan.Core.Interop.VkMemoryBarrier* pMemoryBarriers, uint bufferMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier* pBufferMemoryBarriers, uint imageMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier* pImageMemoryBarriers)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint eventCount, AdamantiumVulkan.Core.Interop.VkEvent_T* pEvents, PipelineStageFlagBits srcStageMask, PipelineStageFlagBits dstStageMask, uint memoryBarrierCount, AdamantiumVulkan.Core.Interop.VkMemoryBarrier* pMemoryBarriers, uint bufferMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier* pBufferMemoryBarriers, uint imageMemoryBarrierCount, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier* pImageMemoryBarriers)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkEvent_T*, VkPipelineStageFlags, VkPipelineStageFlags, uint, AdamantiumVulkan.Core.Interop.VkMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier*, void>)(void*)ptr)(commandBuffer, eventCount, pEvents, srcStageMask, dstStageMask, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, uint, AdamantiumVulkan.Core.Interop.VkEvent_T*, PipelineStageFlagBits, PipelineStageFlagBits, uint, AdamantiumVulkan.Core.Interop.VkMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier*, uint, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier*, void>)(void*)ptr)(commandBuffer, eventCount, pEvents, srcStageMask, dstStageMask, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
     }
 
     public static explicit operator PFN_vkCmdWaitEvents(void* ptr) => new(ptr);

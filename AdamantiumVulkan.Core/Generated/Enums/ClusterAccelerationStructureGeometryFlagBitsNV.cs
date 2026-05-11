@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20633 Column: 14
+// File: vk.xml Line: 11175 Column: 6
 [Flags]
 public enum ClusterAccelerationStructureGeometryFlagBitsNV : uint
 {
@@ -20,8 +20,6 @@ public enum ClusterAccelerationStructureGeometryFlagBitsNV : uint
     NoDuplicateAnyhitInvocationBitNv = 2,
 
     OpaqueBitNv = 4,
-
-    FlagBitsMaxEnumNv = 2147483647,
 
 }
 

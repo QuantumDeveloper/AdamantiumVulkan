@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12966 Column: 14
+// File: vk.xml Line: 11081 Column: 6
 [Flags]
 public enum DebugReportFlagBitsEXT : uint
 {
@@ -24,8 +24,6 @@ public enum DebugReportFlagBitsEXT : uint
     ErrorBitExt = 8,
 
     DebugBitExt = 16,
-
-    FlagBitsMaxEnumExt = 2147483647,
 
 }
 

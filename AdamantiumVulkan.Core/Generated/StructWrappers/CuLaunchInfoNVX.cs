@@ -23,7 +23,7 @@ public unsafe partial class CuLaunchInfoNVX : IMarshallableObject, IMarshallable
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.CuLaunchInfoNvx;
     public object PNext { get; set; }
     public CuFunctionNVX Function { get; set; }
     public uint GridDimX { get; set; }
@@ -33,10 +33,10 @@ public unsafe partial class CuLaunchInfoNVX : IMarshallableObject, IMarshallable
     public uint BlockDimY { get; set; }
     public uint BlockDimZ { get; set; }
     public uint SharedMemBytes { get; set; }
-    public ulong ParamCount { get; set; }
-    public nuint Params { get; set; }
-    public ulong ExtraCount { get; set; }
-    public nuint PExtras { get; set; }
+    public nuint ParamCount { get; set; }
+    public System.ReadOnlyMemory<nuint> Params { get; set; }
+    public nuint ExtraCount { get; set; }
+    public System.ReadOnlyMemory<nuint> PExtras { get; set; }
 
     public static implicit operator CuLaunchInfoNVX(AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX c)
     {
@@ -50,6 +50,10 @@ public unsafe partial class CuLaunchInfoNVX : IMarshallableObject, IMarshallable
         {
             size += marshallable.GetSize();
         }
+        if (!Params.IsEmpty)
+            size += Marshal.SizeOf<nuint>();
+        if (!PExtras.IsEmpty)
+            size += Marshal.SizeOf<nuint>();
         return size;
     }
 
@@ -60,7 +64,6 @@ public unsafe partial class CuLaunchInfoNVX : IMarshallableObject, IMarshallable
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Function = new CuFunctionNVX(native.function);
         GridDimX = native.gridDimX;
@@ -71,19 +74,35 @@ public unsafe partial class CuLaunchInfoNVX : IMarshallableObject, IMarshallable
         BlockDimZ = native.blockDimZ;
         SharedMemBytes = native.sharedMemBytes;
         ParamCount = native.paramCount;
-        Params = native.pParams;
+        if (native.pParams != null && native.paramCount > 0)
+        {
+            var arrayLengthParams = native.paramCount;
+            var tmpParams = new nuint[arrayLengthParams];
+            var ptrArray = native.pParams;
+            for (int i = 0; i < (int)arrayLengthParams; ++i)
+                tmpParams[i] = (nuint)(ptrArray[i]);
+            Params = tmpParams;
+        }
         ExtraCount = native.extraCount;
-        PExtras = native.pExtras;
+        if (native.pExtras != null && native.extraCount > 0)
+        {
+            var arrayLengthPExtras = native.extraCount;
+            var tmpPExtras = new nuint[arrayLengthPExtras];
+            var ptrArray = native.pExtras;
+            for (int i = 0; i < (int)arrayLengthPExtras; ++i)
+                tmpPExtras[i] = (nuint)(ptrArray[i]);
+            PExtras = tmpPExtras;
+        }
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkCuLaunchInfoNVXMarshaller
     {
@@ -97,11 +116,11 @@ public unsafe partial class CuLaunchInfoNVX : IMarshallableObject, IMarshallable
             }
             else if (cuLaunchInfoNVX.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (cuLaunchInfoNVX.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (cuLaunchInfoNVX.Function != default)
@@ -125,11 +144,23 @@ public unsafe partial class CuLaunchInfoNVX : IMarshallableObject, IMarshallable
 
             context.Destination[0].paramCount = cuLaunchInfoNVX.ParamCount;
 
-            context.Destination[0].pParams = cuLaunchInfoNVX.Params;
+            if (!cuLaunchInfoNVX.Params.IsEmpty)
+            {
+                var srcParams = cuLaunchInfoNVX.Params.Span;
+                var allocatedSpan = context.AllocateNative<nuint>(srcParams.Length);
+                srcParams.CopyTo(allocatedSpan);
+                context.Destination[0].pParams = (void**)System.Runtime.CompilerServices.Unsafe.AsPointer(ref allocatedSpan[0]);
+            }
 
             context.Destination[0].extraCount = cuLaunchInfoNVX.ExtraCount;
 
-            context.Destination[0].pExtras = cuLaunchInfoNVX.PExtras;
+            if (!cuLaunchInfoNVX.PExtras.IsEmpty)
+            {
+                var srcPExtras = cuLaunchInfoNVX.PExtras.Span;
+                var allocatedSpan = context.AllocateNative<nuint>(srcPExtras.Length);
+                srcPExtras.CopyTo(allocatedSpan);
+                context.Destination[0].pExtras = (void**)System.Runtime.CompilerServices.Unsafe.AsPointer(ref allocatedSpan[0]);
+            }
 
         }
     }

@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 1524 Column: 14
-public enum ObjectType : uint
+// File: vk.xml Line: 10726 Column: 6
+public enum ObjectType : int
 {
     Unknown = 0,
 
@@ -66,12 +66,6 @@ public enum ObjectType : uint
 
     CommandPool = 25,
 
-    SamplerYcbcrConversion = 1000156000,
-
-    DescriptorUpdateTemplate = 1000085000,
-
-    PrivateDataSlot = 1000295000,
-
     SurfaceKhr = 1000000000,
 
     SwapchainKhr = 1000001000,
@@ -118,11 +112,17 @@ public enum ObjectType : uint
 
     PipelineBinaryKhr = 1000483000,
 
+    SemaphoreSciSyncPoolNv = 1000489000,
+
     IndirectCommandsLayoutExt = 1000572000,
 
     IndirectExecutionSetExt = 1000572001,
 
-    MaxEnum = 2147483647,
+    SamplerYcbcrConversion = 1000156000,
+
+    DescriptorUpdateTemplate = 1000085000,
+
+    PrivateDataSlot = 1000295000,
 
 }
 

@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9019 Column: 16
+// File: vk.xml Line: 7323 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkQueueFamilyVideoPropertiesKHR
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkVideoCodecOperationFlagsKHR videoCodecOperations;
+    public void* pNext;
+    public VideoCodecOperationFlagBitsKHR videoCodecOperations;
 }
 
 

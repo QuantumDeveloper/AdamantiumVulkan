@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8640 Column: 16
+// File: vk.xml Line: 2316 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkSwapchainCreateInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkSwapchainCreateFlagsKHR flags;
+    public void* pNext;
+    public SwapchainCreateFlagBitsKHR flags;
     public VkSurfaceKHR_T surface;
     public uint minImageCount;
     public Format imageFormat;

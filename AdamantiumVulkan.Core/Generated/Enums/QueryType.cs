@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 1946 Column: 14
-public enum QueryType : uint
+// File: vk.xml Line: 10288 Column: 6
+public enum QueryType : int
 {
     Occlusion = 0,
 
@@ -47,8 +47,6 @@ public enum QueryType : uint
     MicromapSerializationSizeExt = 1000396000,
 
     MicromapCompactedSizeExt = 1000396001,
-
-    MaxEnum = 2147483647,
 
 }
 

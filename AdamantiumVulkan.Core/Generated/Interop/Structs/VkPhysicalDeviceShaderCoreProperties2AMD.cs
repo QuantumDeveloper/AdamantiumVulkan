@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15812 Column: 16
+// File: vk.xml Line: 4314 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceShaderCoreProperties2AMD
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkShaderCorePropertiesFlagsAMD shaderCoreFeatures;
+    public void* pNext;
+    public ShaderCorePropertiesFlagBitsAMD shaderCoreFeatures;
     public uint activeComputeUnitCount;
 }
 

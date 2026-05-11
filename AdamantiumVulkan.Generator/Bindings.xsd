@@ -108,6 +108,7 @@
         <xs:attribute name="Size" type="xs:long" use="optional"/>
         <xs:attribute name="ElementSize" type="xs:long" use="optional"/>
         <xs:attribute name="ArraySizeSource" type="xs:string" use="optional"/>
+        <xs:attribute name="MathExpression" type="xs:string" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2573 Column: 14
+// File: vk.xml Line: 10781 Column: 6
 [Flags]
 public enum QueueFlagBits : uint
 {
@@ -22,16 +22,6 @@ public enum QueueFlagBits : uint
     TransferBit = 4,
 
     SparseBindingBit = 8,
-
-    ProtectedBit = 16,
-
-    VideoDecodeBitKhr = 32,
-
-    VideoEncodeBitKhr = 64,
-
-    OpticalFlowBitNv = 256,
-
-    FlagBitsMaxEnum = 2147483647,
 
 }
 

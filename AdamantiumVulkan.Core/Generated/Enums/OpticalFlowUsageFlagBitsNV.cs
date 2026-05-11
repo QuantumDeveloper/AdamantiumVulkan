@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19607 Column: 14
+// File: vk.xml Line: 12186 Column: 6
 [Flags]
 public enum OpticalFlowUsageFlagBitsNV : uint
 {
@@ -26,8 +26,6 @@ public enum OpticalFlowUsageFlagBitsNV : uint
     CostBitNv = 8,
 
     GlobalFlowBitNv = 16,
-
-    FlagBitsMaxEnumNv = 2147483647,
 
 }
 

@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19433 Column: 14
-public enum SubpassMergeStatusEXT : uint
+// File: vk.xml Line: 11723 Column: 6
+public enum SubpassMergeStatusEXT : int
 {
     MergedExt = 0,
 
@@ -41,8 +41,6 @@ public enum SubpassMergeStatusEXT : uint
     NotMergedSingleSubpassExt = 12,
 
     NotMergedUnspecifiedExt = 13,
-
-    MaxEnumExt = 2147483647,
 
 }
 

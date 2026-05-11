@@ -67,14 +67,14 @@ public unsafe partial class DisplaySurfaceCreateInfoKHR : IMarshallableObject, I
         ImageExtent = new Extent2D(native.imageExtent);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDisplaySurfaceCreateInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDisplaySurfaceCreateInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDisplaySurfaceCreateInfoKHRMarshaller
     {
@@ -88,11 +88,11 @@ public unsafe partial class DisplaySurfaceCreateInfoKHR : IMarshallableObject, I
             }
             else if (displaySurfaceCreateInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (displaySurfaceCreateInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (displaySurfaceCreateInfoKHR.Flags != (uint)default)

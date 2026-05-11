@@ -25,7 +25,7 @@ public unsafe partial class InstanceCreateInfo : IMarshallableObject, IMarshalla
 
     public StructureType SType => StructureType.InstanceCreateInfo;
     public object PNext { get; set; }
-    public VkInstanceCreateFlags Flags { get; set; }
+    public InstanceCreateFlagBits Flags { get; set; }
     public ApplicationInfo PApplicationInfo { get; set; }
     public uint EnabledLayerCount { get; set; }
     public System.ReadOnlyMemory<string> PEnabledLayerNames { get; set; }
@@ -70,14 +70,14 @@ public unsafe partial class InstanceCreateInfo : IMarshallableObject, IMarshalla
         PEnabledExtensionNames = QuantumBinding.Utils.MarshalingUtils.MarshalPointerToStringArray(native.ppEnabledExtensionNames, (uint)native.enabledExtensionCount);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkInstanceCreateInfoMarshaller
     {
@@ -91,17 +91,14 @@ public unsafe partial class InstanceCreateInfo : IMarshallableObject, IMarshalla
             }
             else if (instanceCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (instanceCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (instanceCreateInfo.Flags != (uint)default)
-            {
-                context.Destination[0].flags = instanceCreateInfo.Flags;
-            }
+            context.Destination[0].flags = instanceCreateInfo.Flags;
 
             if (instanceCreateInfo.PApplicationInfo != default)
             {

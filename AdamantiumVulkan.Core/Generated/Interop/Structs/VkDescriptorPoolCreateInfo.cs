@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3927 Column: 16
+// File: vk.xml Line: 1495 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDescriptorPoolCreateInfo
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkDescriptorPoolCreateFlags flags;
+    public void* pNext;
+    public DescriptorPoolCreateFlagBits flags;
     public uint maxSets;
     public uint poolSizeCount;
     public AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize* pPoolSizes;

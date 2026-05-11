@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15962 Column: 14
-public enum ValidationFeatureDisableEXT : uint
+// File: vk.xml Line: 11199 Column: 6
+public enum ValidationFeatureDisableEXT : int
 {
     AllExt = 0,
 
@@ -29,8 +29,6 @@ public enum ValidationFeatureDisableEXT : uint
     UniqueHandlesExt = 6,
 
     ShaderValidationCacheExt = 7,
-
-    MaxEnumExt = 2147483647,
 
 }
 

@@ -23,10 +23,10 @@ public unsafe partial class PipelineShaderStageModuleIdentifierCreateInfoEXT : I
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PipelineShaderStageModuleIdentifierCreateInfoExt;
     public object PNext { get; set; }
     public uint IdentifierSize { get; set; }
-    public byte? PIdentifier { get; set; }
+    public System.ReadOnlyMemory<byte> PIdentifier { get; set; }
 
     public static implicit operator PipelineShaderStageModuleIdentifierCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineShaderStageModuleIdentifierCreateInfoEXT p)
     {
@@ -40,6 +40,8 @@ public unsafe partial class PipelineShaderStageModuleIdentifierCreateInfoEXT : I
         {
             size += marshallable.GetSize();
         }
+        if (!PIdentifier.IsEmpty)
+            size += PIdentifier.Span.Length * Marshal.SizeOf<System.Byte>();
         return size;
     }
 
@@ -50,24 +52,22 @@ public unsafe partial class PipelineShaderStageModuleIdentifierCreateInfoEXT : I
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineShaderStageModuleIdentifierCreateInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         IdentifierSize = native.identifierSize;
-        if (native.pIdentifier != null)
-        {
-            PIdentifier = *native.pIdentifier;
-            NativeUtils.Free(native.pIdentifier);
-        }
+        var arrayLengthPIdentifier = native.identifierSize;
+        var tmpPIdentifier = new byte[arrayLengthPIdentifier];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pIdentifier, arrayLengthPIdentifier, tmpPIdentifier);
+        PIdentifier = tmpPIdentifier;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageModuleIdentifierCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageModuleIdentifierCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineShaderStageModuleIdentifierCreateInfoEXTMarshaller
     {
@@ -81,18 +81,18 @@ public unsafe partial class PipelineShaderStageModuleIdentifierCreateInfoEXT : I
             }
             else if (pipelineShaderStageModuleIdentifierCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineShaderStageModuleIdentifierCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].identifierSize = pipelineShaderStageModuleIdentifierCreateInfoEXT.IdentifierSize;
 
-            if (pipelineShaderStageModuleIdentifierCreateInfoEXT.PIdentifier.HasValue)
+            if (!pipelineShaderStageModuleIdentifierCreateInfoEXT.PIdentifier.IsEmpty)
             {
-                context.Destination[0].pIdentifier = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(pipelineShaderStageModuleIdentifierCreateInfoEXT.PIdentifier.Value, ref context);
+                context.Destination[0].pIdentifier = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<byte, AdamantiumVulkan.Core.Interop.VkPipelineShaderStageModuleIdentifierCreateInfoEXT>(pipelineShaderStageModuleIdentifierCreateInfoEXT.PIdentifier.Span, ref context);
             }
 
         }

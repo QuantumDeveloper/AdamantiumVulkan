@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16824 Column: 14
-public enum DeviceMemoryReportEventTypeEXT : uint
+// File: vk.xml Line: 11128 Column: 6
+public enum DeviceMemoryReportEventTypeEXT : int
 {
     AllocateExt = 0,
 
@@ -23,8 +23,6 @@ public enum DeviceMemoryReportEventTypeEXT : uint
     UnimportExt = 3,
 
     AllocationFailedExt = 4,
-
-    MaxEnumExt = 2147483647,
 
 }
 

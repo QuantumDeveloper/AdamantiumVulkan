@@ -12,14 +12,14 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10111 Column: 16
+// File: vk.xml Line: 3089 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkImportSemaphoreFdInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkSemaphore_T semaphore;
-    public VkSemaphoreImportFlags flags;
+    public SemaphoreImportFlagBits flags;
     public ExternalSemaphoreHandleTypeFlagBits handleType;
     public int fd;
 }

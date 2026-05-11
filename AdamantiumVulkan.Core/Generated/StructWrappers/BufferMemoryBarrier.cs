@@ -25,8 +25,8 @@ public unsafe partial class BufferMemoryBarrier : IMarshallableObject, IMarshall
 
     public StructureType SType => StructureType.BufferMemoryBarrier;
     public object PNext { get; set; }
-    public VkAccessFlags SrcAccessMask { get; set; }
-    public VkAccessFlags DstAccessMask { get; set; }
+    public AccessFlagBits SrcAccessMask { get; set; }
+    public AccessFlagBits DstAccessMask { get; set; }
     public uint SrcQueueFamilyIndex { get; set; }
     public uint DstQueueFamilyIndex { get; set; }
     public Buffer Buffer { get; set; }
@@ -65,14 +65,14 @@ public unsafe partial class BufferMemoryBarrier : IMarshallableObject, IMarshall
         Size = native.size;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkBufferMemoryBarrierMarshaller
     {
@@ -86,22 +86,16 @@ public unsafe partial class BufferMemoryBarrier : IMarshallableObject, IMarshall
             }
             else if (bufferMemoryBarrier.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (bufferMemoryBarrier.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (bufferMemoryBarrier.SrcAccessMask != (uint)default)
-            {
-                context.Destination[0].srcAccessMask = bufferMemoryBarrier.SrcAccessMask;
-            }
+            context.Destination[0].srcAccessMask = bufferMemoryBarrier.SrcAccessMask;
 
-            if (bufferMemoryBarrier.DstAccessMask != (uint)default)
-            {
-                context.Destination[0].dstAccessMask = bufferMemoryBarrier.DstAccessMask;
-            }
+            context.Destination[0].dstAccessMask = bufferMemoryBarrier.DstAccessMask;
 
             context.Destination[0].srcQueueFamilyIndex = bufferMemoryBarrier.SrcQueueFamilyIndex;
 

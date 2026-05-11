@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4280 Column: 26
+// File: video.xml Line: 13429 Column: 10
 public unsafe struct PFN_vkCmdBeginQuery
 {
     public PFN_vkCmdBeginQuery(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkCmdBeginQuery
     public PFN_vkCmdBeginQuery(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, VkQueryControlFlags, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, QueryControlFlagBits, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, VkQueryControlFlags, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, QueryControlFlagBits, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, VkQueryControlFlags flags)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, QueryControlFlagBits flags)
     {
          InvokeFunc(commandBuffer, queryPool, query, flags);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, VkQueryControlFlags flags)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, QueryControlFlagBits flags)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, VkQueryControlFlags, void>)ptr)(commandBuffer, queryPool, query, flags);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, QueryControlFlagBits, void>)ptr)(commandBuffer, queryPool, query, flags);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, VkQueryControlFlags flags)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkQueryPool_T queryPool, uint query, QueryControlFlagBits flags)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, VkQueryControlFlags, void>)(void*)ptr)(commandBuffer, queryPool, query, flags);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkQueryPool_T, uint, QueryControlFlagBits, void>)(void*)ptr)(commandBuffer, queryPool, query, flags);
     }
 
     public static explicit operator PFN_vkCmdBeginQuery(void* ptr) => new(ptr);

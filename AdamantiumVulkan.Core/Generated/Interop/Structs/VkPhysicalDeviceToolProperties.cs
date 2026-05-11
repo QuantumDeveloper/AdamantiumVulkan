@@ -12,15 +12,15 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7107 Column: 16
+// File: vk.xml Line: 6083 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceToolProperties
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public unsafe fixed sbyte name[256];
     public unsafe fixed sbyte version[256];
-    public VkToolPurposeFlags purposes;
+    public ToolPurposeFlagBits purposes;
     public unsafe fixed sbyte description[256];
     public unsafe fixed sbyte layer[256];
 }

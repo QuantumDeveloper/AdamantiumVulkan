@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5102 Column: 14
+// File: vk.xml Line: 11341 Column: 6
 [Flags]
-public enum PointClippingBehavior : uint
+public enum PointClippingBehavior : int
 {
     AllClipPlanes = 0,
 
     UserClipPlanesOnly = 1,
-
-    MaxEnum = 2147483647,
 
 }
 

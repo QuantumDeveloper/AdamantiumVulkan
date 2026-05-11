@@ -15,51 +15,51 @@ namespace AdamantiumVulkan.Windows.Interop;
 
 public static unsafe class Delegates
 {
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 35 Column: 30
+    // File: video.xml Line: 13658 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkCreateWin32SurfaceKHR(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T pSurface);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 36 Column: 30
+    public unsafe delegate Result PFN_vkCreateWin32SurfaceKHR(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T* pSurface);
+    // File: video.xml Line: 13665 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate uint PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 84 Column: 30
+    public unsafe delegate VkBool32 PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex);
+    // File: video.xml Line: 13797 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetMemoryWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR* pGetWin32HandleInfo, IntPtr pHandle);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 85 Column: 30
+    public unsafe delegate Result PFN_vkGetMemoryWin32HandleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, ExternalMemoryHandleTypeFlagBitsNV handleType, nuint* pHandle);
+    // File: video.xml Line: 13972 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetMemoryWin32HandlePropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, System.IntPtr handle, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR* pMemoryWin32HandleProperties);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 157 Column: 30
+    public unsafe delegate Result PFN_vkGetMemoryWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR* pGetWin32HandleInfo, nuint* pHandle);
+    // File: video.xml Line: 13978 Column: 10
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public unsafe delegate Result PFN_vkGetMemoryWin32HandlePropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, nuint handle, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR* pMemoryWin32HandleProperties);
+    // File: video.xml Line: 14042 Column: 10
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public unsafe delegate Result PFN_vkGetSemaphoreWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, nuint* pHandle);
+    // File: video.xml Line: 14048 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkImportSemaphoreWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR* pImportSemaphoreWin32HandleInfo);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 158 Column: 30
+    // File: video.xml Line: 14082 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetSemaphoreWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, IntPtr pHandle);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 201 Column: 30
+    public unsafe delegate Result PFN_vkGetFenceWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR* pGetWin32HandleInfo, nuint* pHandle);
+    // File: video.xml Line: 14088 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkImportFenceWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR* pImportFenceWin32HandleInfo);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 202 Column: 30
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetFenceWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR* pGetWin32HandleInfo, IntPtr pHandle);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 234 Column: 30
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetMemoryWin32HandleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkExternalMemoryHandleTypeFlagsNV handleType, IntPtr pHandle);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 293 Column: 30
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceSurfacePresentModes2EXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, ref uint* pPresentModeCount, ref PresentModeKHR* pPresentModes);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 294 Column: 30
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkAcquireFullScreenExclusiveModeEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 295 Column: 30
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkReleaseFullScreenExclusiveModeEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 296 Column: 30
-    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetDeviceGroupSurfacePresentModes2EXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, ref VkDeviceGroupPresentModeFlagsKHR* pModes);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 324 Column: 30
+    // File: video.xml Line: 14174 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkAcquireWinrtDisplayNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display);
-    // File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 325 Column: 30
+    // File: video.xml Line: 14179 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetWinrtDisplayNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T pDisplay);
+    public unsafe delegate Result PFN_vkGetWinrtDisplayNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplay);
+    // File: video.xml Line: 15185 Column: 10
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceSurfacePresentModes2EXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, uint* pPresentModeCount, PresentModeKHR* pPresentModes);
+    // File: video.xml Line: 15192 Column: 10
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public unsafe delegate Result PFN_vkGetDeviceGroupSurfacePresentModes2EXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, DeviceGroupPresentModeFlagBitsKHR* pModes);
+    // File: video.xml Line: 15198 Column: 10
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public unsafe delegate Result PFN_vkAcquireFullScreenExclusiveModeEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain);
+    // File: video.xml Line: 15203 Column: 10
+    [UnmanagedFunctionPointer(CallingConvention.Winapi)]
+    public unsafe delegate Result PFN_vkReleaseFullScreenExclusiveModeEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain);
 }
 
 

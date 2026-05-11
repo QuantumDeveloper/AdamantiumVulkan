@@ -27,7 +27,7 @@ public unsafe partial class PipelineViewportSwizzleStateCreateInfoNV : IMarshall
     public object PNext { get; set; }
     public VkPipelineViewportSwizzleStateCreateFlagsNV Flags { get; set; }
     public uint ViewportCount { get; set; }
-    public ViewportSwizzleNV PViewportSwizzles { get; set; }
+    public System.ReadOnlyMemory<ViewportSwizzleNV> PViewportSwizzles { get; set; }
 
     public static implicit operator PipelineViewportSwizzleStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportSwizzleStateCreateInfoNV p)
     {
@@ -41,9 +41,15 @@ public unsafe partial class PipelineViewportSwizzleStateCreateInfoNV : IMarshall
         {
             size += marshallable.GetSize();
         }
-        if (PViewportSwizzles != default)
+        if (!PViewportSwizzles.IsEmpty)
         {
-            size += PViewportSwizzles.GetSize();
+            for (int i = 0; i < PViewportSwizzles.Length; i++)
+            {
+                if (PViewportSwizzles.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV>();
+                else
+                    size += PViewportSwizzles.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -58,18 +64,25 @@ public unsafe partial class PipelineViewportSwizzleStateCreateInfoNV : IMarshall
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         ViewportCount = native.viewportCount;
-        PViewportSwizzles = new ViewportSwizzleNV(in *native.pViewportSwizzles);
-        NativeUtils.Free(native.pViewportSwizzles);
+        var arrayLengthPViewportSwizzles = native.viewportCount;
+        var tmpPViewportSwizzles = new ViewportSwizzleNV[arrayLengthPViewportSwizzles];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV[arrayLengthPViewportSwizzles];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pViewportSwizzles, arrayLengthPViewportSwizzles, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPViewportSwizzles[i] = new ViewportSwizzleNV(in nativeTmpArray0[i]);
+        }
+        PViewportSwizzles = tmpPViewportSwizzles;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineViewportSwizzleStateCreateInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineViewportSwizzleStateCreateInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineViewportSwizzleStateCreateInfoNVMarshaller
     {
@@ -83,11 +96,11 @@ public unsafe partial class PipelineViewportSwizzleStateCreateInfoNV : IMarshall
             }
             else if (pipelineViewportSwizzleStateCreateInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineViewportSwizzleStateCreateInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineViewportSwizzleStateCreateInfoNV.Flags != (uint)default)
@@ -97,14 +110,9 @@ public unsafe partial class PipelineViewportSwizzleStateCreateInfoNV : IMarshall
 
             context.Destination[0].viewportCount = pipelineViewportSwizzleStateCreateInfoNV.ViewportCount;
 
-            if (pipelineViewportSwizzleStateCreateInfoNV.PViewportSwizzles != default)
+            if (!pipelineViewportSwizzleStateCreateInfoNV.PViewportSwizzles.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV>(structSlice0).Slice(0, 1);
-                context.Destination[0].pViewportSwizzles = (AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV>(structDestination0, context.DataCursor);
-                pipelineViewportSwizzleStateCreateInfoNV.PViewportSwizzles.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pViewportSwizzles = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.ViewportSwizzleNV, AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV, AdamantiumVulkan.Core.Interop.VkPipelineViewportSwizzleStateCreateInfoNV>(pipelineViewportSwizzleStateCreateInfoNV.PViewportSwizzles, ref context);
             }
 
         }

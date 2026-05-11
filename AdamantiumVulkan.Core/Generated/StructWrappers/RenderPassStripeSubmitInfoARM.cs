@@ -23,10 +23,10 @@ public unsafe partial class RenderPassStripeSubmitInfoARM : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.RenderPassStripeSubmitInfoArm;
     public object PNext { get; set; }
     public uint StripeSemaphoreInfoCount { get; set; }
-    public SemaphoreSubmitInfo PStripeSemaphoreInfos { get; set; }
+    public System.ReadOnlyMemory<SemaphoreSubmitInfo> PStripeSemaphoreInfos { get; set; }
 
     public static implicit operator RenderPassStripeSubmitInfoARM(AdamantiumVulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM r)
     {
@@ -40,9 +40,15 @@ public unsafe partial class RenderPassStripeSubmitInfoARM : IMarshallableObject,
         {
             size += marshallable.GetSize();
         }
-        if (PStripeSemaphoreInfos != default)
+        if (!PStripeSemaphoreInfos.IsEmpty)
         {
-            size += PStripeSemaphoreInfos.GetSize();
+            for (int i = 0; i < PStripeSemaphoreInfos.Length; i++)
+            {
+                if (PStripeSemaphoreInfos.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>();
+                else
+                    size += PStripeSemaphoreInfos.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -54,21 +60,27 @@ public unsafe partial class RenderPassStripeSubmitInfoARM : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         StripeSemaphoreInfoCount = native.stripeSemaphoreInfoCount;
-        PStripeSemaphoreInfos = new SemaphoreSubmitInfo(in *native.pStripeSemaphoreInfos);
-        NativeUtils.Free(native.pStripeSemaphoreInfos);
+        var arrayLengthPStripeSemaphoreInfos = native.stripeSemaphoreInfoCount;
+        var tmpPStripeSemaphoreInfos = new SemaphoreSubmitInfo[arrayLengthPStripeSemaphoreInfos];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo[arrayLengthPStripeSemaphoreInfos];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pStripeSemaphoreInfos, arrayLengthPStripeSemaphoreInfos, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPStripeSemaphoreInfos[i] = new SemaphoreSubmitInfo(in nativeTmpArray0[i]);
+        }
+        PStripeSemaphoreInfos = tmpPStripeSemaphoreInfos;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderPassStripeSubmitInfoARMMarshaller
     {
@@ -82,23 +94,18 @@ public unsafe partial class RenderPassStripeSubmitInfoARM : IMarshallableObject,
             }
             else if (renderPassStripeSubmitInfoARM.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderPassStripeSubmitInfoARM.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].stripeSemaphoreInfoCount = renderPassStripeSubmitInfoARM.StripeSemaphoreInfoCount;
 
-            if (renderPassStripeSubmitInfoARM.PStripeSemaphoreInfos != default)
+            if (!renderPassStripeSubmitInfoARM.PStripeSemaphoreInfos.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStripeSemaphoreInfos = (AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>(structDestination0, context.DataCursor);
-                renderPassStripeSubmitInfoARM.PStripeSemaphoreInfos.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pStripeSemaphoreInfos = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.SemaphoreSubmitInfo, AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo, AdamantiumVulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM>(renderPassStripeSubmitInfoARM.PStripeSemaphoreInfos, ref context);
             }
 
         }

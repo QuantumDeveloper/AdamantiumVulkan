@@ -23,7 +23,7 @@ public unsafe partial class QueueFamilyCheckpointProperties2NV : IMarshallableOb
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.QueueFamilyCheckpointProperties2Nv;
     public object PNext { get; set; }
     public VkPipelineStageFlags2 CheckpointExecutionStageMask { get; set; }
 
@@ -49,19 +49,18 @@ public unsafe partial class QueueFamilyCheckpointProperties2NV : IMarshallableOb
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkQueueFamilyCheckpointProperties2NV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         CheckpointExecutionStageMask = native.checkpointExecutionStageMask;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkQueueFamilyCheckpointProperties2NV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkQueueFamilyCheckpointProperties2NV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkQueueFamilyCheckpointProperties2NVMarshaller
     {
@@ -75,11 +74,11 @@ public unsafe partial class QueueFamilyCheckpointProperties2NV : IMarshallableOb
             }
             else if (queueFamilyCheckpointProperties2NV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (queueFamilyCheckpointProperties2NV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (queueFamilyCheckpointProperties2NV.CheckpointExecutionStageMask != (ulong)default)

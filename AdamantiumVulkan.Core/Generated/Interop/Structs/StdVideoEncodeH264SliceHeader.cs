@@ -8,11 +8,11 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using AdamantiumVulkan;
+using AdamantiumVulkan.Core;
 
-namespace AdamantiumVulkan.Interop;
+namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_h264std_encode.h Line: 129 Column: 16
+// File: video.xml Line: 352 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoEncodeH264SliceHeader
 {
@@ -25,7 +25,7 @@ public unsafe partial struct StdVideoEncodeH264SliceHeader
     public byte reserved1;
     public StdVideoH264CabacInitIdc cabac_init_idc;
     public StdVideoH264DisableDeblockingFilterIdc disable_deblocking_filter_idc;
-    public AdamantiumVulkan.Interop.StdVideoEncodeH264WeightTable* pWeightTable;
+    public AdamantiumVulkan.Core.Interop.StdVideoEncodeH264WeightTable* pWeightTable;
 }
 
 

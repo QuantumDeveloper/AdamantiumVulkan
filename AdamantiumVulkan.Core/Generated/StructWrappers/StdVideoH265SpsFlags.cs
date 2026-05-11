@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoH265SpsFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoH265SpsFlags>
+public unsafe partial class StdVideoH265SpsFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoH265SpsFlags>
 {
     public StdVideoH265SpsFlags()
     {
     }
 
-    public StdVideoH265SpsFlags(in AdamantiumVulkan.Interop.StdVideoH265SpsFlags native)
+    public StdVideoH265SpsFlags(in AdamantiumVulkan.Core.Interop.StdVideoH265SpsFlags native)
     {
         MarshalFrom(in native);
     }
@@ -54,23 +54,23 @@ public unsafe partial class StdVideoH265SpsFlags : IMarshallableObject, IMarshal
     public uint Sps_palette_predictor_initializers_present_flag { get; set; }
     public uint Intra_boundary_filtering_disabled_flag { get; set; }
 
-    public static implicit operator StdVideoH265SpsFlags(AdamantiumVulkan.Interop.StdVideoH265SpsFlags s)
+    public static implicit operator StdVideoH265SpsFlags(AdamantiumVulkan.Core.Interop.StdVideoH265SpsFlags s)
     {
         return new StdVideoH265SpsFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoH265SpsFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH265SpsFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265SpsFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265SpsFlags> context)
     {
         new StdVideoH265SpsFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoH265SpsFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoH265SpsFlags native)
     {
         Sps_temporal_id_nesting_flag = native.sps_temporal_id_nesting_flag;
         Separate_colour_plane_flag = native.separate_colour_plane_flag;
@@ -104,18 +104,18 @@ public unsafe partial class StdVideoH265SpsFlags : IMarshallableObject, IMarshal
         Intra_boundary_filtering_disabled_flag = native.intra_boundary_filtering_disabled_flag;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoH265SpsFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoH265SpsFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265SpsFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265SpsFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoH265SpsFlagsMarshaller
     {
-        public StdVideoH265SpsFlagsMarshaller(AdamantiumVulkan.StdVideoH265SpsFlags stdVideoH265SpsFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265SpsFlags> context)
+        public StdVideoH265SpsFlagsMarshaller(AdamantiumVulkan.Core.StdVideoH265SpsFlags stdVideoH265SpsFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265SpsFlags> context)
         {
             context.Destination[0].sps_temporal_id_nesting_flag = stdVideoH265SpsFlags.Sps_temporal_id_nesting_flag;
 

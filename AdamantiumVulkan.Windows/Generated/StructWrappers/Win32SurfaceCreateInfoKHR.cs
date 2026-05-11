@@ -27,8 +27,8 @@ public unsafe partial class Win32SurfaceCreateInfoKHR : IMarshallableObject, IMa
     public StructureType SType => StructureType.Win32SurfaceCreateInfoKhr;
     public object PNext { get; set; }
     public VkWin32SurfaceCreateFlagsKHR Flags { get; set; }
-    public System.IntPtr Hinstance { get; set; }
-    public System.IntPtr Hwnd { get; set; }
+    public nuint Hinstance { get; set; }
+    public nuint Hwnd { get; set; }
 
     public static implicit operator Win32SurfaceCreateInfoKHR(AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR w)
     {
@@ -58,14 +58,14 @@ public unsafe partial class Win32SurfaceCreateInfoKHR : IMarshallableObject, IMa
         Hwnd = native.hwnd;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkWin32SurfaceCreateInfoKHRMarshaller
     {
@@ -79,11 +79,11 @@ public unsafe partial class Win32SurfaceCreateInfoKHR : IMarshallableObject, IMa
             }
             else if (win32SurfaceCreateInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (win32SurfaceCreateInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (win32SurfaceCreateInfoKHR.Flags != (uint)default)

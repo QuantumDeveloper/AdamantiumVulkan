@@ -23,7 +23,7 @@ public unsafe partial class AccelerationStructureMotionInfoNV : IMarshallableObj
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.AccelerationStructureMotionInfoNv;
     public object PNext { get; set; }
     public uint MaxInstances { get; set; }
     public AccelerationStructureMotionInstanceTypeNV Flags { get; set; }
@@ -50,20 +50,19 @@ public unsafe partial class AccelerationStructureMotionInfoNV : IMarshallableObj
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MaxInstances = native.maxInstances;
         Flags = native.flags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkAccelerationStructureMotionInfoNVMarshaller
     {
@@ -77,11 +76,11 @@ public unsafe partial class AccelerationStructureMotionInfoNV : IMarshallableObj
             }
             else if (accelerationStructureMotionInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (accelerationStructureMotionInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].maxInstances = accelerationStructureMotionInfoNV.MaxInstances;

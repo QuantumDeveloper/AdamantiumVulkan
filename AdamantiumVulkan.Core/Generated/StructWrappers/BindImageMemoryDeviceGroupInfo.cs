@@ -26,9 +26,9 @@ public unsafe partial class BindImageMemoryDeviceGroupInfo : IMarshallableObject
     public StructureType SType => StructureType.BindImageMemoryDeviceGroupInfo;
     public object PNext { get; set; }
     public uint DeviceIndexCount { get; set; }
-    public uint? PDeviceIndices { get; set; }
+    public System.ReadOnlyMemory<uint> PDeviceIndices { get; set; }
     public uint SplitInstanceBindRegionCount { get; set; }
-    public Rect2D PSplitInstanceBindRegions { get; set; }
+    public System.ReadOnlyMemory<Rect2D> PSplitInstanceBindRegions { get; set; }
 
     public static implicit operator BindImageMemoryDeviceGroupInfo(AdamantiumVulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo b)
     {
@@ -42,9 +42,17 @@ public unsafe partial class BindImageMemoryDeviceGroupInfo : IMarshallableObject
         {
             size += marshallable.GetSize();
         }
-        if (PSplitInstanceBindRegions != default)
+        if (!PDeviceIndices.IsEmpty)
+            size += PDeviceIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+        if (!PSplitInstanceBindRegions.IsEmpty)
         {
-            size += PSplitInstanceBindRegions.GetSize();
+            for (int i = 0; i < PSplitInstanceBindRegions.Length; i++)
+            {
+                if (PSplitInstanceBindRegions.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkRect2D>();
+                else
+                    size += PSplitInstanceBindRegions.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -58,24 +66,30 @@ public unsafe partial class BindImageMemoryDeviceGroupInfo : IMarshallableObject
     {
         PNext = (System.IntPtr)native.pNext;
         DeviceIndexCount = native.deviceIndexCount;
-        if (native.pDeviceIndices != null)
-        {
-            PDeviceIndices = *native.pDeviceIndices;
-            NativeUtils.Free(native.pDeviceIndices);
-        }
+        var arrayLengthPDeviceIndices = native.deviceIndexCount;
+        var tmpPDeviceIndices = new uint[arrayLengthPDeviceIndices];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDeviceIndices, arrayLengthPDeviceIndices, tmpPDeviceIndices);
+        PDeviceIndices = tmpPDeviceIndices;
         SplitInstanceBindRegionCount = native.splitInstanceBindRegionCount;
-        PSplitInstanceBindRegions = new Rect2D(in *native.pSplitInstanceBindRegions);
-        NativeUtils.Free(native.pSplitInstanceBindRegions);
+        var arrayLengthPSplitInstanceBindRegions = native.splitInstanceBindRegionCount;
+        var tmpPSplitInstanceBindRegions = new Rect2D[arrayLengthPSplitInstanceBindRegions];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkRect2D[arrayLengthPSplitInstanceBindRegions];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSplitInstanceBindRegions, arrayLengthPSplitInstanceBindRegions, nativeTmpArray1);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        {
+            tmpPSplitInstanceBindRegions[i] = new Rect2D(in nativeTmpArray1[i]);
+        }
+        PSplitInstanceBindRegions = tmpPSplitInstanceBindRegions;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkBindImageMemoryDeviceGroupInfoMarshaller
     {
@@ -89,30 +103,25 @@ public unsafe partial class BindImageMemoryDeviceGroupInfo : IMarshallableObject
             }
             else if (bindImageMemoryDeviceGroupInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (bindImageMemoryDeviceGroupInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].deviceIndexCount = bindImageMemoryDeviceGroupInfo.DeviceIndexCount;
 
-            if (bindImageMemoryDeviceGroupInfo.PDeviceIndices.HasValue)
+            if (!bindImageMemoryDeviceGroupInfo.PDeviceIndices.IsEmpty)
             {
-                context.Destination[0].pDeviceIndices = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(bindImageMemoryDeviceGroupInfo.PDeviceIndices.Value, ref context);
+                context.Destination[0].pDeviceIndices = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo>(bindImageMemoryDeviceGroupInfo.PDeviceIndices.Span, ref context);
             }
 
             context.Destination[0].splitInstanceBindRegionCount = bindImageMemoryDeviceGroupInfo.SplitInstanceBindRegionCount;
 
-            if (bindImageMemoryDeviceGroupInfo.PSplitInstanceBindRegions != default)
+            if (!bindImageMemoryDeviceGroupInfo.PSplitInstanceBindRegions.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkRect2D));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkRect2D>(structSlice0).Slice(0, 1);
-                context.Destination[0].pSplitInstanceBindRegions = (AdamantiumVulkan.Core.Interop.VkRect2D*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkRect2D>(structDestination0, context.DataCursor);
-                bindImageMemoryDeviceGroupInfo.PSplitInstanceBindRegions.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pSplitInstanceBindRegions = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.Rect2D, AdamantiumVulkan.Core.Interop.VkRect2D, AdamantiumVulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo>(bindImageMemoryDeviceGroupInfo.PSplitInstanceBindRegions, ref context);
             }
 
         }

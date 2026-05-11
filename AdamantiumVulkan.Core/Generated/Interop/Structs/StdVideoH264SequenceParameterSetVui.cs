@@ -8,11 +8,11 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using AdamantiumVulkan;
+using AdamantiumVulkan.Core;
 
-namespace AdamantiumVulkan.Interop;
+namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 209 Column: 16
+// File: video.xml Line: 105 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoH264SequenceParameterSetVui
 {
@@ -31,7 +31,7 @@ public unsafe partial struct StdVideoH264SequenceParameterSetVui
     public byte chroma_sample_loc_type_top_field;
     public byte chroma_sample_loc_type_bottom_field;
     public uint reserved1;
-    public AdamantiumVulkan.Interop.StdVideoH264HrdParameters* pHrdParameters;
+    public AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters* pHrdParameters;
 }
 
 

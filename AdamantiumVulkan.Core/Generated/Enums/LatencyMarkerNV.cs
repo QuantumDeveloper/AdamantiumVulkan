@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20200 Column: 14
-public enum LatencyMarkerNV : uint
+// File: vk.xml Line: 12344 Column: 6
+public enum LatencyMarkerNV : int
 {
     SimulationStartNv = 0,
 
@@ -37,8 +37,6 @@ public enum LatencyMarkerNV : uint
     OutOfBandPresentStartNv = 10,
 
     OutOfBandPresentEndNv = 11,
-
-    MaxEnumNv = 2147483647,
 
 }
 

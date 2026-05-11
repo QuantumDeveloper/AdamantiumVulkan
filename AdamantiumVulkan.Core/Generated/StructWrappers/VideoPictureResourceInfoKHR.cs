@@ -23,7 +23,7 @@ public unsafe partial class VideoPictureResourceInfoKHR : IMarshallableObject, I
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoPictureResourceInfoKhr;
     public object PNext { get; set; }
     public Offset2D CodedOffset { get; set; }
     public Extent2D CodedExtent { get; set; }
@@ -52,7 +52,6 @@ public unsafe partial class VideoPictureResourceInfoKHR : IMarshallableObject, I
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoPictureResourceInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         CodedOffset = new Offset2D(native.codedOffset);
         CodedExtent = new Extent2D(native.codedExtent);
@@ -60,14 +59,14 @@ public unsafe partial class VideoPictureResourceInfoKHR : IMarshallableObject, I
         ImageViewBinding = new ImageView(native.imageViewBinding);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoPictureResourceInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoPictureResourceInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoPictureResourceInfoKHRMarshaller
     {
@@ -81,11 +80,11 @@ public unsafe partial class VideoPictureResourceInfoKHR : IMarshallableObject, I
             }
             else if (videoPictureResourceInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoPictureResourceInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoPictureResourceInfoKHR.CodedOffset != default)

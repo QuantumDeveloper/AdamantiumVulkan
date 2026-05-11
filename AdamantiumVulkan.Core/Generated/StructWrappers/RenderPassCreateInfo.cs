@@ -25,7 +25,7 @@ public unsafe partial class RenderPassCreateInfo : IMarshallableObject, IMarshal
 
     public StructureType SType => StructureType.RenderPassCreateInfo;
     public object PNext { get; set; }
-    public VkRenderPassCreateFlags Flags { get; set; }
+    public RenderPassCreateFlagBits Flags { get; set; }
     public uint AttachmentCount { get; set; }
     public System.ReadOnlyMemory<AttachmentDescription> PAttachments { get; set; }
     public uint SubpassCount { get; set; }
@@ -88,27 +88,30 @@ public unsafe partial class RenderPassCreateInfo : IMarshallableObject, IMarshal
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         AttachmentCount = native.attachmentCount;
-        var tmpPAttachments = new AttachmentDescription[native.attachmentCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentDescription[native.attachmentCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAttachments, native.attachmentCount, nativeTmpArray0);
+        var arrayLengthPAttachments = native.attachmentCount;
+        var tmpPAttachments = new AttachmentDescription[arrayLengthPAttachments];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentDescription[arrayLengthPAttachments];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAttachments, arrayLengthPAttachments, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPAttachments[i] = new AttachmentDescription(in nativeTmpArray0[i]);
         }
         PAttachments = tmpPAttachments;
         SubpassCount = native.subpassCount;
-        var tmpPSubpasses = new SubpassDescription[native.subpassCount];
-        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkSubpassDescription[native.subpassCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSubpasses, native.subpassCount, nativeTmpArray1);
+        var arrayLengthPSubpasses = native.subpassCount;
+        var tmpPSubpasses = new SubpassDescription[arrayLengthPSubpasses];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkSubpassDescription[arrayLengthPSubpasses];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSubpasses, arrayLengthPSubpasses, nativeTmpArray1);
         for (int i = 0; i < nativeTmpArray1.Length; ++i)
         {
             tmpPSubpasses[i] = new SubpassDescription(in nativeTmpArray1[i]);
         }
         PSubpasses = tmpPSubpasses;
         DependencyCount = native.dependencyCount;
-        var tmpPDependencies = new SubpassDependency[native.dependencyCount];
-        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkSubpassDependency[native.dependencyCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDependencies, native.dependencyCount, nativeTmpArray2);
+        var arrayLengthPDependencies = native.dependencyCount;
+        var tmpPDependencies = new SubpassDependency[arrayLengthPDependencies];
+        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkSubpassDependency[arrayLengthPDependencies];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDependencies, arrayLengthPDependencies, nativeTmpArray2);
         for (int i = 0; i < nativeTmpArray2.Length; ++i)
         {
             tmpPDependencies[i] = new SubpassDependency(in nativeTmpArray2[i]);
@@ -116,14 +119,14 @@ public unsafe partial class RenderPassCreateInfo : IMarshallableObject, IMarshal
         PDependencies = tmpPDependencies;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderPassCreateInfoMarshaller
     {
@@ -137,17 +140,14 @@ public unsafe partial class RenderPassCreateInfo : IMarshallableObject, IMarshal
             }
             else if (renderPassCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderPassCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (renderPassCreateInfo.Flags != (uint)default)
-            {
-                context.Destination[0].flags = renderPassCreateInfo.Flags;
-            }
+            context.Destination[0].flags = renderPassCreateInfo.Flags;
 
             context.Destination[0].attachmentCount = renderPassCreateInfo.AttachmentCount;
 

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6765 Column: 39
+// File: vk.xml Line: 11763 Column: 6
 [Flags]
 public enum PipelineStageFlagBits2 : ulong
 {
@@ -64,42 +64,6 @@ public enum PipelineStageFlagBits2 : ulong
     VertexAttributeInputBit = 137438953472,
 
     PreRasterizationShadersBit = 274877906944,
-
-    VideoDecodeBitKhr = 67108864,
-
-    VideoEncodeBitKhr = 134217728,
-
-    TransformFeedbackBitExt = 16777216,
-
-    ConditionalRenderingBitExt = 262144,
-
-    CommandPreprocessBitNv = 131072,
-
-    FragmentShadingRateAttachmentBitKhr = 4194304,
-
-    AccelerationStructureBuildBitKhr = 33554432,
-
-    RayTracingShaderBitKhr = 2097152,
-
-    FragmentDensityProcessBitExt = 8388608,
-
-    TaskShaderBitNv = 524288,
-
-    MeshShaderBitNv = 1048576,
-
-    SubpassShaderBitHuawei = 549755813888,
-
-    InvocationMaskBitHuawei = 1099511627776,
-
-    AccelerationStructureCopyBitKhr = 268435456,
-
-    MicromapBuildBitExt = 1073741824,
-
-    ClusterCullingShaderBitHuawei = 2199023255552,
-
-    OpticalFlowBitNv = 536870912,
-
-    ConvertCooperativeVectorMatrixBitNv = 17592186044416,
 
 }
 

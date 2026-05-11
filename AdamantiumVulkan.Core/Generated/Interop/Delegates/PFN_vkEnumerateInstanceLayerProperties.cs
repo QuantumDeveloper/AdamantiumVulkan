@@ -13,7 +13,7 @@ using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4168 Column: 30
+// File: video.xml Line: 12474 Column: 10
 public unsafe struct PFN_vkEnumerateInstanceLayerProperties
 {
     public PFN_vkEnumerateInstanceLayerProperties(nuint ptr) : this((void*) ptr) { }
@@ -21,24 +21,24 @@ public unsafe struct PFN_vkEnumerateInstanceLayerProperties
     public PFN_vkEnumerateInstanceLayerProperties(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<ref uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)ptr;
     }
 
-    private delegate* unmanaged<ref uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result> InvokeFunc;
+    private delegate* unmanaged<uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
+    public Result Invoke(uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
     {
-        return InvokeFunc(ref pPropertyCount, pProperties);
+        return InvokeFunc(pPropertyCount, pProperties);
     }
-    public static Result Invoke(void* ptr, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
+    public static Result Invoke(void* ptr, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
     {
-        return ((delegate* unmanaged<ref uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)ptr)(ref pPropertyCount, pProperties);
+        return ((delegate* unmanaged<uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)ptr)(pPropertyCount, pProperties);
     }
-    public static Result Invoke(nuint ptr, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
+    public static Result Invoke(nuint ptr, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
     {
-        return ((delegate* unmanaged<ref uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)(void*)ptr)(ref pPropertyCount, pProperties);
+        return ((delegate* unmanaged<uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)(void*)ptr)(pPropertyCount, pProperties);
     }
 
     public static explicit operator PFN_vkEnumerateInstanceLayerProperties(void* ptr) => new(ptr);

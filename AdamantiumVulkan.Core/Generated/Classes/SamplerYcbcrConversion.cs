@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5096 Column: 1
+// File: vk.xml Line: 583 Column: 10
 public unsafe partial class SamplerYcbcrConversion : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T>
 {
     internal VkSamplerYcbcrConversion_T __Instance;
@@ -27,7 +27,7 @@ public unsafe partial class SamplerYcbcrConversion : IUnmanagedWrapper<Adamantiu
     }
 
     public AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public ref readonly VkSamplerYcbcrConversion_T GetPinnableReference() => ref __Instance;
 

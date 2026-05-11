@@ -9,19 +9,18 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using AdamantiumVulkan.Core;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9428 Column: 16
+// File: vk.xml Line: 7848 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkVideoEncodeH264PictureInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public uint naluSliceEntryCount;
     public AdamantiumVulkan.Core.Interop.VkVideoEncodeH264NaluSliceInfoKHR* pNaluSliceEntries;
-    public AdamantiumVulkan.Interop.StdVideoEncodeH264PictureInfo* pStdPictureInfo;
+    public AdamantiumVulkan.Core.Interop.StdVideoEncodeH264PictureInfo* pStdPictureInfo;
     public VkBool32 generatePrefixNalu;
 }
 

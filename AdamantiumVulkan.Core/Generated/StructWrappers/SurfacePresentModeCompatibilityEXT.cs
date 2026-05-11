@@ -23,10 +23,10 @@ public unsafe partial class SurfacePresentModeCompatibilityEXT : IMarshallableOb
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.SurfacePresentModeCompatibilityExt;
     public object PNext { get; set; }
     public uint PresentModeCount { get; set; }
-    public PresentModeKHR? PresentModes { get; set; }
+    public System.ReadOnlyMemory<PresentModeKHR> PresentModes { get; set; }
 
     public static implicit operator SurfacePresentModeCompatibilityEXT(AdamantiumVulkan.Core.Interop.VkSurfacePresentModeCompatibilityEXT s)
     {
@@ -40,6 +40,8 @@ public unsafe partial class SurfacePresentModeCompatibilityEXT : IMarshallableOb
         {
             size += marshallable.GetSize();
         }
+        if (!PresentModes.IsEmpty)
+            size += PresentModes.Span.Length * sizeof(int);
         return size;
     }
 
@@ -50,20 +52,22 @@ public unsafe partial class SurfacePresentModeCompatibilityEXT : IMarshallableOb
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkSurfacePresentModeCompatibilityEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PresentModeCount = native.presentModeCount;
-        PresentModes = *native.pPresentModes;
+        var arrayLengthPresentModes = native.presentModeCount;
+        var tmpPresentModes = new PresentModeKHR[arrayLengthPresentModes];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPresentModes, arrayLengthPresentModes, tmpPresentModes);
+        PresentModes = tmpPresentModes;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSurfacePresentModeCompatibilityEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSurfacePresentModeCompatibilityEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSurfacePresentModeCompatibilityEXTMarshaller
     {
@@ -77,19 +81,26 @@ public unsafe partial class SurfacePresentModeCompatibilityEXT : IMarshallableOb
             }
             else if (surfacePresentModeCompatibilityEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (surfacePresentModeCompatibilityEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].presentModeCount = surfacePresentModeCompatibilityEXT.PresentModeCount;
 
-            var enumSpanPresentModes = context.AllocateData(sizeof(uint));
-            ref uint enumValuePresentModes = ref System.Runtime.InteropServices.MemoryMarshal.AsRef<uint>(enumSpanPresentModes);
-            enumValuePresentModes = (uint)surfacePresentModeCompatibilityEXT.PresentModes;
-            context.Destination[0].pPresentModes = (AdamantiumVulkan.Core.PresentModeKHR*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPresentModes));
+            if (!surfacePresentModeCompatibilityEXT.PresentModes.IsEmpty)
+            {
+                var sizeInBytes = sizeof(int) * surfacePresentModeCompatibilityEXT.PresentModes.Length;
+                var byteSpan = context.AllocateData(sizeInBytes);
+                var enumSpanPresentModes = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, int>(byteSpan);
+                context.Destination[0].pPresentModes = (AdamantiumVulkan.Core.PresentModeKHR*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPresentModes));
+                for (int i = 0; i < enumSpanPresentModes.Length; i++)
+                {
+                    enumSpanPresentModes[i] = (int)surfacePresentModeCompatibilityEXT.PresentModes.Span[i];
+                }
+            }
 
         }
     }

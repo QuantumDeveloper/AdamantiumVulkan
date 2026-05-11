@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceMeshShaderPropertiesEXT : IMarshallabl
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceMeshShaderPropertiesExt;
     public object PNext { get; set; }
     public uint MaxTaskWorkGroupTotalCount { get; set; }
     public System.ReadOnlyMemory<uint> MaxTaskWorkGroupCount { get; set; }
@@ -76,16 +76,17 @@ public unsafe partial class PhysicalDeviceMeshShaderPropertiesEXT : IMarshallabl
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MaxTaskWorkGroupTotalCount = native.maxTaskWorkGroupTotalCount;
         var tmpMaxTaskWorkGroupCount = new uint[3];
-        var pMaxTaskWorkGroupCount = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.maxTaskWorkGroupCount[0]));
+        var maxTaskWorkGroupCountp = native.maxTaskWorkGroupCount[0];
+        var pMaxTaskWorkGroupCount = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in maxTaskWorkGroupCountp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMaxTaskWorkGroupCount, 3, tmpMaxTaskWorkGroupCount);
         MaxTaskWorkGroupCount = tmpMaxTaskWorkGroupCount;
         MaxTaskWorkGroupInvocations = native.maxTaskWorkGroupInvocations;
         var tmpMaxTaskWorkGroupSize = new uint[3];
-        var pMaxTaskWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.maxTaskWorkGroupSize[0]));
+        var maxTaskWorkGroupSizep = native.maxTaskWorkGroupSize[0];
+        var pMaxTaskWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in maxTaskWorkGroupSizep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMaxTaskWorkGroupSize, 3, tmpMaxTaskWorkGroupSize);
         MaxTaskWorkGroupSize = tmpMaxTaskWorkGroupSize;
         MaxTaskPayloadSize = native.maxTaskPayloadSize;
@@ -93,12 +94,14 @@ public unsafe partial class PhysicalDeviceMeshShaderPropertiesEXT : IMarshallabl
         MaxTaskPayloadAndSharedMemorySize = native.maxTaskPayloadAndSharedMemorySize;
         MaxMeshWorkGroupTotalCount = native.maxMeshWorkGroupTotalCount;
         var tmpMaxMeshWorkGroupCount = new uint[3];
-        var pMaxMeshWorkGroupCount = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.maxMeshWorkGroupCount[0]));
+        var maxMeshWorkGroupCountp = native.maxMeshWorkGroupCount[0];
+        var pMaxMeshWorkGroupCount = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in maxMeshWorkGroupCountp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMaxMeshWorkGroupCount, 3, tmpMaxMeshWorkGroupCount);
         MaxMeshWorkGroupCount = tmpMaxMeshWorkGroupCount;
         MaxMeshWorkGroupInvocations = native.maxMeshWorkGroupInvocations;
         var tmpMaxMeshWorkGroupSize = new uint[3];
-        var pMaxMeshWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.maxMeshWorkGroupSize[0]));
+        var maxMeshWorkGroupSizep = native.maxMeshWorkGroupSize[0];
+        var pMaxMeshWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in maxMeshWorkGroupSizep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMaxMeshWorkGroupSize, 3, tmpMaxMeshWorkGroupSize);
         MaxMeshWorkGroupSize = tmpMaxMeshWorkGroupSize;
         MaxMeshSharedMemorySize = native.maxMeshSharedMemorySize;
@@ -120,14 +123,14 @@ public unsafe partial class PhysicalDeviceMeshShaderPropertiesEXT : IMarshallabl
         PrefersCompactPrimitiveOutput = native.prefersCompactPrimitiveOutput;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceMeshShaderPropertiesEXTMarshaller
     {
@@ -141,11 +144,11 @@ public unsafe partial class PhysicalDeviceMeshShaderPropertiesEXT : IMarshallabl
             }
             else if (physicalDeviceMeshShaderPropertiesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceMeshShaderPropertiesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].maxTaskWorkGroupTotalCount = physicalDeviceMeshShaderPropertiesEXT.MaxTaskWorkGroupTotalCount;

@@ -23,7 +23,7 @@ public unsafe partial class RenderingAttachmentInfo : IMarshallableObject, IMars
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.RenderingAttachmentInfo;
     public object PNext { get; set; }
     public ImageView ImageView { get; set; }
     public ImageLayout ImageLayout { get; set; }
@@ -56,7 +56,6 @@ public unsafe partial class RenderingAttachmentInfo : IMarshallableObject, IMars
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ImageView = new ImageView(native.imageView);
         ImageLayout = native.imageLayout;
@@ -68,14 +67,14 @@ public unsafe partial class RenderingAttachmentInfo : IMarshallableObject, IMars
         ClearValue = new ClearValue(native.clearValue);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderingAttachmentInfoMarshaller
     {
@@ -89,11 +88,11 @@ public unsafe partial class RenderingAttachmentInfo : IMarshallableObject, IMars
             }
             else if (renderingAttachmentInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderingAttachmentInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (renderingAttachmentInfo.ImageView != default)

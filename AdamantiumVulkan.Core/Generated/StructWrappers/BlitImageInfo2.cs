@@ -23,14 +23,14 @@ public unsafe partial class BlitImageInfo2 : IMarshallableObject, IMarshallable<
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.BlitImageInfo2;
     public object PNext { get; set; }
     public Image SrcImage { get; set; }
     public ImageLayout SrcImageLayout { get; set; }
     public Image DstImage { get; set; }
     public ImageLayout DstImageLayout { get; set; }
     public uint RegionCount { get; set; }
-    public ImageBlit2 PRegions { get; set; }
+    public System.ReadOnlyMemory<ImageBlit2> PRegions { get; set; }
     public Filter Filter { get; set; }
 
     public static implicit operator BlitImageInfo2(AdamantiumVulkan.Core.Interop.VkBlitImageInfo2 b)
@@ -45,9 +45,15 @@ public unsafe partial class BlitImageInfo2 : IMarshallableObject, IMarshallable<
         {
             size += marshallable.GetSize();
         }
-        if (PRegions != default)
+        if (!PRegions.IsEmpty)
         {
-            size += PRegions.GetSize();
+            for (int i = 0; i < PRegions.Length; i++)
+            {
+                if (PRegions.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkImageBlit2>();
+                else
+                    size += PRegions.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -59,26 +65,32 @@ public unsafe partial class BlitImageInfo2 : IMarshallableObject, IMarshallable<
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkBlitImageInfo2 native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         SrcImage = new Image(native.srcImage);
         SrcImageLayout = native.srcImageLayout;
         DstImage = new Image(native.dstImage);
         DstImageLayout = native.dstImageLayout;
         RegionCount = native.regionCount;
-        PRegions = new ImageBlit2(in *native.pRegions);
-        NativeUtils.Free(native.pRegions);
+        var arrayLengthPRegions = native.regionCount;
+        var tmpPRegions = new ImageBlit2[arrayLengthPRegions];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkImageBlit2[arrayLengthPRegions];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pRegions, arrayLengthPRegions, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPRegions[i] = new ImageBlit2(in nativeTmpArray0[i]);
+        }
+        PRegions = tmpPRegions;
         Filter = native.filter;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkBlitImageInfo2>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkBlitImageInfo2>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkBlitImageInfo2Marshaller
     {
@@ -92,11 +104,11 @@ public unsafe partial class BlitImageInfo2 : IMarshallableObject, IMarshallable<
             }
             else if (blitImageInfo2.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (blitImageInfo2.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (blitImageInfo2.SrcImage != default)
@@ -115,14 +127,9 @@ public unsafe partial class BlitImageInfo2 : IMarshallableObject, IMarshallable<
 
             context.Destination[0].regionCount = blitImageInfo2.RegionCount;
 
-            if (blitImageInfo2.PRegions != default)
+            if (!blitImageInfo2.PRegions.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkImageBlit2));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkImageBlit2>(structSlice0).Slice(0, 1);
-                context.Destination[0].pRegions = (AdamantiumVulkan.Core.Interop.VkImageBlit2*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageBlit2>(structDestination0, context.DataCursor);
-                blitImageInfo2.PRegions.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pRegions = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.ImageBlit2, AdamantiumVulkan.Core.Interop.VkImageBlit2, AdamantiumVulkan.Core.Interop.VkBlitImageInfo2>(blitImageInfo2.PRegions, ref context);
             }
 
             context.Destination[0].filter = blitImageInfo2.Filter;

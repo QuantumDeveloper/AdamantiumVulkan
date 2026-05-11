@@ -23,7 +23,7 @@ public unsafe partial class SemaphoreSignalInfo : IMarshallableObject, IMarshall
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.SemaphoreSignalInfo;
     public object PNext { get; set; }
     public Semaphore Semaphore { get; set; }
     public ulong Value { get; set; }
@@ -50,20 +50,19 @@ public unsafe partial class SemaphoreSignalInfo : IMarshallableObject, IMarshall
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Semaphore = new Semaphore(native.semaphore);
         Value = native.value;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSemaphoreSignalInfoMarshaller
     {
@@ -77,11 +76,11 @@ public unsafe partial class SemaphoreSignalInfo : IMarshallableObject, IMarshall
             }
             else if (semaphoreSignalInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (semaphoreSignalInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (semaphoreSignalInfo.Semaphore != default)

@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1QuantizationFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1QuantizationFlags>
+public unsafe partial class StdVideoAV1QuantizationFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1QuantizationFlags>
 {
     public StdVideoAV1QuantizationFlags()
     {
     }
 
-    public StdVideoAV1QuantizationFlags(in AdamantiumVulkan.Interop.StdVideoAV1QuantizationFlags native)
+    public StdVideoAV1QuantizationFlags(in AdamantiumVulkan.Core.Interop.StdVideoAV1QuantizationFlags native)
     {
         MarshalFrom(in native);
     }
@@ -27,41 +27,41 @@ public unsafe partial class StdVideoAV1QuantizationFlags : IMarshallableObject, 
     public uint Diff_uv_delta { get; set; }
     public uint Reserved { get; set; }
 
-    public static implicit operator StdVideoAV1QuantizationFlags(AdamantiumVulkan.Interop.StdVideoAV1QuantizationFlags s)
+    public static implicit operator StdVideoAV1QuantizationFlags(AdamantiumVulkan.Core.Interop.StdVideoAV1QuantizationFlags s)
     {
         return new StdVideoAV1QuantizationFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1QuantizationFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1QuantizationFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1QuantizationFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1QuantizationFlags> context)
     {
         new StdVideoAV1QuantizationFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1QuantizationFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1QuantizationFlags native)
     {
         Using_qmatrix = native.using_qmatrix;
         Diff_uv_delta = native.diff_uv_delta;
         Reserved = native.reserved;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1QuantizationFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1QuantizationFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1QuantizationFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1QuantizationFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1QuantizationFlagsMarshaller
     {
-        public StdVideoAV1QuantizationFlagsMarshaller(AdamantiumVulkan.StdVideoAV1QuantizationFlags stdVideoAV1QuantizationFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1QuantizationFlags> context)
+        public StdVideoAV1QuantizationFlagsMarshaller(AdamantiumVulkan.Core.StdVideoAV1QuantizationFlags stdVideoAV1QuantizationFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1QuantizationFlags> context)
         {
             context.Destination[0].using_qmatrix = stdVideoAV1QuantizationFlags.Using_qmatrix;
 

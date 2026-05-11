@@ -68,9 +68,10 @@ public unsafe partial class RenderPassBeginInfo : IMarshallableObject, IMarshall
         Framebuffer = new Framebuffer(native.framebuffer);
         RenderArea = new Rect2D(native.renderArea);
         ClearValueCount = native.clearValueCount;
-        var tmpPClearValues = new ClearValue[native.clearValueCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkClearValue[native.clearValueCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pClearValues, native.clearValueCount, nativeTmpArray0);
+        var arrayLengthPClearValues = native.clearValueCount;
+        var tmpPClearValues = new ClearValue[arrayLengthPClearValues];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkClearValue[arrayLengthPClearValues];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pClearValues, arrayLengthPClearValues, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPClearValues[i] = new ClearValue(in nativeTmpArray0[i]);
@@ -78,14 +79,14 @@ public unsafe partial class RenderPassBeginInfo : IMarshallableObject, IMarshall
         PClearValues = tmpPClearValues;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderPassBeginInfoMarshaller
     {
@@ -99,11 +100,11 @@ public unsafe partial class RenderPassBeginInfo : IMarshallableObject, IMarshall
             }
             else if (renderPassBeginInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderPassBeginInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (renderPassBeginInfo.RenderPass != default)

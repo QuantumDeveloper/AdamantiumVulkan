@@ -23,10 +23,10 @@ public unsafe partial class PipelineVertexInputDivisorStateCreateInfo : IMarshal
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PipelineVertexInputDivisorStateCreateInfo;
     public object PNext { get; set; }
     public uint VertexBindingDivisorCount { get; set; }
-    public VertexInputBindingDivisorDescription PVertexBindingDivisors { get; set; }
+    public System.ReadOnlyMemory<VertexInputBindingDivisorDescription> PVertexBindingDivisors { get; set; }
 
     public static implicit operator PipelineVertexInputDivisorStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfo p)
     {
@@ -40,9 +40,15 @@ public unsafe partial class PipelineVertexInputDivisorStateCreateInfo : IMarshal
         {
             size += marshallable.GetSize();
         }
-        if (PVertexBindingDivisors != default)
+        if (!PVertexBindingDivisors.IsEmpty)
         {
-            size += PVertexBindingDivisors.GetSize();
+            for (int i = 0; i < PVertexBindingDivisors.Length; i++)
+            {
+                if (PVertexBindingDivisors.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescription>();
+                else
+                    size += PVertexBindingDivisors.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -54,21 +60,27 @@ public unsafe partial class PipelineVertexInputDivisorStateCreateInfo : IMarshal
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         VertexBindingDivisorCount = native.vertexBindingDivisorCount;
-        PVertexBindingDivisors = new VertexInputBindingDivisorDescription(in *native.pVertexBindingDivisors);
-        NativeUtils.Free(native.pVertexBindingDivisors);
+        var arrayLengthPVertexBindingDivisors = native.vertexBindingDivisorCount;
+        var tmpPVertexBindingDivisors = new VertexInputBindingDivisorDescription[arrayLengthPVertexBindingDivisors];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescription[arrayLengthPVertexBindingDivisors];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pVertexBindingDivisors, arrayLengthPVertexBindingDivisors, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPVertexBindingDivisors[i] = new VertexInputBindingDivisorDescription(in nativeTmpArray0[i]);
+        }
+        PVertexBindingDivisors = tmpPVertexBindingDivisors;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineVertexInputDivisorStateCreateInfoMarshaller
     {
@@ -82,23 +94,18 @@ public unsafe partial class PipelineVertexInputDivisorStateCreateInfo : IMarshal
             }
             else if (pipelineVertexInputDivisorStateCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineVertexInputDivisorStateCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].vertexBindingDivisorCount = pipelineVertexInputDivisorStateCreateInfo.VertexBindingDivisorCount;
 
-            if (pipelineVertexInputDivisorStateCreateInfo.PVertexBindingDivisors != default)
+            if (!pipelineVertexInputDivisorStateCreateInfo.PVertexBindingDivisors.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescription));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescription>(structSlice0).Slice(0, 1);
-                context.Destination[0].pVertexBindingDivisors = (AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescription*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescription>(structDestination0, context.DataCursor);
-                pipelineVertexInputDivisorStateCreateInfo.PVertexBindingDivisors.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pVertexBindingDivisors = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.VertexInputBindingDivisorDescription, AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescription, AdamantiumVulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfo>(pipelineVertexInputDivisorStateCreateInfo.PVertexBindingDivisors, ref context);
             }
 
         }

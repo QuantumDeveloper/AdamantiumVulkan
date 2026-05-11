@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2206 Column: 14
-public enum PolygonMode : uint
+// File: vk.xml Line: 10360 Column: 6
+public enum PolygonMode : int
 {
     Fill = 0,
 
@@ -21,8 +21,6 @@ public enum PolygonMode : uint
     Point = 2,
 
     FillRectangleNv = 1000153000,
-
-    MaxEnum = 2147483647,
 
 }
 

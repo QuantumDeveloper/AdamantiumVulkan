@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceRobustness2FeaturesEXT : IMarshallable
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceRobustness2FeaturesExt;
     public object PNext { get; set; }
     public VkBool32 RobustBufferAccess2 { get; set; }
     public VkBool32 RobustImageAccess2 { get; set; }
@@ -51,21 +51,20 @@ public unsafe partial class PhysicalDeviceRobustness2FeaturesEXT : IMarshallable
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRobustness2FeaturesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         RobustBufferAccess2 = native.robustBufferAccess2;
         RobustImageAccess2 = native.robustImageAccess2;
         NullDescriptor = native.nullDescriptor;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRobustness2FeaturesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRobustness2FeaturesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceRobustness2FeaturesEXTMarshaller
     {
@@ -79,11 +78,11 @@ public unsafe partial class PhysicalDeviceRobustness2FeaturesEXT : IMarshallable
             }
             else if (physicalDeviceRobustness2FeaturesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceRobustness2FeaturesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceRobustness2FeaturesEXT.RobustBufferAccess2 != (uint)default)

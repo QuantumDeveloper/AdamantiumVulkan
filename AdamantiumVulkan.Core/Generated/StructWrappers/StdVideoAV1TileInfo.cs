@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1TileInfo : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1TileInfo>
+public unsafe partial class StdVideoAV1TileInfo : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo>
 {
     public StdVideoAV1TileInfo()
     {
     }
 
-    public StdVideoAV1TileInfo(in AdamantiumVulkan.Interop.StdVideoAV1TileInfo native)
+    public StdVideoAV1TileInfo(in AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo native)
     {
         MarshalFrom(in native);
     }
@@ -34,23 +34,23 @@ public unsafe partial class StdVideoAV1TileInfo : IMarshallableObject, IMarshall
     public ushort? PWidthInSbsMinus1 { get; set; }
     public ushort? PHeightInSbsMinus1 { get; set; }
 
-    public static implicit operator StdVideoAV1TileInfo(AdamantiumVulkan.Interop.StdVideoAV1TileInfo s)
+    public static implicit operator StdVideoAV1TileInfo(AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo s)
     {
         return new StdVideoAV1TileInfo(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1TileInfo>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1TileInfo> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo> context)
     {
         new StdVideoAV1TileInfoMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1TileInfo native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo native)
     {
         Flags = new StdVideoAV1TileInfoFlags(native.flags);
         TileCols = native.TileCols;
@@ -58,7 +58,8 @@ public unsafe partial class StdVideoAV1TileInfo : IMarshallableObject, IMarshall
         Context_update_tile_id = native.context_update_tile_id;
         Tile_size_bytes_minus_1 = native.tile_size_bytes_minus_1;
         var tmpReserved1 = new byte[7];
-        var pReserved1 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.reserved1[0]));
+        var reserved1p = native.reserved1[0];
+        var pReserved1 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in reserved1p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pReserved1, 7, tmpReserved1);
         Reserved1 = tmpReserved1;
         if (native.pMiColStarts != null)
@@ -83,25 +84,25 @@ public unsafe partial class StdVideoAV1TileInfo : IMarshallableObject, IMarshall
         }
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1TileInfo>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1TileInfo>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1TileInfoMarshaller
     {
-        public StdVideoAV1TileInfoMarshaller(AdamantiumVulkan.StdVideoAV1TileInfo stdVideoAV1TileInfo, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1TileInfo> context)
+        public StdVideoAV1TileInfoMarshaller(AdamantiumVulkan.Core.StdVideoAV1TileInfo stdVideoAV1TileInfo, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo> context)
         {
             if (stdVideoAV1TileInfo.Flags != default)
             {
-                fixed (AdamantiumVulkan.Interop.StdVideoAV1TileInfoFlags* pField = &context.Destination[0].flags)
+                fixed (AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfoFlags* pField = &context.Destination[0].flags)
                 {
-                    var fieldSpan = new System.Span<AdamantiumVulkan.Interop.StdVideoAV1TileInfoFlags>(pField, 1);
-                    var childContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1TileInfoFlags>(fieldSpan, context.DataCursor);
+                    var fieldSpan = new System.Span<AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfoFlags>(pField, 1);
+                    var childContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfoFlags>(fieldSpan, context.DataCursor);
                     stdVideoAV1TileInfo.Flags.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }

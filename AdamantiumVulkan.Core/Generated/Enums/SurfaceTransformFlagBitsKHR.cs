@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8540 Column: 14
+// File: vk.xml Line: 11055 Column: 6
 [Flags]
 public enum SurfaceTransformFlagBitsKHR : uint
 {
@@ -32,8 +32,6 @@ public enum SurfaceTransformFlagBitsKHR : uint
     HorizontalMirrorRotate270BitKhr = 128,
 
     InheritBitKhr = 256,
-
-    FlagBitsMaxEnumKhr = 2147483647,
 
 }
 

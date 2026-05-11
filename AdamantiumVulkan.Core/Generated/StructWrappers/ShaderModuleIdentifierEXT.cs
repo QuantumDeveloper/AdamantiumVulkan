@@ -23,7 +23,7 @@ public unsafe partial class ShaderModuleIdentifierEXT : IMarshallableObject, IMa
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ShaderModuleIdentifierExt;
     public object PNext { get; set; }
     public uint IdentifierSize { get; set; }
     public System.ReadOnlyMemory<byte> Identifier { get; set; }
@@ -50,23 +50,23 @@ public unsafe partial class ShaderModuleIdentifierEXT : IMarshallableObject, IMa
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         IdentifierSize = native.identifierSize;
         var tmpIdentifier = new byte[32];
-        var pIdentifier = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.identifier[0]));
+        var identifierp = native.identifier[0];
+        var pIdentifier = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in identifierp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pIdentifier, 32, tmpIdentifier);
         Identifier = tmpIdentifier;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkShaderModuleIdentifierEXTMarshaller
     {
@@ -80,11 +80,11 @@ public unsafe partial class ShaderModuleIdentifierEXT : IMarshallableObject, IMa
             }
             else if (shaderModuleIdentifierEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (shaderModuleIdentifierEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].identifierSize = shaderModuleIdentifierEXT.IdentifierSize;

@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13911 Column: 14
-public enum ViewportCoordinateSwizzleNV : uint
+// File: vk.xml Line: 11325 Column: 6
+public enum ViewportCoordinateSwizzleNV : int
 {
     PositiveXNv = 0,
 
@@ -29,8 +29,6 @@ public enum ViewportCoordinateSwizzleNV : uint
     PositiveWNv = 6,
 
     NegativeWNv = 7,
-
-    MaxEnumNv = 2147483647,
 
 }
 

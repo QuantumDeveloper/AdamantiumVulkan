@@ -12,15 +12,15 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14923 Column: 16
+// File: vk.xml Line: 4995 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkGeometryNV
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public GeometryTypeKHR geometryType;
     public VkGeometryDataNV geometry;
-    public VkGeometryFlagsKHR flags;
+    public GeometryFlagBitsKHR flags;
 }
 
 

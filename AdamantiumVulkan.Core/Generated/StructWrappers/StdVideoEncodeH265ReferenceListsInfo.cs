@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeH265ReferenceListsInfo : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo>
+public unsafe partial class StdVideoEncodeH265ReferenceListsInfo : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfo>
 {
     public StdVideoEncodeH265ReferenceListsInfo()
     {
     }
 
-    public StdVideoEncodeH265ReferenceListsInfo(in AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo native)
+    public StdVideoEncodeH265ReferenceListsInfo(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfo native)
     {
         MarshalFrom(in native);
     }
@@ -31,64 +31,68 @@ public unsafe partial class StdVideoEncodeH265ReferenceListsInfo : IMarshallable
     public System.ReadOnlyMemory<byte> List_entry_l0 { get; set; }
     public System.ReadOnlyMemory<byte> List_entry_l1 { get; set; }
 
-    public static implicit operator StdVideoEncodeH265ReferenceListsInfo(AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo s)
+    public static implicit operator StdVideoEncodeH265ReferenceListsInfo(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfo s)
     {
         return new StdVideoEncodeH265ReferenceListsInfo(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfo>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfo> context)
     {
         new StdVideoEncodeH265ReferenceListsInfoMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfo native)
     {
         Flags = new StdVideoEncodeH265ReferenceListsInfoFlags(native.flags);
         Num_ref_idx_l0_active_minus1 = native.num_ref_idx_l0_active_minus1;
         Num_ref_idx_l1_active_minus1 = native.num_ref_idx_l1_active_minus1;
         var tmpRefPicList0 = new byte[15];
-        var pRefPicList0 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.RefPicList0[0]));
+        var RefPicList0p = native.RefPicList0[0];
+        var pRefPicList0 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in RefPicList0p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pRefPicList0, 15, tmpRefPicList0);
         RefPicList0 = tmpRefPicList0;
         var tmpRefPicList1 = new byte[15];
-        var pRefPicList1 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.RefPicList1[0]));
+        var RefPicList1p = native.RefPicList1[0];
+        var pRefPicList1 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in RefPicList1p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pRefPicList1, 15, tmpRefPicList1);
         RefPicList1 = tmpRefPicList1;
         var tmpList_entry_l0 = new byte[15];
-        var pList_entry_l0 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.list_entry_l0[0]));
+        var list_entry_l0p = native.list_entry_l0[0];
+        var pList_entry_l0 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in list_entry_l0p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pList_entry_l0, 15, tmpList_entry_l0);
         List_entry_l0 = tmpList_entry_l0;
         var tmpList_entry_l1 = new byte[15];
-        var pList_entry_l1 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.list_entry_l1[0]));
+        var list_entry_l1p = native.list_entry_l1[0];
+        var pList_entry_l1 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in list_entry_l1p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pList_entry_l1, 15, tmpList_entry_l1);
         List_entry_l1 = tmpList_entry_l1;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfo>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeH265ReferenceListsInfoMarshaller
     {
-        public StdVideoEncodeH265ReferenceListsInfoMarshaller(AdamantiumVulkan.StdVideoEncodeH265ReferenceListsInfo stdVideoEncodeH265ReferenceListsInfo, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo> context)
+        public StdVideoEncodeH265ReferenceListsInfoMarshaller(AdamantiumVulkan.Core.StdVideoEncodeH265ReferenceListsInfo stdVideoEncodeH265ReferenceListsInfo, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfo> context)
         {
             if (stdVideoEncodeH265ReferenceListsInfo.Flags != default)
             {
-                fixed (AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfoFlags* pField = &context.Destination[0].flags)
+                fixed (AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfoFlags* pField = &context.Destination[0].flags)
                 {
-                    var fieldSpan = new System.Span<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfoFlags>(pField, 1);
-                    var childContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfoFlags>(fieldSpan, context.DataCursor);
+                    var fieldSpan = new System.Span<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfoFlags>(pField, 1);
+                    var childContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfoFlags>(fieldSpan, context.DataCursor);
                     stdVideoEncodeH265ReferenceListsInfo.Flags.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }

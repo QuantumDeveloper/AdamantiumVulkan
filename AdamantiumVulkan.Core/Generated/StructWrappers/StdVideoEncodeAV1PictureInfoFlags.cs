@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeAV1PictureInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfoFlags>
+public unsafe partial class StdVideoEncodeAV1PictureInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfoFlags>
 {
     public StdVideoEncodeAV1PictureInfoFlags()
     {
     }
 
-    public StdVideoEncodeAV1PictureInfoFlags(in AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfoFlags native)
+    public StdVideoEncodeAV1PictureInfoFlags(in AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfoFlags native)
     {
         MarshalFrom(in native);
     }
@@ -54,23 +54,23 @@ public unsafe partial class StdVideoEncodeAV1PictureInfoFlags : IMarshallableObj
     public uint Showable_frame { get; set; }
     public uint Reserved { get; set; }
 
-    public static implicit operator StdVideoEncodeAV1PictureInfoFlags(AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfoFlags s)
+    public static implicit operator StdVideoEncodeAV1PictureInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfoFlags s)
     {
         return new StdVideoEncodeAV1PictureInfoFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfoFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfoFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfoFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfoFlags> context)
     {
         new StdVideoEncodeAV1PictureInfoFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfoFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfoFlags native)
     {
         Error_resilient_mode = native.error_resilient_mode;
         Disable_cdf_update = native.disable_cdf_update;
@@ -104,18 +104,18 @@ public unsafe partial class StdVideoEncodeAV1PictureInfoFlags : IMarshallableObj
         Reserved = native.reserved;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfoFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfoFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfoFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfoFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeAV1PictureInfoFlagsMarshaller
     {
-        public StdVideoEncodeAV1PictureInfoFlagsMarshaller(AdamantiumVulkan.StdVideoEncodeAV1PictureInfoFlags stdVideoEncodeAV1PictureInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfoFlags> context)
+        public StdVideoEncodeAV1PictureInfoFlagsMarshaller(AdamantiumVulkan.Core.StdVideoEncodeAV1PictureInfoFlags stdVideoEncodeAV1PictureInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfoFlags> context)
         {
             context.Destination[0].error_resilient_mode = stdVideoEncodeAV1PictureInfoFlags.Error_resilient_mode;
 

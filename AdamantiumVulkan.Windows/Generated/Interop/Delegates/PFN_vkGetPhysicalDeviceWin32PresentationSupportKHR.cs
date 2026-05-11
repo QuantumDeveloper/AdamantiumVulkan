@@ -15,7 +15,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 36 Column: 30
+// File: video.xml Line: 13665 Column: 10
 public unsafe struct PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR
 {
     public PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR(nuint ptr) : this((void*) ptr) { }
@@ -23,24 +23,24 @@ public unsafe struct PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR
     public PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, uint>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, VkBool32>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, uint> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, VkBool32> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public uint Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex)
+    public VkBool32 Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex)
     {
         return InvokeFunc(physicalDevice, queueFamilyIndex);
     }
-    public static uint Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex)
+    public static VkBool32 Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, uint>)ptr)(physicalDevice, queueFamilyIndex);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, VkBool32>)ptr)(physicalDevice, queueFamilyIndex);
     }
-    public static uint Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex)
+    public static VkBool32 Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, uint>)(void*)ptr)(physicalDevice, queueFamilyIndex);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, VkBool32>)(void*)ptr)(physicalDevice, queueFamilyIndex);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR(void* ptr) => new(ptr);

@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5132 Column: 14
+// File: vk.xml Line: 11361 Column: 6
 [Flags]
-public enum SamplerYcbcrRange : uint
+public enum SamplerYcbcrRange : int
 {
-    ItuFull = 0,
+    Full = 0,
 
-    ItuNarrow = 1,
-
-    MaxEnum = 2147483647,
+    Narrow = 1,
 
 }
 

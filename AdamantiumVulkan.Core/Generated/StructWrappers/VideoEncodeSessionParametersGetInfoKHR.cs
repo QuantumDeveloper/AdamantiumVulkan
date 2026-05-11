@@ -23,7 +23,7 @@ public unsafe partial class VideoEncodeSessionParametersGetInfoKHR : IMarshallab
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeSessionParametersGetInfoKhr;
     public object PNext { get; set; }
     public VideoSessionParametersKHR VideoSessionParameters { get; set; }
 
@@ -49,19 +49,18 @@ public unsafe partial class VideoEncodeSessionParametersGetInfoKHR : IMarshallab
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         VideoSessionParameters = new VideoSessionParametersKHR(native.videoSessionParameters);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeSessionParametersGetInfoKHRMarshaller
     {
@@ -75,11 +74,11 @@ public unsafe partial class VideoEncodeSessionParametersGetInfoKHR : IMarshallab
             }
             else if (videoEncodeSessionParametersGetInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeSessionParametersGetInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoEncodeSessionParametersGetInfoKHR.VideoSessionParameters != default)

@@ -26,15 +26,15 @@ public unsafe partial class BindSparseInfo : IMarshallableObject, IMarshallable<
     public StructureType SType => StructureType.BindSparseInfo;
     public object PNext { get; set; }
     public uint WaitSemaphoreCount { get; set; }
-    public Semaphore PWaitSemaphores { get; set; }
+    public System.ReadOnlyMemory<Semaphore> PWaitSemaphores { get; set; }
     public uint BufferBindCount { get; set; }
-    public SparseBufferMemoryBindInfo PBufferBinds { get; set; }
+    public System.ReadOnlyMemory<SparseBufferMemoryBindInfo> PBufferBinds { get; set; }
     public uint ImageOpaqueBindCount { get; set; }
-    public SparseImageOpaqueMemoryBindInfo PImageOpaqueBinds { get; set; }
+    public System.ReadOnlyMemory<SparseImageOpaqueMemoryBindInfo> PImageOpaqueBinds { get; set; }
     public uint ImageBindCount { get; set; }
-    public SparseImageMemoryBindInfo PImageBinds { get; set; }
+    public System.ReadOnlyMemory<SparseImageMemoryBindInfo> PImageBinds { get; set; }
     public uint SignalSemaphoreCount { get; set; }
-    public Semaphore PSignalSemaphores { get; set; }
+    public System.ReadOnlyMemory<Semaphore> PSignalSemaphores { get; set; }
 
     public static implicit operator BindSparseInfo(AdamantiumVulkan.Core.Interop.VkBindSparseInfo b)
     {
@@ -48,18 +48,40 @@ public unsafe partial class BindSparseInfo : IMarshallableObject, IMarshallable<
         {
             size += marshallable.GetSize();
         }
-        if (PBufferBinds != default)
+        if (!PWaitSemaphores.IsEmpty)
+            size += PWaitSemaphores.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSemaphore_T>();
+        if (!PBufferBinds.IsEmpty)
         {
-            size += PBufferBinds.GetSize();
+            for (int i = 0; i < PBufferBinds.Length; i++)
+            {
+                if (PBufferBinds.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo>();
+                else
+                    size += PBufferBinds.Span[i].GetSize();
+            }
         }
-        if (PImageOpaqueBinds != default)
+        if (!PImageOpaqueBinds.IsEmpty)
         {
-            size += PImageOpaqueBinds.GetSize();
+            for (int i = 0; i < PImageOpaqueBinds.Length; i++)
+            {
+                if (PImageOpaqueBinds.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo>();
+                else
+                    size += PImageOpaqueBinds.Span[i].GetSize();
+            }
         }
-        if (PImageBinds != default)
+        if (!PImageBinds.IsEmpty)
         {
-            size += PImageBinds.GetSize();
+            for (int i = 0; i < PImageBinds.Length; i++)
+            {
+                if (PImageBinds.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo>();
+                else
+                    size += PImageBinds.Span[i].GetSize();
+            }
         }
+        if (!PSignalSemaphores.IsEmpty)
+            size += PSignalSemaphores.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSemaphore_T>();
         return size;
     }
 
@@ -72,30 +94,65 @@ public unsafe partial class BindSparseInfo : IMarshallableObject, IMarshallable<
     {
         PNext = (System.IntPtr)native.pNext;
         WaitSemaphoreCount = native.waitSemaphoreCount;
-        PWaitSemaphores = new Semaphore(in *native.pWaitSemaphores);
-        NativeUtils.Free(native.pWaitSemaphores);
+        var arrayLengthPWaitSemaphores = native.waitSemaphoreCount;
+        var tmpPWaitSemaphores = new Semaphore[arrayLengthPWaitSemaphores];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[arrayLengthPWaitSemaphores];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pWaitSemaphores, arrayLengthPWaitSemaphores, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPWaitSemaphores[i] = new Semaphore(in nativeTmpArray0[i]);
+        }
+        PWaitSemaphores = tmpPWaitSemaphores;
         BufferBindCount = native.bufferBindCount;
-        PBufferBinds = new SparseBufferMemoryBindInfo(in *native.pBufferBinds);
-        NativeUtils.Free(native.pBufferBinds);
+        var arrayLengthPBufferBinds = native.bufferBindCount;
+        var tmpPBufferBinds = new SparseBufferMemoryBindInfo[arrayLengthPBufferBinds];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo[arrayLengthPBufferBinds];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pBufferBinds, arrayLengthPBufferBinds, nativeTmpArray1);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        {
+            tmpPBufferBinds[i] = new SparseBufferMemoryBindInfo(in nativeTmpArray1[i]);
+        }
+        PBufferBinds = tmpPBufferBinds;
         ImageOpaqueBindCount = native.imageOpaqueBindCount;
-        PImageOpaqueBinds = new SparseImageOpaqueMemoryBindInfo(in *native.pImageOpaqueBinds);
-        NativeUtils.Free(native.pImageOpaqueBinds);
+        var arrayLengthPImageOpaqueBinds = native.imageOpaqueBindCount;
+        var tmpPImageOpaqueBinds = new SparseImageOpaqueMemoryBindInfo[arrayLengthPImageOpaqueBinds];
+        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo[arrayLengthPImageOpaqueBinds];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pImageOpaqueBinds, arrayLengthPImageOpaqueBinds, nativeTmpArray2);
+        for (int i = 0; i < nativeTmpArray2.Length; ++i)
+        {
+            tmpPImageOpaqueBinds[i] = new SparseImageOpaqueMemoryBindInfo(in nativeTmpArray2[i]);
+        }
+        PImageOpaqueBinds = tmpPImageOpaqueBinds;
         ImageBindCount = native.imageBindCount;
-        PImageBinds = new SparseImageMemoryBindInfo(in *native.pImageBinds);
-        NativeUtils.Free(native.pImageBinds);
+        var arrayLengthPImageBinds = native.imageBindCount;
+        var tmpPImageBinds = new SparseImageMemoryBindInfo[arrayLengthPImageBinds];
+        var nativeTmpArray3 = new AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo[arrayLengthPImageBinds];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pImageBinds, arrayLengthPImageBinds, nativeTmpArray3);
+        for (int i = 0; i < nativeTmpArray3.Length; ++i)
+        {
+            tmpPImageBinds[i] = new SparseImageMemoryBindInfo(in nativeTmpArray3[i]);
+        }
+        PImageBinds = tmpPImageBinds;
         SignalSemaphoreCount = native.signalSemaphoreCount;
-        PSignalSemaphores = new Semaphore(in *native.pSignalSemaphores);
-        NativeUtils.Free(native.pSignalSemaphores);
+        var arrayLengthPSignalSemaphores = native.signalSemaphoreCount;
+        var tmpPSignalSemaphores = new Semaphore[arrayLengthPSignalSemaphores];
+        var nativeTmpArray4 = new AdamantiumVulkan.Core.Interop.VkSemaphore_T[arrayLengthPSignalSemaphores];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSignalSemaphores, arrayLengthPSignalSemaphores, nativeTmpArray4);
+        for (int i = 0; i < nativeTmpArray4.Length; ++i)
+        {
+            tmpPSignalSemaphores[i] = new Semaphore(in nativeTmpArray4[i]);
+        }
+        PSignalSemaphores = tmpPSignalSemaphores;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkBindSparseInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkBindSparseInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkBindSparseInfoMarshaller
     {
@@ -109,63 +166,62 @@ public unsafe partial class BindSparseInfo : IMarshallableObject, IMarshallable<
             }
             else if (bindSparseInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (bindSparseInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].waitSemaphoreCount = bindSparseInfo.WaitSemaphoreCount;
 
-            if (bindSparseInfo.PWaitSemaphores != default)
+            if (!bindSparseInfo.PWaitSemaphores.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkSemaphore_T struct0 = bindSparseInfo.PWaitSemaphores;
-                context.Destination[0].pWaitSemaphores = (AdamantiumVulkan.Core.Interop.VkSemaphore_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.Semaphore> sourceSpan = bindSparseInfo.PWaitSemaphores.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkSemaphore_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSemaphore_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkSemaphore_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pWaitSemaphores = pDestination;
             }
 
             context.Destination[0].bufferBindCount = bindSparseInfo.BufferBindCount;
 
-            if (bindSparseInfo.PBufferBinds != default)
+            if (!bindSparseInfo.PBufferBinds.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pBufferBinds = (AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo>(structDestination0, context.DataCursor);
-                bindSparseInfo.PBufferBinds.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pBufferBinds = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.SparseBufferMemoryBindInfo, AdamantiumVulkan.Core.Interop.VkSparseBufferMemoryBindInfo, AdamantiumVulkan.Core.Interop.VkBindSparseInfo>(bindSparseInfo.PBufferBinds, ref context);
             }
 
             context.Destination[0].imageOpaqueBindCount = bindSparseInfo.ImageOpaqueBindCount;
 
-            if (bindSparseInfo.PImageOpaqueBinds != default)
+            if (!bindSparseInfo.PImageOpaqueBinds.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pImageOpaqueBinds = (AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo>(structDestination0, context.DataCursor);
-                bindSparseInfo.PImageOpaqueBinds.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pImageOpaqueBinds = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.SparseImageOpaqueMemoryBindInfo, AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo, AdamantiumVulkan.Core.Interop.VkBindSparseInfo>(bindSparseInfo.PImageOpaqueBinds, ref context);
             }
 
             context.Destination[0].imageBindCount = bindSparseInfo.ImageBindCount;
 
-            if (bindSparseInfo.PImageBinds != default)
+            if (!bindSparseInfo.PImageBinds.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pImageBinds = (AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo>(structDestination0, context.DataCursor);
-                bindSparseInfo.PImageBinds.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pImageBinds = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.SparseImageMemoryBindInfo, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryBindInfo, AdamantiumVulkan.Core.Interop.VkBindSparseInfo>(bindSparseInfo.PImageBinds, ref context);
             }
 
             context.Destination[0].signalSemaphoreCount = bindSparseInfo.SignalSemaphoreCount;
 
-            if (bindSparseInfo.PSignalSemaphores != default)
+            if (!bindSparseInfo.PSignalSemaphores.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkSemaphore_T struct0 = bindSparseInfo.PSignalSemaphores;
-                context.Destination[0].pSignalSemaphores = (AdamantiumVulkan.Core.Interop.VkSemaphore_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.Semaphore> sourceSpan = bindSparseInfo.PSignalSemaphores.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkSemaphore_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSemaphore_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkSemaphore_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pSignalSemaphores = pDestination;
             }
 
         }

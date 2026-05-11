@@ -23,7 +23,7 @@ public unsafe partial class RenderPassStripeInfoARM : IMarshallableObject, IMars
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.RenderPassStripeInfoArm;
     public object PNext { get; set; }
     public Rect2D StripeArea { get; set; }
 
@@ -49,19 +49,18 @@ public unsafe partial class RenderPassStripeInfoARM : IMarshallableObject, IMars
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         StripeArea = new Rect2D(native.stripeArea);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderPassStripeInfoARMMarshaller
     {
@@ -75,11 +74,11 @@ public unsafe partial class RenderPassStripeInfoARM : IMarshallableObject, IMars
             }
             else if (renderPassStripeInfoARM.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderPassStripeInfoARM.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (renderPassStripeInfoARM.StripeArea != default)

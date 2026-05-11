@@ -114,9 +114,10 @@ public unsafe partial class GraphicsPipelineCreateInfo : IMarshallableObject, IM
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         StageCount = native.stageCount;
-        var tmpPStages = new PipelineShaderStageCreateInfo[native.stageCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo[native.stageCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pStages, native.stageCount, nativeTmpArray0);
+        var arrayLengthPStages = native.stageCount;
+        var tmpPStages = new PipelineShaderStageCreateInfo[arrayLengthPStages];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo[arrayLengthPStages];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pStages, arrayLengthPStages, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPStages[i] = new PipelineShaderStageCreateInfo(in nativeTmpArray0[i]);
@@ -147,14 +148,14 @@ public unsafe partial class GraphicsPipelineCreateInfo : IMarshallableObject, IM
         BasePipelineIndex = native.basePipelineIndex;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkGraphicsPipelineCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkGraphicsPipelineCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkGraphicsPipelineCreateInfoMarshaller
     {
@@ -168,11 +169,11 @@ public unsafe partial class GraphicsPipelineCreateInfo : IMarshallableObject, IM
             }
             else if (graphicsPipelineCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (graphicsPipelineCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].flags = graphicsPipelineCreateInfo.Flags;

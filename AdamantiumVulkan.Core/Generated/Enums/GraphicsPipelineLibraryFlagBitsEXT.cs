@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17373 Column: 14
+// File: vk.xml Line: 11824 Column: 6
 [Flags]
 public enum GraphicsPipelineLibraryFlagBitsEXT : uint
 {
@@ -22,8 +22,6 @@ public enum GraphicsPipelineLibraryFlagBitsEXT : uint
     FragmentShaderBitExt = 4,
 
     FragmentOutputInterfaceBitExt = 8,
-
-    FlagBitsMaxEnumExt = 2147483647,
 
 }
 

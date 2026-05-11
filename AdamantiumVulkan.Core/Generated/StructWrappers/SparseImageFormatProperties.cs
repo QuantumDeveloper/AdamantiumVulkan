@@ -23,9 +23,9 @@ public unsafe partial class SparseImageFormatProperties : IMarshallableObject, I
         MarshalFrom(in native);
     }
 
-    public VkImageAspectFlags AspectMask { get; set; }
+    public ImageAspectFlagBits AspectMask { get; set; }
     public Extent3D ImageGranularity { get; set; }
-    public VkSparseImageFormatFlags Flags { get; set; }
+    public SparseImageFormatFlagBits Flags { get; set; }
 
     public static implicit operator SparseImageFormatProperties(AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties s)
     {
@@ -50,23 +50,20 @@ public unsafe partial class SparseImageFormatProperties : IMarshallableObject, I
         Flags = native.flags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSparseImageFormatPropertiesMarshaller
     {
         public VkSparseImageFormatPropertiesMarshaller(AdamantiumVulkan.Core.SparseImageFormatProperties sparseImageFormatProperties, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties> context)
         {
-            if (sparseImageFormatProperties.AspectMask != (uint)default)
-            {
-                context.Destination[0].aspectMask = sparseImageFormatProperties.AspectMask;
-            }
+            context.Destination[0].aspectMask = sparseImageFormatProperties.AspectMask;
 
             if (sparseImageFormatProperties.ImageGranularity != default)
             {
@@ -79,10 +76,7 @@ public unsafe partial class SparseImageFormatProperties : IMarshallableObject, I
                 }
             }
 
-            if (sparseImageFormatProperties.Flags != (uint)default)
-            {
-                context.Destination[0].flags = sparseImageFormatProperties.Flags;
-            }
+            context.Destination[0].flags = sparseImageFormatProperties.Flags;
 
         }
     }

@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6292 Column: 16
+// File: vk.xml Line: 4451 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkRenderPassCreateInfo2
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkRenderPassCreateFlags flags;
+    public void* pNext;
+    public RenderPassCreateFlagBits flags;
     public uint attachmentCount;
     public AdamantiumVulkan.Core.Interop.VkAttachmentDescription2* pAttachments;
     public uint subpassCount;

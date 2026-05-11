@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoH265ScalingLists : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoH265ScalingLists>
+public unsafe partial class StdVideoH265ScalingLists : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists>
 {
     public StdVideoH265ScalingLists()
     {
     }
 
-    public StdVideoH265ScalingLists(in AdamantiumVulkan.Interop.StdVideoH265ScalingLists native)
+    public StdVideoH265ScalingLists(in AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists native)
     {
         MarshalFrom(in native);
     }
@@ -30,62 +30,68 @@ public unsafe partial class StdVideoH265ScalingLists : IMarshallableObject, IMar
     public System.ReadOnlyMemory<byte> ScalingListDCCoef16x16 { get; set; }
     public System.ReadOnlyMemory<byte> ScalingListDCCoef32x32 { get; set; }
 
-    public static implicit operator StdVideoH265ScalingLists(AdamantiumVulkan.Interop.StdVideoH265ScalingLists s)
+    public static implicit operator StdVideoH265ScalingLists(AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists s)
     {
         return new StdVideoH265ScalingLists(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoH265ScalingLists>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265ScalingLists> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists> context)
     {
         new StdVideoH265ScalingListsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoH265ScalingLists native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists native)
     {
         var tmpScalingList4x4 = new byte[96];
-        var pScalingList4x4 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.ScalingList4x4[0]));
+        var ScalingList4x4p = native.ScalingList4x4[0];
+        var pScalingList4x4 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in ScalingList4x4p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pScalingList4x4, 96, tmpScalingList4x4);
         ScalingList4x4 = tmpScalingList4x4;
         var tmpScalingList8x8 = new byte[384];
-        var pScalingList8x8 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.ScalingList8x8[0]));
+        var ScalingList8x8p = native.ScalingList8x8[0];
+        var pScalingList8x8 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in ScalingList8x8p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pScalingList8x8, 384, tmpScalingList8x8);
         ScalingList8x8 = tmpScalingList8x8;
         var tmpScalingList16x16 = new byte[384];
-        var pScalingList16x16 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.ScalingList16x16[0]));
+        var ScalingList16x16p = native.ScalingList16x16[0];
+        var pScalingList16x16 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in ScalingList16x16p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pScalingList16x16, 384, tmpScalingList16x16);
         ScalingList16x16 = tmpScalingList16x16;
         var tmpScalingList32x32 = new byte[128];
-        var pScalingList32x32 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.ScalingList32x32[0]));
+        var ScalingList32x32p = native.ScalingList32x32[0];
+        var pScalingList32x32 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in ScalingList32x32p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pScalingList32x32, 128, tmpScalingList32x32);
         ScalingList32x32 = tmpScalingList32x32;
         var tmpScalingListDCCoef16x16 = new byte[6];
-        var pScalingListDCCoef16x16 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.ScalingListDCCoef16x16[0]));
+        var ScalingListDCCoef16x16p = native.ScalingListDCCoef16x16[0];
+        var pScalingListDCCoef16x16 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in ScalingListDCCoef16x16p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pScalingListDCCoef16x16, 6, tmpScalingListDCCoef16x16);
         ScalingListDCCoef16x16 = tmpScalingListDCCoef16x16;
         var tmpScalingListDCCoef32x32 = new byte[2];
-        var pScalingListDCCoef32x32 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.ScalingListDCCoef32x32[0]));
+        var ScalingListDCCoef32x32p = native.ScalingListDCCoef32x32[0];
+        var pScalingListDCCoef32x32 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in ScalingListDCCoef32x32p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pScalingListDCCoef32x32, 2, tmpScalingListDCCoef32x32);
         ScalingListDCCoef32x32 = tmpScalingListDCCoef32x32;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoH265ScalingLists>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265ScalingLists>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoH265ScalingListsMarshaller
     {
-        public StdVideoH265ScalingListsMarshaller(AdamantiumVulkan.StdVideoH265ScalingLists stdVideoH265ScalingLists, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265ScalingLists> context)
+        public StdVideoH265ScalingListsMarshaller(AdamantiumVulkan.Core.StdVideoH265ScalingLists stdVideoH265ScalingLists, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists> context)
         {
             ref var tmpDestination0 = ref context.Destination[0];
             fixed (byte* pDest = tmpDestination0.ScalingList4x4)

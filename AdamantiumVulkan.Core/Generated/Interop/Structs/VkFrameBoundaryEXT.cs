@@ -12,21 +12,21 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18107 Column: 16
+// File: vk.xml Line: 9348 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkFrameBoundaryEXT
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkFrameBoundaryFlagsEXT flags;
+    public void* pNext;
+    public FrameBoundaryFlagBitsEXT flags;
     public ulong frameID;
     public uint imageCount;
     public VkImage_T* pImages;
     public uint bufferCount;
     public VkBuffer_T* pBuffers;
     public ulong tagName;
-    public ulong tagSize;
-    public nuint pTag;
+    public nuint tagSize;
+    public byte* pTag;
 }
 
 

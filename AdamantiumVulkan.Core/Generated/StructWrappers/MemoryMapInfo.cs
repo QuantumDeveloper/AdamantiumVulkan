@@ -23,9 +23,9 @@ public unsafe partial class MemoryMapInfo : IMarshallableObject, IMarshallable<A
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.MemoryMapInfo;
     public object PNext { get; set; }
-    public VkMemoryMapFlags Flags { get; set; }
+    public MemoryMapFlagBits Flags { get; set; }
     public DeviceMemory Memory { get; set; }
     public VkDeviceSize Offset { get; set; }
     public VkDeviceSize Size { get; set; }
@@ -52,7 +52,6 @@ public unsafe partial class MemoryMapInfo : IMarshallableObject, IMarshallable<A
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkMemoryMapInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         Memory = new DeviceMemory(native.memory);
@@ -60,14 +59,14 @@ public unsafe partial class MemoryMapInfo : IMarshallableObject, IMarshallable<A
         Size = native.size;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkMemoryMapInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkMemoryMapInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkMemoryMapInfoMarshaller
     {
@@ -81,17 +80,14 @@ public unsafe partial class MemoryMapInfo : IMarshallableObject, IMarshallable<A
             }
             else if (memoryMapInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (memoryMapInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (memoryMapInfo.Flags != (uint)default)
-            {
-                context.Destination[0].flags = memoryMapInfo.Flags;
-            }
+            context.Destination[0].flags = memoryMapInfo.Flags;
 
             if (memoryMapInfo.Memory != default)
             {

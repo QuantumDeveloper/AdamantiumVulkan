@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceShaderAtomicInt64Features : IMarshalla
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceShaderAtomicInt64Features;
     public object PNext { get; set; }
     public VkBool32 ShaderBufferInt64Atomics { get; set; }
     public VkBool32 ShaderSharedInt64Atomics { get; set; }
@@ -50,20 +50,19 @@ public unsafe partial class PhysicalDeviceShaderAtomicInt64Features : IMarshalla
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicInt64Features native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ShaderBufferInt64Atomics = native.shaderBufferInt64Atomics;
         ShaderSharedInt64Atomics = native.shaderSharedInt64Atomics;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicInt64Features>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicInt64Features>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceShaderAtomicInt64FeaturesMarshaller
     {
@@ -77,11 +76,11 @@ public unsafe partial class PhysicalDeviceShaderAtomicInt64Features : IMarshalla
             }
             else if (physicalDeviceShaderAtomicInt64Features.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceShaderAtomicInt64Features.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceShaderAtomicInt64Features.ShaderBufferInt64Atomics != (uint)default)

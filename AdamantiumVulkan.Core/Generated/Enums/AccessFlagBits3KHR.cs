@@ -11,11 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12847 Column: 35
+// File: vk.xml Line: 12370 Column: 6
 [Flags]
 public enum AccessFlagBits3KHR : ulong
 {
-    VkAccess3NoneKhr = 0,
+    _3NoneKhr = 0,
 
 }
 

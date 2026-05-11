@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4276 Column: 26
+// File: video.xml Line: 13390 Column: 10
 public unsafe struct PFN_vkCmdSetEvent
 {
     public PFN_vkCmdSetEvent(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkCmdSetEvent
     public PFN_vkCmdSetEvent(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkEvent_T, VkPipelineStageFlags, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkEvent_T, PipelineStageFlagBits, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkEvent_T, VkPipelineStageFlags, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkEvent_T, PipelineStageFlagBits, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkEvent_T @event, VkPipelineStageFlags stageMask)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkEvent_T @event, PipelineStageFlagBits stageMask)
     {
          InvokeFunc(commandBuffer, @event, stageMask);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkEvent_T @event, VkPipelineStageFlags stageMask)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkEvent_T @event, PipelineStageFlagBits stageMask)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkEvent_T, VkPipelineStageFlags, void>)ptr)(commandBuffer, @event, stageMask);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkEvent_T, PipelineStageFlagBits, void>)ptr)(commandBuffer, @event, stageMask);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkEvent_T @event, VkPipelineStageFlags stageMask)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkEvent_T @event, PipelineStageFlagBits stageMask)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkEvent_T, VkPipelineStageFlags, void>)(void*)ptr)(commandBuffer, @event, stageMask);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkEvent_T, PipelineStageFlagBits, void>)(void*)ptr)(commandBuffer, @event, stageMask);
     }
 
     public static explicit operator PFN_vkCmdSetEvent(void* ptr) => new(ptr);

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21166 Column: 26
+// File: video.xml Line: 13886 Column: 10
 public unsafe struct PFN_vkUpdateIndirectExecutionSetPipelineEXT
 {
     public PFN_vkUpdateIndirectExecutionSetPipelineEXT(nuint ptr) : this((void*) ptr) { }

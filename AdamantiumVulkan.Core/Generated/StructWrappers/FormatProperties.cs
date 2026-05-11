@@ -23,9 +23,9 @@ public unsafe partial class FormatProperties : IMarshallableObject, IMarshallabl
         MarshalFrom(in native);
     }
 
-    public VkFormatFeatureFlags LinearTilingFeatures { get; set; }
-    public VkFormatFeatureFlags OptimalTilingFeatures { get; set; }
-    public VkFormatFeatureFlags BufferFeatures { get; set; }
+    public FormatFeatureFlagBits LinearTilingFeatures { get; set; }
+    public FormatFeatureFlagBits OptimalTilingFeatures { get; set; }
+    public FormatFeatureFlagBits BufferFeatures { get; set; }
 
     public static implicit operator FormatProperties(AdamantiumVulkan.Core.Interop.VkFormatProperties f)
     {
@@ -50,33 +50,24 @@ public unsafe partial class FormatProperties : IMarshallableObject, IMarshallabl
         BufferFeatures = native.bufferFeatures;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkFormatProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkFormatProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkFormatPropertiesMarshaller
     {
         public VkFormatPropertiesMarshaller(AdamantiumVulkan.Core.FormatProperties formatProperties, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkFormatProperties> context)
         {
-            if (formatProperties.LinearTilingFeatures != (uint)default)
-            {
-                context.Destination[0].linearTilingFeatures = formatProperties.LinearTilingFeatures;
-            }
+            context.Destination[0].linearTilingFeatures = formatProperties.LinearTilingFeatures;
 
-            if (formatProperties.OptimalTilingFeatures != (uint)default)
-            {
-                context.Destination[0].optimalTilingFeatures = formatProperties.OptimalTilingFeatures;
-            }
+            context.Destination[0].optimalTilingFeatures = formatProperties.OptimalTilingFeatures;
 
-            if (formatProperties.BufferFeatures != (uint)default)
-            {
-                context.Destination[0].bufferFeatures = formatProperties.BufferFeatures;
-            }
+            context.Destination[0].bufferFeatures = formatProperties.BufferFeatures;
 
         }
     }

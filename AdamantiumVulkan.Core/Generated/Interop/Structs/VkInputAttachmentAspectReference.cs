@@ -8,16 +8,17 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5517 Column: 16
+// File: vk.xml Line: 3585 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkInputAttachmentAspectReference
 {
     public uint subpass;
     public uint inputAttachmentIndex;
-    public VkImageAspectFlags aspectMask;
+    public ImageAspectFlagBits aspectMask;
 }
 
 

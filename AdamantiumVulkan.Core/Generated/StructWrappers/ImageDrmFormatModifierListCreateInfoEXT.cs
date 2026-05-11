@@ -26,7 +26,7 @@ public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : IMarshalla
     public StructureType SType => StructureType.ImageDrmFormatModifierListCreateInfoExt;
     public object PNext { get; set; }
     public uint DrmFormatModifierCount { get; set; }
-    public ulong? PDrmFormatModifiers { get; set; }
+    public System.ReadOnlyMemory<ulong> PDrmFormatModifiers { get; set; }
 
     public static implicit operator ImageDrmFormatModifierListCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT i)
     {
@@ -40,6 +40,8 @@ public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : IMarshalla
         {
             size += marshallable.GetSize();
         }
+        if (!PDrmFormatModifiers.IsEmpty)
+            size += PDrmFormatModifiers.Span.Length * Marshal.SizeOf<System.UInt64>();
         return size;
     }
 
@@ -52,21 +54,20 @@ public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : IMarshalla
     {
         PNext = (System.IntPtr)native.pNext;
         DrmFormatModifierCount = native.drmFormatModifierCount;
-        if (native.pDrmFormatModifiers != null)
-        {
-            PDrmFormatModifiers = *native.pDrmFormatModifiers;
-            NativeUtils.Free(native.pDrmFormatModifiers);
-        }
+        var arrayLengthPDrmFormatModifiers = native.drmFormatModifierCount;
+        var tmpPDrmFormatModifiers = new ulong[arrayLengthPDrmFormatModifiers];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDrmFormatModifiers, arrayLengthPDrmFormatModifiers, tmpPDrmFormatModifiers);
+        PDrmFormatModifiers = tmpPDrmFormatModifiers;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageDrmFormatModifierListCreateInfoEXTMarshaller
     {
@@ -80,18 +81,18 @@ public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : IMarshalla
             }
             else if (imageDrmFormatModifierListCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (imageDrmFormatModifierListCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].drmFormatModifierCount = imageDrmFormatModifierListCreateInfoEXT.DrmFormatModifierCount;
 
-            if (imageDrmFormatModifierListCreateInfoEXT.PDrmFormatModifiers.HasValue)
+            if (!imageDrmFormatModifierListCreateInfoEXT.PDrmFormatModifiers.IsEmpty)
             {
-                context.Destination[0].pDrmFormatModifiers = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(imageDrmFormatModifierListCreateInfoEXT.PDrmFormatModifiers.Value, ref context);
+                context.Destination[0].pDrmFormatModifiers = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<ulong, AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT>(imageDrmFormatModifierListCreateInfoEXT.PDrmFormatModifiers.Span, ref context);
             }
 
         }

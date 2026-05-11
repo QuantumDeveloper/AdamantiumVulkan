@@ -25,15 +25,15 @@ public unsafe partial class Win32KeyedMutexAcquireReleaseInfoNV : IMarshallableO
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.Win32KeyedMutexAcquireReleaseInfoNv;
     public object PNext { get; set; }
     public uint AcquireCount { get; set; }
-    public DeviceMemory PAcquireSyncs { get; set; }
-    public ulong? PAcquireKeys { get; set; }
-    public uint? PAcquireTimeoutMilliseconds { get; set; }
+    public System.ReadOnlyMemory<DeviceMemory> PAcquireSyncs { get; set; }
+    public System.ReadOnlyMemory<ulong> PAcquireKeys { get; set; }
+    public System.ReadOnlyMemory<uint> PAcquireTimeoutMilliseconds { get; set; }
     public uint ReleaseCount { get; set; }
-    public DeviceMemory PReleaseSyncs { get; set; }
-    public ulong? PReleaseKeys { get; set; }
+    public System.ReadOnlyMemory<DeviceMemory> PReleaseSyncs { get; set; }
+    public System.ReadOnlyMemory<ulong> PReleaseKeys { get; set; }
 
     public static implicit operator Win32KeyedMutexAcquireReleaseInfoNV(AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV w)
     {
@@ -47,6 +47,16 @@ public unsafe partial class Win32KeyedMutexAcquireReleaseInfoNV : IMarshallableO
         {
             size += marshallable.GetSize();
         }
+        if (!PAcquireSyncs.IsEmpty)
+            size += PAcquireSyncs.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T>();
+        if (!PAcquireKeys.IsEmpty)
+            size += PAcquireKeys.Span.Length * Marshal.SizeOf<System.UInt64>();
+        if (!PAcquireTimeoutMilliseconds.IsEmpty)
+            size += PAcquireTimeoutMilliseconds.Span.Length * Marshal.SizeOf<System.UInt32>();
+        if (!PReleaseSyncs.IsEmpty)
+            size += PReleaseSyncs.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDeviceMemory_T>();
+        if (!PReleaseKeys.IsEmpty)
+            size += PReleaseKeys.Span.Length * Marshal.SizeOf<System.UInt64>();
         return size;
     }
 
@@ -57,39 +67,49 @@ public unsafe partial class Win32KeyedMutexAcquireReleaseInfoNV : IMarshallableO
 
     public void MarshalFrom(in AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         AcquireCount = native.acquireCount;
-        PAcquireSyncs = new DeviceMemory(in *native.pAcquireSyncs);
-        NativeUtils.Free(native.pAcquireSyncs);
-        if (native.pAcquireKeys != null)
+        var arrayLengthPAcquireSyncs = native.acquireCount;
+        var tmpPAcquireSyncs = new DeviceMemory[arrayLengthPAcquireSyncs];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDeviceMemory_T[arrayLengthPAcquireSyncs];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAcquireSyncs, arrayLengthPAcquireSyncs, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
-            PAcquireKeys = *native.pAcquireKeys;
-            NativeUtils.Free(native.pAcquireKeys);
+            tmpPAcquireSyncs[i] = new DeviceMemory(in nativeTmpArray0[i]);
         }
-        if (native.pAcquireTimeoutMilliseconds != null)
-        {
-            PAcquireTimeoutMilliseconds = *native.pAcquireTimeoutMilliseconds;
-            NativeUtils.Free(native.pAcquireTimeoutMilliseconds);
-        }
+        PAcquireSyncs = tmpPAcquireSyncs;
+        var arrayLengthPAcquireKeys = native.acquireCount;
+        var tmpPAcquireKeys = new ulong[arrayLengthPAcquireKeys];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAcquireKeys, arrayLengthPAcquireKeys, tmpPAcquireKeys);
+        PAcquireKeys = tmpPAcquireKeys;
+        var arrayLengthPAcquireTimeoutMilliseconds = native.acquireCount;
+        var tmpPAcquireTimeoutMilliseconds = new uint[arrayLengthPAcquireTimeoutMilliseconds];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAcquireTimeoutMilliseconds, arrayLengthPAcquireTimeoutMilliseconds, tmpPAcquireTimeoutMilliseconds);
+        PAcquireTimeoutMilliseconds = tmpPAcquireTimeoutMilliseconds;
         ReleaseCount = native.releaseCount;
-        PReleaseSyncs = new DeviceMemory(in *native.pReleaseSyncs);
-        NativeUtils.Free(native.pReleaseSyncs);
-        if (native.pReleaseKeys != null)
+        var arrayLengthPReleaseSyncs = native.releaseCount;
+        var tmpPReleaseSyncs = new DeviceMemory[arrayLengthPReleaseSyncs];
+        var nativeTmpArray3 = new AdamantiumVulkan.Core.Interop.VkDeviceMemory_T[arrayLengthPReleaseSyncs];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pReleaseSyncs, arrayLengthPReleaseSyncs, nativeTmpArray3);
+        for (int i = 0; i < nativeTmpArray3.Length; ++i)
         {
-            PReleaseKeys = *native.pReleaseKeys;
-            NativeUtils.Free(native.pReleaseKeys);
+            tmpPReleaseSyncs[i] = new DeviceMemory(in nativeTmpArray3[i]);
         }
+        PReleaseSyncs = tmpPReleaseSyncs;
+        var arrayLengthPReleaseKeys = native.releaseCount;
+        var tmpPReleaseKeys = new ulong[arrayLengthPReleaseKeys];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pReleaseKeys, arrayLengthPReleaseKeys, tmpPReleaseKeys);
+        PReleaseKeys = tmpPReleaseKeys;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkWin32KeyedMutexAcquireReleaseInfoNVMarshaller
     {
@@ -103,42 +123,56 @@ public unsafe partial class Win32KeyedMutexAcquireReleaseInfoNV : IMarshallableO
             }
             else if (win32KeyedMutexAcquireReleaseInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (win32KeyedMutexAcquireReleaseInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].acquireCount = win32KeyedMutexAcquireReleaseInfoNV.AcquireCount;
 
-            if (win32KeyedMutexAcquireReleaseInfoNV.PAcquireSyncs != default)
+            if (!win32KeyedMutexAcquireReleaseInfoNV.PAcquireSyncs.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct0 = win32KeyedMutexAcquireReleaseInfoNV.PAcquireSyncs;
-                context.Destination[0].pAcquireSyncs = (AdamantiumVulkan.Core.Interop.VkDeviceMemory_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.DeviceMemory> sourceSpan = win32KeyedMutexAcquireReleaseInfoNV.PAcquireSyncs.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkDeviceMemory_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkDeviceMemory_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pAcquireSyncs = pDestination;
             }
 
-            if (win32KeyedMutexAcquireReleaseInfoNV.PAcquireKeys.HasValue)
+            if (!win32KeyedMutexAcquireReleaseInfoNV.PAcquireKeys.IsEmpty)
             {
-                context.Destination[0].pAcquireKeys = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(win32KeyedMutexAcquireReleaseInfoNV.PAcquireKeys.Value, ref context);
+                context.Destination[0].pAcquireKeys = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<ulong, AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV>(win32KeyedMutexAcquireReleaseInfoNV.PAcquireKeys.Span, ref context);
             }
 
-            if (win32KeyedMutexAcquireReleaseInfoNV.PAcquireTimeoutMilliseconds.HasValue)
+            if (!win32KeyedMutexAcquireReleaseInfoNV.PAcquireTimeoutMilliseconds.IsEmpty)
             {
-                context.Destination[0].pAcquireTimeoutMilliseconds = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(win32KeyedMutexAcquireReleaseInfoNV.PAcquireTimeoutMilliseconds.Value, ref context);
+                context.Destination[0].pAcquireTimeoutMilliseconds = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV>(win32KeyedMutexAcquireReleaseInfoNV.PAcquireTimeoutMilliseconds.Span, ref context);
             }
 
             context.Destination[0].releaseCount = win32KeyedMutexAcquireReleaseInfoNV.ReleaseCount;
 
-            if (win32KeyedMutexAcquireReleaseInfoNV.PReleaseSyncs != default)
+            if (!win32KeyedMutexAcquireReleaseInfoNV.PReleaseSyncs.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkDeviceMemory_T struct0 = win32KeyedMutexAcquireReleaseInfoNV.PReleaseSyncs;
-                context.Destination[0].pReleaseSyncs = (AdamantiumVulkan.Core.Interop.VkDeviceMemory_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.DeviceMemory> sourceSpan = win32KeyedMutexAcquireReleaseInfoNV.PReleaseSyncs.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkDeviceMemory_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkDeviceMemory_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pReleaseSyncs = pDestination;
             }
 
-            if (win32KeyedMutexAcquireReleaseInfoNV.PReleaseKeys.HasValue)
+            if (!win32KeyedMutexAcquireReleaseInfoNV.PReleaseKeys.IsEmpty)
             {
-                context.Destination[0].pReleaseKeys = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(win32KeyedMutexAcquireReleaseInfoNV.PReleaseKeys.Value, ref context);
+                context.Destination[0].pReleaseKeys = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<ulong, AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV>(win32KeyedMutexAcquireReleaseInfoNV.PReleaseKeys.Span, ref context);
             }
 
         }

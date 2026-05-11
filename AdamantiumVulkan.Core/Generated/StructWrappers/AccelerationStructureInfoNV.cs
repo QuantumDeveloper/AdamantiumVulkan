@@ -29,7 +29,7 @@ public unsafe partial class AccelerationStructureInfoNV : IMarshallableObject, I
     public BuildAccelerationStructureFlagBitsKHR Flags { get; set; }
     public uint InstanceCount { get; set; }
     public uint GeometryCount { get; set; }
-    public GeometryNV PGeometries { get; set; }
+    public System.ReadOnlyMemory<GeometryNV> PGeometries { get; set; }
 
     public static implicit operator AccelerationStructureInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV a)
     {
@@ -43,9 +43,15 @@ public unsafe partial class AccelerationStructureInfoNV : IMarshallableObject, I
         {
             size += marshallable.GetSize();
         }
-        if (PGeometries != default)
+        if (!PGeometries.IsEmpty)
         {
-            size += PGeometries.GetSize();
+            for (int i = 0; i < PGeometries.Length; i++)
+            {
+                if (PGeometries.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkGeometryNV>();
+                else
+                    size += PGeometries.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -62,18 +68,25 @@ public unsafe partial class AccelerationStructureInfoNV : IMarshallableObject, I
         Flags = native.flags;
         InstanceCount = native.instanceCount;
         GeometryCount = native.geometryCount;
-        PGeometries = new GeometryNV(in *native.pGeometries);
-        NativeUtils.Free(native.pGeometries);
+        var arrayLengthPGeometries = native.geometryCount;
+        var tmpPGeometries = new GeometryNV[arrayLengthPGeometries];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkGeometryNV[arrayLengthPGeometries];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pGeometries, arrayLengthPGeometries, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPGeometries[i] = new GeometryNV(in nativeTmpArray0[i]);
+        }
+        PGeometries = tmpPGeometries;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkAccelerationStructureInfoNVMarshaller
     {
@@ -87,11 +100,11 @@ public unsafe partial class AccelerationStructureInfoNV : IMarshallableObject, I
             }
             else if (accelerationStructureInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (accelerationStructureInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].type = accelerationStructureInfoNV.Type;
@@ -102,14 +115,9 @@ public unsafe partial class AccelerationStructureInfoNV : IMarshallableObject, I
 
             context.Destination[0].geometryCount = accelerationStructureInfoNV.GeometryCount;
 
-            if (accelerationStructureInfoNV.PGeometries != default)
+            if (!accelerationStructureInfoNV.PGeometries.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkGeometryNV));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkGeometryNV>(structSlice0).Slice(0, 1);
-                context.Destination[0].pGeometries = (AdamantiumVulkan.Core.Interop.VkGeometryNV*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkGeometryNV>(structDestination0, context.DataCursor);
-                accelerationStructureInfoNV.PGeometries.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pGeometries = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.GeometryNV, AdamantiumVulkan.Core.Interop.VkGeometryNV, AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV>(accelerationStructureInfoNV.PGeometries, ref context);
             }
 
         }

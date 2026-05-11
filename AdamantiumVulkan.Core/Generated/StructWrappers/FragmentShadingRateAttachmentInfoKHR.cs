@@ -23,7 +23,7 @@ public unsafe partial class FragmentShadingRateAttachmentInfoKHR : IMarshallable
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.FragmentShadingRateAttachmentInfoKhr;
     public object PNext { get; set; }
     public AttachmentReference2 PFragmentShadingRateAttachment { get; set; }
     public Extent2D ShadingRateAttachmentTexelSize { get; set; }
@@ -54,21 +54,20 @@ public unsafe partial class FragmentShadingRateAttachmentInfoKHR : IMarshallable
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkFragmentShadingRateAttachmentInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PFragmentShadingRateAttachment = new AttachmentReference2(in *native.pFragmentShadingRateAttachment);
         NativeUtils.Free(native.pFragmentShadingRateAttachment);
         ShadingRateAttachmentTexelSize = new Extent2D(native.shadingRateAttachmentTexelSize);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkFragmentShadingRateAttachmentInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkFragmentShadingRateAttachmentInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkFragmentShadingRateAttachmentInfoKHRMarshaller
     {
@@ -82,11 +81,11 @@ public unsafe partial class FragmentShadingRateAttachmentInfoKHR : IMarshallable
             }
             else if (fragmentShadingRateAttachmentInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (fragmentShadingRateAttachmentInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (fragmentShadingRateAttachmentInfoKHR.PFragmentShadingRateAttachment != default)

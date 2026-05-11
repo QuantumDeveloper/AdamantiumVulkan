@@ -23,7 +23,7 @@ public unsafe partial class PipelineCreateFlags2CreateInfo : IMarshallableObject
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PipelineCreateFlags2CreateInfo;
     public object PNext { get; set; }
     public VkPipelineCreateFlags2 Flags { get; set; }
 
@@ -49,19 +49,18 @@ public unsafe partial class PipelineCreateFlags2CreateInfo : IMarshallableObject
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineCreateFlags2CreateInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineCreateFlags2CreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineCreateFlags2CreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineCreateFlags2CreateInfoMarshaller
     {
@@ -75,11 +74,11 @@ public unsafe partial class PipelineCreateFlags2CreateInfo : IMarshallableObject
             }
             else if (pipelineCreateFlags2CreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineCreateFlags2CreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineCreateFlags2CreateInfo.Flags != (ulong)default)

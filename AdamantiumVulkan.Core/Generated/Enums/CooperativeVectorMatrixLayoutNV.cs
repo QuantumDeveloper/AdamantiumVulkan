@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20002 Column: 14
-public enum CooperativeVectorMatrixLayoutNV : uint
+// File: vk.xml Line: 12373 Column: 6
+public enum CooperativeVectorMatrixLayoutNV : int
 {
     RowMajorNv = 0,
 
@@ -21,8 +21,6 @@ public enum CooperativeVectorMatrixLayoutNV : uint
     InferencingOptimalNv = 2,
 
     TrainingOptimalNv = 3,
-
-    MaxEnumNv = 2147483647,
 
 }
 

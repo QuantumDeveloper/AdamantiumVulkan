@@ -23,9 +23,9 @@ public unsafe partial class RenderingInfo : IMarshallableObject, IMarshallable<A
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.RenderingInfo;
     public object PNext { get; set; }
-    public VkRenderingFlags Flags { get; set; }
+    public RenderingFlagBits Flags { get; set; }
     public Rect2D RenderArea { get; set; }
     public uint LayerCount { get; set; }
     public uint ViewMask { get; set; }
@@ -74,16 +74,16 @@ public unsafe partial class RenderingInfo : IMarshallableObject, IMarshallable<A
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkRenderingInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         RenderArea = new Rect2D(native.renderArea);
         LayerCount = native.layerCount;
         ViewMask = native.viewMask;
         ColorAttachmentCount = native.colorAttachmentCount;
-        var tmpPColorAttachments = new RenderingAttachmentInfo[native.colorAttachmentCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo[native.colorAttachmentCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pColorAttachments, native.colorAttachmentCount, nativeTmpArray0);
+        var arrayLengthPColorAttachments = native.colorAttachmentCount;
+        var tmpPColorAttachments = new RenderingAttachmentInfo[arrayLengthPColorAttachments];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo[arrayLengthPColorAttachments];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pColorAttachments, arrayLengthPColorAttachments, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPColorAttachments[i] = new RenderingAttachmentInfo(in nativeTmpArray0[i]);
@@ -95,14 +95,14 @@ public unsafe partial class RenderingInfo : IMarshallableObject, IMarshallable<A
         NativeUtils.Free(native.pStencilAttachment);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderingInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderingInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderingInfoMarshaller
     {
@@ -116,17 +116,14 @@ public unsafe partial class RenderingInfo : IMarshallableObject, IMarshallable<A
             }
             else if (renderingInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderingInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (renderingInfo.Flags != (uint)default)
-            {
-                context.Destination[0].flags = renderingInfo.Flags;
-            }
+            context.Destination[0].flags = renderingInfo.Flags;
 
             if (renderingInfo.RenderArea != default)
             {

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3156 Column: 27
+// File: vk.xml Line: 1005 Column: 10
 public unsafe struct PFN_vkReallocationFunction
 {
     public PFN_vkReallocationFunction(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkReallocationFunction
     public PFN_vkReallocationFunction(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<nuint, nuint, ulong, ulong, SystemAllocationScope, nuint>)ptr;
+        InvokeFunc = (delegate* unmanaged<void*, void*, nuint, nuint, SystemAllocationScope, void>)ptr;
     }
 
-    private delegate* unmanaged<nuint, nuint, ulong, ulong, SystemAllocationScope, nuint> InvokeFunc;
+    private delegate* unmanaged<void*, void*, nuint, nuint, SystemAllocationScope, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public nuint Invoke(nuint pUserData, nuint pOriginal, ulong size, ulong alignment, SystemAllocationScope allocationScope)
+    public void Invoke(void* pUserData, void* pOriginal, nuint size, nuint alignment, SystemAllocationScope allocationScope)
     {
-        return InvokeFunc(pUserData, pOriginal, size, alignment, allocationScope);
+         InvokeFunc(pUserData, pOriginal, size, alignment, allocationScope);
     }
-    public static nuint Invoke(void* ptr, nuint pUserData, nuint pOriginal, ulong size, ulong alignment, SystemAllocationScope allocationScope)
+    public static void Invoke(void* ptr, void* pUserData, void* pOriginal, nuint size, nuint alignment, SystemAllocationScope allocationScope)
     {
-        return ((delegate* unmanaged<nuint, nuint, ulong, ulong, SystemAllocationScope, nuint>)ptr)(pUserData, pOriginal, size, alignment, allocationScope);
+         ((delegate* unmanaged<void*, void*, nuint, nuint, SystemAllocationScope, void>)ptr)(pUserData, pOriginal, size, alignment, allocationScope);
     }
-    public static nuint Invoke(nuint ptr, nuint pUserData, nuint pOriginal, ulong size, ulong alignment, SystemAllocationScope allocationScope)
+    public static void Invoke(nuint ptr, void* pUserData, void* pOriginal, nuint size, nuint alignment, SystemAllocationScope allocationScope)
     {
-        return ((delegate* unmanaged<nuint, nuint, ulong, ulong, SystemAllocationScope, nuint>)(void*)ptr)(pUserData, pOriginal, size, alignment, allocationScope);
+         ((delegate* unmanaged<void*, void*, nuint, nuint, SystemAllocationScope, void>)(void*)ptr)(pUserData, pOriginal, size, alignment, allocationScope);
     }
 
     public static explicit operator PFN_vkReallocationFunction(void* ptr) => new(ptr);
