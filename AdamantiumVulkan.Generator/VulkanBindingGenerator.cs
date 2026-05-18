@@ -34,7 +34,8 @@ namespace AdamantiumVulkan.Generator
             string spirvCrossLibrary = "spirv-cross-c-shared";
             string spirvToolsLibrary = "SPIRV-Tools-shared";
             string mainNamespace = "AdamantiumVulkan";
-            string vulkanBasePath = @"vk.xml";
+            string vulkanBasePath = @"C:\VulkanSDK\1.4.309.0\Include";
+            string vulkanXmlPath = "vk.xml";
             string interopSubNamespace = "Interop";
 
             var appRoot = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.LastIndexOf("bin"));
@@ -63,13 +64,11 @@ namespace AdamantiumVulkan.Generator
             vkMainModule.EachTypeInSeparateFile = true;
             vkMainModule.FileHeader = header;
             vkMainModule.Name = "Core";
-            //vkMainModule.IncludeDirs.Add(vulkanBasePath);                         
-            //vkMainModule.IncludeDirs.Add(Path.Combine(vulkanBasePath, "vulkan"));
             vkMainModule.Defines.Add("_WIN32");
             vkMainModule.Defines.Add("_MSC_VER");
             vkMainModule.Defines.Add("VK_USE_PLATFORM_WIN32_KHR");
             vkMainModule.Defines.Add("VK_USE_PLATFORM_MACOS_MVK");
-            vkMainModule.Files.AddRange(vulkanBasePath);
+            vkMainModule.Files.AddRange(vulkanXmlPath);
             vkMainModule.ForceCallingConvention = false;
             vkMainModule.InteropClassAccessSpecifier = AccessSpecifier.Internal;
             vkMainModule.CallingConvention = CallingConvention.Winapi;
@@ -165,9 +164,9 @@ namespace AdamantiumVulkan.Generator
             spivToolsModule.TargetRuntime = TargetRuntime.NetStandard20;
             
             options.AddModule(vkMainModule);
-            //options.AddModule(shaderModule);
-            //options.AddModule(spivCrossModule);
-            //options.AddModule(spivToolsModule);
+            options.AddModule(shaderModule);
+            options.AddModule(spivCrossModule);
+            options.AddModule(spivToolsModule);
         }
 
         public override void OnBeforeSetupPasses(ProcessingContext context)
@@ -228,7 +227,8 @@ namespace AdamantiumVulkan.Generator
                 new RegexRenameRunItem("^spvc_context", string.Empty, RenameTargets.Method, true),
                 new RegexRenameRunItem("^spvc_type", string.Empty, RenameTargets.Method, true),
                 new RegexRenameRunItem("^spvc", "spirv", RenameTargets.Class, true),
-                new RegexRenameRunItem("^spvc", string.Empty, spirvRenameTargets, true),
+                new RegexRenameRunItem("^spvc", string.Empty, spirvRenameTargets, false),
+                new RegexRenameRunItem("^spv", string.Empty, spirvRenameTargets, true),
             };
 
             context.AddPreGeneratorPass(new SequentialRegexRenamePass(spvcRenameItems.ToArray()), ExecutionPassKind.PerTranslationUnit, spivCrossModule);

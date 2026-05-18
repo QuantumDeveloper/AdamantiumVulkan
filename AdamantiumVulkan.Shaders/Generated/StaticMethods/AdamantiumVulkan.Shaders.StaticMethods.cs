@@ -19,13 +19,7 @@ public unsafe static class VulkanShadersNative
     ///</summary>
     public static void GetSpvVersion(ref uint version, ref uint revision)
     {
-        var arg0 = stackalloc uint[1];
-        *arg0 = version;
-        var arg1 = stackalloc uint[1];
-        *arg1 = revision;
-        AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_get_spv_version(arg0, arg1);
-        version = *arg0;
-        revision = *arg1;
+        AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_get_spv_version(ref version, ref revision);
     }
 
     ///<summary>
@@ -48,12 +42,9 @@ public unsafe static class VulkanShadersNative
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(str, ref currentCursor);
-            var arg1 = stackalloc int[1];
-            *arg1 = version;
             var arg2 = stackalloc AdamantiumVulkan.Shaders.ShadercProfile[1];
             *arg2 = profile;
-            var result = AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_parse_version_profile(arg0, arg1, arg2);
-            version = *arg1;
+            var result = AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_parse_version_profile(arg0, ref version, arg2);
             if (arg2 is not null)
             {
                 profile = *arg2;

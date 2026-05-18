@@ -51,11 +51,8 @@ public unsafe partial class Queue : IUnmanagedWrapper<AdamantiumVulkan.Core.Inte
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pCheckpointDataCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkCheckpointData2NV[(int)pCheckpointData.Length];
-            Commands.vkGetQueueCheckpointData2NV(this, arg1, arg2);
-            pCheckpointDataCount = *arg1;
+            Commands.vkGetQueueCheckpointData2NV(this, ref pCheckpointDataCount, arg2);
             for (var i = 0; i < pCheckpointData.Length; ++i)
             {
                 pCheckpointData[i] = new CheckpointData2NV(arg2[i]);
@@ -84,11 +81,8 @@ public unsafe partial class Queue : IUnmanagedWrapper<AdamantiumVulkan.Core.Inte
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pCheckpointDataCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CheckpointData2NV, AdamantiumVulkan.Core.Interop.VkCheckpointData2NV>(pCheckpointData, ref currentCursor);
-            Commands.vkGetQueueCheckpointData2NV(this, arg1, arg2);
-            pCheckpointDataCount = *arg1;
+            Commands.vkGetQueueCheckpointData2NV(this, ref pCheckpointDataCount, arg2);
             if (arg2 is not null)
             {
                 pCheckpointData = new AdamantiumVulkan.Core.CheckpointData2NV(*arg2);
@@ -122,11 +116,8 @@ public unsafe partial class Queue : IUnmanagedWrapper<AdamantiumVulkan.Core.Inte
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pCheckpointDataCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkCheckpointDataNV[(int)pCheckpointData.Length];
-            Commands.vkGetQueueCheckpointDataNV(this, arg1, arg2);
-            pCheckpointDataCount = *arg1;
+            Commands.vkGetQueueCheckpointDataNV(this, ref pCheckpointDataCount, arg2);
             for (var i = 0; i < pCheckpointData.Length; ++i)
             {
                 pCheckpointData[i] = new CheckpointDataNV(arg2[i]);
@@ -155,11 +146,8 @@ public unsafe partial class Queue : IUnmanagedWrapper<AdamantiumVulkan.Core.Inte
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pCheckpointDataCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CheckpointDataNV, AdamantiumVulkan.Core.Interop.VkCheckpointDataNV>(pCheckpointData, ref currentCursor);
-            Commands.vkGetQueueCheckpointDataNV(this, arg1, arg2);
-            pCheckpointDataCount = *arg1;
+            Commands.vkGetQueueCheckpointDataNV(this, ref pCheckpointDataCount, arg2);
             if (arg2 is not null)
             {
                 pCheckpointData = new AdamantiumVulkan.Core.CheckpointDataNV(*arg2);

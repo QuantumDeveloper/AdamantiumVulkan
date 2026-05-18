@@ -12,6 +12,9 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+///<summary>
+/// Maps to C++ API.
+///</summary>
 public unsafe partial class SpvcHlslResourceBindingMapping : IMarshallable<AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslResourceBindingMapping>
 {
     public SpvcHlslResourceBindingMapping()

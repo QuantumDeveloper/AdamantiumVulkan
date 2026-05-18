@@ -19,7 +19,7 @@ namespace AdamantiumVulkan.Spirv.Cross.Interop;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct SpvcEntryPoint
 {
-    public SpvExecutionModel execution_model;
+    public ExecutionModel execution_model;
     public sbyte* name;
 }
 

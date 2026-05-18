@@ -22,24 +22,24 @@ public unsafe struct PFN_vkAcquireNextImage2KHR
     public PFN_vkAcquireNextImage2KHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR*, uint*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR*, out uint, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR*, uint*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR*, out uint, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR* pAcquireInfo, uint* pImageIndex)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR* pAcquireInfo, out uint pImageIndex)
     {
-        return InvokeFunc(device, pAcquireInfo, pImageIndex);
+        return InvokeFunc(device, pAcquireInfo, out pImageIndex);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR* pAcquireInfo, uint* pImageIndex)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR* pAcquireInfo, out uint pImageIndex)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR*, uint*, Result>)ptr)(device, pAcquireInfo, pImageIndex);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR*, out uint, Result>)ptr)(device, pAcquireInfo, out pImageIndex);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR* pAcquireInfo, uint* pImageIndex)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR* pAcquireInfo, out uint pImageIndex)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR*, uint*, Result>)(void*)ptr)(device, pAcquireInfo, pImageIndex);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR*, out uint, Result>)(void*)ptr)(device, pAcquireInfo, out pImageIndex);
     }
 
     public static explicit operator PFN_vkAcquireNextImage2KHR(void* ptr) => new(ptr);

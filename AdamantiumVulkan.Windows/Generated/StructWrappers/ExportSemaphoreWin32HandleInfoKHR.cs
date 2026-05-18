@@ -26,7 +26,7 @@ public unsafe partial class ExportSemaphoreWin32HandleInfoKHR : IMarshallableObj
 
     public StructureType SType => StructureType.ExportSemaphoreWin32HandleInfoKhr;
     public object PNext { get; set; }
-    public nuint? PAttributes { get; set; }
+    public nuint PAttributes { get; set; }
     public nuint DwAccess { get; set; }
     public nuint Name { get; set; }
 
@@ -53,11 +53,7 @@ public unsafe partial class ExportSemaphoreWin32HandleInfoKHR : IMarshallableObj
     public void MarshalFrom(in AdamantiumVulkan.Windows.Interop.VkExportSemaphoreWin32HandleInfoKHR native)
     {
         PNext = (System.IntPtr)native.pNext;
-        if (native.pAttributes != null)
-        {
-            PAttributes = *native.pAttributes;
-            NativeUtils.Free(native.pAttributes);
-        }
+        PAttributes = (nuint)native.pAttributes;
         DwAccess = native.dwAccess;
         Name = native.name;
 
@@ -90,9 +86,9 @@ public unsafe partial class ExportSemaphoreWin32HandleInfoKHR : IMarshallableObj
                 context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (exportSemaphoreWin32HandleInfoKHR.PAttributes.HasValue)
+            if (exportSemaphoreWin32HandleInfoKHR.PAttributes != default)
             {
-                context.Destination[0].pAttributes = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(exportSemaphoreWin32HandleInfoKHR.PAttributes.Value, ref context);
+                context.Destination[0].pAttributes = (void*)exportSemaphoreWin32HandleInfoKHR.PAttributes;
             }
 
             context.Destination[0].dwAccess = exportSemaphoreWin32HandleInfoKHR.DwAccess;

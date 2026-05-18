@@ -52,7 +52,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkDestroyInstance(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
     // File: video.xml Line: 12395 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkEnumeratePhysicalDevices(AdamantiumVulkan.Core.Interop.VkInstance_T instance, uint* pPhysicalDeviceCount, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T* pPhysicalDevices);
+    public unsafe delegate Result PFN_vkEnumeratePhysicalDevices(AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint pPhysicalDeviceCount, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T* pPhysicalDevices);
     // File: video.xml Line: 12401 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void* PFN_vkGetDeviceProcAddr(AdamantiumVulkan.Core.Interop.VkDevice_T device, sbyte* pName);
@@ -64,7 +64,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkGetPhysicalDeviceProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties* pProperties);
     // File: video.xml Line: 12416 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkGetPhysicalDeviceQueueFamilyProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties* pQueueFamilyProperties);
+    public unsafe delegate void PFN_vkGetPhysicalDeviceQueueFamilyProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties* pQueueFamilyProperties);
     // File: video.xml Line: 12422 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkGetPhysicalDeviceMemoryProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties* pMemoryProperties);
@@ -85,19 +85,19 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkDestroyDevice(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
     // File: video.xml Line: 12470 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkEnumerateInstanceVersion(uint* pApiVersion);
+    public unsafe delegate Result PFN_vkEnumerateInstanceVersion(out uint pApiVersion);
     // File: video.xml Line: 12474 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkEnumerateInstanceLayerProperties(uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties);
+    public unsafe delegate Result PFN_vkEnumerateInstanceLayerProperties(ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties);
     // File: video.xml Line: 12479 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkEnumerateInstanceExtensionProperties(sbyte* pLayerName, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties);
+    public unsafe delegate Result PFN_vkEnumerateInstanceExtensionProperties(sbyte* pLayerName, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties);
     // File: video.xml Line: 12485 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkEnumerateDeviceLayerProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties);
+    public unsafe delegate Result PFN_vkEnumerateDeviceLayerProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties);
     // File: video.xml Line: 12498 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkEnumerateDeviceExtensionProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, sbyte* pLayerName, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties);
+    public unsafe delegate Result PFN_vkEnumerateDeviceExtensionProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, sbyte* pLayerName, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties);
     // File: video.xml Line: 12505 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkGetDeviceQueue(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint queueFamilyIndex, uint queueIndex, AdamantiumVulkan.Core.Interop.VkQueue_T* pQueue);
@@ -145,10 +145,10 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkBindImageMemory(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkDeviceSize memoryOffset);
     // File: video.xml Line: 12601 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkGetImageSparseMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements* pSparseMemoryRequirements);
+    public unsafe delegate void PFN_vkGetImageSparseMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, ref uint pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements* pSparseMemoryRequirements);
     // File: video.xml Line: 12608 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkGetPhysicalDeviceSparseImageFormatProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, SampleCountFlagBits samples, ImageUsageFlagBits usage, ImageTiling tiling, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties* pProperties);
+    public unsafe delegate void PFN_vkGetPhysicalDeviceSparseImageFormatProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, SampleCountFlagBits samples, ImageUsageFlagBits usage, ImageTiling tiling, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties* pProperties);
     // File: video.xml Line: 12619 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkQueueBindSparse(AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint bindInfoCount, AdamantiumVulkan.Core.Interop.VkBindSparseInfo* pBindInfo, AdamantiumVulkan.Core.Interop.VkFence_T fence);
@@ -241,7 +241,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkDestroyPipelineCache(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
     // File: video.xml Line: 12823 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPipelineCacheData(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, nuint* pDataSize, byte* pData);
+    public unsafe delegate Result PFN_vkGetPipelineCacheData(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, void* pDataSize, byte* pData);
     // File: video.xml Line: 12830 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkMergePipelineCaches(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T dstCache, uint srcCacheCount, AdamantiumVulkan.Core.Interop.VkPipelineCache_T* pSrcCaches);
@@ -256,7 +256,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkGetPipelineKeyKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCreateInfoKHR* pPipelineCreateInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineKey);
     // File: video.xml Line: 12856 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPipelineBinaryDataKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, nuint* pPipelineBinaryDataSize, byte* pPipelineBinaryData);
+    public unsafe delegate Result PFN_vkGetPipelineBinaryDataKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, void* pPipelineBinaryDataSize, byte* pPipelineBinaryData);
     // File: video.xml Line: 12864 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkReleaseCapturedPipelineDataKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkReleaseCapturedPipelineDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
@@ -517,16 +517,16 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdExecuteCommands(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint commandBufferCount, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T* pCommandBuffers);
     // File: video.xml Line: 13513 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceDisplayPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR* pProperties);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceDisplayPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR* pProperties);
     // File: video.xml Line: 13519 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR* pProperties);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR* pProperties);
     // File: video.xml Line: 13525 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetDisplayPlaneSupportedDisplaysKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint planeIndex, uint* pDisplayCount, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplays);
+    public unsafe delegate Result PFN_vkGetDisplayPlaneSupportedDisplaysKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint planeIndex, ref uint pDisplayCount, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplays);
     // File: video.xml Line: 13532 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetDisplayModePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR* pProperties);
+    public unsafe delegate Result PFN_vkGetDisplayModePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR* pProperties);
     // File: video.xml Line: 13539 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateDisplayModeKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, AdamantiumVulkan.Core.Interop.VkDisplayModeCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkDisplayModeKHR_T* pMode);
@@ -550,10 +550,10 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, AdamantiumVulkan.Core.Interop.VkSurfaceCapabilitiesKHR* pSurfaceCapabilities);
     // File: video.xml Line: 13589 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceSurfaceFormatsKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, uint* pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR* pSurfaceFormats);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceSurfaceFormatsKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR* pSurfaceFormats);
     // File: video.xml Line: 13596 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceSurfacePresentModesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, uint* pPresentModeCount, PresentModeKHR* pPresentModes);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceSurfacePresentModesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pPresentModeCount, PresentModeKHR* pPresentModes);
     // File: video.xml Line: 13603 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateSwapchainKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T* pSwapchain);
@@ -562,10 +562,10 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkDestroySwapchainKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
     // File: video.xml Line: 13617 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetSwapchainImagesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, uint* pSwapchainImageCount, AdamantiumVulkan.Core.Interop.VkImage_T* pSwapchainImages);
+    public unsafe delegate Result PFN_vkGetSwapchainImagesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint pSwapchainImageCount, AdamantiumVulkan.Core.Interop.VkImage_T* pSwapchainImages);
     // File: video.xml Line: 13624 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkAcquireNextImageKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong timeout, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, AdamantiumVulkan.Core.Interop.VkFence_T fence, uint* pImageIndex);
+    public unsafe delegate Result PFN_vkAcquireNextImageKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong timeout, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, AdamantiumVulkan.Core.Interop.VkFence_T fence, out uint pImageIndex);
     // File: video.xml Line: 13633 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkQueuePresentKHR(AdamantiumVulkan.Core.Interop.VkQueue_T queue, AdamantiumVulkan.Core.Interop.VkPresentInfoKHR* pPresentInfo);
@@ -655,13 +655,13 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkGetPhysicalDeviceImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2* pImageFormatInfo, AdamantiumVulkan.Core.Interop.VkImageFormatProperties2* pImageFormatProperties);
     // File: video.xml Line: 13927 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkGetPhysicalDeviceQueueFamilyProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2* pQueueFamilyProperties);
+    public unsafe delegate void PFN_vkGetPhysicalDeviceQueueFamilyProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2* pQueueFamilyProperties);
     // File: video.xml Line: 13934 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkGetPhysicalDeviceMemoryProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2* pMemoryProperties);
     // File: video.xml Line: 13940 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkGetPhysicalDeviceSparseImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2* pProperties);
+    public unsafe delegate void PFN_vkGetPhysicalDeviceSparseImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2* pProperties);
     // File: video.xml Line: 13948 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdPushDescriptorSet(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, uint set, uint descriptorWriteCount, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet* pDescriptorWrites);
@@ -673,7 +673,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkGetPhysicalDeviceExternalBufferProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo* pExternalBufferInfo, AdamantiumVulkan.Core.Interop.VkExternalBufferProperties* pExternalBufferProperties);
     // File: video.xml Line: 13985 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetMemoryFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR* pGetFdInfo, int* pFd);
+    public unsafe delegate Result PFN_vkGetMemoryFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR* pGetFdInfo, out int pFd);
     // File: video.xml Line: 13991 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkGetMemoryFdPropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, int fd, AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR* pMemoryFdProperties);
@@ -685,7 +685,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkGetPhysicalDeviceExternalSemaphoreProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo, AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties* pExternalSemaphoreProperties);
     // File: video.xml Line: 14053 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetSemaphoreFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreGetFdInfoKHR* pGetFdInfo, int* pFd);
+    public unsafe delegate Result PFN_vkGetSemaphoreFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreGetFdInfoKHR* pGetFdInfo, out int pFd);
     // File: video.xml Line: 14059 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkImportSemaphoreFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImportSemaphoreFdInfoKHR* pImportSemaphoreFdInfo);
@@ -694,7 +694,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkGetPhysicalDeviceExternalFenceProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo* pExternalFenceInfo, AdamantiumVulkan.Core.Interop.VkExternalFenceProperties* pExternalFenceProperties);
     // File: video.xml Line: 14093 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetFenceFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR* pGetFdInfo, int* pFd);
+    public unsafe delegate Result PFN_vkGetFenceFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR* pGetFdInfo, out int pFd);
     // File: video.xml Line: 14099 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkImportFenceFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImportFenceFdInfoKHR* pImportFenceFdInfo);
@@ -712,13 +712,13 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkRegisterDisplayEventEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, AdamantiumVulkan.Core.Interop.VkDisplayEventInfoEXT* pDisplayEventInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkFence_T* pFence);
     // File: video.xml Line: 14206 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetSwapchainCounterEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, ulong* pCounterValue);
+    public unsafe delegate Result PFN_vkGetSwapchainCounterEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, out ulong pCounterValue);
     // File: video.xml Line: 14213 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT* pSurfaceCapabilities);
     // File: video.xml Line: 14219 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkEnumeratePhysicalDeviceGroups(AdamantiumVulkan.Core.Interop.VkInstance_T instance, uint* pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties);
+    public unsafe delegate Result PFN_vkEnumeratePhysicalDeviceGroups(AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties);
     // File: video.xml Line: 14226 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkGetDeviceGroupPeerMemoryFeatures(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, PeerMemoryFeatureFlagBits* pPeerMemoryFeatures);
@@ -739,13 +739,13 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkGetDeviceGroupSurfacePresentModesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, DeviceGroupPresentModeFlagBitsKHR* pModes);
     // File: video.xml Line: 14266 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkAcquireNextImage2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR* pAcquireInfo, uint* pImageIndex);
+    public unsafe delegate Result PFN_vkAcquireNextImage2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR* pAcquireInfo, out uint pImageIndex);
     // File: video.xml Line: 14272 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdDispatchBase(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint baseGroupX, uint baseGroupY, uint baseGroupZ, uint groupCountX, uint groupCountY, uint groupCountZ);
     // File: video.xml Line: 14283 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDevicePresentRectanglesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, uint* pRectCount, AdamantiumVulkan.Core.Interop.VkRect2D* pRects);
+    public unsafe delegate Result PFN_vkGetPhysicalDevicePresentRectanglesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pRectCount, AdamantiumVulkan.Core.Interop.VkRect2D* pRects);
     // File: video.xml Line: 14290 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateDescriptorUpdateTemplate(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplate_T* pDescriptorUpdateTemplate);
@@ -769,7 +769,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkGetRefreshCycleDurationGOOGLE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE* pDisplayTimingProperties);
     // File: video.xml Line: 14340 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPastPresentationTimingGOOGLE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, uint* pPresentationTimingCount, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE* pPresentationTimings);
+    public unsafe delegate Result PFN_vkGetPastPresentationTimingGOOGLE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint pPresentationTimingCount, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE* pPresentationTimings);
     // File: video.xml Line: 14368 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdSetViewportWScalingNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstViewport, uint viewportCount, AdamantiumVulkan.Core.Interop.VkViewportWScalingNV* pViewportWScalings);
@@ -793,16 +793,16 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR* pSurfaceCapabilities);
     // File: video.xml Line: 14409 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceSurfaceFormats2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, uint* pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR* pSurfaceFormats);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceSurfaceFormats2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, ref uint pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR* pSurfaceFormats);
     // File: video.xml Line: 14416 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceDisplayProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR* pProperties);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceDisplayProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR* pProperties);
     // File: video.xml Line: 14422 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR* pProperties);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR* pProperties);
     // File: video.xml Line: 14428 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetDisplayModeProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR* pProperties);
+    public unsafe delegate Result PFN_vkGetDisplayModeProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR* pProperties);
     // File: video.xml Line: 14435 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkGetDisplayPlaneCapabilities2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR* pDisplayPlaneInfo, AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR* pCapabilities);
@@ -814,7 +814,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkGetImageMemoryRequirements2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageMemoryRequirementsInfo2* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
     // File: video.xml Line: 14455 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkGetImageSparseMemoryRequirements2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2* pInfo, uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2* pSparseMemoryRequirements);
+    public unsafe delegate void PFN_vkGetImageSparseMemoryRequirements2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2* pInfo, ref uint pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2* pSparseMemoryRequirements);
     // File: video.xml Line: 14463 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkGetDeviceBufferMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceBufferMemoryRequirements* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
@@ -823,7 +823,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkGetDeviceImageMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements* pInfo, AdamantiumVulkan.Core.Interop.VkMemoryRequirements2* pMemoryRequirements);
     // File: video.xml Line: 14477 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkGetDeviceImageSparseMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements* pInfo, uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2* pSparseMemoryRequirements);
+    public unsafe delegate void PFN_vkGetDeviceImageSparseMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements* pInfo, ref uint pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2* pSparseMemoryRequirements);
     // File: video.xml Line: 14485 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateSamplerYcbcrConversion(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T* pYcbcrConversion);
@@ -841,7 +841,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkDestroyValidationCacheEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
     // File: video.xml Line: 14519 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetValidationCacheDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, nuint* pDataSize, byte* pData);
+    public unsafe delegate Result PFN_vkGetValidationCacheDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, void* pDataSize, byte* pData);
     // File: video.xml Line: 14526 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkMergeValidationCachesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T dstCache, uint srcCacheCount, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T* pSrcCaches);
@@ -850,16 +850,16 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkGetDescriptorSetLayoutSupport(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport* pSupport);
     // File: video.xml Line: 14572 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetShaderInfoAMD(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, nuint* pInfoSize, byte* pInfo);
+    public unsafe delegate Result PFN_vkGetShaderInfoAMD(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, void* pInfoSize, byte* pInfo);
     // File: video.xml Line: 14581 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkSetLocalDimmingAMD(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapChain, VkBool32 localDimmingEnable);
     // File: video.xml Line: 14587 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pTimeDomainCount, TimeDomainKHR* pTimeDomains);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pTimeDomainCount, TimeDomainKHR* pTimeDomains);
     // File: video.xml Line: 14594 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetCalibratedTimestampsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint timestampCount, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR* pTimestampInfos, ulong* pTimestamps, ulong* pMaxDeviation);
+    public unsafe delegate Result PFN_vkGetCalibratedTimestampsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint timestampCount, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR* pTimestampInfos, ulong* pTimestamps, out ulong pMaxDeviation);
     // File: video.xml Line: 14603 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkSetDebugUtilsObjectNameEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT* pNameInfo);
@@ -913,7 +913,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdEndRenderPass2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo* pSubpassEndInfo);
     // File: video.xml Line: 14704 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetSemaphoreCounterValue(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, ulong* pValue);
+    public unsafe delegate Result PFN_vkGetSemaphoreCounterValue(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, out ulong pValue);
     // File: video.xml Line: 14711 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkWaitSemaphores(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfo* pWaitInfo, ulong timeout);
@@ -931,7 +931,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdSetCheckpointNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, void* pCheckpointMarker);
     // File: video.xml Line: 14765 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkGetQueueCheckpointDataNV(AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint* pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointDataNV* pCheckpointData);
+    public unsafe delegate void PFN_vkGetQueueCheckpointDataNV(AdamantiumVulkan.Core.Interop.VkQueue_T queue, ref uint pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointDataNV* pCheckpointData);
     // File: video.xml Line: 14771 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdBindTransformFeedbackBuffersEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint firstBinding, uint bindingCount, AdamantiumVulkan.Core.Interop.VkBuffer_T* pBuffers, VkDeviceSize* pOffsets, VkDeviceSize* pSizes);
@@ -1060,7 +1060,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkCreateRayTracingPipelinesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, uint createInfoCount, AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR* pCreateInfos, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkPipeline_T* pPipelines);
     // File: video.xml Line: 15120 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV* pProperties);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV* pProperties);
     // File: video.xml Line: 15126 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdTraceRaysIndirectKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable, VkDeviceAddress indirectDeviceAddress);
@@ -1093,10 +1093,10 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkGetImageViewAddressNVX(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageView_T imageView, AdamantiumVulkan.Core.Interop.VkImageViewAddressPropertiesNVX* pProperties);
     // File: video.xml Line: 15208 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, uint* pCounterCount, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR* pCounters, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR* pCounterDescriptions);
+    public unsafe delegate Result PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, ref uint pCounterCount, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR* pCounters, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR* pCounterDescriptions);
     // File: video.xml Line: 15216 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, uint* pNumPasses);
+    public unsafe delegate void PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, out uint pNumPasses);
     // File: video.xml Line: 15222 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkAcquireProfilingLockKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR* pInfo);
@@ -1117,7 +1117,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkCreateHeadlessSurfaceEXT(AdamantiumVulkan.Core.Interop.VkInstance_T instance, AdamantiumVulkan.Core.Interop.VkHeadlessSurfaceCreateInfoEXT* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T* pSurface);
     // File: video.xml Line: 15257 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pCombinationCount, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV* pCombinations);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pCombinationCount, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV* pCombinations);
     // File: video.xml Line: 15263 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkInitializePerformanceApiINTEL(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL* pInitializeInfo);
@@ -1150,19 +1150,19 @@ public static unsafe class Delegates
     public unsafe delegate ulong PFN_vkGetDeviceMemoryOpaqueCaptureAddress(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo* pInfo);
     // File: video.xml Line: 15315 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPipelineExecutablePropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, uint* pExecutableCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR* pProperties);
+    public unsafe delegate Result PFN_vkGetPipelineExecutablePropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, ref uint pExecutableCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR* pProperties);
     // File: video.xml Line: 15322 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPipelineExecutableStatisticsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, uint* pStatisticCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR* pStatistics);
+    public unsafe delegate Result PFN_vkGetPipelineExecutableStatisticsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint pStatisticCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR* pStatistics);
     // File: video.xml Line: 15329 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPipelineExecutableInternalRepresentationsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, uint* pInternalRepresentationCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations);
+    public unsafe delegate Result PFN_vkGetPipelineExecutableInternalRepresentationsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint pInternalRepresentationCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations);
     // File: video.xml Line: 15336 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdSetLineStipple(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint lineStippleFactor, ushort lineStipplePattern);
     // File: video.xml Line: 15352 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceToolProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pToolCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties* pToolProperties);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceToolProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pToolCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties* pToolProperties);
     // File: video.xml Line: 15359 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoKHR* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructure);
@@ -1360,7 +1360,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkSetPrivateData(AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ulong data);
     // File: video.xml Line: 15749 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkGetPrivateData(AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ulong* pData);
+    public unsafe delegate void PFN_vkGetPrivateData(AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, out ulong pData);
     // File: video.xml Line: 15758 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdCopyBuffer2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2* pCopyBufferInfo);
@@ -1384,7 +1384,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdSetFragmentShadingRateKHR(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkExtent2D* pFragmentSize, FragmentShadingRateCombinerOpKHR combinerOps);
     // File: video.xml Line: 15811 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pFragmentShadingRateCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR* pFragmentShadingRates);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pFragmentShadingRateCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR* pFragmentShadingRates);
     // File: video.xml Line: 15817 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdSetFragmentShadingRateEnumNV(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FragmentShadingRateNV shadingRate, FragmentShadingRateCombinerOpKHR combinerOps);
@@ -1420,7 +1420,7 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdWriteBufferMarker2AMD(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkPipelineStageFlags2 stage, AdamantiumVulkan.Core.Interop.VkBuffer_T dstBuffer, VkDeviceSize dstOffset, uint marker);
     // File: video.xml Line: 15897 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate void PFN_vkGetQueueCheckpointData2NV(AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint* pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointData2NV* pCheckpointData);
+    public unsafe delegate void PFN_vkGetQueueCheckpointData2NV(AdamantiumVulkan.Core.Interop.VkQueue_T queue, ref uint pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointData2NV* pCheckpointData);
     // File: video.xml Line: 15903 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCopyMemoryToImage(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCopyMemoryToImageInfo* pCopyMemoryToImageInfo);
@@ -1438,7 +1438,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR* pVideoProfile, AdamantiumVulkan.Core.Interop.VkVideoCapabilitiesKHR* pCapabilities);
     // File: video.xml Line: 15941 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo, uint* pVideoFormatPropertyCount, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR* pVideoFormatProperties);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo, ref uint pVideoFormatPropertyCount, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR* pVideoFormatProperties);
     // File: video.xml Line: 15948 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR* pQualityLevelInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelPropertiesKHR* pQualityLevelProperties);
@@ -1456,13 +1456,13 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkUpdateVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T videoSessionParameters, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersUpdateInfoKHR* pUpdateInfo);
     // File: video.xml Line: 15980 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetEncodedVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, nuint* pDataSize, byte* pData);
+    public unsafe delegate Result PFN_vkGetEncodedVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, void* pDataSize, byte* pData);
     // File: video.xml Line: 15988 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkDestroyVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionParametersKHR_T videoSessionParameters, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
     // File: video.xml Line: 15994 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetVideoSessionMemoryRequirementsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, uint* pMemoryRequirementsCount, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements);
+    public unsafe delegate Result PFN_vkGetVideoSessionMemoryRequirementsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, ref uint pMemoryRequirementsCount, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements);
     // File: video.xml Line: 16001 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkBindVideoSessionMemoryKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, uint bindSessionMemoryInfoCount, AdamantiumVulkan.Core.Interop.VkBindVideoSessionMemoryInfoKHR* pBindSessionMemoryInfos);
@@ -1558,7 +1558,7 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkCreateCudaModuleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T* pModule);
     // File: video.xml Line: 16225 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetCudaModuleCacheNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T module, nuint* pCacheSize, byte* pCacheData);
+    public unsafe delegate Result PFN_vkGetCudaModuleCacheNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T module, void* pCacheSize, byte* pCacheData);
     // File: video.xml Line: 16232 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateCudaFunctionNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaFunctionCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkCudaFunctionNV_T* pFunction);
@@ -1639,13 +1639,13 @@ public static unsafe class Delegates
     public unsafe delegate Result PFN_vkGetPipelinePropertiesEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, AdamantiumVulkan.Core.Interop.VkBaseOutStructure* pPipelineProperties);
     // File: video.xml Line: 16403 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetFramebufferTilePropertiesQCOM(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, uint* pPropertiesCount, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties);
+    public unsafe delegate Result PFN_vkGetFramebufferTilePropertiesQCOM(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, ref uint pPropertiesCount, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties);
     // File: video.xml Line: 16410 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkGetDynamicRenderingTilePropertiesQCOM(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkRenderingInfo* pRenderingInfo, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties);
     // File: video.xml Line: 16416 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV* pOpticalFlowImageFormatInfo, uint* pFormatCount, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV* pImageFormatProperties);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV* pOpticalFlowImageFormatInfo, ref uint pFormatCount, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV* pImageFormatProperties);
     // File: video.xml Line: 16423 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkCreateOpticalFlowSessionNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionNV_T* pSession);
@@ -1684,13 +1684,13 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkDestroyShaderEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderEXT_T shader, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator);
     // File: video.xml Line: 16500 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetShaderBinaryDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderEXT_T shader, nuint* pDataSize, byte* pData);
+    public unsafe delegate Result PFN_vkGetShaderBinaryDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderEXT_T shader, void* pDataSize, byte* pData);
     // File: video.xml Line: 16507 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdBindShadersEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, uint stageCount, ShaderStageFlagBits* pStages, AdamantiumVulkan.Core.Interop.VkShaderEXT_T* pShaders);
     // File: video.xml Line: 16520 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR* pProperties);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR* pProperties);
     // File: video.xml Line: 16576 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate void PFN_vkCmdBindDescriptorSets2(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfo* pBindDescriptorSetsInfo);
@@ -1735,10 +1735,10 @@ public static unsafe class Delegates
     public unsafe delegate void PFN_vkCmdSetDepthClampRangeEXT(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, DepthClampModeEXT depthClampMode, AdamantiumVulkan.Core.Interop.VkDepthClampRangeEXT* pDepthClampRange);
     // File: video.xml Line: 16657 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV* pProperties);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV* pProperties);
     // File: video.xml Line: 16676 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
-    public unsafe delegate Result PFN_vkGetPhysicalDeviceCooperativeVectorPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeVectorPropertiesNV* pProperties);
+    public unsafe delegate Result PFN_vkGetPhysicalDeviceCooperativeVectorPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeVectorPropertiesNV* pProperties);
     // File: video.xml Line: 16682 Column: 10
     [UnmanagedFunctionPointer(CallingConvention.Winapi)]
     public unsafe delegate Result PFN_vkConvertCooperativeVectorMatrixNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkConvertCooperativeVectorMatrixInfoNV* pInfo);

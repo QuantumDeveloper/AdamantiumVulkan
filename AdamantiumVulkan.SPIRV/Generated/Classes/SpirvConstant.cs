@@ -92,16 +92,13 @@ public unsafe partial class SpirvConstant : IUnmanagedWrapper<AdamantiumVulkan.S
 
     public void GetSubconstants(out SpvcConstantId[] constituents, ref ulong count)
     {
-        AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantId* arg1 = null;
-        var arg2 = stackalloc ulong[1];
-        *arg2 = count;
-        AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_get_subconstants(this, out arg1, arg2);
+        AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantId* arg1 = default;
+        AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_get_subconstants(this, out arg1, ref count);
         constituents = new SpvcConstantId[count];
         for (var i = 0; i < (int)count; ++i)
         {
             constituents[i] = arg1[i];
         }
-        count = *arg2;
     }
 
     ///<summary>

@@ -38,7 +38,7 @@ public unsafe partial struct SpvcMslVertexAttribute
     ///</summary>
     public SpvcBool per_instance;
     public MslShaderVariableFormat format;
-    public SpvBuiltIn builtin;
+    public BuiltIn builtin;
 }
 
 

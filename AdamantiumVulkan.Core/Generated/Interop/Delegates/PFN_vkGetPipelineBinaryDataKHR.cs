@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPipelineBinaryDataKHR
     public PFN_vkGetPipelineBinaryDataKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, nuint*, byte*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, void*, byte*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, nuint*, byte*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, void*, byte*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, nuint* pPipelineBinaryDataSize, byte* pPipelineBinaryData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, void* pPipelineBinaryDataSize, byte* pPipelineBinaryData)
     {
         return InvokeFunc(device, pInfo, pPipelineBinaryKey, pPipelineBinaryDataSize, pPipelineBinaryData);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, nuint* pPipelineBinaryDataSize, byte* pPipelineBinaryData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, void* pPipelineBinaryDataSize, byte* pPipelineBinaryData)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, nuint*, byte*, Result>)ptr)(device, pInfo, pPipelineBinaryKey, pPipelineBinaryDataSize, pPipelineBinaryData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, void*, byte*, Result>)ptr)(device, pInfo, pPipelineBinaryKey, pPipelineBinaryDataSize, pPipelineBinaryData);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, nuint* pPipelineBinaryDataSize, byte* pPipelineBinaryData)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, void* pPipelineBinaryDataSize, byte* pPipelineBinaryData)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, nuint*, byte*, Result>)(void*)ptr)(device, pInfo, pPipelineBinaryKey, pPipelineBinaryDataSize, pPipelineBinaryData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR*, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR*, void*, byte*, Result>)(void*)ptr)(device, pInfo, pPipelineBinaryKey, pPipelineBinaryDataSize, pPipelineBinaryData);
     }
 
     public static explicit operator PFN_vkGetPipelineBinaryDataKHR(void* ptr) => new(ptr);

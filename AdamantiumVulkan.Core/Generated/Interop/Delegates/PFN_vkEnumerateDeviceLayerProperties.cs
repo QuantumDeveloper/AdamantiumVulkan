@@ -22,24 +22,24 @@ public unsafe struct PFN_vkEnumerateDeviceLayerProperties
     public PFN_vkEnumerateDeviceLayerProperties(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
     {
-        return InvokeFunc(physicalDevice, pPropertyCount, pProperties);
+        return InvokeFunc(physicalDevice, ref pPropertyCount, pProperties);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)ptr)(physicalDevice, pPropertyCount, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)ptr)(physicalDevice, ref pPropertyCount, pProperties);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint*, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)(void*)ptr)(physicalDevice, pPropertyCount, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint, AdamantiumVulkan.Core.Interop.VkLayerProperties*, Result>)(void*)ptr)(physicalDevice, ref pPropertyCount, pProperties);
     }
 
     public static explicit operator PFN_vkEnumerateDeviceLayerProperties(void* ptr) => new(ptr);

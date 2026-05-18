@@ -125,11 +125,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(pLayerName, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPropertyCount;
             var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkExtensionProperties[(int)pProperties.Length];
-            var result = Commands.vkEnumerateDeviceExtensionProperties(this, arg1, arg2, arg3);
-            pPropertyCount = *arg2;
+            var result = Commands.vkEnumerateDeviceExtensionProperties(this, arg1, ref pPropertyCount, arg3);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new ExtensionProperties(arg3[i]);
@@ -164,11 +161,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkLayerProperties[(int)pProperties.Length];
-            var result = Commands.vkEnumerateDeviceLayerProperties(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkEnumerateDeviceLayerProperties(this, ref pPropertyCount, arg2);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new LayerProperties(arg2[i]);
@@ -198,11 +192,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.LayerProperties, AdamantiumVulkan.Core.Interop.VkLayerProperties>(pProperties, ref currentCursor);
-            var result = Commands.vkEnumerateDeviceLayerProperties(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkEnumerateDeviceLayerProperties(this, ref pPropertyCount, arg2);
             if (arg2 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.LayerProperties(*arg2);
@@ -244,12 +235,9 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pCounterCount;
             var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR[(int)pCounters.Length];
             var arg4 = stackalloc AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR[(int)pCounterDescriptions.Length];
-            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, arg2, arg3, arg4);
-            pCounterCount = *arg2;
+            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
             for (var i = 0; i < pCounters.Length; ++i)
             {
                 pCounters[i] = new PerformanceCounterKHR(arg3[i]);
@@ -290,12 +278,9 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pCounterCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerformanceCounterKHR, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR>(pCounters, ref currentCursor);
             var arg4 = stackalloc AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR[(int)pCounterDescriptions.Length];
-            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, arg2, arg3, arg4);
-            pCounterCount = *arg2;
+            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
             if (arg3 is not null)
             {
                 pCounters = new AdamantiumVulkan.Core.PerformanceCounterKHR(*arg3);
@@ -336,12 +321,9 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pCounterCount;
             var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR[(int)pCounters.Length];
             var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerformanceCounterDescriptionKHR, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR>(pCounterDescriptions, ref currentCursor);
-            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, arg2, arg3, arg4);
-            pCounterCount = *arg2;
+            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
             for (var i = 0; i < pCounters.Length; ++i)
             {
                 pCounters[i] = new PerformanceCounterKHR(arg3[i]);
@@ -377,12 +359,9 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pCounterCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerformanceCounterKHR, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR>(pCounters, ref currentCursor);
             var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerformanceCounterDescriptionKHR, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR>(pCounterDescriptions, ref currentCursor);
-            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, arg2, arg3, arg4);
-            pCounterCount = *arg2;
+            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
             if (arg3 is not null)
             {
                 pCounters = new AdamantiumVulkan.Core.PerformanceCounterKHR(*arg3);
@@ -422,11 +401,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = display == null ? new VkDisplayKHR_T() : (VkDisplayKHR_T)display;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPropertyCount;
             var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR[(int)pProperties.Length];
-            var result = Commands.vkGetDisplayModeProperties2KHR(this, arg1, arg2, arg3);
-            pPropertyCount = *arg2;
+            var result = Commands.vkGetDisplayModeProperties2KHR(this, arg1, ref pPropertyCount, arg3);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new DisplayModeProperties2KHR(arg3[i]);
@@ -457,11 +433,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = display == null ? new VkDisplayKHR_T() : (VkDisplayKHR_T)display;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPropertyCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayModeProperties2KHR, AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR>(pProperties, ref currentCursor);
-            var result = Commands.vkGetDisplayModeProperties2KHR(this, arg1, arg2, arg3);
-            pPropertyCount = *arg2;
+            var result = Commands.vkGetDisplayModeProperties2KHR(this, arg1, ref pPropertyCount, arg3);
             if (arg3 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.DisplayModeProperties2KHR(*arg3);
@@ -497,11 +470,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = display == null ? new VkDisplayKHR_T() : (VkDisplayKHR_T)display;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPropertyCount;
             var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR[(int)pProperties.Length];
-            var result = Commands.vkGetDisplayModePropertiesKHR(this, arg1, arg2, arg3);
-            pPropertyCount = *arg2;
+            var result = Commands.vkGetDisplayModePropertiesKHR(this, arg1, ref pPropertyCount, arg3);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new DisplayModePropertiesKHR(arg3[i]);
@@ -532,11 +502,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = display == null ? new VkDisplayKHR_T() : (VkDisplayKHR_T)display;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPropertyCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayModePropertiesKHR, AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR>(pProperties, ref currentCursor);
-            var result = Commands.vkGetDisplayModePropertiesKHR(this, arg1, arg2, arg3);
-            pPropertyCount = *arg2;
+            var result = Commands.vkGetDisplayModePropertiesKHR(this, arg1, ref pPropertyCount, arg3);
             if (arg3 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.DisplayModePropertiesKHR(*arg3);
@@ -590,11 +557,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
 
     public Result GetDisplayPlaneSupportedDisplaysKHR(uint planeIndex, ref uint pDisplayCount, out AdamantiumVulkan.Core.DisplayKHR[] pDisplays)
     {
-        var arg2 = stackalloc uint[1];
-        *arg2 = pDisplayCount;
-        AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* arg3 = null;
-        var result = Commands.vkGetDisplayPlaneSupportedDisplaysKHR(this, planeIndex, arg2, arg3);
-        pDisplayCount = *arg2;
+        AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* arg3 = default;
+        var result = Commands.vkGetDisplayPlaneSupportedDisplaysKHR(this, planeIndex, ref pDisplayCount, arg3);
         pDisplays = new AdamantiumVulkan.Core.DisplayKHR[pDisplayCount];
         for (var i = 0; i < (int)pDisplayCount; ++i)
         {
@@ -626,11 +590,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pTimeDomainCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalBlittableArray<AdamantiumVulkan.Core.TimeDomainKHR>(pTimeDomains, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(this, arg1, arg2);
-            pTimeDomainCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(this, ref pTimeDomainCount, arg2);
             var arg2SourceSpan = new System.ReadOnlySpan<AdamantiumVulkan.Core.TimeDomainKHR>(arg2, (int)pTimeDomainCount);
             if(!pTimeDomains.IsEmpty)
                 arg2SourceSpan.CopyTo(pTimeDomains);
@@ -645,12 +606,9 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
 
     public Result GetPhysicalDeviceCalibrateableTimeDomainsKHR(ref uint pTimeDomainCount, ref TimeDomainKHR pTimeDomains)
     {
-        var arg1 = stackalloc uint[1];
-        *arg1 = pTimeDomainCount;
         var arg2 = stackalloc AdamantiumVulkan.Core.TimeDomainKHR[1];
         *arg2 = pTimeDomains;
-        var result = Commands.vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(this, arg1, arg2);
-        pTimeDomainCount = *arg1;
+        var result = Commands.vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(this, ref pTimeDomainCount, arg2);
         if (arg2 is not null)
         {
             pTimeDomains = *arg2;
@@ -679,11 +637,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV[(int)pProperties.Length];
-            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(this, ref pPropertyCount, arg2);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new CooperativeMatrixFlexibleDimensionsPropertiesNV(arg2[i]);
@@ -713,11 +668,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CooperativeMatrixFlexibleDimensionsPropertiesNV, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV>(pProperties, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(this, ref pPropertyCount, arg2);
             if (arg2 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.CooperativeMatrixFlexibleDimensionsPropertiesNV(*arg2);
@@ -752,11 +704,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR[(int)pProperties.Length];
-            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(this, ref pPropertyCount, arg2);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new CooperativeMatrixPropertiesKHR(arg2[i]);
@@ -786,11 +735,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CooperativeMatrixPropertiesKHR, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR>(pProperties, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(this, ref pPropertyCount, arg2);
             if (arg2 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.CooperativeMatrixPropertiesKHR(*arg2);
@@ -825,11 +771,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV[(int)pProperties.Length];
-            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(this, ref pPropertyCount, arg2);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new CooperativeMatrixPropertiesNV(arg2[i]);
@@ -859,11 +802,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CooperativeMatrixPropertiesNV, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV>(pProperties, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(this, ref pPropertyCount, arg2);
             if (arg2 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.CooperativeMatrixPropertiesNV(*arg2);
@@ -898,11 +838,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkCooperativeVectorPropertiesNV[(int)pProperties.Length];
-            var result = Commands.vkGetPhysicalDeviceCooperativeVectorPropertiesNV(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceCooperativeVectorPropertiesNV(this, ref pPropertyCount, arg2);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new CooperativeVectorPropertiesNV(arg2[i]);
@@ -932,11 +869,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CooperativeVectorPropertiesNV, AdamantiumVulkan.Core.Interop.VkCooperativeVectorPropertiesNV>(pProperties, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceCooperativeVectorPropertiesNV(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceCooperativeVectorPropertiesNV(this, ref pPropertyCount, arg2);
             if (arg2 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.CooperativeVectorPropertiesNV(*arg2);
@@ -971,11 +905,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR[(int)pProperties.Length];
-            var result = Commands.vkGetPhysicalDeviceDisplayPlaneProperties2KHR(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceDisplayPlaneProperties2KHR(this, ref pPropertyCount, arg2);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new DisplayPlaneProperties2KHR(arg2[i]);
@@ -1005,11 +936,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayPlaneProperties2KHR, AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR>(pProperties, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceDisplayPlaneProperties2KHR(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceDisplayPlaneProperties2KHR(this, ref pPropertyCount, arg2);
             if (arg2 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.DisplayPlaneProperties2KHR(*arg2);
@@ -1025,11 +953,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
 
     public Result GetPhysicalDeviceDisplayPlanePropertiesKHR(ref uint pPropertyCount, out DisplayPlanePropertiesKHR[] pProperties)
     {
-        var arg1 = stackalloc uint[1];
-        *arg1 = pPropertyCount;
-        AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR* arg2 = null;
-        var result = Commands.vkGetPhysicalDeviceDisplayPlanePropertiesKHR(this, arg1, arg2);
-        pPropertyCount = *arg1;
+        AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR* arg2 = default;
+        var result = Commands.vkGetPhysicalDeviceDisplayPlanePropertiesKHR(this, ref pPropertyCount, arg2);
         pProperties = new AdamantiumVulkan.Core.DisplayPlanePropertiesKHR[pPropertyCount];
         for (var i = 0U; i < pPropertyCount; ++i)
         {
@@ -1059,11 +984,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR[(int)pProperties.Length];
-            var result = Commands.vkGetPhysicalDeviceDisplayProperties2KHR(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceDisplayProperties2KHR(this, ref pPropertyCount, arg2);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new DisplayProperties2KHR(arg2[i]);
@@ -1093,11 +1015,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayProperties2KHR, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR>(pProperties, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceDisplayProperties2KHR(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceDisplayProperties2KHR(this, ref pPropertyCount, arg2);
             if (arg2 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.DisplayProperties2KHR(*arg2);
@@ -1132,11 +1051,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR[(int)pProperties.Length];
-            var result = Commands.vkGetPhysicalDeviceDisplayPropertiesKHR(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceDisplayPropertiesKHR(this, ref pPropertyCount, arg2);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new DisplayPropertiesKHR(arg2[i]);
@@ -1166,11 +1082,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayPropertiesKHR, AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR>(pProperties, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceDisplayPropertiesKHR(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceDisplayPropertiesKHR(this, ref pPropertyCount, arg2);
             if (arg2 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.DisplayPropertiesKHR(*arg2);
@@ -1348,11 +1261,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pFragmentShadingRateCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR[(int)pFragmentShadingRates.Length];
-            var result = Commands.vkGetPhysicalDeviceFragmentShadingRatesKHR(this, arg1, arg2);
-            pFragmentShadingRateCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceFragmentShadingRatesKHR(this, ref pFragmentShadingRateCount, arg2);
             for (var i = 0; i < pFragmentShadingRates.Length; ++i)
             {
                 pFragmentShadingRates[i] = new PhysicalDeviceFragmentShadingRateKHR(arg2[i]);
@@ -1382,11 +1292,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pFragmentShadingRateCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceFragmentShadingRateKHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR>(pFragmentShadingRates, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceFragmentShadingRatesKHR(this, arg1, arg2);
-            pFragmentShadingRateCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceFragmentShadingRatesKHR(this, ref pFragmentShadingRateCount, arg2);
             if (arg2 is not null)
             {
                 pFragmentShadingRates = new AdamantiumVulkan.Core.PhysicalDeviceFragmentShadingRateKHR(*arg2);
@@ -1482,11 +1389,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.OpticalFlowImageFormatInfoNV, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV>(pOpticalFlowImageFormatInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pFormatCount;
             var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV[(int)pImageFormatProperties.Length];
-            var result = Commands.vkGetPhysicalDeviceOpticalFlowImageFormatsNV(this, arg1, arg2, arg3);
-            pFormatCount = *arg2;
+            var result = Commands.vkGetPhysicalDeviceOpticalFlowImageFormatsNV(this, arg1, ref pFormatCount, arg3);
             for (var i = 0; i < pImageFormatProperties.Length; ++i)
             {
                 pImageFormatProperties[i] = new OpticalFlowImageFormatPropertiesNV(arg3[i]);
@@ -1519,11 +1423,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.OpticalFlowImageFormatInfoNV, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV>(pOpticalFlowImageFormatInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pFormatCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.OpticalFlowImageFormatPropertiesNV, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV>(pImageFormatProperties, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceOpticalFlowImageFormatsNV(this, arg1, arg2, arg3);
-            pFormatCount = *arg2;
+            var result = Commands.vkGetPhysicalDeviceOpticalFlowImageFormatsNV(this, arg1, ref pFormatCount, arg3);
             if (arg3 is not null)
             {
                 pImageFormatProperties = new AdamantiumVulkan.Core.OpticalFlowImageFormatPropertiesNV(*arg3);
@@ -1559,11 +1460,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = surface == null ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pRectCount;
             var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkRect2D[(int)pRects.Length];
-            var result = Commands.vkGetPhysicalDevicePresentRectanglesKHR(this, arg1, arg2, arg3);
-            pRectCount = *arg2;
+            var result = Commands.vkGetPhysicalDevicePresentRectanglesKHR(this, arg1, ref pRectCount, arg3);
             for (var i = 0; i < pRects.Length; ++i)
             {
                 pRects[i] = new Rect2D(arg3[i]);
@@ -1594,11 +1492,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = surface == null ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pRectCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.Rect2D, AdamantiumVulkan.Core.Interop.VkRect2D>(pRects, ref currentCursor);
-            var result = Commands.vkGetPhysicalDevicePresentRectanglesKHR(this, arg1, arg2, arg3);
-            pRectCount = *arg2;
+            var result = Commands.vkGetPhysicalDevicePresentRectanglesKHR(this, arg1, ref pRectCount, arg3);
             if (arg3 is not null)
             {
                 pRects = new AdamantiumVulkan.Core.Rect2D(*arg3);
@@ -1666,9 +1561,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.QueryPoolPerformanceCreateInfoKHR, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR>(pPerformanceQueryCreateInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            Commands.vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(this, arg1, arg2);
-            pNumPasses = *arg2;
+            Commands.vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(this, arg1, out pNumPasses);
         }
         finally
         {
@@ -1698,11 +1591,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pQueueFamilyPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties[(int)pQueueFamilyProperties.Length];
-            Commands.vkGetPhysicalDeviceQueueFamilyProperties(this, arg1, arg2);
-            pQueueFamilyPropertyCount = *arg1;
+            Commands.vkGetPhysicalDeviceQueueFamilyProperties(this, ref pQueueFamilyPropertyCount, arg2);
             for (var i = 0; i < pQueueFamilyProperties.Length; ++i)
             {
                 pQueueFamilyProperties[i] = new QueueFamilyProperties(arg2[i]);
@@ -1736,11 +1626,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pQueueFamilyPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2[(int)pQueueFamilyProperties.Length];
-            Commands.vkGetPhysicalDeviceQueueFamilyProperties2(this, arg1, arg2);
-            pQueueFamilyPropertyCount = *arg1;
+            Commands.vkGetPhysicalDeviceQueueFamilyProperties2(this, ref pQueueFamilyPropertyCount, arg2);
             for (var i = 0; i < pQueueFamilyProperties.Length; ++i)
             {
                 pQueueFamilyProperties[i] = new QueueFamilyProperties2(arg2[i]);
@@ -1769,11 +1656,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pQueueFamilyPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.QueueFamilyProperties2, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2>(pQueueFamilyProperties, ref currentCursor);
-            Commands.vkGetPhysicalDeviceQueueFamilyProperties2(this, arg1, arg2);
-            pQueueFamilyPropertyCount = *arg1;
+            Commands.vkGetPhysicalDeviceQueueFamilyProperties2(this, ref pQueueFamilyPropertyCount, arg2);
             if (arg2 is not null)
             {
                 pQueueFamilyProperties = new AdamantiumVulkan.Core.QueueFamilyProperties2(*arg2);
@@ -1807,11 +1691,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg6 = stackalloc uint[1];
-            *arg6 = pPropertyCount;
             var arg7 = stackalloc AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties[(int)pProperties.Length];
-            Commands.vkGetPhysicalDeviceSparseImageFormatProperties(this, format, type, samples, usage, tiling, arg6, arg7);
-            pPropertyCount = *arg6;
+            Commands.vkGetPhysicalDeviceSparseImageFormatProperties(this, format, type, samples, usage, tiling, ref pPropertyCount, arg7);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new SparseImageFormatProperties(arg7[i]);
@@ -1840,11 +1721,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg6 = stackalloc uint[1];
-            *arg6 = pPropertyCount;
             var arg7 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.SparseImageFormatProperties, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties>(pProperties, ref currentCursor);
-            Commands.vkGetPhysicalDeviceSparseImageFormatProperties(this, format, type, samples, usage, tiling, arg6, arg7);
-            pPropertyCount = *arg6;
+            Commands.vkGetPhysicalDeviceSparseImageFormatProperties(this, format, type, samples, usage, tiling, ref pPropertyCount, arg7);
             if (arg7 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.SparseImageFormatProperties(*arg7);
@@ -1881,11 +1759,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceSparseImageFormatInfo2, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2>(pFormatInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPropertyCount;
             var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2[(int)pProperties.Length];
-            Commands.vkGetPhysicalDeviceSparseImageFormatProperties2(this, arg1, arg2, arg3);
-            pPropertyCount = *arg2;
+            Commands.vkGetPhysicalDeviceSparseImageFormatProperties2(this, arg1, ref pPropertyCount, arg3);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new SparseImageFormatProperties2(arg3[i]);
@@ -1917,11 +1792,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceSparseImageFormatInfo2, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2>(pFormatInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPropertyCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.SparseImageFormatProperties2, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2>(pProperties, ref currentCursor);
-            Commands.vkGetPhysicalDeviceSparseImageFormatProperties2(this, arg1, arg2, arg3);
-            pPropertyCount = *arg2;
+            Commands.vkGetPhysicalDeviceSparseImageFormatProperties2(this, arg1, ref pPropertyCount, arg3);
             if (arg3 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.SparseImageFormatProperties2(*arg3);
@@ -1955,11 +1827,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pCombinationCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV[(int)pCombinations.Length];
-            var result = Commands.vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(this, arg1, arg2);
-            pCombinationCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(this, ref pCombinationCount, arg2);
             for (var i = 0; i < pCombinations.Length; ++i)
             {
                 pCombinations[i] = new FramebufferMixedSamplesCombinationNV(arg2[i]);
@@ -1989,11 +1858,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pCombinationCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.FramebufferMixedSamplesCombinationNV, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV>(pCombinations, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(this, arg1, arg2);
-            pCombinationCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(this, ref pCombinationCount, arg2);
             if (arg2 is not null)
             {
                 pCombinations = new AdamantiumVulkan.Core.FramebufferMixedSamplesCombinationNV(*arg2);
@@ -2078,11 +1944,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceSurfaceInfo2KHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR>(pSurfaceInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pSurfaceFormatCount;
             var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR[(int)pSurfaceFormats.Length];
-            var result = Commands.vkGetPhysicalDeviceSurfaceFormats2KHR(this, arg1, arg2, arg3);
-            pSurfaceFormatCount = *arg2;
+            var result = Commands.vkGetPhysicalDeviceSurfaceFormats2KHR(this, arg1, ref pSurfaceFormatCount, arg3);
             for (var i = 0; i < pSurfaceFormats.Length; ++i)
             {
                 pSurfaceFormats[i] = new SurfaceFormat2KHR(arg3[i]);
@@ -2115,11 +1978,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceSurfaceInfo2KHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR>(pSurfaceInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pSurfaceFormatCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.SurfaceFormat2KHR, AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR>(pSurfaceFormats, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceSurfaceFormats2KHR(this, arg1, arg2, arg3);
-            pSurfaceFormatCount = *arg2;
+            var result = Commands.vkGetPhysicalDeviceSurfaceFormats2KHR(this, arg1, ref pSurfaceFormatCount, arg3);
             if (arg3 is not null)
             {
                 pSurfaceFormats = new AdamantiumVulkan.Core.SurfaceFormat2KHR(*arg3);
@@ -2155,11 +2015,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = surface == null ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pSurfaceFormatCount;
             var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR[(int)pSurfaceFormats.Length];
-            var result = Commands.vkGetPhysicalDeviceSurfaceFormatsKHR(this, arg1, arg2, arg3);
-            pSurfaceFormatCount = *arg2;
+            var result = Commands.vkGetPhysicalDeviceSurfaceFormatsKHR(this, arg1, ref pSurfaceFormatCount, arg3);
             for (var i = 0; i < pSurfaceFormats.Length; ++i)
             {
                 pSurfaceFormats[i] = new SurfaceFormatKHR(arg3[i]);
@@ -2189,11 +2046,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = surface == null ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPresentModeCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalBlittableArray<AdamantiumVulkan.Core.PresentModeKHR>(pPresentModes, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceSurfacePresentModesKHR(this, arg1, arg2, arg3);
-            pPresentModeCount = *arg2;
+            var result = Commands.vkGetPhysicalDeviceSurfacePresentModesKHR(this, arg1, ref pPresentModeCount, arg3);
             var arg3SourceSpan = new System.ReadOnlySpan<AdamantiumVulkan.Core.PresentModeKHR>(arg3, (int)pPresentModeCount);
             if(!pPresentModes.IsEmpty)
                 arg3SourceSpan.CopyTo(pPresentModes);
@@ -2236,11 +2090,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pToolCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties[(int)pToolProperties.Length];
-            var result = Commands.vkGetPhysicalDeviceToolProperties(this, arg1, arg2);
-            pToolCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceToolProperties(this, ref pToolCount, arg2);
             for (var i = 0; i < pToolProperties.Length; ++i)
             {
                 pToolProperties[i] = new PhysicalDeviceToolProperties(arg2[i]);
@@ -2270,11 +2121,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pToolCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceToolProperties, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties>(pToolProperties, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceToolProperties(this, arg1, arg2);
-            pToolCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceToolProperties(this, ref pToolCount, arg2);
             if (arg2 is not null)
             {
                 pToolProperties = new AdamantiumVulkan.Core.PhysicalDeviceToolProperties(*arg2);
@@ -2370,11 +2218,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceVideoFormatInfoKHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR>(pVideoFormatInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pVideoFormatPropertyCount;
             var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR[(int)pVideoFormatProperties.Length];
-            var result = Commands.vkGetPhysicalDeviceVideoFormatPropertiesKHR(this, arg1, arg2, arg3);
-            pVideoFormatPropertyCount = *arg2;
+            var result = Commands.vkGetPhysicalDeviceVideoFormatPropertiesKHR(this, arg1, ref pVideoFormatPropertyCount, arg3);
             for (var i = 0; i < pVideoFormatProperties.Length; ++i)
             {
                 pVideoFormatProperties[i] = new VideoFormatPropertiesKHR(arg3[i]);
@@ -2407,11 +2252,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceVideoFormatInfoKHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR>(pVideoFormatInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pVideoFormatPropertyCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.VideoFormatPropertiesKHR, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR>(pVideoFormatProperties, ref currentCursor);
-            var result = Commands.vkGetPhysicalDeviceVideoFormatPropertiesKHR(this, arg1, arg2, arg3);
-            pVideoFormatPropertyCount = *arg2;
+            var result = Commands.vkGetPhysicalDeviceVideoFormatPropertiesKHR(this, arg1, ref pVideoFormatPropertyCount, arg3);
             if (arg3 is not null)
             {
                 pVideoFormatProperties = new AdamantiumVulkan.Core.VideoFormatPropertiesKHR(*arg3);

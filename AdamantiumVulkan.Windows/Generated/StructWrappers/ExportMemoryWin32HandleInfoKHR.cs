@@ -26,7 +26,7 @@ public unsafe partial class ExportMemoryWin32HandleInfoKHR : IMarshallableObject
 
     public StructureType SType => StructureType.ExportMemoryWin32HandleInfoKhr;
     public object PNext { get; set; }
-    public nuint? PAttributes { get; set; }
+    public nuint PAttributes { get; set; }
     public nuint DwAccess { get; set; }
     public nuint Name { get; set; }
 
@@ -53,11 +53,7 @@ public unsafe partial class ExportMemoryWin32HandleInfoKHR : IMarshallableObject
     public void MarshalFrom(in AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoKHR native)
     {
         PNext = (System.IntPtr)native.pNext;
-        if (native.pAttributes != null)
-        {
-            PAttributes = *native.pAttributes;
-            NativeUtils.Free(native.pAttributes);
-        }
+        PAttributes = (nuint)native.pAttributes;
         DwAccess = native.dwAccess;
         Name = native.name;
 
@@ -90,9 +86,9 @@ public unsafe partial class ExportMemoryWin32HandleInfoKHR : IMarshallableObject
                 context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (exportMemoryWin32HandleInfoKHR.PAttributes.HasValue)
+            if (exportMemoryWin32HandleInfoKHR.PAttributes != default)
             {
-                context.Destination[0].pAttributes = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(exportMemoryWin32HandleInfoKHR.PAttributes.Value, ref context);
+                context.Destination[0].pAttributes = (void*)exportMemoryWin32HandleInfoKHR.PAttributes;
             }
 
             context.Destination[0].dwAccess = exportMemoryWin32HandleInfoKHR.DwAccess;

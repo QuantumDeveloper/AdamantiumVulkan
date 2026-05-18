@@ -170,7 +170,7 @@ public static unsafe partial class VulkanShadersInterop
     /// Sets includer callback functions.
     ///</summary>
     [DllImport(LibraryPath, EntryPoint = "shaderc_compile_options_set_include_callbacks", ExactSpelling = true)]
-    internal static extern void shaderc_compile_options_set_include_callbacks(AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions options, nuint resolver, nuint result_releaser, nuint user_data);
+    internal static extern void shaderc_compile_options_set_include_callbacks(AdamantiumVulkan.Shaders.Interop.ShadercCompileOptions options, nuint resolver, nuint result_releaser, void* user_data);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\shaderc\shaderc.h Line: 499 Column: 21
     ///<summary>
@@ -268,14 +268,14 @@ public static unsafe partial class VulkanShadersInterop
     /// Provides the version & revision of the SPIR-V which will be produced
     ///</summary>
     [DllImport(LibraryPath, EntryPoint = "shaderc_get_spv_version", ExactSpelling = true)]
-    internal static extern void shaderc_get_spv_version(uint* version, uint* revision);
+    internal static extern void shaderc_get_spv_version(ref uint version, ref uint revision);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\shaderc\shaderc.h Line: 612 Column: 21
     ///<summary>
     /// Parses the version and profile from a given null-terminated string containing both version and profile, like: '450core'. Returns false if the string can not be parsed. Returns true when the parsing succeeds. The parsed version and profile are returned through arguments.
     ///</summary>
     [DllImport(LibraryPath, EntryPoint = "shaderc_parse_version_profile", ExactSpelling = true)]
-    internal static extern bool shaderc_parse_version_profile(sbyte* str, int* version, ShadercProfile* profile);
+    internal static extern bool shaderc_parse_version_profile(sbyte* str, ref int version, ShadercProfile* profile);
 
     // File: C:\VulkanSDK\1.4.309.0\Include\shaderc\shaderc.h Line: 598 Column: 28
     ///<summary>

@@ -316,11 +316,8 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPhysicalDeviceGroupCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties[(int)pPhysicalDeviceGroupProperties.Length];
-            var result = Commands.vkEnumeratePhysicalDeviceGroups(this, arg1, arg2);
-            pPhysicalDeviceGroupCount = *arg1;
+            var result = Commands.vkEnumeratePhysicalDeviceGroups(this, ref pPhysicalDeviceGroupCount, arg2);
             for (var i = 0; i < pPhysicalDeviceGroupProperties.Length; ++i)
             {
                 pPhysicalDeviceGroupProperties[i] = new PhysicalDeviceGroupProperties(arg2[i]);
@@ -350,11 +347,8 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPhysicalDeviceGroupCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceGroupProperties, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties>(pPhysicalDeviceGroupProperties, ref currentCursor);
-            var result = Commands.vkEnumeratePhysicalDeviceGroups(this, arg1, arg2);
-            pPhysicalDeviceGroupCount = *arg1;
+            var result = Commands.vkEnumeratePhysicalDeviceGroups(this, ref pPhysicalDeviceGroupCount, arg2);
             if (arg2 is not null)
             {
                 pPhysicalDeviceGroupProperties = new AdamantiumVulkan.Core.PhysicalDeviceGroupProperties(*arg2);
@@ -370,11 +364,8 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
 
     public Result EnumeratePhysicalDevices(ref uint pPhysicalDeviceCount, System.Span<AdamantiumVulkan.Core.PhysicalDevice> pPhysicalDevices)
     {
-        var arg1 = stackalloc uint[1];
-        *arg1 = pPhysicalDeviceCount;
         var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T[(int)pPhysicalDevices.Length];
-        var result = Commands.vkEnumeratePhysicalDevices(this, arg1, arg2);
-        pPhysicalDeviceCount = *arg1;
+        var result = Commands.vkEnumeratePhysicalDevices(this, ref pPhysicalDeviceCount, arg2);
         for (var i = 0; i < pPhysicalDevices.Length; ++i)
         {
             pPhysicalDevices[i] = arg2[i];

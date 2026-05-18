@@ -24,7 +24,7 @@ public unsafe partial class SpvcReflectedBuiltinResource : IMarshallable<Adamant
         MarshalFrom(in native);
     }
 
-    public SpvBuiltIn Builtin { get; set; }
+    public BuiltIn Builtin { get; set; }
     public SpvcTypeId Value_type_id { get; set; }
     public SpvcReflectedResource Resource { get; set; }
 

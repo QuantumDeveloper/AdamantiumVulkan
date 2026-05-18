@@ -24,11 +24,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 14266 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkAcquireNextImage2KHR", ExactSpelling = true)]
-    internal static extern Result vkAcquireNextImage2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR* pAcquireInfo, uint* pImageIndex);
+    internal static extern Result vkAcquireNextImage2KHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR* pAcquireInfo, out uint pImageIndex);
 
     // File: vk.xml Line: 13624 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkAcquireNextImageKHR", ExactSpelling = true)]
-    internal static extern Result vkAcquireNextImageKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong timeout, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, AdamantiumVulkan.Core.Interop.VkFence_T fence, uint* pImageIndex);
+    internal static extern Result vkAcquireNextImageKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong timeout, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, AdamantiumVulkan.Core.Interop.VkFence_T fence, ref uint pImageIndex);
 
     // File: vk.xml Line: 15287 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkAcquirePerformanceConfigurationINTEL", ExactSpelling = true)]
@@ -1416,35 +1416,35 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 12498 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkEnumerateDeviceExtensionProperties", ExactSpelling = true)]
-    internal static extern Result vkEnumerateDeviceExtensionProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, sbyte* pLayerName, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties);
+    internal static extern Result vkEnumerateDeviceExtensionProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, sbyte* pLayerName, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties);
 
     // File: vk.xml Line: 12485 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkEnumerateDeviceLayerProperties", ExactSpelling = true)]
-    internal static extern Result vkEnumerateDeviceLayerProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties);
+    internal static extern Result vkEnumerateDeviceLayerProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties);
 
     // File: vk.xml Line: 12479 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceExtensionProperties", ExactSpelling = true)]
-    internal static extern Result vkEnumerateInstanceExtensionProperties(sbyte* pLayerName, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties);
+    internal static extern Result vkEnumerateInstanceExtensionProperties(sbyte* pLayerName, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties);
 
     // File: vk.xml Line: 12474 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceLayerProperties", ExactSpelling = true)]
-    internal static extern Result vkEnumerateInstanceLayerProperties(uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties);
+    internal static extern Result vkEnumerateInstanceLayerProperties(ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkLayerProperties* pProperties);
 
     // File: vk.xml Line: 12470 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkEnumerateInstanceVersion", ExactSpelling = true)]
-    internal static extern Result vkEnumerateInstanceVersion(uint* pApiVersion);
+    internal static extern Result vkEnumerateInstanceVersion(out uint pApiVersion);
 
     // File: vk.xml Line: 14219 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDeviceGroups", ExactSpelling = true)]
-    internal static extern Result vkEnumeratePhysicalDeviceGroups(AdamantiumVulkan.Core.Interop.VkInstance_T instance, uint* pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties);
+    internal static extern Result vkEnumeratePhysicalDeviceGroups(AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties);
 
     // File: vk.xml Line: 15208 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR", ExactSpelling = true)]
-    internal static extern Result vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, uint* pCounterCount, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR* pCounters, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR* pCounterDescriptions);
+    internal static extern Result vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint queueFamilyIndex, ref uint pCounterCount, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR* pCounters, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR* pCounterDescriptions);
 
     // File: vk.xml Line: 12395 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkEnumeratePhysicalDevices", ExactSpelling = true)]
-    internal static extern Result vkEnumeratePhysicalDevices(AdamantiumVulkan.Core.Interop.VkInstance_T instance, uint* pPhysicalDeviceCount, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T* pPhysicalDevices);
+    internal static extern Result vkEnumeratePhysicalDevices(AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint pPhysicalDeviceCount, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T* pPhysicalDevices);
 
     // File: vk.xml Line: 12557 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkFlushMappedMemoryRanges", ExactSpelling = true)]
@@ -1504,7 +1504,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 14594 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetCalibratedTimestampsKHR", ExactSpelling = true)]
-    internal static extern Result vkGetCalibratedTimestampsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint timestampCount, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR* pTimestampInfos, ulong* pTimestamps, ulong* pMaxDeviation);
+    internal static extern Result vkGetCalibratedTimestampsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint timestampCount, AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR* pTimestampInfos, ulong* pTimestamps, out ulong pMaxDeviation);
 
     // File: vk.xml Line: 15140 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetClusterAccelerationStructureBuildSizesNV", ExactSpelling = true)]
@@ -1512,7 +1512,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 16225 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetCudaModuleCacheNV", ExactSpelling = true)]
-    internal static extern Result vkGetCudaModuleCacheNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T module, nuint* pCacheSize, byte* pCacheData);
+    internal static extern Result vkGetCudaModuleCacheNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCudaModuleNV_T module, void* pCacheSize, byte* pCacheData);
 
     // File: vk.xml Line: 15407 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetDeferredOperationMaxConcurrencyKHR", ExactSpelling = true)]
@@ -1576,7 +1576,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 14477 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceImageSparseMemoryRequirements", ExactSpelling = true)]
-    internal static extern void vkGetDeviceImageSparseMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements* pInfo, uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2* pSparseMemoryRequirements);
+    internal static extern void vkGetDeviceImageSparseMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements* pInfo, ref uint pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2* pSparseMemoryRequirements);
 
     // File: vk.xml Line: 16466 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetDeviceImageSubresourceLayout", ExactSpelling = true)]
@@ -1612,11 +1612,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 14428 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetDisplayModeProperties2KHR", ExactSpelling = true)]
-    internal static extern Result vkGetDisplayModeProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR* pProperties);
+    internal static extern Result vkGetDisplayModeProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR* pProperties);
 
     // File: vk.xml Line: 13532 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetDisplayModePropertiesKHR", ExactSpelling = true)]
-    internal static extern Result vkGetDisplayModePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR* pProperties);
+    internal static extern Result vkGetDisplayModePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T display, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR* pProperties);
 
     // File: vk.xml Line: 14435 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetDisplayPlaneCapabilities2KHR", ExactSpelling = true)]
@@ -1628,7 +1628,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 13525 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetDisplayPlaneSupportedDisplaysKHR", ExactSpelling = true)]
-    internal static extern Result vkGetDisplayPlaneSupportedDisplaysKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint planeIndex, uint* pDisplayCount, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplays);
+    internal static extern Result vkGetDisplayPlaneSupportedDisplaysKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint planeIndex, ref uint pDisplayCount, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplays);
 
     // File: vk.xml Line: 16173 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetDrmDisplayEXT", ExactSpelling = true)]
@@ -1640,7 +1640,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 15980 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetEncodedVideoSessionParametersKHR", ExactSpelling = true)]
-    internal static extern Result vkGetEncodedVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, nuint* pDataSize, byte* pData);
+    internal static extern Result vkGetEncodedVideoSessionParametersKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, void* pDataSize, byte* pData);
 
     // File: vk.xml Line: 12684 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetEventStatus", ExactSpelling = true)]
@@ -1648,7 +1648,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 14093 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetFenceFdKHR", ExactSpelling = true)]
-    internal static extern Result vkGetFenceFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR* pGetFdInfo, int* pFd);
+    internal static extern Result vkGetFenceFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR* pGetFdInfo, out int pFd);
 
     // File: vk.xml Line: 12645 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetFenceStatus", ExactSpelling = true)]
@@ -1656,7 +1656,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 16403 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetFramebufferTilePropertiesQCOM", ExactSpelling = true)]
-    internal static extern Result vkGetFramebufferTilePropertiesQCOM(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, uint* pPropertiesCount, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties);
+    internal static extern Result vkGetFramebufferTilePropertiesQCOM(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, ref uint pPropertiesCount, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties);
 
     // File: vk.xml Line: 13854 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetGeneratedCommandsMemoryRequirementsEXT", ExactSpelling = true)]
@@ -1684,11 +1684,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 12601 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetImageSparseMemoryRequirements", ExactSpelling = true)]
-    internal static extern void vkGetImageSparseMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements* pSparseMemoryRequirements);
+    internal static extern void vkGetImageSparseMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImage_T image, ref uint pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements* pSparseMemoryRequirements);
 
     // File: vk.xml Line: 14455 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetImageSparseMemoryRequirements2", ExactSpelling = true)]
-    internal static extern void vkGetImageSparseMemoryRequirements2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2* pInfo, uint* pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2* pSparseMemoryRequirements);
+    internal static extern void vkGetImageSparseMemoryRequirements2(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2* pInfo, ref uint pSparseMemoryRequirementCount, AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2* pSparseMemoryRequirements);
 
     // File: vk.xml Line: 12770 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetImageSubresourceLayout", ExactSpelling = true)]
@@ -1724,7 +1724,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 13985 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryFdKHR", ExactSpelling = true)]
-    internal static extern Result vkGetMemoryFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR* pGetFdInfo, int* pFd);
+    internal static extern Result vkGetMemoryFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR* pGetFdInfo, out int pFd);
 
     // File: vk.xml Line: 13991 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryFdPropertiesKHR", ExactSpelling = true)]
@@ -1748,7 +1748,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 14340 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPastPresentationTimingGOOGLE", ExactSpelling = true)]
-    internal static extern Result vkGetPastPresentationTimingGOOGLE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, uint* pPresentationTimingCount, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE* pPresentationTimings);
+    internal static extern Result vkGetPastPresentationTimingGOOGLE(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint pPresentationTimingCount, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE* pPresentationTimings);
 
     // File: vk.xml Line: 15303 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPerformanceParameterINTEL", ExactSpelling = true)]
@@ -1756,39 +1756,39 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 14587 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceCalibrateableTimeDomainsKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pTimeDomainCount, TimeDomainKHR* pTimeDomains);
+    internal static extern Result vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pTimeDomainCount, TimeDomainKHR* pTimeDomains);
 
     // File: vk.xml Line: 16657 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV* pProperties);
+    internal static extern Result vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV* pProperties);
 
     // File: vk.xml Line: 16520 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR* pProperties);
+    internal static extern Result vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR* pProperties);
 
     // File: vk.xml Line: 15120 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceCooperativeMatrixPropertiesNV", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV* pProperties);
+    internal static extern Result vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV* pProperties);
 
     // File: vk.xml Line: 16676 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceCooperativeVectorPropertiesNV", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceCooperativeVectorPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeVectorPropertiesNV* pProperties);
+    internal static extern Result vkGetPhysicalDeviceCooperativeVectorPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeVectorPropertiesNV* pProperties);
 
     // File: vk.xml Line: 14422 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceDisplayPlaneProperties2KHR", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceDisplayPlaneProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR* pProperties);
+    internal static extern Result vkGetPhysicalDeviceDisplayPlaneProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR* pProperties);
 
     // File: vk.xml Line: 13519 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceDisplayPlanePropertiesKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceDisplayPlanePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR* pProperties);
+    internal static extern Result vkGetPhysicalDeviceDisplayPlanePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR* pProperties);
 
     // File: vk.xml Line: 14416 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceDisplayProperties2KHR", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceDisplayProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR* pProperties);
+    internal static extern Result vkGetPhysicalDeviceDisplayProperties2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR* pProperties);
 
     // File: vk.xml Line: 13513 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceDisplayPropertiesKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceDisplayPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR* pProperties);
+    internal static extern Result vkGetPhysicalDeviceDisplayPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR* pProperties);
 
     // File: vk.xml Line: 13965 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceExternalBufferProperties", ExactSpelling = true)]
@@ -1824,7 +1824,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 15811 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceFragmentShadingRatesKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceFragmentShadingRatesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pFragmentShadingRateCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR* pFragmentShadingRates);
+    internal static extern Result vkGetPhysicalDeviceFragmentShadingRatesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pFragmentShadingRateCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR* pFragmentShadingRates);
 
     // File: vk.xml Line: 12438 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceImageFormatProperties", ExactSpelling = true)]
@@ -1848,11 +1848,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 16416 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceOpticalFlowImageFormatsNV", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceOpticalFlowImageFormatsNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV* pOpticalFlowImageFormatInfo, uint* pFormatCount, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV* pImageFormatProperties);
+    internal static extern Result vkGetPhysicalDeviceOpticalFlowImageFormatsNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV* pOpticalFlowImageFormatInfo, ref uint pFormatCount, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV* pImageFormatProperties);
 
     // File: vk.xml Line: 14283 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDevicePresentRectanglesKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDevicePresentRectanglesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, uint* pRectCount, AdamantiumVulkan.Core.Interop.VkRect2D* pRects);
+    internal static extern Result vkGetPhysicalDevicePresentRectanglesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pRectCount, AdamantiumVulkan.Core.Interop.VkRect2D* pRects);
 
     // File: vk.xml Line: 12411 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceProperties", ExactSpelling = true)]
@@ -1864,27 +1864,27 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 15216 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR", ExactSpelling = true)]
-    internal static extern void vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, uint* pNumPasses);
+    internal static extern void vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, out uint pNumPasses);
 
     // File: vk.xml Line: 12416 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties", ExactSpelling = true)]
-    internal static extern void vkGetPhysicalDeviceQueueFamilyProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties* pQueueFamilyProperties);
+    internal static extern void vkGetPhysicalDeviceQueueFamilyProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties* pQueueFamilyProperties);
 
     // File: vk.xml Line: 13927 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceQueueFamilyProperties2", ExactSpelling = true)]
-    internal static extern void vkGetPhysicalDeviceQueueFamilyProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2* pQueueFamilyProperties);
+    internal static extern void vkGetPhysicalDeviceQueueFamilyProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pQueueFamilyPropertyCount, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2* pQueueFamilyProperties);
 
     // File: vk.xml Line: 12608 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSparseImageFormatProperties", ExactSpelling = true)]
-    internal static extern void vkGetPhysicalDeviceSparseImageFormatProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, SampleCountFlagBits samples, ImageUsageFlagBits usage, ImageTiling tiling, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties* pProperties);
+    internal static extern void vkGetPhysicalDeviceSparseImageFormatProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, Format format, ImageType type, SampleCountFlagBits samples, ImageUsageFlagBits usage, ImageTiling tiling, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties* pProperties);
 
     // File: vk.xml Line: 13940 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSparseImageFormatProperties2", ExactSpelling = true)]
-    internal static extern void vkGetPhysicalDeviceSparseImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2* pProperties);
+    internal static extern void vkGetPhysicalDeviceSparseImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2* pProperties);
 
     // File: vk.xml Line: 15257 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pCombinationCount, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV* pCombinations);
+    internal static extern Result vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pCombinationCount, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV* pCombinations);
 
     // File: vk.xml Line: 14213 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceCapabilities2EXT", ExactSpelling = true)]
@@ -1900,15 +1900,15 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 14409 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceFormats2KHR", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceSurfaceFormats2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, uint* pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR* pSurfaceFormats);
+    internal static extern Result vkGetPhysicalDeviceSurfaceFormats2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, ref uint pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR* pSurfaceFormats);
 
     // File: vk.xml Line: 13589 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceFormatsKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceSurfaceFormatsKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, uint* pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR* pSurfaceFormats);
+    internal static extern Result vkGetPhysicalDeviceSurfaceFormatsKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pSurfaceFormatCount, AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR* pSurfaceFormats);
 
     // File: vk.xml Line: 13596 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfacePresentModesKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceSurfacePresentModesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, uint* pPresentModeCount, PresentModeKHR* pPresentModes);
+    internal static extern Result vkGetPhysicalDeviceSurfacePresentModesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pPresentModeCount, PresentModeKHR* pPresentModes);
 
     // File: vk.xml Line: 13576 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfaceSupportKHR", ExactSpelling = true)]
@@ -1916,7 +1916,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 15352 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceToolProperties", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceToolProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint* pToolCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties* pToolProperties);
+    internal static extern Result vkGetPhysicalDeviceToolProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pToolCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties* pToolProperties);
 
     // File: vk.xml Line: 15935 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceVideoCapabilitiesKHR", ExactSpelling = true)]
@@ -1928,27 +1928,27 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 15941 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceVideoFormatPropertiesKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceVideoFormatPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo, uint* pVideoFormatPropertyCount, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR* pVideoFormatProperties);
+    internal static extern Result vkGetPhysicalDeviceVideoFormatPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo, ref uint pVideoFormatPropertyCount, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR* pVideoFormatProperties);
 
     // File: vk.xml Line: 12856 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineBinaryDataKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPipelineBinaryDataKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, nuint* pPipelineBinaryDataSize, byte* pPipelineBinaryData);
+    internal static extern Result vkGetPipelineBinaryDataKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR* pInfo, AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR* pPipelineBinaryKey, void* pPipelineBinaryDataSize, byte* pPipelineBinaryData);
 
     // File: vk.xml Line: 12823 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineCacheData", ExactSpelling = true)]
-    internal static extern Result vkGetPipelineCacheData(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, nuint* pDataSize, byte* pData);
+    internal static extern Result vkGetPipelineCacheData(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineCache_T pipelineCache, void* pDataSize, byte* pData);
 
     // File: vk.xml Line: 15329 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineExecutableInternalRepresentationsKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPipelineExecutableInternalRepresentationsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, uint* pInternalRepresentationCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations);
+    internal static extern Result vkGetPipelineExecutableInternalRepresentationsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint pInternalRepresentationCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations);
 
     // File: vk.xml Line: 15315 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineExecutablePropertiesKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPipelineExecutablePropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, uint* pExecutableCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR* pProperties);
+    internal static extern Result vkGetPipelineExecutablePropertiesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, ref uint pExecutableCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR* pProperties);
 
     // File: vk.xml Line: 15322 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineExecutableStatisticsKHR", ExactSpelling = true)]
-    internal static extern Result vkGetPipelineExecutableStatisticsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, uint* pStatisticCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR* pStatistics);
+    internal static extern Result vkGetPipelineExecutableStatisticsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint pStatisticCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR* pStatistics);
 
     // File: vk.xml Line: 15428 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPipelineIndirectDeviceAddressNV", ExactSpelling = true)]
@@ -1968,7 +1968,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 15749 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPrivateData", ExactSpelling = true)]
-    internal static extern void vkGetPrivateData(AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, ulong* pData);
+    internal static extern void vkGetPrivateData(AdamantiumVulkan.Core.Interop.VkDevice_T device, ObjectType objectType, ulong objectHandle, AdamantiumVulkan.Core.Interop.VkPrivateDataSlot_T privateDataSlot, out ulong pData);
 
     // File: vk.xml Line: 12712 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetQueryPoolResults", ExactSpelling = true)]
@@ -1976,11 +1976,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 15897 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetQueueCheckpointData2NV", ExactSpelling = true)]
-    internal static extern void vkGetQueueCheckpointData2NV(AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint* pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointData2NV* pCheckpointData);
+    internal static extern void vkGetQueueCheckpointData2NV(AdamantiumVulkan.Core.Interop.VkQueue_T queue, ref uint pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointData2NV* pCheckpointData);
 
     // File: vk.xml Line: 14765 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetQueueCheckpointDataNV", ExactSpelling = true)]
-    internal static extern void vkGetQueueCheckpointDataNV(AdamantiumVulkan.Core.Interop.VkQueue_T queue, uint* pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointDataNV* pCheckpointData);
+    internal static extern void vkGetQueueCheckpointDataNV(AdamantiumVulkan.Core.Interop.VkQueue_T queue, ref uint pCheckpointDataCount, AdamantiumVulkan.Core.Interop.VkCheckpointDataNV* pCheckpointData);
 
     // File: vk.xml Line: 15066 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetRayTracingCaptureReplayShaderGroupHandlesKHR", ExactSpelling = true)]
@@ -2012,19 +2012,19 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 14704 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetSemaphoreCounterValue", ExactSpelling = true)]
-    internal static extern Result vkGetSemaphoreCounterValue(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, ulong* pValue);
+    internal static extern Result vkGetSemaphoreCounterValue(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, out ulong pValue);
 
     // File: vk.xml Line: 14053 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetSemaphoreFdKHR", ExactSpelling = true)]
-    internal static extern Result vkGetSemaphoreFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreGetFdInfoKHR* pGetFdInfo, int* pFd);
+    internal static extern Result vkGetSemaphoreFdKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphoreGetFdInfoKHR* pGetFdInfo, out int pFd);
 
     // File: vk.xml Line: 16500 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetShaderBinaryDataEXT", ExactSpelling = true)]
-    internal static extern Result vkGetShaderBinaryDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderEXT_T shader, nuint* pDataSize, byte* pData);
+    internal static extern Result vkGetShaderBinaryDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkShaderEXT_T shader, void* pDataSize, byte* pData);
 
     // File: vk.xml Line: 14572 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetShaderInfoAMD", ExactSpelling = true)]
-    internal static extern Result vkGetShaderInfoAMD(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, nuint* pInfoSize, byte* pInfo);
+    internal static extern Result vkGetShaderInfoAMD(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipeline_T pipeline, ShaderStageFlagBits shaderStage, ShaderInfoTypeAMD infoType, void* pInfoSize, byte* pInfo);
 
     // File: vk.xml Line: 16377 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetShaderModuleCreateInfoIdentifierEXT", ExactSpelling = true)]
@@ -2036,11 +2036,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 14206 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetSwapchainCounterEXT", ExactSpelling = true)]
-    internal static extern Result vkGetSwapchainCounterEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, ulong* pCounterValue);
+    internal static extern Result vkGetSwapchainCounterEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, out ulong pCounterValue);
 
     // File: vk.xml Line: 13617 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetSwapchainImagesKHR", ExactSpelling = true)]
-    internal static extern Result vkGetSwapchainImagesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, uint* pSwapchainImageCount, AdamantiumVulkan.Core.Interop.VkImage_T* pSwapchainImages);
+    internal static extern Result vkGetSwapchainImagesKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint pSwapchainImageCount, AdamantiumVulkan.Core.Interop.VkImage_T* pSwapchainImages);
 
     // File: vk.xml Line: 14329 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetSwapchainStatusKHR", ExactSpelling = true)]
@@ -2048,11 +2048,11 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 14519 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetValidationCacheDataEXT", ExactSpelling = true)]
-    internal static extern Result vkGetValidationCacheDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, nuint* pDataSize, byte* pData);
+    internal static extern Result vkGetValidationCacheDataEXT(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T validationCache, void* pDataSize, byte* pData);
 
     // File: vk.xml Line: 15994 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetVideoSessionMemoryRequirementsKHR", ExactSpelling = true)]
-    internal static extern Result vkGetVideoSessionMemoryRequirementsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, uint* pMemoryRequirementsCount, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements);
+    internal static extern Result vkGetVideoSessionMemoryRequirementsKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, ref uint pMemoryRequirementsCount, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements);
 
     // File: vk.xml Line: 14099 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkImportFenceFdKHR", ExactSpelling = true)]

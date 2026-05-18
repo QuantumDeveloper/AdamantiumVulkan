@@ -249,7 +249,9 @@ public unsafe partial class ShadercCompileOptionsT : IUnmanagedWrapper<Adamantiu
     ///</summary>
     public void SetIncludeCallbacks(nuint resolver, nuint result_releaser, ref nuint user_data)
     {
-        AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_include_callbacks(this, resolver, result_releaser, user_data);
+        var arg3 = (void*)user_data;
+        AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_include_callbacks(this, resolver, result_releaser, arg3);
+        user_data = (nuint)arg3;
     }
 
     ///<summary>

@@ -15,7 +15,7 @@ namespace AdamantiumVulkan.SpirvTools.Interop;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct spv_fuzzer_options_t
 {
-    public nuint pointer;
+    public void* pointer;
 }
 
 

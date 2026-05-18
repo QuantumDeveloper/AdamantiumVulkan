@@ -12,6 +12,9 @@ using AdamantiumVulkan.Shaders.Interop;
 
 namespace AdamantiumVulkan.Shaders;
 
+///<summary>
+/// An include result.
+///</summary>
 public unsafe partial class ShadercIncludeResult : IMarshallable<AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult>
 {
     public ShadercIncludeResult()
@@ -55,7 +58,7 @@ public unsafe partial class ShadercIncludeResult : IMarshallable<AdamantiumVulka
         Source_name_length = native.source_name_length;
         Content = new string(native.content);
         Content_length = native.content_length;
-        User_data = native.user_data;
+        User_data = (nuint)native.user_data;
 
     }
     private ref struct ShadercIncludeResultMarshaller
@@ -82,7 +85,10 @@ public unsafe partial class ShadercIncludeResult : IMarshallable<AdamantiumVulka
 
             context.Destination[0].content_length = shadercIncludeResult.Content_length;
 
-            context.Destination[0].user_data = shadercIncludeResult.User_data;
+            if (shadercIncludeResult.User_data != default)
+            {
+                context.Destination[0].user_data = (void*)shadercIncludeResult.User_data;
+            }
 
         }
     }

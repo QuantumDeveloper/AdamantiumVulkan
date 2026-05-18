@@ -22,24 +22,24 @@ public unsafe struct PFN_vkAcquireNextImageKHR
     public PFN_vkAcquireNextImageKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ulong, AdamantiumVulkan.Core.Interop.VkSemaphore_T, AdamantiumVulkan.Core.Interop.VkFence_T, uint*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ulong, AdamantiumVulkan.Core.Interop.VkSemaphore_T, AdamantiumVulkan.Core.Interop.VkFence_T, out uint, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ulong, AdamantiumVulkan.Core.Interop.VkSemaphore_T, AdamantiumVulkan.Core.Interop.VkFence_T, uint*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ulong, AdamantiumVulkan.Core.Interop.VkSemaphore_T, AdamantiumVulkan.Core.Interop.VkFence_T, out uint, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong timeout, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, AdamantiumVulkan.Core.Interop.VkFence_T fence, uint* pImageIndex)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong timeout, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, AdamantiumVulkan.Core.Interop.VkFence_T fence, out uint pImageIndex)
     {
-        return InvokeFunc(device, swapchain, timeout, semaphore, fence, pImageIndex);
+        return InvokeFunc(device, swapchain, timeout, semaphore, fence, out pImageIndex);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong timeout, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, AdamantiumVulkan.Core.Interop.VkFence_T fence, uint* pImageIndex)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong timeout, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, AdamantiumVulkan.Core.Interop.VkFence_T fence, out uint pImageIndex)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ulong, AdamantiumVulkan.Core.Interop.VkSemaphore_T, AdamantiumVulkan.Core.Interop.VkFence_T, uint*, Result>)ptr)(device, swapchain, timeout, semaphore, fence, pImageIndex);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ulong, AdamantiumVulkan.Core.Interop.VkSemaphore_T, AdamantiumVulkan.Core.Interop.VkFence_T, out uint, Result>)ptr)(device, swapchain, timeout, semaphore, fence, out pImageIndex);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong timeout, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, AdamantiumVulkan.Core.Interop.VkFence_T fence, uint* pImageIndex)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ulong timeout, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, AdamantiumVulkan.Core.Interop.VkFence_T fence, out uint pImageIndex)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ulong, AdamantiumVulkan.Core.Interop.VkSemaphore_T, AdamantiumVulkan.Core.Interop.VkFence_T, uint*, Result>)(void*)ptr)(device, swapchain, timeout, semaphore, fence, pImageIndex);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ulong, AdamantiumVulkan.Core.Interop.VkSemaphore_T, AdamantiumVulkan.Core.Interop.VkFence_T, out uint, Result>)(void*)ptr)(device, swapchain, timeout, semaphore, fence, out pImageIndex);
     }
 
     public static explicit operator PFN_vkAcquireNextImageKHR(void* ptr) => new(ptr);

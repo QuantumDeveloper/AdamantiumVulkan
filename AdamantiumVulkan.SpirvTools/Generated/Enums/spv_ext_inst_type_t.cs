@@ -20,13 +20,13 @@ public enum spv_ext_inst_type_t : uint
 
     ExtInstTypeOpenclStd = 2,
 
-    ExtInstTypeAmdShaderExplicitVertexParameter = 3,
+    ExtInstTypeSpvAmdShaderExplicitVertexParameter = 3,
 
-    ExtInstTypeAmdShaderTrinaryMinmax = 4,
+    ExtInstTypeSpvAmdShaderTrinaryMinmax = 4,
 
-    ExtInstTypeAmdGcnShader = 5,
+    ExtInstTypeSpvAmdGcnShader = 5,
 
-    ExtInstTypeAmdShaderBallot = 6,
+    ExtInstTypeSpvAmdShaderBallot = 6,
 
     ExtInstTypeDebuginfo = 7,
 

@@ -643,6 +643,11 @@ public static partial class VulkanBindings
             .WithParameterName("diagnostic")
             .InterpretAsPointerType(new CustomType("spv_diagnostic"), 2)
             .SetParameterKind(ParameterKind.Out);
+        
+        api.Function("spvc_compiler_get_active_buffer_ranges")
+            .WithParameterName("ranges")
+            .InterpretAsPointerToArray(new CustomType("spvc_buffer_range"), pointerDepth: 2, arraySizeSource: "num_ranges")
+            .SetParameterKind(ParameterKind.Out);
 
         api.Function("spvBinaryParse")
             .WithParameterName("user_data")

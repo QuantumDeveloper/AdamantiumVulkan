@@ -12,6 +12,9 @@ using AdamantiumVulkan.SpirvTools.Interop;
 
 namespace AdamantiumVulkan.SpirvTools;
 
+///<summary>
+/// Information about an operand parsed from a binary SPIR-V module. Note that the values are not included. You still need access to the binary to extract the values.
+///</summary>
 public unsafe partial class Spv_parsed_operand_t : IMarshallable<AdamantiumVulkan.SpirvTools.Interop.spv_parsed_operand_t>
 {
     public Spv_parsed_operand_t()

@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPastPresentationTimingGOOGLE
     public PFN_vkGetPastPresentationTimingGOOGLE(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, uint*, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, uint*, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, uint* pPresentationTimingCount, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE* pPresentationTimings)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint pPresentationTimingCount, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE* pPresentationTimings)
     {
-        return InvokeFunc(device, swapchain, pPresentationTimingCount, pPresentationTimings);
+        return InvokeFunc(device, swapchain, ref pPresentationTimingCount, pPresentationTimings);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, uint* pPresentationTimingCount, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE* pPresentationTimings)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint pPresentationTimingCount, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE* pPresentationTimings)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, uint*, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE*, Result>)ptr)(device, swapchain, pPresentationTimingCount, pPresentationTimings);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE*, Result>)ptr)(device, swapchain, ref pPresentationTimingCount, pPresentationTimings);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, uint* pPresentationTimingCount, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE* pPresentationTimings)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint pPresentationTimingCount, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE* pPresentationTimings)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, uint*, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE*, Result>)(void*)ptr)(device, swapchain, pPresentationTimingCount, pPresentationTimings);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE*, Result>)(void*)ptr)(device, swapchain, ref pPresentationTimingCount, pPresentationTimings);
     }
 
     public static explicit operator PFN_vkGetPastPresentationTimingGOOGLE(void* ptr) => new(ptr);

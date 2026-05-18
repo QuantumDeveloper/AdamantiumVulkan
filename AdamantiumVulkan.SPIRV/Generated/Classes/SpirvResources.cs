@@ -44,11 +44,7 @@ public unsafe partial class SpirvResources : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointerArray<AdamantiumVulkan.Spirv.Cross.SpvcReflectedBuiltinResource, AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource>(resource_list, ref currentCursor);
-            var arg3 = stackalloc ulong[1];
-            *arg3 = resource_size;
-            var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_resources_get_builtin_resource_list_for_type(this, type, arg2, arg3);
-            resource_size = *arg3;
-            return result;
+            return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_resources_get_builtin_resource_list_for_type(this, type, arg2, ref resource_size);
         }
         finally
         {
@@ -59,7 +55,7 @@ public unsafe partial class SpirvResources : IUnmanagedWrapper<AdamantiumVulkan.
 
     public Result GetResourceListForType(ResourceType type, out SpvcReflectedResource[] resource_list, out ulong resource_size)
     {
-        AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedResource* arg2 = null;
+        AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedResource* arg2 = default;
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_resources_get_resource_list_for_type(this, type, out arg2, out resource_size);
         resource_list = new AdamantiumVulkan.Spirv.Cross.SpvcReflectedResource[resource_size];
         for (var i = 0U; i < resource_size; ++i)

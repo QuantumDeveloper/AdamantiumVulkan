@@ -15,7 +15,7 @@ namespace AdamantiumVulkan.Shaders.Interop;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct ShadercCompileOptions
 {
-    public nuint pointer;
+    public void* pointer;
 }
 
 

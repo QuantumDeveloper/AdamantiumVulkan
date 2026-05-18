@@ -49,10 +49,7 @@ public unsafe static class VulkanNative
 
     public static Result EnumerateInstanceVersion(out uint pApiVersion)
     {
-        var arg0 = stackalloc uint[1];
-        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceVersion(arg0);
-        pApiVersion = *arg0;
-        return result;
+        return AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceVersion(out pApiVersion);
     }
 
     public static Result EnumerateInstanceLayerProperties(ref uint pPropertyCount, System.Span<LayerProperties> pProperties)
@@ -76,11 +73,8 @@ public unsafe static class VulkanNative
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg0 = stackalloc uint[1];
-            *arg0 = pPropertyCount;
             var arg1 = stackalloc AdamantiumVulkan.Core.Interop.VkLayerProperties[(int)pProperties.Length];
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceLayerProperties(arg0, arg1);
-            pPropertyCount = *arg0;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceLayerProperties(ref pPropertyCount, arg1);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new LayerProperties(arg1[i]);
@@ -118,11 +112,8 @@ public unsafe static class VulkanNative
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(pLayerName, ref currentCursor);
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkExtensionProperties[(int)pProperties.Length];
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceExtensionProperties(arg0, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateInstanceExtensionProperties(arg0, ref pPropertyCount, arg2);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new ExtensionProperties(arg2[i]);

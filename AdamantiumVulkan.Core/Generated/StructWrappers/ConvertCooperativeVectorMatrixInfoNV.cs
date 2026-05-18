@@ -27,7 +27,7 @@ public unsafe partial class ConvertCooperativeVectorMatrixInfoNV : IMarshallable
     public object PNext { get; set; }
     public nuint SrcSize { get; set; }
     public DeviceOrHostAddressConstKHR SrcData { get; set; }
-    public nuint? PDstSize { get; set; }
+    public nuint PDstSize { get; set; }
     public DeviceOrHostAddressKHR DstData { get; set; }
     public ComponentTypeKHR SrcComponentType { get; set; }
     public ComponentTypeKHR DstComponentType { get; set; }
@@ -63,11 +63,7 @@ public unsafe partial class ConvertCooperativeVectorMatrixInfoNV : IMarshallable
         PNext = (System.IntPtr)native.pNext;
         SrcSize = native.srcSize;
         SrcData = new DeviceOrHostAddressConstKHR(native.srcData);
-        if (native.pDstSize != null)
-        {
-            PDstSize = *native.pDstSize;
-            NativeUtils.Free(native.pDstSize);
-        }
+        PDstSize = (nuint)native.pDstSize;
         DstData = new DeviceOrHostAddressKHR(native.dstData);
         SrcComponentType = native.srcComponentType;
         DstComponentType = native.dstComponentType;
@@ -120,9 +116,9 @@ public unsafe partial class ConvertCooperativeVectorMatrixInfoNV : IMarshallable
                 }
             }
 
-            if (convertCooperativeVectorMatrixInfoNV.PDstSize.HasValue)
+            if (convertCooperativeVectorMatrixInfoNV.PDstSize != default)
             {
-                context.Destination[0].pDstSize = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(convertCooperativeVectorMatrixInfoNV.PDstSize.Value, ref context);
+                context.Destination[0].pDstSize = (void*)convertCooperativeVectorMatrixInfoNV.PDstSize;
             }
 
             if (convertCooperativeVectorMatrixInfoNV.DstData != default)

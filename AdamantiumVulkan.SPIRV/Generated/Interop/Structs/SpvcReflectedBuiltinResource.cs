@@ -16,7 +16,7 @@ namespace AdamantiumVulkan.Spirv.Cross.Interop;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct SpvcReflectedBuiltinResource
 {
-    public SpvBuiltIn builtin;
+    public BuiltIn builtin;
     public SpvcTypeId value_type_id;
     public SpvcReflectedResource resource;
 }

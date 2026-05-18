@@ -21,24 +21,24 @@ public unsafe struct PFN_vkEnumerateInstanceExtensionProperties
     public PFN_vkEnumerateInstanceExtensionProperties(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<sbyte*, uint*, AdamantiumVulkan.Core.Interop.VkExtensionProperties*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<sbyte*, ref uint, AdamantiumVulkan.Core.Interop.VkExtensionProperties*, Result>)ptr;
     }
 
-    private delegate* unmanaged<sbyte*, uint*, AdamantiumVulkan.Core.Interop.VkExtensionProperties*, Result> InvokeFunc;
+    private delegate* unmanaged<sbyte*, ref uint, AdamantiumVulkan.Core.Interop.VkExtensionProperties*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(sbyte* pLayerName, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties)
+    public Result Invoke(sbyte* pLayerName, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties)
     {
-        return InvokeFunc(pLayerName, pPropertyCount, pProperties);
+        return InvokeFunc(pLayerName, ref pPropertyCount, pProperties);
     }
-    public static Result Invoke(void* ptr, sbyte* pLayerName, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties)
+    public static Result Invoke(void* ptr, sbyte* pLayerName, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties)
     {
-        return ((delegate* unmanaged<sbyte*, uint*, AdamantiumVulkan.Core.Interop.VkExtensionProperties*, Result>)ptr)(pLayerName, pPropertyCount, pProperties);
+        return ((delegate* unmanaged<sbyte*, ref uint, AdamantiumVulkan.Core.Interop.VkExtensionProperties*, Result>)ptr)(pLayerName, ref pPropertyCount, pProperties);
     }
-    public static Result Invoke(nuint ptr, sbyte* pLayerName, uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties)
+    public static Result Invoke(nuint ptr, sbyte* pLayerName, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkExtensionProperties* pProperties)
     {
-        return ((delegate* unmanaged<sbyte*, uint*, AdamantiumVulkan.Core.Interop.VkExtensionProperties*, Result>)(void*)ptr)(pLayerName, pPropertyCount, pProperties);
+        return ((delegate* unmanaged<sbyte*, ref uint, AdamantiumVulkan.Core.Interop.VkExtensionProperties*, Result>)(void*)ptr)(pLayerName, ref pPropertyCount, pProperties);
     }
 
     public static explicit operator PFN_vkEnumerateInstanceExtensionProperties(void* ptr) => new(ptr);

@@ -32,10 +32,11 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulk
     ///</summary>
     public spv_result_t SpvBinaryParse(nuint user_data, in uint words, ulong num_words, nuint parse_header, nuint parse_instruction, out Spv_diagnostic diagnostic)
     {
+        var arg1 = (void*)user_data;
         var arg2 = stackalloc uint[1];
         *arg2 = words;
-        AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg6;
-        var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvBinaryParse(this, user_data, arg2, num_words, parse_header, parse_instruction, out arg6);
+        AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg6 = default;
+        var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvBinaryParse(this, arg1, arg2, num_words, parse_header, parse_instruction, &arg6);
         diagnostic = new Spv_diagnostic(arg6);
         return result;
     }
@@ -48,7 +49,7 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulk
         int CalculateSize(System.ReadOnlySpan<byte> binary)
         {
             int totalSize = 0;
-            totalSize += binary.Length * sizeof(Byte);
+            totalSize += binary.Length * sizeof(System.Byte);
             return totalSize;
         }
 
@@ -59,8 +60,8 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulk
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalBlittableArray<byte>(binary, ref currentCursor);
-            AdamantiumVulkan.SpirvTools.Interop.spv_text* arg4;
-            AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic* arg5;
+            AdamantiumVulkan.SpirvTools.Interop.spv_text* arg4 = default;
+            AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic* arg5 = default;
             var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvBinaryToText(this, arg1, word_count, options, out arg4, out arg5);
             if (arg4 is not null)
             {
@@ -68,7 +69,7 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulk
             }
             else
             {
-                text = (default);
+                text = default;
             }
             if (arg5 is not null)
             {
@@ -76,7 +77,7 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulk
             }
             else
             {
-                diagnostic = (default);
+                diagnostic = default;
             }
             return result;
         }
@@ -107,9 +108,9 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulk
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(text, ref currentCursor);
-            spv_binary_t arg3;
-            AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg4;
-            var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvTextToBinary(this, arg1, length, out arg3, out arg4);
+            spv_binary_t arg3 = default;
+            AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg4 = default;
+            var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvTextToBinary(this, arg1, length, &arg3, &arg4);
             binary = new spv_binary(arg3);
             diagnostic = new Spv_diagnostic(arg4);
             return result;
@@ -141,9 +142,9 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulk
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(text, ref currentCursor);
-            spv_binary_t arg4;
-            AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg5;
-            var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvTextToBinaryWithOptions(this, arg1, length, options, out arg4, out arg5);
+            spv_binary_t arg4 = default;
+            AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg5 = default;
+            var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvTextToBinaryWithOptions(this, arg1, length, options, &arg4, &arg5);
             binary = new spv_binary(arg4);
             diagnostic = new Spv_diagnostic(arg5);
             return result;
@@ -161,8 +162,8 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulk
     public spv_result_t SpvValidate(AdamantiumVulkan.SpirvTools.spv_const_binary binary, out Spv_diagnostic diagnostic)
     {
         var arg1 = binary == null ? new spv_const_binary_t() : (spv_const_binary_t)binary;
-        AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg2;
-        var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvValidate(this, arg1, out arg2);
+        AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg2 = default;
+        var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvValidate(this, arg1, &arg2);
         diagnostic = new Spv_diagnostic(arg2);
         return result;
     }
@@ -174,8 +175,8 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulk
     {
         var arg1 = stackalloc uint[1];
         *arg1 = words;
-        AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg3;
-        var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvValidateBinary(this, arg1, num_words, out arg3);
+        AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg3 = default;
+        var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvValidateBinary(this, arg1, num_words, &arg3);
         diagnostic = new Spv_diagnostic(arg3);
         return result;
     }
@@ -187,8 +188,8 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulk
     {
         var arg1 = options == null ? new spv_validator_options_t() : (spv_validator_options_t)options;
         var arg2 = binary == null ? new spv_const_binary_t() : (spv_const_binary_t)binary;
-        AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg3;
-        var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvValidateWithOptions(this, arg1, arg2, out arg3);
+        AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg3 = default;
+        var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvValidateWithOptions(this, arg1, arg2, &arg3);
         diagnostic = new Spv_diagnostic(arg3);
         return result;
     }

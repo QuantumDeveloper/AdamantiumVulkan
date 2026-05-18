@@ -130,25 +130,25 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
     ///</summary>
     public Result CreateCompilerOptions(out AdamantiumVulkan.Spirv.Cross.SpirvCompilerOptions options)
     {
-        SpvcCompilerOptionsS arg1;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_create_compiler_options(this, out arg1);
+        SpvcCompilerOptionsS arg1 = default;
+        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_create_compiler_options(this, &arg1);
         options = new SpirvCompilerOptions(arg1);
         return result;
     }
 
     public Result CreateShaderResources(out AdamantiumVulkan.Spirv.Cross.SpirvResources resources)
     {
-        SpvcResourcesS arg1;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_create_shader_resources(this, out arg1);
+        SpvcResourcesS arg1 = default;
+        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_create_shader_resources(this, &arg1);
         resources = new SpirvResources(arg1);
         return result;
     }
 
     public Result CreateShaderResourcesForActiveVariables(out AdamantiumVulkan.Spirv.Cross.SpirvResources resources, AdamantiumVulkan.Spirv.Cross.SpirvSet active)
     {
-        SpvcResourcesS arg1;
+        SpvcResourcesS arg1 = default;
         var arg2 = active == null ? new SpvcSetS() : (SpvcSetS)active;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_create_shader_resources_for_active_variables(this, out arg1, arg2);
+        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_create_shader_resources_for_active_variables(this, &arg1, arg2);
         resources = new SpirvResources(arg1);
         return result;
     }
@@ -161,28 +161,57 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
     ///<summary>
     /// Buffer ranges Maps to C++ API.
     ///</summary>
-    public Result GetActiveBufferRanges(SpvcVariableId id, in SpvcBufferRange ranges, ref ulong num_ranges)
+    public Result GetActiveBufferRanges(SpvcVariableId id, out SpvcBufferRange[] ranges, ref ulong num_ranges)
     {
-        int CalculateSize(SpvcBufferRange ranges)
+        AdamantiumVulkan.Spirv.Cross.Interop.SpvcBufferRange* arg2 = default;
+        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_active_buffer_ranges(this, id, out arg2, ref num_ranges);
+        ranges = new AdamantiumVulkan.Spirv.Cross.SpvcBufferRange[num_ranges];
+        for (var i = 0U; i < num_ranges; ++i)
+        {
+            ranges[i] = new AdamantiumVulkan.Spirv.Cross.SpvcBufferRange(arg2[i]);
+        }
+        return result;
+    }
+
+    ///<summary>
+    /// Reflect resources. Maps almost 1:1 to C++ API.
+    ///</summary>
+    public Result GetActiveInterfaceVariables(out AdamantiumVulkan.Spirv.Cross.SpirvSet set)
+    {
+        SpvcSetS arg1 = default;
+        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_active_interface_variables(this, &arg1);
+        set = new SpirvSet(arg1);
+        return result;
+    }
+
+    ///<summary>
+    /// Misc reflection Maps to C++ API.
+    ///</summary>
+    public SpvcBool GetBinaryOffsetForDecoration(SpvcVariableId id, Decoration decoration, ref uint word_offset)
+    {
+        return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_binary_offset_for_decoration(this, id, decoration, ref word_offset);
+    }
+
+    public Result GetBufferBlockDecorations(SpvcVariableId id, in Decoration decorations, ref ulong num_decorations)
+    {
+        int CalculateSize(Decoration decorations)
         {
             int totalSize = 0;
-            if (ranges != null)
-                totalSize += ranges.GetSize();
+            totalSize += sizeof(nuint);
             return totalSize;
         }
 
-        var totalSize = CalculateSize(ranges);
+        var totalSize = CalculateSize(decorations);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointerArray<AdamantiumVulkan.Spirv.Cross.SpvcBufferRange, AdamantiumVulkan.Spirv.Cross.Interop.SpvcBufferRange>(ranges, ref currentCursor);
-            var arg3 = stackalloc ulong[1];
-            *arg3 = num_ranges;
-            var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_active_buffer_ranges(this, id, arg2, arg3);
-            num_ranges = *arg3;
-            return result;
+            var pValuedecorations = stackalloc AdamantiumVulkan.Spirv.Decoration[1];
+            *pValuedecorations = decorations;
+            var arg2 = stackalloc AdamantiumVulkan.Spirv.Decoration*[1];
+            *arg2 = pValuedecorations;
+            return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_buffer_block_decorations(this, id, arg2, ref num_decorations);
         }
         finally
         {
@@ -191,43 +220,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         }
     }
 
-    ///<summary>
-    /// Reflect resources. Maps almost 1:1 to C++ API.
-    ///</summary>
-    public Result GetActiveInterfaceVariables(out AdamantiumVulkan.Spirv.Cross.SpirvSet set)
-    {
-        SpvcSetS arg1;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_active_interface_variables(this, out arg1);
-        set = new SpirvSet(arg1);
-        return result;
-    }
-
-    ///<summary>
-    /// Misc reflection Maps to C++ API.
-    ///</summary>
-    public SpvcBool GetBinaryOffsetForDecoration(SpvcVariableId id, SpvDecoration decoration, ref uint word_offset)
-    {
-        var arg3 = stackalloc uint[1];
-        *arg3 = word_offset;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_binary_offset_for_decoration(this, id, decoration, arg3);
-        word_offset = *arg3;
-        return result;
-    }
-
-    public Result GetBufferBlockDecorations(SpvcVariableId id, in SpvDecoration decorations, ref ulong num_decorations)
-    {
-        var pValuedecorations = stackalloc AdamantiumVulkan.Spirv.SpvDecoration[1];
-        *pValuedecorations = decorations;
-        var arg2 = stackalloc AdamantiumVulkan.Spirv.SpvDecoration*[1];
-        *arg2 = pValuedecorations;
-        var arg3 = stackalloc ulong[1];
-        *arg3 = num_decorations;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_buffer_block_decorations(this, id, arg2, arg3);
-        num_decorations = *arg3;
-        return result;
-    }
-
-    public string GetCleansedEntryPointName(string name, SpvExecutionModel model)
+    public string GetCleansedEntryPointName(string name, ExecutionModel model)
     {
         int CalculateSize(string name)
         {
@@ -271,11 +264,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointerArray<AdamantiumVulkan.Spirv.Cross.SpvcCombinedImageSampler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcCombinedImageSampler>(samplers, ref currentCursor);
-            var arg2 = stackalloc ulong[1];
-            *arg2 = num_samplers;
-            var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_combined_image_samplers(this, arg1, arg2);
-            num_samplers = *arg2;
-            return result;
+            return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_combined_image_samplers(this, arg1, ref num_samplers);
         }
         finally
         {
@@ -297,42 +286,50 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_current_id_bound(this);
     }
 
-    public Result GetDeclaredCapabilities(in Apability capabilities, ref ulong num_capabilities)
+    public Result GetDeclaredCapabilities(in Capability capabilities, ref ulong num_capabilities)
     {
-        var pValuecapabilities = stackalloc AdamantiumVulkan.Spirv.Apability[1];
-        *pValuecapabilities = capabilities;
-        var arg1 = stackalloc AdamantiumVulkan.Spirv.Apability*[1];
-        *arg1 = pValuecapabilities;
-        var arg2 = stackalloc ulong[1];
-        *arg2 = num_capabilities;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_declared_capabilities(this, arg1, arg2);
-        num_capabilities = *arg2;
-        return result;
+        int CalculateSize(Capability capabilities)
+        {
+            int totalSize = 0;
+            totalSize += sizeof(nuint);
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(capabilities);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var pValuecapabilities = stackalloc AdamantiumVulkan.Spirv.Capability[1];
+            *pValuecapabilities = capabilities;
+            var arg1 = stackalloc AdamantiumVulkan.Spirv.Capability*[1];
+            *arg1 = pValuecapabilities;
+            return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_declared_capabilities(this, arg1, ref num_capabilities);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
     public Result GetDeclaredExtensions(out string[] extensions, ref ulong num_extensions)
     {
-        sbyte** pextensions;
-        var arg2 = stackalloc ulong[1];
-        *arg2 = num_extensions;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_declared_extensions(this, out pextensions, arg2);
+        sbyte** pextensions = default;
+        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_declared_extensions(this, out pextensions, ref num_extensions);
         extensions = new string[num_extensions];
         for (int i = 0; i < extensions.Length; i++)
         {
             extensions[i] = new string(pextensions[i]);
         }
-        num_extensions = *arg2;
         return result;
     }
 
     public Result GetDeclaredStructMemberSize(AdamantiumVulkan.Spirv.Cross.SpirvType type, uint index, ref ulong size)
     {
         var arg1 = type == null ? new SpvcTypeS() : (SpvcTypeS)type;
-        var arg3 = stackalloc ulong[1];
-        *arg3 = size;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_declared_struct_member_size(this, arg1, index, arg3);
-        size = *arg3;
-        return result;
+        return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_declared_struct_member_size(this, arg1, index, ref size);
     }
 
     ///<summary>
@@ -341,29 +338,21 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
     public Result GetDeclaredStructSize(AdamantiumVulkan.Spirv.Cross.SpirvType struct_type, ref ulong size)
     {
         var arg1 = struct_type == null ? new SpvcTypeS() : (SpvcTypeS)struct_type;
-        var arg2 = stackalloc ulong[1];
-        *arg2 = size;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_declared_struct_size(this, arg1, arg2);
-        size = *arg2;
-        return result;
+        return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_declared_struct_size(this, arg1, ref size);
     }
 
     public Result GetDeclaredStructSizeRuntimeArray(AdamantiumVulkan.Spirv.Cross.SpirvType struct_type, ulong array_size, ref ulong size)
     {
         var arg1 = struct_type == null ? new SpvcTypeS() : (SpvcTypeS)struct_type;
-        var arg3 = stackalloc ulong[1];
-        *arg3 = size;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_declared_struct_size_runtime_array(this, arg1, array_size, arg3);
-        size = *arg3;
-        return result;
+        return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_declared_struct_size_runtime_array(this, arg1, array_size, ref size);
     }
 
-    public uint GetDecoration(SpvId id, SpvDecoration decoration)
+    public uint GetDecoration(SpvId id, Decoration decoration)
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_decoration(this, id, decoration);
     }
 
-    public string GetDecorationString(SpvId id, SpvDecoration decoration)
+    public string GetDecorationString(SpvId id, Decoration decoration)
     {
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_decoration_string(this, id, decoration);
         return new string(result);
@@ -389,11 +378,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointerArray<AdamantiumVulkan.Spirv.Cross.SpvcEntryPoint, AdamantiumVulkan.Spirv.Cross.Interop.SpvcEntryPoint>(entry_points, ref currentCursor);
-            var arg2 = stackalloc ulong[1];
-            *arg2 = num_entry_points;
-            var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_entry_points(this, arg1, arg2);
-            num_entry_points = *arg2;
-            return result;
+            return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_entry_points(this, arg1, ref num_entry_points);
         }
         finally
         {
@@ -402,40 +387,55 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         }
     }
 
-    public uint GetExecutionModeArgument(SpvExecutionMode mode)
+    public uint GetExecutionModeArgument(ExecutionMode mode)
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_execution_mode_argument(this, mode);
     }
 
-    public uint GetExecutionModeArgumentByIndex(SpvExecutionMode mode, uint index)
+    public uint GetExecutionModeArgumentByIndex(ExecutionMode mode, uint index)
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_execution_mode_argument_by_index(this, mode, index);
     }
 
-    public SpvExecutionModel GetExecutionModel()
+    public ExecutionModel GetExecutionModel()
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_execution_model(this);
     }
 
-    public Result GetExecutionModes(in SpvExecutionMode modes, ref ulong num_modes)
+    public Result GetExecutionModes(in ExecutionMode modes, ref ulong num_modes)
     {
-        var pValuemodes = stackalloc AdamantiumVulkan.Spirv.SpvExecutionMode[1];
-        *pValuemodes = modes;
-        var arg1 = stackalloc AdamantiumVulkan.Spirv.SpvExecutionMode*[1];
-        *arg1 = pValuemodes;
-        var arg2 = stackalloc ulong[1];
-        *arg2 = num_modes;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_execution_modes(this, arg1, arg2);
-        num_modes = *arg2;
-        return result;
+        int CalculateSize(ExecutionMode modes)
+        {
+            int totalSize = 0;
+            totalSize += sizeof(nuint);
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(modes);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var pValuemodes = stackalloc AdamantiumVulkan.Spirv.ExecutionMode[1];
+            *pValuemodes = modes;
+            var arg1 = stackalloc AdamantiumVulkan.Spirv.ExecutionMode*[1];
+            *arg1 = pValuemodes;
+            return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_execution_modes(this, arg1, ref num_modes);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
-    public uint GetMemberDecoration(SpvcTypeId id, uint member_index, SpvDecoration decoration)
+    public uint GetMemberDecoration(SpvcTypeId id, uint member_index, Decoration decoration)
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_member_decoration(this, id, member_index, decoration);
     }
 
-    public string GetMemberDecorationString(SpvcTypeId id, uint member_index, SpvDecoration decoration)
+    public string GetMemberDecorationString(SpvcTypeId id, uint member_index, Decoration decoration)
     {
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_member_decoration_string(this, id, member_index, decoration);
         return new string(result);
@@ -490,11 +490,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointerArray<AdamantiumVulkan.Spirv.Cross.SpvcSpecializationConstant, AdamantiumVulkan.Spirv.Cross.Interop.SpvcSpecializationConstant>(constants, ref currentCursor);
-            var arg2 = stackalloc ulong[1];
-            *arg2 = num_constants;
-            var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_specialization_constants(this, arg1, arg2);
-            num_constants = *arg2;
-            return result;
+            return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_get_specialization_constants(this, arg1, ref num_constants);
         }
         finally
         {
@@ -543,17 +539,17 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         }
     }
 
-    public SpvcBool HasActiveBuiltin(SpvBuiltIn builtin, SpvStorageClass storage)
+    public SpvcBool HasActiveBuiltin(BuiltIn builtin, StorageClass storage)
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_has_active_builtin(this, builtin, storage);
     }
 
-    public SpvcBool HasDecoration(SpvId id, SpvDecoration decoration)
+    public SpvcBool HasDecoration(SpvId id, Decoration decoration)
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_has_decoration(this, id, decoration);
     }
 
-    public SpvcBool HasMemberDecoration(SpvcTypeId id, uint member_index, SpvDecoration decoration)
+    public SpvcBool HasMemberDecoration(SpvcTypeId id, uint member_index, Decoration decoration)
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_has_member_decoration(this, id, member_index, decoration);
     }
@@ -610,7 +606,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         }
     }
 
-    public SpvcBool HlslIsResourceUsed(SpvExecutionModel model, uint set, uint binding)
+    public SpvcBool HlslIsResourceUsed(ExecutionModel model, uint set, uint binding)
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_hlsl_is_resource_used(this, model, set, binding);
     }
@@ -663,7 +659,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_install_compiler_options(this, arg1);
     }
 
-    public Result MaskStageOutputByBuiltin(SpvBuiltIn builtin)
+    public Result MaskStageOutputByBuiltin(BuiltIn builtin)
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_mask_stage_output_by_builtin(this, builtin);
     }
@@ -803,16 +799,16 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
     ///</summary>
     public Result MslAddShaderOutput(out SpvcMslShaderInterfaceVar output)
     {
-        AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar arg1;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_shader_output(this, out arg1);
+        AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar arg1 = default;
+        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_shader_output(this, &arg1);
         output = new SpvcMslShaderInterfaceVar(arg1);
         return result;
     }
 
     public Result MslAddShaderOutput2(out SpvcMslShaderInterfaceVar2 output)
     {
-        AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar2 arg1;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_shader_output_2(this, out arg1);
+        AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar2 arg1 = default;
+        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_add_shader_output_2(this, &arg1);
         output = new SpvcMslShaderInterfaceVar2(arg1);
         return result;
     }
@@ -867,7 +863,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_is_rasterization_disabled(this);
     }
 
-    public SpvcBool MslIsResourceUsed(SpvExecutionModel model, uint set, uint binding)
+    public SpvcBool MslIsResourceUsed(ExecutionModel model, uint set, uint binding)
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_is_resource_used(this, model, set, binding);
     }
@@ -1069,7 +1065,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_msl_set_fragment_output_components(this, location, components);
     }
 
-    public Result RenameEntryPoint(string old_name, string new_name, SpvExecutionModel model)
+    public Result RenameEntryPoint(string old_name, string new_name, ExecutionModel model)
     {
         int CalculateSize(string old_name, string new_name)
         {
@@ -1127,12 +1123,12 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
     ///<summary>
     /// Decorations. Maps to C++ API.
     ///</summary>
-    public void SetDecoration(SpvId id, SpvDecoration decoration, uint argument)
+    public void SetDecoration(SpvId id, Decoration decoration, uint argument)
     {
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_decoration(this, id, decoration, argument);
     }
 
-    public void SetDecorationString(SpvId id, SpvDecoration decoration, string argument)
+    public void SetDecorationString(SpvId id, Decoration decoration, string argument)
     {
         int CalculateSize(string argument)
         {
@@ -1164,7 +1160,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_enabled_interface_variables(this, arg1);
     }
 
-    public Result SetEntryPoint(string name, SpvExecutionModel model)
+    public Result SetEntryPoint(string name, ExecutionModel model)
     {
         int CalculateSize(string name)
         {
@@ -1190,22 +1186,22 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
         }
     }
 
-    public void SetExecutionMode(SpvExecutionMode mode)
+    public void SetExecutionMode(ExecutionMode mode)
     {
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_execution_mode(this, mode);
     }
 
-    public void SetExecutionModeWithArguments(SpvExecutionMode mode, uint arg0, uint arg1, uint arg2)
+    public void SetExecutionModeWithArguments(ExecutionMode mode, uint arg0, uint arg1, uint arg2)
     {
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_execution_mode_with_arguments(this, mode, arg0, arg1, arg2);
     }
 
-    public void SetMemberDecoration(SpvcTypeId id, uint member_index, SpvDecoration decoration, uint argument)
+    public void SetMemberDecoration(SpvcTypeId id, uint member_index, Decoration decoration, uint argument)
     {
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_set_member_decoration(this, id, member_index, decoration, argument);
     }
 
-    public void SetMemberDecorationString(SpvcTypeId id, uint member_index, SpvDecoration decoration, string argument)
+    public void SetMemberDecorationString(SpvcTypeId id, uint member_index, Decoration decoration, string argument)
     {
         int CalculateSize(string argument)
         {
@@ -1286,44 +1282,32 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<AdamantiumVulkan.S
     public Result TypeStructMemberArrayStride(AdamantiumVulkan.Spirv.Cross.SpirvType type, uint index, ref uint stride)
     {
         var arg1 = type == null ? new SpvcTypeS() : (SpvcTypeS)type;
-        var arg3 = stackalloc uint[1];
-        *arg3 = stride;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_type_struct_member_array_stride(this, arg1, index, arg3);
-        stride = *arg3;
-        return result;
+        return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_type_struct_member_array_stride(this, arg1, index, ref stride);
     }
 
     public Result TypeStructMemberMatrixStride(AdamantiumVulkan.Spirv.Cross.SpirvType type, uint index, ref uint stride)
     {
         var arg1 = type == null ? new SpvcTypeS() : (SpvcTypeS)type;
-        var arg3 = stackalloc uint[1];
-        *arg3 = stride;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_type_struct_member_matrix_stride(this, arg1, index, arg3);
-        stride = *arg3;
-        return result;
+        return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_type_struct_member_matrix_stride(this, arg1, index, ref stride);
     }
 
     public Result TypeStructMemberOffset(AdamantiumVulkan.Spirv.Cross.SpirvType type, uint index, ref uint offset)
     {
         var arg1 = type == null ? new SpvcTypeS() : (SpvcTypeS)type;
-        var arg3 = stackalloc uint[1];
-        *arg3 = offset;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_type_struct_member_offset(this, arg1, index, arg3);
-        offset = *arg3;
-        return result;
+        return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_type_struct_member_offset(this, arg1, index, ref offset);
     }
 
-    public void UnsetDecoration(SpvId id, SpvDecoration decoration)
+    public void UnsetDecoration(SpvId id, Decoration decoration)
     {
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_unset_decoration(this, id, decoration);
     }
 
-    public void UnsetExecutionMode(SpvExecutionMode mode)
+    public void UnsetExecutionMode(ExecutionMode mode)
     {
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_unset_execution_mode(this, mode);
     }
 
-    public void UnsetMemberDecoration(SpvcTypeId id, uint member_index, SpvDecoration decoration)
+    public void UnsetMemberDecoration(SpvcTypeId id, uint member_index, Decoration decoration)
     {
         AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_unset_member_decoration(this, id, member_index, decoration);
     }

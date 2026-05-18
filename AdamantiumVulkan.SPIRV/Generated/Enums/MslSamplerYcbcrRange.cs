@@ -18,11 +18,11 @@ namespace AdamantiumVulkan.Spirv.Cross;
 [Flags]
 public enum MslSamplerYcbcrRange : uint
 {
-    TuFull = 0,
+    ItuFull = 0,
 
-    TuNarrow = 1,
+    ItuNarrow = 1,
 
-    NtMax = 2147483647,
+    IntMax = 2147483647,
 
 }
 

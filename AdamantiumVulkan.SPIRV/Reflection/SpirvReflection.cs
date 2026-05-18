@@ -81,8 +81,8 @@ namespace AdamantiumVulkan.Spirv.Reflection
                     var spvcType = compiler.GetTypeHandle(shaderResources[i].Base_type_id);
                     resourceDescription.Type = spvcType.GetBasetype();
 
-                    resourceDescription.DescriptorSet = compiler.GetDecoration(shaderResources[i].Id, SpvDecoration.DescriptorSet);
-                    resourceDescription.SlotIndex = compiler.GetDecoration(shaderResources[i].Id, SpvDecoration.Binding);
+                    resourceDescription.DescriptorSet = compiler.GetDecoration(shaderResources[i].Id, Decoration.DescriptorSet);
+                    resourceDescription.SlotIndex = compiler.GetDecoration(shaderResources[i].Id, Decoration.Binding);
 
                     var bindingKey = MakeResourceBindingKey(
                         resourceDescription.Name,
@@ -93,11 +93,11 @@ namespace AdamantiumVulkan.Spirv.Reflection
                     if (IsSameResourceIdPresent(resourceKeys, bindingKey))
                     {
                         bindingKey = FindNextAvailableId(bindingKey, resourceKeys);
-                        compiler.SetDecoration(shaderResources[i].Id, SpvDecoration.Binding, bindingKey.BindingId);
+                        compiler.SetDecoration(shaderResources[i].Id, Decoration.Binding, bindingKey.BindingId);
                         resourceKeys.Add(bindingKey);
                         resourceDescription.SlotIndex = bindingKey.BindingId;
                         uint offset = 0;
-                        if (compiler.GetBinaryOffsetForDecoration(shaderResources[i].Id, SpvDecoration.Binding,
+                        if (compiler.GetBinaryOffsetForDecoration(shaderResources[i].Id, Decoration.Binding,
                             ref offset))
                         {
                             var ids = BitConverter.GetBytes(bindingKey.BindingId);
@@ -164,13 +164,11 @@ namespace AdamantiumVulkan.Spirv.Reflection
                         }
                         else
                         {
-                            if (compiler.HasMemberDecoration(shaderResources[i].Base_type_id, offset,
-                                SpvDecoration.RowMajor))
+                            if (compiler.HasMemberDecoration(shaderResources[i].Base_type_id, offset, Decoration.RowMajor))
                             {
                                 member.VariableType = ShaderVariableClass.MatrixRows;
                             }
-                            else if (compiler.HasMemberDecoration(shaderResources[i].Base_type_id, offset,
-                                SpvDecoration.ColMajor))
+                            else if (compiler.HasMemberDecoration(shaderResources[i].Base_type_id, offset, Decoration.ColMajor))
                             {
                                 member.VariableType = ShaderVariableClass.MatrixColumns;
                             }

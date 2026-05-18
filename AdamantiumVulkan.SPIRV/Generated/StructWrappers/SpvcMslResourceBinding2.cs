@@ -24,14 +24,14 @@ public unsafe partial class SpvcMslResourceBinding2 : IMarshallable<AdamantiumVu
         MarshalFrom(in native);
     }
 
-    public SpvExecutionModel Stage { get; set; }
+    public ExecutionModel Stage { get; set; }
     public uint Desc_set { get; set; }
     public uint Binding { get; set; }
     public uint Count { get; set; }
     public uint Msl_buffer { get; set; }
     public uint Msl_texture { get; set; }
     public uint Msl_sampler { get; set; }
-    public void MslResourceBindingInit2()
+    public void CMslResourceBindingInit2()
     {
         System.Span<byte> arg0Span = stackalloc byte[GetSize()];
         var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslResourceBinding2, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslResourceBinding2>(this, ref arg0Span);

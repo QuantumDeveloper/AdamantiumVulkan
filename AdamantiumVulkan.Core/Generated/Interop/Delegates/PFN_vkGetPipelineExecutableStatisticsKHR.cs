@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPipelineExecutableStatisticsKHR
     public PFN_vkGetPipelineExecutableStatisticsKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, uint*, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, ref uint, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, uint*, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, ref uint, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, uint* pStatisticCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR* pStatistics)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint pStatisticCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR* pStatistics)
     {
-        return InvokeFunc(device, pExecutableInfo, pStatisticCount, pStatistics);
+        return InvokeFunc(device, pExecutableInfo, ref pStatisticCount, pStatistics);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, uint* pStatisticCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR* pStatistics)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint pStatisticCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR* pStatistics)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, uint*, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR*, Result>)ptr)(device, pExecutableInfo, pStatisticCount, pStatistics);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, ref uint, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR*, Result>)ptr)(device, pExecutableInfo, ref pStatisticCount, pStatistics);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, uint* pStatisticCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR* pStatistics)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint pStatisticCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR* pStatistics)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, uint*, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR*, Result>)(void*)ptr)(device, pExecutableInfo, pStatisticCount, pStatistics);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, ref uint, AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR*, Result>)(void*)ptr)(device, pExecutableInfo, ref pStatisticCount, pStatistics);
     }
 
     public static explicit operator PFN_vkGetPipelineExecutableStatisticsKHR(void* ptr) => new(ptr);

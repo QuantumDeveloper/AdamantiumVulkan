@@ -21,24 +21,24 @@ public unsafe struct PFN_vkEnumerateInstanceVersion
     public PFN_vkEnumerateInstanceVersion(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<uint*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<out uint, Result>)ptr;
     }
 
-    private delegate* unmanaged<uint*, Result> InvokeFunc;
+    private delegate* unmanaged<out uint, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(uint* pApiVersion)
+    public Result Invoke(out uint pApiVersion)
     {
-        return InvokeFunc(pApiVersion);
+        return InvokeFunc(out pApiVersion);
     }
-    public static Result Invoke(void* ptr, uint* pApiVersion)
+    public static Result Invoke(void* ptr, out uint pApiVersion)
     {
-        return ((delegate* unmanaged<uint*, Result>)ptr)(pApiVersion);
+        return ((delegate* unmanaged<out uint, Result>)ptr)(out pApiVersion);
     }
-    public static Result Invoke(nuint ptr, uint* pApiVersion)
+    public static Result Invoke(nuint ptr, out uint pApiVersion)
     {
-        return ((delegate* unmanaged<uint*, Result>)(void*)ptr)(pApiVersion);
+        return ((delegate* unmanaged<out uint, Result>)(void*)ptr)(out pApiVersion);
     }
 
     public static explicit operator PFN_vkEnumerateInstanceVersion(void* ptr) => new(ptr);

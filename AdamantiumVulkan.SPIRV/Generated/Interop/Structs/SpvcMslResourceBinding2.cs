@@ -16,7 +16,7 @@ namespace AdamantiumVulkan.Spirv.Cross.Interop;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct SpvcMslResourceBinding2
 {
-    public SpvExecutionModel stage;
+    public ExecutionModel stage;
     public uint desc_set;
     public uint binding;
     public uint count;

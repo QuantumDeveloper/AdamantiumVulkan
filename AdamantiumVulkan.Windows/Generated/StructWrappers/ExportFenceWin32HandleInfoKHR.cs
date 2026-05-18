@@ -26,7 +26,7 @@ public unsafe partial class ExportFenceWin32HandleInfoKHR : IMarshallableObject,
 
     public StructureType SType => StructureType.ExportFenceWin32HandleInfoKhr;
     public object PNext { get; set; }
-    public nuint? PAttributes { get; set; }
+    public nuint PAttributes { get; set; }
     public nuint DwAccess { get; set; }
     public nuint Name { get; set; }
 
@@ -53,11 +53,7 @@ public unsafe partial class ExportFenceWin32HandleInfoKHR : IMarshallableObject,
     public void MarshalFrom(in AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR native)
     {
         PNext = (System.IntPtr)native.pNext;
-        if (native.pAttributes != null)
-        {
-            PAttributes = *native.pAttributes;
-            NativeUtils.Free(native.pAttributes);
-        }
+        PAttributes = (nuint)native.pAttributes;
         DwAccess = native.dwAccess;
         Name = native.name;
 
@@ -90,9 +86,9 @@ public unsafe partial class ExportFenceWin32HandleInfoKHR : IMarshallableObject,
                 context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (exportFenceWin32HandleInfoKHR.PAttributes.HasValue)
+            if (exportFenceWin32HandleInfoKHR.PAttributes != default)
             {
-                context.Destination[0].pAttributes = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(exportFenceWin32HandleInfoKHR.PAttributes.Value, ref context);
+                context.Destination[0].pAttributes = (void*)exportFenceWin32HandleInfoKHR.PAttributes;
             }
 
             context.Destination[0].dwAccess = exportFenceWin32HandleInfoKHR.DwAccess;

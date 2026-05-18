@@ -17,209 +17,209 @@ namespace AdamantiumVulkan.Shaders;
 ///</summary>
 public enum ShadercLimit : uint
 {
-    AxLights = 0,
+    MaxLights = 0,
 
-    AxClipPlanes = 1,
+    MaxClipPlanes = 1,
 
-    AxTextureUnits = 2,
+    MaxTextureUnits = 2,
 
-    AxTextureCoords = 3,
+    MaxTextureCoords = 3,
 
-    AxVertexAttribs = 4,
+    MaxVertexAttribs = 4,
 
-    AxVertexUniformComponents = 5,
+    MaxVertexUniformComponents = 5,
 
-    AxVaryingFloats = 6,
+    MaxVaryingFloats = 6,
 
-    AxVertexTextureImageUnits = 7,
+    MaxVertexTextureImageUnits = 7,
 
-    AxCombinedTextureImageUnits = 8,
+    MaxCombinedTextureImageUnits = 8,
 
-    AxTextureImageUnits = 9,
+    MaxTextureImageUnits = 9,
 
-    AxFragmentUniformComponents = 10,
+    MaxFragmentUniformComponents = 10,
 
-    AxDrawBuffers = 11,
+    MaxDrawBuffers = 11,
 
-    AxVertexUniformVectors = 12,
+    MaxVertexUniformVectors = 12,
 
-    AxVaryingVectors = 13,
+    MaxVaryingVectors = 13,
 
-    AxFragmentUniformVectors = 14,
+    MaxFragmentUniformVectors = 14,
 
-    AxVertexOutputVectors = 15,
+    MaxVertexOutputVectors = 15,
 
-    AxFragmentInputVectors = 16,
+    MaxFragmentInputVectors = 16,
 
-    InProgramTexelOffset = 17,
+    MinProgramTexelOffset = 17,
 
-    AxProgramTexelOffset = 18,
+    MaxProgramTexelOffset = 18,
 
-    AxClipDistances = 19,
+    MaxClipDistances = 19,
 
-    AxComputeWorkGroupCountX = 20,
+    MaxComputeWorkGroupCountX = 20,
 
-    AxComputeWorkGroupCountY = 21,
+    MaxComputeWorkGroupCountY = 21,
 
-    AxComputeWorkGroupCountZ = 22,
+    MaxComputeWorkGroupCountZ = 22,
 
-    AxComputeWorkGroupSizeX = 23,
+    MaxComputeWorkGroupSizeX = 23,
 
-    AxComputeWorkGroupSizeY = 24,
+    MaxComputeWorkGroupSizeY = 24,
 
-    AxComputeWorkGroupSizeZ = 25,
+    MaxComputeWorkGroupSizeZ = 25,
 
-    AxComputeUniformComponents = 26,
+    MaxComputeUniformComponents = 26,
 
-    AxComputeTextureImageUnits = 27,
+    MaxComputeTextureImageUnits = 27,
 
-    AxComputeImageUniforms = 28,
+    MaxComputeImageUniforms = 28,
 
-    AxComputeAtomicCounters = 29,
+    MaxComputeAtomicCounters = 29,
 
-    AxComputeAtomicCounterBuffers = 30,
+    MaxComputeAtomicCounterBuffers = 30,
 
-    AxVaryingComponents = 31,
+    MaxVaryingComponents = 31,
 
-    AxVertexOutputComponents = 32,
+    MaxVertexOutputComponents = 32,
 
-    AxGeometryInputComponents = 33,
+    MaxGeometryInputComponents = 33,
 
-    AxGeometryOutputComponents = 34,
+    MaxGeometryOutputComponents = 34,
 
-    AxFragmentInputComponents = 35,
+    MaxFragmentInputComponents = 35,
 
-    AxImageUnits = 36,
+    MaxImageUnits = 36,
 
-    AxCombinedImageUnitsAndFragmentOutputs = 37,
+    MaxCombinedImageUnitsAndFragmentOutputs = 37,
 
-    AxCombinedShaderOutputResources = 38,
+    MaxCombinedShaderOutputResources = 38,
 
-    AxImageSamples = 39,
+    MaxImageSamples = 39,
 
-    AxVertexImageUniforms = 40,
+    MaxVertexImageUniforms = 40,
 
-    AxTessControlImageUniforms = 41,
+    MaxTessControlImageUniforms = 41,
 
-    AxTessEvaluationImageUniforms = 42,
+    MaxTessEvaluationImageUniforms = 42,
 
-    AxGeometryImageUniforms = 43,
+    MaxGeometryImageUniforms = 43,
 
-    AxFragmentImageUniforms = 44,
+    MaxFragmentImageUniforms = 44,
 
-    AxCombinedImageUniforms = 45,
+    MaxCombinedImageUniforms = 45,
 
-    AxGeometryTextureImageUnits = 46,
+    MaxGeometryTextureImageUnits = 46,
 
-    AxGeometryOutputVertices = 47,
+    MaxGeometryOutputVertices = 47,
 
-    AxGeometryTotalOutputComponents = 48,
+    MaxGeometryTotalOutputComponents = 48,
 
-    AxGeometryUniformComponents = 49,
+    MaxGeometryUniformComponents = 49,
 
-    AxGeometryVaryingComponents = 50,
+    MaxGeometryVaryingComponents = 50,
 
-    AxTessControlInputComponents = 51,
+    MaxTessControlInputComponents = 51,
 
-    AxTessControlOutputComponents = 52,
+    MaxTessControlOutputComponents = 52,
 
-    AxTessControlTextureImageUnits = 53,
+    MaxTessControlTextureImageUnits = 53,
 
-    AxTessControlUniformComponents = 54,
+    MaxTessControlUniformComponents = 54,
 
-    AxTessControlTotalOutputComponents = 55,
+    MaxTessControlTotalOutputComponents = 55,
 
-    AxTessEvaluationInputComponents = 56,
+    MaxTessEvaluationInputComponents = 56,
 
-    AxTessEvaluationOutputComponents = 57,
+    MaxTessEvaluationOutputComponents = 57,
 
-    AxTessEvaluationTextureImageUnits = 58,
+    MaxTessEvaluationTextureImageUnits = 58,
 
-    AxTessEvaluationUniformComponents = 59,
+    MaxTessEvaluationUniformComponents = 59,
 
-    AxTessPatchComponents = 60,
+    MaxTessPatchComponents = 60,
 
-    AxPatchVertices = 61,
+    MaxPatchVertices = 61,
 
-    AxTessGenLevel = 62,
+    MaxTessGenLevel = 62,
 
-    AxViewports = 63,
+    MaxViewports = 63,
 
-    AxVertexAtomicCounters = 64,
+    MaxVertexAtomicCounters = 64,
 
-    AxTessControlAtomicCounters = 65,
+    MaxTessControlAtomicCounters = 65,
 
-    AxTessEvaluationAtomicCounters = 66,
+    MaxTessEvaluationAtomicCounters = 66,
 
-    AxGeometryAtomicCounters = 67,
+    MaxGeometryAtomicCounters = 67,
 
-    AxFragmentAtomicCounters = 68,
+    MaxFragmentAtomicCounters = 68,
 
-    AxCombinedAtomicCounters = 69,
+    MaxCombinedAtomicCounters = 69,
 
-    AxAtomicCounterBindings = 70,
+    MaxAtomicCounterBindings = 70,
 
-    AxVertexAtomicCounterBuffers = 71,
+    MaxVertexAtomicCounterBuffers = 71,
 
-    AxTessControlAtomicCounterBuffers = 72,
+    MaxTessControlAtomicCounterBuffers = 72,
 
-    AxTessEvaluationAtomicCounterBuffers = 73,
+    MaxTessEvaluationAtomicCounterBuffers = 73,
 
-    AxGeometryAtomicCounterBuffers = 74,
+    MaxGeometryAtomicCounterBuffers = 74,
 
-    AxFragmentAtomicCounterBuffers = 75,
+    MaxFragmentAtomicCounterBuffers = 75,
 
-    AxCombinedAtomicCounterBuffers = 76,
+    MaxCombinedAtomicCounterBuffers = 76,
 
-    AxAtomicCounterBufferSize = 77,
+    MaxAtomicCounterBufferSize = 77,
 
-    AxTransformFeedbackBuffers = 78,
+    MaxTransformFeedbackBuffers = 78,
 
-    AxTransformFeedbackInterleavedComponents = 79,
+    MaxTransformFeedbackInterleavedComponents = 79,
 
-    AxCullDistances = 80,
+    MaxCullDistances = 80,
 
-    AxCombinedClipAndCullDistances = 81,
+    MaxCombinedClipAndCullDistances = 81,
 
-    AxSamples = 82,
+    MaxSamples = 82,
 
-    AxMeshOutputVerticesNv = 83,
+    MaxMeshOutputVerticesNv = 83,
 
-    AxMeshOutputPrimitivesNv = 84,
+    MaxMeshOutputPrimitivesNv = 84,
 
-    AxMeshWorkGroupSizeXNv = 85,
+    MaxMeshWorkGroupSizeXNv = 85,
 
-    AxMeshWorkGroupSizeYNv = 86,
+    MaxMeshWorkGroupSizeYNv = 86,
 
-    AxMeshWorkGroupSizeZNv = 87,
+    MaxMeshWorkGroupSizeZNv = 87,
 
-    AxTaskWorkGroupSizeXNv = 88,
+    MaxTaskWorkGroupSizeXNv = 88,
 
-    AxTaskWorkGroupSizeYNv = 89,
+    MaxTaskWorkGroupSizeYNv = 89,
 
-    AxTaskWorkGroupSizeZNv = 90,
+    MaxTaskWorkGroupSizeZNv = 90,
 
-    AxMeshViewCountNv = 91,
+    MaxMeshViewCountNv = 91,
 
-    AxMeshOutputVerticesExt = 92,
+    MaxMeshOutputVerticesExt = 92,
 
-    AxMeshOutputPrimitivesExt = 93,
+    MaxMeshOutputPrimitivesExt = 93,
 
-    AxMeshWorkGroupSizeXExt = 94,
+    MaxMeshWorkGroupSizeXExt = 94,
 
-    AxMeshWorkGroupSizeYExt = 95,
+    MaxMeshWorkGroupSizeYExt = 95,
 
-    AxMeshWorkGroupSizeZExt = 96,
+    MaxMeshWorkGroupSizeZExt = 96,
 
-    AxTaskWorkGroupSizeXExt = 97,
+    MaxTaskWorkGroupSizeXExt = 97,
 
-    AxTaskWorkGroupSizeYExt = 98,
+    MaxTaskWorkGroupSizeYExt = 98,
 
-    AxTaskWorkGroupSizeZExt = 99,
+    MaxTaskWorkGroupSizeZExt = 99,
 
-    AxMeshViewCountExt = 100,
+    MaxMeshViewCountExt = 100,
 
-    AxDualSourceDrawBuffersExt = 101,
+    MaxDualSourceDrawBuffersExt = 101,
 
 }
 

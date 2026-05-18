@@ -26,7 +26,7 @@ public unsafe partial class ExportMemoryWin32HandleInfoNV : IMarshallableObject,
 
     public StructureType SType => StructureType.ExportMemoryWin32HandleInfoNv;
     public object PNext { get; set; }
-    public nuint? PAttributes { get; set; }
+    public nuint PAttributes { get; set; }
     public nuint DwAccess { get; set; }
 
     public static implicit operator ExportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV e)
@@ -52,11 +52,7 @@ public unsafe partial class ExportMemoryWin32HandleInfoNV : IMarshallableObject,
     public void MarshalFrom(in AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoNV native)
     {
         PNext = (System.IntPtr)native.pNext;
-        if (native.pAttributes != null)
-        {
-            PAttributes = *native.pAttributes;
-            NativeUtils.Free(native.pAttributes);
-        }
+        PAttributes = (nuint)native.pAttributes;
         DwAccess = native.dwAccess;
 
     }
@@ -88,9 +84,9 @@ public unsafe partial class ExportMemoryWin32HandleInfoNV : IMarshallableObject,
                 context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (exportMemoryWin32HandleInfoNV.PAttributes.HasValue)
+            if (exportMemoryWin32HandleInfoNV.PAttributes != default)
             {
-                context.Destination[0].pAttributes = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(exportMemoryWin32HandleInfoNV.PAttributes.Value, ref context);
+                context.Destination[0].pAttributes = (void*)exportMemoryWin32HandleInfoNV.PAttributes;
             }
 
             context.Destination[0].dwAccess = exportMemoryWin32HandleInfoNV.DwAccess;

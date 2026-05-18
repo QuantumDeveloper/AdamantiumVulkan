@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetDisplayPlaneSupportedDisplaysKHR
     public PFN_vkGetDisplayPlaneSupportedDisplaysKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, uint*, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, ref uint, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, uint*, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, ref uint, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint planeIndex, uint* pDisplayCount, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplays)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint planeIndex, ref uint pDisplayCount, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplays)
     {
-        return InvokeFunc(physicalDevice, planeIndex, pDisplayCount, pDisplays);
+        return InvokeFunc(physicalDevice, planeIndex, ref pDisplayCount, pDisplays);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint planeIndex, uint* pDisplayCount, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplays)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint planeIndex, ref uint pDisplayCount, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplays)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, uint*, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T*, Result>)ptr)(physicalDevice, planeIndex, pDisplayCount, pDisplays);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, ref uint, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T*, Result>)ptr)(physicalDevice, planeIndex, ref pDisplayCount, pDisplays);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint planeIndex, uint* pDisplayCount, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplays)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint planeIndex, ref uint pDisplayCount, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplays)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, uint*, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T*, Result>)(void*)ptr)(physicalDevice, planeIndex, pDisplayCount, pDisplays);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, ref uint, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T*, Result>)(void*)ptr)(physicalDevice, planeIndex, ref pDisplayCount, pDisplays);
     }
 
     public static explicit operator PFN_vkGetDisplayPlaneSupportedDisplaysKHR(void* ptr) => new(ptr);

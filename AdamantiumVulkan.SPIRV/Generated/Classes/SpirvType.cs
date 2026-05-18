@@ -61,7 +61,7 @@ public unsafe partial class SpirvType : IUnmanagedWrapper<AdamantiumVulkan.Spirv
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_type_get_columns(this);
     }
 
-    public SpvAccessQualifier GetImageAccessQualifier()
+    public AccessQualifier GetImageAccessQualifier()
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_type_get_image_access_qualifier(this);
     }
@@ -71,7 +71,7 @@ public unsafe partial class SpirvType : IUnmanagedWrapper<AdamantiumVulkan.Spirv
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_type_get_image_arrayed(this);
     }
 
-    public SpvDim GetImageDimension()
+    public Dim GetImageDimension()
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_type_get_image_dimension(this);
     }
@@ -99,7 +99,7 @@ public unsafe partial class SpirvType : IUnmanagedWrapper<AdamantiumVulkan.Spirv
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_type_get_image_sampled_type(this);
     }
 
-    public SpvImageFormat GetImageStorageFormat()
+    public ImageFormat GetImageStorageFormat()
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_type_get_image_storage_format(this);
     }
@@ -119,7 +119,7 @@ public unsafe partial class SpirvType : IUnmanagedWrapper<AdamantiumVulkan.Spirv
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_type_get_num_member_types(this);
     }
 
-    public SpvStorageClass GetStorageClass()
+    public StorageClass GetStorageClass()
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_type_get_storage_class(this);
     }

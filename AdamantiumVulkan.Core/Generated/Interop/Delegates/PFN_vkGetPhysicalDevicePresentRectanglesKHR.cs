@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPhysicalDevicePresentRectanglesKHR
     public PFN_vkGetPhysicalDevicePresentRectanglesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, uint*, AdamantiumVulkan.Core.Interop.VkRect2D*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkRect2D*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, uint*, AdamantiumVulkan.Core.Interop.VkRect2D*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkRect2D*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, uint* pRectCount, AdamantiumVulkan.Core.Interop.VkRect2D* pRects)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pRectCount, AdamantiumVulkan.Core.Interop.VkRect2D* pRects)
     {
-        return InvokeFunc(physicalDevice, surface, pRectCount, pRects);
+        return InvokeFunc(physicalDevice, surface, ref pRectCount, pRects);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, uint* pRectCount, AdamantiumVulkan.Core.Interop.VkRect2D* pRects)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pRectCount, AdamantiumVulkan.Core.Interop.VkRect2D* pRects)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, uint*, AdamantiumVulkan.Core.Interop.VkRect2D*, Result>)ptr)(physicalDevice, surface, pRectCount, pRects);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkRect2D*, Result>)ptr)(physicalDevice, surface, ref pRectCount, pRects);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, uint* pRectCount, AdamantiumVulkan.Core.Interop.VkRect2D* pRects)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref uint pRectCount, AdamantiumVulkan.Core.Interop.VkRect2D* pRects)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, uint*, AdamantiumVulkan.Core.Interop.VkRect2D*, Result>)(void*)ptr)(physicalDevice, surface, pRectCount, pRects);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkRect2D*, Result>)(void*)ptr)(physicalDevice, surface, ref pRectCount, pRects);
     }
 
     public static explicit operator PFN_vkGetPhysicalDevicePresentRectanglesKHR(void* ptr) => new(ptr);

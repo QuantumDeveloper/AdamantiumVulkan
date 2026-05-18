@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetFramebufferTilePropertiesQCOM
     public PFN_vkGetFramebufferTilePropertiesQCOM(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFramebuffer_T, uint*, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFramebuffer_T, ref uint, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFramebuffer_T, uint*, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFramebuffer_T, ref uint, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, uint* pPropertiesCount, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, ref uint pPropertiesCount, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties)
     {
-        return InvokeFunc(device, framebuffer, pPropertiesCount, pProperties);
+        return InvokeFunc(device, framebuffer, ref pPropertiesCount, pProperties);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, uint* pPropertiesCount, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, ref uint pPropertiesCount, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFramebuffer_T, uint*, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result>)ptr)(device, framebuffer, pPropertiesCount, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFramebuffer_T, ref uint, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result>)ptr)(device, framebuffer, ref pPropertiesCount, pProperties);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, uint* pPropertiesCount, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkFramebuffer_T framebuffer, ref uint pPropertiesCount, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM* pProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFramebuffer_T, uint*, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result>)(void*)ptr)(device, framebuffer, pPropertiesCount, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkFramebuffer_T, ref uint, AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM*, Result>)(void*)ptr)(device, framebuffer, ref pPropertiesCount, pProperties);
     }
 
     public static explicit operator PFN_vkGetFramebufferTilePropertiesQCOM(void* ptr) => new(ptr);

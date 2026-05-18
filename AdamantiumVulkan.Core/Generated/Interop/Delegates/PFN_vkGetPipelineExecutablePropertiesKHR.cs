@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPipelineExecutablePropertiesKHR
     public PFN_vkGetPipelineExecutablePropertiesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR*, uint*, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR*, ref uint, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR*, uint*, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR*, ref uint, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, uint* pExecutableCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR* pProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, ref uint pExecutableCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR* pProperties)
     {
-        return InvokeFunc(device, pPipelineInfo, pExecutableCount, pProperties);
+        return InvokeFunc(device, pPipelineInfo, ref pExecutableCount, pProperties);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, uint* pExecutableCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR* pProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, ref uint pExecutableCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR* pProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR*, uint*, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR*, Result>)ptr)(device, pPipelineInfo, pExecutableCount, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR*, ref uint, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR*, Result>)ptr)(device, pPipelineInfo, ref pExecutableCount, pProperties);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, uint* pExecutableCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR* pProperties)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR* pPipelineInfo, ref uint pExecutableCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR* pProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR*, uint*, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR*, Result>)(void*)ptr)(device, pPipelineInfo, pExecutableCount, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineInfoKHR*, ref uint, AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR*, Result>)(void*)ptr)(device, pPipelineInfo, ref pExecutableCount, pProperties);
     }
 
     public static explicit operator PFN_vkGetPipelineExecutablePropertiesKHR(void* ptr) => new(ptr);

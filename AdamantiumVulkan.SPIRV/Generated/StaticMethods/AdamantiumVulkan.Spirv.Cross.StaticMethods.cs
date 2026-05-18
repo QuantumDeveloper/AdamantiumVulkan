@@ -17,24 +17,15 @@ public unsafe static class SpirvCrossNative
     ///<summary>
     /// Gets the SPVC_C_API_VERSION_* used to build this library. Can be used to check for ABI mismatch if so-versioning did not catch it.
     ///</summary>
-    public static void GetVersion(ref uint major, ref uint minor, ref uint patch)
+    public static void CGetVersion(ref uint major, ref uint minor, ref uint patch)
     {
-        var arg0 = stackalloc uint[1];
-        *arg0 = major;
-        var arg1 = stackalloc uint[1];
-        *arg1 = minor;
-        var arg2 = stackalloc uint[1];
-        *arg2 = patch;
-        AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_get_version(arg0, arg1, arg2);
-        major = *arg0;
-        minor = *arg1;
-        patch = *arg2;
+        AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_get_version(ref major, ref minor, ref patch);
     }
 
     ///<summary>
     /// Gets a human readable version string to identify which commit a particular binary was created from.
     ///</summary>
-    public static string GetCommitRevisionAndTimestamp()
+    public static string CGetCommitRevisionAndTimestamp()
     {
         var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_get_commit_revision_and_timestamp();
         return new string(result);
@@ -43,7 +34,7 @@ public unsafe static class SpirvCrossNative
     ///<summary>
     /// Runtime check for incompatibility. Obsolete.
     ///</summary>
-    public static uint MslGetAuxBufferStructVersion()
+    public static uint CMslGetAuxBufferStructVersion()
     {
         return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_msl_get_aux_buffer_struct_version();
     }

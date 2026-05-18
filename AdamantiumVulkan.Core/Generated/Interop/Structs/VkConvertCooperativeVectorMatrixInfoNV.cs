@@ -20,7 +20,7 @@ public unsafe partial struct VkConvertCooperativeVectorMatrixInfoNV
     public void* pNext;
     public nuint srcSize;
     public VkDeviceOrHostAddressConstKHR srcData;
-    public nuint* pDstSize;
+    public void* pDstSize;
     public VkDeviceOrHostAddressKHR dstData;
     public ComponentTypeKHR srcComponentType;
     public ComponentTypeKHR dstComponentType;

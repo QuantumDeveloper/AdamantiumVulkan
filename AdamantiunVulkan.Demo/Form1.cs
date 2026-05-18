@@ -141,7 +141,7 @@ public unsafe partial class Form1 : Form
             out var text, 
             out var diagnostic);
             
-        SpirvReflection reflection = new SpirvReflection(result.Bytecode, Backend.Hlsl);
+        var reflection = new SpirvReflection(result.Bytecode, Backend.Hlsl);
         var lst = new List<ResourceBindingKey>();
         var reflectionResult = reflection.Disassemble(lst);
         var buffer = reflectionResult.UniformBuffers[0];

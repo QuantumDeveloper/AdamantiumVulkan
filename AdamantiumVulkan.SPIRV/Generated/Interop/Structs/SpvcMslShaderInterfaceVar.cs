@@ -22,7 +22,7 @@ public unsafe partial struct SpvcMslShaderInterfaceVar
 {
     public uint location;
     public MslShaderVariableFormat format;
-    public SpvBuiltIn builtin;
+    public BuiltIn builtin;
     public uint vecsize;
 }
 

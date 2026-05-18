@@ -18,7 +18,7 @@ public unsafe partial struct VkExportMemoryWin32HandleInfoNV
 {
     public StructureType sType;
     public void* pNext;
-    public nuint* pAttributes;
+    public void* pAttributes;
     public nuint dwAccess;
 }
 

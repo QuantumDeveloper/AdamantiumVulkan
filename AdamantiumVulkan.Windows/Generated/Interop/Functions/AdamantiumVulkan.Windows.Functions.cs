@@ -37,7 +37,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 14082 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetFenceWin32HandleKHR", ExactSpelling = true)]
-    internal static extern Result vkGetFenceWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR* pGetWin32HandleInfo, nuint* pHandle);
+    internal static extern Result vkGetFenceWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR* pGetWin32HandleInfo, void* pHandle);
 
     // File: vk.xml Line: 13972 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryWin32HandleKHR", ExactSpelling = true)]
@@ -45,7 +45,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 13797 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryWin32HandleNV", ExactSpelling = true)]
-    internal static extern Result vkGetMemoryWin32HandleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, ExternalMemoryHandleTypeFlagBitsNV handleType, nuint* pHandle);
+    internal static extern Result vkGetMemoryWin32HandleNV(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, ExternalMemoryHandleTypeFlagBitsNV handleType, void* pHandle);
 
     // File: vk.xml Line: 13978 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetMemoryWin32HandlePropertiesKHR", ExactSpelling = true)]
@@ -53,7 +53,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 15185 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceSurfacePresentModes2EXT", ExactSpelling = true)]
-    internal static extern Result vkGetPhysicalDeviceSurfacePresentModes2EXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, uint* pPresentModeCount, PresentModeKHR* pPresentModes);
+    internal static extern Result vkGetPhysicalDeviceSurfacePresentModes2EXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, ref uint pPresentModeCount, PresentModeKHR* pPresentModes);
 
     // File: vk.xml Line: 13665 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetPhysicalDeviceWin32PresentationSupportKHR", ExactSpelling = true)]
@@ -61,7 +61,7 @@ internal static unsafe partial class VulkanInterop
 
     // File: vk.xml Line: 14042 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetSemaphoreWin32HandleKHR", ExactSpelling = true)]
-    internal static extern Result vkGetSemaphoreWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, nuint* pHandle);
+    internal static extern Result vkGetSemaphoreWin32HandleKHR(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, void* pHandle);
 
     // File: vk.xml Line: 14179 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkGetWinrtDisplayNV", ExactSpelling = true)]
