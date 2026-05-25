@@ -37,6 +37,7 @@ public unsafe partial class SurfaceCapabilities2EXT : IMarshallableObject, IMars
     public ImageUsageFlagBits SupportedUsageFlags { get; set; }
     public SurfaceCounterFlagBitsEXT SupportedSurfaceCounters { get; set; }
 
+
     public static implicit operator SurfaceCapabilities2EXT(AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT s)
     {
         return new SurfaceCapabilities2EXT(in s);

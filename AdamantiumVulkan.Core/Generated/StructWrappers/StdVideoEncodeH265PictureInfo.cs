@@ -36,6 +36,7 @@ public unsafe partial class StdVideoEncodeH265PictureInfo : IMarshallableObject,
     public StdVideoH265ShortTermRefPicSet PShortTermRefPicSet { get; set; }
     public StdVideoEncodeH265LongTermRefPics PLongTermRefPics { get; set; }
 
+
     public static implicit operator StdVideoEncodeH265PictureInfo(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265PictureInfo s)
     {
         return new StdVideoEncodeH265PictureInfo(in s);

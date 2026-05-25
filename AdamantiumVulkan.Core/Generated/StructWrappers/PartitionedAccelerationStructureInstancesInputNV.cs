@@ -31,6 +31,7 @@ public unsafe partial class PartitionedAccelerationStructureInstancesInputNV : I
     public uint PartitionCount { get; set; }
     public uint MaxInstanceInGlobalPartitionCount { get; set; }
 
+
     public static implicit operator PartitionedAccelerationStructureInstancesInputNV(AdamantiumVulkan.Core.Interop.VkPartitionedAccelerationStructureInstancesInputNV p)
     {
         return new PartitionedAccelerationStructureInstancesInputNV(in p);

@@ -27,6 +27,7 @@ public unsafe partial class FormatProperties : IMarshallableObject, IMarshallabl
     public FormatFeatureFlagBits OptimalTilingFeatures { get; set; }
     public FormatFeatureFlagBits BufferFeatures { get; set; }
 
+
     public static implicit operator FormatProperties(AdamantiumVulkan.Core.Interop.VkFormatProperties f)
     {
         return new FormatProperties(in f);

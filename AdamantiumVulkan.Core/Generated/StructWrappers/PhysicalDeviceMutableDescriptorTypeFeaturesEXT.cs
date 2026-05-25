@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceMutableDescriptorTypeFeaturesEXT : IMa
     public object PNext { get; set; }
     public VkBool32 MutableDescriptorType { get; set; }
 
+
     public static implicit operator PhysicalDeviceMutableDescriptorTypeFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT p)
     {
         return new PhysicalDeviceMutableDescriptorTypeFeaturesEXT(in p);

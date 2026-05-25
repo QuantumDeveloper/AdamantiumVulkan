@@ -34,6 +34,7 @@ public unsafe partial class VideoEncodeH265QualityLevelPropertiesKHR : IMarshall
     public uint PreferredMaxL0ReferenceCount { get; set; }
     public uint PreferredMaxL1ReferenceCount { get; set; }
 
+
     public static implicit operator VideoEncodeH265QualityLevelPropertiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH265QualityLevelPropertiesKHR v)
     {
         return new VideoEncodeH265QualityLevelPropertiesKHR(in v);

@@ -27,6 +27,7 @@ public unsafe partial class DescriptorSetLayoutSupport : IMarshallableObject, IM
     public object PNext { get; set; }
     public VkBool32 Supported { get; set; }
 
+
     public static implicit operator DescriptorSetLayoutSupport(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutSupport d)
     {
         return new DescriptorSetLayoutSupport(in d);

@@ -27,6 +27,7 @@ public unsafe partial class QueueFamilyCheckpointProperties2NV : IMarshallableOb
     public object PNext { get; set; }
     public VkPipelineStageFlags2 CheckpointExecutionStageMask { get; set; }
 
+
     public static implicit operator QueueFamilyCheckpointProperties2NV(AdamantiumVulkan.Core.Interop.VkQueueFamilyCheckpointProperties2NV q)
     {
         return new QueueFamilyCheckpointProperties2NV(in q);

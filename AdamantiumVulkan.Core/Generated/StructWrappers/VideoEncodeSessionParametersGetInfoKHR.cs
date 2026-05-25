@@ -27,6 +27,7 @@ public unsafe partial class VideoEncodeSessionParametersGetInfoKHR : IMarshallab
     public object PNext { get; set; }
     public VideoSessionParametersKHR VideoSessionParameters { get; set; }
 
+
     public static implicit operator VideoEncodeSessionParametersGetInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR v)
     {
         return new VideoEncodeSessionParametersGetInfoKHR(in v);

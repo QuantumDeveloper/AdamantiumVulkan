@@ -33,6 +33,7 @@ public unsafe partial class CopyImageToImageInfo : IMarshallableObject, IMarshal
     public uint RegionCount { get; set; }
     public System.ReadOnlyMemory<ImageCopy2> PRegions { get; set; }
 
+
     public static implicit operator CopyImageToImageInfo(AdamantiumVulkan.Core.Interop.VkCopyImageToImageInfo c)
     {
         return new CopyImageToImageInfo(in c);

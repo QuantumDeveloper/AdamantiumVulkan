@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11139 Column: 6
+// File: vk.xml Line: 12835 Column: 6
 [Flags]
 public enum ExternalMemoryHandleTypeFlagBitsNV : uint
 {

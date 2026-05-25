@@ -28,6 +28,7 @@ public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : IMarshalla
     public uint DrmFormatModifierCount { get; set; }
     public System.ReadOnlyMemory<ulong> PDrmFormatModifiers { get; set; }
 
+
     public static implicit operator ImageDrmFormatModifierListCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT i)
     {
         return new ImageDrmFormatModifierListCreateInfoEXT(in i);

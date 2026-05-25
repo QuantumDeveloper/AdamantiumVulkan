@@ -33,6 +33,7 @@ public unsafe partial class BlitImageInfo2 : IMarshallableObject, IMarshallable<
     public System.ReadOnlyMemory<ImageBlit2> PRegions { get; set; }
     public Filter Filter { get; set; }
 
+
     public static implicit operator BlitImageInfo2(AdamantiumVulkan.Core.Interop.VkBlitImageInfo2 b)
     {
         return new BlitImageInfo2(in b);

@@ -29,6 +29,7 @@ public unsafe partial class DeviceDeviceMemoryReportCreateInfoEXT : IMarshallabl
     public delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT*, void*, void> PfnUserCallback { get; set; }
     public nuint PUserData { get; set; }
 
+
     public static implicit operator DeviceDeviceMemoryReportCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDeviceDeviceMemoryReportCreateInfoEXT d)
     {
         return new DeviceDeviceMemoryReportCreateInfoEXT(in d);

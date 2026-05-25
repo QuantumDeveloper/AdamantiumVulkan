@@ -28,6 +28,7 @@ public unsafe partial class ShaderModuleIdentifierEXT : IMarshallableObject, IMa
     public uint IdentifierSize { get; set; }
     public System.ReadOnlyMemory<byte> Identifier { get; set; }
 
+
     public static implicit operator ShaderModuleIdentifierEXT(AdamantiumVulkan.Core.Interop.VkShaderModuleIdentifierEXT s)
     {
         return new ShaderModuleIdentifierEXT(in s);

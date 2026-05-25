@@ -26,6 +26,7 @@ public unsafe partial class StdVideoH265LongTermRefPicsSps : IMarshallableObject
     public uint Used_by_curr_pic_lt_sps_flag { get; set; }
     public System.ReadOnlyMemory<uint> Lt_ref_pic_poc_lsb_sps { get; set; }
 
+
     public static implicit operator StdVideoH265LongTermRefPicsSps(AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps s)
     {
         return new StdVideoH265LongTermRefPicsSps(in s);

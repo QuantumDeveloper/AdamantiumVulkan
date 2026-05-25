@@ -28,6 +28,7 @@ public unsafe partial class PipelineSampleLocationsStateCreateInfoEXT : IMarshal
     public VkBool32 SampleLocationsEnable { get; set; }
     public SampleLocationsInfoEXT SampleLocationsInfo { get; set; }
 
+
     public static implicit operator PipelineSampleLocationsStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineSampleLocationsStateCreateInfoEXT p)
     {
         return new PipelineSampleLocationsStateCreateInfoEXT(in p);

@@ -27,6 +27,7 @@ public unsafe partial class AccelerationStructureVersionInfoKHR : IMarshallableO
     public object PNext { get; set; }
     public byte? PVersionData { get; set; }
 
+
     public static implicit operator AccelerationStructureVersionInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureVersionInfoKHR a)
     {
         return new AccelerationStructureVersionInfoKHR(in a);

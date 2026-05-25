@@ -28,6 +28,7 @@ public unsafe partial class DescriptorBufferBindingInfoEXT : IMarshallableObject
     public VkDeviceAddress Address { get; set; }
     public BufferUsageFlagBits Usage { get; set; }
 
+
     public static implicit operator DescriptorBufferBindingInfoEXT(AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT d)
     {
         return new DescriptorBufferBindingInfoEXT(in d);

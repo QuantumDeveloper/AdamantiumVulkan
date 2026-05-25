@@ -26,6 +26,7 @@ public unsafe partial class BaseInStructure : IMarshallableObject, IMarshallable
     public StructureType SType { get; set; }
     public object PNext { get; set; }
 
+
     public static implicit operator BaseInStructure(AdamantiumVulkan.Core.Interop.VkBaseInStructure b)
     {
         return new BaseInStructure(in b);

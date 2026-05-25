@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceMaintenance7FeaturesKHR : IMarshallabl
     public object PNext { get; set; }
     public VkBool32 Maintenance7 { get; set; }
 
+
     public static implicit operator PhysicalDeviceMaintenance7FeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance7FeaturesKHR p)
     {
         return new PhysicalDeviceMaintenance7FeaturesKHR(in p);

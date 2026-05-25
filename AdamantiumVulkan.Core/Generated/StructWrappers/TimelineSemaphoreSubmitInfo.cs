@@ -30,6 +30,7 @@ public unsafe partial class TimelineSemaphoreSubmitInfo : IMarshallableObject, I
     public uint SignalSemaphoreValueCount { get; set; }
     public System.ReadOnlyMemory<ulong> PSignalSemaphoreValues { get; set; }
 
+
     public static implicit operator TimelineSemaphoreSubmitInfo(AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo t)
     {
         return new TimelineSemaphoreSubmitInfo(in t);

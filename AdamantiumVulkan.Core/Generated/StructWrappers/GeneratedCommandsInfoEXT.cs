@@ -36,6 +36,7 @@ public unsafe partial class GeneratedCommandsInfoEXT : IMarshallableObject, IMar
     public VkDeviceAddress SequenceCountAddress { get; set; }
     public uint MaxDrawCount { get; set; }
 
+
     public static implicit operator GeneratedCommandsInfoEXT(AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoEXT g)
     {
         return new GeneratedCommandsInfoEXT(in g);

@@ -40,6 +40,7 @@ public unsafe partial class StdVideoH264SpsFlags : IMarshallableObject, IMarshal
     public uint Seq_scaling_matrix_present_flag { get; set; }
     public uint Vui_parameters_present_flag { get; set; }
 
+
     public static implicit operator StdVideoH264SpsFlags(AdamantiumVulkan.Core.Interop.StdVideoH264SpsFlags s)
     {
         return new StdVideoH264SpsFlags(in s);

@@ -30,6 +30,7 @@ public unsafe partial class SemaphoreWaitInfo : IMarshallableObject, IMarshallab
     public System.ReadOnlyMemory<Semaphore> PSemaphores { get; set; }
     public System.ReadOnlyMemory<ulong> PValues { get; set; }
 
+
     public static implicit operator SemaphoreWaitInfo(AdamantiumVulkan.Core.Interop.VkSemaphoreWaitInfo s)
     {
         return new SemaphoreWaitInfo(in s);

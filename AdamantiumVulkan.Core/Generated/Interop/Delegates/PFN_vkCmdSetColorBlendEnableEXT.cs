@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15599 Column: 10
+// File: video.xml Line: 17554 Column: 10
 public unsafe struct PFN_vkCmdSetColorBlendEnableEXT
 {
     public PFN_vkCmdSetColorBlendEnableEXT(nuint ptr) : this((void*) ptr) { }

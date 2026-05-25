@@ -27,6 +27,7 @@ public unsafe partial class ImageSubresource2 : IMarshallableObject, IMarshallab
     public object PNext { get; set; }
     public ImageSubresource ImageSubresource { get; set; }
 
+
     public static implicit operator ImageSubresource2(AdamantiumVulkan.Core.Interop.VkImageSubresource2 i)
     {
         return new ImageSubresource2(in i);

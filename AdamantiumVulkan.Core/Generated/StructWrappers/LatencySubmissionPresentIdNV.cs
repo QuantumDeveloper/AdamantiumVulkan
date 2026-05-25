@@ -27,6 +27,7 @@ public unsafe partial class LatencySubmissionPresentIdNV : IMarshallableObject, 
     public object PNext { get; set; }
     public ulong PresentID { get; set; }
 
+
     public static implicit operator LatencySubmissionPresentIdNV(AdamantiumVulkan.Core.Interop.VkLatencySubmissionPresentIdNV l)
     {
         return new LatencySubmissionPresentIdNV(in l);

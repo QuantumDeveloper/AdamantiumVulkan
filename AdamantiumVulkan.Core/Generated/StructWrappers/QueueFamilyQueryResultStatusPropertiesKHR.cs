@@ -27,6 +27,7 @@ public unsafe partial class QueueFamilyQueryResultStatusPropertiesKHR : IMarshal
     public object PNext { get; set; }
     public VkBool32 QueryResultStatusSupport { get; set; }
 
+
     public static implicit operator QueueFamilyQueryResultStatusPropertiesKHR(AdamantiumVulkan.Core.Interop.VkQueueFamilyQueryResultStatusPropertiesKHR q)
     {
         return new QueueFamilyQueryResultStatusPropertiesKHR(in q);

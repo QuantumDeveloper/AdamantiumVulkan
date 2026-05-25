@@ -27,6 +27,7 @@ public unsafe partial class QueryLowLatencySupportNV : IMarshallableObject, IMar
     public object PNext { get; set; }
     public nuint PQueriedLowLatencyData { get; set; }
 
+
     public static implicit operator QueryLowLatencySupportNV(AdamantiumVulkan.Core.Interop.VkQueryLowLatencySupportNV q)
     {
         return new QueryLowLatencySupportNV(in q);

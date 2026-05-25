@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11404 Column: 6
+// File: vk.xml Line: 13102 Column: 6
 [Flags]
 public enum DebugUtilsMessageTypeFlagBitsEXT : uint
 {
@@ -20,6 +20,8 @@ public enum DebugUtilsMessageTypeFlagBitsEXT : uint
     ValidationBitExt = 2,
 
     PerformanceBitExt = 4,
+
+    DeviceAddressBindingBitExt = 8,
 
 }
 

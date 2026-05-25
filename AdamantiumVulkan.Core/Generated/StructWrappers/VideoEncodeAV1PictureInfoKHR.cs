@@ -33,6 +33,7 @@ public unsafe partial class VideoEncodeAV1PictureInfoKHR : IMarshallableObject, 
     public VkBool32 PrimaryReferenceCdfOnly { get; set; }
     public VkBool32 GenerateObuExtensionHeader { get; set; }
 
+
     public static implicit operator VideoEncodeAV1PictureInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1PictureInfoKHR v)
     {
         return new VideoEncodeAV1PictureInfoKHR(in v);

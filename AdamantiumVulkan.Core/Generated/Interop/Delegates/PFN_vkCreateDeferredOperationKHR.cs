@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15395 Column: 10
+// File: video.xml Line: 17350 Column: 10
 public unsafe struct PFN_vkCreateDeferredOperationKHR
 {
     public PFN_vkCreateDeferredOperationKHR(nuint ptr) : this((void*) ptr) { }

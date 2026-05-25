@@ -55,6 +55,7 @@ public unsafe partial class StdVideoH265PpsFlags : IMarshallableObject, IMarshal
     public uint Monochrome_palette_flag { get; set; }
     public uint Ps_range_extension_flag { get; set; }
 
+
     public static implicit operator StdVideoH265PpsFlags(AdamantiumVulkan.Core.Interop.StdVideoH265PpsFlags s)
     {
         return new StdVideoH265PpsFlags(in s);

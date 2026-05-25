@@ -28,6 +28,7 @@ public unsafe partial class PipelineExecutableInfoKHR : IMarshallableObject, IMa
     public Pipeline Pipeline { get; set; }
     public uint ExecutableIndex { get; set; }
 
+
     public static implicit operator PipelineExecutableInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR p)
     {
         return new PipelineExecutableInfoKHR(in p);

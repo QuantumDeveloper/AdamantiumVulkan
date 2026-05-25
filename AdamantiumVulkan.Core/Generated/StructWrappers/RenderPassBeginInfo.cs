@@ -31,6 +31,7 @@ public unsafe partial class RenderPassBeginInfo : IMarshallableObject, IMarshall
     public uint ClearValueCount { get; set; }
     public System.ReadOnlyMemory<ClearValue> PClearValues { get; set; }
 
+
     public static implicit operator RenderPassBeginInfo(AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo r)
     {
         return new RenderPassBeginInfo(in r);

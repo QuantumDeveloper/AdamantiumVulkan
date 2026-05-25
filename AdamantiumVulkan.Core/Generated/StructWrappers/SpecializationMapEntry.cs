@@ -27,6 +27,7 @@ public unsafe partial class SpecializationMapEntry : IMarshallableObject, IMarsh
     public uint Offset { get; set; }
     public nuint Size { get; set; }
 
+
     public static implicit operator SpecializationMapEntry(AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry s)
     {
         return new SpecializationMapEntry(in s);

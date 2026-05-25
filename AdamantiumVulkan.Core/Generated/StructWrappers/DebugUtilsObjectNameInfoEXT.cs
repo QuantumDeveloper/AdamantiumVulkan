@@ -29,6 +29,7 @@ public unsafe partial class DebugUtilsObjectNameInfoEXT : IMarshallableObject, I
     public ulong ObjectHandle { get; set; }
     public string PObjectName { get; set; }
 
+
     public static implicit operator DebugUtilsObjectNameInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT d)
     {
         return new DebugUtilsObjectNameInfoEXT(in d);

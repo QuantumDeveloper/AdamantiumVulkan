@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceCustomBorderColorFeaturesEXT : IMarsha
     public VkBool32 CustomBorderColors { get; set; }
     public VkBool32 CustomBorderColorWithoutFormat { get; set; }
 
+
     public static implicit operator PhysicalDeviceCustomBorderColorFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCustomBorderColorFeaturesEXT p)
     {
         return new PhysicalDeviceCustomBorderColorFeaturesEXT(in p);

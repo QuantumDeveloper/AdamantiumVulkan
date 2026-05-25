@@ -28,6 +28,7 @@ public unsafe partial class MemoryBarrierAccessFlags3KHR : IMarshallableObject, 
     public VkAccessFlags3KHR SrcAccessMask3 { get; set; }
     public VkAccessFlags3KHR DstAccessMask3 { get; set; }
 
+
     public static implicit operator MemoryBarrierAccessFlags3KHR(AdamantiumVulkan.Core.Interop.VkMemoryBarrierAccessFlags3KHR m)
     {
         return new MemoryBarrierAccessFlags3KHR(in m);

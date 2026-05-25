@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: video.xml Line: 1309 Column: 6
+// File: video.xml Line: 1403 Column: 6
 public enum StdVideoH264CabacInitIdc : int
 {
     _0 = 0,

@@ -33,6 +33,7 @@ public unsafe partial class BindDescriptorSetsInfo : IMarshallableObject, IMarsh
     public uint DynamicOffsetCount { get; set; }
     public System.ReadOnlyMemory<uint> PDynamicOffsets { get; set; }
 
+
     public static implicit operator BindDescriptorSetsInfo(AdamantiumVulkan.Core.Interop.VkBindDescriptorSetsInfo b)
     {
         return new BindDescriptorSetsInfo(in b);

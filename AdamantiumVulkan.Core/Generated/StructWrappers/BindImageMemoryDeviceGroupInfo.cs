@@ -30,6 +30,7 @@ public unsafe partial class BindImageMemoryDeviceGroupInfo : IMarshallableObject
     public uint SplitInstanceBindRegionCount { get; set; }
     public System.ReadOnlyMemory<Rect2D> PSplitInstanceBindRegions { get; set; }
 
+
     public static implicit operator BindImageMemoryDeviceGroupInfo(AdamantiumVulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo b)
     {
         return new BindImageMemoryDeviceGroupInfo(in b);

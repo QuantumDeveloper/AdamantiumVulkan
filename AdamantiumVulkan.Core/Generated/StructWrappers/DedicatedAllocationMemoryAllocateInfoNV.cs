@@ -28,6 +28,7 @@ public unsafe partial class DedicatedAllocationMemoryAllocateInfoNV : IMarshalla
     public Image Image { get; set; }
     public Buffer Buffer { get; set; }
 
+
     public static implicit operator DedicatedAllocationMemoryAllocateInfoNV(AdamantiumVulkan.Core.Interop.VkDedicatedAllocationMemoryAllocateInfoNV d)
     {
         return new DedicatedAllocationMemoryAllocateInfoNV(in d);

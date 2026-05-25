@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceDeviceMemoryReportFeaturesEXT : IMarsh
     public object PNext { get; set; }
     public VkBool32 DeviceMemoryReport { get; set; }
 
+
     public static implicit operator PhysicalDeviceDeviceMemoryReportFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceMemoryReportFeaturesEXT p)
     {
         return new PhysicalDeviceDeviceMemoryReportFeaturesEXT(in p);

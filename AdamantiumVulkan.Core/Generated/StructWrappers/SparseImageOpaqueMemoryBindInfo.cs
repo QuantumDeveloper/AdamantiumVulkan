@@ -27,6 +27,7 @@ public unsafe partial class SparseImageOpaqueMemoryBindInfo : IMarshallableObjec
     public uint BindCount { get; set; }
     public System.ReadOnlyMemory<SparseMemoryBind> PBinds { get; set; }
 
+
     public static implicit operator SparseImageOpaqueMemoryBindInfo(AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo s)
     {
         return new SparseImageOpaqueMemoryBindInfo(in s);

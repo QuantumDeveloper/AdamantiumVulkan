@@ -11,27 +11,105 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10889 Column: 6
+// File: vk.xml Line: 12585 Column: 6
 [Flags]
 public enum PipelineCreateFlagBits2 : ulong
 {
-    DisableOptimizationBit = 1,
+    _2DisableOptimizationBit = 1,
 
-    AllowDerivativesBit = 2,
+    _2AllowDerivativesBit = 2,
 
-    DerivativeBit = 4,
+    _2DerivativeBit = 4,
 
-    ViewIndexFromDeviceIndexBit = 8,
+    _2ViewIndexFromDeviceIndexBit = 8,
 
-    DispatchBaseBit = 16,
+    _2DispatchBaseBit = 16,
 
-    FailOnPipelineCompileRequiredBit = 256,
+    _2FailOnPipelineCompileRequiredBit = 256,
 
-    EarlyReturnOnFailureBit = 512,
+    _2EarlyReturnOnFailureBit = 512,
 
-    NoProtectedAccessBit = 134217728,
+    _2NoProtectedAccessBit = 134217728,
 
-    ProtectedAccessOnlyBit = 1073741824,
+    _2ProtectedAccessOnlyBit = 1073741824,
+
+    _2Reserved46BitImg = 70368744177664,
+
+    _2ExecutionGraphBitAmdx = 4294967296,
+
+    _2DescriptorHeapBitExt = 68719476736,
+
+    Reserved44BitKhr = 17592186044416,
+
+    _2RayTracingAllowSpheresAndLinearSweptSpheresBitNv = 8589934592,
+
+    _2EnableLegacyDitheringBitExt = 17179869184,
+
+    _2DeferCompileBitNv = 32,
+
+    _2CaptureStatisticsBitKhr = 64,
+
+    _2CaptureInternalRepresentationsBitKhr = 128,
+
+    _2LinkTimeOptimizationBitExt = 1024,
+
+    _2RetainLinkTimeOptimizationInfoBitExt = 8388608,
+
+    _2LibraryBitKhr = 2048,
+
+    _2RayTracingSkipTrianglesBitKhr = 4096,
+
+    _2RayTracingSkipAabbsBitKhr = 8192,
+
+    _2RayTracingNoNullAnyHitShadersBitKhr = 16384,
+
+    _2RayTracingNoNullClosestHitShadersBitKhr = 32768,
+
+    _2RayTracingNoNullMissShadersBitKhr = 65536,
+
+    _2RayTracingNoNullIntersectionShadersBitKhr = 131072,
+
+    _2RayTracingShaderGroupHandleCaptureReplayBitKhr = 524288,
+
+    _2IndirectBindableBitNv = 262144,
+
+    _2RayTracingAllowMotionBitNv = 1048576,
+
+    _2RenderingFragmentShadingRateAttachmentBitKhr = 2097152,
+
+    _2RenderingFragmentDensityMapAttachmentBitExt = 4194304,
+
+    _2RayTracingOpacityMicromapBitExt = 16777216,
+
+    _2ColorAttachmentFeedbackLoopBitExt = 33554432,
+
+    _2DepthStencilAttachmentFeedbackLoopBitExt = 67108864,
+
+    _2RayTracingDisplacementMicromapBitNv = 268435456,
+
+    _2DescriptorBufferBitExt = 536870912,
+
+    _2DisallowOpacityMicromapBitArm = 137438953472,
+
+    _2InstrumentShadersBitArm = 549755813888,
+
+    _2CaptureDataBitKhr = 2147483648,
+
+    _2IndirectBindableBitExt = 274877906944,
+
+    _2Reserved35BitKhr = 34359738368,
+
+    _2PerLayerFragmentDensityBitValve = 1099511627776,
+
+    _2Reserved41BitKhr = 2199023255552,
+
+    _264BitIndexingBitExt = 8796093022208,
+
+    _2Reserved45BitExt = 35184372088832,
+
+    _2Reserved47BitAmd = 140737488355328,
+
+    _2Reserved48BitHuawei = 281474976710656,
 
 }
 

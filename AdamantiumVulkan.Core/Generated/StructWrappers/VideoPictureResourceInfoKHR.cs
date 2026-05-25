@@ -30,6 +30,7 @@ public unsafe partial class VideoPictureResourceInfoKHR : IMarshallableObject, I
     public uint BaseArrayLayer { get; set; }
     public ImageView ImageViewBinding { get; set; }
 
+
     public static implicit operator VideoPictureResourceInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoPictureResourceInfoKHR v)
     {
         return new VideoPictureResourceInfoKHR(in v);

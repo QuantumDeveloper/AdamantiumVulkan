@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceExternalImageFormatInfo : IMarshallabl
     public object PNext { get; set; }
     public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
 
+
     public static implicit operator PhysicalDeviceExternalImageFormatInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalImageFormatInfo p)
     {
         return new PhysicalDeviceExternalImageFormatInfo(in p);

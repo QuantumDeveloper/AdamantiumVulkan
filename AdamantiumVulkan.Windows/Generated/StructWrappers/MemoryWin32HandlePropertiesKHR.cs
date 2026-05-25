@@ -28,6 +28,7 @@ public unsafe partial class MemoryWin32HandlePropertiesKHR : IMarshallableObject
     public object PNext { get; set; }
     public uint MemoryTypeBits { get; set; }
 
+
     public static implicit operator MemoryWin32HandlePropertiesKHR(AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR m)
     {
         return new MemoryWin32HandlePropertiesKHR(in m);

@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceDescriptorBufferFeaturesEXT : IMarshal
     public VkBool32 DescriptorBufferImageLayoutIgnored { get; set; }
     public VkBool32 DescriptorBufferPushDescriptors { get; set; }
 
+
     public static implicit operator PhysicalDeviceDescriptorBufferFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferFeaturesEXT p)
     {
         return new PhysicalDeviceDescriptorBufferFeaturesEXT(in p);

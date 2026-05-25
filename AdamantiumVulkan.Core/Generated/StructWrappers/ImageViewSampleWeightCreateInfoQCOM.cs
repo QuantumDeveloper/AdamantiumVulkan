@@ -29,6 +29,7 @@ public unsafe partial class ImageViewSampleWeightCreateInfoQCOM : IMarshallableO
     public Extent2D FilterSize { get; set; }
     public uint NumPhases { get; set; }
 
+
     public static implicit operator ImageViewSampleWeightCreateInfoQCOM(AdamantiumVulkan.Core.Interop.VkImageViewSampleWeightCreateInfoQCOM i)
     {
         return new ImageViewSampleWeightCreateInfoQCOM(in i);

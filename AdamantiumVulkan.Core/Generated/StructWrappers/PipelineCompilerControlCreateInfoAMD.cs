@@ -27,6 +27,7 @@ public unsafe partial class PipelineCompilerControlCreateInfoAMD : IMarshallable
     public object PNext { get; set; }
     public PipelineCompilerControlFlagBitsAMD CompilerControlFlags { get; set; }
 
+
     public static implicit operator PipelineCompilerControlCreateInfoAMD(AdamantiumVulkan.Core.Interop.VkPipelineCompilerControlCreateInfoAMD p)
     {
         return new PipelineCompilerControlCreateInfoAMD(in p);

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 67 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 51 Column: 14
 public enum SourceLanguage : uint
 {
     Unknown = 0,
@@ -39,6 +39,8 @@ public enum SourceLanguage : uint
     Slang = 11,
 
     Zig = 12,
+
+    Rust = 13,
 
     Max = 2147483647,
 

@@ -40,6 +40,7 @@ public unsafe partial class LatencyTimingsFrameReportNV : IMarshallableObject, I
     public ulong GpuRenderStartTimeUs { get; set; }
     public ulong GpuRenderEndTimeUs { get; set; }
 
+
     public static implicit operator LatencyTimingsFrameReportNV(AdamantiumVulkan.Core.Interop.VkLatencyTimingsFrameReportNV l)
     {
         return new LatencyTimingsFrameReportNV(in l);

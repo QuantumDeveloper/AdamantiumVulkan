@@ -27,6 +27,7 @@ public unsafe partial class DescriptorBufferInfo : IMarshallableObject, IMarshal
     public VkDeviceSize Offset { get; set; }
     public VkDeviceSize Range { get; set; }
 
+
     public static implicit operator DescriptorBufferInfo(AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo d)
     {
         return new DescriptorBufferInfo(in d);

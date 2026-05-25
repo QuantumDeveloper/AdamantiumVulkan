@@ -27,6 +27,7 @@ public unsafe partial class DedicatedAllocationImageCreateInfoNV : IMarshallable
     public object PNext { get; set; }
     public VkBool32 DedicatedAllocation { get; set; }
 
+
     public static implicit operator DedicatedAllocationImageCreateInfoNV(AdamantiumVulkan.Core.Interop.VkDedicatedAllocationImageCreateInfoNV d)
     {
         return new DedicatedAllocationImageCreateInfoNV(in d);

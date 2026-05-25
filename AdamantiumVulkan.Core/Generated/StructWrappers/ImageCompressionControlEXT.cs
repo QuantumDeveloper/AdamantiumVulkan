@@ -29,6 +29,7 @@ public unsafe partial class ImageCompressionControlEXT : IMarshallableObject, IM
     public uint CompressionControlPlaneCount { get; set; }
     public System.ReadOnlyMemory<ImageCompressionFixedRateFlagBitsEXT> PFixedRateFlags { get; set; }
 
+
     public static implicit operator ImageCompressionControlEXT(AdamantiumVulkan.Core.Interop.VkImageCompressionControlEXT i)
     {
         return new ImageCompressionControlEXT(in i);

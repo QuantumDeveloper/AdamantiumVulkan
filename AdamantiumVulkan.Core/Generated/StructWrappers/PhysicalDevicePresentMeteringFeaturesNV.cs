@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePresentMeteringFeaturesNV : IMarshalla
     public object PNext { get; set; }
     public VkBool32 PresentMetering { get; set; }
 
+
     public static implicit operator PhysicalDevicePresentMeteringFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePresentMeteringFeaturesNV p)
     {
         return new PhysicalDevicePresentMeteringFeaturesNV(in p);

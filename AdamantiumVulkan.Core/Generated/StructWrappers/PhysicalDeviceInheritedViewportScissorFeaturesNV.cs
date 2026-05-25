@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceInheritedViewportScissorFeaturesNV : I
     public object PNext { get; set; }
     public VkBool32 InheritedViewportScissor2D { get; set; }
 
+
     public static implicit operator PhysicalDeviceInheritedViewportScissorFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInheritedViewportScissorFeaturesNV p)
     {
         return new PhysicalDeviceInheritedViewportScissorFeaturesNV(in p);

@@ -26,6 +26,7 @@ public unsafe partial class GeometryDataNV : IMarshallableObject, IMarshallable<
     public GeometryTrianglesNV Triangles { get; set; }
     public GeometryAABBNV Aabbs { get; set; }
 
+
     public static implicit operator GeometryDataNV(AdamantiumVulkan.Core.Interop.VkGeometryDataNV g)
     {
         return new GeometryDataNV(in g);

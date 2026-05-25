@@ -31,6 +31,7 @@ public unsafe partial class DebugUtilsMessengerCreateInfoEXT : IMarshallableObje
     public delegate* unmanaged<DebugUtilsMessageSeverityFlagBitsEXT, DebugUtilsMessageTypeFlagBitsEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT*, void*, VkBool32> PfnUserCallback { get; set; }
     public nuint PUserData { get; set; }
 
+
     public static implicit operator DebugUtilsMessengerCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT d)
     {
         return new DebugUtilsMessengerCreateInfoEXT(in d);

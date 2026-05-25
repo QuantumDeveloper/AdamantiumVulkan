@@ -27,6 +27,7 @@ public unsafe partial class PipelineRasterizationProvokingVertexStateCreateInfoE
     public object PNext { get; set; }
     public ProvokingVertexModeEXT ProvokingVertexMode { get; set; }
 
+
     public static implicit operator PipelineRasterizationProvokingVertexStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationProvokingVertexStateCreateInfoEXT p)
     {
         return new PipelineRasterizationProvokingVertexStateCreateInfoEXT(in p);

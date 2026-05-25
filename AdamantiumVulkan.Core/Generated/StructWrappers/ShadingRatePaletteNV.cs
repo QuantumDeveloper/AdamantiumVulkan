@@ -26,6 +26,7 @@ public unsafe partial class ShadingRatePaletteNV : IMarshallableObject, IMarshal
     public uint ShadingRatePaletteEntryCount { get; set; }
     public System.ReadOnlyMemory<ShadingRatePaletteEntryNV> PShadingRatePaletteEntries { get; set; }
 
+
     public static implicit operator ShadingRatePaletteNV(AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV s)
     {
         return new ShadingRatePaletteNV(in s);

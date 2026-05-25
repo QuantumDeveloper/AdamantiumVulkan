@@ -29,6 +29,7 @@ public unsafe partial class OpticalFlowSessionCreatePrivateDataInfoNV : IMarshal
     public uint Size { get; set; }
     public nuint PrivateData { get; set; }
 
+
     public static implicit operator OpticalFlowSessionCreatePrivateDataInfoNV(AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV o)
     {
         return new OpticalFlowSessionCreatePrivateDataInfoNV(in o);

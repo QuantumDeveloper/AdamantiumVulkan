@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11824 Column: 6
+// File: vk.xml Line: 13526 Column: 6
 [Flags]
 public enum GraphicsPipelineLibraryFlagBitsEXT : uint
 {

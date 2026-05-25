@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15257 Column: 10
+// File: video.xml Line: 17212 Column: 10
 public unsafe struct PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV
 {
     public PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(nuint ptr) : this((void*) ptr) { }

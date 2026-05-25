@@ -32,6 +32,7 @@ public unsafe partial class VideoEncodeAV1RateControlLayerInfoKHR : IMarshallabl
     public VkBool32 UseMaxFrameSize { get; set; }
     public VideoEncodeAV1FrameSizeKHR MaxFrameSize { get; set; }
 
+
     public static implicit operator VideoEncodeAV1RateControlLayerInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1RateControlLayerInfoKHR v)
     {
         return new VideoEncodeAV1RateControlLayerInfoKHR(in v);

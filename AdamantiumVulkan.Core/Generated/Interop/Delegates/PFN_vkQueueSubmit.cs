@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 12512 Column: 10
+// File: video.xml Line: 14418 Column: 10
 public unsafe struct PFN_vkQueueSubmit
 {
     public PFN_vkQueueSubmit(nuint ptr) : this((void*) ptr) { }

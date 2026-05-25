@@ -34,6 +34,7 @@ public unsafe partial class DisplaySurfaceCreateInfoKHR : IMarshallableObject, I
     public DisplayPlaneAlphaFlagBitsKHR AlphaMode { get; set; }
     public Extent2D ImageExtent { get; set; }
 
+
     public static implicit operator DisplaySurfaceCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkDisplaySurfaceCreateInfoKHR d)
     {
         return new DisplaySurfaceCreateInfoKHR(in d);

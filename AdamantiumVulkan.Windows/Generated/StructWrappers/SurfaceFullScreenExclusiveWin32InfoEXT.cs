@@ -28,6 +28,7 @@ public unsafe partial class SurfaceFullScreenExclusiveWin32InfoEXT : IMarshallab
     public object PNext { get; set; }
     public nuint Hmonitor { get; set; }
 
+
     public static implicit operator SurfaceFullScreenExclusiveWin32InfoEXT(AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT s)
     {
         return new SurfaceFullScreenExclusiveWin32InfoEXT(in s);

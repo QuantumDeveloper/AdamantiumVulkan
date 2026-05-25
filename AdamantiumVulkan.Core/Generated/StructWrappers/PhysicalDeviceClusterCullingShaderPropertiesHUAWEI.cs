@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceClusterCullingShaderPropertiesHUAWEI :
     public uint MaxOutputClusterCount { get; set; }
     public VkDeviceSize IndirectBufferOffsetAlignment { get; set; }
 
+
     public static implicit operator PhysicalDeviceClusterCullingShaderPropertiesHUAWEI(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI p)
     {
         return new PhysicalDeviceClusterCullingShaderPropertiesHUAWEI(in p);

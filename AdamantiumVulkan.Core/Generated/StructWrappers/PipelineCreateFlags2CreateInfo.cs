@@ -27,6 +27,7 @@ public unsafe partial class PipelineCreateFlags2CreateInfo : IMarshallableObject
     public object PNext { get; set; }
     public VkPipelineCreateFlags2 Flags { get; set; }
 
+
     public static implicit operator PipelineCreateFlags2CreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineCreateFlags2CreateInfo p)
     {
         return new PipelineCreateFlags2CreateInfo(in p);

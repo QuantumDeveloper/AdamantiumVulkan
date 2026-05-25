@@ -27,6 +27,7 @@ public unsafe partial class DisplaySurfaceStereoCreateInfoNV : IMarshallableObje
     public object PNext { get; set; }
     public DisplaySurfaceStereoTypeNV StereoType { get; set; }
 
+
     public static implicit operator DisplaySurfaceStereoCreateInfoNV(AdamantiumVulkan.Core.Interop.VkDisplaySurfaceStereoCreateInfoNV d)
     {
         return new DisplaySurfaceStereoCreateInfoNV(in d);

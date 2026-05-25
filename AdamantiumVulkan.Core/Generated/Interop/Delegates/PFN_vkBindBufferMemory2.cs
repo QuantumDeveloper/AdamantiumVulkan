@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 14235 Column: 10
+// File: video.xml Line: 16184 Column: 10
 public unsafe struct PFN_vkBindBufferMemory2
 {
     public PFN_vkBindBufferMemory2(nuint ptr) : this((void*) ptr) { }

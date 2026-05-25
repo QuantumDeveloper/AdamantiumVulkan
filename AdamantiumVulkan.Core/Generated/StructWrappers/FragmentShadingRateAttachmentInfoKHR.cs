@@ -28,6 +28,7 @@ public unsafe partial class FragmentShadingRateAttachmentInfoKHR : IMarshallable
     public AttachmentReference2 PFragmentShadingRateAttachment { get; set; }
     public Extent2D ShadingRateAttachmentTexelSize { get; set; }
 
+
     public static implicit operator FragmentShadingRateAttachmentInfoKHR(AdamantiumVulkan.Core.Interop.VkFragmentShadingRateAttachmentInfoKHR f)
     {
         return new FragmentShadingRateAttachmentInfoKHR(in f);

@@ -30,6 +30,7 @@ public unsafe partial class StdVideoAV1CDEF : IMarshallableObject, IMarshallable
     public System.ReadOnlyMemory<byte> Cdef_uv_pri_strength { get; set; }
     public System.ReadOnlyMemory<byte> Cdef_uv_sec_strength { get; set; }
 
+
     public static implicit operator StdVideoAV1CDEF(AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF s)
     {
         return new StdVideoAV1CDEF(in s);

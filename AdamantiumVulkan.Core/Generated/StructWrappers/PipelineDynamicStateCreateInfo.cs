@@ -29,6 +29,7 @@ public unsafe partial class PipelineDynamicStateCreateInfo : IMarshallableObject
     public uint DynamicStateCount { get; set; }
     public System.ReadOnlyMemory<DynamicState> PDynamicStates { get; set; }
 
+
     public static implicit operator PipelineDynamicStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineDynamicStateCreateInfo p)
     {
         return new PipelineDynamicStateCreateInfo(in p);

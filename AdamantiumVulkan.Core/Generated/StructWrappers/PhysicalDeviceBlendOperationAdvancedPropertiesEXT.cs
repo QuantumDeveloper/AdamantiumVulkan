@@ -32,6 +32,7 @@ public unsafe partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : 
     public VkBool32 AdvancedBlendCorrelatedOverlap { get; set; }
     public VkBool32 AdvancedBlendAllOperations { get; set; }
 
+
     public static implicit operator PhysicalDeviceBlendOperationAdvancedPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT p)
     {
         return new PhysicalDeviceBlendOperationAdvancedPropertiesEXT(in p);

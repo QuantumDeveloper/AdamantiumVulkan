@@ -32,6 +32,7 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoNV : IMarshallableOb
     public uint StreamCount { get; set; }
     public System.ReadOnlyMemory<uint> PStreamStrides { get; set; }
 
+
     public static implicit operator IndirectCommandsLayoutCreateInfoNV(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV i)
     {
         return new IndirectCommandsLayoutCreateInfoNV(in i);

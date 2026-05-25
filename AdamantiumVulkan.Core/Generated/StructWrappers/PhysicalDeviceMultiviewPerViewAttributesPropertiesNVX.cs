@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceMultiviewPerViewAttributesPropertiesNV
     public object PNext { get; set; }
     public VkBool32 PerViewPositionAllComponents { get; set; }
 
+
     public static implicit operator PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX p)
     {
         return new PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX(in p);

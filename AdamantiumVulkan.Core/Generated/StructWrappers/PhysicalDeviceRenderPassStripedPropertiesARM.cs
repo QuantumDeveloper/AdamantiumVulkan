@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceRenderPassStripedPropertiesARM : IMars
     public Extent2D RenderPassStripeGranularity { get; set; }
     public uint MaxRenderPassStripes { get; set; }
 
+
     public static implicit operator PhysicalDeviceRenderPassStripedPropertiesARM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRenderPassStripedPropertiesARM p)
     {
         return new PhysicalDeviceRenderPassStripedPropertiesARM(in p);

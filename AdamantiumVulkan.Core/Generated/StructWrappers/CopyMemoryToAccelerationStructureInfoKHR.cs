@@ -29,6 +29,7 @@ public unsafe partial class CopyMemoryToAccelerationStructureInfoKHR : IMarshall
     public AccelerationStructureKHR Dst { get; set; }
     public CopyAccelerationStructureModeKHR Mode { get; set; }
 
+
     public static implicit operator CopyMemoryToAccelerationStructureInfoKHR(AdamantiumVulkan.Core.Interop.VkCopyMemoryToAccelerationStructureInfoKHR c)
     {
         return new CopyMemoryToAccelerationStructureInfoKHR(in c);
@@ -41,6 +42,8 @@ public unsafe partial class CopyMemoryToAccelerationStructureInfoKHR : IMarshall
         {
             size += marshallable.GetSize();
         }
+        if (Src != default)
+            size += Src.GetSize();
         return size;
     }
 

@@ -28,6 +28,7 @@ public unsafe partial class ViewportSwizzleNV : IMarshallableObject, IMarshallab
     public ViewportCoordinateSwizzleNV Z { get; set; }
     public ViewportCoordinateSwizzleNV W { get; set; }
 
+
     public static implicit operator ViewportSwizzleNV(AdamantiumVulkan.Core.Interop.VkViewportSwizzleNV v)
     {
         return new ViewportSwizzleNV(in v);

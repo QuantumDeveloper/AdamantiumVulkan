@@ -30,6 +30,7 @@ public unsafe partial class PipelineRobustnessCreateInfo : IMarshallableObject, 
     public PipelineRobustnessBufferBehavior VertexInputs { get; set; }
     public PipelineRobustnessImageBehavior Images { get; set; }
 
+
     public static implicit operator PipelineRobustnessCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineRobustnessCreateInfo p)
     {
         return new PipelineRobustnessCreateInfo(in p);

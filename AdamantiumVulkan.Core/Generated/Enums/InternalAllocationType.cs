@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10425 Column: 6
+// File: vk.xml Line: 12121 Column: 6
 [Flags]
 public enum InternalAllocationType : int
 {

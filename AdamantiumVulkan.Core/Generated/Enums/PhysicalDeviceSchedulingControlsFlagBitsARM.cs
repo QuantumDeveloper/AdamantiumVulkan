@@ -11,11 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11850 Column: 6
+// File: vk.xml Line: 13562 Column: 6
 [Flags]
 public enum PhysicalDeviceSchedulingControlsFlagBitsARM : ulong
 {
     ShaderCoreCountArm = 1,
+
+    DispatchParametersArm = 2,
 
 }
 

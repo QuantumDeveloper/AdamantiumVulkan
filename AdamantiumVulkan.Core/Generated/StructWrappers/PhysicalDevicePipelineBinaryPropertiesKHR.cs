@@ -31,6 +31,7 @@ public unsafe partial class PhysicalDevicePipelineBinaryPropertiesKHR : IMarshal
     public VkBool32 PipelineBinaryPrecompiledInternalCache { get; set; }
     public VkBool32 PipelineBinaryCompressedData { get; set; }
 
+
     public static implicit operator PhysicalDevicePipelineBinaryPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineBinaryPropertiesKHR p)
     {
         return new PhysicalDevicePipelineBinaryPropertiesKHR(in p);

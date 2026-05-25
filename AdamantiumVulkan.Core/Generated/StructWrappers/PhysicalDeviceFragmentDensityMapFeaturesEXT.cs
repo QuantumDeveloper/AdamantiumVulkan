@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapFeaturesEXT : IMarsh
     public VkBool32 FragmentDensityMapDynamic { get; set; }
     public VkBool32 FragmentDensityMapNonSubsampledImages { get; set; }
 
+
     public static implicit operator PhysicalDeviceFragmentDensityMapFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapFeaturesEXT p)
     {
         return new PhysicalDeviceFragmentDensityMapFeaturesEXT(in p);

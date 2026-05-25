@@ -28,6 +28,7 @@ public unsafe partial class LatencySurfaceCapabilitiesNV : IMarshallableObject, 
     public uint PresentModeCount { get; set; }
     public System.ReadOnlyMemory<PresentModeKHR> PresentModes { get; set; }
 
+
     public static implicit operator LatencySurfaceCapabilitiesNV(AdamantiumVulkan.Core.Interop.VkLatencySurfaceCapabilitiesNV l)
     {
         return new LatencySurfaceCapabilitiesNV(in l);

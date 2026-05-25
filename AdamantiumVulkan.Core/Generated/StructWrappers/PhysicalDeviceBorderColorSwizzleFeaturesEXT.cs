@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceBorderColorSwizzleFeaturesEXT : IMarsh
     public VkBool32 BorderColorSwizzle { get; set; }
     public VkBool32 BorderColorSwizzleFromImage { get; set; }
 
+
     public static implicit operator PhysicalDeviceBorderColorSwizzleFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBorderColorSwizzleFeaturesEXT p)
     {
         return new PhysicalDeviceBorderColorSwizzleFeaturesEXT(in p);

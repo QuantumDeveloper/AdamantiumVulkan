@@ -11,15 +11,29 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11928 Column: 6
+// File: vk.xml Line: 13654 Column: 6
 [Flags]
 public enum VideoEncodeFeedbackFlagBitsKHR : uint
 {
-    BufferOffsetBitKhr = 1,
+    BitstreamBufferOffsetBitKhr = 1,
 
-    BytesWrittenBitKhr = 2,
+    BitstreamBytesWrittenBitKhr = 2,
 
-    HasOverridesBitKhr = 4,
+    BitstreamHasOverridesBitKhr = 4,
+
+    Reserved3BitKhr = 8,
+
+    Reserved4BitKhr = 16,
+
+    Reserved5BitKhr = 32,
+
+    Reserved6BitKhr = 64,
+
+    Reserved7BitKhr = 128,
+
+    Reserved8BitKhr = 256,
+
+    Reserved9BitKhr = 512,
 
 }
 

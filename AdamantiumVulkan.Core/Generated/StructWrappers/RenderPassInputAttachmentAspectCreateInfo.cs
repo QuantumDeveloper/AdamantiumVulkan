@@ -28,6 +28,7 @@ public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : IMarshal
     public uint AspectReferenceCount { get; set; }
     public System.ReadOnlyMemory<InputAttachmentAspectReference> PAspectReferences { get; set; }
 
+
     public static implicit operator RenderPassInputAttachmentAspectCreateInfo(AdamantiumVulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo r)
     {
         return new RenderPassInputAttachmentAspectCreateInfo(in r);

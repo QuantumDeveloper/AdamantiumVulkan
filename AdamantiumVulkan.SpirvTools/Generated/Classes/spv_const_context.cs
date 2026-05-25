@@ -13,7 +13,7 @@ using AdamantiumVulkan.SpirvTools.Interop;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 514 Column: 30
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 543 Column: 30
 public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulkan.SpirvTools.Interop.spv_context_t>
 {
     internal spv_context_t __Instance;

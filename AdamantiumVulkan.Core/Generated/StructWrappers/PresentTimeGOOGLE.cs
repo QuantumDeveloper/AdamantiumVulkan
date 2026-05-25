@@ -26,6 +26,7 @@ public unsafe partial class PresentTimeGOOGLE : IMarshallableObject, IMarshallab
     public uint PresentID { get; set; }
     public ulong DesiredPresentTime { get; set; }
 
+
     public static implicit operator PresentTimeGOOGLE(AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE p)
     {
         return new PresentTimeGOOGLE(in p);

@@ -28,6 +28,7 @@ public unsafe partial class IndirectExecutionSetShaderLayoutInfoEXT : IMarshalla
     public uint SetLayoutCount { get; set; }
     public System.ReadOnlyMemory<DescriptorSetLayout> PSetLayouts { get; set; }
 
+
     public static implicit operator IndirectExecutionSetShaderLayoutInfoEXT(AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetShaderLayoutInfoEXT i)
     {
         return new IndirectExecutionSetShaderLayoutInfoEXT(in i);

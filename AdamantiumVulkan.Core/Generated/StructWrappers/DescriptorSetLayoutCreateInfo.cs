@@ -29,6 +29,7 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : IMarshallableObject,
     public uint BindingCount { get; set; }
     public System.ReadOnlyMemory<DescriptorSetLayoutBinding> PBindings { get; set; }
 
+
     public static implicit operator DescriptorSetLayoutCreateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo d)
     {
         return new DescriptorSetLayoutCreateInfo(in d);

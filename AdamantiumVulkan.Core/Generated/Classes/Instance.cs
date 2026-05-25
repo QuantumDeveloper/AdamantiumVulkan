@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 552 Column: 10
+// File: vk.xml Line: 598 Column: 10
 public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkInstance_T>
 {
     internal VkInstance_T __Instance;

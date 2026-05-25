@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11763 Column: 6
+// File: vk.xml Line: 13465 Column: 6
 [Flags]
 public enum PipelineStageFlagBits2 : ulong
 {
@@ -64,6 +64,58 @@ public enum PipelineStageFlagBits2 : ulong
     VertexAttributeInputBit = 137438953472,
 
     PreRasterizationShadersBit = 274877906944,
+
+    VideoDecodeBitKhr = 67108864,
+
+    VideoEncodeBitKhr = 134217728,
+
+    TransformFeedbackBitExt = 16777216,
+
+    ConditionalRenderingBitExt = 262144,
+
+    CommandPreprocessBitExt = 131072,
+
+    FragmentShadingRateAttachmentBitKhr = 4194304,
+
+    AccelerationStructureBuildBitKhr = 33554432,
+
+    RayTracingShaderBitKhr = 2097152,
+
+    FragmentDensityProcessBitExt = 8388608,
+
+    TaskShaderBitExt = 524288,
+
+    MeshShaderBitExt = 1048576,
+
+    SubpassShaderBitHuawei = 549755813888,
+
+    InvocationMaskBitHuawei = 1099511627776,
+
+    AccelerationStructureCopyBitKhr = 268435456,
+
+    MicromapBuildBitExt = 1073741824,
+
+    ClusterCullingShaderBitHuawei = 2199023255552,
+
+    OpticalFlowBitNv = 536870912,
+
+    ConvertCooperativeVectorMatrixBitNv = 17592186044416,
+
+    DataGraphBitArm = 4398046511104,
+
+    CopyIndirectBitKhr = 70368744177664,
+
+    MemoryDecompressionBitExt = 35184372088832,
+
+    Reserved49BitExt = 562949953421312,
+
+    Reserved47BitKhr = 140737488355328,
+
+    Reserved31BitAmd = 2147483648,
+
+    Reserved43BitArm = 8796093022208,
+
+    Reserved48BitHuawei = 281474976710656,
 
 }
 

@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT :
     public VkBool32 GraphicsPipelineLibraryFastLinking { get; set; }
     public VkBool32 GraphicsPipelineLibraryIndependentInterpolationDecoration { get; set; }
 
+
     public static implicit operator PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT p)
     {
         return new PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT(in p);

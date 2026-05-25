@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: video.xml Line: 1265 Column: 6
+// File: video.xml Line: 1359 Column: 6
 public enum StdVideoH264AspectRatioIdc : int
 {
     Unspecified = 0,

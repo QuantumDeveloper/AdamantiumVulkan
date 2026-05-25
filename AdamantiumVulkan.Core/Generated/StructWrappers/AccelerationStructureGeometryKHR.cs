@@ -29,6 +29,7 @@ public unsafe partial class AccelerationStructureGeometryKHR : IMarshallableObje
     public AccelerationStructureGeometryDataKHR Geometry { get; set; }
     public GeometryFlagBitsKHR Flags { get; set; }
 
+
     public static implicit operator AccelerationStructureGeometryKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR a)
     {
         return new AccelerationStructureGeometryKHR(in a);
@@ -41,6 +42,8 @@ public unsafe partial class AccelerationStructureGeometryKHR : IMarshallableObje
         {
             size += marshallable.GetSize();
         }
+        if (Geometry != default)
+            size += Geometry.GetSize();
         return size;
     }
 

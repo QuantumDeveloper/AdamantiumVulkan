@@ -27,6 +27,7 @@ public unsafe partial class SurfaceCapabilitiesPresentBarrierNV : IMarshallableO
     public object PNext { get; set; }
     public VkBool32 PresentBarrierSupported { get; set; }
 
+
     public static implicit operator SurfaceCapabilitiesPresentBarrierNV(AdamantiumVulkan.Core.Interop.VkSurfaceCapabilitiesPresentBarrierNV s)
     {
         return new SurfaceCapabilitiesPresentBarrierNV(in s);

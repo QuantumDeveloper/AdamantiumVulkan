@@ -28,6 +28,7 @@ public unsafe partial class DeviceGroupBindSparseInfo : IMarshallableObject, IMa
     public uint ResourceDeviceIndex { get; set; }
     public uint MemoryDeviceIndex { get; set; }
 
+
     public static implicit operator DeviceGroupBindSparseInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupBindSparseInfo d)
     {
         return new DeviceGroupBindSparseInfo(in d);

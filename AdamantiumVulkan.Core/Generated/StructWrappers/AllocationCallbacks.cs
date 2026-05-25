@@ -30,6 +30,7 @@ public unsafe partial class AllocationCallbacks : IMarshallableObject, IMarshall
     public delegate* unmanaged<void*, nuint, InternalAllocationType, SystemAllocationScope, void> PfnInternalAllocation { get; set; }
     public delegate* unmanaged<void*, nuint, InternalAllocationType, SystemAllocationScope, void> PfnInternalFree { get; set; }
 
+
     public static implicit operator AllocationCallbacks(AdamantiumVulkan.Core.Interop.VkAllocationCallbacks a)
     {
         return new AllocationCallbacks(in a);

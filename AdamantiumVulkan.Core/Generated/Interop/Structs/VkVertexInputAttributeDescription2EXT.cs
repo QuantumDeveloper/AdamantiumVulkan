@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: vk.xml Line: 6985 Column: 10
+// File: vk.xml Line: 7336 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkVertexInputAttributeDescription2EXT
 {

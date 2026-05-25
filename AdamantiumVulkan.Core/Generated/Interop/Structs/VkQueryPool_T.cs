@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: vk.xml Line: 573 Column: 10
+// File: vk.xml Line: 619 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkQueryPool_T
 {

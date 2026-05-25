@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL :
     public object PNext { get; set; }
     public VkBool32 ShaderIntegerFunctions2 { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL p)
     {
         return new PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL(in p);

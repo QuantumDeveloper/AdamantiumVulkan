@@ -11,10 +11,28 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11339 Column: 6
+// File: vk.xml Line: 13037 Column: 6
 [Flags]
 public enum SubpassDescriptionFlagBits : uint
 {
+    PerViewAttributesBitNvx = 1,
+
+    PerViewPositionXOnlyBitNvx = 2,
+
+    TileShadingApronBitQcom = 256,
+
+    RasterizationOrderAttachmentColorAccessBitExt = 16,
+
+    RasterizationOrderAttachmentDepthAccessBitExt = 32,
+
+    RasterizationOrderAttachmentStencilAccessBitExt = 64,
+
+    EnableLegacyDitheringBitExt = 128,
+
+    FragmentRegionBitExt = 4,
+
+    CustomResolveBitExt = 8,
+
 }
 
 

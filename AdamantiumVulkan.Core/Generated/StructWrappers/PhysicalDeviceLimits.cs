@@ -130,6 +130,7 @@ public unsafe partial class PhysicalDeviceLimits : IMarshallableObject, IMarshal
     public VkDeviceSize OptimalBufferCopyRowPitchAlignment { get; set; }
     public VkDeviceSize NonCoherentAtomSize { get; set; }
 
+
     public static implicit operator PhysicalDeviceLimits(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLimits p)
     {
         return new PhysicalDeviceLimits(in p);

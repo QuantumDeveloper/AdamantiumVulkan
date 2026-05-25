@@ -27,6 +27,7 @@ public unsafe partial class TextureLODGatherFormatPropertiesAMD : IMarshallableO
     public object PNext { get; set; }
     public VkBool32 SupportsTextureGatherLODBiasAMD { get; set; }
 
+
     public static implicit operator TextureLODGatherFormatPropertiesAMD(AdamantiumVulkan.Core.Interop.VkTextureLODGatherFormatPropertiesAMD t)
     {
         return new TextureLODGatherFormatPropertiesAMD(in t);

@@ -27,6 +27,7 @@ public unsafe partial class MicromapVersionInfoEXT : IMarshallableObject, IMarsh
     public object PNext { get; set; }
     public byte? PVersionData { get; set; }
 
+
     public static implicit operator MicromapVersionInfoEXT(AdamantiumVulkan.Core.Interop.VkMicromapVersionInfoEXT m)
     {
         return new MicromapVersionInfoEXT(in m);

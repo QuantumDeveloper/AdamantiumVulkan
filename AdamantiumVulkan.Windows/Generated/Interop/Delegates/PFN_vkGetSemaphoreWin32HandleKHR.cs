@@ -15,7 +15,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: video.xml Line: 14042 Column: 10
+// File: video.xml Line: 15991 Column: 10
 public unsafe struct PFN_vkGetSemaphoreWin32HandleKHR
 {
     public PFN_vkGetSemaphoreWin32HandleKHR(nuint ptr) : this((void*) ptr) { }

@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: vk.xml Line: 2489 Column: 10
+// File: vk.xml Line: 2643 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkWin32KeyedMutexAcquireReleaseInfoNV
 {

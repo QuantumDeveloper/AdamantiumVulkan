@@ -28,6 +28,7 @@ public unsafe partial class PipelineRasterizationStateStreamCreateInfoEXT : IMar
     public VkPipelineRasterizationStateStreamCreateFlagsEXT Flags { get; set; }
     public uint RasterizationStream { get; set; }
 
+
     public static implicit operator PipelineRasterizationStateStreamCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateStreamCreateInfoEXT p)
     {
         return new PipelineRasterizationStateStreamCreateInfoEXT(in p);

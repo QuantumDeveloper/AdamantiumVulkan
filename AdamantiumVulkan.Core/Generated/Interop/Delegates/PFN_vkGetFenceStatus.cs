@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 12645 Column: 10
+// File: video.xml Line: 14556 Column: 10
 public unsafe struct PFN_vkGetFenceStatus
 {
     public PFN_vkGetFenceStatus(nuint ptr) : this((void*) ptr) { }

@@ -31,6 +31,7 @@ public unsafe partial class SubpassDependency : IMarshallableObject, IMarshallab
     public AccessFlagBits DstAccessMask { get; set; }
     public DependencyFlagBits DependencyFlags { get; set; }
 
+
     public static implicit operator SubpassDependency(AdamantiumVulkan.Core.Interop.VkSubpassDependency s)
     {
         return new SubpassDependency(in s);

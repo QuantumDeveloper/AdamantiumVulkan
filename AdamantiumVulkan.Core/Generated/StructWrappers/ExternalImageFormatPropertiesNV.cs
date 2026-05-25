@@ -28,6 +28,7 @@ public unsafe partial class ExternalImageFormatPropertiesNV : IMarshallableObjec
     public ExternalMemoryHandleTypeFlagBitsNV ExportFromImportedHandleTypes { get; set; }
     public ExternalMemoryHandleTypeFlagBitsNV CompatibleHandleTypes { get; set; }
 
+
     public static implicit operator ExternalImageFormatPropertiesNV(AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV e)
     {
         return new ExternalImageFormatPropertiesNV(in e);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceVertexAttributeRobustnessFeaturesEXT :
     public object PNext { get; set; }
     public VkBool32 VertexAttributeRobustness { get; set; }
 
+
     public static implicit operator PhysicalDeviceVertexAttributeRobustnessFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT p)
     {
         return new PhysicalDeviceVertexAttributeRobustnessFeaturesEXT(in p);

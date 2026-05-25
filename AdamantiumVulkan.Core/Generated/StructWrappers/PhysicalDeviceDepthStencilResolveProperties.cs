@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceDepthStencilResolveProperties : IMarsh
     public VkBool32 IndependentResolveNone { get; set; }
     public VkBool32 IndependentResolve { get; set; }
 
+
     public static implicit operator PhysicalDeviceDepthStencilResolveProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthStencilResolveProperties p)
     {
         return new PhysicalDeviceDepthStencilResolveProperties(in p);

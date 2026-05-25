@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceFragmentShaderInterlockFeaturesEXT : I
     public VkBool32 FragmentShaderPixelInterlock { get; set; }
     public VkBool32 FragmentShaderShadingRateInterlock { get; set; }
 
+
     public static implicit operator PhysicalDeviceFragmentShaderInterlockFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT p)
     {
         return new PhysicalDeviceFragmentShaderInterlockFeaturesEXT(in p);

@@ -27,6 +27,7 @@ public unsafe partial class ReleaseCapturedPipelineDataInfoKHR : IMarshallableOb
     public object PNext { get; set; }
     public Pipeline Pipeline { get; set; }
 
+
     public static implicit operator ReleaseCapturedPipelineDataInfoKHR(AdamantiumVulkan.Core.Interop.VkReleaseCapturedPipelineDataInfoKHR r)
     {
         return new ReleaseCapturedPipelineDataInfoKHR(in r);

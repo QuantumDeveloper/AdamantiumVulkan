@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11723 Column: 6
+// File: vk.xml Line: 13425 Column: 6
 public enum SubpassMergeStatusEXT : int
 {
     MergedExt = 0,

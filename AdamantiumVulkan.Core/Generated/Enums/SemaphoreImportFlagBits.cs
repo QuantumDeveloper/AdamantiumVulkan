@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11277 Column: 6
+// File: vk.xml Line: 12975 Column: 6
 [Flags]
 public enum SemaphoreImportFlagBits : uint
 {

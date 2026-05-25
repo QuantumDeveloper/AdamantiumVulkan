@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11469 Column: 6
+// File: vk.xml Line: 13168 Column: 6
 [Flags]
 public enum ResolveModeFlagBits : uint
 {
@@ -24,6 +24,10 @@ public enum ResolveModeFlagBits : uint
     MinBit = 4,
 
     MaxBit = 8,
+
+    ExternalFormatDownsampleBitAndroid = 16,
+
+    CustomBitExt = 32,
 
 }
 

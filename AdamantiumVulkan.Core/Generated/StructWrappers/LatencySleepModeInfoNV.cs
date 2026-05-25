@@ -29,6 +29,7 @@ public unsafe partial class LatencySleepModeInfoNV : IMarshallableObject, IMarsh
     public VkBool32 LowLatencyBoost { get; set; }
     public uint MinimumIntervalUs { get; set; }
 
+
     public static implicit operator LatencySleepModeInfoNV(AdamantiumVulkan.Core.Interop.VkLatencySleepModeInfoNV l)
     {
         return new LatencySleepModeInfoNV(in l);

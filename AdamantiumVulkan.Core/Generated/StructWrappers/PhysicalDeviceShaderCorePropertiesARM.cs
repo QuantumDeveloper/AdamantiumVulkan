@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceShaderCorePropertiesARM : IMarshallabl
     public uint TexelRate { get; set; }
     public uint FmaRate { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderCorePropertiesARM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesARM p)
     {
         return new PhysicalDeviceShaderCorePropertiesARM(in p);

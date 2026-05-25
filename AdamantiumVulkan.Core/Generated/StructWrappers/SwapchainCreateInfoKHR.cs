@@ -42,6 +42,7 @@ public unsafe partial class SwapchainCreateInfoKHR : IMarshallableObject, IMarsh
     public VkBool32 Clipped { get; set; }
     public SwapchainKHR OldSwapchain { get; set; }
 
+
     public static implicit operator SwapchainCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkSwapchainCreateInfoKHR s)
     {
         return new SwapchainCreateInfoKHR(in s);

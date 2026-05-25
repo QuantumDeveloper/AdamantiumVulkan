@@ -26,6 +26,7 @@ public unsafe partial class SubpassEndInfo : IMarshallableObject, IMarshallable<
     public StructureType SType => StructureType.SubpassEndInfo;
     public object PNext { get; set; }
 
+
     public static implicit operator SubpassEndInfo(AdamantiumVulkan.Core.Interop.VkSubpassEndInfo s)
     {
         return new SubpassEndInfo(in s);

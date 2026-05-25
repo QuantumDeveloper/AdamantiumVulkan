@@ -30,6 +30,7 @@ public unsafe partial class VideoEncodeAV1SessionParametersCreateInfoKHR : IMars
     public uint StdOperatingPointCount { get; set; }
     public System.ReadOnlyMemory<StdVideoEncodeAV1OperatingPointInfo> PStdOperatingPoints { get; set; }
 
+
     public static implicit operator VideoEncodeAV1SessionParametersCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR v)
     {
         return new VideoEncodeAV1SessionParametersCreateInfoKHR(in v);

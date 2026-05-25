@@ -26,6 +26,7 @@ public unsafe partial class AttachmentReference : IMarshallableObject, IMarshall
     public uint Attachment { get; set; }
     public ImageLayout Layout { get; set; }
 
+
     public static implicit operator AttachmentReference(AdamantiumVulkan.Core.Interop.VkAttachmentReference a)
     {
         return new AttachmentReference(in a);

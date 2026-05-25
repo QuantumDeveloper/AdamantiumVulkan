@@ -27,6 +27,7 @@ public unsafe partial class Extent3D : IMarshallableObject, IMarshallable<Adaman
     public uint Height { get; set; }
     public uint Depth { get; set; }
 
+
     public static implicit operator Extent3D(AdamantiumVulkan.Core.Interop.VkExtent3D e)
     {
         return new Extent3D(in e);

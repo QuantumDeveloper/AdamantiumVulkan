@@ -29,6 +29,7 @@ public unsafe partial class PipelineCacheHeaderVersionOne : IMarshallableObject,
     public uint DeviceID { get; set; }
     public System.ReadOnlyMemory<byte> PipelineCacheUUID { get; set; }
 
+
     public static implicit operator PipelineCacheHeaderVersionOne(AdamantiumVulkan.Core.Interop.VkPipelineCacheHeaderVersionOne p)
     {
         return new PipelineCacheHeaderVersionOne(in p);

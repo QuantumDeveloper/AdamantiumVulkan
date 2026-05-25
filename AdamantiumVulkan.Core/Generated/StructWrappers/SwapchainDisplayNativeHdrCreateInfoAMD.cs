@@ -27,6 +27,7 @@ public unsafe partial class SwapchainDisplayNativeHdrCreateInfoAMD : IMarshallab
     public object PNext { get; set; }
     public VkBool32 LocalDimmingEnable { get; set; }
 
+
     public static implicit operator SwapchainDisplayNativeHdrCreateInfoAMD(AdamantiumVulkan.Core.Interop.VkSwapchainDisplayNativeHdrCreateInfoAMD s)
     {
         return new SwapchainDisplayNativeHdrCreateInfoAMD(in s);

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11698 Column: 6
+// File: vk.xml Line: 13400 Column: 6
 public enum FragmentShadingRateCombinerOpKHR : int
 {
     KeepKhr = 0,

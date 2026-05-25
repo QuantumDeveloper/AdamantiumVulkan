@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceImageViewMinLodFeaturesEXT : IMarshall
     public object PNext { get; set; }
     public VkBool32 MinLod { get; set; }
 
+
     public static implicit operator PhysicalDeviceImageViewMinLodFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageViewMinLodFeaturesEXT p)
     {
         return new PhysicalDeviceImageViewMinLodFeaturesEXT(in p);

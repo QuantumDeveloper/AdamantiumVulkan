@@ -27,6 +27,7 @@ public unsafe partial class PerformanceConfigurationAcquireInfoINTEL : IMarshall
     public object PNext { get; set; }
     public PerformanceConfigurationTypeINTEL Type { get; set; }
 
+
     public static implicit operator PerformanceConfigurationAcquireInfoINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL p)
     {
         return new PerformanceConfigurationAcquireInfoINTEL(in p);

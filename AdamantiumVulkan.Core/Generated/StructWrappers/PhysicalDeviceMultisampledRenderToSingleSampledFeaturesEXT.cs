@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceMultisampledRenderToSingleSampledFeatu
     public object PNext { get; set; }
     public VkBool32 MultisampledRenderToSingleSampled { get; set; }
 
+
     public static implicit operator PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT p)
     {
         return new PhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT(in p);

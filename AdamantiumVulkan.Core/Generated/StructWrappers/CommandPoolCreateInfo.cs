@@ -28,6 +28,7 @@ public unsafe partial class CommandPoolCreateInfo : IMarshallableObject, IMarsha
     public CommandPoolCreateFlagBits Flags { get; set; }
     public uint QueueFamilyIndex { get; set; }
 
+
     public static implicit operator CommandPoolCreateInfo(AdamantiumVulkan.Core.Interop.VkCommandPoolCreateInfo c)
     {
         return new CommandPoolCreateInfo(in c);

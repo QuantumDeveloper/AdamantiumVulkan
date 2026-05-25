@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceMemoryProperties2 : IMarshallableObjec
     public object PNext { get; set; }
     public PhysicalDeviceMemoryProperties MemoryProperties { get; set; }
 
+
     public static implicit operator PhysicalDeviceMemoryProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2 p)
     {
         return new PhysicalDeviceMemoryProperties2(in p);

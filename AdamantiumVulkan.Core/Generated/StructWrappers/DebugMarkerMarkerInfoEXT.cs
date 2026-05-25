@@ -28,6 +28,7 @@ public unsafe partial class DebugMarkerMarkerInfoEXT : IMarshallableObject, IMar
     public string PMarkerName { get; set; }
     public System.ReadOnlyMemory<float> Color { get; set; }
 
+
     public static implicit operator DebugMarkerMarkerInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugMarkerMarkerInfoEXT d)
     {
         return new DebugMarkerMarkerInfoEXT(in d);

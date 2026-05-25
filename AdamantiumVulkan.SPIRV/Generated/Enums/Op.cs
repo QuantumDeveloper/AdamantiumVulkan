@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 1487 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 1723 Column: 14
 public enum Op : uint
 {
     Nop = 0,
@@ -708,6 +708,28 @@ public enum Op : uint
 
     StencilAttachmentReadEXT = 4162,
 
+    TypeTensorARM = 4163,
+
+    TensorReadARM = 4164,
+
+    TensorWriteARM = 4165,
+
+    TensorQuerySizeARM = 4166,
+
+    GraphConstantARM = 4181,
+
+    GraphEntryPointARM = 4182,
+
+    GraphARM = 4183,
+
+    GraphInputARM = 4184,
+
+    GraphSetOutputARM = 4185,
+
+    GraphEndARM = 4186,
+
+    TypeGraphARM = 4190,
+
     TerminateInvocation = 4416,
 
     TypeUntypedPointerKHR = 4417,
@@ -730,6 +752,8 @@ public enum Op : uint
 
     UntypedPrefetchKHR = 4426,
 
+    FmaKHR = 4427,
+
     SubgroupAllKHR = 4428,
 
     SubgroupAnyKHR = 4429,
@@ -741,6 +765,8 @@ public enum Op : uint
     SubgroupReadInvocationKHR = 4432,
 
     ExtInstWithForwardRefsKHR = 4433,
+
+    UntypedGroupAsyncCopyKHR = 4434,
 
     TraceRayKHR = 4445,
 
@@ -802,6 +828,8 @@ public enum Op : uint
 
     ImageBlockMatchSADQCOM = 4483,
 
+    BitCastArrayQCOM = 4497,
+
     ImageBlockMatchWindowSSDQCOM = 4500,
 
     ImageBlockMatchWindowSADQCOM = 4501,
@@ -809,6 +837,12 @@ public enum Op : uint
     ImageBlockMatchGatherSSDQCOM = 4502,
 
     ImageBlockMatchGatherSADQCOM = 4503,
+
+    CompositeConstructCoopMatQCOM = 4540,
+
+    CompositeExtractCoopMatQCOM = 4541,
+
+    ExtractSubArrayQCOM = 4542,
 
     GroupIAddNonUniformAMD = 5000,
 
@@ -851,6 +885,26 @@ public enum Op : uint
     GroupNonUniformQuadAllKHR = 5110,
 
     GroupNonUniformQuadAnyKHR = 5111,
+
+    TypeBufferEXT = 5115,
+
+    BufferPointerEXT = 5119,
+
+    AbortKHR = 5121,
+
+    UntypedImageTexelPointerEXT = 5126,
+
+    MemberDecorateIdEXT = 5127,
+
+    ConstantSizeOfEXT = 5129,
+
+    ConstantDataKHR = 5147,
+
+    SpecConstantDataKHR = 5148,
+
+    PoisonKHR = 5158,
+
+    FreezeKHR = 5159,
 
     HitObjectRecordHitMotionNV = 5249,
 
@@ -920,19 +974,93 @@ public enum Op : uint
 
     ImageSampleFootprintNV = 5283,
 
+    TypeCooperativeVectorNV = 5288,
+
+    CooperativeVectorMatrixMulNV = 5289,
+
+    CooperativeVectorOuterProductAccumulateNV = 5290,
+
+    CooperativeVectorReduceSumAccumulateNV = 5291,
+
+    CooperativeVectorMatrixMulAddNV = 5292,
+
     CooperativeMatrixConvertNV = 5293,
 
     EmitMeshTasksEXT = 5294,
 
     SetMeshOutputsEXT = 5295,
 
-    GroupNonUniformPartitionNV = 5296,
+    GroupNonUniformPartitionEXT = 5296,
 
     WritePackedPrimitiveIndices4x8NV = 5299,
 
     FetchMicroTriangleVertexPositionNV = 5300,
 
     FetchMicroTriangleVertexBarycentricNV = 5301,
+
+    CooperativeVectorLoadNV = 5302,
+
+    CooperativeVectorStoreNV = 5303,
+
+    HitObjectRecordFromQueryEXT = 5304,
+
+    HitObjectRecordMissEXT = 5305,
+
+    HitObjectRecordMissMotionEXT = 5306,
+
+    HitObjectGetIntersectionTriangleVertexPositionsEXT = 5307,
+
+    HitObjectGetRayFlagsEXT = 5308,
+
+    HitObjectSetShaderBindingTableRecordIndexEXT = 5309,
+
+    HitObjectReorderExecuteShaderEXT = 5310,
+
+    HitObjectTraceReorderExecuteEXT = 5311,
+
+    HitObjectTraceMotionReorderExecuteEXT = 5312,
+
+    TypeHitObjectEXT = 5313,
+
+    ReorderThreadWithHintEXT = 5314,
+
+    ReorderThreadWithHitObjectEXT = 5315,
+
+    HitObjectTraceRayEXT = 5316,
+
+    HitObjectTraceRayMotionEXT = 5317,
+
+    HitObjectRecordEmptyEXT = 5318,
+
+    HitObjectExecuteShaderEXT = 5319,
+
+    HitObjectGetCurrentTimeEXT = 5320,
+
+    HitObjectGetAttributesEXT = 5321,
+
+    HitObjectGetHitKindEXT = 5322,
+
+    HitObjectGetPrimitiveIndexEXT = 5323,
+
+    HitObjectGetGeometryIndexEXT = 5324,
+
+    HitObjectGetInstanceIdEXT = 5325,
+
+    HitObjectGetInstanceCustomIndexEXT = 5326,
+
+    HitObjectGetObjectRayOriginEXT = 5327,
+
+    HitObjectGetObjectRayDirectionEXT = 5328,
+
+    HitObjectGetWorldRayDirectionEXT = 5329,
+
+    HitObjectGetWorldRayOriginEXT = 5330,
+
+    HitObjectGetObjectToWorldEXT = 5331,
+
+    HitObjectGetWorldToObjectEXT = 5332,
+
+    HitObjectGetRayTMaxEXT = 5333,
 
     ReportIntersectionKHR = 5334,
 
@@ -951,6 +1079,22 @@ public enum Op : uint
     TypeAccelerationStructureKHR = 5341,
 
     ExecuteCallableNV = 5344,
+
+    RayQueryGetClusterIdNV = 5345,
+
+    HitObjectGetClusterIdNV = 5346,
+
+    HitObjectGetRayTMinEXT = 5347,
+
+    HitObjectGetShaderBindingTableRecordIndexEXT = 5348,
+
+    HitObjectGetShaderRecordBufferHandleEXT = 5349,
+
+    HitObjectIsEmptyEXT = 5350,
+
+    HitObjectIsHitEXT = 5351,
+
+    HitObjectIsMissEXT = 5352,
 
     TypeCooperativeMatrixNV = 5358,
 
@@ -1019,6 +1163,32 @@ public enum Op : uint
     SamplerImageAddressingModeNV = 5397,
 
     RawAccessChainNV = 5398,
+
+    RayQueryGetIntersectionSpherePositionNV = 5427,
+
+    RayQueryGetIntersectionSphereRadiusNV = 5428,
+
+    RayQueryGetIntersectionLSSPositionsNV = 5429,
+
+    RayQueryGetIntersectionLSSRadiiNV = 5430,
+
+    RayQueryGetIntersectionLSSHitValueNV = 5431,
+
+    HitObjectGetSpherePositionNV = 5432,
+
+    HitObjectGetSphereRadiusNV = 5433,
+
+    HitObjectGetLSSPositionsNV = 5434,
+
+    HitObjectGetLSSRadiiNV = 5435,
+
+    HitObjectIsSphereHitNV = 5436,
+
+    HitObjectIsLSSHitNV = 5437,
+
+    RayQueryIsSphereHitNV = 5438,
+
+    RayQueryIsLSSHitNV = 5439,
 
     SubgroupShuffleINTEL = 5571,
 
@@ -1332,41 +1502,41 @@ public enum Op : uint
 
     RestoreMemoryINTEL = 5820,
 
-    ArbitraryFloatSinCosPiINTEL = 5840,
+    ArbitraryFloatSinCosPiALTERA = 5840,
 
-    ArbitraryFloatCastINTEL = 5841,
+    ArbitraryFloatCastALTERA = 5841,
 
-    ArbitraryFloatCastFromIntINTEL = 5842,
+    ArbitraryFloatCastFromIntALTERA = 5842,
 
-    ArbitraryFloatCastToIntINTEL = 5843,
+    ArbitraryFloatCastToIntALTERA = 5843,
 
-    ArbitraryFloatAddINTEL = 5846,
+    ArbitraryFloatAddALTERA = 5846,
 
-    ArbitraryFloatSubINTEL = 5847,
+    ArbitraryFloatSubALTERA = 5847,
 
-    ArbitraryFloatMulINTEL = 5848,
+    ArbitraryFloatMulALTERA = 5848,
 
-    ArbitraryFloatDivINTEL = 5849,
+    ArbitraryFloatDivALTERA = 5849,
 
-    ArbitraryFloatGTINTEL = 5850,
+    ArbitraryFloatGTALTERA = 5850,
 
-    ArbitraryFloatGEINTEL = 5851,
+    ArbitraryFloatGEALTERA = 5851,
 
-    ArbitraryFloatLTINTEL = 5852,
+    ArbitraryFloatLTALTERA = 5852,
 
-    ArbitraryFloatLEINTEL = 5853,
+    ArbitraryFloatLEALTERA = 5853,
 
-    ArbitraryFloatEQINTEL = 5854,
+    ArbitraryFloatEQALTERA = 5854,
 
-    ArbitraryFloatRecipINTEL = 5855,
+    ArbitraryFloatRecipALTERA = 5855,
 
-    ArbitraryFloatRSqrtINTEL = 5856,
+    ArbitraryFloatRSqrtALTERA = 5856,
 
-    ArbitraryFloatCbrtINTEL = 5857,
+    ArbitraryFloatCbrtALTERA = 5857,
 
-    ArbitraryFloatHypotINTEL = 5858,
+    ArbitraryFloatHypotALTERA = 5858,
 
-    ArbitraryFloatSqrtINTEL = 5859,
+    ArbitraryFloatSqrtALTERA = 5859,
 
     ArbitraryFloatLogINTEL = 5860,
 
@@ -1422,37 +1592,37 @@ public enum Op : uint
 
     AliasScopeListDeclINTEL = 5913,
 
-    FixedSqrtINTEL = 5923,
+    FixedSqrtALTERA = 5923,
 
-    FixedRecipINTEL = 5924,
+    FixedRecipALTERA = 5924,
 
-    FixedRsqrtINTEL = 5925,
+    FixedRsqrtALTERA = 5925,
 
-    FixedSinINTEL = 5926,
+    FixedSinALTERA = 5926,
 
-    FixedCosINTEL = 5927,
+    FixedCosALTERA = 5927,
 
-    FixedSinCosINTEL = 5928,
+    FixedSinCosALTERA = 5928,
 
-    FixedSinPiINTEL = 5929,
+    FixedSinPiALTERA = 5929,
 
-    FixedCosPiINTEL = 5930,
+    FixedCosPiALTERA = 5930,
 
-    FixedSinCosPiINTEL = 5931,
+    FixedSinCosPiALTERA = 5931,
 
-    FixedLogINTEL = 5932,
+    FixedLogALTERA = 5932,
 
-    FixedExpINTEL = 5933,
+    FixedExpALTERA = 5933,
 
-    PtrCastToCrossWorkgroupINTEL = 5934,
+    PtrCastToCrossWorkgroupALTERA = 5934,
 
-    CrossWorkgroupCastToPtrINTEL = 5938,
+    CrossWorkgroupCastToPtrALTERA = 5938,
 
-    ReadPipeBlockingINTEL = 5946,
+    ReadPipeBlockingALTERA = 5946,
 
-    WritePipeBlockingINTEL = 5947,
+    WritePipeBlockingALTERA = 5947,
 
-    FPGARegINTEL = 5949,
+    FPGARegALTERA = 5949,
 
     RayQueryGetRayTMinKHR = 6016,
 
@@ -1510,7 +1680,47 @@ public enum Op : uint
 
     ArithmeticFenceEXT = 6145,
 
+    TaskSequenceCreateALTERA = 6163,
+
+    TaskSequenceAsyncALTERA = 6164,
+
+    TaskSequenceGetALTERA = 6165,
+
+    TaskSequenceReleaseALTERA = 6166,
+
+    TypeTaskSequenceALTERA = 6199,
+
     SubgroupBlockPrefetchINTEL = 6221,
+
+    Subgroup2DBlockLoadINTEL = 6231,
+
+    Subgroup2DBlockLoadTransformINTEL = 6232,
+
+    Subgroup2DBlockLoadTransposeINTEL = 6233,
+
+    Subgroup2DBlockPrefetchINTEL = 6234,
+
+    Subgroup2DBlockStoreINTEL = 6235,
+
+    SubgroupMatrixMultiplyAccumulateINTEL = 6237,
+
+    BitwiseFunctionINTEL = 6242,
+
+    UntypedVariableLengthArrayINTEL = 6244,
+
+    ConditionalExtensionINTEL = 6248,
+
+    ConditionalEntryPointINTEL = 6249,
+
+    ConditionalCapabilityINTEL = 6250,
+
+    SpecConstantTargetINTEL = 6251,
+
+    SpecConstantArchitectureINTEL = 6252,
+
+    SpecConstantCapabilitiesINTEL = 6253,
+
+    ConditionalCopyObjectINTEL = 6254,
 
     GroupIMulKHR = 6401,
 
@@ -1528,9 +1738,23 @@ public enum Op : uint
 
     GroupLogicalXorKHR = 6408,
 
+    RoundFToTF32INTEL = 6426,
+
     MaskedGatherINTEL = 6428,
 
     MaskedScatterINTEL = 6429,
+
+    ConvertHandleToImageINTEL = 6529,
+
+    ConvertHandleToSamplerINTEL = 6530,
+
+    ConvertHandleToSampledImageINTEL = 6531,
+
+    FDot2MixAcc32VALVE = 6916,
+
+    FDot2MixAcc16VALVE = 6917,
+
+    FDot4MixAcc32VALVE = 6918,
 
     Max = 2147483647,
 

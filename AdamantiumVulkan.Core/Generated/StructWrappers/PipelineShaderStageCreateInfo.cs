@@ -31,6 +31,7 @@ public unsafe partial class PipelineShaderStageCreateInfo : IMarshallableObject,
     public string PName { get; set; }
     public SpecializationInfo PSpecializationInfo { get; set; }
 
+
     public static implicit operator PipelineShaderStageCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo p)
     {
         return new PipelineShaderStageCreateInfo(in p);

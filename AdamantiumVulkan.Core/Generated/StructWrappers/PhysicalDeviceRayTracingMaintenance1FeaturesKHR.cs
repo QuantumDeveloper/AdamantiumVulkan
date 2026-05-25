@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceRayTracingMaintenance1FeaturesKHR : IM
     public VkBool32 RayTracingMaintenance1 { get; set; }
     public VkBool32 RayTracingPipelineTraceRaysIndirect2 { get; set; }
 
+
     public static implicit operator PhysicalDeviceRayTracingMaintenance1FeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR p)
     {
         return new PhysicalDeviceRayTracingMaintenance1FeaturesKHR(in p);

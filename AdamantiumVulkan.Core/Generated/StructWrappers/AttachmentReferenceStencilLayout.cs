@@ -27,6 +27,7 @@ public unsafe partial class AttachmentReferenceStencilLayout : IMarshallableObje
     public object PNext { get; set; }
     public ImageLayout StencilLayout { get; set; }
 
+
     public static implicit operator AttachmentReferenceStencilLayout(AdamantiumVulkan.Core.Interop.VkAttachmentReferenceStencilLayout a)
     {
         return new AttachmentReferenceStencilLayout(in a);

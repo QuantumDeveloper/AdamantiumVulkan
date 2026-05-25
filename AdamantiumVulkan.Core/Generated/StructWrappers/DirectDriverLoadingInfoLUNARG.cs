@@ -28,6 +28,7 @@ public unsafe partial class DirectDriverLoadingInfoLUNARG : IMarshallableObject,
     public VkDirectDriverLoadingFlagsLUNARG Flags { get; set; }
     public delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, sbyte*, nuint> PfnGetInstanceProcAddr { get; set; }
 
+
     public static implicit operator DirectDriverLoadingInfoLUNARG(AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG d)
     {
         return new DirectDriverLoadingInfoLUNARG(in d);

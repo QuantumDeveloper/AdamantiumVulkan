@@ -71,6 +71,7 @@ public unsafe partial class PhysicalDeviceVulkan13Properties : IMarshallableObje
     public VkBool32 UniformTexelBufferOffsetSingleTexelAlignment { get; set; }
     public VkDeviceSize MaxBufferSize { get; set; }
 
+
     public static implicit operator PhysicalDeviceVulkan13Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Properties p)
     {
         return new PhysicalDeviceVulkan13Properties(in p);

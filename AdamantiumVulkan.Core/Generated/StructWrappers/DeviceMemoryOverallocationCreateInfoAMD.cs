@@ -27,6 +27,7 @@ public unsafe partial class DeviceMemoryOverallocationCreateInfoAMD : IMarshalla
     public object PNext { get; set; }
     public MemoryOverallocationBehaviorAMD OverallocationBehavior { get; set; }
 
+
     public static implicit operator DeviceMemoryOverallocationCreateInfoAMD(AdamantiumVulkan.Core.Interop.VkDeviceMemoryOverallocationCreateInfoAMD d)
     {
         return new DeviceMemoryOverallocationCreateInfoAMD(in d);

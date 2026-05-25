@@ -30,6 +30,7 @@ public unsafe partial class ImageBlit2 : IMarshallableObject, IMarshallable<Adam
     public ImageSubresourceLayers DstSubresource { get; set; }
     public System.ReadOnlyMemory<Offset3D> DstOffsets { get; set; }
 
+
     public static implicit operator ImageBlit2(AdamantiumVulkan.Core.Interop.VkImageBlit2 i)
     {
         return new ImageBlit2(in i);

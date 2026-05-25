@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10971 Column: 6
+// File: vk.xml Line: 12667 Column: 6
 [Flags]
 public enum PipelineStageFlagBits : uint
 {
@@ -48,6 +48,24 @@ public enum PipelineStageFlagBits : uint
     AllGraphicsBit = 32768,
 
     AllCommandsBit = 65536,
+
+    TransformFeedbackBitExt = 16777216,
+
+    ConditionalRenderingBitExt = 262144,
+
+    AccelerationStructureBuildBitKhr = 33554432,
+
+    RayTracingShaderBitKhr = 2097152,
+
+    FragmentDensityProcessBitExt = 8388608,
+
+    FragmentShadingRateAttachmentBitKhr = 4194304,
+
+    TaskShaderBitExt = 524288,
+
+    MeshShaderBitExt = 1048576,
+
+    CommandPreprocessBitExt = 131072,
 
     None = 0,
 

@@ -32,6 +32,7 @@ public unsafe partial class PipelineColorBlendAttachmentState : IMarshallableObj
     public BlendOp AlphaBlendOp { get; set; }
     public ColorComponentFlagBits ColorWriteMask { get; set; }
 
+
     public static implicit operator PipelineColorBlendAttachmentState(AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState p)
     {
         return new PipelineColorBlendAttachmentState(in p);

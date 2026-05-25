@@ -30,6 +30,7 @@ public unsafe partial class Viewport : IMarshallableObject, IMarshallable<Adaman
     public float MinDepth { get; set; }
     public float MaxDepth { get; set; }
 
+
     public static implicit operator Viewport(AdamantiumVulkan.Core.Interop.VkViewport v)
     {
         return new Viewport(in v);

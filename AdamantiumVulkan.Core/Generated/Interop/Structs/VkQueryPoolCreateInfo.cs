@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: vk.xml Line: 2114 Column: 10
+// File: vk.xml Line: 2261 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkQueryPoolCreateInfo
 {
     public StructureType sType;
     public void* pNext;
-    public VkQueryPoolCreateFlags flags;
+    public QueryPoolCreateFlagBits flags;
     public QueryType queryType;
     public uint queryCount;
     public QueryPipelineStatisticFlagBits pipelineStatistics;

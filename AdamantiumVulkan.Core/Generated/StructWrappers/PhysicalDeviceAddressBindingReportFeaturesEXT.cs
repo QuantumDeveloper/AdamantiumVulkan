@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceAddressBindingReportFeaturesEXT : IMar
     public object PNext { get; set; }
     public VkBool32 ReportAddressBinding { get; set; }
 
+
     public static implicit operator PhysicalDeviceAddressBindingReportFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAddressBindingReportFeaturesEXT p)
     {
         return new PhysicalDeviceAddressBindingReportFeaturesEXT(in p);

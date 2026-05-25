@@ -28,6 +28,7 @@ public unsafe partial class DescriptorSetLayoutHostMappingInfoVALVE : IMarshalla
     public nuint DescriptorOffset { get; set; }
     public uint DescriptorSize { get; set; }
 
+
     public static implicit operator DescriptorSetLayoutHostMappingInfoVALVE(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE d)
     {
         return new DescriptorSetLayoutHostMappingInfoVALVE(in d);

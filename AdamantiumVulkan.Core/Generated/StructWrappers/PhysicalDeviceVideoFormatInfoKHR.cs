@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceVideoFormatInfoKHR : IMarshallableObje
     public object PNext { get; set; }
     public ImageUsageFlagBits ImageUsage { get; set; }
 
+
     public static implicit operator PhysicalDeviceVideoFormatInfoKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR p)
     {
         return new PhysicalDeviceVideoFormatInfoKHR(in p);

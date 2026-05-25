@@ -26,6 +26,7 @@ public unsafe partial class AttachmentSampleLocationsEXT : IMarshallableObject, 
     public uint AttachmentIndex { get; set; }
     public SampleLocationsInfoEXT SampleLocationsInfo { get; set; }
 
+
     public static implicit operator AttachmentSampleLocationsEXT(AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT a)
     {
         return new AttachmentSampleLocationsEXT(in a);

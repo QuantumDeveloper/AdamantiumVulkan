@@ -28,6 +28,7 @@ public unsafe partial class RenderingAttachmentLocationInfo : IMarshallableObjec
     public uint ColorAttachmentCount { get; set; }
     public System.ReadOnlyMemory<uint> PColorAttachmentLocations { get; set; }
 
+
     public static implicit operator RenderingAttachmentLocationInfo(AdamantiumVulkan.Core.Interop.VkRenderingAttachmentLocationInfo r)
     {
         return new RenderingAttachmentLocationInfo(in r);

@@ -29,6 +29,7 @@ public unsafe partial class DirectDriverLoadingListLUNARG : IMarshallableObject,
     public uint DriverCount { get; set; }
     public System.ReadOnlyMemory<DirectDriverLoadingInfoLUNARG> PDrivers { get; set; }
 
+
     public static implicit operator DirectDriverLoadingListLUNARG(AdamantiumVulkan.Core.Interop.VkDirectDriverLoadingListLUNARG d)
     {
         return new DirectDriverLoadingListLUNARG(in d);

@@ -29,6 +29,7 @@ public unsafe partial class ClusterAccelerationStructureInstantiateClusterInfoNV
     public VkDeviceAddress ClusterTemplateAddress { get; set; }
     public StridedDeviceAddressNV VertexBuffer { get; set; }
 
+
     public static implicit operator ClusterAccelerationStructureInstantiateClusterInfoNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureInstantiateClusterInfoNV c)
     {
         return new ClusterAccelerationStructureInstantiateClusterInfoNV(in c);

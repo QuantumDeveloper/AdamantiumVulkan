@@ -28,6 +28,7 @@ public unsafe partial class ImageCompressionPropertiesEXT : IMarshallableObject,
     public ImageCompressionFlagBitsEXT ImageCompressionFlags { get; set; }
     public ImageCompressionFixedRateFlagBitsEXT ImageCompressionFixedRateFlags { get; set; }
 
+
     public static implicit operator ImageCompressionPropertiesEXT(AdamantiumVulkan.Core.Interop.VkImageCompressionPropertiesEXT i)
     {
         return new ImageCompressionPropertiesEXT(in i);

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10442 Column: 6
+// File: vk.xml Line: 12138 Column: 6
 [Flags]
 public enum VertexInputRate : int
 {

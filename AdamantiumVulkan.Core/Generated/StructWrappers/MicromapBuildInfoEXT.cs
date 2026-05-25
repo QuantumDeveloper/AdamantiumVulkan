@@ -36,6 +36,7 @@ public unsafe partial class MicromapBuildInfoEXT : IMarshallableObject, IMarshal
     public DeviceOrHostAddressConstKHR TriangleArray { get; set; }
     public VkDeviceSize TriangleArrayStride { get; set; }
 
+
     public static implicit operator MicromapBuildInfoEXT(AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT m)
     {
         return new MicromapBuildInfoEXT(in m);
@@ -58,6 +59,12 @@ public unsafe partial class MicromapBuildInfoEXT : IMarshallableObject, IMarshal
                     size += PUsageCounts.Span[i].GetSize();
             }
         }
+        if (Data != default)
+            size += Data.GetSize();
+        if (ScratchData != default)
+            size += ScratchData.GetSize();
+        if (TriangleArray != default)
+            size += TriangleArray.GetSize();
         return size;
     }
 

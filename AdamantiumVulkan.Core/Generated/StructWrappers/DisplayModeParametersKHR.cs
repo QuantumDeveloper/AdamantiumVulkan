@@ -26,6 +26,7 @@ public unsafe partial class DisplayModeParametersKHR : IMarshallableObject, IMar
     public Extent2D VisibleRegion { get; set; }
     public uint RefreshRate { get; set; }
 
+
     public static implicit operator DisplayModeParametersKHR(AdamantiumVulkan.Core.Interop.VkDisplayModeParametersKHR d)
     {
         return new DisplayModeParametersKHR(in d);

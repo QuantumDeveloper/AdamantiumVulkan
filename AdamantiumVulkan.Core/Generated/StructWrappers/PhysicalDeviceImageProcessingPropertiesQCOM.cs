@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceImageProcessingPropertiesQCOM : IMarsh
     public Extent2D MaxBlockMatchRegion { get; set; }
     public Extent2D MaxBoxFilterBlockSize { get; set; }
 
+
     public static implicit operator PhysicalDeviceImageProcessingPropertiesQCOM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageProcessingPropertiesQCOM p)
     {
         return new PhysicalDeviceImageProcessingPropertiesQCOM(in p);

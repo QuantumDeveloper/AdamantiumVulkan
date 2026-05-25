@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 576 Column: 10
+// File: vk.xml Line: 622 Column: 10
 public unsafe partial class PipelineCache : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkPipelineCache_T>
 {
     internal VkPipelineCache_T __Instance;

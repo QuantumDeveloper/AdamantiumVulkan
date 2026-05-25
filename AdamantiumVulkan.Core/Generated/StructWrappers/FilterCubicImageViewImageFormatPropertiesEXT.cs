@@ -28,6 +28,7 @@ public unsafe partial class FilterCubicImageViewImageFormatPropertiesEXT : IMars
     public VkBool32 FilterCubic { get; set; }
     public VkBool32 FilterCubicMinmax { get; set; }
 
+
     public static implicit operator FilterCubicImageViewImageFormatPropertiesEXT(AdamantiumVulkan.Core.Interop.VkFilterCubicImageViewImageFormatPropertiesEXT f)
     {
         return new FilterCubicImageViewImageFormatPropertiesEXT(in f);

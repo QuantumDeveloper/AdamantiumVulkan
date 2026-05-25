@@ -29,6 +29,7 @@ public unsafe partial class PerformanceOverrideInfoINTEL : IMarshallableObject, 
     public VkBool32 Enable { get; set; }
     public ulong Parameter { get; set; }
 
+
     public static implicit operator PerformanceOverrideInfoINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceOverrideInfoINTEL p)
     {
         return new PerformanceOverrideInfoINTEL(in p);

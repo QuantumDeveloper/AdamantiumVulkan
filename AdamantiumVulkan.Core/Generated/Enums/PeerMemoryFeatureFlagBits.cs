@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11308 Column: 6
+// File: vk.xml Line: 13006 Column: 6
 [Flags]
 public enum PeerMemoryFeatureFlagBits : uint
 {

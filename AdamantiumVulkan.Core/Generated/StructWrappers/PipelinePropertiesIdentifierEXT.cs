@@ -27,6 +27,7 @@ public unsafe partial class PipelinePropertiesIdentifierEXT : IMarshallableObjec
     public object PNext { get; set; }
     public System.ReadOnlyMemory<byte> PipelineIdentifier { get; set; }
 
+
     public static implicit operator PipelinePropertiesIdentifierEXT(AdamantiumVulkan.Core.Interop.VkPipelinePropertiesIdentifierEXT p)
     {
         return new PipelinePropertiesIdentifierEXT(in p);

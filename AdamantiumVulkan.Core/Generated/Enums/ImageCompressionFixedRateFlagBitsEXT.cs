@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12140 Column: 6
+// File: vk.xml Line: 13874 Column: 6
 [Flags]
 public enum ImageCompressionFixedRateFlagBitsEXT : uint
 {

@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceMemoryProperties : IMarshallableObject
     public uint MemoryHeapCount { get; set; }
     public System.ReadOnlyMemory<MemoryHeap> MemoryHeaps { get; set; }
 
+
     public static implicit operator PhysicalDeviceMemoryProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties p)
     {
         return new PhysicalDeviceMemoryProperties(in p);

@@ -29,6 +29,7 @@ public unsafe partial class ValidationCacheCreateInfoEXT : IMarshallableObject, 
     public nuint InitialDataSize { get; set; }
     public System.ReadOnlyMemory<byte> PInitialData { get; set; }
 
+
     public static implicit operator ValidationCacheCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkValidationCacheCreateInfoEXT v)
     {
         return new ValidationCacheCreateInfoEXT(in v);

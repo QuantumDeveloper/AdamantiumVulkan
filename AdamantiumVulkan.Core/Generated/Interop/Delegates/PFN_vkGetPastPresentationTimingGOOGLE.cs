@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 14340 Column: 10
+// File: video.xml Line: 16289 Column: 10
 public unsafe struct PFN_vkGetPastPresentationTimingGOOGLE
 {
     public PFN_vkGetPastPresentationTimingGOOGLE(nuint ptr) : this((void*) ptr) { }

@@ -27,6 +27,7 @@ public unsafe partial class PipelineBinaryDataInfoKHR : IMarshallableObject, IMa
     public object PNext { get; set; }
     public PipelineBinaryKHR PipelineBinary { get; set; }
 
+
     public static implicit operator PipelineBinaryDataInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataInfoKHR p)
     {
         return new PipelineBinaryDataInfoKHR(in p);

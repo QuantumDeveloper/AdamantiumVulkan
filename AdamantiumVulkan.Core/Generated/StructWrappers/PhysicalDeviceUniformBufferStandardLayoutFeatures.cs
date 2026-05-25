@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceUniformBufferStandardLayoutFeatures : 
     public object PNext { get; set; }
     public VkBool32 UniformBufferStandardLayout { get; set; }
 
+
     public static implicit operator PhysicalDeviceUniformBufferStandardLayoutFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceUniformBufferStandardLayoutFeatures p)
     {
         return new PhysicalDeviceUniformBufferStandardLayoutFeatures(in p);

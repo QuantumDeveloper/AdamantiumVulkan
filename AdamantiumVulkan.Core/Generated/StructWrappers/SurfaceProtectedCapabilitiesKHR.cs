@@ -27,6 +27,7 @@ public unsafe partial class SurfaceProtectedCapabilitiesKHR : IMarshallableObjec
     public object PNext { get; set; }
     public VkBool32 SupportsProtected { get; set; }
 
+
     public static implicit operator SurfaceProtectedCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkSurfaceProtectedCapabilitiesKHR s)
     {
         return new SurfaceProtectedCapabilitiesKHR(in s);

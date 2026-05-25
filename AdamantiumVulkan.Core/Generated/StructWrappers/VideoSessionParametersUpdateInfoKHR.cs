@@ -27,6 +27,7 @@ public unsafe partial class VideoSessionParametersUpdateInfoKHR : IMarshallableO
     public object PNext { get; set; }
     public uint UpdateSequenceCount { get; set; }
 
+
     public static implicit operator VideoSessionParametersUpdateInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoSessionParametersUpdateInfoKHR v)
     {
         return new VideoSessionParametersUpdateInfoKHR(in v);

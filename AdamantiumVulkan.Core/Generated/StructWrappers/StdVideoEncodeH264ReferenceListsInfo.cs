@@ -32,9 +32,10 @@ public unsafe partial class StdVideoEncodeH264ReferenceListsInfo : IMarshallable
     public byte RefList1ModOpCount { get; set; }
     public byte RefPicMarkingOpCount { get; set; }
     public System.ReadOnlyMemory<byte> Reserved1 { get; set; }
-    public StdVideoEncodeH264RefListModEntry PRefList0ModOperations { get; set; }
-    public StdVideoEncodeH264RefListModEntry PRefList1ModOperations { get; set; }
-    public StdVideoEncodeH264RefPicMarkingEntry PRefPicMarkingOperations { get; set; }
+    public System.ReadOnlyMemory<StdVideoEncodeH264RefListModEntry> PRefList0ModOperations { get; set; }
+    public System.ReadOnlyMemory<StdVideoEncodeH264RefListModEntry> PRefList1ModOperations { get; set; }
+    public System.ReadOnlyMemory<StdVideoEncodeH264RefPicMarkingEntry> PRefPicMarkingOperations { get; set; }
+
 
     public static implicit operator StdVideoEncodeH264ReferenceListsInfo(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceListsInfo s)
     {
@@ -44,17 +45,35 @@ public unsafe partial class StdVideoEncodeH264ReferenceListsInfo : IMarshallable
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceListsInfo>();
-        if (PRefList0ModOperations != default)
+        if (!PRefList0ModOperations.IsEmpty)
         {
-            size += PRefList0ModOperations.GetSize();
+            for (int i = 0; i < PRefList0ModOperations.Length; i++)
+            {
+                if (PRefList0ModOperations.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>();
+                else
+                    size += PRefList0ModOperations.Span[i].GetSize();
+            }
         }
-        if (PRefList1ModOperations != default)
+        if (!PRefList1ModOperations.IsEmpty)
         {
-            size += PRefList1ModOperations.GetSize();
+            for (int i = 0; i < PRefList1ModOperations.Length; i++)
+            {
+                if (PRefList1ModOperations.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>();
+                else
+                    size += PRefList1ModOperations.Span[i].GetSize();
+            }
         }
-        if (PRefPicMarkingOperations != default)
+        if (!PRefPicMarkingOperations.IsEmpty)
         {
-            size += PRefPicMarkingOperations.GetSize();
+            for (int i = 0; i < PRefPicMarkingOperations.Length; i++)
+            {
+                if (PRefPicMarkingOperations.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry>();
+                else
+                    size += PRefPicMarkingOperations.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -87,12 +106,33 @@ public unsafe partial class StdVideoEncodeH264ReferenceListsInfo : IMarshallable
         var pReserved1 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in reserved1p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pReserved1, 7, tmpReserved1);
         Reserved1 = tmpReserved1;
-        PRefList0ModOperations = new StdVideoEncodeH264RefListModEntry(in *native.pRefList0ModOperations);
-        NativeUtils.Free(native.pRefList0ModOperations);
-        PRefList1ModOperations = new StdVideoEncodeH264RefListModEntry(in *native.pRefList1ModOperations);
-        NativeUtils.Free(native.pRefList1ModOperations);
-        PRefPicMarkingOperations = new StdVideoEncodeH264RefPicMarkingEntry(in *native.pRefPicMarkingOperations);
-        NativeUtils.Free(native.pRefPicMarkingOperations);
+        var arrayLengthPRefList0ModOperations = native.refList0ModOpCount;
+        var tmpPRefList0ModOperations = new StdVideoEncodeH264RefListModEntry[arrayLengthPRefList0ModOperations];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry[arrayLengthPRefList0ModOperations];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pRefList0ModOperations, arrayLengthPRefList0ModOperations, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPRefList0ModOperations[i] = new StdVideoEncodeH264RefListModEntry(in nativeTmpArray0[i]);
+        }
+        PRefList0ModOperations = tmpPRefList0ModOperations;
+        var arrayLengthPRefList1ModOperations = native.refList1ModOpCount;
+        var tmpPRefList1ModOperations = new StdVideoEncodeH264RefListModEntry[arrayLengthPRefList1ModOperations];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry[arrayLengthPRefList1ModOperations];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pRefList1ModOperations, arrayLengthPRefList1ModOperations, nativeTmpArray1);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        {
+            tmpPRefList1ModOperations[i] = new StdVideoEncodeH264RefListModEntry(in nativeTmpArray1[i]);
+        }
+        PRefList1ModOperations = tmpPRefList1ModOperations;
+        var arrayLengthPRefPicMarkingOperations = native.refPicMarkingOpCount;
+        var tmpPRefPicMarkingOperations = new StdVideoEncodeH264RefPicMarkingEntry[arrayLengthPRefPicMarkingOperations];
+        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry[arrayLengthPRefPicMarkingOperations];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pRefPicMarkingOperations, arrayLengthPRefPicMarkingOperations, nativeTmpArray2);
+        for (int i = 0; i < nativeTmpArray2.Length; ++i)
+        {
+            tmpPRefPicMarkingOperations[i] = new StdVideoEncodeH264RefPicMarkingEntry(in nativeTmpArray2[i]);
+        }
+        PRefPicMarkingOperations = tmpPRefPicMarkingOperations;
 
     }
     public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
@@ -147,34 +187,19 @@ public unsafe partial class StdVideoEncodeH264ReferenceListsInfo : IMarshallable
                 QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoEncodeH264ReferenceListsInfo.Reserved1.Span, pDest, 7);
             }
 
-            if (stdVideoEncodeH264ReferenceListsInfo.PRefList0ModOperations != default)
+            if (!stdVideoEncodeH264ReferenceListsInfo.PRefList0ModOperations.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>(structSlice0).Slice(0, 1);
-                context.Destination[0].pRefList0ModOperations = (AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>(structDestination0, context.DataCursor);
-                stdVideoEncodeH264ReferenceListsInfo.PRefList0ModOperations.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pRefList0ModOperations = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.StdVideoEncodeH264RefListModEntry, AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry, AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceListsInfo>(stdVideoEncodeH264ReferenceListsInfo.PRefList0ModOperations, ref context);
             }
 
-            if (stdVideoEncodeH264ReferenceListsInfo.PRefList1ModOperations != default)
+            if (!stdVideoEncodeH264ReferenceListsInfo.PRefList1ModOperations.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>(structSlice0).Slice(0, 1);
-                context.Destination[0].pRefList1ModOperations = (AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>(structDestination0, context.DataCursor);
-                stdVideoEncodeH264ReferenceListsInfo.PRefList1ModOperations.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pRefList1ModOperations = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.StdVideoEncodeH264RefListModEntry, AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry, AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceListsInfo>(stdVideoEncodeH264ReferenceListsInfo.PRefList1ModOperations, ref context);
             }
 
-            if (stdVideoEncodeH264ReferenceListsInfo.PRefPicMarkingOperations != default)
+            if (!stdVideoEncodeH264ReferenceListsInfo.PRefPicMarkingOperations.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry>(structSlice0).Slice(0, 1);
-                context.Destination[0].pRefPicMarkingOperations = (AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry>(structDestination0, context.DataCursor);
-                stdVideoEncodeH264ReferenceListsInfo.PRefPicMarkingOperations.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pRefPicMarkingOperations = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.StdVideoEncodeH264RefPicMarkingEntry, AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry, AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceListsInfo>(stdVideoEncodeH264ReferenceListsInfo.PRefPicMarkingOperations, ref context);
             }
 
         }

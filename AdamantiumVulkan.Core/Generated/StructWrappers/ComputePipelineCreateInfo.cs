@@ -31,6 +31,7 @@ public unsafe partial class ComputePipelineCreateInfo : IMarshallableObject, IMa
     public Pipeline BasePipelineHandle { get; set; }
     public int BasePipelineIndex { get; set; }
 
+
     public static implicit operator ComputePipelineCreateInfo(AdamantiumVulkan.Core.Interop.VkComputePipelineCreateInfo c)
     {
         return new ComputePipelineCreateInfo(in c);

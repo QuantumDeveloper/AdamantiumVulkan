@@ -32,6 +32,7 @@ public unsafe partial class BuildPartitionedAccelerationStructureInfoNV : IMarsh
     public VkDeviceAddress SrcInfos { get; set; }
     public VkDeviceAddress SrcInfosCount { get; set; }
 
+
     public static implicit operator BuildPartitionedAccelerationStructureInfoNV(AdamantiumVulkan.Core.Interop.VkBuildPartitionedAccelerationStructureInfoNV b)
     {
         return new BuildPartitionedAccelerationStructureInfoNV(in b);

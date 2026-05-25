@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12373 Column: 6
+// File: vk.xml Line: 14123 Column: 6
 public enum CooperativeVectorMatrixLayoutNV : int
 {
     RowMajorNv = 0,

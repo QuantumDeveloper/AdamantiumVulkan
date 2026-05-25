@@ -31,6 +31,7 @@ public unsafe partial class StdVideoAV1LoopFilter : IMarshallableObject, IMarsha
     public byte Update_mode_delta { get; set; }
     public System.ReadOnlyMemory<sbyte> Loop_filter_mode_deltas { get; set; }
 
+
     public static implicit operator StdVideoAV1LoopFilter(AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter s)
     {
         return new StdVideoAV1LoopFilter(in s);

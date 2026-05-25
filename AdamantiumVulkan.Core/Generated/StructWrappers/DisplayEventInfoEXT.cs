@@ -27,6 +27,7 @@ public unsafe partial class DisplayEventInfoEXT : IMarshallableObject, IMarshall
     public object PNext { get; set; }
     public DisplayEventTypeEXT DisplayEvent { get; set; }
 
+
     public static implicit operator DisplayEventInfoEXT(AdamantiumVulkan.Core.Interop.VkDisplayEventInfoEXT d)
     {
         return new DisplayEventInfoEXT(in d);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderSMBuiltinsFeaturesNV : IMarshall
     public object PNext { get; set; }
     public VkBool32 ShaderSMBuiltins { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderSMBuiltinsFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSMBuiltinsFeaturesNV p)
     {
         return new PhysicalDeviceShaderSMBuiltinsFeaturesNV(in p);

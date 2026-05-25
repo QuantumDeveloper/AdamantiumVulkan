@@ -30,6 +30,7 @@ public unsafe partial class AabbPositionsKHR : IMarshallableObject, IMarshallabl
     public float MaxY { get; set; }
     public float MaxZ { get; set; }
 
+
     public static implicit operator AabbPositionsKHR(AdamantiumVulkan.Core.Interop.VkAabbPositionsKHR a)
     {
         return new AabbPositionsKHR(in a);

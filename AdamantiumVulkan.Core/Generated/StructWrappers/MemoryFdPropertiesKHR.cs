@@ -27,6 +27,7 @@ public unsafe partial class MemoryFdPropertiesKHR : IMarshallableObject, IMarsha
     public object PNext { get; set; }
     public uint MemoryTypeBits { get; set; }
 
+
     public static implicit operator MemoryFdPropertiesKHR(AdamantiumVulkan.Core.Interop.VkMemoryFdPropertiesKHR m)
     {
         return new MemoryFdPropertiesKHR(in m);

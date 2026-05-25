@@ -29,6 +29,7 @@ public unsafe partial class BindBufferMemoryInfo : IMarshallableObject, IMarshal
     public DeviceMemory Memory { get; set; }
     public VkDeviceSize MemoryOffset { get; set; }
 
+
     public static implicit operator BindBufferMemoryInfo(AdamantiumVulkan.Core.Interop.VkBindBufferMemoryInfo b)
     {
         return new BindBufferMemoryInfo(in b);

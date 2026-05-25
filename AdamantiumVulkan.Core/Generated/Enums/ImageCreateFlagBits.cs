@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10873 Column: 6
+// File: vk.xml Line: 12569 Column: 6
 [Flags]
 public enum ImageCreateFlagBits : uint
 {
@@ -24,6 +24,40 @@ public enum ImageCreateFlagBits : uint
     MutableFormatBit = 8,
 
     CubeCompatibleBit = 16,
+
+    CornerSampledBitNv = 8192,
+
+    Reserved21BitImg = 2097152,
+
+    DescriptorHeapCaptureReplayBitExt = 65536,
+
+    SampleLocationsCompatibleDepthBitExt = 4096,
+
+    SubsampledBitExt = 16384,
+
+    MultisampledRenderToSingleSampledBitExt = 262144,
+
+    _2dViewCompatibleBitExt = 131072,
+
+    VideoProfileIndependentBitKhr = 1048576,
+
+    FragmentDensityMapOffsetBitExt = 32768,
+
+    AliasSingleLayerDescriptorBitKhr = 4194304,
+
+    AliasBit = 1024,
+
+    SplitInstanceBindRegionsBit = 64,
+
+    _2dArrayCompatibleBit = 32,
+
+    BlockTexelViewCompatibleBit = 128,
+
+    ExtendedUsageBit = 256,
+
+    ProtectedBit = 2048,
+
+    DisjointBit = 512,
 
 }
 

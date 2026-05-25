@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceRGBA10X6FormatsFeaturesEXT : IMarshall
     public object PNext { get; set; }
     public VkBool32 FormatRgba10x6WithoutYCbCrSampler { get; set; }
 
+
     public static implicit operator PhysicalDeviceRGBA10X6FormatsFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT p)
     {
         return new PhysicalDeviceRGBA10X6FormatsFeaturesEXT(in p);

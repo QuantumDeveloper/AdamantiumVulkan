@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceSeparateDepthStencilLayoutsFeatures : 
     public object PNext { get; set; }
     public VkBool32 SeparateDepthStencilLayouts { get; set; }
 
+
     public static implicit operator PhysicalDeviceSeparateDepthStencilLayoutsFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures p)
     {
         return new PhysicalDeviceSeparateDepthStencilLayoutsFeatures(in p);

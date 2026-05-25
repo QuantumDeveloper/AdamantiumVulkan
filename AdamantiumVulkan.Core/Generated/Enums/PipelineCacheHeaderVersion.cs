@@ -11,10 +11,12 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10305 Column: 6
+// File: vk.xml Line: 12001 Column: 6
 public enum PipelineCacheHeaderVersion : int
 {
     One = 1,
+
+    DataGraphQcom = 1000629000,
 
     SafetyCriticalOne = 1000298001,
 

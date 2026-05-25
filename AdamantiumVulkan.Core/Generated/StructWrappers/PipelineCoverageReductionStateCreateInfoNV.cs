@@ -28,6 +28,7 @@ public unsafe partial class PipelineCoverageReductionStateCreateInfoNV : IMarsha
     public VkPipelineCoverageReductionStateCreateFlagsNV Flags { get; set; }
     public CoverageReductionModeNV CoverageReductionMode { get; set; }
 
+
     public static implicit operator PipelineCoverageReductionStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV p)
     {
         return new PipelineCoverageReductionStateCreateInfoNV(in p);

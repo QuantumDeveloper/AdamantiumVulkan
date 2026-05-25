@@ -27,6 +27,7 @@ public unsafe partial class InitializePerformanceApiInfoINTEL : IMarshallableObj
     public object PNext { get; set; }
     public nuint PUserData { get; set; }
 
+
     public static implicit operator InitializePerformanceApiInfoINTEL(AdamantiumVulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL i)
     {
         return new InitializePerformanceApiInfoINTEL(in i);

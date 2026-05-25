@@ -59,6 +59,7 @@ public unsafe partial class PhysicalDeviceDescriptorBufferPropertiesEXT : IMarsh
     public VkDeviceSize ResourceDescriptorBufferAddressSpaceSize { get; set; }
     public VkDeviceSize DescriptorBufferAddressSpaceSize { get; set; }
 
+
     public static implicit operator PhysicalDeviceDescriptorBufferPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferPropertiesEXT p)
     {
         return new PhysicalDeviceDescriptorBufferPropertiesEXT(in p);

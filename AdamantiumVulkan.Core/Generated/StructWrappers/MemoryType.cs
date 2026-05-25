@@ -26,6 +26,7 @@ public unsafe partial class MemoryType : IMarshallableObject, IMarshallable<Adam
     public MemoryPropertyFlagBits PropertyFlags { get; set; }
     public uint HeapIndex { get; set; }
 
+
     public static implicit operator MemoryType(AdamantiumVulkan.Core.Interop.VkMemoryType m)
     {
         return new MemoryType(in m);

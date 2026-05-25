@@ -35,6 +35,7 @@ public unsafe partial class VideoEncodeInfoKHR : IMarshallableObject, IMarshalla
     public System.ReadOnlyMemory<VideoReferenceSlotInfoKHR> PReferenceSlots { get; set; }
     public uint PrecedingExternallyEncodedBytes { get; set; }
 
+
     public static implicit operator VideoEncodeInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeInfoKHR v)
     {
         return new VideoEncodeInfoKHR(in v);

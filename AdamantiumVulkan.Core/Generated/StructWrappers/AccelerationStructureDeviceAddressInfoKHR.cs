@@ -27,6 +27,7 @@ public unsafe partial class AccelerationStructureDeviceAddressInfoKHR : IMarshal
     public object PNext { get; set; }
     public AccelerationStructureKHR AccelerationStructure { get; set; }
 
+
     public static implicit operator AccelerationStructureDeviceAddressInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureDeviceAddressInfoKHR a)
     {
         return new AccelerationStructureDeviceAddressInfoKHR(in a);

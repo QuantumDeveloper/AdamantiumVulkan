@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10288 Column: 6
+// File: vk.xml Line: 11984 Column: 6
 public enum QueryType : int
 {
     Occlusion = 0,

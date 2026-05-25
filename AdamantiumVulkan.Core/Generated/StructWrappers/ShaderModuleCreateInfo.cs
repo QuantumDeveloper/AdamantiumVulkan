@@ -29,6 +29,7 @@ public unsafe partial class ShaderModuleCreateInfo : IMarshallableObject, IMarsh
     public nuint CodeSize { get; set; }
     public System.ReadOnlyMemory<uint> PCode { get; set; }
 
+
     public static implicit operator ShaderModuleCreateInfo(AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo s)
     {
         return new ShaderModuleCreateInfo(in s);

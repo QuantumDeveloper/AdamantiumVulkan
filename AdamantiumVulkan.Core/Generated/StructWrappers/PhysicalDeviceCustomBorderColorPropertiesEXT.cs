@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceCustomBorderColorPropertiesEXT : IMars
     public object PNext { get; set; }
     public uint MaxCustomBorderColorSamplers { get; set; }
 
+
     public static implicit operator PhysicalDeviceCustomBorderColorPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCustomBorderColorPropertiesEXT p)
     {
         return new PhysicalDeviceCustomBorderColorPropertiesEXT(in p);

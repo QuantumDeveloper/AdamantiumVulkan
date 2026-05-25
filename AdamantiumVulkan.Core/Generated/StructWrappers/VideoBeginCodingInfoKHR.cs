@@ -31,6 +31,7 @@ public unsafe partial class VideoBeginCodingInfoKHR : IMarshallableObject, IMars
     public uint ReferenceSlotCount { get; set; }
     public System.ReadOnlyMemory<VideoReferenceSlotInfoKHR> PReferenceSlots { get; set; }
 
+
     public static implicit operator VideoBeginCodingInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoBeginCodingInfoKHR v)
     {
         return new VideoBeginCodingInfoKHR(in v);

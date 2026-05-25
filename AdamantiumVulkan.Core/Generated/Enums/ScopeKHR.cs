@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12304 Column: 6
+// File: vk.xml Line: 14047 Column: 6
 public enum ScopeKHR : int
 {
     DeviceKhr = 1,

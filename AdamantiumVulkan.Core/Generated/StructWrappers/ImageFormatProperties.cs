@@ -29,6 +29,7 @@ public unsafe partial class ImageFormatProperties : IMarshallableObject, IMarsha
     public SampleCountFlagBits SampleCounts { get; set; }
     public VkDeviceSize MaxResourceSize { get; set; }
 
+
     public static implicit operator ImageFormatProperties(AdamantiumVulkan.Core.Interop.VkImageFormatProperties i)
     {
         return new ImageFormatProperties(in i);

@@ -27,6 +27,7 @@ public unsafe partial class PipelineViewportDepthClipControlCreateInfoEXT : IMar
     public object PNext { get; set; }
     public VkBool32 NegativeOneToOne { get; set; }
 
+
     public static implicit operator PipelineViewportDepthClipControlCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineViewportDepthClipControlCreateInfoEXT p)
     {
         return new PipelineViewportDepthClipControlCreateInfoEXT(in p);

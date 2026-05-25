@@ -39,6 +39,7 @@ public unsafe partial class ImageCreateInfo : IMarshallableObject, IMarshallable
     public System.ReadOnlyMemory<uint> PQueueFamilyIndices { get; set; }
     public ImageLayout InitialLayout { get; set; }
 
+
     public static implicit operator ImageCreateInfo(AdamantiumVulkan.Core.Interop.VkImageCreateInfo i)
     {
         return new ImageCreateInfo(in i);

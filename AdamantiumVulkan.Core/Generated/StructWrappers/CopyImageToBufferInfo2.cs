@@ -31,6 +31,7 @@ public unsafe partial class CopyImageToBufferInfo2 : IMarshallableObject, IMarsh
     public uint RegionCount { get; set; }
     public System.ReadOnlyMemory<BufferImageCopy2> PRegions { get; set; }
 
+
     public static implicit operator CopyImageToBufferInfo2(AdamantiumVulkan.Core.Interop.VkCopyImageToBufferInfo2 c)
     {
         return new CopyImageToBufferInfo2(in c);

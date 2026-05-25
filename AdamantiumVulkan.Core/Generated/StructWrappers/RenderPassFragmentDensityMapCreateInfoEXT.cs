@@ -27,6 +27,7 @@ public unsafe partial class RenderPassFragmentDensityMapCreateInfoEXT : IMarshal
     public object PNext { get; set; }
     public AttachmentReference FragmentDensityMapAttachment { get; set; }
 
+
     public static implicit operator RenderPassFragmentDensityMapCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkRenderPassFragmentDensityMapCreateInfoEXT r)
     {
         return new RenderPassFragmentDensityMapCreateInfoEXT(in r);

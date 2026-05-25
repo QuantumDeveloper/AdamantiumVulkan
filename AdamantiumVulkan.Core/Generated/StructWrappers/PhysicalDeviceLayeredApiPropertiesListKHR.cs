@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceLayeredApiPropertiesListKHR : IMarshal
     public uint LayeredApiCount { get; set; }
     public System.ReadOnlyMemory<PhysicalDeviceLayeredApiPropertiesKHR> PLayeredApis { get; set; }
 
+
     public static implicit operator PhysicalDeviceLayeredApiPropertiesListKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesListKHR p)
     {
         return new PhysicalDeviceLayeredApiPropertiesListKHR(in p);

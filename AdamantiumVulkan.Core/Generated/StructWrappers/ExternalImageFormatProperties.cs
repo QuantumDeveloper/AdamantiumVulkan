@@ -27,6 +27,7 @@ public unsafe partial class ExternalImageFormatProperties : IMarshallableObject,
     public object PNext { get; set; }
     public ExternalMemoryProperties ExternalMemoryProperties { get; set; }
 
+
     public static implicit operator ExternalImageFormatProperties(AdamantiumVulkan.Core.Interop.VkExternalImageFormatProperties e)
     {
         return new ExternalImageFormatProperties(in e);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceDynamicRenderingUnusedAttachmentsFeatu
     public object PNext { get; set; }
     public VkBool32 DynamicRenderingUnusedAttachments { get; set; }
 
+
     public static implicit operator PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT p)
     {
         return new PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT(in p);

@@ -27,6 +27,7 @@ public unsafe partial class BuildPartitionedAccelerationStructureIndirectCommand
     public uint ArgCount { get; set; }
     public StridedDeviceAddressNV ArgData { get; set; }
 
+
     public static implicit operator BuildPartitionedAccelerationStructureIndirectCommandNV(AdamantiumVulkan.Core.Interop.VkBuildPartitionedAccelerationStructureIndirectCommandNV b)
     {
         return new BuildPartitionedAccelerationStructureIndirectCommandNV(in b);

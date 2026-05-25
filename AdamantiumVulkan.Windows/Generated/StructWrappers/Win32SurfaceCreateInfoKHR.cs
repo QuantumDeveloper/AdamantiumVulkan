@@ -27,8 +27,9 @@ public unsafe partial class Win32SurfaceCreateInfoKHR : IMarshallableObject, IMa
     public StructureType SType => StructureType.Win32SurfaceCreateInfoKhr;
     public object PNext { get; set; }
     public VkWin32SurfaceCreateFlagsKHR Flags { get; set; }
-    public nuint Hinstance { get; set; }
-    public nuint Hwnd { get; set; }
+    public System.IntPtr Hinstance { get; set; }
+    public System.IntPtr Hwnd { get; set; }
+
 
     public static implicit operator Win32SurfaceCreateInfoKHR(AdamantiumVulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR w)
     {

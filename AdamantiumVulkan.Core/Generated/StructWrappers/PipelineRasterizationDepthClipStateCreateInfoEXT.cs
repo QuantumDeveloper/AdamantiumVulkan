@@ -28,6 +28,7 @@ public unsafe partial class PipelineRasterizationDepthClipStateCreateInfoEXT : I
     public VkPipelineRasterizationDepthClipStateCreateFlagsEXT Flags { get; set; }
     public VkBool32 DepthClipEnable { get; set; }
 
+
     public static implicit operator PipelineRasterizationDepthClipStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT p)
     {
         return new PipelineRasterizationDepthClipStateCreateInfoEXT(in p);

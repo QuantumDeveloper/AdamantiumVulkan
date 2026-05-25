@@ -51,6 +51,7 @@ public unsafe partial class StdVideoEncodeAV1PictureInfo : IMarshallableObject, 
     public StdVideoEncodeAV1ExtensionHeader PExtensionHeader { get; set; }
     public uint? PBufferRemovalTimes { get; set; }
 
+
     public static implicit operator StdVideoEncodeAV1PictureInfo(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo s)
     {
         return new StdVideoEncodeAV1PictureInfo(in s);

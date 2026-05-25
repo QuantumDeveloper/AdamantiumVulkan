@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceExternalBufferInfo : IMarshallableObje
     public BufferUsageFlagBits Usage { get; set; }
     public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
 
+
     public static implicit operator PhysicalDeviceExternalBufferInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo p)
     {
         return new PhysicalDeviceExternalBufferInfo(in p);

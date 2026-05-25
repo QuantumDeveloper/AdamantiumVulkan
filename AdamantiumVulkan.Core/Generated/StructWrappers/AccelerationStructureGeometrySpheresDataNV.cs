@@ -35,6 +35,7 @@ public unsafe partial class AccelerationStructureGeometrySpheresDataNV : IMarsha
     public DeviceOrHostAddressConstKHR IndexData { get; set; }
     public VkDeviceSize IndexStride { get; set; }
 
+
     public static implicit operator AccelerationStructureGeometrySpheresDataNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometrySpheresDataNV a)
     {
         return new AccelerationStructureGeometrySpheresDataNV(in a);
@@ -47,6 +48,12 @@ public unsafe partial class AccelerationStructureGeometrySpheresDataNV : IMarsha
         {
             size += marshallable.GetSize();
         }
+        if (VertexData != default)
+            size += VertexData.GetSize();
+        if (RadiusData != default)
+            size += RadiusData.GetSize();
+        if (IndexData != default)
+            size += IndexData.GetSize();
         return size;
     }
 

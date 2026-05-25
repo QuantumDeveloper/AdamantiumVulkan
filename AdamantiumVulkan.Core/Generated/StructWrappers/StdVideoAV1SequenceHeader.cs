@@ -38,6 +38,7 @@ public unsafe partial class StdVideoAV1SequenceHeader : IMarshallableObject, IMa
     public StdVideoAV1ColorConfig PColorConfig { get; set; }
     public StdVideoAV1TimingInfo PTimingInfo { get; set; }
 
+
     public static implicit operator StdVideoAV1SequenceHeader(AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeader s)
     {
         return new StdVideoAV1SequenceHeader(in s);

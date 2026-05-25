@@ -29,6 +29,7 @@ public unsafe partial class ImageDrmFormatModifierExplicitCreateInfoEXT : IMarsh
     public uint DrmFormatModifierPlaneCount { get; set; }
     public System.ReadOnlyMemory<SubresourceLayout> PlaneLayouts { get; set; }
 
+
     public static implicit operator ImageDrmFormatModifierExplicitCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT i)
     {
         return new ImageDrmFormatModifierExplicitCreateInfoEXT(in i);

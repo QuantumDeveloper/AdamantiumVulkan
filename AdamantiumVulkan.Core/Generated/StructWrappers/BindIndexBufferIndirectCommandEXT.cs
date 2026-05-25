@@ -27,6 +27,7 @@ public unsafe partial class BindIndexBufferIndirectCommandEXT : IMarshallableObj
     public uint Size { get; set; }
     public IndexType IndexType { get; set; }
 
+
     public static implicit operator BindIndexBufferIndirectCommandEXT(AdamantiumVulkan.Core.Interop.VkBindIndexBufferIndirectCommandEXT b)
     {
         return new BindIndexBufferIndirectCommandEXT(in b);

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12329 Column: 6
+// File: vk.xml Line: 14072 Column: 6
 [Flags]
 public enum BlockMatchWindowCompareModeQCOM : int
 {

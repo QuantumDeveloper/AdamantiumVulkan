@@ -25,6 +25,7 @@ public unsafe partial class BindShaderGroupIndirectCommandNV : IMarshallableObje
 
     public uint GroupIndex { get; set; }
 
+
     public static implicit operator BindShaderGroupIndirectCommandNV(AdamantiumVulkan.Core.Interop.VkBindShaderGroupIndirectCommandNV b)
     {
         return new BindShaderGroupIndirectCommandNV(in b);

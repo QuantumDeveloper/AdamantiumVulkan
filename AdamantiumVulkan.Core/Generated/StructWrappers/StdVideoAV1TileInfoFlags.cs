@@ -26,6 +26,7 @@ public unsafe partial class StdVideoAV1TileInfoFlags : IMarshallableObject, IMar
     public uint Uniform_tile_spacing_flag { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoAV1TileInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfoFlags s)
     {
         return new StdVideoAV1TileInfoFlags(in s);

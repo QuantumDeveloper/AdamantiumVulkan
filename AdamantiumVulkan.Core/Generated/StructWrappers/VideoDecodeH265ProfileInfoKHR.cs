@@ -27,6 +27,7 @@ public unsafe partial class VideoDecodeH265ProfileInfoKHR : IMarshallableObject,
     public object PNext { get; set; }
     public StdVideoH265ProfileIdc StdProfileIdc { get; set; }
 
+
     public static implicit operator VideoDecodeH265ProfileInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeH265ProfileInfoKHR v)
     {
         return new VideoDecodeH265ProfileInfoKHR(in v);

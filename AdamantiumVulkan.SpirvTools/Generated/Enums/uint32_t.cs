@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 412 Column: 16
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 439 Column: 23
 public enum uint32_t : ulong
 {
     kDefaultMaxIdBound = 4194303,

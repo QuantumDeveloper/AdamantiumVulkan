@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDevice8BitStorageFeatures : IMarshallableObj
     public VkBool32 UniformAndStorageBuffer8BitAccess { get; set; }
     public VkBool32 StoragePushConstant8 { get; set; }
 
+
     public static implicit operator PhysicalDevice8BitStorageFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDevice8BitStorageFeatures p)
     {
         return new PhysicalDevice8BitStorageFeatures(in p);

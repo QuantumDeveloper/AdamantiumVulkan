@@ -13,7 +13,7 @@ using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: vk.xml Line: 1016 Column: 10
+// File: vk.xml Line: 1126 Column: 10
 public unsafe struct PFN_vkFreeFunction
 {
     public PFN_vkFreeFunction(nuint ptr) : this((void*) ptr) { }

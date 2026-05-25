@@ -31,6 +31,7 @@ public unsafe partial class PipelineExecutableInternalRepresentationKHR : IMarsh
     public nuint DataSize { get; set; }
     public System.ReadOnlyMemory<byte> PData { get; set; }
 
+
     public static implicit operator PipelineExecutableInternalRepresentationKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR p)
     {
         return new PipelineExecutableInternalRepresentationKHR(in p);

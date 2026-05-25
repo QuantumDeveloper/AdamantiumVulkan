@@ -28,6 +28,7 @@ public unsafe partial class PipelineColorWriteCreateInfoEXT : IMarshallableObjec
     public uint AttachmentCount { get; set; }
     public System.ReadOnlyMemory<VkBool32> PColorWriteEnables { get; set; }
 
+
     public static implicit operator PipelineColorWriteCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineColorWriteCreateInfoEXT p)
     {
         return new PipelineColorWriteCreateInfoEXT(in p);

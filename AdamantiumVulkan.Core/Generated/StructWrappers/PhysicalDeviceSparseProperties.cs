@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceSparseProperties : IMarshallableObject
     public VkBool32 ResidencyAlignedMipSize { get; set; }
     public VkBool32 ResidencyNonResidentStrict { get; set; }
 
+
     public static implicit operator PhysicalDeviceSparseProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseProperties p)
     {
         return new PhysicalDeviceSparseProperties(in p);

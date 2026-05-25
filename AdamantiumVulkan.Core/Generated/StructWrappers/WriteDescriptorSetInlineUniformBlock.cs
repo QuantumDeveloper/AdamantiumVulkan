@@ -28,6 +28,7 @@ public unsafe partial class WriteDescriptorSetInlineUniformBlock : IMarshallable
     public uint DataSize { get; set; }
     public System.ReadOnlyMemory<byte> PData { get; set; }
 
+
     public static implicit operator WriteDescriptorSetInlineUniformBlock(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetInlineUniformBlock w)
     {
         return new WriteDescriptorSetInlineUniformBlock(in w);

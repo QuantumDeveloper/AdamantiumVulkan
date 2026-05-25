@@ -54,6 +54,7 @@ public unsafe partial class PhysicalDeviceMeshShaderPropertiesEXT : IMarshallabl
     public VkBool32 PrefersCompactVertexOutput { get; set; }
     public VkBool32 PrefersCompactPrimitiveOutput { get; set; }
 
+
     public static implicit operator PhysicalDeviceMeshShaderPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesEXT p)
     {
         return new PhysicalDeviceMeshShaderPropertiesEXT(in p);

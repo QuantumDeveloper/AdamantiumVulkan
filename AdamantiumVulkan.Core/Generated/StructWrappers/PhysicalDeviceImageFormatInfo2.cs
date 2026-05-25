@@ -31,6 +31,7 @@ public unsafe partial class PhysicalDeviceImageFormatInfo2 : IMarshallableObject
     public ImageUsageFlagBits Usage { get; set; }
     public ImageCreateFlagBits Flags { get; set; }
 
+
     public static implicit operator PhysicalDeviceImageFormatInfo2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2 p)
     {
         return new PhysicalDeviceImageFormatInfo2(in p);

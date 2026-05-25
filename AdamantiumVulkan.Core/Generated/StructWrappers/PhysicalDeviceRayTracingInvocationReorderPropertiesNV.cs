@@ -25,7 +25,8 @@ public unsafe partial class PhysicalDeviceRayTracingInvocationReorderPropertiesN
 
     public StructureType SType => StructureType.PhysicalDeviceRayTracingInvocationReorderPropertiesNv;
     public object PNext { get; set; }
-    public RayTracingInvocationReorderModeNV RayTracingInvocationReorderReorderingHint { get; set; }
+    public RayTracingInvocationReorderModeEXT RayTracingInvocationReorderReorderingHint { get; set; }
+
 
     public static implicit operator PhysicalDeviceRayTracingInvocationReorderPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV p)
     {

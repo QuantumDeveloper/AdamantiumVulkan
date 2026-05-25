@@ -29,6 +29,7 @@ public unsafe partial class DrawIndexedIndirectCommand : IMarshallableObject, IM
     public int VertexOffset { get; set; }
     public uint FirstInstance { get; set; }
 
+
     public static implicit operator DrawIndexedIndirectCommand(AdamantiumVulkan.Core.Interop.VkDrawIndexedIndirectCommand d)
     {
         return new DrawIndexedIndirectCommand(in d);

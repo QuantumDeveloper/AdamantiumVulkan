@@ -27,6 +27,7 @@ public unsafe partial class ClusterAccelerationStructureBuildClustersBottomLevel
     public uint ClusterReferencesStride { get; set; }
     public VkDeviceAddress ClusterReferences { get; set; }
 
+
     public static implicit operator ClusterAccelerationStructureBuildClustersBottomLevelInfoNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureBuildClustersBottomLevelInfoNV c)
     {
         return new ClusterAccelerationStructureBuildClustersBottomLevelInfoNV(in c);

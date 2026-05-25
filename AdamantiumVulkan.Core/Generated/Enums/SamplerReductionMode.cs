@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11345 Column: 6
+// File: vk.xml Line: 13043 Column: 6
 public enum SamplerReductionMode : int
 {
     WeightedAverage = 0,

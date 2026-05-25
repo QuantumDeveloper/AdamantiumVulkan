@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 987 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 1071 Column: 14
 public enum Capability : uint
 {
     Matrix = 0,
@@ -162,7 +162,19 @@ public enum Capability : uint
 
     TileImageStencilReadAccessEXT = 4168,
 
+    TensorsARM = 4174,
+
+    StorageTensorArrayDynamicIndexingARM = 4175,
+
+    StorageTensorArrayNonUniformIndexingARM = 4176,
+
+    GraphARM = 4191,
+
     CooperativeMatrixLayoutsARM = 4201,
+
+    Float8EXT = 4212,
+
+    Float8CooperativeMatrixEXT = 4213,
 
     FragmentShadingRateKHR = 4422,
 
@@ -230,6 +242,10 @@ public enum Capability : uint
 
     TextureBlockMatchQCOM = 4486,
 
+    TileShadingQCOM = 4495,
+
+    CooperativeMatrixConversionQCOM = 4496,
+
     TextureBlockMatch2QCOM = 4498,
 
     Float16ImageAMD = 5008,
@@ -249,6 +265,24 @@ public enum Capability : uint
     ShaderEnqueueAMDX = 5067,
 
     QuadControlKHR = 5087,
+
+    Int4TypeINTEL = 5112,
+
+    Int4CooperativeMatrixINTEL = 5114,
+
+    BFloat16TypeKHR = 5116,
+
+    BFloat16DotProductKHR = 5117,
+
+    BFloat16CooperativeMatrixKHR = 5118,
+
+    AbortKHR = 5120,
+
+    DescriptorHeapEXT = 5128,
+
+    ConstantDataKHR = 5146,
+
+    PoisonFreezeKHR = 5156,
 
     SampleMaskOverrideCoverageNV = 5249,
 
@@ -276,7 +310,7 @@ public enum Capability : uint
 
     FragmentDensityEXT = 5291,
 
-    GroupNonUniformPartitionedNV = 5297,
+    GroupNonUniformPartitionedEXT = 5297,
 
     ShaderNonUniform = 5301,
 
@@ -336,15 +370,29 @@ public enum Capability : uint
 
     ShaderInvocationReorderNV = 5383,
 
+    ShaderInvocationReorderEXT = 5388,
+
     BindlessTextureNV = 5390,
 
     RayQueryPositionFetchKHR = 5391,
+
+    CooperativeVectorNV = 5394,
 
     AtomicFloat16VectorNV = 5404,
 
     RayTracingDisplacementMicromapNV = 5409,
 
     RawAccessChainsNV = 5414,
+
+    RayTracingSpheresGeometryNV = 5418,
+
+    RayTracingLinearSweptSpheresGeometryNV = 5419,
+
+    PushConstantBanksNV = 5423,
+
+    LongVectorEXT = 5425,
+
+    Shader64BitIndexingEXT = 5426,
 
     CooperativeMatrixReductionsNV = 5430,
 
@@ -355,6 +403,10 @@ public enum Capability : uint
     CooperativeMatrixTensorAddressingNV = 5433,
 
     CooperativeMatrixBlockLoadsNV = 5434,
+
+    CooperativeVectorTrainingNV = 5435,
+
+    RayTracingClusterAccelerationStructureNV = 5437,
 
     TensorAddressingNV = 5439,
 
@@ -400,47 +452,47 @@ public enum Capability : uint
 
     FunctionFloatControlINTEL = 5821,
 
-    FPGAMemoryAttributesINTEL = 5824,
+    FPGAMemoryAttributesALTERA = 5824,
 
     FPFastMathModeINTEL = 5837,
 
-    ArbitraryPrecisionIntegersINTEL = 5844,
+    ArbitraryPrecisionIntegersALTERA = 5844,
 
-    ArbitraryPrecisionFloatingPointINTEL = 5845,
+    ArbitraryPrecisionFloatingPointALTERA = 5845,
 
     UnstructuredLoopControlsINTEL = 5886,
 
-    FPGALoopControlsINTEL = 5888,
+    FPGALoopControlsALTERA = 5888,
 
     KernelAttributesINTEL = 5892,
 
     FPGAKernelAttributesINTEL = 5897,
 
-    FPGAMemoryAccessesINTEL = 5898,
+    FPGAMemoryAccessesALTERA = 5898,
 
-    FPGAClusterAttributesINTEL = 5904,
+    FPGAClusterAttributesALTERA = 5904,
 
-    LoopFuseINTEL = 5906,
+    LoopFuseALTERA = 5906,
 
-    FPGADSPControlINTEL = 5908,
+    FPGADSPControlALTERA = 5908,
 
     MemoryAccessAliasingINTEL = 5910,
 
-    FPGAInvocationPipeliningAttributesINTEL = 5916,
+    FPGAInvocationPipeliningAttributesALTERA = 5916,
 
-    FPGABufferLocationINTEL = 5920,
+    FPGABufferLocationALTERA = 5920,
 
-    ArbitraryPrecisionFixedPointINTEL = 5922,
+    ArbitraryPrecisionFixedPointALTERA = 5922,
 
-    USMStorageClassesINTEL = 5935,
+    USMStorageClassesALTERA = 5935,
 
-    RuntimeAlignedAttributeINTEL = 5939,
+    RuntimeAlignedAttributeALTERA = 5939,
 
-    IOPipesINTEL = 5943,
+    IOPipesALTERA = 5943,
 
-    BlockingPipesINTEL = 5945,
+    BlockingPipesALTERA = 5945,
 
-    FPGARegINTEL = 5948,
+    FPGARegALTERA = 5948,
 
     DotProductInputAll = 6016,
 
@@ -462,6 +514,8 @@ public enum Capability : uint
 
     FloatControls2 = 6029,
 
+    Fmakhr = 6030,
+
     AtomicFloat32AddEXT = 6033,
 
     AtomicFloat64AddEXT = 6034,
@@ -480,29 +534,59 @@ public enum Capability : uint
 
     ArithmeticFenceEXT = 6144,
 
-    FPGAClusterAttributesV2INTEL = 6150,
+    FPGAClusterAttributesV2ALTERA = 6150,
 
     FPGAKernelAttributesv2INTEL = 6161,
 
+    TaskSequenceALTERA = 6162,
+
     FPMaxErrorINTEL = 6169,
 
-    FPGALatencyControlINTEL = 6171,
+    FPGALatencyControlALTERA = 6171,
 
-    FPGAArgumentInterfacesINTEL = 6174,
+    FPGAArgumentInterfacesALTERA = 6174,
 
     GlobalVariableHostAccessINTEL = 6187,
 
-    GlobalVariableFPGADecorationsINTEL = 6189,
+    GlobalVariableFPGADecorationsALTERA = 6189,
 
     SubgroupBufferPrefetchINTEL = 6220,
 
+    Subgroup2DBlockIOINTEL = 6228,
+
+    Subgroup2DBlockTransformINTEL = 6229,
+
+    Subgroup2DBlockTransposeINTEL = 6230,
+
+    SubgroupMatrixMultiplyAccumulateINTEL = 6236,
+
+    TernaryBitwiseFunctionINTEL = 6241,
+
+    UntypedVariableLengthArrayINTEL = 6243,
+
+    SpecConditionalINTEL = 6245,
+
+    FunctionVariantsINTEL = 6246,
+
     GroupUniformArithmeticKHR = 6400,
+
+    TensorFloat32RoundingINTEL = 6425,
 
     MaskedGatherScatterINTEL = 6427,
 
     CacheControlsINTEL = 6441,
 
     RegisterLimitsINTEL = 6460,
+
+    BindlessImagesINTEL = 6528,
+
+    DotProductFloat16AccFloat32VALVE = 6912,
+
+    DotProductFloat16AccFloat16VALVE = 6913,
+
+    DotProductBFloat16AccVALVE = 6914,
+
+    DotProductFloat8AccFloat32VALVE = 6915,
 
     Max = 2147483647,
 

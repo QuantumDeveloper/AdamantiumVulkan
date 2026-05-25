@@ -31,6 +31,7 @@ public unsafe partial class StdVideoEncodeH264ReferenceInfo : IMarshallableObjec
     public ushort Long_term_frame_idx { get; set; }
     public byte Temporal_id { get; set; }
 
+
     public static implicit operator StdVideoEncodeH264ReferenceInfo(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceInfo s)
     {
         return new StdVideoEncodeH264ReferenceInfo(in s);

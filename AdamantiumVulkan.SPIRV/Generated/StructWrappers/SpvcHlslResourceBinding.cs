@@ -31,6 +31,7 @@ public unsafe partial class SpvcHlslResourceBinding : IMarshallable<AdamantiumVu
     public SpvcHlslResourceBindingMapping Uav { get; set; }
     public SpvcHlslResourceBindingMapping Srv { get; set; }
     public SpvcHlslResourceBindingMapping Sampler { get; set; }
+
     ///<summary>
     /// Initializes the resource binding struct. The defaults are non-zero.
     ///</summary>

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 832 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 903 Column: 14
 [Flags]
 public enum LoopControlMask : uint
 {
@@ -35,25 +35,25 @@ public enum LoopControlMask : uint
 
     PartialCountMask = 256,
 
-    InitiationIntervalINTELMask = 65536,
+    InitiationIntervalALTERAMask = 65536,
 
-    MaxConcurrencyINTELMask = 131072,
+    MaxConcurrencyALTERAMask = 131072,
 
-    DependencyArrayINTELMask = 262144,
+    DependencyArrayALTERAMask = 262144,
 
-    PipelineEnableINTELMask = 524288,
+    PipelineEnableALTERAMask = 524288,
 
-    LoopCoalesceINTELMask = 1048576,
+    LoopCoalesceALTERAMask = 1048576,
 
-    MaxInterleavingINTELMask = 2097152,
+    MaxInterleavingALTERAMask = 2097152,
 
-    SpeculatedIterationsINTELMask = 4194304,
+    SpeculatedIterationsALTERAMask = 4194304,
 
-    NoFusionINTELMask = 8388608,
+    NoFusionALTERAMask = 8388608,
 
-    LoopCountINTELMask = 16777216,
+    LoopCountALTERAMask = 16777216,
 
-    MaxReinvocationDelayINTELMask = 33554432,
+    MaxReinvocationDelayALTERAMask = 33554432,
 
 }
 

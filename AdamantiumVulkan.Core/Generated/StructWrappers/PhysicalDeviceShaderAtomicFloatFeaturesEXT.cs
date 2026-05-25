@@ -38,6 +38,7 @@ public unsafe partial class PhysicalDeviceShaderAtomicFloatFeaturesEXT : IMarsha
     public VkBool32 SparseImageFloat32Atomics { get; set; }
     public VkBool32 SparseImageFloat32AtomicAdd { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderAtomicFloatFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicFloatFeaturesEXT p)
     {
         return new PhysicalDeviceShaderAtomicFloatFeaturesEXT(in p);

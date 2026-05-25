@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceYcbcrDegammaFeaturesQCOM : IMarshallab
     public object PNext { get; set; }
     public VkBool32 YcbcrDegamma { get; set; }
 
+
     public static implicit operator PhysicalDeviceYcbcrDegammaFeaturesQCOM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceYcbcrDegammaFeaturesQCOM p)
     {
         return new PhysicalDeviceYcbcrDegammaFeaturesQCOM(in p);

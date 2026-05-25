@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15456 Column: 10
+// File: video.xml Line: 17411 Column: 10
 public unsafe struct PFN_vkCmdSetViewportWithCount
 {
     public PFN_vkCmdSetViewportWithCount(nuint ptr) : this((void*) ptr) { }

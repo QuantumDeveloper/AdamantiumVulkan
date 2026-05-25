@@ -29,6 +29,7 @@ public unsafe partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV :
     public uint CustomSampleOrderCount { get; set; }
     public System.ReadOnlyMemory<CoarseSampleOrderCustomNV> PCustomSampleOrders { get; set; }
 
+
     public static implicit operator PipelineViewportCoarseSampleOrderStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV p)
     {
         return new PipelineViewportCoarseSampleOrderStateCreateInfoNV(in p);

@@ -26,6 +26,7 @@ public unsafe partial class SampleLocationEXT : IMarshallableObject, IMarshallab
     public float X { get; set; }
     public float Y { get; set; }
 
+
     public static implicit operator SampleLocationEXT(AdamantiumVulkan.Core.Interop.VkSampleLocationEXT s)
     {
         return new SampleLocationEXT(in s);

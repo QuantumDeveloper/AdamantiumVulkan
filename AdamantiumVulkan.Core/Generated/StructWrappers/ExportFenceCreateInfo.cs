@@ -27,6 +27,7 @@ public unsafe partial class ExportFenceCreateInfo : IMarshallableObject, IMarsha
     public object PNext { get; set; }
     public ExternalFenceHandleTypeFlagBits HandleTypes { get; set; }
 
+
     public static implicit operator ExportFenceCreateInfo(AdamantiumVulkan.Core.Interop.VkExportFenceCreateInfo e)
     {
         return new ExportFenceCreateInfo(in e);

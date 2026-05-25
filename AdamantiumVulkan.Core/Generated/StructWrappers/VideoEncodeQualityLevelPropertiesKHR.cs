@@ -28,6 +28,7 @@ public unsafe partial class VideoEncodeQualityLevelPropertiesKHR : IMarshallable
     public VideoEncodeRateControlModeFlagBitsKHR PreferredRateControlMode { get; set; }
     public uint PreferredRateControlLayerCount { get; set; }
 
+
     public static implicit operator VideoEncodeQualityLevelPropertiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelPropertiesKHR v)
     {
         return new VideoEncodeQualityLevelPropertiesKHR(in v);

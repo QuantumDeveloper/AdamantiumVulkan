@@ -35,6 +35,7 @@ public unsafe partial class StdVideoH264PictureParameterSet : IMarshallableObjec
     public sbyte Second_chroma_qp_index_offset { get; set; }
     public StdVideoH264ScalingLists PScalingLists { get; set; }
 
+
     public static implicit operator StdVideoH264PictureParameterSet(AdamantiumVulkan.Core.Interop.StdVideoH264PictureParameterSet s)
     {
         return new StdVideoH264PictureParameterSet(in s);

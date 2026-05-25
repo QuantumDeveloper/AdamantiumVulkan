@@ -32,6 +32,7 @@ public unsafe partial class InstanceCreateInfo : IMarshallableObject, IMarshalla
     public uint EnabledExtensionCount { get; set; }
     public System.ReadOnlyMemory<string> PEnabledExtensionNames { get; set; }
 
+
     public static implicit operator InstanceCreateInfo(AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo i)
     {
         return new InstanceCreateInfo(in i);

@@ -31,6 +31,7 @@ public unsafe partial class SpvcMslShaderInterfaceVar : IMarshallable<Adamantium
     public MslShaderVariableFormat Format { get; set; }
     public BuiltIn Builtin { get; set; }
     public uint Vecsize { get; set; }
+
     ///<summary>
     /// Deprecated. Use spvc_msl_shader_interface_var_init_2().
     ///</summary>

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11251 Column: 6
+// File: vk.xml Line: 12949 Column: 6
 [Flags]
 public enum ExternalMemoryHandleTypeFlagBits : uint
 {
@@ -28,6 +28,30 @@ public enum ExternalMemoryHandleTypeFlagBits : uint
     D3d12HeapBit = 32,
 
     D3d12ResourceBit = 64,
+
+    DmaBufBitExt = 512,
+
+    AndroidHardwareBufferBitAndroid = 1024,
+
+    HostAllocationBitExt = 128,
+
+    HostMappedForeignMemoryBitExt = 256,
+
+    ZirconVmoBitFuchsia = 2048,
+
+    RdmaAddressBitNv = 4096,
+
+    SciBufBitNv = 8192,
+
+    OhNativeBufferBitOhos = 32768,
+
+    ScreenBufferBitQnx = 16384,
+
+    MtlbufferBitExt = 65536,
+
+    MtltextureBitExt = 131072,
+
+    MtlheapBitExt = 262144,
 
 }
 

@@ -29,6 +29,7 @@ public unsafe partial class BindImageMemoryInfo : IMarshallableObject, IMarshall
     public DeviceMemory Memory { get; set; }
     public VkDeviceSize MemoryOffset { get; set; }
 
+
     public static implicit operator BindImageMemoryInfo(AdamantiumVulkan.Core.Interop.VkBindImageMemoryInfo b)
     {
         return new BindImageMemoryInfo(in b);

@@ -43,6 +43,7 @@ public unsafe partial class GraphicsPipelineCreateInfo : IMarshallableObject, IM
     public Pipeline BasePipelineHandle { get; set; }
     public int BasePipelineIndex { get; set; }
 
+
     public static implicit operator GraphicsPipelineCreateInfo(AdamantiumVulkan.Core.Interop.VkGraphicsPipelineCreateInfo g)
     {
         return new GraphicsPipelineCreateInfo(in g);

@@ -29,6 +29,7 @@ public unsafe partial class SubresourceLayout : IMarshallableObject, IMarshallab
     public VkDeviceSize ArrayPitch { get; set; }
     public VkDeviceSize DepthPitch { get; set; }
 
+
     public static implicit operator SubresourceLayout(AdamantiumVulkan.Core.Interop.VkSubresourceLayout s)
     {
         return new SubresourceLayout(in s);

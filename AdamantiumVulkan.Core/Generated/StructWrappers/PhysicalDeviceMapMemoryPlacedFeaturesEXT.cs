@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceMapMemoryPlacedFeaturesEXT : IMarshall
     public VkBool32 MemoryMapRangePlaced { get; set; }
     public VkBool32 MemoryUnmapReserve { get; set; }
 
+
     public static implicit operator PhysicalDeviceMapMemoryPlacedFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMapMemoryPlacedFeaturesEXT p)
     {
         return new PhysicalDeviceMapMemoryPlacedFeaturesEXT(in p);

@@ -27,6 +27,7 @@ public unsafe partial class PrivateDataSlotCreateInfo : IMarshallableObject, IMa
     public object PNext { get; set; }
     public VkPrivateDataSlotCreateFlags Flags { get; set; }
 
+
     public static implicit operator PrivateDataSlotCreateInfo(AdamantiumVulkan.Core.Interop.VkPrivateDataSlotCreateInfo p)
     {
         return new PrivateDataSlotCreateInfo(in p);

@@ -28,6 +28,7 @@ public unsafe partial class DeviceImageMemoryRequirements : IMarshallableObject,
     public ImageCreateInfo PCreateInfo { get; set; }
     public ImageAspectFlagBits PlaneAspect { get; set; }
 
+
     public static implicit operator DeviceImageMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements d)
     {
         return new DeviceImageMemoryRequirements(in d);

@@ -27,6 +27,7 @@ public unsafe partial class HeadlessSurfaceCreateInfoEXT : IMarshallableObject, 
     public object PNext { get; set; }
     public VkHeadlessSurfaceCreateFlagsEXT Flags { get; set; }
 
+
     public static implicit operator HeadlessSurfaceCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkHeadlessSurfaceCreateInfoEXT h)
     {
         return new HeadlessSurfaceCreateInfoEXT(in h);

@@ -27,6 +27,7 @@ public unsafe partial class SparseImageFormatProperties : IMarshallableObject, I
     public Extent3D ImageGranularity { get; set; }
     public SparseImageFormatFlagBits Flags { get; set; }
 
+
     public static implicit operator SparseImageFormatProperties(AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties s)
     {
         return new SparseImageFormatProperties(in s);

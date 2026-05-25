@@ -27,6 +27,7 @@ public unsafe partial class BindVertexBufferIndirectCommandNV : IMarshallableObj
     public uint Size { get; set; }
     public uint Stride { get; set; }
 
+
     public static implicit operator BindVertexBufferIndirectCommandNV(AdamantiumVulkan.Core.Interop.VkBindVertexBufferIndirectCommandNV b)
     {
         return new BindVertexBufferIndirectCommandNV(in b);

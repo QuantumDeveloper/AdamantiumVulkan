@@ -35,6 +35,7 @@ public unsafe partial class PhysicalDeviceConservativeRasterizationPropertiesEXT
     public VkBool32 FullyCoveredFragmentShaderInputVariable { get; set; }
     public VkBool32 ConservativeRasterizationPostDepthCoverage { get; set; }
 
+
     public static implicit operator PhysicalDeviceConservativeRasterizationPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConservativeRasterizationPropertiesEXT p)
     {
         return new PhysicalDeviceConservativeRasterizationPropertiesEXT(in p);

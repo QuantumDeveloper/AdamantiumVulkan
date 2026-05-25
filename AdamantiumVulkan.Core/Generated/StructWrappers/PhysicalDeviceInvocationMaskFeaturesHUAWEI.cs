@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceInvocationMaskFeaturesHUAWEI : IMarsha
     public object PNext { get; set; }
     public VkBool32 InvocationMask { get; set; }
 
+
     public static implicit operator PhysicalDeviceInvocationMaskFeaturesHUAWEI(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInvocationMaskFeaturesHUAWEI p)
     {
         return new PhysicalDeviceInvocationMaskFeaturesHUAWEI(in p);

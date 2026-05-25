@@ -27,6 +27,7 @@ public unsafe partial class PartitionedAccelerationStructureFlagsNV : IMarshalla
     public object PNext { get; set; }
     public VkBool32 EnablePartitionTranslation { get; set; }
 
+
     public static implicit operator PartitionedAccelerationStructureFlagsNV(AdamantiumVulkan.Core.Interop.VkPartitionedAccelerationStructureFlagsNV p)
     {
         return new PartitionedAccelerationStructureFlagsNV(in p);

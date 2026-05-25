@@ -29,6 +29,7 @@ public unsafe partial class PipelineInputAssemblyStateCreateInfo : IMarshallable
     public PrimitiveTopology Topology { get; set; }
     public VkBool32 PrimitiveRestartEnable { get; set; }
 
+
     public static implicit operator PipelineInputAssemblyStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineInputAssemblyStateCreateInfo p)
     {
         return new PipelineInputAssemblyStateCreateInfo(in p);

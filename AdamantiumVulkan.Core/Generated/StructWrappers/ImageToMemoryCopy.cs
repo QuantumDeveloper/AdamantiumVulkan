@@ -32,6 +32,7 @@ public unsafe partial class ImageToMemoryCopy : IMarshallableObject, IMarshallab
     public Offset3D ImageOffset { get; set; }
     public Extent3D ImageExtent { get; set; }
 
+
     public static implicit operator ImageToMemoryCopy(AdamantiumVulkan.Core.Interop.VkImageToMemoryCopy i)
     {
         return new ImageToMemoryCopy(in i);

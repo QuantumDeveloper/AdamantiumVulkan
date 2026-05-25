@@ -27,6 +27,7 @@ public unsafe partial class DeviceQueueGlobalPriorityCreateInfo : IMarshallableO
     public object PNext { get; set; }
     public QueueGlobalPriority GlobalPriority { get; set; }
 
+
     public static implicit operator DeviceQueueGlobalPriorityCreateInfo(AdamantiumVulkan.Core.Interop.VkDeviceQueueGlobalPriorityCreateInfo d)
     {
         return new DeviceQueueGlobalPriorityCreateInfo(in d);

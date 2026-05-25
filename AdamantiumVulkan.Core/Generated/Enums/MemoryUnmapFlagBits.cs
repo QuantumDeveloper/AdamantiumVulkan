@@ -11,10 +11,12 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12362 Column: 6
+// File: vk.xml Line: 14105 Column: 6
 [Flags]
 public enum MemoryUnmapFlagBits : uint
 {
+    ReserveBitExt = 1,
+
 }
 
 

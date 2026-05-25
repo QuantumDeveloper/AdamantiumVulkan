@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceMaintenance4Properties : IMarshallable
     public object PNext { get; set; }
     public VkDeviceSize MaxBufferSize { get; set; }
 
+
     public static implicit operator PhysicalDeviceMaintenance4Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance4Properties p)
     {
         return new PhysicalDeviceMaintenance4Properties(in p);

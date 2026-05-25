@@ -29,6 +29,7 @@ public unsafe partial class DisplayPresentInfoKHR : IMarshallableObject, IMarsha
     public Rect2D DstRect { get; set; }
     public VkBool32 Persistent { get; set; }
 
+
     public static implicit operator DisplayPresentInfoKHR(AdamantiumVulkan.Core.Interop.VkDisplayPresentInfoKHR d)
     {
         return new DisplayPresentInfoKHR(in d);

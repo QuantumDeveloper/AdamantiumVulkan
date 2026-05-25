@@ -36,6 +36,7 @@ public unsafe partial class CooperativeMatrixFlexibleDimensionsPropertiesNV : IM
     public ScopeKHR Scope { get; set; }
     public uint WorkgroupInvocations { get; set; }
 
+
     public static implicit operator CooperativeMatrixFlexibleDimensionsPropertiesNV(AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV c)
     {
         return new CooperativeMatrixFlexibleDimensionsPropertiesNV(in c);

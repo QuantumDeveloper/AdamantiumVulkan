@@ -26,6 +26,7 @@ public unsafe partial class SurfaceFormatKHR : IMarshallableObject, IMarshallabl
     public Format Format { get; set; }
     public ColorSpaceKHR ColorSpace { get; set; }
 
+
     public static implicit operator SurfaceFormatKHR(AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR s)
     {
         return new SurfaceFormatKHR(in s);

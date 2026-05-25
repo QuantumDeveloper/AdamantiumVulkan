@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10428 Column: 6
+// File: vk.xml Line: 12124 Column: 6
 public enum SystemAllocationScope : int
 {
     Command = 0,

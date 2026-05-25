@@ -11,10 +11,16 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10795 Column: 6
+// File: vk.xml Line: 12491 Column: 6
 [Flags]
 public enum DeviceQueueCreateFlagBits : uint
 {
+    Reserved1BitQcom = 2,
+
+    InternallySynchronizedBitKhr = 4,
+
+    ProtectedBit = 1,
+
 }
 
 

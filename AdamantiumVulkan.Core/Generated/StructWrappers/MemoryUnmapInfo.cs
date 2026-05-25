@@ -28,6 +28,7 @@ public unsafe partial class MemoryUnmapInfo : IMarshallableObject, IMarshallable
     public MemoryUnmapFlagBits Flags { get; set; }
     public DeviceMemory Memory { get; set; }
 
+
     public static implicit operator MemoryUnmapInfo(AdamantiumVulkan.Core.Interop.VkMemoryUnmapInfo m)
     {
         return new MemoryUnmapInfo(in m);

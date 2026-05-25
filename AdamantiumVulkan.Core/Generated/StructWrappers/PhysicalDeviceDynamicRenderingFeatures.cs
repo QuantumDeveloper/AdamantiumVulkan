@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceDynamicRenderingFeatures : IMarshallab
     public object PNext { get; set; }
     public VkBool32 DynamicRendering { get; set; }
 
+
     public static implicit operator PhysicalDeviceDynamicRenderingFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDynamicRenderingFeatures p)
     {
         return new PhysicalDeviceDynamicRenderingFeatures(in p);

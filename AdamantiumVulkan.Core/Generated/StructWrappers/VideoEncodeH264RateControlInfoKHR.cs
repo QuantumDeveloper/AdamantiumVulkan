@@ -31,6 +31,7 @@ public unsafe partial class VideoEncodeH264RateControlInfoKHR : IMarshallableObj
     public uint ConsecutiveBFrameCount { get; set; }
     public uint TemporalLayerCount { get; set; }
 
+
     public static implicit operator VideoEncodeH264RateControlInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH264RateControlInfoKHR v)
     {
         return new VideoEncodeH264RateControlInfoKHR(in v);

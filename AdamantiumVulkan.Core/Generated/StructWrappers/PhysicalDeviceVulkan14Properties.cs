@@ -51,6 +51,7 @@ public unsafe partial class PhysicalDeviceVulkan14Properties : IMarshallableObje
     public System.ReadOnlyMemory<byte> OptimalTilingLayoutUUID { get; set; }
     public VkBool32 IdenticalMemoryTypeRequirements { get; set; }
 
+
     public static implicit operator PhysicalDeviceVulkan14Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan14Properties p)
     {
         return new PhysicalDeviceVulkan14Properties(in p);

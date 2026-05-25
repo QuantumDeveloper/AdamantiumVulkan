@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10942 Column: 6
+// File: vk.xml Line: 12638 Column: 6
 [Flags]
 public enum QueryPipelineStatisticFlagBits : uint
 {
@@ -36,6 +36,12 @@ public enum QueryPipelineStatisticFlagBits : uint
     TessellationEvaluationShaderInvocationsBit = 512,
 
     ComputeShaderInvocationsBit = 1024,
+
+    TaskShaderInvocationsBitExt = 2048,
+
+    MeshShaderInvocationsBitExt = 4096,
+
+    ClusterCullingShaderInvocationsBitHuawei = 8192,
 
 }
 

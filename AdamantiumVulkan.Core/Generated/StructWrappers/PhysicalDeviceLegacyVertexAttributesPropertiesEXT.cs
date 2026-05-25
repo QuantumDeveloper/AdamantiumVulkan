@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceLegacyVertexAttributesPropertiesEXT : 
     public object PNext { get; set; }
     public VkBool32 NativeUnalignedPerformance { get; set; }
 
+
     public static implicit operator PhysicalDeviceLegacyVertexAttributesPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLegacyVertexAttributesPropertiesEXT p)
     {
         return new PhysicalDeviceLegacyVertexAttributesPropertiesEXT(in p);

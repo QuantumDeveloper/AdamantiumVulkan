@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11554 Column: 6
+// File: vk.xml Line: 13253 Column: 6
 public enum ShaderGroupShaderKHR : int
 {
     GeneralKhr = 0,

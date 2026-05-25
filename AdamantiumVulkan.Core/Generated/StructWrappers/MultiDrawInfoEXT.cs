@@ -26,6 +26,7 @@ public unsafe partial class MultiDrawInfoEXT : IMarshallableObject, IMarshallabl
     public uint FirstVertex { get; set; }
     public uint VertexCount { get; set; }
 
+
     public static implicit operator MultiDrawInfoEXT(AdamantiumVulkan.Core.Interop.VkMultiDrawInfoEXT m)
     {
         return new MultiDrawInfoEXT(in m);

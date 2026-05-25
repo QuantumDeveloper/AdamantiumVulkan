@@ -34,6 +34,7 @@ public unsafe partial class RenderingInfo : IMarshallableObject, IMarshallable<A
     public RenderingAttachmentInfo PDepthAttachment { get; set; }
     public RenderingAttachmentInfo PStencilAttachment { get; set; }
 
+
     public static implicit operator RenderingInfo(AdamantiumVulkan.Core.Interop.VkRenderingInfo r)
     {
         return new RenderingInfo(in r);

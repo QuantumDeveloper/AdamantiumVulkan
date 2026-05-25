@@ -26,6 +26,7 @@ public unsafe partial class MemoryHeap : IMarshallableObject, IMarshallable<Adam
     public VkDeviceSize Size { get; set; }
     public MemoryHeapFlagBits Flags { get; set; }
 
+
     public static implicit operator MemoryHeap(AdamantiumVulkan.Core.Interop.VkMemoryHeap m)
     {
         return new MemoryHeap(in m);

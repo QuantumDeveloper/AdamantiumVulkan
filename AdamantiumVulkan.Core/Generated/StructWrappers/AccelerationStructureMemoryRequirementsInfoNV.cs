@@ -28,6 +28,7 @@ public unsafe partial class AccelerationStructureMemoryRequirementsInfoNV : IMar
     public AccelerationStructureMemoryRequirementsTypeNV Type { get; set; }
     public AccelerationStructureNV AccelerationStructure { get; set; }
 
+
     public static implicit operator AccelerationStructureMemoryRequirementsInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureMemoryRequirementsInfoNV a)
     {
         return new AccelerationStructureMemoryRequirementsInfoNV(in a);

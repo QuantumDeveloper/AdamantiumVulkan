@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 16444 Column: 10
+// File: video.xml Line: 18429 Column: 10
 public unsafe struct PFN_vkCmdOpticalFlowExecuteNV
 {
     public PFN_vkCmdOpticalFlowExecuteNV(nuint ptr) : this((void*) ptr) { }

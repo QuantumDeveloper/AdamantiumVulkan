@@ -31,6 +31,7 @@ public unsafe partial class DebugMarkerObjectTagInfoEXT : IMarshallableObject, I
     public nuint TagSize { get; set; }
     public System.ReadOnlyMemory<byte> PTag { get; set; }
 
+
     public static implicit operator DebugMarkerObjectTagInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT d)
     {
         return new DebugMarkerObjectTagInfoEXT(in d);

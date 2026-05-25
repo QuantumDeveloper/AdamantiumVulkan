@@ -15,7 +15,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: video.xml Line: 15192 Column: 10
+// File: video.xml Line: 17147 Column: 10
 public unsafe struct PFN_vkGetDeviceGroupSurfacePresentModes2EXT
 {
     public PFN_vkGetDeviceGroupSurfacePresentModes2EXT(nuint ptr) : this((void*) ptr) { }

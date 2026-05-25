@@ -31,6 +31,7 @@ public unsafe partial class DisplayPropertiesKHR : IMarshallableObject, IMarshal
     public VkBool32 PlaneReorderPossible { get; set; }
     public VkBool32 PersistentContent { get; set; }
 
+
     public static implicit operator DisplayPropertiesKHR(AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR d)
     {
         return new DisplayPropertiesKHR(in d);

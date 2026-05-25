@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePipelineExecutablePropertiesFeaturesKH
     public object PNext { get; set; }
     public VkBool32 PipelineExecutableInfo { get; set; }
 
+
     public static implicit operator PhysicalDevicePipelineExecutablePropertiesFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR p)
     {
         return new PhysicalDevicePipelineExecutablePropertiesFeaturesKHR(in p);

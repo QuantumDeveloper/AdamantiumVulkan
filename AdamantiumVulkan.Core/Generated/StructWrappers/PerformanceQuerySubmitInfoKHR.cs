@@ -27,6 +27,7 @@ public unsafe partial class PerformanceQuerySubmitInfoKHR : IMarshallableObject,
     public object PNext { get; set; }
     public uint CounterPassIndex { get; set; }
 
+
     public static implicit operator PerformanceQuerySubmitInfoKHR(AdamantiumVulkan.Core.Interop.VkPerformanceQuerySubmitInfoKHR p)
     {
         return new PerformanceQuerySubmitInfoKHR(in p);

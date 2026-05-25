@@ -30,6 +30,7 @@ public unsafe partial class FramebufferMixedSamplesCombinationNV : IMarshallable
     public SampleCountFlagBits DepthStencilSamples { get; set; }
     public SampleCountFlagBits ColorSamples { get; set; }
 
+
     public static implicit operator FramebufferMixedSamplesCombinationNV(AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV f)
     {
         return new FramebufferMixedSamplesCombinationNV(in f);

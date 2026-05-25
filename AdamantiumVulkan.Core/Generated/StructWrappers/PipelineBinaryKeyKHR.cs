@@ -28,6 +28,7 @@ public unsafe partial class PipelineBinaryKeyKHR : IMarshallableObject, IMarshal
     public uint KeySize { get; set; }
     public System.ReadOnlyMemory<byte> Key { get; set; }
 
+
     public static implicit operator PipelineBinaryKeyKHR(AdamantiumVulkan.Core.Interop.VkPipelineBinaryKeyKHR p)
     {
         return new PipelineBinaryKeyKHR(in p);

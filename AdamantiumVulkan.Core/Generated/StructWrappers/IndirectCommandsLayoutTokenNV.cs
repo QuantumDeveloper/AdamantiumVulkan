@@ -39,6 +39,7 @@ public unsafe partial class IndirectCommandsLayoutTokenNV : IMarshallableObject,
     public System.ReadOnlyMemory<IndexType> PIndexTypes { get; set; }
     public System.ReadOnlyMemory<uint> PIndexTypeValues { get; set; }
 
+
     public static implicit operator IndirectCommandsLayoutTokenNV(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV i)
     {
         return new IndirectCommandsLayoutTokenNV(in i);

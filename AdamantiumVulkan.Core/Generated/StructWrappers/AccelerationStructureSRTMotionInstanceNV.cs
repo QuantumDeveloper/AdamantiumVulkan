@@ -31,6 +31,7 @@ public unsafe partial class AccelerationStructureSRTMotionInstanceNV : IMarshall
     public GeometryInstanceFlagBitsKHR Flags { get; set; }
     public ulong AccelerationStructureReference { get; set; }
 
+
     public static implicit operator AccelerationStructureSRTMotionInstanceNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureSRTMotionInstanceNV a)
     {
         return new AccelerationStructureSRTMotionInstanceNV(in a);

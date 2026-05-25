@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15514 Column: 10
+// File: video.xml Line: 17469 Column: 10
 public unsafe struct PFN_vkCmdSetStencilTestEnable
 {
     public PFN_vkCmdSetStencilTestEnable(nuint ptr) : this((void*) ptr) { }

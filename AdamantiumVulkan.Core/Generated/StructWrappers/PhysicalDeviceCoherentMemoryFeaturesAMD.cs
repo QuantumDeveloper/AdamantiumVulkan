@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceCoherentMemoryFeaturesAMD : IMarshalla
     public object PNext { get; set; }
     public VkBool32 DeviceCoherentMemory { get; set; }
 
+
     public static implicit operator PhysicalDeviceCoherentMemoryFeaturesAMD(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoherentMemoryFeaturesAMD p)
     {
         return new PhysicalDeviceCoherentMemoryFeaturesAMD(in p);

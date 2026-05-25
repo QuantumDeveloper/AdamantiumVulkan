@@ -27,6 +27,7 @@ public unsafe partial class SharedPresentSurfaceCapabilitiesKHR : IMarshallableO
     public object PNext { get; set; }
     public ImageUsageFlagBits SharedPresentSupportedUsageFlags { get; set; }
 
+
     public static implicit operator SharedPresentSurfaceCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkSharedPresentSurfaceCapabilitiesKHR s)
     {
         return new SharedPresentSurfaceCapabilitiesKHR(in s);

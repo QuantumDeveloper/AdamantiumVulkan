@@ -27,6 +27,7 @@ public unsafe partial class PipelineTessellationDomainOriginStateCreateInfo : IM
     public object PNext { get; set; }
     public TessellationDomainOrigin DomainOrigin { get; set; }
 
+
     public static implicit operator PipelineTessellationDomainOriginStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineTessellationDomainOriginStateCreateInfo p)
     {
         return new PipelineTessellationDomainOriginStateCreateInfo(in p);

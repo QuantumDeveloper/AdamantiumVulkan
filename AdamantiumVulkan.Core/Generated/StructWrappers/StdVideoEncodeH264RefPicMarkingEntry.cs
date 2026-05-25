@@ -29,6 +29,7 @@ public unsafe partial class StdVideoEncodeH264RefPicMarkingEntry : IMarshallable
     public ushort Long_term_frame_idx { get; set; }
     public ushort Max_long_term_frame_idx_plus1 { get; set; }
 
+
     public static implicit operator StdVideoEncodeH264RefPicMarkingEntry(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry s)
     {
         return new StdVideoEncodeH264RefPicMarkingEntry(in s);

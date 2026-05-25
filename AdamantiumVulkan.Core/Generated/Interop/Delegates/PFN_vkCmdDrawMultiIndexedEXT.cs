@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 13212 Column: 10
+// File: video.xml Line: 15128 Column: 10
 public unsafe struct PFN_vkCmdDrawMultiIndexedEXT
 {
     public PFN_vkCmdDrawMultiIndexedEXT(nuint ptr) : this((void*) ptr) { }

@@ -30,6 +30,7 @@ public unsafe partial class StdVideoEncodeAV1ReferenceInfo : IMarshallableObject
     public System.ReadOnlyMemory<byte> Reserved1 { get; set; }
     public StdVideoEncodeAV1ExtensionHeader PExtensionHeader { get; set; }
 
+
     public static implicit operator StdVideoEncodeAV1ReferenceInfo(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ReferenceInfo s)
     {
         return new StdVideoEncodeAV1ReferenceInfo(in s);

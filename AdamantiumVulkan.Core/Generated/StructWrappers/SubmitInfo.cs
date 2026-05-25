@@ -33,6 +33,7 @@ public unsafe partial class SubmitInfo : IMarshallableObject, IMarshallable<Adam
     public uint SignalSemaphoreCount { get; set; }
     public System.ReadOnlyMemory<Semaphore> PSignalSemaphores { get; set; }
 
+
     public static implicit operator SubmitInfo(AdamantiumVulkan.Core.Interop.VkSubmitInfo s)
     {
         return new SubmitInfo(in s);

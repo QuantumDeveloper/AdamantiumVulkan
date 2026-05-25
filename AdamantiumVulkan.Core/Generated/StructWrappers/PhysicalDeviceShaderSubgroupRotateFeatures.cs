@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceShaderSubgroupRotateFeatures : IMarsha
     public VkBool32 ShaderSubgroupRotate { get; set; }
     public VkBool32 ShaderSubgroupRotateClustered { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderSubgroupRotateFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupRotateFeatures p)
     {
         return new PhysicalDeviceShaderSubgroupRotateFeatures(in p);

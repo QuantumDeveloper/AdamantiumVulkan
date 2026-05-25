@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT
     public object PNext { get; set; }
     public VkBool32 PipelineLibraryGroupHandles { get; set; }
 
+
     public static implicit operator PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT p)
     {
         return new PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT(in p);

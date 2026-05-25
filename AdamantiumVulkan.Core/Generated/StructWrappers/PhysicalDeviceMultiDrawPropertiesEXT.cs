@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceMultiDrawPropertiesEXT : IMarshallable
     public object PNext { get; set; }
     public uint MaxMultiDrawCount { get; set; }
 
+
     public static implicit operator PhysicalDeviceMultiDrawPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiDrawPropertiesEXT p)
     {
         return new PhysicalDeviceMultiDrawPropertiesEXT(in p);

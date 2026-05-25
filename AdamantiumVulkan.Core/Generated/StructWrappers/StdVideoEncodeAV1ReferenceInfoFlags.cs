@@ -27,6 +27,7 @@ public unsafe partial class StdVideoEncodeAV1ReferenceInfoFlags : IMarshallableO
     public uint Segmentation_enabled { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoEncodeAV1ReferenceInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ReferenceInfoFlags s)
     {
         return new StdVideoEncodeAV1ReferenceInfoFlags(in s);

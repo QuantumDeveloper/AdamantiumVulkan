@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 13867 Column: 10
+// File: video.xml Line: 15817 Column: 10
 public unsafe struct PFN_vkDestroyIndirectCommandsLayoutEXT
 {
     public PFN_vkDestroyIndirectCommandsLayoutEXT(nuint ptr) : this((void*) ptr) { }

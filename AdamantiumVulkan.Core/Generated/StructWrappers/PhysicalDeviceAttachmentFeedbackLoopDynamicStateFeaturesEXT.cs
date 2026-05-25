@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeat
     public object PNext { get; set; }
     public VkBool32 AttachmentFeedbackLoopDynamicState { get; set; }
 
+
     public static implicit operator PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT p)
     {
         return new PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT(in p);

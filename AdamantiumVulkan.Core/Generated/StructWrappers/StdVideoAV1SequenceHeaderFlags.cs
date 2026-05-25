@@ -44,6 +44,7 @@ public unsafe partial class StdVideoAV1SequenceHeaderFlags : IMarshallableObject
     public uint Initial_display_delay_present_flag { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoAV1SequenceHeaderFlags(AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeaderFlags s)
     {
         return new StdVideoAV1SequenceHeaderFlags(in s);

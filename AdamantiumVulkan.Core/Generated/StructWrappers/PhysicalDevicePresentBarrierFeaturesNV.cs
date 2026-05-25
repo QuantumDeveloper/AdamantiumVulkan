@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePresentBarrierFeaturesNV : IMarshallab
     public object PNext { get; set; }
     public VkBool32 PresentBarrier { get; set; }
 
+
     public static implicit operator PhysicalDevicePresentBarrierFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePresentBarrierFeaturesNV p)
     {
         return new PhysicalDevicePresentBarrierFeaturesNV(in p);

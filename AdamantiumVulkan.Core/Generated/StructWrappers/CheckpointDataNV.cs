@@ -28,6 +28,7 @@ public unsafe partial class CheckpointDataNV : IMarshallableObject, IMarshallabl
     public PipelineStageFlagBits Stage { get; set; }
     public nuint PCheckpointMarker { get; set; }
 
+
     public static implicit operator CheckpointDataNV(AdamantiumVulkan.Core.Interop.VkCheckpointDataNV c)
     {
         return new CheckpointDataNV(in c);

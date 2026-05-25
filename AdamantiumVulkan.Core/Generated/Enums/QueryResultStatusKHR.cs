@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11887 Column: 6
+// File: vk.xml Line: 13613 Column: 6
 public enum QueryResultStatusKHR : int
 {
     ErrorKhr = -1,

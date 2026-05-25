@@ -33,6 +33,7 @@ public unsafe partial class CommandBufferInheritanceRenderingInfo : IMarshallabl
     public Format StencilAttachmentFormat { get; set; }
     public SampleCountFlagBits RasterizationSamples { get; set; }
 
+
     public static implicit operator CommandBufferInheritanceRenderingInfo(AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceRenderingInfo c)
     {
         return new CommandBufferInheritanceRenderingInfo(in c);

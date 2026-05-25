@@ -35,6 +35,7 @@ public unsafe partial class RayTracingPipelineCreateInfoNV : IMarshallableObject
     public Pipeline BasePipelineHandle { get; set; }
     public int BasePipelineIndex { get; set; }
 
+
     public static implicit operator RayTracingPipelineCreateInfoNV(AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV r)
     {
         return new RayTracingPipelineCreateInfoNV(in r);

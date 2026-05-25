@@ -28,6 +28,7 @@ public unsafe partial class AccelerationStructureMotionInfoNV : IMarshallableObj
     public uint MaxInstances { get; set; }
     public AccelerationStructureMotionInstanceTypeNV Flags { get; set; }
 
+
     public static implicit operator AccelerationStructureMotionInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInfoNV a)
     {
         return new AccelerationStructureMotionInfoNV(in a);

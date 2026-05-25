@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: vk.xml Line: 3420 Column: 10
+// File: vk.xml Line: 3595 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDeviceGroupDeviceCreateInfo
 {

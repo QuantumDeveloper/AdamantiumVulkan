@@ -30,6 +30,7 @@ public unsafe partial class SemaphoreGetWin32HandleInfoKHR : IMarshallableObject
     public Semaphore Semaphore { get; set; }
     public ExternalSemaphoreHandleTypeFlagBits HandleType { get; set; }
 
+
     public static implicit operator SemaphoreGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR s)
     {
         return new SemaphoreGetWin32HandleInfoKHR(in s);

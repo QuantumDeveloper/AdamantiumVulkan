@@ -34,6 +34,7 @@ public unsafe partial class PhysicalDeviceRayTracingPipelinePropertiesKHR : IMar
     public uint ShaderGroupHandleAlignment { get; set; }
     public uint MaxRayHitAttributeSize { get; set; }
 
+
     public static implicit operator PhysicalDeviceRayTracingPipelinePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelinePropertiesKHR p)
     {
         return new PhysicalDeviceRayTracingPipelinePropertiesKHR(in p);

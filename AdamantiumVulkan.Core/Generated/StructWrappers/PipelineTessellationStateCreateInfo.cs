@@ -28,6 +28,7 @@ public unsafe partial class PipelineTessellationStateCreateInfo : IMarshallableO
     public VkPipelineTessellationStateCreateFlags Flags { get; set; }
     public uint PatchControlPoints { get; set; }
 
+
     public static implicit operator PipelineTessellationStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineTessellationStateCreateInfo p)
     {
         return new PipelineTessellationStateCreateInfo(in p);

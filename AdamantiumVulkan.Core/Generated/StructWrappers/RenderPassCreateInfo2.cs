@@ -35,6 +35,7 @@ public unsafe partial class RenderPassCreateInfo2 : IMarshallableObject, IMarsha
     public uint CorrelatedViewMaskCount { get; set; }
     public System.ReadOnlyMemory<uint> PCorrelatedViewMasks { get; set; }
 
+
     public static implicit operator RenderPassCreateInfo2(AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo2 r)
     {
         return new RenderPassCreateInfo2(in r);

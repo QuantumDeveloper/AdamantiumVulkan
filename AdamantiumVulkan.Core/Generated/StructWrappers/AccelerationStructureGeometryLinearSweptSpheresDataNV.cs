@@ -37,6 +37,7 @@ public unsafe partial class AccelerationStructureGeometryLinearSweptSpheresDataN
     public RayTracingLssIndexingModeNV IndexingMode { get; set; }
     public RayTracingLssPrimitiveEndCapsModeNV EndCapsMode { get; set; }
 
+
     public static implicit operator AccelerationStructureGeometryLinearSweptSpheresDataNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryLinearSweptSpheresDataNV a)
     {
         return new AccelerationStructureGeometryLinearSweptSpheresDataNV(in a);
@@ -49,6 +50,12 @@ public unsafe partial class AccelerationStructureGeometryLinearSweptSpheresDataN
         {
             size += marshallable.GetSize();
         }
+        if (VertexData != default)
+            size += VertexData.GetSize();
+        if (RadiusData != default)
+            size += RadiusData.GetSize();
+        if (IndexData != default)
+            size += IndexData.GetSize();
         return size;
     }
 

@@ -30,6 +30,7 @@ public unsafe partial class GeneratedCommandsMemoryRequirementsInfoEXT : IMarsha
     public uint MaxSequenceCount { get; set; }
     public uint MaxDrawCount { get; set; }
 
+
     public static implicit operator GeneratedCommandsMemoryRequirementsInfoEXT(AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoEXT g)
     {
         return new GeneratedCommandsMemoryRequirementsInfoEXT(in g);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceVideoEncodeAV1FeaturesKHR : IMarshalla
     public object PNext { get; set; }
     public VkBool32 VideoEncodeAV1 { get; set; }
 
+
     public static implicit operator PhysicalDeviceVideoEncodeAV1FeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeAV1FeaturesKHR p)
     {
         return new PhysicalDeviceVideoEncodeAV1FeaturesKHR(in p);

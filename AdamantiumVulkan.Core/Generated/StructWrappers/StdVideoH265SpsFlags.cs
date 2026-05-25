@@ -54,6 +54,7 @@ public unsafe partial class StdVideoH265SpsFlags : IMarshallableObject, IMarshal
     public uint Sps_palette_predictor_initializers_present_flag { get; set; }
     public uint Intra_boundary_filtering_disabled_flag { get; set; }
 
+
     public static implicit operator StdVideoH265SpsFlags(AdamantiumVulkan.Core.Interop.StdVideoH265SpsFlags s)
     {
         return new StdVideoH265SpsFlags(in s);

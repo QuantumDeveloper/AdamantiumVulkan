@@ -33,6 +33,7 @@ public unsafe partial class RenderPassCreateInfo : IMarshallableObject, IMarshal
     public uint DependencyCount { get; set; }
     public System.ReadOnlyMemory<SubpassDependency> PDependencies { get; set; }
 
+
     public static implicit operator RenderPassCreateInfo(AdamantiumVulkan.Core.Interop.VkRenderPassCreateInfo r)
     {
         return new RenderPassCreateInfo(in r);

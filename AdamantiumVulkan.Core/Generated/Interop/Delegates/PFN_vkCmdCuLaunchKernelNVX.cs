@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 16083 Column: 10
+// File: video.xml Line: 18052 Column: 10
 public unsafe struct PFN_vkCmdCuLaunchKernelNVX
 {
     public PFN_vkCmdCuLaunchKernelNVX(nuint ptr) : this((void*) ptr) { }

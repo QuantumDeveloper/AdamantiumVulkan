@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceSubpassShadingPropertiesHUAWEI : IMars
     public object PNext { get; set; }
     public uint MaxSubpassShadingWorkgroupSizeAspectRatio { get; set; }
 
+
     public static implicit operator PhysicalDeviceSubpassShadingPropertiesHUAWEI(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubpassShadingPropertiesHUAWEI p)
     {
         return new PhysicalDeviceSubpassShadingPropertiesHUAWEI(in p);

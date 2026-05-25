@@ -27,6 +27,7 @@ public unsafe partial class RayTracingPipelineClusterAccelerationStructureCreate
     public object PNext { get; set; }
     public VkBool32 AllowClusterAccelerationStructure { get; set; }
 
+
     public static implicit operator RayTracingPipelineClusterAccelerationStructureCreateInfoNV(AdamantiumVulkan.Core.Interop.VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV r)
     {
         return new RayTracingPipelineClusterAccelerationStructureCreateInfoNV(in r);

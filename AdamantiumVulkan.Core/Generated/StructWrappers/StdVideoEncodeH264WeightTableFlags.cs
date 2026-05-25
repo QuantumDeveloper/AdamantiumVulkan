@@ -28,6 +28,7 @@ public unsafe partial class StdVideoEncodeH264WeightTableFlags : IMarshallableOb
     public uint Luma_weight_l1_flag { get; set; }
     public uint Chroma_weight_l1_flag { get; set; }
 
+
     public static implicit operator StdVideoEncodeH264WeightTableFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264WeightTableFlags s)
     {
         return new StdVideoEncodeH264WeightTableFlags(in s);

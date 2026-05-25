@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceCubicClampFeaturesQCOM : IMarshallable
     public object PNext { get; set; }
     public VkBool32 CubicRangeClamp { get; set; }
 
+
     public static implicit operator PhysicalDeviceCubicClampFeaturesQCOM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCubicClampFeaturesQCOM p)
     {
         return new PhysicalDeviceCubicClampFeaturesQCOM(in p);

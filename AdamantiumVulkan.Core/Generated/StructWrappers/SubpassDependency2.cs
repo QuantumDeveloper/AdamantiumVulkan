@@ -34,6 +34,7 @@ public unsafe partial class SubpassDependency2 : IMarshallableObject, IMarshalla
     public DependencyFlagBits DependencyFlags { get; set; }
     public int ViewOffset { get; set; }
 
+
     public static implicit operator SubpassDependency2(AdamantiumVulkan.Core.Interop.VkSubpassDependency2 s)
     {
         return new SubpassDependency2(in s);

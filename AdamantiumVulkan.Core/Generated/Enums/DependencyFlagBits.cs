@@ -11,11 +11,23 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11021 Column: 6
+// File: vk.xml Line: 12717 Column: 6
 [Flags]
 public enum DependencyFlagBits : uint
 {
     ByRegionBit = 1,
+
+    FeedbackLoopBitExt = 8,
+
+    QueueFamilyOwnershipTransferUseAllStagesBitKhr = 32,
+
+    AsymmetricEventBitKhr = 64,
+
+    Extension586BitImg = 16,
+
+    DeviceGroupBit = 4,
+
+    ViewLocalBit = 2,
 
 }
 

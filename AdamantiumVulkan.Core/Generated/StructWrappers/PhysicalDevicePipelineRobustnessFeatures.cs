@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePipelineRobustnessFeatures : IMarshall
     public object PNext { get; set; }
     public VkBool32 PipelineRobustness { get; set; }
 
+
     public static implicit operator PhysicalDevicePipelineRobustnessFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineRobustnessFeatures p)
     {
         return new PhysicalDevicePipelineRobustnessFeatures(in p);

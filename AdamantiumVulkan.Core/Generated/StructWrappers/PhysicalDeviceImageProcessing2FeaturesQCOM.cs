@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceImageProcessing2FeaturesQCOM : IMarsha
     public object PNext { get; set; }
     public VkBool32 TextureBlockMatch2 { get; set; }
 
+
     public static implicit operator PhysicalDeviceImageProcessing2FeaturesQCOM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageProcessing2FeaturesQCOM p)
     {
         return new PhysicalDeviceImageProcessing2FeaturesQCOM(in p);

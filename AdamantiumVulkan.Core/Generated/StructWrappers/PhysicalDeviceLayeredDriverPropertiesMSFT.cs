@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceLayeredDriverPropertiesMSFT : IMarshal
     public object PNext { get; set; }
     public LayeredDriverUnderlyingApiMSFT UnderlyingAPI { get; set; }
 
+
     public static implicit operator PhysicalDeviceLayeredDriverPropertiesMSFT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredDriverPropertiesMSFT p)
     {
         return new PhysicalDeviceLayeredDriverPropertiesMSFT(in p);

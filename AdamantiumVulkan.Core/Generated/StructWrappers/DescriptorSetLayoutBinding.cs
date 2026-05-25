@@ -29,6 +29,7 @@ public unsafe partial class DescriptorSetLayoutBinding : IMarshallableObject, IM
     public ShaderStageFlagBits StageFlags { get; set; }
     public System.ReadOnlyMemory<Sampler> PImmutableSamplers { get; set; }
 
+
     public static implicit operator DescriptorSetLayoutBinding(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding d)
     {
         return new DescriptorSetLayoutBinding(in d);

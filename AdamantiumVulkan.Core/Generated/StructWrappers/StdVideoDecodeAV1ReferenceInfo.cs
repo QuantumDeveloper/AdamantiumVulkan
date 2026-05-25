@@ -29,6 +29,7 @@ public unsafe partial class StdVideoDecodeAV1ReferenceInfo : IMarshallableObject
     public byte OrderHint { get; set; }
     public System.ReadOnlyMemory<byte> SavedOrderHints { get; set; }
 
+
     public static implicit operator StdVideoDecodeAV1ReferenceInfo(AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfo s)
     {
         return new StdVideoDecodeAV1ReferenceInfo(in s);

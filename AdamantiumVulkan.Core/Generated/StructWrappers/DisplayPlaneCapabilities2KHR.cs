@@ -27,6 +27,7 @@ public unsafe partial class DisplayPlaneCapabilities2KHR : IMarshallableObject, 
     public object PNext { get; set; }
     public DisplayPlaneCapabilitiesKHR Capabilities { get; set; }
 
+
     public static implicit operator DisplayPlaneCapabilities2KHR(AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR d)
     {
         return new DisplayPlaneCapabilities2KHR(in d);

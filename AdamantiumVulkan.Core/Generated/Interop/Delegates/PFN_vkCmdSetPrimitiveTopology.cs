@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15450 Column: 10
+// File: video.xml Line: 17405 Column: 10
 public unsafe struct PFN_vkCmdSetPrimitiveTopology
 {
     public PFN_vkCmdSetPrimitiveTopology(nuint ptr) : this((void*) ptr) { }

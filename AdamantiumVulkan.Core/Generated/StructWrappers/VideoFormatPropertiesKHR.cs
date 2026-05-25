@@ -32,6 +32,7 @@ public unsafe partial class VideoFormatPropertiesKHR : IMarshallableObject, IMar
     public ImageTiling ImageTiling { get; set; }
     public ImageUsageFlagBits ImageUsageFlags { get; set; }
 
+
     public static implicit operator VideoFormatPropertiesKHR(AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR v)
     {
         return new VideoFormatPropertiesKHR(in v);

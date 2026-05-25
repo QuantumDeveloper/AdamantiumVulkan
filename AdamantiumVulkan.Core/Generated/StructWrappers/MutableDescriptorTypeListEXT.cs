@@ -26,6 +26,7 @@ public unsafe partial class MutableDescriptorTypeListEXT : IMarshallableObject, 
     public uint DescriptorTypeCount { get; set; }
     public System.ReadOnlyMemory<DescriptorType> PDescriptorTypes { get; set; }
 
+
     public static implicit operator MutableDescriptorTypeListEXT(AdamantiumVulkan.Core.Interop.VkMutableDescriptorTypeListEXT m)
     {
         return new MutableDescriptorTypeListEXT(in m);

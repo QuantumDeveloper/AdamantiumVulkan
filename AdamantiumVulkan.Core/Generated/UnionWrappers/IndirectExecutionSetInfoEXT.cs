@@ -26,6 +26,7 @@ public unsafe partial class IndirectExecutionSetInfoEXT : IMarshallableObject, I
     public IndirectExecutionSetPipelineInfoEXT PipelineInfo { get; set; }
     public IndirectExecutionSetShaderInfoEXT PShaderInfo { get; set; }
 
+
     public static implicit operator IndirectExecutionSetInfoEXT(AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetInfoEXT i)
     {
         return new IndirectExecutionSetInfoEXT(in i);
@@ -36,11 +37,11 @@ public unsafe partial class IndirectExecutionSetInfoEXT : IMarshallableObject, I
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetInfoEXT>();
         if (PipelineInfo != default)
         {
-            size += PipelineInfo.GetSize();
+            size = Math.Max(size, PipelineInfo.GetSize());
         }
         if (PShaderInfo != default)
         {
-            size += PShaderInfo.GetSize();
+            size = Math.Max(size, PShaderInfo.GetSize());
         }
         return size;
     }

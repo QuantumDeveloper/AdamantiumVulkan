@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12366 Column: 6
+// File: vk.xml Line: 14112 Column: 6
 [Flags]
 public enum DepthClampModeEXT : int
 {

@@ -29,6 +29,7 @@ public unsafe partial class VideoEncodeUsageInfoKHR : IMarshallableObject, IMars
     public VideoEncodeContentFlagBitsKHR VideoContentHints { get; set; }
     public VideoEncodeTuningModeKHR TuningMode { get; set; }
 
+
     public static implicit operator VideoEncodeUsageInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeUsageInfoKHR v)
     {
         return new VideoEncodeUsageInfoKHR(in v);

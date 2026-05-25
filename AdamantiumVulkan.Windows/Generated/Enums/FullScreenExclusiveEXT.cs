@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Windows;
 
-// File: vk.xml Line: 11578 Column: 6
+// File: vk.xml Line: 13279 Column: 6
 public enum FullScreenExclusiveEXT : int
 {
     DefaultExt = 0,

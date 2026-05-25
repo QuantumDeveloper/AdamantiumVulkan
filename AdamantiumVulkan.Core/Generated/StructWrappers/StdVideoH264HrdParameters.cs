@@ -35,6 +35,7 @@ public unsafe partial class StdVideoH264HrdParameters : IMarshallableObject, IMa
     public uint Dpb_output_delay_length_minus1 { get; set; }
     public uint Time_offset_length { get; set; }
 
+
     public static implicit operator StdVideoH264HrdParameters(AdamantiumVulkan.Core.Interop.StdVideoH264HrdParameters s)
     {
         return new StdVideoH264HrdParameters(in s);

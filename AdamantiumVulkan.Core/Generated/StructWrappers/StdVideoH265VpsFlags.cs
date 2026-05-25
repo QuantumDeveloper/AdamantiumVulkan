@@ -28,6 +28,7 @@ public unsafe partial class StdVideoH265VpsFlags : IMarshallableObject, IMarshal
     public uint Vps_timing_info_present_flag { get; set; }
     public uint Vps_poc_proportional_to_timing_flag { get; set; }
 
+
     public static implicit operator StdVideoH265VpsFlags(AdamantiumVulkan.Core.Interop.StdVideoH265VpsFlags s)
     {
         return new StdVideoH265VpsFlags(in s);

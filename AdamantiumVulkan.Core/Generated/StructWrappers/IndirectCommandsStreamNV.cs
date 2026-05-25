@@ -26,6 +26,7 @@ public unsafe partial class IndirectCommandsStreamNV : IMarshallableObject, IMar
     public Buffer Buffer { get; set; }
     public VkDeviceSize Offset { get; set; }
 
+
     public static implicit operator IndirectCommandsStreamNV(AdamantiumVulkan.Core.Interop.VkIndirectCommandsStreamNV i)
     {
         return new IndirectCommandsStreamNV(in i);

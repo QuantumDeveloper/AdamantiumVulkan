@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11540 Column: 6
+// File: vk.xml Line: 13239 Column: 6
 [Flags]
 public enum AccelerationStructureBuildTypeKHR : int
 {

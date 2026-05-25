@@ -27,6 +27,7 @@ public unsafe partial class PipelineRepresentativeFragmentTestStateCreateInfoNV 
     public object PNext { get; set; }
     public VkBool32 RepresentativeFragmentTestEnable { get; set; }
 
+
     public static implicit operator PipelineRepresentativeFragmentTestStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineRepresentativeFragmentTestStateCreateInfoNV p)
     {
         return new PipelineRepresentativeFragmentTestStateCreateInfoNV(in p);

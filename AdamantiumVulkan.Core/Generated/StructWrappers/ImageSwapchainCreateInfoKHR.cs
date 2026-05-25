@@ -27,6 +27,7 @@ public unsafe partial class ImageSwapchainCreateInfoKHR : IMarshallableObject, I
     public object PNext { get; set; }
     public SwapchainKHR Swapchain { get; set; }
 
+
     public static implicit operator ImageSwapchainCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkImageSwapchainCreateInfoKHR i)
     {
         return new ImageSwapchainCreateInfoKHR(in i);

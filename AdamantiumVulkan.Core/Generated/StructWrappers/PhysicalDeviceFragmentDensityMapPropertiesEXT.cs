@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : IMar
     public Extent2D MaxFragmentDensityTexelSize { get; set; }
     public VkBool32 FragmentDensityInvocations { get; set; }
 
+
     public static implicit operator PhysicalDeviceFragmentDensityMapPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT p)
     {
         return new PhysicalDeviceFragmentDensityMapPropertiesEXT(in p);

@@ -39,6 +39,7 @@ public unsafe partial class StdVideoEncodeH265SliceSegmentHeader : IMarshallable
     public ushort Reserved1 { get; set; }
     public StdVideoEncodeH265WeightTable PWeightTable { get; set; }
 
+
     public static implicit operator StdVideoEncodeH265SliceSegmentHeader(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeader s)
     {
         return new StdVideoEncodeH265SliceSegmentHeader(in s);

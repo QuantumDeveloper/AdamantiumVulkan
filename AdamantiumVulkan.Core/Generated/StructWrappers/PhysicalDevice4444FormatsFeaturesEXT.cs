@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDevice4444FormatsFeaturesEXT : IMarshallable
     public VkBool32 FormatA4R4G4B4 { get; set; }
     public VkBool32 FormatA4B4G4R4 { get; set; }
 
+
     public static implicit operator PhysicalDevice4444FormatsFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT p)
     {
         return new PhysicalDevice4444FormatsFeaturesEXT(in p);

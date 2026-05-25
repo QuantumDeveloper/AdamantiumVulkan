@@ -28,6 +28,7 @@ public unsafe partial class SemaphoreGetFdInfoKHR : IMarshallableObject, IMarsha
     public Semaphore Semaphore { get; set; }
     public ExternalSemaphoreHandleTypeFlagBits HandleType { get; set; }
 
+
     public static implicit operator SemaphoreGetFdInfoKHR(AdamantiumVulkan.Core.Interop.VkSemaphoreGetFdInfoKHR s)
     {
         return new SemaphoreGetFdInfoKHR(in s);

@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDevicePipelineRobustnessProperties : IMarsha
     public PipelineRobustnessBufferBehavior DefaultRobustnessVertexInputs { get; set; }
     public PipelineRobustnessImageBehavior DefaultRobustnessImages { get; set; }
 
+
     public static implicit operator PhysicalDevicePipelineRobustnessProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineRobustnessProperties p)
     {
         return new PhysicalDevicePipelineRobustnessProperties(in p);

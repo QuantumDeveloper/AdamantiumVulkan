@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceVideoEncodeQualityLevelInfoKHR : IMars
     public VideoProfileInfoKHR PVideoProfile { get; set; }
     public uint QualityLevel { get; set; }
 
+
     public static implicit operator PhysicalDeviceVideoEncodeQualityLevelInfoKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR p)
     {
         return new PhysicalDeviceVideoEncodeQualityLevelInfoKHR(in p);

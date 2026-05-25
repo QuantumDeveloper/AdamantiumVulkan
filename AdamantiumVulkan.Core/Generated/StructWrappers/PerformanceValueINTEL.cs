@@ -26,6 +26,7 @@ public unsafe partial class PerformanceValueINTEL : IMarshallableObject, IMarsha
     public PerformanceValueTypeINTEL Type { get; set; }
     public PerformanceValueDataINTEL Data { get; set; }
 
+
     public static implicit operator PerformanceValueINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL p)
     {
         return new PerformanceValueINTEL(in p);
@@ -34,6 +35,8 @@ public unsafe partial class PerformanceValueINTEL : IMarshallableObject, IMarsha
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPerformanceValueINTEL>();
+        if (Data != default)
+            size += Data.GetSize();
         return size;
     }
 

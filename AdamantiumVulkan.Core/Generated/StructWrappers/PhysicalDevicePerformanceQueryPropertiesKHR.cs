@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePerformanceQueryPropertiesKHR : IMarsh
     public object PNext { get; set; }
     public VkBool32 AllowCommandBufferQueryCopies { get; set; }
 
+
     public static implicit operator PhysicalDevicePerformanceQueryPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePerformanceQueryPropertiesKHR p)
     {
         return new PhysicalDevicePerformanceQueryPropertiesKHR(in p);

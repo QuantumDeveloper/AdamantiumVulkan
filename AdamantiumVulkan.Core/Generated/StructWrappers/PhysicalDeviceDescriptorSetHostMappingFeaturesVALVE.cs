@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE 
     public object PNext { get; set; }
     public VkBool32 DescriptorSetHostMapping { get; set; }
 
+
     public static implicit operator PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE p)
     {
         return new PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE(in p);

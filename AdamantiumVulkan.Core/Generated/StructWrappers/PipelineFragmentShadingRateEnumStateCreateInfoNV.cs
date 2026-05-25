@@ -29,6 +29,7 @@ public unsafe partial class PipelineFragmentShadingRateEnumStateCreateInfoNV : I
     public FragmentShadingRateNV ShadingRate { get; set; }
     public System.ReadOnlyMemory<FragmentShadingRateCombinerOpKHR> CombinerOps { get; set; }
 
+
     public static implicit operator PipelineFragmentShadingRateEnumStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateEnumStateCreateInfoNV p)
     {
         return new PipelineFragmentShadingRateEnumStateCreateInfoNV(in p);

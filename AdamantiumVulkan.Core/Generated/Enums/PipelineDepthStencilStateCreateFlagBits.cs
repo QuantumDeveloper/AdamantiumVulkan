@@ -11,10 +11,14 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11822 Column: 6
+// File: vk.xml Line: 13524 Column: 6
 [Flags]
 public enum PipelineDepthStencilStateCreateFlagBits : uint
 {
+    DepthAccessBitExt = 1,
+
+    StencilAccessBitExt = 2,
+
 }
 
 

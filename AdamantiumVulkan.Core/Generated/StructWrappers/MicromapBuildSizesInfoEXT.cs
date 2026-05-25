@@ -29,6 +29,7 @@ public unsafe partial class MicromapBuildSizesInfoEXT : IMarshallableObject, IMa
     public VkDeviceSize BuildScratchSize { get; set; }
     public VkBool32 Discardable { get; set; }
 
+
     public static implicit operator MicromapBuildSizesInfoEXT(AdamantiumVulkan.Core.Interop.VkMicromapBuildSizesInfoEXT m)
     {
         return new MicromapBuildSizesInfoEXT(in m);

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: vk.xml Line: 587 Column: 10
+// File: vk.xml Line: 633 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkAccelerationStructureNV_T
 {

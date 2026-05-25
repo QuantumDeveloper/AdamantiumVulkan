@@ -33,6 +33,7 @@ public unsafe partial class SpvcMslResourceBinding : IMarshallable<AdamantiumVul
     public uint Msl_buffer { get; set; }
     public uint Msl_texture { get; set; }
     public uint Msl_sampler { get; set; }
+
     ///<summary>
     /// Initializes the resource binding struct. The defaults are non-zero. Deprecated: Use spvc_msl_resource_binding_init_2.
     ///</summary>

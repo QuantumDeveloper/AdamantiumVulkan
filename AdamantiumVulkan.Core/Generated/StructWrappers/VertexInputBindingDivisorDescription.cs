@@ -26,6 +26,7 @@ public unsafe partial class VertexInputBindingDivisorDescription : IMarshallable
     public uint Binding { get; set; }
     public uint Divisor { get; set; }
 
+
     public static implicit operator VertexInputBindingDivisorDescription(AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescription v)
     {
         return new VertexInputBindingDivisorDescription(in v);

@@ -28,6 +28,7 @@ public unsafe partial class MultisampledRenderToSingleSampledInfoEXT : IMarshall
     public VkBool32 MultisampledRenderToSingleSampledEnable { get; set; }
     public SampleCountFlagBits RasterizationSamples { get; set; }
 
+
     public static implicit operator MultisampledRenderToSingleSampledInfoEXT(AdamantiumVulkan.Core.Interop.VkMultisampledRenderToSingleSampledInfoEXT m)
     {
         return new MultisampledRenderToSingleSampledInfoEXT(in m);

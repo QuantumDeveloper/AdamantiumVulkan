@@ -31,6 +31,7 @@ public unsafe partial class AccelerationStructureInfoNV : IMarshallableObject, I
     public uint GeometryCount { get; set; }
     public System.ReadOnlyMemory<GeometryNV> PGeometries { get; set; }
 
+
     public static implicit operator AccelerationStructureInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureInfoNV a)
     {
         return new AccelerationStructureInfoNV(in a);

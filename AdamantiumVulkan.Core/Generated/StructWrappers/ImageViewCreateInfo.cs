@@ -32,6 +32,7 @@ public unsafe partial class ImageViewCreateInfo : IMarshallableObject, IMarshall
     public ComponentMapping Components { get; set; }
     public ImageSubresourceRange SubresourceRange { get; set; }
 
+
     public static implicit operator ImageViewCreateInfo(AdamantiumVulkan.Core.Interop.VkImageViewCreateInfo i)
     {
         return new ImageViewCreateInfo(in i);

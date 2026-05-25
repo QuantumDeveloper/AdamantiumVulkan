@@ -27,6 +27,7 @@ public unsafe partial class VideoEncodeSessionParametersFeedbackInfoKHR : IMarsh
     public object PNext { get; set; }
     public VkBool32 HasOverrides { get; set; }
 
+
     public static implicit operator VideoEncodeSessionParametersFeedbackInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR v)
     {
         return new VideoEncodeSessionParametersFeedbackInfoKHR(in v);

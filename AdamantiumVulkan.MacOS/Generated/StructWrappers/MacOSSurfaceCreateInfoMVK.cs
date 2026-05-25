@@ -29,6 +29,7 @@ public unsafe partial class MacOSSurfaceCreateInfoMVK : IMarshallableObject, IMa
     public VkMacOSSurfaceCreateFlagsMVK Flags { get; set; }
     public nuint PView { get; set; }
 
+
     public static implicit operator MacOSSurfaceCreateInfoMVK(AdamantiumVulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK m)
     {
         return new MacOSSurfaceCreateInfoMVK(in m);

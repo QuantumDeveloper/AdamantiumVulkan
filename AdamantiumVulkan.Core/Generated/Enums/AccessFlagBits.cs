@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10807 Column: 6
+// File: vk.xml Line: 12503 Column: 6
 [Flags]
 public enum AccessFlagBits : uint
 {
@@ -48,6 +48,28 @@ public enum AccessFlagBits : uint
     MemoryReadBit = 32768,
 
     MemoryWriteBit = 65536,
+
+    TransformFeedbackWriteBitExt = 33554432,
+
+    TransformFeedbackCounterReadBitExt = 67108864,
+
+    TransformFeedbackCounterWriteBitExt = 134217728,
+
+    ConditionalRenderingReadBitExt = 1048576,
+
+    ColorAttachmentReadNoncoherentBitExt = 524288,
+
+    AccelerationStructureReadBitKhr = 2097152,
+
+    AccelerationStructureWriteBitKhr = 4194304,
+
+    FragmentDensityMapReadBitExt = 16777216,
+
+    FragmentShadingRateAttachmentReadBitKhr = 8388608,
+
+    CommandPreprocessReadBitExt = 131072,
+
+    CommandPreprocessWriteBitExt = 262144,
 
     None = 0,
 

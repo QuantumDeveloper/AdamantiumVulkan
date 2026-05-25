@@ -28,6 +28,7 @@ public unsafe partial class StdVideoH264ScalingLists : IMarshallableObject, IMar
     public System.ReadOnlyMemory<byte> ScalingList4x4 { get; set; }
     public System.ReadOnlyMemory<byte> ScalingList8x8 { get; set; }
 
+
     public static implicit operator StdVideoH264ScalingLists(AdamantiumVulkan.Core.Interop.StdVideoH264ScalingLists s)
     {
         return new StdVideoH264ScalingLists(in s);

@@ -28,6 +28,7 @@ public unsafe partial class HdrVividDynamicMetadataHUAWEI : IMarshallableObject,
     public nuint DynamicMetadataSize { get; set; }
     public System.ReadOnlyMemory<byte> PDynamicMetadata { get; set; }
 
+
     public static implicit operator HdrVividDynamicMetadataHUAWEI(AdamantiumVulkan.Core.Interop.VkHdrVividDynamicMetadataHUAWEI h)
     {
         return new HdrVividDynamicMetadataHUAWEI(in h);

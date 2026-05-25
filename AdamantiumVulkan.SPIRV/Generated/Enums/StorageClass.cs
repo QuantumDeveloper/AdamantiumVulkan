@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 232 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 221 Column: 14
 public enum StorageClass : uint
 {
     UniformConstant = 0,
@@ -42,6 +42,8 @@ public enum StorageClass : uint
 
     TileImageEXT = 4172,
 
+    TileAttachmentQCOM = 4491,
+
     NodePayloadAMDX = 5068,
 
     CallableDataKHR = 5328,
@@ -62,11 +64,13 @@ public enum StorageClass : uint
 
     TaskPayloadWorkgroupEXT = 5402,
 
+    HitObjectAttributeEXT = 5411,
+
     CodeSectionINTEL = 5605,
 
-    DeviceOnlyINTEL = 5936,
+    DeviceOnlyALTERA = 5936,
 
-    HostOnlyINTEL = 5937,
+    HostOnlyALTERA = 5937,
 
     Max = 2147483647,
 

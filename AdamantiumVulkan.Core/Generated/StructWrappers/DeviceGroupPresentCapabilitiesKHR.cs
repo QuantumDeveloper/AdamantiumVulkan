@@ -28,6 +28,7 @@ public unsafe partial class DeviceGroupPresentCapabilitiesKHR : IMarshallableObj
     public System.ReadOnlyMemory<uint> PresentMask { get; set; }
     public DeviceGroupPresentModeFlagBitsKHR Modes { get; set; }
 
+
     public static implicit operator DeviceGroupPresentCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR d)
     {
         return new DeviceGroupPresentCapabilitiesKHR(in d);

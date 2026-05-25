@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 579 Column: 10
+// File: vk.xml Line: 625 Column: 10
 public unsafe partial class IndirectCommandsLayoutEXT : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutEXT_T>
 {
     internal VkIndirectCommandsLayoutEXT_T __Instance;

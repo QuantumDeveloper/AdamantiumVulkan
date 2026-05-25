@@ -30,6 +30,7 @@ public unsafe partial class ImportSemaphoreFdInfoKHR : IMarshallableObject, IMar
     public ExternalSemaphoreHandleTypeFlagBits HandleType { get; set; }
     public int Fd { get; set; }
 
+
     public static implicit operator ImportSemaphoreFdInfoKHR(AdamantiumVulkan.Core.Interop.VkImportSemaphoreFdInfoKHR i)
     {
         return new ImportSemaphoreFdInfoKHR(in i);

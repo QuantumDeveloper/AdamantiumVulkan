@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceNestedCommandBufferPropertiesEXT : IMa
     public object PNext { get; set; }
     public uint MaxCommandBufferNestingLevel { get; set; }
 
+
     public static implicit operator PhysicalDeviceNestedCommandBufferPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceNestedCommandBufferPropertiesEXT p)
     {
         return new PhysicalDeviceNestedCommandBufferPropertiesEXT(in p);

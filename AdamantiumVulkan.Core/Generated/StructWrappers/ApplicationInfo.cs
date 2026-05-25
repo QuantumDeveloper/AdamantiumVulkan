@@ -31,6 +31,7 @@ public unsafe partial class ApplicationInfo : IMarshallableObject, IMarshallable
     public uint EngineVersion { get; set; }
     public uint ApiVersion { get; set; }
 
+
     public static implicit operator ApplicationInfo(AdamantiumVulkan.Core.Interop.VkApplicationInfo a)
     {
         return new ApplicationInfo(in a);

@@ -32,6 +32,7 @@ public unsafe partial class AccelerationStructureCreateInfoKHR : IMarshallableOb
     public AccelerationStructureTypeKHR Type { get; set; }
     public VkDeviceAddress DeviceAddress { get; set; }
 
+
     public static implicit operator AccelerationStructureCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoKHR a)
     {
         return new AccelerationStructureCreateInfoKHR(in a);

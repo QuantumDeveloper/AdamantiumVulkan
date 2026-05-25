@@ -31,6 +31,7 @@ public unsafe partial class PhysicalDeviceMeshShaderFeaturesEXT : IMarshallableO
     public VkBool32 PrimitiveFragmentShadingRateMeshShader { get; set; }
     public VkBool32 MeshShaderQueries { get; set; }
 
+
     public static implicit operator PhysicalDeviceMeshShaderFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderFeaturesEXT p)
     {
         return new PhysicalDeviceMeshShaderFeaturesEXT(in p);

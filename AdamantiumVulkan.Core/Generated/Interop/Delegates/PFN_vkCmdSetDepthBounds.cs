@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 13136 Column: 10
+// File: video.xml Line: 15052 Column: 10
 public unsafe struct PFN_vkCmdSetDepthBounds
 {
     public PFN_vkCmdSetDepthBounds(nuint ptr) : this((void*) ptr) { }

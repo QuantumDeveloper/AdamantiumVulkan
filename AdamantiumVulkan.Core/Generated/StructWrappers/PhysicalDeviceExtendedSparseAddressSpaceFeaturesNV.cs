@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV :
     public object PNext { get; set; }
     public VkBool32 ExtendedSparseAddressSpace { get; set; }
 
+
     public static implicit operator PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV p)
     {
         return new PhysicalDeviceExtendedSparseAddressSpaceFeaturesNV(in p);

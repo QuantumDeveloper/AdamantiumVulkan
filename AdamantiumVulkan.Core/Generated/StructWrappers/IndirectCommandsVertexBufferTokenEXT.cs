@@ -25,6 +25,7 @@ public unsafe partial class IndirectCommandsVertexBufferTokenEXT : IMarshallable
 
     public uint VertexBindingUnit { get; set; }
 
+
     public static implicit operator IndirectCommandsVertexBufferTokenEXT(AdamantiumVulkan.Core.Interop.VkIndirectCommandsVertexBufferTokenEXT i)
     {
         return new IndirectCommandsVertexBufferTokenEXT(in i);

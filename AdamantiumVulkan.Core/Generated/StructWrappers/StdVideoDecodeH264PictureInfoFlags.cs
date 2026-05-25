@@ -30,6 +30,7 @@ public unsafe partial class StdVideoDecodeH264PictureInfoFlags : IMarshallableOb
     public uint Is_reference { get; set; }
     public uint Complementary_field_pair { get; set; }
 
+
     public static implicit operator StdVideoDecodeH264PictureInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoDecodeH264PictureInfoFlags s)
     {
         return new StdVideoDecodeH264PictureInfoFlags(in s);

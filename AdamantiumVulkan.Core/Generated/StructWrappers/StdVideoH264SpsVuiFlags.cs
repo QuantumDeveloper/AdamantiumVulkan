@@ -36,6 +36,7 @@ public unsafe partial class StdVideoH264SpsVuiFlags : IMarshallableObject, IMars
     public uint Nal_hrd_parameters_present_flag { get; set; }
     public uint Vcl_hrd_parameters_present_flag { get; set; }
 
+
     public static implicit operator StdVideoH264SpsVuiFlags(AdamantiumVulkan.Core.Interop.StdVideoH264SpsVuiFlags s)
     {
         return new StdVideoH264SpsVuiFlags(in s);

@@ -27,6 +27,7 @@ public unsafe partial class AccelerationStructureGeometryDataKHR : IMarshallable
     public AccelerationStructureGeometryAabbsDataKHR Aabbs { get; set; }
     public AccelerationStructureGeometryInstancesDataKHR Instances { get; set; }
 
+
     public static implicit operator AccelerationStructureGeometryDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryDataKHR a)
     {
         return new AccelerationStructureGeometryDataKHR(in a);

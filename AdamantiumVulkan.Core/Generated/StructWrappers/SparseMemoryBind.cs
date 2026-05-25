@@ -29,6 +29,7 @@ public unsafe partial class SparseMemoryBind : IMarshallableObject, IMarshallabl
     public VkDeviceSize MemoryOffset { get; set; }
     public SparseMemoryBindFlagBits Flags { get; set; }
 
+
     public static implicit operator SparseMemoryBind(AdamantiumVulkan.Core.Interop.VkSparseMemoryBind s)
     {
         return new SparseMemoryBind(in s);

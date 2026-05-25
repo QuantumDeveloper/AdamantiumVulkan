@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12221 Column: 6
+// File: vk.xml Line: 13955 Column: 6
 public enum MicromapTypeEXT : int
 {
     OpacityMicromapExt = 0,

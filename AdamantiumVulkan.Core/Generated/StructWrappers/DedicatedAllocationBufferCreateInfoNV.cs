@@ -27,6 +27,7 @@ public unsafe partial class DedicatedAllocationBufferCreateInfoNV : IMarshallabl
     public object PNext { get; set; }
     public VkBool32 DedicatedAllocation { get; set; }
 
+
     public static implicit operator DedicatedAllocationBufferCreateInfoNV(AdamantiumVulkan.Core.Interop.VkDedicatedAllocationBufferCreateInfoNV d)
     {
         return new DedicatedAllocationBufferCreateInfoNV(in d);

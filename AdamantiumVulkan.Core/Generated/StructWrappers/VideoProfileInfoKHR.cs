@@ -30,6 +30,7 @@ public unsafe partial class VideoProfileInfoKHR : IMarshallableObject, IMarshall
     public VideoComponentBitDepthFlagBitsKHR LumaBitDepth { get; set; }
     public VideoComponentBitDepthFlagBitsKHR ChromaBitDepth { get; set; }
 
+
     public static implicit operator VideoProfileInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR v)
     {
         return new VideoProfileInfoKHR(in v);

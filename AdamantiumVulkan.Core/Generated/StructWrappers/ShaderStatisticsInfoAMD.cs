@@ -31,6 +31,7 @@ public unsafe partial class ShaderStatisticsInfoAMD : IMarshallableObject, IMars
     public uint NumAvailableSgprs { get; set; }
     public System.ReadOnlyMemory<uint> ComputeWorkGroupSize { get; set; }
 
+
     public static implicit operator ShaderStatisticsInfoAMD(AdamantiumVulkan.Core.Interop.VkShaderStatisticsInfoAMD s)
     {
         return new ShaderStatisticsInfoAMD(in s);

@@ -26,24 +26,24 @@ public static class ParserExtensions
         return true;
     }
     
-    public static long ResolveConstant(this VulkanRegistry registry, string name)
+    public static Int128 ResolveConstant(this VulkanRegistry registry, string name)
     {
         if (string.IsNullOrEmpty(name)) return 0;
         
         ReadOnlySpan<char> nameSpan = name.AsSpan();
 
-        if (TryParseVulkanNumeric(nameSpan, out long result))
+        if (TryParseVulkanNumeric(nameSpan, out var result))
         {
             return result;
         }
 
         if (registry.Constants.TryGetValue(name, out var constant))
-            return constant.NumericValue;
+            return unchecked((ulong)constant.NumericValue);
 
         throw new Exception($"Cannot find value for constant : {name}");
     }
     
-    public static long ResolveExpression(this VulkanRegistry registry, string expression)
+    public static Int128 ResolveExpression(this VulkanRegistry registry, string expression)
     {
         if (string.IsNullOrEmpty(expression)) return 0;
 
@@ -69,34 +69,50 @@ public static class ParserExtensions
         return registry.ResolveConstant(expression.Trim());
     }
     
-    public static bool TryParseVulkanNumeric(this ReadOnlySpan<char> input, out long result)
+    public static bool TryParseVulkanNumeric(this ReadOnlySpan<char> input, out Int128 result)
     {
         result = 0;
         if (input.IsEmpty) return false;
 
         var cleanInput = input.Trim("() ".AsSpan());
-    
         if (cleanInput.IsEmpty) return false;
 
         if (cleanInput.StartsWith("~".AsSpan()))
         {
-            result = -1L; // The same as ~0 in C# for long
+            result = ulong.MaxValue; // 0xFFFFFFFFFFFFFFFF
             return true;
         }
 
         cleanInput = cleanInput.TrimEnd("uUlLfF".AsSpan());
 
-        if (cleanInput.StartsWith("0x".AsSpan(), StringComparison.OrdinalIgnoreCase))
+        bool isNegative = false;
+        if (cleanInput.StartsWith("-".AsSpan()))
         {
-            return long.TryParse(cleanInput.Slice(2), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out result);
+            isNegative = true;
+            cleanInput = cleanInput.Slice(1);
         }
 
-        return long.TryParse(cleanInput, NumberStyles.Integer, CultureInfo.InvariantCulture, out result);
+        if (cleanInput.StartsWith("0x".AsSpan(), StringComparison.OrdinalIgnoreCase))
+        {
+            if (Int128.TryParse(cleanInput.Slice(2), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var hexResult))
+            {
+                result = isNegative ? -hexResult : hexResult;
+                return true;
+            }
+            return false;
+        }
+
+        if (isNegative)
+        {
+            cleanInput = input.Trim("() ".AsSpan()).TrimEnd("uUlLfF".AsSpan());
+        }
+
+        return Int128.TryParse(cleanInput, NumberStyles.Integer, CultureInfo.InvariantCulture, out result);
     }
     
-    public static long ParseVulkanNumeric(this string rawValue)
+    public static Int128 ParseVulkanNumeric(this string rawValue)
     {
-        if (rawValue.AsSpan().TryParseVulkanNumeric(out long result))
+        if (rawValue.AsSpan().TryParseVulkanNumeric(out var result))
         {
             return result;
         }

@@ -28,6 +28,7 @@ public unsafe partial class PipelineBinaryHandlesInfoKHR : IMarshallableObject, 
     public uint PipelineBinaryCount { get; set; }
     public System.ReadOnlyMemory<PipelineBinaryKHR> PipelineBinaries { get; set; }
 
+
     public static implicit operator PipelineBinaryHandlesInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineBinaryHandlesInfoKHR p)
     {
         return new PipelineBinaryHandlesInfoKHR(in p);

@@ -27,6 +27,7 @@ public unsafe partial class SwapchainPresentBarrierCreateInfoNV : IMarshallableO
     public object PNext { get; set; }
     public VkBool32 PresentBarrierEnable { get; set; }
 
+
     public static implicit operator SwapchainPresentBarrierCreateInfoNV(AdamantiumVulkan.Core.Interop.VkSwapchainPresentBarrierCreateInfoNV s)
     {
         return new SwapchainPresentBarrierCreateInfoNV(in s);

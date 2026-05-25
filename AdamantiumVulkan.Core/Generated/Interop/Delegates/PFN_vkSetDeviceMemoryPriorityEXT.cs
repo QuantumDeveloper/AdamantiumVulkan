@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 16161 Column: 10
+// File: video.xml Line: 18130 Column: 10
 public unsafe struct PFN_vkSetDeviceMemoryPriorityEXT
 {
     public PFN_vkSetDeviceMemoryPriorityEXT(nuint ptr) : this((void*) ptr) { }

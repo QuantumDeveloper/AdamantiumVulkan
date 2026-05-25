@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDevicePerStageDescriptorSetFeaturesNV : IMar
     public VkBool32 PerStageDescriptorSet { get; set; }
     public VkBool32 DynamicPipelineLayout { get; set; }
 
+
     public static implicit operator PhysicalDevicePerStageDescriptorSetFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePerStageDescriptorSetFeaturesNV p)
     {
         return new PhysicalDevicePerStageDescriptorSetFeaturesNV(in p);

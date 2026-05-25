@@ -27,6 +27,7 @@ public unsafe partial class StdVideoH265DecPicBufMgr : IMarshallableObject, IMar
     public System.ReadOnlyMemory<byte> Max_dec_pic_buffering_minus1 { get; set; }
     public System.ReadOnlyMemory<byte> Max_num_reorder_pics { get; set; }
 
+
     public static implicit operator StdVideoH265DecPicBufMgr(AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr s)
     {
         return new StdVideoH265DecPicBufMgr(in s);

@@ -27,6 +27,7 @@ public unsafe partial class ShaderModuleValidationCacheCreateInfoEXT : IMarshall
     public object PNext { get; set; }
     public ValidationCacheEXT ValidationCache { get; set; }
 
+
     public static implicit operator ShaderModuleValidationCacheCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkShaderModuleValidationCacheCreateInfoEXT s)
     {
         return new ShaderModuleValidationCacheCreateInfoEXT(in s);

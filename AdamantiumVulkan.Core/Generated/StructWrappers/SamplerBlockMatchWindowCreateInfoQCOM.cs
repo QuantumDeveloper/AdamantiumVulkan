@@ -28,6 +28,7 @@ public unsafe partial class SamplerBlockMatchWindowCreateInfoQCOM : IMarshallabl
     public Extent2D WindowExtent { get; set; }
     public BlockMatchWindowCompareModeQCOM WindowCompareMode { get; set; }
 
+
     public static implicit operator SamplerBlockMatchWindowCreateInfoQCOM(AdamantiumVulkan.Core.Interop.VkSamplerBlockMatchWindowCreateInfoQCOM s)
     {
         return new SamplerBlockMatchWindowCreateInfoQCOM(in s);

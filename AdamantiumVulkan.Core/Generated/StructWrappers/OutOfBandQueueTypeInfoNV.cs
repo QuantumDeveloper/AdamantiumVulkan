@@ -27,6 +27,7 @@ public unsafe partial class OutOfBandQueueTypeInfoNV : IMarshallableObject, IMar
     public object PNext { get; set; }
     public OutOfBandQueueTypeNV QueueType { get; set; }
 
+
     public static implicit operator OutOfBandQueueTypeInfoNV(AdamantiumVulkan.Core.Interop.VkOutOfBandQueueTypeInfoNV o)
     {
         return new OutOfBandQueueTypeInfoNV(in o);

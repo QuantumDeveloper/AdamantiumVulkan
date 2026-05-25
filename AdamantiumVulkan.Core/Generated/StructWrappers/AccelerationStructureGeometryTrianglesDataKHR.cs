@@ -33,6 +33,7 @@ public unsafe partial class AccelerationStructureGeometryTrianglesDataKHR : IMar
     public DeviceOrHostAddressConstKHR IndexData { get; set; }
     public DeviceOrHostAddressConstKHR TransformData { get; set; }
 
+
     public static implicit operator AccelerationStructureGeometryTrianglesDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR a)
     {
         return new AccelerationStructureGeometryTrianglesDataKHR(in a);
@@ -45,6 +46,12 @@ public unsafe partial class AccelerationStructureGeometryTrianglesDataKHR : IMar
         {
             size += marshallable.GetSize();
         }
+        if (VertexData != default)
+            size += VertexData.GetSize();
+        if (IndexData != default)
+            size += IndexData.GetSize();
+        if (TransformData != default)
+            size += TransformData.GetSize();
         return size;
     }
 

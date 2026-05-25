@@ -41,6 +41,7 @@ public unsafe partial class VideoEncodeAV1QualityLevelPropertiesKHR : IMarshalla
     public uint PreferredMaxBidirectionalCompoundGroup2ReferenceCount { get; set; }
     public uint PreferredBidirectionalCompoundReferenceNameMask { get; set; }
 
+
     public static implicit operator VideoEncodeAV1QualityLevelPropertiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1QualityLevelPropertiesKHR v)
     {
         return new VideoEncodeAV1QualityLevelPropertiesKHR(in v);

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15704 Column: 10
+// File: video.xml Line: 17659 Column: 10
 public unsafe struct PFN_vkCmdSetCoverageModulationTableNV
 {
     public PFN_vkCmdSetCoverageModulationTableNV(nuint ptr) : this((void*) ptr) { }

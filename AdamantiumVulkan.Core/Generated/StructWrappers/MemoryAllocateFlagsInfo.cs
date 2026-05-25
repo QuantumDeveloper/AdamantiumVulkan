@@ -28,6 +28,7 @@ public unsafe partial class MemoryAllocateFlagsInfo : IMarshallableObject, IMars
     public MemoryAllocateFlagBits Flags { get; set; }
     public uint DeviceMask { get; set; }
 
+
     public static implicit operator MemoryAllocateFlagsInfo(AdamantiumVulkan.Core.Interop.VkMemoryAllocateFlagsInfo m)
     {
         return new MemoryAllocateFlagsInfo(in m);

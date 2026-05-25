@@ -30,6 +30,7 @@ public unsafe partial class GeometryAABBNV : IMarshallableObject, IMarshallable<
     public uint Stride { get; set; }
     public VkDeviceSize Offset { get; set; }
 
+
     public static implicit operator GeometryAABBNV(AdamantiumVulkan.Core.Interop.VkGeometryAABBNV g)
     {
         return new GeometryAABBNV(in g);

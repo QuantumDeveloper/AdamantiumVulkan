@@ -28,6 +28,7 @@ public unsafe partial class AttachmentDescriptionStencilLayout : IMarshallableOb
     public ImageLayout StencilInitialLayout { get; set; }
     public ImageLayout StencilFinalLayout { get; set; }
 
+
     public static implicit operator AttachmentDescriptionStencilLayout(AdamantiumVulkan.Core.Interop.VkAttachmentDescriptionStencilLayout a)
     {
         return new AttachmentDescriptionStencilLayout(in a);

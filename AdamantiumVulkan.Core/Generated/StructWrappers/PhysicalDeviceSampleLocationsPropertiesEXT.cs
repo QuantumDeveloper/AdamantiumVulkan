@@ -31,6 +31,7 @@ public unsafe partial class PhysicalDeviceSampleLocationsPropertiesEXT : IMarsha
     public uint SampleLocationSubPixelBits { get; set; }
     public VkBool32 VariableSampleLocations { get; set; }
 
+
     public static implicit operator PhysicalDeviceSampleLocationsPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSampleLocationsPropertiesEXT p)
     {
         return new PhysicalDeviceSampleLocationsPropertiesEXT(in p);

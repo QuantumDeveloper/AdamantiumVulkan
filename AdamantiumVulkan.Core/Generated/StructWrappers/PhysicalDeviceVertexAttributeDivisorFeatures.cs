@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceVertexAttributeDivisorFeatures : IMars
     public VkBool32 VertexAttributeInstanceRateDivisor { get; set; }
     public VkBool32 VertexAttributeInstanceRateZeroDivisor { get; set; }
 
+
     public static implicit operator PhysicalDeviceVertexAttributeDivisorFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorFeatures p)
     {
         return new PhysicalDeviceVertexAttributeDivisorFeatures(in p);

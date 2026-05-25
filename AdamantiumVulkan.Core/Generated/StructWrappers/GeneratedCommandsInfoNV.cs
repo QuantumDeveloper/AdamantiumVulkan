@@ -39,6 +39,7 @@ public unsafe partial class GeneratedCommandsInfoNV : IMarshallableObject, IMars
     public Buffer SequencesIndexBuffer { get; set; }
     public VkDeviceSize SequencesIndexOffset { get; set; }
 
+
     public static implicit operator GeneratedCommandsInfoNV(AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoNV g)
     {
         return new GeneratedCommandsInfoNV(in g);

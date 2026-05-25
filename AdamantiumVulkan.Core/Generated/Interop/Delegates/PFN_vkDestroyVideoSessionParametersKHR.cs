@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15988 Column: 10
+// File: video.xml Line: 17943 Column: 10
 public unsafe struct PFN_vkDestroyVideoSessionParametersKHR
 {
     public PFN_vkDestroyVideoSessionParametersKHR(nuint ptr) : this((void*) ptr) { }

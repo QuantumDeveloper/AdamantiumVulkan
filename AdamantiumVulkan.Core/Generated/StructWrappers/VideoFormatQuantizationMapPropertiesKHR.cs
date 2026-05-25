@@ -27,6 +27,7 @@ public unsafe partial class VideoFormatQuantizationMapPropertiesKHR : IMarshalla
     public object PNext { get; set; }
     public Extent2D QuantizationMapTexelSize { get; set; }
 
+
     public static implicit operator VideoFormatQuantizationMapPropertiesKHR(AdamantiumVulkan.Core.Interop.VkVideoFormatQuantizationMapPropertiesKHR v)
     {
         return new VideoFormatQuantizationMapPropertiesKHR(in v);

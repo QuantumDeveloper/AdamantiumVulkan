@@ -28,6 +28,7 @@ public unsafe partial class PipelineIndirectDeviceAddressInfoNV : IMarshallableO
     public PipelineBindPoint PipelineBindPoint { get; set; }
     public Pipeline Pipeline { get; set; }
 
+
     public static implicit operator PipelineIndirectDeviceAddressInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV p)
     {
         return new PipelineIndirectDeviceAddressInfoNV(in p);

@@ -32,6 +32,7 @@ public unsafe partial class PhysicalDeviceMaintenance5Properties : IMarshallable
     public VkBool32 NonStrictSinglePixelWideLinesUseParallelogram { get; set; }
     public VkBool32 NonStrictWideLinesUseParallelogram { get; set; }
 
+
     public static implicit operator PhysicalDeviceMaintenance5Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance5Properties p)
     {
         return new PhysicalDeviceMaintenance5Properties(in p);

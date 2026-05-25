@@ -27,6 +27,7 @@ public unsafe partial class DevicePipelineBinaryInternalCacheControlKHR : IMarsh
     public object PNext { get; set; }
     public VkBool32 DisableInternalCache { get; set; }
 
+
     public static implicit operator DevicePipelineBinaryInternalCacheControlKHR(AdamantiumVulkan.Core.Interop.VkDevicePipelineBinaryInternalCacheControlKHR d)
     {
         return new DevicePipelineBinaryInternalCacheControlKHR(in d);

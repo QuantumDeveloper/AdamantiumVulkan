@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceSubgroupSizeControlFeatures : IMarshal
     public VkBool32 SubgroupSizeControl { get; set; }
     public VkBool32 ComputeFullSubgroups { get; set; }
 
+
     public static implicit operator PhysicalDeviceSubgroupSizeControlFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlFeatures p)
     {
         return new PhysicalDeviceSubgroupSizeControlFeatures(in p);

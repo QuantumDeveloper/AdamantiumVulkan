@@ -29,6 +29,7 @@ public unsafe partial class CommandBufferInheritanceViewportScissorInfoNV : IMar
     public uint ViewportDepthCount { get; set; }
     public Viewport PViewportDepths { get; set; }
 
+
     public static implicit operator CommandBufferInheritanceViewportScissorInfoNV(AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceViewportScissorInfoNV c)
     {
         return new CommandBufferInheritanceViewportScissorInfoNV(in c);

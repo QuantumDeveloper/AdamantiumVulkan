@@ -11,11 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11979 Column: 6
+// File: vk.xml Line: 13712 Column: 6
 [Flags]
 public enum HostImageCopyFlagBits : uint
 {
-    Memcpy = 1,
+    MemcpyBit = 1,
+
+    Memcpy = 0,
 
 }
 

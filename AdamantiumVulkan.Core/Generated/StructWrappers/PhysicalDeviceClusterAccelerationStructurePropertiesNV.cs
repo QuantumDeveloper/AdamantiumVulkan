@@ -34,6 +34,7 @@ public unsafe partial class PhysicalDeviceClusterAccelerationStructureProperties
     public uint ClusterTemplateBoundsByteAlignment { get; set; }
     public uint MaxClusterGeometryIndex { get; set; }
 
+
     public static implicit operator PhysicalDeviceClusterAccelerationStructurePropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceClusterAccelerationStructurePropertiesNV p)
     {
         return new PhysicalDeviceClusterAccelerationStructurePropertiesNV(in p);

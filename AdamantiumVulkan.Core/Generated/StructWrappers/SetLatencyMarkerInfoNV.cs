@@ -28,6 +28,7 @@ public unsafe partial class SetLatencyMarkerInfoNV : IMarshallableObject, IMarsh
     public ulong PresentID { get; set; }
     public LatencyMarkerNV Marker { get; set; }
 
+
     public static implicit operator SetLatencyMarkerInfoNV(AdamantiumVulkan.Core.Interop.VkSetLatencyMarkerInfoNV s)
     {
         return new SetLatencyMarkerInfoNV(in s);

@@ -28,6 +28,7 @@ public unsafe partial class LayerProperties : IMarshallableObject, IMarshallable
     public uint ImplementationVersion { get; set; }
     public string Description { get; set; }
 
+
     public static implicit operator LayerProperties(AdamantiumVulkan.Core.Interop.VkLayerProperties l)
     {
         return new LayerProperties(in l);

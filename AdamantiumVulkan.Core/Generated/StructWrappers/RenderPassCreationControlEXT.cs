@@ -27,6 +27,7 @@ public unsafe partial class RenderPassCreationControlEXT : IMarshallableObject, 
     public object PNext { get; set; }
     public VkBool32 DisallowMerging { get; set; }
 
+
     public static implicit operator RenderPassCreationControlEXT(AdamantiumVulkan.Core.Interop.VkRenderPassCreationControlEXT r)
     {
         return new RenderPassCreationControlEXT(in r);

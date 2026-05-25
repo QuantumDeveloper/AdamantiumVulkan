@@ -30,6 +30,7 @@ public unsafe partial class VideoEncodeH264PictureInfoKHR : IMarshallableObject,
     public StdVideoEncodeH264PictureInfo PStdPictureInfo { get; set; }
     public VkBool32 GeneratePrefixNalu { get; set; }
 
+
     public static implicit operator VideoEncodeH264PictureInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH264PictureInfoKHR v)
     {
         return new VideoEncodeH264PictureInfoKHR(in v);

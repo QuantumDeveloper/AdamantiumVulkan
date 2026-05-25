@@ -28,6 +28,7 @@ public unsafe partial class HostImageCopyDevicePerformanceQuery : IMarshallableO
     public VkBool32 OptimalDeviceAccess { get; set; }
     public VkBool32 IdenticalMemoryLayout { get; set; }
 
+
     public static implicit operator HostImageCopyDevicePerformanceQuery(AdamantiumVulkan.Core.Interop.VkHostImageCopyDevicePerformanceQuery h)
     {
         return new HostImageCopyDevicePerformanceQuery(in h);

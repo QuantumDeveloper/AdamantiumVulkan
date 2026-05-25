@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 867 Column: 10
+// File: video.xml Line: 961 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoAV1ColorConfig
 {

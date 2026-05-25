@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePrivateDataFeatures : IMarshallableObj
     public object PNext { get; set; }
     public VkBool32 PrivateData { get; set; }
 
+
     public static implicit operator PhysicalDevicePrivateDataFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePrivateDataFeatures p)
     {
         return new PhysicalDevicePrivateDataFeatures(in p);

@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceRasterizationOrderAttachmentAccessFeat
     public VkBool32 RasterizationOrderDepthAttachmentAccess { get; set; }
     public VkBool32 RasterizationOrderStencilAttachmentAccess { get; set; }
 
+
     public static implicit operator PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT p)
     {
         return new PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT(in p);

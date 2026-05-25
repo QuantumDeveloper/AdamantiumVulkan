@@ -27,6 +27,7 @@ public unsafe partial class VideoFormatH265QuantizationMapPropertiesKHR : IMarsh
     public object PNext { get; set; }
     public VideoEncodeH265CtbSizeFlagBitsKHR CompatibleCtbSizes { get; set; }
 
+
     public static implicit operator VideoFormatH265QuantizationMapPropertiesKHR(AdamantiumVulkan.Core.Interop.VkVideoFormatH265QuantizationMapPropertiesKHR v)
     {
         return new VideoFormatH265QuantizationMapPropertiesKHR(in v);

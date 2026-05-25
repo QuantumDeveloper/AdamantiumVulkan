@@ -27,6 +27,7 @@ public unsafe partial class BindMemoryStatus : IMarshallableObject, IMarshallabl
     public object PNext { get; set; }
     public Result? PResult { get; set; }
 
+
     public static implicit operator BindMemoryStatus(AdamantiumVulkan.Core.Interop.VkBindMemoryStatus b)
     {
         return new BindMemoryStatus(in b);

@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: vk.xml Line: 8884 Column: 10
+// File: vk.xml Line: 9337 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkRenderPassSubpassFeedbackInfoEXT
 {

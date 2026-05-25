@@ -27,6 +27,7 @@ public unsafe partial class EventCreateInfo : IMarshallableObject, IMarshallable
     public object PNext { get; set; }
     public EventCreateFlagBits Flags { get; set; }
 
+
     public static implicit operator EventCreateInfo(AdamantiumVulkan.Core.Interop.VkEventCreateInfo e)
     {
         return new EventCreateInfo(in e);

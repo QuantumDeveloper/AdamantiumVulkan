@@ -32,6 +32,7 @@ public unsafe partial class MicromapCreateInfoEXT : IMarshallableObject, IMarsha
     public MicromapTypeEXT Type { get; set; }
     public VkDeviceAddress DeviceAddress { get; set; }
 
+
     public static implicit operator MicromapCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkMicromapCreateInfoEXT m)
     {
         return new MicromapCreateInfoEXT(in m);

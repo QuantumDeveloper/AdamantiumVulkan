@@ -32,6 +32,7 @@ public unsafe partial class VideoDecodeAV1PictureInfoKHR : IMarshallableObject, 
     public System.ReadOnlyMemory<uint> PTileOffsets { get; set; }
     public System.ReadOnlyMemory<uint> PTileSizes { get; set; }
 
+
     public static implicit operator VideoDecodeAV1PictureInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeAV1PictureInfoKHR v)
     {
         return new VideoDecodeAV1PictureInfoKHR(in v);

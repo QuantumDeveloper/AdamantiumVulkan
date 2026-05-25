@@ -27,6 +27,7 @@ public unsafe partial class MultisamplePropertiesEXT : IMarshallableObject, IMar
     public object PNext { get; set; }
     public Extent2D MaxSampleLocationGridSize { get; set; }
 
+
     public static implicit operator MultisamplePropertiesEXT(AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT m)
     {
         return new MultisamplePropertiesEXT(in m);

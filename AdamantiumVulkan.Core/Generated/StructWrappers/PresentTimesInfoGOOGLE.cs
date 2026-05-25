@@ -28,6 +28,7 @@ public unsafe partial class PresentTimesInfoGOOGLE : IMarshallableObject, IMarsh
     public uint SwapchainCount { get; set; }
     public System.ReadOnlyMemory<PresentTimeGOOGLE> PTimes { get; set; }
 
+
     public static implicit operator PresentTimesInfoGOOGLE(AdamantiumVulkan.Core.Interop.VkPresentTimesInfoGOOGLE p)
     {
         return new PresentTimesInfoGOOGLE(in p);

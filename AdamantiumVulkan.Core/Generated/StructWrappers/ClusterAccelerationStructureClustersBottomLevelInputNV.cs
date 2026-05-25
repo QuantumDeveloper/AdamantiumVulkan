@@ -28,6 +28,7 @@ public unsafe partial class ClusterAccelerationStructureClustersBottomLevelInput
     public uint MaxTotalClusterCount { get; set; }
     public uint MaxClusterCountPerAccelerationStructure { get; set; }
 
+
     public static implicit operator ClusterAccelerationStructureClustersBottomLevelInputNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureClustersBottomLevelInputNV c)
     {
         return new ClusterAccelerationStructureClustersBottomLevelInputNV(in c);

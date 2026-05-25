@@ -30,6 +30,7 @@ public unsafe partial class PerformanceCounterKHR : IMarshallableObject, IMarsha
     public PerformanceCounterStorageKHR Storage { get; set; }
     public System.ReadOnlyMemory<byte> Uuid { get; set; }
 
+
     public static implicit operator PerformanceCounterKHR(AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR p)
     {
         return new PerformanceCounterKHR(in p);

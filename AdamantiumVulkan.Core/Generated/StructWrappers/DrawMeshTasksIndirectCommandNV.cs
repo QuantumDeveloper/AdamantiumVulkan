@@ -26,6 +26,7 @@ public unsafe partial class DrawMeshTasksIndirectCommandNV : IMarshallableObject
     public uint TaskCount { get; set; }
     public uint FirstTask { get; set; }
 
+
     public static implicit operator DrawMeshTasksIndirectCommandNV(AdamantiumVulkan.Core.Interop.VkDrawMeshTasksIndirectCommandNV d)
     {
         return new DrawMeshTasksIndirectCommandNV(in d);

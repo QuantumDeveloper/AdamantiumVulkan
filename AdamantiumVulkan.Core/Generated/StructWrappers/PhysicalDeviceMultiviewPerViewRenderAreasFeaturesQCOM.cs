@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCO
     public object PNext { get; set; }
     public VkBool32 MultiviewPerViewRenderAreas { get; set; }
 
+
     public static implicit operator PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM p)
     {
         return new PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM(in p);

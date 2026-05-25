@@ -27,6 +27,7 @@ public unsafe partial class QueryPoolVideoEncodeFeedbackCreateInfoKHR : IMarshal
     public object PNext { get; set; }
     public VideoEncodeFeedbackFlagBitsKHR EncodeFeedbackFlags { get; set; }
 
+
     public static implicit operator QueryPoolVideoEncodeFeedbackCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkQueryPoolVideoEncodeFeedbackCreateInfoKHR q)
     {
         return new QueryPoolVideoEncodeFeedbackCreateInfoKHR(in q);

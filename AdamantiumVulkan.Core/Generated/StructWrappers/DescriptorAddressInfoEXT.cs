@@ -29,6 +29,7 @@ public unsafe partial class DescriptorAddressInfoEXT : IMarshallableObject, IMar
     public VkDeviceSize Range { get; set; }
     public Format Format { get; set; }
 
+
     public static implicit operator DescriptorAddressInfoEXT(AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT d)
     {
         return new DescriptorAddressInfoEXT(in d);

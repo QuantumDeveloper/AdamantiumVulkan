@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10837 Column: 6
+// File: vk.xml Line: 12533 Column: 6
 [Flags]
 public enum BufferUsageFlagBits2 : ulong
 {
@@ -32,6 +32,64 @@ public enum BufferUsageFlagBits2 : ulong
     VertexBufferBit = 128,
 
     IndirectBufferBit = 256,
+
+    ExecutionGraphScratchBitAmdx = 33554432,
+
+    DescriptorHeapBitExt = 268435456,
+
+    ConditionalRenderingBitExt = 512,
+
+    ShaderBindingTableBitKhr = 1024,
+
+    TransformFeedbackBufferBitExt = 2048,
+
+    TransformFeedbackCounterBufferBitExt = 4096,
+
+    VideoDecodeSrcBitKhr = 8192,
+
+    VideoDecodeDstBitKhr = 16384,
+
+    VideoEncodeDstBitKhr = 32768,
+
+    VideoEncodeSrcBitKhr = 65536,
+
+    AccelerationStructureBuildInputReadOnlyBitKhr = 524288,
+
+    AccelerationStructureStorageBitKhr = 1048576,
+
+    SamplerDescriptorBufferBitExt = 2097152,
+
+    ResourceDescriptorBufferBitExt = 4194304,
+
+    PushDescriptorsDescriptorBufferBitExt = 67108864,
+
+    MicromapBuildInputReadOnlyBitExt = 8388608,
+
+    MicromapStorageBitExt = 16777216,
+
+    CompressedDataDgf1BitAmdx = 8589934592,
+
+    DataGraphForeignDescriptorBitArm = 536870912,
+
+    Reserved34BitExt = 17179869184,
+
+    TileMemoryBitQcom = 134217728,
+
+    MemoryDecompressionBitExt = 4294967296,
+
+    PreprocessBufferBitExt = 2147483648,
+
+    Reserved18BitExt = 262144,
+
+    Reserved30BitExt = 1073741824,
+
+    Reserved35BitKhr = 34359738368,
+
+    Reserved36BitKhr = 68719476736,
+
+    Reserved37BitHuawei = 137438953472,
+
+    ShaderDeviceAddressBit = 131072,
 
 }
 

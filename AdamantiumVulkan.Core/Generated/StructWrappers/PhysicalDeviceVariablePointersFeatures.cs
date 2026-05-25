@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceVariablePointersFeatures : IMarshallab
     public VkBool32 VariablePointersStorageBuffer { get; set; }
     public VkBool32 VariablePointers { get; set; }
 
+
     public static implicit operator PhysicalDeviceVariablePointersFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVariablePointersFeatures p)
     {
         return new PhysicalDeviceVariablePointersFeatures(in p);

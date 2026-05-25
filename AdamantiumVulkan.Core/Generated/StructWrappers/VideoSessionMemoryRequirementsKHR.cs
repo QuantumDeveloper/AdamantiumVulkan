@@ -28,6 +28,7 @@ public unsafe partial class VideoSessionMemoryRequirementsKHR : IMarshallableObj
     public uint MemoryBindIndex { get; set; }
     public MemoryRequirements MemoryRequirements { get; set; }
 
+
     public static implicit operator VideoSessionMemoryRequirementsKHR(AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR v)
     {
         return new VideoSessionMemoryRequirementsKHR(in v);

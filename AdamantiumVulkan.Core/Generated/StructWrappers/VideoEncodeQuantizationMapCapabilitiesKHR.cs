@@ -27,6 +27,7 @@ public unsafe partial class VideoEncodeQuantizationMapCapabilitiesKHR : IMarshal
     public object PNext { get; set; }
     public Extent2D MaxQuantizationMapExtent { get; set; }
 
+
     public static implicit operator VideoEncodeQuantizationMapCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeQuantizationMapCapabilitiesKHR v)
     {
         return new VideoEncodeQuantizationMapCapabilitiesKHR(in v);

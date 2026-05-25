@@ -27,6 +27,7 @@ public unsafe partial class BufferCaptureDescriptorDataInfoEXT : IMarshallableOb
     public object PNext { get; set; }
     public Buffer Buffer { get; set; }
 
+
     public static implicit operator BufferCaptureDescriptorDataInfoEXT(AdamantiumVulkan.Core.Interop.VkBufferCaptureDescriptorDataInfoEXT b)
     {
         return new BufferCaptureDescriptorDataInfoEXT(in b);

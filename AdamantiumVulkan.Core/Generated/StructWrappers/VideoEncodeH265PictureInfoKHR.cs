@@ -29,6 +29,7 @@ public unsafe partial class VideoEncodeH265PictureInfoKHR : IMarshallableObject,
     public System.ReadOnlyMemory<VideoEncodeH265NaluSliceSegmentInfoKHR> PNaluSliceSegmentEntries { get; set; }
     public StdVideoEncodeH265PictureInfo PStdPictureInfo { get; set; }
 
+
     public static implicit operator VideoEncodeH265PictureInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH265PictureInfoKHR v)
     {
         return new VideoEncodeH265PictureInfoKHR(in v);

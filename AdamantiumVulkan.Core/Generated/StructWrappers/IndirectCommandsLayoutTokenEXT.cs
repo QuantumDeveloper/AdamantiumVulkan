@@ -29,6 +29,7 @@ public unsafe partial class IndirectCommandsLayoutTokenEXT : IMarshallableObject
     public IndirectCommandsTokenDataEXT Data { get; set; }
     public uint Offset { get; set; }
 
+
     public static implicit operator IndirectCommandsLayoutTokenEXT(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT i)
     {
         return new IndirectCommandsLayoutTokenEXT(in i);
@@ -41,6 +42,8 @@ public unsafe partial class IndirectCommandsLayoutTokenEXT : IMarshallableObject
         {
             size += marshallable.GetSize();
         }
+        if (Data != default)
+            size += Data.GetSize();
         return size;
     }
 

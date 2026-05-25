@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11325 Column: 6
+// File: vk.xml Line: 13023 Column: 6
 public enum ViewportCoordinateSwizzleNV : int
 {
     PositiveXNv = 0,

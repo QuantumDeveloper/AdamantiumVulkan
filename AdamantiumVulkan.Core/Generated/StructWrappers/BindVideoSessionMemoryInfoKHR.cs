@@ -30,6 +30,7 @@ public unsafe partial class BindVideoSessionMemoryInfoKHR : IMarshallableObject,
     public VkDeviceSize MemoryOffset { get; set; }
     public VkDeviceSize MemorySize { get; set; }
 
+
     public static implicit operator BindVideoSessionMemoryInfoKHR(AdamantiumVulkan.Core.Interop.VkBindVideoSessionMemoryInfoKHR b)
     {
         return new BindVideoSessionMemoryInfoKHR(in b);

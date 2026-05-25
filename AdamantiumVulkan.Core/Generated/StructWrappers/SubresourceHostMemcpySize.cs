@@ -27,6 +27,7 @@ public unsafe partial class SubresourceHostMemcpySize : IMarshallableObject, IMa
     public object PNext { get; set; }
     public VkDeviceSize Size { get; set; }
 
+
     public static implicit operator SubresourceHostMemcpySize(AdamantiumVulkan.Core.Interop.VkSubresourceHostMemcpySize s)
     {
         return new SubresourceHostMemcpySize(in s);

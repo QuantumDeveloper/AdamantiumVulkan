@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceNonSeamlessCubeMapFeaturesEXT : IMarsh
     public object PNext { get; set; }
     public VkBool32 NonSeamlessCubeMap { get; set; }
 
+
     public static implicit operator PhysicalDeviceNonSeamlessCubeMapFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT p)
     {
         return new PhysicalDeviceNonSeamlessCubeMapFeaturesEXT(in p);

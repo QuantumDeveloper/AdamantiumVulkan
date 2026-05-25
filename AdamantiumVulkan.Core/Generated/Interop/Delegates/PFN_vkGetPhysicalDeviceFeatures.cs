@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 12427 Column: 10
+// File: video.xml Line: 14334 Column: 10
 public unsafe struct PFN_vkGetPhysicalDeviceFeatures
 {
     public PFN_vkGetPhysicalDeviceFeatures(nuint ptr) : this((void*) ptr) { }

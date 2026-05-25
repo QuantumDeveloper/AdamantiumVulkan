@@ -32,6 +32,7 @@ public unsafe partial class PipelineColorBlendStateCreateInfo : IMarshallableObj
     public System.ReadOnlyMemory<PipelineColorBlendAttachmentState> PAttachments { get; set; }
     public System.ReadOnlyMemory<float> BlendConstants { get; set; }
 
+
     public static implicit operator PipelineColorBlendStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo p)
     {
         return new PipelineColorBlendStateCreateInfo(in p);

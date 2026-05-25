@@ -27,6 +27,7 @@ public unsafe partial class MicromapTriangleEXT : IMarshallableObject, IMarshall
     public ushort SubdivisionLevel { get; set; }
     public ushort Format { get; set; }
 
+
     public static implicit operator MicromapTriangleEXT(AdamantiumVulkan.Core.Interop.VkMicromapTriangleEXT m)
     {
         return new MicromapTriangleEXT(in m);

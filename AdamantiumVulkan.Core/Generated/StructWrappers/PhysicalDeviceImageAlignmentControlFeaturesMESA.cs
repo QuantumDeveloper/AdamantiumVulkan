@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceImageAlignmentControlFeaturesMESA : IM
     public object PNext { get; set; }
     public VkBool32 ImageAlignmentControl { get; set; }
 
+
     public static implicit operator PhysicalDeviceImageAlignmentControlFeaturesMESA(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageAlignmentControlFeaturesMESA p)
     {
         return new PhysicalDeviceImageAlignmentControlFeaturesMESA(in p);

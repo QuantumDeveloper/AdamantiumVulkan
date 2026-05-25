@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: vk.xml Line: 1024 Column: 10
+// File: vk.xml Line: 1134 Column: 10
 public unsafe struct PFN_vkDebugReportCallbackEXT
 {
     public PFN_vkDebugReportCallbackEXT(nuint ptr) : this((void*) ptr) { }

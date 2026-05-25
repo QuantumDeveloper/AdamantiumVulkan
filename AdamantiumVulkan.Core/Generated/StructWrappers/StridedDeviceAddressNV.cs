@@ -26,6 +26,7 @@ public unsafe partial class StridedDeviceAddressNV : IMarshallableObject, IMarsh
     public VkDeviceAddress StartAddress { get; set; }
     public VkDeviceSize StrideInBytes { get; set; }
 
+
     public static implicit operator StridedDeviceAddressNV(AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressNV s)
     {
         return new StridedDeviceAddressNV(in s);

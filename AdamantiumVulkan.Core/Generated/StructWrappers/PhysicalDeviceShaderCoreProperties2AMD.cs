@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceShaderCoreProperties2AMD : IMarshallab
     public ShaderCorePropertiesFlagBitsAMD ShaderCoreFeatures { get; set; }
     public uint ActiveComputeUnitCount { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderCoreProperties2AMD(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreProperties2AMD p)
     {
         return new PhysicalDeviceShaderCoreProperties2AMD(in p);

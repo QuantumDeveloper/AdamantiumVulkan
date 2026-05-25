@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 16052 Column: 10
+// File: video.xml Line: 18007 Column: 10
 public unsafe struct PFN_vkCmdBuildPartitionedAccelerationStructuresNV
 {
     public PFN_vkCmdBuildPartitionedAccelerationStructuresNV(nuint ptr) : this((void*) ptr) { }

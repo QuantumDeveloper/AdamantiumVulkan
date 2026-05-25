@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10390 Column: 6
+// File: vk.xml Line: 12086 Column: 6
 public enum BlendOp : int
 {
     Add = 0,

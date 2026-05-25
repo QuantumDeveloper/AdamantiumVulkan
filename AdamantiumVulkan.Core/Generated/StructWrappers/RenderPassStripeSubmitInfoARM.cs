@@ -28,6 +28,7 @@ public unsafe partial class RenderPassStripeSubmitInfoARM : IMarshallableObject,
     public uint StripeSemaphoreInfoCount { get; set; }
     public System.ReadOnlyMemory<SemaphoreSubmitInfo> PStripeSemaphoreInfos { get; set; }
 
+
     public static implicit operator RenderPassStripeSubmitInfoARM(AdamantiumVulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM r)
     {
         return new RenderPassStripeSubmitInfoARM(in r);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceDedicatedAllocationImageAliasingFeatur
     public object PNext { get; set; }
     public VkBool32 DedicatedAllocationImageAliasing { get; set; }
 
+
     public static implicit operator PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV p)
     {
         return new PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV(in p);

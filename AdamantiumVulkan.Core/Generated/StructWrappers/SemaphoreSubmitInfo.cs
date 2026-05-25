@@ -30,6 +30,7 @@ public unsafe partial class SemaphoreSubmitInfo : IMarshallableObject, IMarshall
     public VkPipelineStageFlags2 StageMask { get; set; }
     public uint DeviceIndex { get; set; }
 
+
     public static implicit operator SemaphoreSubmitInfo(AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo s)
     {
         return new SemaphoreSubmitInfo(in s);

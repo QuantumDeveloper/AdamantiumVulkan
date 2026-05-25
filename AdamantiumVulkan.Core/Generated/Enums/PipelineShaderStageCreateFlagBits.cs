@@ -11,10 +11,16 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10900 Column: 6
+// File: vk.xml Line: 12596 Column: 6
 [Flags]
 public enum PipelineShaderStageCreateFlagBits : uint
 {
+    Reserved3BitKhr = 8,
+
+    AllowVaryingSubgroupSizeBit = 1,
+
+    RequireFullSubgroupsBit = 2,
+
 }
 
 

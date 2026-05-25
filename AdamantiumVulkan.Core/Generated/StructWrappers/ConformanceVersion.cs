@@ -28,6 +28,7 @@ public unsafe partial class ConformanceVersion : IMarshallableObject, IMarshalla
     public byte Subminor { get; set; }
     public byte Patch { get; set; }
 
+
     public static implicit operator ConformanceVersion(AdamantiumVulkan.Core.Interop.VkConformanceVersion c)
     {
         return new ConformanceVersion(in c);

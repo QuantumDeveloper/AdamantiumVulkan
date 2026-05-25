@@ -43,6 +43,7 @@ public unsafe partial class PhysicalDeviceFloatControlsProperties : IMarshallabl
     public VkBool32 ShaderRoundingModeRTZFloat32 { get; set; }
     public VkBool32 ShaderRoundingModeRTZFloat64 { get; set; }
 
+
     public static implicit operator PhysicalDeviceFloatControlsProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFloatControlsProperties p)
     {
         return new PhysicalDeviceFloatControlsProperties(in p);

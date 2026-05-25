@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceInlineUniformBlockFeatures : IMarshall
     public VkBool32 InlineUniformBlock { get; set; }
     public VkBool32 DescriptorBindingInlineUniformBlockUpdateAfterBind { get; set; }
 
+
     public static implicit operator PhysicalDeviceInlineUniformBlockFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockFeatures p)
     {
         return new PhysicalDeviceInlineUniformBlockFeatures(in p);

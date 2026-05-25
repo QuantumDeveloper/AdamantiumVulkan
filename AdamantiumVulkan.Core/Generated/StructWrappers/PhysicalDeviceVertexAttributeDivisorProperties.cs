@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceVertexAttributeDivisorProperties : IMa
     public uint MaxVertexAttribDivisor { get; set; }
     public VkBool32 SupportsNonZeroFirstInstance { get; set; }
 
+
     public static implicit operator PhysicalDeviceVertexAttributeDivisorProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorProperties p)
     {
         return new PhysicalDeviceVertexAttributeDivisorProperties(in p);

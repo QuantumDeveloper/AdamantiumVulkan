@@ -28,6 +28,7 @@ public unsafe partial class CoarseSampleOrderCustomNV : IMarshallableObject, IMa
     public uint SampleLocationCount { get; set; }
     public System.ReadOnlyMemory<CoarseSampleLocationNV> PSampleLocations { get; set; }
 
+
     public static implicit operator CoarseSampleOrderCustomNV(AdamantiumVulkan.Core.Interop.VkCoarseSampleOrderCustomNV c)
     {
         return new CoarseSampleOrderCustomNV(in c);

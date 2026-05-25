@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceMaintenance6Properties : IMarshallable
     public uint MaxCombinedImageSamplerDescriptorCount { get; set; }
     public VkBool32 FragmentShadingRateClampCombinerInputs { get; set; }
 
+
     public static implicit operator PhysicalDeviceMaintenance6Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance6Properties p)
     {
         return new PhysicalDeviceMaintenance6Properties(in p);

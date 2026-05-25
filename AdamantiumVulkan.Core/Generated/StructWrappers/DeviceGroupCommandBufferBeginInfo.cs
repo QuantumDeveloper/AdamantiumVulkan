@@ -27,6 +27,7 @@ public unsafe partial class DeviceGroupCommandBufferBeginInfo : IMarshallableObj
     public object PNext { get; set; }
     public uint DeviceMask { get; set; }
 
+
     public static implicit operator DeviceGroupCommandBufferBeginInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupCommandBufferBeginInfo d)
     {
         return new DeviceGroupCommandBufferBeginInfo(in d);

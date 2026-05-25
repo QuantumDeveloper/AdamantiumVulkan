@@ -30,6 +30,7 @@ public unsafe partial class VertexInputAttributeDescription2EXT : IMarshallableO
     public Format Format { get; set; }
     public uint Offset { get; set; }
 
+
     public static implicit operator VertexInputAttributeDescription2EXT(AdamantiumVulkan.Core.Interop.VkVertexInputAttributeDescription2EXT v)
     {
         return new VertexInputAttributeDescription2EXT(in v);

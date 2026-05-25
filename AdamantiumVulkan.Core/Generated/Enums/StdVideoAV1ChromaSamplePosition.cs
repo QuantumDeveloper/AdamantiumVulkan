@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: video.xml Line: 1556 Column: 6
+// File: video.xml Line: 1707 Column: 6
 public enum StdVideoAV1ChromaSamplePosition : int
 {
     Unknown = 0,

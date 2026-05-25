@@ -27,6 +27,7 @@ public unsafe partial class SamplerCaptureDescriptorDataInfoEXT : IMarshallableO
     public object PNext { get; set; }
     public Sampler Sampler { get; set; }
 
+
     public static implicit operator SamplerCaptureDescriptorDataInfoEXT(AdamantiumVulkan.Core.Interop.VkSamplerCaptureDescriptorDataInfoEXT s)
     {
         return new SamplerCaptureDescriptorDataInfoEXT(in s);

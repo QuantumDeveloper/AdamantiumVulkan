@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10797 Column: 6
+// File: vk.xml Line: 12493 Column: 6
 [Flags]
 public enum MemoryPropertyFlagBits : uint
 {
@@ -24,6 +24,14 @@ public enum MemoryPropertyFlagBits : uint
     HostCachedBit = 8,
 
     LazilyAllocatedBit = 16,
+
+    DeviceCoherentBitAmd = 64,
+
+    DeviceUncachedBitAmd = 128,
+
+    RdmaCapableBitNv = 256,
+
+    ProtectedBit = 32,
 
 }
 

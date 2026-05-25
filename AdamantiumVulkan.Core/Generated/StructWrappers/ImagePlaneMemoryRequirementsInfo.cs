@@ -27,6 +27,7 @@ public unsafe partial class ImagePlaneMemoryRequirementsInfo : IMarshallableObje
     public object PNext { get; set; }
     public ImageAspectFlagBits PlaneAspect { get; set; }
 
+
     public static implicit operator ImagePlaneMemoryRequirementsInfo(AdamantiumVulkan.Core.Interop.VkImagePlaneMemoryRequirementsInfo i)
     {
         return new ImagePlaneMemoryRequirementsInfo(in i);

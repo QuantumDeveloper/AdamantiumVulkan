@@ -27,6 +27,7 @@ public unsafe partial class DispatchIndirectCommand : IMarshallableObject, IMars
     public uint Y { get; set; }
     public uint Z { get; set; }
 
+
     public static implicit operator DispatchIndirectCommand(AdamantiumVulkan.Core.Interop.VkDispatchIndirectCommand d)
     {
         return new DispatchIndirectCommand(in d);

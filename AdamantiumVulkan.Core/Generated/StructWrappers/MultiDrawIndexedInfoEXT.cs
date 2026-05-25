@@ -27,6 +27,7 @@ public unsafe partial class MultiDrawIndexedInfoEXT : IMarshallableObject, IMars
     public uint IndexCount { get; set; }
     public int VertexOffset { get; set; }
 
+
     public static implicit operator MultiDrawIndexedInfoEXT(AdamantiumVulkan.Core.Interop.VkMultiDrawIndexedInfoEXT m)
     {
         return new MultiDrawIndexedInfoEXT(in m);

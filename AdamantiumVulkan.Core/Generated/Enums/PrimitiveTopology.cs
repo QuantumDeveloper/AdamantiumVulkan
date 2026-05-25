@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10310 Column: 6
+// File: vk.xml Line: 12006 Column: 6
 public enum PrimitiveTopology : int
 {
     PointList = 0,

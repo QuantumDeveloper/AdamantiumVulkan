@@ -30,6 +30,7 @@ public unsafe partial class DeviceQueueCreateInfo : IMarshallableObject, IMarsha
     public uint QueueCount { get; set; }
     public System.ReadOnlyMemory<float> PQueuePriorities { get; set; }
 
+
     public static implicit operator DeviceQueueCreateInfo(AdamantiumVulkan.Core.Interop.VkDeviceQueueCreateInfo d)
     {
         return new DeviceQueueCreateInfo(in d);

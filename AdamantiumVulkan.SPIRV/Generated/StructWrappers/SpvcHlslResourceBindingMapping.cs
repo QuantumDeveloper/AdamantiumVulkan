@@ -29,6 +29,7 @@ public unsafe partial class SpvcHlslResourceBindingMapping : IMarshallable<Adama
     public uint Register_space { get; set; }
     public uint Register_binding { get; set; }
 
+
     public static implicit operator SpvcHlslResourceBindingMapping(AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslResourceBindingMapping s)
     {
         return new SpvcHlslResourceBindingMapping(in s);

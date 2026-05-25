@@ -28,6 +28,7 @@ public unsafe partial class CommandBufferSubmitInfo : IMarshallableObject, IMars
     public CommandBuffer CommandBuffer { get; set; }
     public uint DeviceMask { get; set; }
 
+
     public static implicit operator CommandBufferSubmitInfo(AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo c)
     {
         return new CommandBufferSubmitInfo(in c);

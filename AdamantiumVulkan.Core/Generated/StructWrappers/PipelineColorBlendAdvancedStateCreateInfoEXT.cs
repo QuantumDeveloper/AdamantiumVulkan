@@ -29,6 +29,7 @@ public unsafe partial class PipelineColorBlendAdvancedStateCreateInfoEXT : IMars
     public VkBool32 DstPremultiplied { get; set; }
     public BlendOverlapEXT BlendOverlap { get; set; }
 
+
     public static implicit operator PipelineColorBlendAdvancedStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAdvancedStateCreateInfoEXT p)
     {
         return new PipelineColorBlendAdvancedStateCreateInfoEXT(in p);

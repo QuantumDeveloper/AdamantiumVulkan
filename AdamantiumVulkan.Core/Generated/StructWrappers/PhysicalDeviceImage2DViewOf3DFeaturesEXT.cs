@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceImage2DViewOf3DFeaturesEXT : IMarshall
     public VkBool32 Image2DViewOf3D { get; set; }
     public VkBool32 Sampler2DViewOf3D { get; set; }
 
+
     public static implicit operator PhysicalDeviceImage2DViewOf3DFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImage2DViewOf3DFeaturesEXT p)
     {
         return new PhysicalDeviceImage2DViewOf3DFeaturesEXT(in p);

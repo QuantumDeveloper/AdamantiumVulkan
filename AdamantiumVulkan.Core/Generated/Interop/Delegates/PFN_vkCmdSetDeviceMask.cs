@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 14249 Column: 10
+// File: video.xml Line: 16198 Column: 10
 public unsafe struct PFN_vkCmdSetDeviceMask
 {
     public PFN_vkCmdSetDeviceMask(nuint ptr) : this((void*) ptr) { }

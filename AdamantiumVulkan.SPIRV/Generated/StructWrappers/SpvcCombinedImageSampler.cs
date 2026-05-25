@@ -30,6 +30,7 @@ public unsafe partial class SpvcCombinedImageSampler : IMarshallable<AdamantiumV
     public SpvcVariableId Image_id { get; set; }
     public SpvcVariableId Sampler_id { get; set; }
 
+
     public static implicit operator SpvcCombinedImageSampler(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCombinedImageSampler s)
     {
         return new SpvcCombinedImageSampler(in s);

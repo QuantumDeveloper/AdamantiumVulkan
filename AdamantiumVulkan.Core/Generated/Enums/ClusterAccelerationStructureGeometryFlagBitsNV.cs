@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11175 Column: 6
+// File: vk.xml Line: 12872 Column: 6
 [Flags]
 public enum ClusterAccelerationStructureGeometryFlagBitsNV : uint
 {

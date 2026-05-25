@@ -28,6 +28,7 @@ public unsafe partial class PipelineVertexInputDivisorStateCreateInfo : IMarshal
     public uint VertexBindingDivisorCount { get; set; }
     public System.ReadOnlyMemory<VertexInputBindingDivisorDescription> PVertexBindingDivisors { get; set; }
 
+
     public static implicit operator PipelineVertexInputDivisorStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfo p)
     {
         return new PipelineVertexInputDivisorStateCreateInfo(in p);

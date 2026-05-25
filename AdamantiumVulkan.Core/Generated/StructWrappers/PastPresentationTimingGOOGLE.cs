@@ -29,6 +29,7 @@ public unsafe partial class PastPresentationTimingGOOGLE : IMarshallableObject, 
     public ulong EarliestPresentTime { get; set; }
     public ulong PresentMargin { get; set; }
 
+
     public static implicit operator PastPresentationTimingGOOGLE(AdamantiumVulkan.Core.Interop.VkPastPresentationTimingGOOGLE p)
     {
         return new PastPresentationTimingGOOGLE(in p);

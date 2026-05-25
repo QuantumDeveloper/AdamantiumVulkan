@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceImageRobustnessFeatures : IMarshallabl
     public object PNext { get; set; }
     public VkBool32 RobustImageAccess { get; set; }
 
+
     public static implicit operator PhysicalDeviceImageRobustnessFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageRobustnessFeatures p)
     {
         return new PhysicalDeviceImageRobustnessFeatures(in p);

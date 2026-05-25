@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceSurfaceInfo2KHR : IMarshallableObject,
     public object PNext { get; set; }
     public SurfaceKHR Surface { get; set; }
 
+
     public static implicit operator PhysicalDeviceSurfaceInfo2KHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR p)
     {
         return new PhysicalDeviceSurfaceInfo2KHR(in p);

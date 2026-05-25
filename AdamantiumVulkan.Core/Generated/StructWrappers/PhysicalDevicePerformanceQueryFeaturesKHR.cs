@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDevicePerformanceQueryFeaturesKHR : IMarshal
     public VkBool32 PerformanceCounterQueryPools { get; set; }
     public VkBool32 PerformanceCounterMultipleQueryPools { get; set; }
 
+
     public static implicit operator PhysicalDevicePerformanceQueryFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePerformanceQueryFeaturesKHR p)
     {
         return new PhysicalDevicePerformanceQueryFeaturesKHR(in p);

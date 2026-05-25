@@ -29,6 +29,7 @@ public unsafe partial class ComputePipelineIndirectBufferInfoNV : IMarshallableO
     public VkDeviceSize Size { get; set; }
     public VkDeviceAddress PipelineDeviceAddressCaptureReplay { get; set; }
 
+
     public static implicit operator ComputePipelineIndirectBufferInfoNV(AdamantiumVulkan.Core.Interop.VkComputePipelineIndirectBufferInfoNV c)
     {
         return new ComputePipelineIndirectBufferInfoNV(in c);

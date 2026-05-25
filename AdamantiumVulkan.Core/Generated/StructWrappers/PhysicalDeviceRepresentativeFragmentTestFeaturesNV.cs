@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceRepresentativeFragmentTestFeaturesNV :
     public object PNext { get; set; }
     public VkBool32 RepresentativeFragmentTest { get; set; }
 
+
     public static implicit operator PhysicalDeviceRepresentativeFragmentTestFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV p)
     {
         return new PhysicalDeviceRepresentativeFragmentTestFeaturesNV(in p);

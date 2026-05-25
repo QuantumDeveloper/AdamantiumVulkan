@@ -38,6 +38,7 @@ public unsafe partial class ShaderCreateInfoEXT : IMarshallableObject, IMarshall
     public System.ReadOnlyMemory<PushConstantRange> PushConstantRanges { get; set; }
     public SpecializationInfo PSpecializationInfo { get; set; }
 
+
     public static implicit operator ShaderCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkShaderCreateInfoEXT s)
     {
         return new ShaderCreateInfoEXT(in s);

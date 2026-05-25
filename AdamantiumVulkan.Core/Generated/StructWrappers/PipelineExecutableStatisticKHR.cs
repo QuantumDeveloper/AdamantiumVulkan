@@ -30,6 +30,7 @@ public unsafe partial class PipelineExecutableStatisticKHR : IMarshallableObject
     public PipelineExecutableStatisticFormatKHR Format { get; set; }
     public PipelineExecutableStatisticValueKHR Value { get; set; }
 
+
     public static implicit operator PipelineExecutableStatisticKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticKHR p)
     {
         return new PipelineExecutableStatisticKHR(in p);
@@ -42,6 +43,8 @@ public unsafe partial class PipelineExecutableStatisticKHR : IMarshallableObject
         {
             size += marshallable.GetSize();
         }
+        if (Value != default)
+            size += Value.GetSize();
         return size;
     }
 

@@ -38,6 +38,7 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT :
     public VkBool32 DeviceGeneratedCommandsTransformFeedback { get; set; }
     public VkBool32 DeviceGeneratedCommandsMultiDrawIndirectCount { get; set; }
 
+
     public static implicit operator PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT p)
     {
         return new PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT(in p);

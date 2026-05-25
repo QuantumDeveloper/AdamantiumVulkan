@@ -30,6 +30,7 @@ public unsafe partial class MemoryGetWin32HandleInfoKHR : IMarshallableObject, I
     public DeviceMemory Memory { get; set; }
     public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
 
+
     public static implicit operator MemoryGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR m)
     {
         return new MemoryGetWin32HandleInfoKHR(in m);

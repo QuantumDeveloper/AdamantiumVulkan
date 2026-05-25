@@ -36,6 +36,7 @@ public unsafe partial class StdVideoH265VideoParameterSet : IMarshallableObject,
     public StdVideoH265HrdParameters PHrdParameters { get; set; }
     public StdVideoH265ProfileTierLevel ProfileTierLevel { get; set; }
 
+
     public static implicit operator StdVideoH265VideoParameterSet(AdamantiumVulkan.Core.Interop.StdVideoH265VideoParameterSet s)
     {
         return new StdVideoH265VideoParameterSet(in s);

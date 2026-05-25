@@ -32,6 +32,7 @@ public unsafe partial class DeviceGroupSubmitInfo : IMarshallableObject, IMarsha
     public uint SignalSemaphoreCount { get; set; }
     public System.ReadOnlyMemory<uint> PSignalSemaphoreDeviceIndices { get; set; }
 
+
     public static implicit operator DeviceGroupSubmitInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo d)
     {
         return new DeviceGroupSubmitInfo(in d);

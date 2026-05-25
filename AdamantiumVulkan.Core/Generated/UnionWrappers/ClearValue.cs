@@ -26,6 +26,7 @@ public unsafe partial class ClearValue : IMarshallableObject, IMarshallable<Adam
     public ClearColorValue Color { get; set; }
     public ClearDepthStencilValue DepthStencil { get; set; }
 
+
     public static implicit operator ClearValue(AdamantiumVulkan.Core.Interop.VkClearValue c)
     {
         return new ClearValue(in c);

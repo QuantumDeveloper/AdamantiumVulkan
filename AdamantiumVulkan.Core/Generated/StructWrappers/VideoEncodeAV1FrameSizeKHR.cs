@@ -27,6 +27,7 @@ public unsafe partial class VideoEncodeAV1FrameSizeKHR : IMarshallableObject, IM
     public uint PredictiveFrameSize { get; set; }
     public uint BipredictiveFrameSize { get; set; }
 
+
     public static implicit operator VideoEncodeAV1FrameSizeKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1FrameSizeKHR v)
     {
         return new VideoEncodeAV1FrameSizeKHR(in v);

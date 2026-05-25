@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceTextureCompressionASTCHDRFeatures : IM
     public object PNext { get; set; }
     public VkBool32 TextureCompressionASTC_HDR { get; set; }
 
+
     public static implicit operator PhysicalDeviceTextureCompressionASTCHDRFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTCHDRFeatures p)
     {
         return new PhysicalDeviceTextureCompressionASTCHDRFeatures(in p);

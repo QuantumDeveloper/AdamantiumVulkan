@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceExclusiveScissorFeaturesNV : IMarshall
     public object PNext { get; set; }
     public VkBool32 ExclusiveScissor { get; set; }
 
+
     public static implicit operator PhysicalDeviceExclusiveScissorFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExclusiveScissorFeaturesNV p)
     {
         return new PhysicalDeviceExclusiveScissorFeaturesNV(in p);

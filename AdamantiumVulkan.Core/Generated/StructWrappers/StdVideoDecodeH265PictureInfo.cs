@@ -35,6 +35,7 @@ public unsafe partial class StdVideoDecodeH265PictureInfo : IMarshallableObject,
     public System.ReadOnlyMemory<byte> RefPicSetStCurrAfter { get; set; }
     public System.ReadOnlyMemory<byte> RefPicSetLtCurr { get; set; }
 
+
     public static implicit operator StdVideoDecodeH265PictureInfo(AdamantiumVulkan.Core.Interop.StdVideoDecodeH265PictureInfo s)
     {
         return new StdVideoDecodeH265PictureInfo(in s);

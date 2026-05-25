@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceDescriptorBufferDensityMapPropertiesEX
     public object PNext { get; set; }
     public nuint CombinedImageSamplerDensityMapDescriptorSize { get; set; }
 
+
     public static implicit operator PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT p)
     {
         return new PhysicalDeviceDescriptorBufferDensityMapPropertiesEXT(in p);

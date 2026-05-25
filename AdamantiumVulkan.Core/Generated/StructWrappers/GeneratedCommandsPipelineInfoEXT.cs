@@ -27,6 +27,7 @@ public unsafe partial class GeneratedCommandsPipelineInfoEXT : IMarshallableObje
     public object PNext { get; set; }
     public Pipeline Pipeline { get; set; }
 
+
     public static implicit operator GeneratedCommandsPipelineInfoEXT(AdamantiumVulkan.Core.Interop.VkGeneratedCommandsPipelineInfoEXT g)
     {
         return new GeneratedCommandsPipelineInfoEXT(in g);

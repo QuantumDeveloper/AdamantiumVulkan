@@ -29,6 +29,7 @@ public unsafe partial class ColorBlendAdvancedEXT : IMarshallableObject, IMarsha
     public BlendOverlapEXT BlendOverlap { get; set; }
     public VkBool32 ClampResults { get; set; }
 
+
     public static implicit operator ColorBlendAdvancedEXT(AdamantiumVulkan.Core.Interop.VkColorBlendAdvancedEXT c)
     {
         return new ColorBlendAdvancedEXT(in c);

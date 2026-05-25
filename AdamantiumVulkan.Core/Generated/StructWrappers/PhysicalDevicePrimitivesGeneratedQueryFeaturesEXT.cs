@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT : 
     public VkBool32 PrimitivesGeneratedQueryWithRasterizerDiscard { get; set; }
     public VkBool32 PrimitivesGeneratedQueryWithNonZeroStreams { get; set; }
 
+
     public static implicit operator PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT p)
     {
         return new PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT(in p);

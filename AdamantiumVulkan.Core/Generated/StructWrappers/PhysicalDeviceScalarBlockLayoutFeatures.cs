@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceScalarBlockLayoutFeatures : IMarshalla
     public object PNext { get; set; }
     public VkBool32 ScalarBlockLayout { get; set; }
 
+
     public static implicit operator PhysicalDeviceScalarBlockLayoutFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceScalarBlockLayoutFeatures p)
     {
         return new PhysicalDeviceScalarBlockLayoutFeatures(in p);

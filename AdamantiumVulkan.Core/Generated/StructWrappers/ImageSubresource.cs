@@ -27,6 +27,7 @@ public unsafe partial class ImageSubresource : IMarshallableObject, IMarshallabl
     public uint MipLevel { get; set; }
     public uint ArrayLayer { get; set; }
 
+
     public static implicit operator ImageSubresource(AdamantiumVulkan.Core.Interop.VkImageSubresource i)
     {
         return new ImageSubresource(in i);

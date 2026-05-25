@@ -28,6 +28,7 @@ public unsafe partial class DescriptorGetInfoEXT : IMarshallableObject, IMarshal
     public DescriptorType Type { get; set; }
     public DescriptorDataEXT Data { get; set; }
 
+
     public static implicit operator DescriptorGetInfoEXT(AdamantiumVulkan.Core.Interop.VkDescriptorGetInfoEXT d)
     {
         return new DescriptorGetInfoEXT(in d);
@@ -40,6 +41,8 @@ public unsafe partial class DescriptorGetInfoEXT : IMarshallableObject, IMarshal
         {
             size += marshallable.GetSize();
         }
+        if (Data != default)
+            size += Data.GetSize();
         return size;
     }
 

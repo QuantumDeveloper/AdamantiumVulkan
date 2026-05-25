@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceBufferDeviceAddressFeatures : IMarshal
     public VkBool32 BufferDeviceAddressCaptureReplay { get; set; }
     public VkBool32 BufferDeviceAddressMultiDevice { get; set; }
 
+
     public static implicit operator PhysicalDeviceBufferDeviceAddressFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferDeviceAddressFeatures p)
     {
         return new PhysicalDeviceBufferDeviceAddressFeatures(in p);

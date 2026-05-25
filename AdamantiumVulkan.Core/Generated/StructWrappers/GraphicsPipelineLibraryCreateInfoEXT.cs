@@ -27,6 +27,7 @@ public unsafe partial class GraphicsPipelineLibraryCreateInfoEXT : IMarshallable
     public object PNext { get; set; }
     public GraphicsPipelineLibraryFlagBitsEXT Flags { get; set; }
 
+
     public static implicit operator GraphicsPipelineLibraryCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkGraphicsPipelineLibraryCreateInfoEXT g)
     {
         return new GraphicsPipelineLibraryCreateInfoEXT(in g);

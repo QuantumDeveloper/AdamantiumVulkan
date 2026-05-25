@@ -28,6 +28,7 @@ public unsafe partial class VideoEncodeQuantizationMapInfoKHR : IMarshallableObj
     public ImageView QuantizationMap { get; set; }
     public Extent2D QuantizationMapExtent { get; set; }
 
+
     public static implicit operator VideoEncodeQuantizationMapInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeQuantizationMapInfoKHR v)
     {
         return new VideoEncodeQuantizationMapInfoKHR(in v);

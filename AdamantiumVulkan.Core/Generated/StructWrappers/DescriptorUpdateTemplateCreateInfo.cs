@@ -34,6 +34,7 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : IMarshallableOb
     public PipelineLayout PipelineLayout { get; set; }
     public uint Set { get; set; }
 
+
     public static implicit operator DescriptorUpdateTemplateCreateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo d)
     {
         return new DescriptorUpdateTemplateCreateInfo(in d);

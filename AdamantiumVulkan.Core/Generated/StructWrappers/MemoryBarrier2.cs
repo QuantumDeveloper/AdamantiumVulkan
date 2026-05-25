@@ -30,6 +30,7 @@ public unsafe partial class MemoryBarrier2 : IMarshallableObject, IMarshallable<
     public PipelineStageFlagBits2 DstStageMask { get; set; }
     public AccessFlagBits2 DstAccessMask { get; set; }
 
+
     public static implicit operator MemoryBarrier2(AdamantiumVulkan.Core.Interop.VkMemoryBarrier2 m)
     {
         return new MemoryBarrier2(in m);

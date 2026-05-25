@@ -50,6 +50,7 @@ public unsafe partial class VideoEncodeAV1CapabilitiesKHR : IMarshallableObject,
     public VkBool32 RequiresGopRemainingFrames { get; set; }
     public VideoEncodeAV1StdFlagBitsKHR StdSyntaxFlags { get; set; }
 
+
     public static implicit operator VideoEncodeAV1CapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1CapabilitiesKHR v)
     {
         return new VideoEncodeAV1CapabilitiesKHR(in v);

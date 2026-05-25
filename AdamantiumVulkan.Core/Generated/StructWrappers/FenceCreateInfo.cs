@@ -27,6 +27,7 @@ public unsafe partial class FenceCreateInfo : IMarshallableObject, IMarshallable
     public object PNext { get; set; }
     public FenceCreateFlagBits Flags { get; set; }
 
+
     public static implicit operator FenceCreateInfo(AdamantiumVulkan.Core.Interop.VkFenceCreateInfo f)
     {
         return new FenceCreateInfo(in f);

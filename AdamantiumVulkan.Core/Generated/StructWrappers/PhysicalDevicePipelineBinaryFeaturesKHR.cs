@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePipelineBinaryFeaturesKHR : IMarshalla
     public object PNext { get; set; }
     public VkBool32 PipelineBinaries { get; set; }
 
+
     public static implicit operator PhysicalDevicePipelineBinaryFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineBinaryFeaturesKHR p)
     {
         return new PhysicalDevicePipelineBinaryFeaturesKHR(in p);

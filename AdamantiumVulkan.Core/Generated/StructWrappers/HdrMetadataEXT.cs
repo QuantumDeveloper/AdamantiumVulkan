@@ -34,6 +34,7 @@ public unsafe partial class HdrMetadataEXT : IMarshallableObject, IMarshallable<
     public float MaxContentLightLevel { get; set; }
     public float MaxFrameAverageLightLevel { get; set; }
 
+
     public static implicit operator HdrMetadataEXT(AdamantiumVulkan.Core.Interop.VkHdrMetadataEXT h)
     {
         return new HdrMetadataEXT(in h);

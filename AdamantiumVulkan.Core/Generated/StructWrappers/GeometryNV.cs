@@ -29,6 +29,7 @@ public unsafe partial class GeometryNV : IMarshallableObject, IMarshallable<Adam
     public GeometryDataNV Geometry { get; set; }
     public GeometryFlagBitsKHR Flags { get; set; }
 
+
     public static implicit operator GeometryNV(AdamantiumVulkan.Core.Interop.VkGeometryNV g)
     {
         return new GeometryNV(in g);

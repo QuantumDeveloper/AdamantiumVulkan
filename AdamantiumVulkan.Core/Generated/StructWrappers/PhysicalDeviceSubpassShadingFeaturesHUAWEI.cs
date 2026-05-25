@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceSubpassShadingFeaturesHUAWEI : IMarsha
     public object PNext { get; set; }
     public VkBool32 SubpassShading { get; set; }
 
+
     public static implicit operator PhysicalDeviceSubpassShadingFeaturesHUAWEI(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubpassShadingFeaturesHUAWEI p)
     {
         return new PhysicalDeviceSubpassShadingFeaturesHUAWEI(in p);

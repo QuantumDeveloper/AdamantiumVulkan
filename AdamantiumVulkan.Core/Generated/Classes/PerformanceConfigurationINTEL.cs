@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 588 Column: 10
+// File: vk.xml Line: 634 Column: 10
 public unsafe partial class PerformanceConfigurationINTEL : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkPerformanceConfigurationINTEL_T>
 {
     internal VkPerformanceConfigurationINTEL_T __Instance;

@@ -27,6 +27,7 @@ public unsafe partial class BindImagePlaneMemoryInfo : IMarshallableObject, IMar
     public object PNext { get; set; }
     public ImageAspectFlagBits PlaneAspect { get; set; }
 
+
     public static implicit operator BindImagePlaneMemoryInfo(AdamantiumVulkan.Core.Interop.VkBindImagePlaneMemoryInfo b)
     {
         return new BindImagePlaneMemoryInfo(in b);

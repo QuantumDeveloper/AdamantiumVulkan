@@ -27,7 +27,8 @@ public unsafe partial class DecompressMemoryRegionNV : IMarshallableObject, IMar
     public VkDeviceAddress DstAddress { get; set; }
     public VkDeviceSize CompressedSize { get; set; }
     public VkDeviceSize DecompressedSize { get; set; }
-    public VkMemoryDecompressionMethodFlagsNV DecompressionMethod { get; set; }
+    public VkMemoryDecompressionMethodFlagsEXT DecompressionMethod { get; set; }
+
 
     public static implicit operator DecompressMemoryRegionNV(AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV d)
     {

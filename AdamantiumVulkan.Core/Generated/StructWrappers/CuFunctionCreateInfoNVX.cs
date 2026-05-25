@@ -28,6 +28,7 @@ public unsafe partial class CuFunctionCreateInfoNVX : IMarshallableObject, IMars
     public CuModuleNVX Module { get; set; }
     public string PName { get; set; }
 
+
     public static implicit operator CuFunctionCreateInfoNVX(AdamantiumVulkan.Core.Interop.VkCuFunctionCreateInfoNVX c)
     {
         return new CuFunctionCreateInfoNVX(in c);

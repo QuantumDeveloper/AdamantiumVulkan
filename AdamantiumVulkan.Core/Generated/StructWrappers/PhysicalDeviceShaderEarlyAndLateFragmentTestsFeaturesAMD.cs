@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderEarlyAndLateFragmentTestsFeature
     public object PNext { get; set; }
     public VkBool32 ShaderEarlyAndLateFragmentTests { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD p)
     {
         return new PhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD(in p);

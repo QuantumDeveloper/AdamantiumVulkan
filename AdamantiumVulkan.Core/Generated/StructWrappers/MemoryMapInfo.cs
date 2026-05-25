@@ -30,6 +30,7 @@ public unsafe partial class MemoryMapInfo : IMarshallableObject, IMarshallable<A
     public VkDeviceSize Offset { get; set; }
     public VkDeviceSize Size { get; set; }
 
+
     public static implicit operator MemoryMapInfo(AdamantiumVulkan.Core.Interop.VkMemoryMapInfo m)
     {
         return new MemoryMapInfo(in m);

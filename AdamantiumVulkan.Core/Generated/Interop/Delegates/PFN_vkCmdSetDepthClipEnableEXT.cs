@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15635 Column: 10
+// File: video.xml Line: 17590 Column: 10
 public unsafe struct PFN_vkCmdSetDepthClipEnableEXT
 {
     public PFN_vkCmdSetDepthClipEnableEXT(nuint ptr) : this((void*) ptr) { }

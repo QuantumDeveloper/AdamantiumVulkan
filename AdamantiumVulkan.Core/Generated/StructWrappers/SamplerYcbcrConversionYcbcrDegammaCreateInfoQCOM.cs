@@ -28,6 +28,7 @@ public unsafe partial class SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM : I
     public VkBool32 EnableYDegamma { get; set; }
     public VkBool32 EnableCbCrDegamma { get; set; }
 
+
     public static implicit operator SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM s)
     {
         return new SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM(in s);

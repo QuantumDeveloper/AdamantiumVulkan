@@ -26,6 +26,7 @@ public unsafe partial class StdVideoAV1GlobalMotion : IMarshallableObject, IMars
     public System.ReadOnlyMemory<byte> GmType { get; set; }
     public System.ReadOnlyMemory<int> Gm_params { get; set; }
 
+
     public static implicit operator StdVideoAV1GlobalMotion(AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion s)
     {
         return new StdVideoAV1GlobalMotion(in s);

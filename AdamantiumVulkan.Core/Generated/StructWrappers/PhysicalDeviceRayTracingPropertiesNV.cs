@@ -34,6 +34,7 @@ public unsafe partial class PhysicalDeviceRayTracingPropertiesNV : IMarshallable
     public ulong MaxTriangleCount { get; set; }
     public uint MaxDescriptorSetAccelerationStructures { get; set; }
 
+
     public static implicit operator PhysicalDeviceRayTracingPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPropertiesNV p)
     {
         return new PhysicalDeviceRayTracingPropertiesNV(in p);

@@ -26,6 +26,7 @@ public unsafe partial class DepthClampRangeEXT : IMarshallableObject, IMarshalla
     public float MinDepthClamp { get; set; }
     public float MaxDepthClamp { get; set; }
 
+
     public static implicit operator DepthClampRangeEXT(AdamantiumVulkan.Core.Interop.VkDepthClampRangeEXT d)
     {
         return new DepthClampRangeEXT(in d);

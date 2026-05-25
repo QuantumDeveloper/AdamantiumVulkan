@@ -26,6 +26,7 @@ public unsafe partial class BaseOutStructure : IMarshallableObject, IMarshallabl
     public StructureType SType { get; set; }
     public object PNext { get; set; }
 
+
     public static implicit operator BaseOutStructure(AdamantiumVulkan.Core.Interop.VkBaseOutStructure b)
     {
         return new BaseOutStructure(in b);

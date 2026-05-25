@@ -27,6 +27,7 @@ public unsafe partial class SemaphoreCreateInfo : IMarshallableObject, IMarshall
     public object PNext { get; set; }
     public VkSemaphoreCreateFlags Flags { get; set; }
 
+
     public static implicit operator SemaphoreCreateInfo(AdamantiumVulkan.Core.Interop.VkSemaphoreCreateInfo s)
     {
         return new SemaphoreCreateInfo(in s);

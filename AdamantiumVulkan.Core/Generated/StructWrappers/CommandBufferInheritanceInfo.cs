@@ -32,6 +32,7 @@ public unsafe partial class CommandBufferInheritanceInfo : IMarshallableObject, 
     public QueryControlFlagBits QueryFlags { get; set; }
     public QueryPipelineStatisticFlagBits PipelineStatistics { get; set; }
 
+
     public static implicit operator CommandBufferInheritanceInfo(AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo c)
     {
         return new CommandBufferInheritanceInfo(in c);

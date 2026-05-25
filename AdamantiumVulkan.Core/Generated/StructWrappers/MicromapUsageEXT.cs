@@ -27,6 +27,7 @@ public unsafe partial class MicromapUsageEXT : IMarshallableObject, IMarshallabl
     public uint SubdivisionLevel { get; set; }
     public uint Format { get; set; }
 
+
     public static implicit operator MicromapUsageEXT(AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT m)
     {
         return new MicromapUsageEXT(in m);

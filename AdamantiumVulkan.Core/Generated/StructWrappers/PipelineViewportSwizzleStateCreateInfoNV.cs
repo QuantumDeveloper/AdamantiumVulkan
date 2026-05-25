@@ -29,6 +29,7 @@ public unsafe partial class PipelineViewportSwizzleStateCreateInfoNV : IMarshall
     public uint ViewportCount { get; set; }
     public System.ReadOnlyMemory<ViewportSwizzleNV> PViewportSwizzles { get; set; }
 
+
     public static implicit operator PipelineViewportSwizzleStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportSwizzleStateCreateInfoNV p)
     {
         return new PipelineViewportSwizzleStateCreateInfoNV(in p);

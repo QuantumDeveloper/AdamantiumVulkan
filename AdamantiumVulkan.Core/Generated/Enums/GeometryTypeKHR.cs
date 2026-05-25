@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11530 Column: 6
+// File: vk.xml Line: 13229 Column: 6
 public enum GeometryTypeKHR : int
 {
     TrianglesKhr = 0,
@@ -23,6 +23,8 @@ public enum GeometryTypeKHR : int
     SpheresNv = 1000429004,
 
     LinearSweptSpheresNv = 1000429005,
+
+    DenseGeometryFormatTrianglesAmdx = 1000478000,
 
 }
 

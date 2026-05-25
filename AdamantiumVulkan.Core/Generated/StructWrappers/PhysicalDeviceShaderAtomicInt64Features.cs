@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceShaderAtomicInt64Features : IMarshalla
     public VkBool32 ShaderBufferInt64Atomics { get; set; }
     public VkBool32 ShaderSharedInt64Atomics { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderAtomicInt64Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicInt64Features p)
     {
         return new PhysicalDeviceShaderAtomicInt64Features(in p);

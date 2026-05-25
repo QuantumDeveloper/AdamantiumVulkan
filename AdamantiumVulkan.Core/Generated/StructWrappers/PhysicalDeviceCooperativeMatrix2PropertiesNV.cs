@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceCooperativeMatrix2PropertiesNV : IMars
     public uint CooperativeMatrixFlexibleDimensionsMaxDimension { get; set; }
     public uint CooperativeMatrixWorkgroupScopeReservedSharedMemory { get; set; }
 
+
     public static implicit operator PhysicalDeviceCooperativeMatrix2PropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrix2PropertiesNV p)
     {
         return new PhysicalDeviceCooperativeMatrix2PropertiesNV(in p);

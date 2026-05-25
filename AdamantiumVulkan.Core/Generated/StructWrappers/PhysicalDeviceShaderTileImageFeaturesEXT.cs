@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceShaderTileImageFeaturesEXT : IMarshall
     public VkBool32 ShaderTileImageDepthReadAccess { get; set; }
     public VkBool32 ShaderTileImageStencilReadAccess { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderTileImageFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderTileImageFeaturesEXT p)
     {
         return new PhysicalDeviceShaderTileImageFeaturesEXT(in p);

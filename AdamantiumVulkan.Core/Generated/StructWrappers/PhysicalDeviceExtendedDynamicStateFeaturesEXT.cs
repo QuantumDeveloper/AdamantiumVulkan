@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceExtendedDynamicStateFeaturesEXT : IMar
     public object PNext { get; set; }
     public VkBool32 ExtendedDynamicState { get; set; }
 
+
     public static implicit operator PhysicalDeviceExtendedDynamicStateFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicStateFeaturesEXT p)
     {
         return new PhysicalDeviceExtendedDynamicStateFeaturesEXT(in p);

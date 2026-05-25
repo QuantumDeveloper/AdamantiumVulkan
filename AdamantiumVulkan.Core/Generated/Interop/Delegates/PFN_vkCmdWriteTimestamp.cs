@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 13458 Column: 10
+// File: video.xml Line: 15389 Column: 10
 public unsafe struct PFN_vkCmdWriteTimestamp
 {
     public PFN_vkCmdWriteTimestamp(nuint ptr) : this((void*) ptr) { }

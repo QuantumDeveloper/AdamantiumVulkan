@@ -28,6 +28,7 @@ public unsafe partial class DrawIndirectCommand : IMarshallableObject, IMarshall
     public uint FirstVertex { get; set; }
     public uint FirstInstance { get; set; }
 
+
     public static implicit operator DrawIndirectCommand(AdamantiumVulkan.Core.Interop.VkDrawIndirectCommand d)
     {
         return new DrawIndirectCommand(in d);

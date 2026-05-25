@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceDescriptorPoolOverallocationFeaturesNV
     public object PNext { get; set; }
     public VkBool32 DescriptorPoolOverallocation { get; set; }
 
+
     public static implicit operator PhysicalDeviceDescriptorPoolOverallocationFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV p)
     {
         return new PhysicalDeviceDescriptorPoolOverallocationFeaturesNV(in p);

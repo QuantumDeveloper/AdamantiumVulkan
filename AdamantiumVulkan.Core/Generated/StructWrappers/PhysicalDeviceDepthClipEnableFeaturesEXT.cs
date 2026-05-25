@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceDepthClipEnableFeaturesEXT : IMarshall
     public object PNext { get; set; }
     public VkBool32 DepthClipEnable { get; set; }
 
+
     public static implicit operator PhysicalDeviceDepthClipEnableFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClipEnableFeaturesEXT p)
     {
         return new PhysicalDeviceDepthClipEnableFeaturesEXT(in p);

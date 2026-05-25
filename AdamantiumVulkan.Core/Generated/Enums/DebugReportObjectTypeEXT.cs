@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11088 Column: 6
+// File: vk.xml Line: 12784 Column: 6
 public enum DebugReportObjectTypeEXT : int
 {
     UnknownExt = 0,

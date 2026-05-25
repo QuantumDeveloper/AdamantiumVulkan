@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 556 Column: 10
+// File: vk.xml Line: 602 Column: 10
 public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T>
 {
     internal VkCommandBuffer_T __Instance;
@@ -56,6 +56,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         }
     }
 
+    public void BeginConditionalRendering2EXT(in ConditionalRenderingBeginInfo2EXT pConditionalRenderingBegin)
+    {
+        int CalculateSize(ConditionalRenderingBeginInfo2EXT pConditionalRenderingBegin)
+        {
+            int totalSize = 0;
+            if (pConditionalRenderingBegin != null)
+                totalSize += pConditionalRenderingBegin.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pConditionalRenderingBegin);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ConditionalRenderingBeginInfo2EXT, AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfo2EXT>(pConditionalRenderingBegin, ref currentCursor);
+            Commands.vkCmdBeginConditionalRendering2EXT(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
     public void BeginConditionalRenderingEXT(in ConditionalRenderingBeginInfoEXT pConditionalRenderingBegin)
     {
         int CalculateSize(ConditionalRenderingBeginInfoEXT pConditionalRenderingBegin)
@@ -82,6 +108,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         }
     }
 
+    public void BeginCustomResolveEXT(in BeginCustomResolveInfoEXT pBeginCustomResolveInfo = null)
+    {
+        int CalculateSize(BeginCustomResolveInfoEXT pBeginCustomResolveInfo)
+        {
+            int totalSize = 0;
+            if (pBeginCustomResolveInfo != null)
+                totalSize += pBeginCustomResolveInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pBeginCustomResolveInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.BeginCustomResolveInfoEXT, AdamantiumVulkan.Core.Interop.VkBeginCustomResolveInfoEXT>(pBeginCustomResolveInfo, ref currentCursor);
+            Commands.vkCmdBeginCustomResolveEXT(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
     public void BeginDebugUtilsLabelEXT(in DebugUtilsLabelEXT pLabelInfo)
     {
         int CalculateSize(DebugUtilsLabelEXT pLabelInfo)
@@ -100,6 +152,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DebugUtilsLabelEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(pLabelInfo, ref currentCursor);
             Commands.vkCmdBeginDebugUtilsLabelEXT(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void BeginPerTileExecutionQCOM(in PerTileBeginInfoQCOM pPerTileBeginInfo)
+    {
+        int CalculateSize(PerTileBeginInfoQCOM pPerTileBeginInfo)
+        {
+            int totalSize = 0;
+            if (pPerTileBeginInfo != null)
+                totalSize += pPerTileBeginInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pPerTileBeginInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerTileBeginInfoQCOM, AdamantiumVulkan.Core.Interop.VkPerTileBeginInfoQCOM>(pPerTileBeginInfo, ref currentCursor);
+            Commands.vkCmdBeginPerTileExecutionQCOM(this, arg1);
         }
         finally
         {
@@ -193,6 +271,73 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.RenderPassBeginInfo, AdamantiumVulkan.Core.Interop.VkRenderPassBeginInfo>(pRenderPassBegin, ref currentCursor);
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.SubpassBeginInfo, AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo>(pSubpassBeginInfo, ref currentCursor);
             Commands.vkCmdBeginRenderPass2(this, arg1, arg2);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void BeginShaderInstrumentationARM(AdamantiumVulkan.Core.ShaderInstrumentationARM instrumentation)
+    {
+        var arg1 = instrumentation == null ? new VkShaderInstrumentationARM_T() : (VkShaderInstrumentationARM_T)instrumentation;
+        Commands.vkCmdBeginShaderInstrumentationARM(this, arg1);
+    }
+
+    public void BeginTransformFeedback2EXT(uint firstCounterRange, uint counterRangeCount, in System.ReadOnlySpan<BindTransformFeedbackBuffer2InfoEXT> pCounterInfos)
+    {
+        int CalculateSize(System.ReadOnlySpan<BindTransformFeedbackBuffer2InfoEXT> pCounterInfos)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pCounterInfos.Length; i++)
+            {
+                if(pCounterInfos[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>();
+                else
+                    totalSize += pCounterInfos[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCounterInfos);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            AdamantiumVulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT* arg3 = null;
+            if (!pCounterInfos.IsEmpty)
+            {
+                arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<AdamantiumVulkan.Core.BindTransformFeedbackBuffer2InfoEXT, AdamantiumVulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>(pCounterInfos, ref currentCursor);
+            }
+            Commands.vkCmdBeginTransformFeedback2EXT(this, firstCounterRange, counterRangeCount, arg3);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void BeginTransformFeedback2EXT(uint firstCounterRange, uint counterRangeCount, in BindTransformFeedbackBuffer2InfoEXT pCounterInfos = null)
+    {
+        int CalculateSize(BindTransformFeedbackBuffer2InfoEXT pCounterInfos)
+        {
+            int totalSize = 0;
+            if (pCounterInfos != null)
+                totalSize += pCounterInfos.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCounterInfos);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.BindTransformFeedbackBuffer2InfoEXT, AdamantiumVulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>(pCounterInfos, ref currentCursor);
+            Commands.vkCmdBeginTransformFeedback2EXT(this, firstCounterRange, counterRangeCount, arg3);
         }
         finally
         {
@@ -534,6 +679,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         Commands.vkCmdBindIndexBuffer2(this, arg1, offset, size, indexType);
     }
 
+    public void BindIndexBuffer3KHR(in BindIndexBuffer3InfoKHR pInfo)
+    {
+        int CalculateSize(BindIndexBuffer3InfoKHR pInfo)
+        {
+            int totalSize = 0;
+            if (pInfo != null)
+                totalSize += pInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.BindIndexBuffer3InfoKHR, AdamantiumVulkan.Core.Interop.VkBindIndexBuffer3InfoKHR>(pInfo, ref currentCursor);
+            Commands.vkCmdBindIndexBuffer3KHR(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
     public void BindInvocationMaskHUAWEI(AdamantiumVulkan.Core.ImageView imageView, ImageLayout imageLayout)
     {
         var arg1 = imageView == null ? new VkImageView_T() : (VkImageView_T)imageView;
@@ -550,6 +721,58 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
     {
         var arg2 = pipeline == null ? new VkPipeline_T() : (VkPipeline_T)pipeline;
         Commands.vkCmdBindPipelineShaderGroupNV(this, pipelineBindPoint, arg2, groupIndex);
+    }
+
+    public void BindResourceHeapEXT(in BindHeapInfoEXT pBindInfo)
+    {
+        int CalculateSize(BindHeapInfoEXT pBindInfo)
+        {
+            int totalSize = 0;
+            if (pBindInfo != null)
+                totalSize += pBindInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pBindInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.BindHeapInfoEXT, AdamantiumVulkan.Core.Interop.VkBindHeapInfoEXT>(pBindInfo, ref currentCursor);
+            Commands.vkCmdBindResourceHeapEXT(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void BindSamplerHeapEXT(in BindHeapInfoEXT pBindInfo)
+    {
+        int CalculateSize(BindHeapInfoEXT pBindInfo)
+        {
+            int totalSize = 0;
+            if (pBindInfo != null)
+                totalSize += pBindInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pBindInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.BindHeapInfoEXT, AdamantiumVulkan.Core.Interop.VkBindHeapInfoEXT>(pBindInfo, ref currentCursor);
+            Commands.vkCmdBindSamplerHeapEXT(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
     public void BindShadersEXT(uint stageCount, in System.ReadOnlySpan<ShaderStageFlagBits> pStages, in System.ReadOnlySpan<AdamantiumVulkan.Core.ShaderEXT> pShaders)
@@ -642,6 +865,93 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
     {
         var arg1 = imageView == null ? new VkImageView_T() : (VkImageView_T)imageView;
         Commands.vkCmdBindShadingRateImageNV(this, arg1, imageLayout);
+    }
+
+    public void BindTileMemoryQCOM(in TileMemoryBindInfoQCOM pTileMemoryBindInfo = null)
+    {
+        int CalculateSize(TileMemoryBindInfoQCOM pTileMemoryBindInfo)
+        {
+            int totalSize = 0;
+            if (pTileMemoryBindInfo != null)
+                totalSize += pTileMemoryBindInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pTileMemoryBindInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.TileMemoryBindInfoQCOM, AdamantiumVulkan.Core.Interop.VkTileMemoryBindInfoQCOM>(pTileMemoryBindInfo, ref currentCursor);
+            Commands.vkCmdBindTileMemoryQCOM(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void BindTransformFeedbackBuffers2EXT(uint firstBinding, uint bindingCount, in System.ReadOnlySpan<BindTransformFeedbackBuffer2InfoEXT> pBindingInfos)
+    {
+        int CalculateSize(System.ReadOnlySpan<BindTransformFeedbackBuffer2InfoEXT> pBindingInfos)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pBindingInfos.Length; i++)
+            {
+                if(pBindingInfos[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>();
+                else
+                    totalSize += pBindingInfos[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pBindingInfos);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            AdamantiumVulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT* arg3 = null;
+            if (!pBindingInfos.IsEmpty)
+            {
+                arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<AdamantiumVulkan.Core.BindTransformFeedbackBuffer2InfoEXT, AdamantiumVulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>(pBindingInfos, ref currentCursor);
+            }
+            Commands.vkCmdBindTransformFeedbackBuffers2EXT(this, firstBinding, bindingCount, arg3);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void BindTransformFeedbackBuffers2EXT(uint firstBinding, uint bindingCount, in BindTransformFeedbackBuffer2InfoEXT pBindingInfos = null)
+    {
+        int CalculateSize(BindTransformFeedbackBuffer2InfoEXT pBindingInfos)
+        {
+            int totalSize = 0;
+            if (pBindingInfos != null)
+                totalSize += pBindingInfos.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pBindingInfos);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.BindTransformFeedbackBuffer2InfoEXT, AdamantiumVulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>(pBindingInfos, ref currentCursor);
+            Commands.vkCmdBindTransformFeedbackBuffers2EXT(this, firstBinding, bindingCount, arg3);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
     public void BindTransformFeedbackBuffersEXT(uint firstBinding, uint bindingCount, in System.ReadOnlySpan<AdamantiumVulkan.Core.Buffer> pBuffers, in System.ReadOnlySpan<VkDeviceSize> pOffsets, in System.ReadOnlySpan<VkDeviceSize> pSizes)
@@ -1069,6 +1379,67 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         var arg6 = stackalloc VkDeviceSize[1];
         *arg6 = pStrides;
         Commands.vkCmdBindVertexBuffers2(this, firstBinding, bindingCount, arg3, arg4, arg5, arg6);
+    }
+
+    public void BindVertexBuffers3KHR(uint firstBinding, uint bindingCount, in System.ReadOnlySpan<BindVertexBuffer3InfoKHR> pBindingInfos)
+    {
+        int CalculateSize(System.ReadOnlySpan<BindVertexBuffer3InfoKHR> pBindingInfos)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pBindingInfos.Length; i++)
+            {
+                if(pBindingInfos[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkBindVertexBuffer3InfoKHR>();
+                else
+                    totalSize += pBindingInfos[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pBindingInfos);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            AdamantiumVulkan.Core.Interop.VkBindVertexBuffer3InfoKHR* arg3 = null;
+            if (!pBindingInfos.IsEmpty)
+            {
+                arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<AdamantiumVulkan.Core.BindVertexBuffer3InfoKHR, AdamantiumVulkan.Core.Interop.VkBindVertexBuffer3InfoKHR>(pBindingInfos, ref currentCursor);
+            }
+            Commands.vkCmdBindVertexBuffers3KHR(this, firstBinding, bindingCount, arg3);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void BindVertexBuffers3KHR(uint firstBinding, uint bindingCount, in BindVertexBuffer3InfoKHR pBindingInfos)
+    {
+        int CalculateSize(BindVertexBuffer3InfoKHR pBindingInfos)
+        {
+            int totalSize = 0;
+            if (pBindingInfos != null)
+                totalSize += pBindingInfos.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pBindingInfos);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.BindVertexBuffer3InfoKHR, AdamantiumVulkan.Core.Interop.VkBindVertexBuffer3InfoKHR>(pBindingInfos, ref currentCursor);
+            Commands.vkCmdBindVertexBuffers3KHR(this, firstBinding, bindingCount, arg3);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
     public void BlitImage(AdamantiumVulkan.Core.Image srcImage, ImageLayout srcImageLayout, AdamantiumVulkan.Core.Image dstImage, ImageLayout dstImageLayout, uint regionCount, in System.ReadOnlySpan<ImageBlit> pRegions, Filter filter)
@@ -2357,9 +2728,87 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         }
     }
 
+    public void CopyImageToMemoryKHR(in CopyDeviceMemoryImageInfoKHR pCopyMemoryInfo = null)
+    {
+        int CalculateSize(CopyDeviceMemoryImageInfoKHR pCopyMemoryInfo)
+        {
+            int totalSize = 0;
+            if (pCopyMemoryInfo != null)
+                totalSize += pCopyMemoryInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCopyMemoryInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CopyDeviceMemoryImageInfoKHR, AdamantiumVulkan.Core.Interop.VkCopyDeviceMemoryImageInfoKHR>(pCopyMemoryInfo, ref currentCursor);
+            Commands.vkCmdCopyImageToMemoryKHR(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void CopyMemoryIndirectKHR(in CopyMemoryIndirectInfoKHR pCopyMemoryIndirectInfo)
+    {
+        int CalculateSize(CopyMemoryIndirectInfoKHR pCopyMemoryIndirectInfo)
+        {
+            int totalSize = 0;
+            if (pCopyMemoryIndirectInfo != null)
+                totalSize += pCopyMemoryIndirectInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCopyMemoryIndirectInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CopyMemoryIndirectInfoKHR, AdamantiumVulkan.Core.Interop.VkCopyMemoryIndirectInfoKHR>(pCopyMemoryIndirectInfo, ref currentCursor);
+            Commands.vkCmdCopyMemoryIndirectKHR(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
     public void CopyMemoryIndirectNV(VkDeviceAddress copyBufferAddress, uint copyCount, uint stride)
     {
         Commands.vkCmdCopyMemoryIndirectNV(this, copyBufferAddress, copyCount, stride);
+    }
+
+    public void CopyMemoryKHR(in CopyDeviceMemoryInfoKHR pCopyMemoryInfo = null)
+    {
+        int CalculateSize(CopyDeviceMemoryInfoKHR pCopyMemoryInfo)
+        {
+            int totalSize = 0;
+            if (pCopyMemoryInfo != null)
+                totalSize += pCopyMemoryInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCopyMemoryInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CopyDeviceMemoryInfoKHR, AdamantiumVulkan.Core.Interop.VkCopyDeviceMemoryInfoKHR>(pCopyMemoryInfo, ref currentCursor);
+            Commands.vkCmdCopyMemoryKHR(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
     public void CopyMemoryToAccelerationStructureKHR(in CopyMemoryToAccelerationStructureInfoKHR pInfo)
@@ -2380,6 +2829,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CopyMemoryToAccelerationStructureInfoKHR, AdamantiumVulkan.Core.Interop.VkCopyMemoryToAccelerationStructureInfoKHR>(pInfo, ref currentCursor);
             Commands.vkCmdCopyMemoryToAccelerationStructureKHR(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void CopyMemoryToImageIndirectKHR(in CopyMemoryToImageIndirectInfoKHR pCopyMemoryToImageIndirectInfo)
+    {
+        int CalculateSize(CopyMemoryToImageIndirectInfoKHR pCopyMemoryToImageIndirectInfo)
+        {
+            int totalSize = 0;
+            if (pCopyMemoryToImageIndirectInfo != null)
+                totalSize += pCopyMemoryToImageIndirectInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCopyMemoryToImageIndirectInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CopyMemoryToImageIndirectInfoKHR, AdamantiumVulkan.Core.Interop.VkCopyMemoryToImageIndirectInfoKHR>(pCopyMemoryToImageIndirectInfo, ref currentCursor);
+            Commands.vkCmdCopyMemoryToImageIndirectKHR(this, arg1);
         }
         finally
         {
@@ -2443,6 +2918,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
             var arg4 = dstImage == null ? new VkImage_T() : (VkImage_T)dstImage;
             var arg6 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ImageSubresourceLayers, AdamantiumVulkan.Core.Interop.VkImageSubresourceLayers>(pImageSubresources, ref currentCursor);
             Commands.vkCmdCopyMemoryToImageIndirectNV(this, copyBufferAddress, copyCount, stride, arg4, dstImageLayout, arg6);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void CopyMemoryToImageKHR(in CopyDeviceMemoryImageInfoKHR pCopyMemoryInfo = null)
+    {
+        int CalculateSize(CopyDeviceMemoryImageInfoKHR pCopyMemoryInfo)
+        {
+            int totalSize = 0;
+            if (pCopyMemoryInfo != null)
+                totalSize += pCopyMemoryInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCopyMemoryInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CopyDeviceMemoryImageInfoKHR, AdamantiumVulkan.Core.Interop.VkCopyDeviceMemoryImageInfoKHR>(pCopyMemoryInfo, ref currentCursor);
+            Commands.vkCmdCopyMemoryToImageKHR(this, arg1);
         }
         finally
         {
@@ -2536,24 +3037,51 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         Commands.vkCmdCopyQueryPoolResults(this, arg1, firstQuery, queryCount, arg4, dstOffset, stride, flags);
     }
 
-    public void CudaLaunchKernelNV(in CudaLaunchInfoNV pLaunchInfo)
+    public void CopyQueryPoolResultsToMemoryKHR(AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery, uint queryCount, in StridedDeviceAddressRangeKHR pDstRange, AddressCommandFlagBitsKHR dstFlags, QueryResultFlagBits queryResultFlags)
     {
-        int CalculateSize(CudaLaunchInfoNV pLaunchInfo)
+        int CalculateSize(StridedDeviceAddressRangeKHR pDstRange)
         {
             int totalSize = 0;
-            if (pLaunchInfo != null)
-                totalSize += pLaunchInfo.GetSize();
+            if (pDstRange != null)
+                totalSize += pDstRange.GetSize();
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pLaunchInfo);
+        var totalSize = CalculateSize(pDstRange);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CudaLaunchInfoNV, AdamantiumVulkan.Core.Interop.VkCudaLaunchInfoNV>(pLaunchInfo, ref currentCursor);
-            Commands.vkCmdCudaLaunchKernelNV(this, arg1);
+            var arg1 = queryPool == null ? new VkQueryPool_T() : (VkQueryPool_T)queryPool;
+            var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.StridedDeviceAddressRangeKHR, AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRangeKHR>(pDstRange, ref currentCursor);
+            Commands.vkCmdCopyQueryPoolResultsToMemoryKHR(this, arg1, firstQuery, queryCount, arg4, dstFlags, queryResultFlags);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void CopyTensorARM(in CopyTensorInfoARM pCopyTensorInfo)
+    {
+        int CalculateSize(CopyTensorInfoARM pCopyTensorInfo)
+        {
+            int totalSize = 0;
+            if (pCopyTensorInfo != null)
+                totalSize += pCopyTensorInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCopyTensorInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CopyTensorInfoARM, AdamantiumVulkan.Core.Interop.VkCopyTensorInfoARM>(pCopyTensorInfo, ref currentCursor);
+            Commands.vkCmdCopyTensorARM(this, arg1);
         }
         finally
         {
@@ -2671,6 +3199,37 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         }
     }
 
+    public void DecompressMemoryEXT(in DecompressMemoryInfoEXT pDecompressMemoryInfoEXT)
+    {
+        int CalculateSize(DecompressMemoryInfoEXT pDecompressMemoryInfoEXT)
+        {
+            int totalSize = 0;
+            if (pDecompressMemoryInfoEXT != null)
+                totalSize += pDecompressMemoryInfoEXT.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pDecompressMemoryInfoEXT);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DecompressMemoryInfoEXT, AdamantiumVulkan.Core.Interop.VkDecompressMemoryInfoEXT>(pDecompressMemoryInfoEXT, ref currentCursor);
+            Commands.vkCmdDecompressMemoryEXT(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void DecompressMemoryIndirectCountEXT(VkMemoryDecompressionMethodFlagsEXT decompressionMethod, VkDeviceAddress indirectCommandsAddress, VkDeviceAddress indirectCommandsCountAddress, uint maxDecompressionCount, uint stride)
+    {
+        Commands.vkCmdDecompressMemoryIndirectCountEXT(this, decompressionMethod, indirectCommandsAddress, indirectCommandsCountAddress, maxDecompressionCount, stride);
+    }
+
     public void DecompressMemoryIndirectCountNV(VkDeviceAddress indirectCommandsAddress, VkDeviceAddress indirectCommandsCountAddress, uint stride)
     {
         Commands.vkCmdDecompressMemoryIndirectCountNV(this, indirectCommandsAddress, indirectCommandsCountAddress, stride);
@@ -2747,10 +3306,89 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         Commands.vkCmdDispatchBase(this, baseGroupX, baseGroupY, baseGroupZ, groupCountX, groupCountY, groupCountZ);
     }
 
+    public void DispatchDataGraphARM(AdamantiumVulkan.Core.DataGraphPipelineSessionARM session, in DataGraphPipelineDispatchInfoARM pInfo = null)
+    {
+        int CalculateSize(DataGraphPipelineDispatchInfoARM pInfo)
+        {
+            int totalSize = 0;
+            if (pInfo != null)
+                totalSize += pInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = session == null ? new VkDataGraphPipelineSessionARM_T() : (VkDataGraphPipelineSessionARM_T)session;
+            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DataGraphPipelineDispatchInfoARM, AdamantiumVulkan.Core.Interop.VkDataGraphPipelineDispatchInfoARM>(pInfo, ref currentCursor);
+            Commands.vkCmdDispatchDataGraphARM(this, arg1, arg2);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
     public void DispatchIndirect(AdamantiumVulkan.Core.Buffer buffer, VkDeviceSize offset)
     {
         var arg1 = buffer == null ? new VkBuffer_T() : (VkBuffer_T)buffer;
         Commands.vkCmdDispatchIndirect(this, arg1, offset);
+    }
+
+    public void DispatchIndirect2KHR(in DispatchIndirect2InfoKHR pInfo)
+    {
+        int CalculateSize(DispatchIndirect2InfoKHR pInfo)
+        {
+            int totalSize = 0;
+            if (pInfo != null)
+                totalSize += pInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DispatchIndirect2InfoKHR, AdamantiumVulkan.Core.Interop.VkDispatchIndirect2InfoKHR>(pInfo, ref currentCursor);
+            Commands.vkCmdDispatchIndirect2KHR(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void DispatchTileQCOM(in DispatchTileInfoQCOM pDispatchTileInfo)
+    {
+        int CalculateSize(DispatchTileInfoQCOM pDispatchTileInfo)
+        {
+            int totalSize = 0;
+            if (pDispatchTileInfo != null)
+                totalSize += pDispatchTileInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pDispatchTileInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DispatchTileInfoQCOM, AdamantiumVulkan.Core.Interop.VkDispatchTileInfoQCOM>(pDispatchTileInfo, ref currentCursor);
+            Commands.vkCmdDispatchTileQCOM(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
     public void Draw(uint vertexCount, uint instanceCount, uint firstVertex, uint firstInstance)
@@ -2780,6 +3418,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         Commands.vkCmdDrawIndexedIndirect(this, arg1, offset, drawCount, stride);
     }
 
+    public void DrawIndexedIndirect2KHR(in DrawIndirect2InfoKHR pInfo)
+    {
+        int CalculateSize(DrawIndirect2InfoKHR pInfo)
+        {
+            int totalSize = 0;
+            if (pInfo != null)
+                totalSize += pInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DrawIndirect2InfoKHR, AdamantiumVulkan.Core.Interop.VkDrawIndirect2InfoKHR>(pInfo, ref currentCursor);
+            Commands.vkCmdDrawIndexedIndirect2KHR(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
     public void DrawIndexedIndirectCount(AdamantiumVulkan.Core.Buffer buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Buffer countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride)
     {
         var arg1 = buffer == null ? new VkBuffer_T() : (VkBuffer_T)buffer;
@@ -2787,10 +3451,88 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         Commands.vkCmdDrawIndexedIndirectCount(this, arg1, offset, arg3, countBufferOffset, maxDrawCount, stride);
     }
 
+    public void DrawIndexedIndirectCount2KHR(in DrawIndirectCount2InfoKHR pInfo)
+    {
+        int CalculateSize(DrawIndirectCount2InfoKHR pInfo)
+        {
+            int totalSize = 0;
+            if (pInfo != null)
+                totalSize += pInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DrawIndirectCount2InfoKHR, AdamantiumVulkan.Core.Interop.VkDrawIndirectCount2InfoKHR>(pInfo, ref currentCursor);
+            Commands.vkCmdDrawIndexedIndirectCount2KHR(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
     public void DrawIndirect(AdamantiumVulkan.Core.Buffer buffer, VkDeviceSize offset, uint drawCount, uint stride)
     {
         var arg1 = buffer == null ? new VkBuffer_T() : (VkBuffer_T)buffer;
         Commands.vkCmdDrawIndirect(this, arg1, offset, drawCount, stride);
+    }
+
+    public void DrawIndirect2KHR(in DrawIndirect2InfoKHR pInfo)
+    {
+        int CalculateSize(DrawIndirect2InfoKHR pInfo)
+        {
+            int totalSize = 0;
+            if (pInfo != null)
+                totalSize += pInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DrawIndirect2InfoKHR, AdamantiumVulkan.Core.Interop.VkDrawIndirect2InfoKHR>(pInfo, ref currentCursor);
+            Commands.vkCmdDrawIndirect2KHR(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void DrawIndirectByteCount2EXT(uint instanceCount, uint firstInstance, in BindTransformFeedbackBuffer2InfoEXT pCounterInfo, uint counterOffset, uint vertexStride)
+    {
+        int CalculateSize(BindTransformFeedbackBuffer2InfoEXT pCounterInfo)
+        {
+            int totalSize = 0;
+            if (pCounterInfo != null)
+                totalSize += pCounterInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCounterInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.BindTransformFeedbackBuffer2InfoEXT, AdamantiumVulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>(pCounterInfo, ref currentCursor);
+            Commands.vkCmdDrawIndirectByteCount2EXT(this, instanceCount, firstInstance, arg3, counterOffset, vertexStride);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
     public void DrawIndirectByteCountEXT(uint instanceCount, uint firstInstance, AdamantiumVulkan.Core.Buffer counterBuffer, VkDeviceSize counterBufferOffset, uint counterOffset, uint vertexStride)
@@ -2806,9 +3548,87 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         Commands.vkCmdDrawIndirectCount(this, arg1, offset, arg3, countBufferOffset, maxDrawCount, stride);
     }
 
+    public void DrawIndirectCount2KHR(in DrawIndirectCount2InfoKHR pInfo)
+    {
+        int CalculateSize(DrawIndirectCount2InfoKHR pInfo)
+        {
+            int totalSize = 0;
+            if (pInfo != null)
+                totalSize += pInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DrawIndirectCount2InfoKHR, AdamantiumVulkan.Core.Interop.VkDrawIndirectCount2InfoKHR>(pInfo, ref currentCursor);
+            Commands.vkCmdDrawIndirectCount2KHR(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
     public void DrawMeshTasksEXT(uint groupCountX, uint groupCountY, uint groupCountZ)
     {
         Commands.vkCmdDrawMeshTasksEXT(this, groupCountX, groupCountY, groupCountZ);
+    }
+
+    public void DrawMeshTasksIndirect2EXT(in DrawIndirect2InfoKHR pInfo)
+    {
+        int CalculateSize(DrawIndirect2InfoKHR pInfo)
+        {
+            int totalSize = 0;
+            if (pInfo != null)
+                totalSize += pInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DrawIndirect2InfoKHR, AdamantiumVulkan.Core.Interop.VkDrawIndirect2InfoKHR>(pInfo, ref currentCursor);
+            Commands.vkCmdDrawMeshTasksIndirect2EXT(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void DrawMeshTasksIndirectCount2EXT(in DrawIndirectCount2InfoKHR pInfo)
+    {
+        int CalculateSize(DrawIndirectCount2InfoKHR pInfo)
+        {
+            int totalSize = 0;
+            if (pInfo != null)
+                totalSize += pInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DrawIndirectCount2InfoKHR, AdamantiumVulkan.Core.Interop.VkDrawIndirectCount2InfoKHR>(pInfo, ref currentCursor);
+            Commands.vkCmdDrawMeshTasksIndirectCount2EXT(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
     public void DrawMeshTasksIndirectCountEXT(AdamantiumVulkan.Core.Buffer buffer, VkDeviceSize offset, AdamantiumVulkan.Core.Buffer countBuffer, VkDeviceSize countBufferOffset, uint maxDrawCount, uint stride)
@@ -3009,6 +3829,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         Commands.vkCmdEndDebugUtilsLabelEXT(this);
     }
 
+    public void EndPerTileExecutionQCOM(in PerTileEndInfoQCOM pPerTileEndInfo)
+    {
+        int CalculateSize(PerTileEndInfoQCOM pPerTileEndInfo)
+        {
+            int totalSize = 0;
+            if (pPerTileEndInfo != null)
+                totalSize += pPerTileEndInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pPerTileEndInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerTileEndInfoQCOM, AdamantiumVulkan.Core.Interop.VkPerTileEndInfoQCOM>(pPerTileEndInfo, ref currentCursor);
+            Commands.vkCmdEndPerTileExecutionQCOM(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
     public void EndQuery(AdamantiumVulkan.Core.QueryPool queryPool, uint query)
     {
         var arg1 = queryPool == null ? new VkQueryPool_T() : (VkQueryPool_T)queryPool;
@@ -3024,6 +3870,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
     public void EndRendering()
     {
         Commands.vkCmdEndRendering(this);
+    }
+
+    public void EndRendering2KHR(in RenderingEndInfoKHR pRenderingEndInfo = null)
+    {
+        int CalculateSize(RenderingEndInfoKHR pRenderingEndInfo)
+        {
+            int totalSize = 0;
+            if (pRenderingEndInfo != null)
+                totalSize += pRenderingEndInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pRenderingEndInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.RenderingEndInfoKHR, AdamantiumVulkan.Core.Interop.VkRenderingEndInfoKHR>(pRenderingEndInfo, ref currentCursor);
+            Commands.vkCmdEndRendering2KHR(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
     public void EndRenderPass()
@@ -3049,6 +3921,72 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.SubpassEndInfo, AdamantiumVulkan.Core.Interop.VkSubpassEndInfo>(pSubpassEndInfo, ref currentCursor);
             Commands.vkCmdEndRenderPass2(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void EndShaderInstrumentationARM()
+    {
+        Commands.vkCmdEndShaderInstrumentationARM(this);
+    }
+
+    public void EndTransformFeedback2EXT(uint firstCounterRange, uint counterRangeCount, in System.ReadOnlySpan<BindTransformFeedbackBuffer2InfoEXT> pCounterInfos)
+    {
+        int CalculateSize(System.ReadOnlySpan<BindTransformFeedbackBuffer2InfoEXT> pCounterInfos)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pCounterInfos.Length; i++)
+            {
+                if(pCounterInfos[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>();
+                else
+                    totalSize += pCounterInfos[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCounterInfos);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            AdamantiumVulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT* arg3 = null;
+            if (!pCounterInfos.IsEmpty)
+            {
+                arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<AdamantiumVulkan.Core.BindTransformFeedbackBuffer2InfoEXT, AdamantiumVulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>(pCounterInfos, ref currentCursor);
+            }
+            Commands.vkCmdEndTransformFeedback2EXT(this, firstCounterRange, counterRangeCount, arg3);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void EndTransformFeedback2EXT(uint firstCounterRange, uint counterRangeCount, in BindTransformFeedbackBuffer2InfoEXT pCounterInfos = null)
+    {
+        int CalculateSize(BindTransformFeedbackBuffer2InfoEXT pCounterInfos)
+        {
+            int totalSize = 0;
+            if (pCounterInfos != null)
+                totalSize += pCounterInfos.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCounterInfos);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.BindTransformFeedbackBuffer2InfoEXT, AdamantiumVulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>(pCounterInfos, ref currentCursor);
+            Commands.vkCmdEndTransformFeedback2EXT(this, firstCounterRange, counterRangeCount, arg3);
         }
         finally
         {
@@ -3246,6 +4184,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
     {
         var arg1 = dstBuffer == null ? new VkBuffer_T() : (VkBuffer_T)dstBuffer;
         Commands.vkCmdFillBuffer(this, arg1, dstOffset, size, data);
+    }
+
+    public void FillMemoryKHR(in DeviceAddressRangeKHR pDstRange, AddressCommandFlagBitsKHR dstFlags, uint data)
+    {
+        int CalculateSize(DeviceAddressRangeKHR pDstRange)
+        {
+            int totalSize = 0;
+            if (pDstRange != null)
+                totalSize += pDstRange.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pDstRange);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DeviceAddressRangeKHR, AdamantiumVulkan.Core.Interop.VkDeviceAddressRangeKHR>(pDstRange, ref currentCursor);
+            Commands.vkCmdFillMemoryKHR(this, arg1, dstFlags, data);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
     public void InsertDebugUtilsLabelEXT(in DebugUtilsLabelEXT pLabelInfo)
@@ -3525,6 +4489,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PushConstantsInfo, AdamantiumVulkan.Core.Interop.VkPushConstantsInfo>(pPushConstantsInfo, ref currentCursor);
             Commands.vkCmdPushConstants2(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void PushDataEXT(in PushDataInfoEXT pPushDataInfo)
+    {
+        int CalculateSize(PushDataInfoEXT pPushDataInfo)
+        {
+            int totalSize = 0;
+            if (pPushDataInfo != null)
+                totalSize += pPushDataInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pPushDataInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PushDataInfoEXT, AdamantiumVulkan.Core.Interop.VkPushDataInfoEXT>(pPushDataInfo, ref currentCursor);
+            Commands.vkCmdPushDataEXT(this, arg1);
         }
         finally
         {
@@ -4075,6 +5065,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         Commands.vkCmdSetColorWriteMaskEXT(this, firstAttachment, attachmentCount, arg3);
     }
 
+    public void SetComputeOccupancyPriorityNV(in ComputeOccupancyPriorityParametersNV pParameters)
+    {
+        int CalculateSize(ComputeOccupancyPriorityParametersNV pParameters)
+        {
+            int totalSize = 0;
+            if (pParameters != null)
+                totalSize += pParameters.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pParameters);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ComputeOccupancyPriorityParametersNV, AdamantiumVulkan.Core.Interop.VkComputeOccupancyPriorityParametersNV>(pParameters, ref currentCursor);
+            Commands.vkCmdSetComputeOccupancyPriorityNV(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
     public void SetConservativeRasterizationModeEXT(ConservativeRasterizationModeEXT conservativeRasterizationMode)
     {
         Commands.vkCmdSetConservativeRasterizationModeEXT(this, conservativeRasterizationMode);
@@ -4440,6 +5456,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         Commands.vkCmdSetDiscardRectangleModeEXT(this, discardRectangleMode);
     }
 
+    public void SetDispatchParametersARM(in DispatchParametersARM pDispatchParameters)
+    {
+        int CalculateSize(DispatchParametersARM pDispatchParameters)
+        {
+            int totalSize = 0;
+            if (pDispatchParameters != null)
+                totalSize += pDispatchParameters.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pDispatchParameters);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DispatchParametersARM, AdamantiumVulkan.Core.Interop.VkDispatchParametersARM>(pDispatchParameters, ref currentCursor);
+            Commands.vkCmdSetDispatchParametersARM(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
     public void SetEvent(AdamantiumVulkan.Core.Event @event, PipelineStageFlagBits stageMask)
     {
         var arg1 = @event == null ? new VkEvent_T() : (VkEvent_T)@event;
@@ -4728,6 +5770,11 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
     public void SetPrimitiveRestartEnable(VkBool32 primitiveRestartEnable)
     {
         Commands.vkCmdSetPrimitiveRestartEnable(this, primitiveRestartEnable);
+    }
+
+    public void SetPrimitiveRestartIndexEXT(uint primitiveRestartIndex)
+    {
+        Commands.vkCmdSetPrimitiveRestartIndexEXT(this, primitiveRestartIndex);
     }
 
     public void SetPrimitiveTopology(PrimitiveTopology primitiveTopology)
@@ -5622,6 +6669,62 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
         Commands.vkCmdUpdateBuffer(this, arg1, dstOffset, dataSize, arg4);
     }
 
+    public void UpdateMemoryKHR(in DeviceAddressRangeKHR pDstRange, AddressCommandFlagBitsKHR dstFlags, VkDeviceSize dataSize, in System.ReadOnlySpan<byte> pData)
+    {
+        int CalculateSize(DeviceAddressRangeKHR pDstRange, System.ReadOnlySpan<byte> pData)
+        {
+            int totalSize = 0;
+            if (pDstRange != null)
+                totalSize += pDstRange.GetSize();
+            totalSize += pData.Length * sizeof(System.Byte);
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pDstRange, pData);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DeviceAddressRangeKHR, AdamantiumVulkan.Core.Interop.VkDeviceAddressRangeKHR>(pDstRange, ref currentCursor);
+            var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalBlittableArray<byte>(pData, ref currentCursor);
+            Commands.vkCmdUpdateMemoryKHR(this, arg1, dstFlags, dataSize, arg4);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void UpdateMemoryKHR(in DeviceAddressRangeKHR pDstRange, AddressCommandFlagBitsKHR dstFlags, VkDeviceSize dataSize, in byte pData)
+    {
+        int CalculateSize(DeviceAddressRangeKHR pDstRange)
+        {
+            int totalSize = 0;
+            if (pDstRange != null)
+                totalSize += pDstRange.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pDstRange);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DeviceAddressRangeKHR, AdamantiumVulkan.Core.Interop.VkDeviceAddressRangeKHR>(pDstRange, ref currentCursor);
+            var arg4 = stackalloc byte[1];
+            *arg4 = pData;
+            Commands.vkCmdUpdateMemoryKHR(this, arg1, dstFlags, dataSize, arg4);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
     public void UpdatePipelineIndirectBufferNV(PipelineBindPoint pipelineBindPoint, AdamantiumVulkan.Core.Pipeline pipeline)
     {
         var arg2 = pipeline == null ? new VkPipeline_T() : (VkPipeline_T)pipeline;
@@ -6166,6 +7269,32 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<AdamantiumVulkan.C
     {
         var arg2 = dstBuffer == null ? new VkBuffer_T() : (VkBuffer_T)dstBuffer;
         Commands.vkCmdWriteBufferMarkerAMD(this, pipelineStage, arg2, dstOffset, marker);
+    }
+
+    public void WriteMarkerToMemoryAMD(in MemoryMarkerInfoAMD pInfo)
+    {
+        int CalculateSize(MemoryMarkerInfoAMD pInfo)
+        {
+            int totalSize = 0;
+            if (pInfo != null)
+                totalSize += pInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.MemoryMarkerInfoAMD, AdamantiumVulkan.Core.Interop.VkMemoryMarkerInfoAMD>(pInfo, ref currentCursor);
+            Commands.vkCmdWriteMarkerToMemoryAMD(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
     public void WriteMicromapsPropertiesEXT(uint micromapCount, in System.ReadOnlySpan<AdamantiumVulkan.Core.MicromapEXT> pMicromaps, QueryType queryType, AdamantiumVulkan.Core.QueryPool queryPool, uint firstQuery)

@@ -28,6 +28,7 @@ public unsafe partial class PipelineLibraryCreateInfoKHR : IMarshallableObject, 
     public uint LibraryCount { get; set; }
     public System.ReadOnlyMemory<Pipeline> PLibraries { get; set; }
 
+
     public static implicit operator PipelineLibraryCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineLibraryCreateInfoKHR p)
     {
         return new PipelineLibraryCreateInfoKHR(in p);

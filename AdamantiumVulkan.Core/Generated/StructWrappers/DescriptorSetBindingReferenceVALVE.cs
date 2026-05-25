@@ -28,6 +28,7 @@ public unsafe partial class DescriptorSetBindingReferenceVALVE : IMarshallableOb
     public DescriptorSetLayout DescriptorSetLayout { get; set; }
     public uint Binding { get; set; }
 
+
     public static implicit operator DescriptorSetBindingReferenceVALVE(AdamantiumVulkan.Core.Interop.VkDescriptorSetBindingReferenceVALVE d)
     {
         return new DescriptorSetBindingReferenceVALVE(in d);

@@ -30,6 +30,7 @@ public unsafe partial class VertexInputBindingDescription2EXT : IMarshallableObj
     public VertexInputRate InputRate { get; set; }
     public uint Divisor { get; set; }
 
+
     public static implicit operator VertexInputBindingDescription2EXT(AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription2EXT v)
     {
         return new VertexInputBindingDescription2EXT(in v);

@@ -28,6 +28,7 @@ public unsafe partial class DrmFormatModifierPropertiesListEXT : IMarshallableOb
     public uint DrmFormatModifierCount { get; set; }
     public System.ReadOnlyMemory<DrmFormatModifierPropertiesEXT> PDrmFormatModifierProperties { get; set; }
 
+
     public static implicit operator DrmFormatModifierPropertiesListEXT(AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesListEXT d)
     {
         return new DrmFormatModifierPropertiesListEXT(in d);

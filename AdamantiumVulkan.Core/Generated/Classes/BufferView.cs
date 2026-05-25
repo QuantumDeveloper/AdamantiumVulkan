@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 560 Column: 10
+// File: vk.xml Line: 606 Column: 10
 public unsafe partial class BufferView : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkBufferView_T>
 {
     internal VkBufferView_T __Instance;

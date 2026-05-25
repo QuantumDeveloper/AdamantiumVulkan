@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceFrameBoundaryFeaturesEXT : IMarshallab
     public object PNext { get; set; }
     public VkBool32 FrameBoundary { get; set; }
 
+
     public static implicit operator PhysicalDeviceFrameBoundaryFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFrameBoundaryFeaturesEXT p)
     {
         return new PhysicalDeviceFrameBoundaryFeaturesEXT(in p);

@@ -28,6 +28,7 @@ public unsafe partial class MemoryDedicatedRequirements : IMarshallableObject, I
     public VkBool32 PrefersDedicatedAllocation { get; set; }
     public VkBool32 RequiresDedicatedAllocation { get; set; }
 
+
     public static implicit operator MemoryDedicatedRequirements(AdamantiumVulkan.Core.Interop.VkMemoryDedicatedRequirements m)
     {
         return new MemoryDedicatedRequirements(in m);

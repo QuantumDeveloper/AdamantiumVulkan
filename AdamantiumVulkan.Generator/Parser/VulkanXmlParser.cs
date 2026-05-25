@@ -1057,7 +1057,7 @@ public class VulkanXmlParser : IMetadataProvider
         foreach (var node in nodes)
         {
             // 1. Name is always in the <name> tag
-            var nameElement = node.Element("name");
+            var nameElement = node.Descendants("name").FirstOrDefault();
             if (nameElement == null) continue;
             
             if (!_requiredNames.Contains(nameElement.Value))
@@ -1071,18 +1071,126 @@ public class VulkanXmlParser : IMetadataProvider
             fp.CurrentFileName = _currentFileName;
 
             // 2. Extract ReturnType (everything BEFORE <name>)
-            string preText = "";
-            foreach (var n in node.Nodes())
+            var protoElement = node.Element("proto");
+            string returnTypeRaw = "";
+
+            if (protoElement != null)
             {
-                if (n == nameElement) break;
-                preText += n.ToString();
+                // Если это новый формат SDK: берем весь текст внутри <proto> ДО тега <name>
+                var typeEl = protoElement.Element("type");
+                string preText = typeEl != null ? typeEl.Value : "";
+    
+                // Собираем текст и звездочки между <type> и <name> внутри <proto>
+                string midText = "";
+                var currentNode = typeEl?.NextNode;
+                while (currentNode != null && currentNode != nameElement)
+                {
+                    midText += currentNode.ToString();
+                    currentNode = currentNode.NextNode;
+                }
+                returnTypeRaw = $"{preText}{midText}".Trim();
+            }
+            else
+            {
+                // Откат для старых версий vk.xml (твой старый рабочий код)
+                string preText = "";
+                foreach (var n in node.Nodes())
+                {
+                    if (n == nameElement) break;
+                    preText += n.ToString();
+                }
+                returnTypeRaw = preText;
             }
 
             // Clean up garbage: typedef, VKAPI_PTR, pointers and brackets
-            fp.ReturnType = preText.Replace("typedef", "").Replace("VKAPI_PTR", "")
+            fp.ReturnType = returnTypeRaw.Replace("typedef", "").Replace("VKAPI_PTR", "")
                 .Replace("(", "").Replace("*", "").Trim();
 
             // 3. Parse parameters (look for <type> -> next text pairs)
+            var paramNodes = node.Elements("param").ToList();
+
+        if (paramNodes.Count > 0)
+        {
+            // New delegate parameters format
+            foreach (var pNode in paramNodes)
+            {
+                var typeEl = pNode.Element("type");
+                var nameEl = pNode.Element("name");
+                if (typeEl == null || nameEl == null) continue;
+
+                var param = new VkParameter
+                {
+                    Name = nameEl.Value.Trim(),
+                    Type = typeEl.Value.Trim()
+                };
+
+                string fullParamText = pNode.Value;
+                param.IsConst = fullParamText.Contains("const");
+
+                string modifiers = fullParamText.Replace(param.Name, "").Replace(param.Type, "");
+                param.IsPointer = modifiers.Contains("*");
+                param.PointerDepth = modifiers.Count(c => c == '*');
+
+                param.FullType = $"{(param.IsConst ? "const " : "")}{param.Type}{new string('*', param.PointerDepth)} {param.Name}";
+
+                if (param.Type == "void" && param.IsPointer && param.PointerDepth == 1 && param.IsArray)
+                {
+                    param.Type = "byte";
+                }
+                else if (param.Type != "char" && param.IsPointer && param.PointerDepth == 2 && param.IsArray)
+                {
+                    param.Type = "void";
+                }
+
+                if (!string.IsNullOrEmpty(param.Name))
+                    fp.Params.Add(param);
+            }
+        }
+        else
+        {
+            // Old format
+            var types = node.Elements("type").ToList();
+            foreach (var typeEl in types)
+            {
+                if (node.Nodes().TakeWhile(n => n != nameElement).Contains(typeEl))
+                    continue;
+
+                var param = new VkParameter { Type = typeEl.Value.Trim() };
+
+                if (typeEl.PreviousNode is XText preTextNode)
+                {
+                    string preTextStr = preTextNode.Value;
+                    param.IsConst = preTextStr.Contains("const");
+                }
+
+                if (typeEl.NextNode is XText nameNode)
+                {
+                    string cleanRaw = nameNode.Value.Replace("\r", "").Replace("\n", "").Trim();
+                    string raw = cleanRaw.Split(',', ')')[0].Trim();
+
+                    param.Name = raw.Replace("*", "").Trim();
+                    param.IsPointer = raw.Contains("*");
+                    param.PointerDepth = raw.Count(c => c == '*');
+
+                    if (raw.Contains("const")) param.IsConst = true;
+
+                    param.FullType = $"{(param.IsConst ? "const " : "")}{param.Type}{new string('*', param.PointerDepth)} {param.Name}";
+                }
+
+                if (param.Type == "void" && param.IsPointer && param.PointerDepth == 1 && param.IsArray)
+                {
+                    param.Type = "byte";
+                }
+                else if (param.Type != "char" && param.IsPointer && param.PointerDepth == 2 && param.IsArray)
+                {
+                    param.Type = "void";
+                }
+
+                if (!string.IsNullOrEmpty(param.Name))
+                    fp.Params.Add(param);
+            }
+        }
+            /*
             var types = node.Elements("type").ToList();
             foreach (var typeEl in types)
             {
@@ -1128,6 +1236,7 @@ public class VulkanXmlParser : IMetadataProvider
                 if (!string.IsNullOrEmpty(param.Name))
                     fp.Params.Add(param);
             }
+            */
 
             _registry.Delegates[fp.Name] = fp;
         }
@@ -1240,16 +1349,16 @@ public class VulkanXmlParser : IMetadataProvider
             
             foreach (var reqNode in extNode.Elements("require"))
             {
-                // Проверяем api атрибут конкретного блока require
+                // Check api attribute for specific require block
                 var reqApi = reqNode.Attribute("api")?.Value;
                 if (reqApi != null)
                 {
                     var apis = reqApi.Split(',').Select(s => s.Trim());
                     if (!apis.Contains("vulkan"))
-                        continue; // Пропускаем блоки, предназначенные только для vulkansc
+                        continue; // if block os for vulkansc - skip it
                 }
 
-                // Извлекаем типы и команды только из валидного блока
+                // Getting types and commands only from valid block
                 var commands = reqNode.Elements("command")
                     .Select(c => c.Attribute("name")?.Value)
                     .Where(n => n != null);
@@ -1331,10 +1440,25 @@ public class VulkanXmlParser : IMetadataProvider
                         continue;
                     }
 
+                    var bitposAttr = addNode.Attribute("bitpos")?.Value;
                     var offsetAttr = addNode.Attribute("offset")?.Value;
                     var dirAttr = addNode.Attribute("dir")?.Value;
 
-                    if (int.TryParse(offsetAttr, out int offset))
+                    if (!string.IsNullOrEmpty(bitposAttr) && int.TryParse(bitposAttr, out int bit))
+                    {
+                        if (targetEnum.Values.Any(v => v.Name == valueName))
+                            continue;
+
+                        ulong calculatedValue = 1UL << bit;
+
+                        targetEnum.Values.Add(new VkEnumValue
+                        {
+                            Name = valueName,
+                            Value = calculatedValue.ToString(),
+                            LineInfo = addNode
+                        });
+                    }
+                    else if (int.TryParse(offsetAttr, out int offset))
                     {
                         // Use the actual currentExtNumber (base or specific)
                         int value = 1000000000 + (currentExtNumber - 1) * 1000 + offset;
@@ -1375,16 +1499,31 @@ public class VulkanXmlParser : IMetadataProvider
                 if (_registry.Enums.TryGetValue(targetEnum, out var vkEnum))
                 {
                     // In features, values are usually defined via 'offset' or 'value'
+                    var bitposAttr = node.Attribute("bitpos")?.Value;
                     var offsetAttr = node.Attribute("offset")?.Value;
                     var valueAttr = node.Attribute("value")?.Value;
                     var extNumberAttr = node.Attribute("extnumber")?.Value;
-
+                    
                     if (valueAttr != null)
                     {
                         if (vkEnum.Values.Any(v => v.Name == name))
                             continue;
 
                         vkEnum.Values.Add(new VkEnumValue { Name = name, Value = valueAttr, LineInfo = node });
+                    }
+                    if (!string.IsNullOrEmpty(bitposAttr) && int.TryParse(bitposAttr, out int bit))
+                    {
+                        if (vkEnum.Values.Any(v => v.Name == name))
+                            continue;
+
+                        ulong calculatedValue = 1UL << bit;
+
+                        vkEnum.Values.Add(new VkEnumValue
+                        {
+                            Name = name,
+                            Value = calculatedValue.ToString(),
+                            LineInfo = node
+                        });
                     }
                     else if (offsetAttr != null)
                     {
@@ -1857,7 +1996,7 @@ public class VulkanXmlParser : IMetadataProvider
         var nativeStruct = new Class();
         nativeStruct.ClassType = vkStruct.IsUnion ? ClassType.Union : ClassType.Struct;
         nativeStruct.Name = vkStruct.Name;
-
+        
         foreach (var member in vkStruct.Members)
         {
             var fieldType = GetBindingType(member);

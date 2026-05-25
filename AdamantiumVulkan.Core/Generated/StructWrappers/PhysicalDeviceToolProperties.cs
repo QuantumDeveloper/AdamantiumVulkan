@@ -31,6 +31,7 @@ public unsafe partial class PhysicalDeviceToolProperties : IMarshallableObject, 
     public string Description { get; set; }
     public string Layer { get; set; }
 
+
     public static implicit operator PhysicalDeviceToolProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties p)
     {
         return new PhysicalDeviceToolProperties(in p);

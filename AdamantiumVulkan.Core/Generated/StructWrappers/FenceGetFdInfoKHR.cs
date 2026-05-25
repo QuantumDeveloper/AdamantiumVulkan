@@ -28,6 +28,7 @@ public unsafe partial class FenceGetFdInfoKHR : IMarshallableObject, IMarshallab
     public Fence Fence { get; set; }
     public ExternalFenceHandleTypeFlagBits HandleType { get; set; }
 
+
     public static implicit operator FenceGetFdInfoKHR(AdamantiumVulkan.Core.Interop.VkFenceGetFdInfoKHR f)
     {
         return new FenceGetFdInfoKHR(in f);

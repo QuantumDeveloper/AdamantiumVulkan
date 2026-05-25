@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceDepthClampZeroOneFeaturesKHR : IMarsha
     public object PNext { get; set; }
     public VkBool32 DepthClampZeroOne { get; set; }
 
+
     public static implicit operator PhysicalDeviceDepthClampZeroOneFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthClampZeroOneFeaturesKHR p)
     {
         return new PhysicalDeviceDepthClampZeroOneFeaturesKHR(in p);

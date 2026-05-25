@@ -654,16 +654,11 @@ public static partial class VulkanBindings
             .InterpretAsIs()
             .SetParameterKind(ParameterKind.In);
         
-        api.Function("VkGetPhysicalDeviceProperties2").
+        api.Function("vkGetPhysicalDeviceProperties2").
             WithParameterName("pProperties").
             InterpretAsIs().
             SetParameterKind(ParameterKind.Ref);
         
-        api.Function("VkGetPhysicalDeviceProperties2KHR").
-            WithParameterName("pProperties").
-            InterpretAsIs().
-            SetParameterKind(ParameterKind.Ref);
-
         api.Delegate("PFN_vkCreateShadersEXT").
             WithParameterName("pShaders").
             InterpretAsPointerToArray(new CustomType("VkShaderEXT_T")).
@@ -712,6 +707,24 @@ public static partial class VulkanBindings
             .WithField("pQueuePriorities")
             .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Float), arraySizeSource: "queueCount");
         
+        api.Class("VkWin32SurfaceCreateInfoKHR")
+            .WithField("hinstance")
+            .InterpretAs(new BuiltinType(PrimitiveType.IntPtr))
+            .WithField("hwnd")
+            .InterpretAs(new BuiltinType(PrimitiveType.IntPtr));
+
+        api.Class("StdVideoH265HrdParameters")
+            .SaveInteropSource(true)
+            .WithField("pSubLayerHrdParametersNal")
+            .InterpretAsPointerToArray(new CustomType("StdVideoH265SubLayerHrdParameters"))
+            .WithField("pSubLayerHrdParametersVcl")
+            .InterpretAsPointerToArray(new CustomType("StdVideoH265SubLayerHrdParameters"));
+
+        api.Function("vkGetDescriptorEXT")
+            .WithParameterName("pDescriptor")
+            .InterpretAsPointerToVoid()
+            .SetParameterKind(ParameterKind.In);
+        
         api.Function("spvc_compiler_get_declared_extensions")
             .WithParameterName("extensions")
             .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Sbyte), pointerDepth: 3, arraySizeSource: "num_extensions", isConst:true)
@@ -729,6 +742,14 @@ public static partial class VulkanBindings
             .WithParameterName("count")
             .InterpretAsIs()
             .SetParameterKind(ParameterKind.Ref);
+
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_VP9_DECODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_AV1_DECODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_AV1_ENCODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_H264_ENCODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_H264_DECODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_H265_ENCODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_H265_DECODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
         
         var fixingFunctionParameters = new PostProcessingApiPass(api);
         ctx.AddPreGeneratorPass(fixingFunctionParameters, ExecutionPassKind.PerTranslationUnit);

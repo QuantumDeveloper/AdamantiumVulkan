@@ -40,6 +40,7 @@ public unsafe partial class SRTDataNV : IMarshallableObject, IMarshallable<Adama
     public float Ty { get; set; }
     public float Tz { get; set; }
 
+
     public static implicit operator SRTDataNV(AdamantiumVulkan.Core.Interop.VkSRTDataNV s)
     {
         return new SRTDataNV(in s);

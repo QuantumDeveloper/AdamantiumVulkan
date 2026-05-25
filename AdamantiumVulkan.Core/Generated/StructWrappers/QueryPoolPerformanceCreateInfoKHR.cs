@@ -29,6 +29,7 @@ public unsafe partial class QueryPoolPerformanceCreateInfoKHR : IMarshallableObj
     public uint CounterIndexCount { get; set; }
     public System.ReadOnlyMemory<uint> PCounterIndices { get; set; }
 
+
     public static implicit operator QueryPoolPerformanceCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR q)
     {
         return new QueryPoolPerformanceCreateInfoKHR(in q);

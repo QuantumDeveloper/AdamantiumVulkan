@@ -29,6 +29,7 @@ public unsafe partial class BufferCopy2 : IMarshallableObject, IMarshallable<Ada
     public VkDeviceSize DstOffset { get; set; }
     public VkDeviceSize Size { get; set; }
 
+
     public static implicit operator BufferCopy2(AdamantiumVulkan.Core.Interop.VkBufferCopy2 b)
     {
         return new BufferCopy2(in b);

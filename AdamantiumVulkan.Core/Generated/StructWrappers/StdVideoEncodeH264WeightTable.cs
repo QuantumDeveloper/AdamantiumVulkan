@@ -35,6 +35,7 @@ public unsafe partial class StdVideoEncodeH264WeightTable : IMarshallableObject,
     public System.ReadOnlyMemory<sbyte> Chroma_weight_l1 { get; set; }
     public System.ReadOnlyMemory<sbyte> Chroma_offset_l1 { get; set; }
 
+
     public static implicit operator StdVideoEncodeH264WeightTable(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264WeightTable s)
     {
         return new StdVideoEncodeH264WeightTable(in s);

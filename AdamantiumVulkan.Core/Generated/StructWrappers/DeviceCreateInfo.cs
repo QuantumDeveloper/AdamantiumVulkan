@@ -34,6 +34,7 @@ public unsafe partial class DeviceCreateInfo : IMarshallableObject, IMarshallabl
     public System.ReadOnlyMemory<string> PEnabledExtensionNames { get; set; }
     public PhysicalDeviceFeatures PEnabledFeatures { get; set; }
 
+
     public static implicit operator DeviceCreateInfo(AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo d)
     {
         return new DeviceCreateInfo(in d);

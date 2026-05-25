@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: vk.xml Line: 5427 Column: 10
+// File: vk.xml Line: 5753 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkSurfaceFullScreenExclusiveWin32InfoEXT
 {

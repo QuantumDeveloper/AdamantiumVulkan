@@ -31,6 +31,7 @@ public unsafe partial class PushConstantsInfo : IMarshallableObject, IMarshallab
     public uint Size { get; set; }
     public System.ReadOnlyMemory<byte> PValues { get; set; }
 
+
     public static implicit operator PushConstantsInfo(AdamantiumVulkan.Core.Interop.VkPushConstantsInfo p)
     {
         return new PushConstantsInfo(in p);

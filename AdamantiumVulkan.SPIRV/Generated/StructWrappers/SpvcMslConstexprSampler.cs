@@ -41,6 +41,7 @@ public unsafe partial class SpvcMslConstexprSampler : IMarshallable<AdamantiumVu
     public SpvcBool Compare_enable { get; set; }
     public SpvcBool Lod_clamp_enable { get; set; }
     public SpvcBool Anisotropy_enable { get; set; }
+
     ///<summary>
     /// Initializes the constexpr sampler struct. The defaults are non-zero.
     ///</summary>

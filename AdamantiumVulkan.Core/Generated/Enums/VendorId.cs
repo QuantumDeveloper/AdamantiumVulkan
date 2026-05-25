@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11420 Column: 6
+// File: vk.xml Line: 13118 Column: 6
 public enum VendorId : int
 {
     Khronos = 65536,

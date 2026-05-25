@@ -29,6 +29,7 @@ public unsafe partial class CopyAccelerationStructureInfoKHR : IMarshallableObje
     public AccelerationStructureKHR Dst { get; set; }
     public CopyAccelerationStructureModeKHR Mode { get; set; }
 
+
     public static implicit operator CopyAccelerationStructureInfoKHR(AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR c)
     {
         return new CopyAccelerationStructureInfoKHR(in c);

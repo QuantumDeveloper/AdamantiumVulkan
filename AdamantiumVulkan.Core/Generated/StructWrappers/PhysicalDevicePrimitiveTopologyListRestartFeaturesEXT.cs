@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDevicePrimitiveTopologyListRestartFeaturesEX
     public VkBool32 PrimitiveTopologyListRestart { get; set; }
     public VkBool32 PrimitiveTopologyPatchListRestart { get; set; }
 
+
     public static implicit operator PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT p)
     {
         return new PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT(in p);

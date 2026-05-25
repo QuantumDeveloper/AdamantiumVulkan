@@ -27,6 +27,7 @@ public unsafe partial class StdVideoAV1LoopFilterFlags : IMarshallableObject, IM
     public uint Loop_filter_delta_update { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoAV1LoopFilterFlags(AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilterFlags s)
     {
         return new StdVideoAV1LoopFilterFlags(in s);

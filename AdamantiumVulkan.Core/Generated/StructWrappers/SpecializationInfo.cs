@@ -28,6 +28,7 @@ public unsafe partial class SpecializationInfo : IMarshallableObject, IMarshalla
     public nuint DataSize { get; set; }
     public System.ReadOnlyMemory<byte> PData { get; set; }
 
+
     public static implicit operator SpecializationInfo(AdamantiumVulkan.Core.Interop.VkSpecializationInfo s)
     {
         return new SpecializationInfo(in s);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceSubpassMergeFeedbackFeaturesEXT : IMar
     public object PNext { get; set; }
     public VkBool32 SubpassMergeFeedback { get; set; }
 
+
     public static implicit operator PhysicalDeviceSubpassMergeFeedbackFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT p)
     {
         return new PhysicalDeviceSubpassMergeFeedbackFeaturesEXT(in p);

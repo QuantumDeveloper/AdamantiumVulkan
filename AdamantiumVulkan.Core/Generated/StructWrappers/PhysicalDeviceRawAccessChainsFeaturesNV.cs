@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceRawAccessChainsFeaturesNV : IMarshalla
     public object PNext { get; set; }
     public VkBool32 ShaderRawAccessChains { get; set; }
 
+
     public static implicit operator PhysicalDeviceRawAccessChainsFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRawAccessChainsFeaturesNV p)
     {
         return new PhysicalDeviceRawAccessChainsFeaturesNV(in p);

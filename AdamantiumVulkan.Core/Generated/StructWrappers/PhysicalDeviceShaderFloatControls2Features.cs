@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderFloatControls2Features : IMarsha
     public object PNext { get; set; }
     public VkBool32 ShaderFloatControls2 { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderFloatControls2Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderFloatControls2Features p)
     {
         return new PhysicalDeviceShaderFloatControls2Features(in p);

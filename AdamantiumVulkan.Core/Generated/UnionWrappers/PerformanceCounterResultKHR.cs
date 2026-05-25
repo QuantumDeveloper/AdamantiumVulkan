@@ -30,6 +30,7 @@ public unsafe partial class PerformanceCounterResultKHR : IMarshallableObject, I
     public float Float32 { get; set; }
     public double Float64 { get; set; }
 
+
     public static implicit operator PerformanceCounterResultKHR(AdamantiumVulkan.Core.Interop.VkPerformanceCounterResultKHR p)
     {
         return new PerformanceCounterResultKHR(in p);

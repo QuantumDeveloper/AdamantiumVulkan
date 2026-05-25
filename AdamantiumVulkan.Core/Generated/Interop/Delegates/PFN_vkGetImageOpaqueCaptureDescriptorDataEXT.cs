@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 16137 Column: 10
+// File: video.xml Line: 18106 Column: 10
 public unsafe struct PFN_vkGetImageOpaqueCaptureDescriptorDataEXT
 {
     public PFN_vkGetImageOpaqueCaptureDescriptorDataEXT(nuint ptr) : this((void*) ptr) { }

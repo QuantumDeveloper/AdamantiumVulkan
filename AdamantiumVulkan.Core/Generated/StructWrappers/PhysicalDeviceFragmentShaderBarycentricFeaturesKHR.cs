@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceFragmentShaderBarycentricFeaturesKHR :
     public object PNext { get; set; }
     public VkBool32 FragmentShaderBarycentric { get; set; }
 
+
     public static implicit operator PhysicalDeviceFragmentShaderBarycentricFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR p)
     {
         return new PhysicalDeviceFragmentShaderBarycentricFeaturesKHR(in p);

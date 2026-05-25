@@ -78,6 +78,7 @@ public unsafe partial class PhysicalDeviceVulkan12Properties : IMarshallableObje
     public ulong MaxTimelineSemaphoreValueDifference { get; set; }
     public SampleCountFlagBits FramebufferIntegerColorSampleCounts { get; set; }
 
+
     public static implicit operator PhysicalDeviceVulkan12Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan12Properties p)
     {
         return new PhysicalDeviceVulkan12Properties(in p);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsFeaturesNV : IM
     public object PNext { get; set; }
     public VkBool32 DeviceGeneratedCommands { get; set; }
 
+
     public static implicit operator PhysicalDeviceDeviceGeneratedCommandsFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV p)
     {
         return new PhysicalDeviceDeviceGeneratedCommandsFeaturesNV(in p);

@@ -28,6 +28,7 @@ public unsafe partial class CommandBufferInheritanceRenderPassTransformInfoQCOM 
     public SurfaceTransformFlagBitsKHR Transform { get; set; }
     public Rect2D RenderArea { get; set; }
 
+
     public static implicit operator CommandBufferInheritanceRenderPassTransformInfoQCOM(AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceRenderPassTransformInfoQCOM c)
     {
         return new CommandBufferInheritanceRenderPassTransformInfoQCOM(in c);

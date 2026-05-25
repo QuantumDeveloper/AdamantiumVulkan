@@ -33,6 +33,7 @@ public unsafe partial class VideoEncodeCapabilitiesKHR : IMarshallableObject, IM
     public Extent2D EncodeInputPictureGranularity { get; set; }
     public VideoEncodeFeedbackFlagBitsKHR SupportedEncodeFeedbackFlags { get; set; }
 
+
     public static implicit operator VideoEncodeCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeCapabilitiesKHR v)
     {
         return new VideoEncodeCapabilitiesKHR(in v);

@@ -33,6 +33,7 @@ public unsafe partial class DisplayPlaneCapabilitiesKHR : IMarshallableObject, I
     public Extent2D MinDstExtent { get; set; }
     public Extent2D MaxDstExtent { get; set; }
 
+
     public static implicit operator DisplayPlaneCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilitiesKHR d)
     {
         return new DisplayPlaneCapabilitiesKHR(in d);

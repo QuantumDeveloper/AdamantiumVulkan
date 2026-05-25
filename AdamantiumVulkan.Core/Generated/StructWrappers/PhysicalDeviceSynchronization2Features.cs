@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceSynchronization2Features : IMarshallab
     public object PNext { get; set; }
     public VkBool32 Synchronization2 { get; set; }
 
+
     public static implicit operator PhysicalDeviceSynchronization2Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSynchronization2Features p)
     {
         return new PhysicalDeviceSynchronization2Features(in p);

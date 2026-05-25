@@ -27,6 +27,7 @@ public unsafe partial class SurfaceCapabilities2KHR : IMarshallableObject, IMars
     public object PNext { get; set; }
     public SurfaceCapabilitiesKHR SurfaceCapabilities { get; set; }
 
+
     public static implicit operator SurfaceCapabilities2KHR(AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR s)
     {
         return new SurfaceCapabilities2KHR(in s);

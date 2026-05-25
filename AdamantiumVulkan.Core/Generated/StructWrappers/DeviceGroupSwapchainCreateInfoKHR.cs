@@ -27,6 +27,7 @@ public unsafe partial class DeviceGroupSwapchainCreateInfoKHR : IMarshallableObj
     public object PNext { get; set; }
     public DeviceGroupPresentModeFlagBitsKHR Modes { get; set; }
 
+
     public static implicit operator DeviceGroupSwapchainCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkDeviceGroupSwapchainCreateInfoKHR d)
     {
         return new DeviceGroupSwapchainCreateInfoKHR(in d);

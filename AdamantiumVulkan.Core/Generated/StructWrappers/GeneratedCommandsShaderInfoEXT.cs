@@ -28,6 +28,7 @@ public unsafe partial class GeneratedCommandsShaderInfoEXT : IMarshallableObject
     public uint ShaderCount { get; set; }
     public System.ReadOnlyMemory<ShaderEXT> PShaders { get; set; }
 
+
     public static implicit operator GeneratedCommandsShaderInfoEXT(AdamantiumVulkan.Core.Interop.VkGeneratedCommandsShaderInfoEXT g)
     {
         return new GeneratedCommandsShaderInfoEXT(in g);

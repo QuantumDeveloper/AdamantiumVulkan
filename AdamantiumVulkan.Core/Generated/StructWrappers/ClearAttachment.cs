@@ -27,6 +27,7 @@ public unsafe partial class ClearAttachment : IMarshallableObject, IMarshallable
     public uint ColorAttachment { get; set; }
     public ClearValue ClearValue { get; set; }
 
+
     public static implicit operator ClearAttachment(AdamantiumVulkan.Core.Interop.VkClearAttachment c)
     {
         return new ClearAttachment(in c);
@@ -35,6 +36,8 @@ public unsafe partial class ClearAttachment : IMarshallableObject, IMarshallable
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkClearAttachment>();
+        if (ClearValue != default)
+            size += ClearValue.GetSize();
         return size;
     }
 

@@ -28,6 +28,7 @@ public unsafe partial class VideoProfileListInfoKHR : IMarshallableObject, IMars
     public uint ProfileCount { get; set; }
     public System.ReadOnlyMemory<VideoProfileInfoKHR> Profiles { get; set; }
 
+
     public static implicit operator VideoProfileListInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoProfileListInfoKHR v)
     {
         return new VideoProfileListInfoKHR(in v);

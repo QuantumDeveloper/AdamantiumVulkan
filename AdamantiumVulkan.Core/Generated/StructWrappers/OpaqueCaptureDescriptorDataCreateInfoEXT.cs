@@ -27,6 +27,7 @@ public unsafe partial class OpaqueCaptureDescriptorDataCreateInfoEXT : IMarshall
     public object PNext { get; set; }
     public nuint OpaqueCaptureDescriptorData { get; set; }
 
+
     public static implicit operator OpaqueCaptureDescriptorDataCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkOpaqueCaptureDescriptorDataCreateInfoEXT o)
     {
         return new OpaqueCaptureDescriptorDataCreateInfoEXT(in o);

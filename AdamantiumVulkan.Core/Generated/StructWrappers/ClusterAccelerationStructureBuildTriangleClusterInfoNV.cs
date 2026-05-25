@@ -41,6 +41,7 @@ public unsafe partial class ClusterAccelerationStructureBuildTriangleClusterInfo
     public VkDeviceAddress OpacityMicromapArray { get; set; }
     public VkDeviceAddress OpacityMicromapIndexBuffer { get; set; }
 
+
     public static implicit operator ClusterAccelerationStructureBuildTriangleClusterInfoNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureBuildTriangleClusterInfoNV c)
     {
         return new ClusterAccelerationStructureBuildTriangleClusterInfoNV(in c);

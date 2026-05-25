@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10360 Column: 6
+// File: vk.xml Line: 12056 Column: 6
 public enum PolygonMode : int
 {
     Fill = 0,

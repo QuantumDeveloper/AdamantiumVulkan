@@ -27,6 +27,7 @@ public unsafe partial class PerformanceStreamMarkerInfoINTEL : IMarshallableObje
     public object PNext { get; set; }
     public uint Marker { get; set; }
 
+
     public static implicit operator PerformanceStreamMarkerInfoINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceStreamMarkerInfoINTEL p)
     {
         return new PerformanceStreamMarkerInfoINTEL(in p);

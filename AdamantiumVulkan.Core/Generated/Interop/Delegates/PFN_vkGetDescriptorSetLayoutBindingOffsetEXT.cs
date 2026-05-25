@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 16094 Column: 10
+// File: video.xml Line: 18063 Column: 10
 public unsafe struct PFN_vkGetDescriptorSetLayoutBindingOffsetEXT
 {
     public PFN_vkGetDescriptorSetLayoutBindingOffsetEXT(nuint ptr) : this((void*) ptr) { }

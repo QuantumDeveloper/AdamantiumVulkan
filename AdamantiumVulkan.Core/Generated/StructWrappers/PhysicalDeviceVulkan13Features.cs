@@ -41,6 +41,7 @@ public unsafe partial class PhysicalDeviceVulkan13Features : IMarshallableObject
     public VkBool32 ShaderIntegerDotProduct { get; set; }
     public VkBool32 Maintenance4 { get; set; }
 
+
     public static implicit operator PhysicalDeviceVulkan13Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Features p)
     {
         return new PhysicalDeviceVulkan13Features(in p);

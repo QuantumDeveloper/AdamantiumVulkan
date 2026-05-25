@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: vk.xml Line: 1821 Column: 10
+// File: vk.xml Line: 1968 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkCommandBufferAllocateInfo
 {

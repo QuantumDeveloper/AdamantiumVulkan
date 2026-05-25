@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 12650 Column: 10
+// File: video.xml Line: 14561 Column: 10
 public unsafe struct PFN_vkWaitForFences
 {
     public PFN_vkWaitForFences(nuint ptr) : this((void*) ptr) { }

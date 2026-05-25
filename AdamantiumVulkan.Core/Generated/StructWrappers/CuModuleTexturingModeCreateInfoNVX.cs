@@ -27,6 +27,7 @@ public unsafe partial class CuModuleTexturingModeCreateInfoNVX : IMarshallableOb
     public object PNext { get; set; }
     public VkBool32 Use64bitTexturing { get; set; }
 
+
     public static implicit operator CuModuleTexturingModeCreateInfoNVX(AdamantiumVulkan.Core.Interop.VkCuModuleTexturingModeCreateInfoNVX c)
     {
         return new CuModuleTexturingModeCreateInfoNVX(in c);

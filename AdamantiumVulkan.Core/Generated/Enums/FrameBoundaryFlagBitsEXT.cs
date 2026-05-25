@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11837 Column: 6
+// File: vk.xml Line: 13543 Column: 6
 [Flags]
 public enum FrameBoundaryFlagBitsEXT : uint
 {

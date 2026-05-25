@@ -32,6 +32,7 @@ public unsafe partial class RenderPassMultiviewCreateInfo : IMarshallableObject,
     public uint CorrelationMaskCount { get; set; }
     public System.ReadOnlyMemory<uint> PCorrelationMasks { get; set; }
 
+
     public static implicit operator RenderPassMultiviewCreateInfo(AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo r)
     {
         return new RenderPassMultiviewCreateInfo(in r);

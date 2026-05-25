@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 596 Column: 10
+// File: vk.xml Line: 642 Column: 10
 public unsafe partial class MicromapEXT : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkMicromapEXT_T>
 {
     internal VkMicromapEXT_T __Instance;

@@ -11,10 +11,18 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10793 Column: 6
+// File: vk.xml Line: 12489 Column: 6
 [Flags]
 public enum RenderPassCreateFlagBits : uint
 {
+    Reserved3BitImg = 8,
+
+    Reserved0BitKhr = 1,
+
+    TransformBitQcom = 2,
+
+    PerLayerFragmentDensityBitValve = 4,
+
 }
 
 

@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceClusterCullingShaderFeaturesHUAWEI : I
     public VkBool32 ClustercullingShader { get; set; }
     public VkBool32 MultiviewClusterCullingShader { get; set; }
 
+
     public static implicit operator PhysicalDeviceClusterCullingShaderFeaturesHUAWEI(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI p)
     {
         return new PhysicalDeviceClusterCullingShaderFeaturesHUAWEI(in p);

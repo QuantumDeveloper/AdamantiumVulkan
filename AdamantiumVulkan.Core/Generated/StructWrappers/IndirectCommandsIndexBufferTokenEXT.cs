@@ -25,6 +25,7 @@ public unsafe partial class IndirectCommandsIndexBufferTokenEXT : IMarshallableO
 
     public IndirectCommandsInputModeFlagBitsEXT Mode { get; set; }
 
+
     public static implicit operator IndirectCommandsIndexBufferTokenEXT(AdamantiumVulkan.Core.Interop.VkIndirectCommandsIndexBufferTokenEXT i)
     {
         return new IndirectCommandsIndexBufferTokenEXT(in i);

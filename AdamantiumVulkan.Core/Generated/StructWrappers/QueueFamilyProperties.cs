@@ -28,6 +28,7 @@ public unsafe partial class QueueFamilyProperties : IMarshallableObject, IMarsha
     public uint TimestampValidBits { get; set; }
     public Extent3D MinImageTransferGranularity { get; set; }
 
+
     public static implicit operator QueueFamilyProperties(AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties q)
     {
         return new QueueFamilyProperties(in q);

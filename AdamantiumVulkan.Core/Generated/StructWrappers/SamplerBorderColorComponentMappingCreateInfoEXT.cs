@@ -28,6 +28,7 @@ public unsafe partial class SamplerBorderColorComponentMappingCreateInfoEXT : IM
     public ComponentMapping Components { get; set; }
     public VkBool32 Srgb { get; set; }
 
+
     public static implicit operator SamplerBorderColorComponentMappingCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkSamplerBorderColorComponentMappingCreateInfoEXT s)
     {
         return new SamplerBorderColorComponentMappingCreateInfoEXT(in s);

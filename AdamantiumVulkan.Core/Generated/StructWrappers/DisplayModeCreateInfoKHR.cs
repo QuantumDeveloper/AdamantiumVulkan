@@ -28,6 +28,7 @@ public unsafe partial class DisplayModeCreateInfoKHR : IMarshallableObject, IMar
     public VkDisplayModeCreateFlagsKHR Flags { get; set; }
     public DisplayModeParametersKHR Parameters { get; set; }
 
+
     public static implicit operator DisplayModeCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkDisplayModeCreateInfoKHR d)
     {
         return new DisplayModeCreateInfoKHR(in d);

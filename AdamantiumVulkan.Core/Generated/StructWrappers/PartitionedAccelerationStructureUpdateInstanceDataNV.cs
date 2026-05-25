@@ -27,6 +27,7 @@ public unsafe partial class PartitionedAccelerationStructureUpdateInstanceDataNV
     public uint InstanceContributionToHitGroupIndex { get; set; }
     public VkDeviceAddress AccelerationStructure { get; set; }
 
+
     public static implicit operator PartitionedAccelerationStructureUpdateInstanceDataNV(AdamantiumVulkan.Core.Interop.VkPartitionedAccelerationStructureUpdateInstanceDataNV p)
     {
         return new PartitionedAccelerationStructureUpdateInstanceDataNV(in p);

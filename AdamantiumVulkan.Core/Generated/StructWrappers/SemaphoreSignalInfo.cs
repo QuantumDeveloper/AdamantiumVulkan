@@ -28,6 +28,7 @@ public unsafe partial class SemaphoreSignalInfo : IMarshallableObject, IMarshall
     public Semaphore Semaphore { get; set; }
     public ulong Value { get; set; }
 
+
     public static implicit operator SemaphoreSignalInfo(AdamantiumVulkan.Core.Interop.VkSemaphoreSignalInfo s)
     {
         return new SemaphoreSignalInfo(in s);

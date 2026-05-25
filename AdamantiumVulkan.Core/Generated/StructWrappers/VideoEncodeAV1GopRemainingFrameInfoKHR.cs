@@ -30,6 +30,7 @@ public unsafe partial class VideoEncodeAV1GopRemainingFrameInfoKHR : IMarshallab
     public uint GopRemainingPredictive { get; set; }
     public uint GopRemainingBipredictive { get; set; }
 
+
     public static implicit operator VideoEncodeAV1GopRemainingFrameInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1GopRemainingFrameInfoKHR v)
     {
         return new VideoEncodeAV1GopRemainingFrameInfoKHR(in v);

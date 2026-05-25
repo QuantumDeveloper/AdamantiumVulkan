@@ -27,6 +27,7 @@ public unsafe partial class ImageViewASTCDecodeModeEXT : IMarshallableObject, IM
     public object PNext { get; set; }
     public Format DecodeMode { get; set; }
 
+
     public static implicit operator ImageViewASTCDecodeModeEXT(AdamantiumVulkan.Core.Interop.VkImageViewASTCDecodeModeEXT i)
     {
         return new ImageViewASTCDecodeModeEXT(in i);

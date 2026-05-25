@@ -28,6 +28,7 @@ public unsafe partial class DeviceImageSubresourceInfo : IMarshallableObject, IM
     public ImageCreateInfo PCreateInfo { get; set; }
     public ImageSubresource2 PSubresource { get; set; }
 
+
     public static implicit operator DeviceImageSubresourceInfo(AdamantiumVulkan.Core.Interop.VkDeviceImageSubresourceInfo d)
     {
         return new DeviceImageSubresourceInfo(in d);

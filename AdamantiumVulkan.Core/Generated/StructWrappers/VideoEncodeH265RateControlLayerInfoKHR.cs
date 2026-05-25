@@ -32,6 +32,7 @@ public unsafe partial class VideoEncodeH265RateControlLayerInfoKHR : IMarshallab
     public VkBool32 UseMaxFrameSize { get; set; }
     public VideoEncodeH265FrameSizeKHR MaxFrameSize { get; set; }
 
+
     public static implicit operator VideoEncodeH265RateControlLayerInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH265RateControlLayerInfoKHR v)
     {
         return new VideoEncodeH265RateControlLayerInfoKHR(in v);

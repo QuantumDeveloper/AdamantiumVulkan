@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures 
     public object PNext { get; set; }
     public VkBool32 ShaderZeroInitializeWorkgroupMemory { get; set; }
 
+
     public static implicit operator PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures p)
     {
         return new PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures(in p);

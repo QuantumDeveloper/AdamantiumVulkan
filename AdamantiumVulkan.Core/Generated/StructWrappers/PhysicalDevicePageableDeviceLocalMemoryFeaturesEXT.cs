@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT :
     public object PNext { get; set; }
     public VkBool32 PageableDeviceLocalMemory { get; set; }
 
+
     public static implicit operator PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT p)
     {
         return new PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT(in p);

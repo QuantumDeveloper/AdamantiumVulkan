@@ -27,6 +27,7 @@ public unsafe partial class SparseImageMemoryRequirements2 : IMarshallableObject
     public object PNext { get; set; }
     public SparseImageMemoryRequirements MemoryRequirements { get; set; }
 
+
     public static implicit operator SparseImageMemoryRequirements2(AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements2 s)
     {
         return new SparseImageMemoryRequirements2(in s);

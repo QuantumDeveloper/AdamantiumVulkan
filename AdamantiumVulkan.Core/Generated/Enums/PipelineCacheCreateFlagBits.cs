@@ -11,10 +11,18 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10308 Column: 6
+// File: vk.xml Line: 12004 Column: 6
 [Flags]
 public enum PipelineCacheCreateFlagBits : uint
 {
+    InternallySynchronizedMergeBitKhr = 8,
+
+    ExternallySynchronizedBit = 1,
+
+    ReadOnlyBit = 2,
+
+    UseApplicationStorageBit = 4,
+
 }
 
 

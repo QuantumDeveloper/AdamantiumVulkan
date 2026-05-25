@@ -34,6 +34,7 @@ public unsafe partial class VideoDecodeInfoKHR : IMarshallableObject, IMarshalla
     public uint ReferenceSlotCount { get; set; }
     public System.ReadOnlyMemory<VideoReferenceSlotInfoKHR> PReferenceSlots { get; set; }
 
+
     public static implicit operator VideoDecodeInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeInfoKHR v)
     {
         return new VideoDecodeInfoKHR(in v);

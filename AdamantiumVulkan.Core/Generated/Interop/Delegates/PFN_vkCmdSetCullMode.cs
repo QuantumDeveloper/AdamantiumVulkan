@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15438 Column: 10
+// File: video.xml Line: 17393 Column: 10
 public unsafe struct PFN_vkCmdSetCullMode
 {
     public PFN_vkCmdSetCullMode(nuint ptr) : this((void*) ptr) { }

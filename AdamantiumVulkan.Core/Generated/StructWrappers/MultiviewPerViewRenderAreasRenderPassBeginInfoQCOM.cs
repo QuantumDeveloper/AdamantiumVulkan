@@ -28,6 +28,7 @@ public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM :
     public uint PerViewRenderAreaCount { get; set; }
     public System.ReadOnlyMemory<Rect2D> PerViewRenderAreas { get; set; }
 
+
     public static implicit operator MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM(AdamantiumVulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM m)
     {
         return new MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM(in m);

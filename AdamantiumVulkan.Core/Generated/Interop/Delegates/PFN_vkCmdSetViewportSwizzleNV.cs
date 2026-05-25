@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15677 Column: 10
+// File: video.xml Line: 17632 Column: 10
 public unsafe struct PFN_vkCmdSetViewportSwizzleNV
 {
     public PFN_vkCmdSetViewportSwizzleNV(nuint ptr) : this((void*) ptr) { }

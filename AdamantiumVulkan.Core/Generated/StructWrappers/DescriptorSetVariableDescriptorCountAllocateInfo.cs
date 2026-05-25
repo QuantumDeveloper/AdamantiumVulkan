@@ -28,6 +28,7 @@ public unsafe partial class DescriptorSetVariableDescriptorCountAllocateInfo : I
     public uint DescriptorSetCount { get; set; }
     public System.ReadOnlyMemory<uint> PDescriptorCounts { get; set; }
 
+
     public static implicit operator DescriptorSetVariableDescriptorCountAllocateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfo d)
     {
         return new DescriptorSetVariableDescriptorCountAllocateInfo(in d);

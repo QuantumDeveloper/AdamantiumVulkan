@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 1264 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 1412 Column: 14
 public enum RayFlagsShift : uint
 {
     OpaqueKHRShift = 0,
@@ -30,7 +30,7 @@ public enum RayFlagsShift : uint
 
     CullNoOpaqueKHRShift = 7,
 
-    SkipTrianglesKHRShift = 8,
+    SkipBuiltinPrimitivesNVShift = 8,
 
     SkipAABBsKHRShift = 9,
 

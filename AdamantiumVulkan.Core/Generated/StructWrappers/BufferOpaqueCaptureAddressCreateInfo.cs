@@ -27,6 +27,7 @@ public unsafe partial class BufferOpaqueCaptureAddressCreateInfo : IMarshallable
     public object PNext { get; set; }
     public ulong OpaqueCaptureAddress { get; set; }
 
+
     public static implicit operator BufferOpaqueCaptureAddressCreateInfo(AdamantiumVulkan.Core.Interop.VkBufferOpaqueCaptureAddressCreateInfo b)
     {
         return new BufferOpaqueCaptureAddressCreateInfo(in b);

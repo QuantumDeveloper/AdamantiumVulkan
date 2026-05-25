@@ -28,6 +28,7 @@ public unsafe partial class DescriptorSetLayoutBindingFlagsCreateInfo : IMarshal
     public uint BindingCount { get; set; }
     public System.ReadOnlyMemory<DescriptorBindingFlagBits> PBindingFlags { get; set; }
 
+
     public static implicit operator DescriptorSetLayoutBindingFlagsCreateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBindingFlagsCreateInfo d)
     {
         return new DescriptorSetLayoutBindingFlagsCreateInfo(in d);

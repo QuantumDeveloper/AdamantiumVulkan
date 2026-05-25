@@ -27,6 +27,7 @@ public unsafe partial class DrawMeshTasksIndirectCommandEXT : IMarshallableObjec
     public uint GroupCountY { get; set; }
     public uint GroupCountZ { get; set; }
 
+
     public static implicit operator DrawMeshTasksIndirectCommandEXT(AdamantiumVulkan.Core.Interop.VkDrawMeshTasksIndirectCommandEXT d)
     {
         return new DrawMeshTasksIndirectCommandEXT(in d);

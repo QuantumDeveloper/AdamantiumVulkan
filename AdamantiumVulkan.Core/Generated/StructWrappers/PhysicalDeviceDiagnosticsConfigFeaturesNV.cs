@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceDiagnosticsConfigFeaturesNV : IMarshal
     public object PNext { get; set; }
     public VkBool32 DiagnosticsConfig { get; set; }
 
+
     public static implicit operator PhysicalDeviceDiagnosticsConfigFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiagnosticsConfigFeaturesNV p)
     {
         return new PhysicalDeviceDiagnosticsConfigFeaturesNV(in p);

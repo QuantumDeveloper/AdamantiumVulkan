@@ -31,6 +31,7 @@ public unsafe partial class ClusterAccelerationStructureInputInfoNV : IMarshalla
     public ClusterAccelerationStructureOpModeNV OpMode { get; set; }
     public ClusterAccelerationStructureOpInputNV OpInput { get; set; }
 
+
     public static implicit operator ClusterAccelerationStructureInputInfoNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureInputInfoNV c)
     {
         return new ClusterAccelerationStructureInputInfoNV(in c);
@@ -43,6 +44,8 @@ public unsafe partial class ClusterAccelerationStructureInputInfoNV : IMarshalla
         {
             size += marshallable.GetSize();
         }
+        if (OpInput != default)
+            size += OpInput.GetSize();
         return size;
     }
 

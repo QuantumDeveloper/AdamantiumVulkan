@@ -27,6 +27,7 @@ public unsafe partial class SamplerYcbcrConversionImageFormatProperties : IMarsh
     public object PNext { get; set; }
     public uint CombinedImageSamplerDescriptorCount { get; set; }
 
+
     public static implicit operator SamplerYcbcrConversionImageFormatProperties(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionImageFormatProperties s)
     {
         return new SamplerYcbcrConversionImageFormatProperties(in s);

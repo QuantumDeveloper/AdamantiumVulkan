@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceLayeredApiVulkanPropertiesKHR : IMarsh
     public object PNext { get; set; }
     public PhysicalDeviceProperties2 Properties { get; set; }
 
+
     public static implicit operator PhysicalDeviceLayeredApiVulkanPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiVulkanPropertiesKHR p)
     {
         return new PhysicalDeviceLayeredApiVulkanPropertiesKHR(in p);

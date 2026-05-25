@@ -26,6 +26,7 @@ public unsafe partial class PipelineBinaryDataKHR : IMarshallableObject, IMarsha
     public nuint DataSize { get; set; }
     public System.ReadOnlyMemory<byte> PData { get; set; }
 
+
     public static implicit operator PipelineBinaryDataKHR(AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR p)
     {
         return new PipelineBinaryDataKHR(in p);

@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV
     public VkBool32 Spheres { get; set; }
     public VkBool32 LinearSweptSpheres { get; set; }
 
+
     public static implicit operator PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV p)
     {
         return new PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV(in p);

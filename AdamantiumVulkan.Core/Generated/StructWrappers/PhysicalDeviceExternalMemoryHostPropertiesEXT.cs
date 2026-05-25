@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceExternalMemoryHostPropertiesEXT : IMar
     public object PNext { get; set; }
     public VkDeviceSize MinImportedHostPointerAlignment { get; set; }
 
+
     public static implicit operator PhysicalDeviceExternalMemoryHostPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalMemoryHostPropertiesEXT p)
     {
         return new PhysicalDeviceExternalMemoryHostPropertiesEXT(in p);

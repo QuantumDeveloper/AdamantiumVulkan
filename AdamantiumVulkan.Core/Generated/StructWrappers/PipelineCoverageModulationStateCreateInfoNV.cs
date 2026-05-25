@@ -31,6 +31,7 @@ public unsafe partial class PipelineCoverageModulationStateCreateInfoNV : IMarsh
     public uint CoverageModulationTableCount { get; set; }
     public System.ReadOnlyMemory<float> PCoverageModulationTable { get; set; }
 
+
     public static implicit operator PipelineCoverageModulationStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV p)
     {
         return new PipelineCoverageModulationStateCreateInfoNV(in p);

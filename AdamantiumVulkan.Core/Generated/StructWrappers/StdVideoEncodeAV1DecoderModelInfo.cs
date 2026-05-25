@@ -29,6 +29,7 @@ public unsafe partial class StdVideoEncodeAV1DecoderModelInfo : IMarshallableObj
     public byte Reserved1 { get; set; }
     public uint Num_units_in_decoding_tick { get; set; }
 
+
     public static implicit operator StdVideoEncodeAV1DecoderModelInfo(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo s)
     {
         return new StdVideoEncodeAV1DecoderModelInfo(in s);

@@ -27,6 +27,7 @@ public unsafe partial class StdVideoAV1QuantizationFlags : IMarshallableObject, 
     public uint Diff_uv_delta { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoAV1QuantizationFlags(AdamantiumVulkan.Core.Interop.StdVideoAV1QuantizationFlags s)
     {
         return new StdVideoAV1QuantizationFlags(in s);

@@ -29,6 +29,7 @@ public unsafe partial class PipelineCreationFeedbackCreateInfo : IMarshallableOb
     public uint PipelineStageCreationFeedbackCount { get; set; }
     public System.ReadOnlyMemory<PipelineCreationFeedback> PipelineStageCreationFeedbacks { get; set; }
 
+
     public static implicit operator PipelineCreationFeedbackCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedbackCreateInfo p)
     {
         return new PipelineCreationFeedbackCreateInfo(in p);

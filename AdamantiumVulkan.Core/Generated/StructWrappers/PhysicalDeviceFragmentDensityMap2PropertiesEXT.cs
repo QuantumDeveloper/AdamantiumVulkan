@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceFragmentDensityMap2PropertiesEXT : IMa
     public uint MaxSubsampledArrayLayers { get; set; }
     public uint MaxDescriptorSetSubsampledSamplers { get; set; }
 
+
     public static implicit operator PhysicalDeviceFragmentDensityMap2PropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMap2PropertiesEXT p)
     {
         return new PhysicalDeviceFragmentDensityMap2PropertiesEXT(in p);

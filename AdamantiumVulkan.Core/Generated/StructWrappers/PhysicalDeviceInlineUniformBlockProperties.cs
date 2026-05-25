@@ -31,6 +31,7 @@ public unsafe partial class PhysicalDeviceInlineUniformBlockProperties : IMarsha
     public uint MaxDescriptorSetInlineUniformBlocks { get; set; }
     public uint MaxDescriptorSetUpdateAfterBindInlineUniformBlocks { get; set; }
 
+
     public static implicit operator PhysicalDeviceInlineUniformBlockProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockProperties p)
     {
         return new PhysicalDeviceInlineUniformBlockProperties(in p);

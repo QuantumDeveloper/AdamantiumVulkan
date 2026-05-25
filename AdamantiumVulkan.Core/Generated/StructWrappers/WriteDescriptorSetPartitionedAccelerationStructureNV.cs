@@ -28,6 +28,7 @@ public unsafe partial class WriteDescriptorSetPartitionedAccelerationStructureNV
     public uint AccelerationStructureCount { get; set; }
     public System.ReadOnlyMemory<VkDeviceAddress> PAccelerationStructures { get; set; }
 
+
     public static implicit operator WriteDescriptorSetPartitionedAccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetPartitionedAccelerationStructureNV w)
     {
         return new WriteDescriptorSetPartitionedAccelerationStructureNV(in w);

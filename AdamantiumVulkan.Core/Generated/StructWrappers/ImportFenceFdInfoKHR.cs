@@ -30,6 +30,7 @@ public unsafe partial class ImportFenceFdInfoKHR : IMarshallableObject, IMarshal
     public ExternalFenceHandleTypeFlagBits HandleType { get; set; }
     public int Fd { get; set; }
 
+
     public static implicit operator ImportFenceFdInfoKHR(AdamantiumVulkan.Core.Interop.VkImportFenceFdInfoKHR i)
     {
         return new ImportFenceFdInfoKHR(in i);

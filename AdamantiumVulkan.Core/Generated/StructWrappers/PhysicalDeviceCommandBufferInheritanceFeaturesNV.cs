@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceCommandBufferInheritanceFeaturesNV : I
     public object PNext { get; set; }
     public VkBool32 CommandBufferInheritance { get; set; }
 
+
     public static implicit operator PhysicalDeviceCommandBufferInheritanceFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCommandBufferInheritanceFeaturesNV p)
     {
         return new PhysicalDeviceCommandBufferInheritanceFeaturesNV(in p);

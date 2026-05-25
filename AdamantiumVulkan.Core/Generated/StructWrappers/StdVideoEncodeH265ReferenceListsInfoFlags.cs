@@ -27,6 +27,7 @@ public unsafe partial class StdVideoEncodeH265ReferenceListsInfoFlags : IMarshal
     public uint Ref_pic_list_modification_flag_l1 { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoEncodeH265ReferenceListsInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfoFlags s)
     {
         return new StdVideoEncodeH265ReferenceListsInfoFlags(in s);

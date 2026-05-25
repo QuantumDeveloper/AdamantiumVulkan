@@ -29,6 +29,7 @@ public unsafe partial class CopyMicromapToMemoryInfoEXT : IMarshallableObject, I
     public DeviceOrHostAddressKHR Dst { get; set; }
     public CopyMicromapModeEXT Mode { get; set; }
 
+
     public static implicit operator CopyMicromapToMemoryInfoEXT(AdamantiumVulkan.Core.Interop.VkCopyMicromapToMemoryInfoEXT c)
     {
         return new CopyMicromapToMemoryInfoEXT(in c);
@@ -41,6 +42,8 @@ public unsafe partial class CopyMicromapToMemoryInfoEXT : IMarshallableObject, I
         {
             size += marshallable.GetSize();
         }
+        if (Dst != default)
+            size += Dst.GetSize();
         return size;
     }
 

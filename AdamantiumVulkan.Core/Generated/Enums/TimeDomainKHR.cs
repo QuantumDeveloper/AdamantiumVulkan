@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11075 Column: 6
+// File: vk.xml Line: 12771 Column: 6
 public enum TimeDomainKHR : int
 {
     DeviceKhr = 0,
@@ -21,6 +21,10 @@ public enum TimeDomainKHR : int
     ClockMonotonicRawKhr = 2,
 
     QueryPerformanceCounterKhr = 3,
+
+    PresentStageLocalExt = 1000208000,
+
+    SwapchainLocalExt = 1000208001,
 
 }
 

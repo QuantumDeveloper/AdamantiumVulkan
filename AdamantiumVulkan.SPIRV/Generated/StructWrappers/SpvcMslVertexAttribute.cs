@@ -34,6 +34,7 @@ public unsafe partial class SpvcMslVertexAttribute : IMarshallable<AdamantiumVul
     public SpvcBool Per_instance { get; set; }
     public MslShaderVariableFormat Format { get; set; }
     public BuiltIn Builtin { get; set; }
+
     ///<summary>
     /// Initializes the vertex attribute struct.
     ///</summary>

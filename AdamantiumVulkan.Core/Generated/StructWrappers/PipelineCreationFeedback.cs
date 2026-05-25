@@ -26,6 +26,7 @@ public unsafe partial class PipelineCreationFeedback : IMarshallableObject, IMar
     public PipelineCreationFeedbackFlagBits Flags { get; set; }
     public ulong Duration { get; set; }
 
+
     public static implicit operator PipelineCreationFeedback(AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback p)
     {
         return new PipelineCreationFeedback(in p);

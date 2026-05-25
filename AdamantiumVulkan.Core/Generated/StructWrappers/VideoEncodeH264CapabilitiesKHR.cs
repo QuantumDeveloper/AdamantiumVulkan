@@ -39,6 +39,7 @@ public unsafe partial class VideoEncodeH264CapabilitiesKHR : IMarshallableObject
     public VkBool32 RequiresGopRemainingFrames { get; set; }
     public VideoEncodeH264StdFlagBitsKHR StdSyntaxFlags { get; set; }
 
+
     public static implicit operator VideoEncodeH264CapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH264CapabilitiesKHR v)
     {
         return new VideoEncodeH264CapabilitiesKHR(in v);

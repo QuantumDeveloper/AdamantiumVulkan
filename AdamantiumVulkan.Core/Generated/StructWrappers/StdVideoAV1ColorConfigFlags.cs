@@ -29,6 +29,7 @@ public unsafe partial class StdVideoAV1ColorConfigFlags : IMarshallableObject, I
     public uint Color_description_present_flag { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoAV1ColorConfigFlags(AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfigFlags s)
     {
         return new StdVideoAV1ColorConfigFlags(in s);

@@ -25,6 +25,7 @@ public unsafe partial class StdVideoH265PredictorPaletteEntries : IMarshallableO
 
     public System.ReadOnlyMemory<ushort> PredictorPaletteEntries { get; set; }
 
+
     public static implicit operator StdVideoH265PredictorPaletteEntries(AdamantiumVulkan.Core.Interop.StdVideoH265PredictorPaletteEntries s)
     {
         return new StdVideoH265PredictorPaletteEntries(in s);

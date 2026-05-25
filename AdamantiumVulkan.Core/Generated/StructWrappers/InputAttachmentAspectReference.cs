@@ -27,6 +27,7 @@ public unsafe partial class InputAttachmentAspectReference : IMarshallableObject
     public uint InputAttachmentIndex { get; set; }
     public ImageAspectFlagBits AspectMask { get; set; }
 
+
     public static implicit operator InputAttachmentAspectReference(AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference i)
     {
         return new InputAttachmentAspectReference(in i);

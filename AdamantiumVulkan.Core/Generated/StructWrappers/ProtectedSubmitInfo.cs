@@ -27,6 +27,7 @@ public unsafe partial class ProtectedSubmitInfo : IMarshallableObject, IMarshall
     public object PNext { get; set; }
     public VkBool32 ProtectedSubmit { get; set; }
 
+
     public static implicit operator ProtectedSubmitInfo(AdamantiumVulkan.Core.Interop.VkProtectedSubmitInfo p)
     {
         return new ProtectedSubmitInfo(in p);

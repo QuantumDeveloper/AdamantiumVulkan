@@ -11,11 +11,17 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11314 Column: 6
+// File: vk.xml Line: 13012 Column: 6
 [Flags]
 public enum MemoryAllocateFlagBits : uint
 {
     DeviceMaskBit = 1,
+
+    ZeroInitializeBitExt = 8,
+
+    DeviceAddressBit = 2,
+
+    DeviceAddressCaptureReplayBit = 4,
 
 }
 

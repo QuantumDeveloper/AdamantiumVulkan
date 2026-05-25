@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceFeatures2 : IMarshallableObject, IMars
     public object PNext { get; set; }
     public PhysicalDeviceFeatures Features { get; set; }
 
+
     public static implicit operator PhysicalDeviceFeatures2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2 p)
     {
         return new PhysicalDeviceFeatures2(in p);

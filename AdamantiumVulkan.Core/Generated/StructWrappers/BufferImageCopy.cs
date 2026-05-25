@@ -30,6 +30,7 @@ public unsafe partial class BufferImageCopy : IMarshallableObject, IMarshallable
     public Offset3D ImageOffset { get; set; }
     public Extent3D ImageExtent { get; set; }
 
+
     public static implicit operator BufferImageCopy(AdamantiumVulkan.Core.Interop.VkBufferImageCopy b)
     {
         return new BufferImageCopy(in b);

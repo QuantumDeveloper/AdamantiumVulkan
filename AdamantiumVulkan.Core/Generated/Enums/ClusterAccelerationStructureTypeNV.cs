@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11155 Column: 6
+// File: vk.xml Line: 12851 Column: 6
 [Flags]
 public enum ClusterAccelerationStructureTypeNV : int
 {

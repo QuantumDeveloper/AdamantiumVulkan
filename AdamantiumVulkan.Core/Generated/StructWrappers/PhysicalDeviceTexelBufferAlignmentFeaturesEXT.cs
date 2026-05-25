@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceTexelBufferAlignmentFeaturesEXT : IMar
     public object PNext { get; set; }
     public VkBool32 TexelBufferAlignment { get; set; }
 
+
     public static implicit operator PhysicalDeviceTexelBufferAlignmentFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT p)
     {
         return new PhysicalDeviceTexelBufferAlignmentFeaturesEXT(in p);

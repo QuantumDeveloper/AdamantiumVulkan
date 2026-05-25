@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePartitionedAccelerationStructureFeatur
     public object PNext { get; set; }
     public VkBool32 PartitionedAccelerationStructure { get; set; }
 
+
     public static implicit operator PhysicalDevicePartitionedAccelerationStructureFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV p)
     {
         return new PhysicalDevicePartitionedAccelerationStructureFeaturesNV(in p);

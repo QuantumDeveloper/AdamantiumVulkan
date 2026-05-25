@@ -27,6 +27,7 @@ public unsafe partial class CommandBufferInheritanceConditionalRenderingInfoEXT 
     public object PNext { get; set; }
     public VkBool32 ConditionalRenderingEnable { get; set; }
 
+
     public static implicit operator CommandBufferInheritanceConditionalRenderingInfoEXT(AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT c)
     {
         return new CommandBufferInheritanceConditionalRenderingInfoEXT(in c);

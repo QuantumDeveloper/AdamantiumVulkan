@@ -35,6 +35,7 @@ public unsafe partial class VideoCapabilitiesKHR : IMarshallableObject, IMarshal
     public uint MaxActiveReferencePictures { get; set; }
     public ExtensionProperties StdHeaderVersion { get; set; }
 
+
     public static implicit operator VideoCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoCapabilitiesKHR v)
     {
         return new VideoCapabilitiesKHR(in v);

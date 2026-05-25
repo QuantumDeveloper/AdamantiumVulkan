@@ -35,6 +35,7 @@ public unsafe partial class CooperativeMatrixPropertiesKHR : IMarshallableObject
     public VkBool32 SaturatingAccumulation { get; set; }
     public ScopeKHR Scope { get; set; }
 
+
     public static implicit operator CooperativeMatrixPropertiesKHR(AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR c)
     {
         return new CooperativeMatrixPropertiesKHR(in c);

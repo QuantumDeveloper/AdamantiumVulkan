@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceCooperativeVectorPropertiesNV : IMarsh
     public VkBool32 CooperativeVectorTrainingFloat32Accumulation { get; set; }
     public uint MaxCooperativeVectorComponents { get; set; }
 
+
     public static implicit operator PhysicalDeviceCooperativeVectorPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeVectorPropertiesNV p)
     {
         return new PhysicalDeviceCooperativeVectorPropertiesNV(in p);

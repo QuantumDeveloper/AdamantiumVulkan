@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.MacOS.Interop;
 
-// File: vk.xml Line: 3531 Column: 10
+// File: vk.xml Line: 3807 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkMacOSSurfaceCreateInfoMVK
 {

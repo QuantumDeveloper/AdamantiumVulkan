@@ -28,6 +28,7 @@ public unsafe partial class DebugUtilsLabelEXT : IMarshallableObject, IMarshalla
     public string PLabelName { get; set; }
     public System.ReadOnlyMemory<float> Color { get; set; }
 
+
     public static implicit operator DebugUtilsLabelEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT d)
     {
         return new DebugUtilsLabelEXT(in d);

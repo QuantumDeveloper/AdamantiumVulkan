@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceDiscardRectanglePropertiesEXT : IMarsh
     public object PNext { get; set; }
     public uint MaxDiscardRectangles { get; set; }
 
+
     public static implicit operator PhysicalDeviceDiscardRectanglePropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiscardRectanglePropertiesEXT p)
     {
         return new PhysicalDeviceDiscardRectanglePropertiesEXT(in p);

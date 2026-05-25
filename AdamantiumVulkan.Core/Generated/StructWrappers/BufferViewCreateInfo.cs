@@ -31,6 +31,7 @@ public unsafe partial class BufferViewCreateInfo : IMarshallableObject, IMarshal
     public VkDeviceSize Offset { get; set; }
     public VkDeviceSize Range { get; set; }
 
+
     public static implicit operator BufferViewCreateInfo(AdamantiumVulkan.Core.Interop.VkBufferViewCreateInfo b)
     {
         return new BufferViewCreateInfo(in b);

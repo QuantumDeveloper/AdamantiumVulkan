@@ -27,6 +27,7 @@ public unsafe partial class SwapchainCounterCreateInfoEXT : IMarshallableObject,
     public object PNext { get; set; }
     public SurfaceCounterFlagBitsEXT SurfaceCounters { get; set; }
 
+
     public static implicit operator SwapchainCounterCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkSwapchainCounterCreateInfoEXT s)
     {
         return new SwapchainCounterCreateInfoEXT(in s);

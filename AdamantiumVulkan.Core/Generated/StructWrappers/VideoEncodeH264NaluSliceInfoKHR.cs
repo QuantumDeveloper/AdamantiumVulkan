@@ -28,6 +28,7 @@ public unsafe partial class VideoEncodeH264NaluSliceInfoKHR : IMarshallableObjec
     public int ConstantQp { get; set; }
     public StdVideoEncodeH264SliceHeader PStdSliceHeader { get; set; }
 
+
     public static implicit operator VideoEncodeH264NaluSliceInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH264NaluSliceInfoKHR v)
     {
         return new VideoEncodeH264NaluSliceInfoKHR(in v);

@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceTransformFeedbackFeaturesEXT : IMarsha
     public VkBool32 TransformFeedback { get; set; }
     public VkBool32 GeometryStreams { get; set; }
 
+
     public static implicit operator PhysicalDeviceTransformFeedbackFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackFeaturesEXT p)
     {
         return new PhysicalDeviceTransformFeedbackFeaturesEXT(in p);

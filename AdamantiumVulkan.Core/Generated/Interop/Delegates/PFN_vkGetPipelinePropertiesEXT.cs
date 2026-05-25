@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 16392 Column: 10
+// File: video.xml Line: 18372 Column: 10
 public unsafe struct PFN_vkGetPipelinePropertiesEXT
 {
     public PFN_vkGetPipelinePropertiesEXT(nuint ptr) : this((void*) ptr) { }

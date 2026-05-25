@@ -33,6 +33,7 @@ public unsafe partial class PhysicalDeviceProperties : IMarshallableObject, IMar
     public PhysicalDeviceLimits Limits { get; set; }
     public PhysicalDeviceSparseProperties SparseProperties { get; set; }
 
+
     public static implicit operator PhysicalDeviceProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties p)
     {
         return new PhysicalDeviceProperties(in p);

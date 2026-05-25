@@ -27,6 +27,7 @@ public unsafe partial class ExternalMemoryAcquireUnmodifiedEXT : IMarshallableOb
     public object PNext { get; set; }
     public VkBool32 AcquireUnmodifiedMemory { get; set; }
 
+
     public static implicit operator ExternalMemoryAcquireUnmodifiedEXT(AdamantiumVulkan.Core.Interop.VkExternalMemoryAcquireUnmodifiedEXT e)
     {
         return new ExternalMemoryAcquireUnmodifiedEXT(in e);

@@ -34,6 +34,7 @@ public unsafe partial class ClusterAccelerationStructureCommandsInfoNV : IMarsha
     public VkDeviceAddress SrcInfosCount { get; set; }
     public ClusterAccelerationStructureAddressResolutionFlagBitsNV AddressResolutionFlags { get; set; }
 
+
     public static implicit operator ClusterAccelerationStructureCommandsInfoNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureCommandsInfoNV c)
     {
         return new ClusterAccelerationStructureCommandsInfoNV(in c);

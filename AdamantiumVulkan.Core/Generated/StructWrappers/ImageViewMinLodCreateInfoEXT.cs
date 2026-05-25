@@ -27,6 +27,7 @@ public unsafe partial class ImageViewMinLodCreateInfoEXT : IMarshallableObject, 
     public object PNext { get; set; }
     public float MinLod { get; set; }
 
+
     public static implicit operator ImageViewMinLodCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkImageViewMinLodCreateInfoEXT i)
     {
         return new ImageViewMinLodCreateInfoEXT(in i);

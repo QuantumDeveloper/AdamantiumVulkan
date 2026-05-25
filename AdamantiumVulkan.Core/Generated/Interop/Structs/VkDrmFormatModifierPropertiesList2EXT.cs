@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: vk.xml Line: 8620 Column: 10
+// File: vk.xml Line: 9053 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDrmFormatModifierPropertiesList2EXT
 {

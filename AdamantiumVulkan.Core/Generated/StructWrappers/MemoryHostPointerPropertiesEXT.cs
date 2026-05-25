@@ -27,6 +27,7 @@ public unsafe partial class MemoryHostPointerPropertiesEXT : IMarshallableObject
     public object PNext { get; set; }
     public uint MemoryTypeBits { get; set; }
 
+
     public static implicit operator MemoryHostPointerPropertiesEXT(AdamantiumVulkan.Core.Interop.VkMemoryHostPointerPropertiesEXT m)
     {
         return new MemoryHostPointerPropertiesEXT(in m);

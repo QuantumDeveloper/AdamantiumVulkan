@@ -29,6 +29,7 @@ public unsafe partial class OpticalFlowExecuteInfoNV : IMarshallableObject, IMar
     public uint RegionCount { get; set; }
     public System.ReadOnlyMemory<Rect2D> PRegions { get; set; }
 
+
     public static implicit operator OpticalFlowExecuteInfoNV(AdamantiumVulkan.Core.Interop.VkOpticalFlowExecuteInfoNV o)
     {
         return new OpticalFlowExecuteInfoNV(in o);

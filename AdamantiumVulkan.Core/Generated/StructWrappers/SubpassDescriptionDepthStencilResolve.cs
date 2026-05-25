@@ -29,6 +29,7 @@ public unsafe partial class SubpassDescriptionDepthStencilResolve : IMarshallabl
     public ResolveModeFlagBits StencilResolveMode { get; set; }
     public AttachmentReference2 PDepthStencilResolveAttachment { get; set; }
 
+
     public static implicit operator SubpassDescriptionDepthStencilResolve(AdamantiumVulkan.Core.Interop.VkSubpassDescriptionDepthStencilResolve s)
     {
         return new SubpassDescriptionDepthStencilResolve(in s);

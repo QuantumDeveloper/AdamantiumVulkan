@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceVulkanMemoryModelFeatures : IMarshalla
     public VkBool32 VulkanMemoryModelDeviceScope { get; set; }
     public VkBool32 VulkanMemoryModelAvailabilityVisibilityChains { get; set; }
 
+
     public static implicit operator PhysicalDeviceVulkanMemoryModelFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkanMemoryModelFeatures p)
     {
         return new PhysicalDeviceVulkanMemoryModelFeatures(in p);

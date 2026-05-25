@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceTilePropertiesFeaturesQCOM : IMarshall
     public object PNext { get; set; }
     public VkBool32 TileProperties { get; set; }
 
+
     public static implicit operator PhysicalDeviceTilePropertiesFeaturesQCOM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTilePropertiesFeaturesQCOM p)
     {
         return new PhysicalDeviceTilePropertiesFeaturesQCOM(in p);

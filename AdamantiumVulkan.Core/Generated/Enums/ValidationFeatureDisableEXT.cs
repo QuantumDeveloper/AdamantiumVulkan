@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11199 Column: 6
+// File: vk.xml Line: 12897 Column: 6
 public enum ValidationFeatureDisableEXT : int
 {
     AllExt = 0,

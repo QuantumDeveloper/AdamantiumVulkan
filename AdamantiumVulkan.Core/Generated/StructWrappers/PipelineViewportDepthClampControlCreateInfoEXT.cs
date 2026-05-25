@@ -28,6 +28,7 @@ public unsafe partial class PipelineViewportDepthClampControlCreateInfoEXT : IMa
     public DepthClampModeEXT DepthClampMode { get; set; }
     public DepthClampRangeEXT PDepthClampRange { get; set; }
 
+
     public static implicit operator PipelineViewportDepthClampControlCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineViewportDepthClampControlCreateInfoEXT p)
     {
         return new PipelineViewportDepthClampControlCreateInfoEXT(in p);

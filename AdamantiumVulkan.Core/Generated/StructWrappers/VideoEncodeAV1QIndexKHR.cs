@@ -27,6 +27,7 @@ public unsafe partial class VideoEncodeAV1QIndexKHR : IMarshallableObject, IMars
     public uint PredictiveQIndex { get; set; }
     public uint BipredictiveQIndex { get; set; }
 
+
     public static implicit operator VideoEncodeAV1QIndexKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1QIndexKHR v)
     {
         return new VideoEncodeAV1QIndexKHR(in v);

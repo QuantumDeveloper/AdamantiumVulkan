@@ -27,6 +27,7 @@ public unsafe partial class SubpassResolvePerformanceQueryEXT : IMarshallableObj
     public object PNext { get; set; }
     public VkBool32 Optimal { get; set; }
 
+
     public static implicit operator SubpassResolvePerformanceQueryEXT(AdamantiumVulkan.Core.Interop.VkSubpassResolvePerformanceQueryEXT s)
     {
         return new SubpassResolvePerformanceQueryEXT(in s);

@@ -29,6 +29,7 @@ public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : IMarshal
     public uint ViewportCount { get; set; }
     public System.ReadOnlyMemory<ViewportWScalingNV> PViewportWScalings { get; set; }
 
+
     public static implicit operator PipelineViewportWScalingStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV p)
     {
         return new PipelineViewportWScalingStateCreateInfoNV(in p);

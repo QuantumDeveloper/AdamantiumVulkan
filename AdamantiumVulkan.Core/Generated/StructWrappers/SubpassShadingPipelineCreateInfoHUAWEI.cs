@@ -28,6 +28,7 @@ public unsafe partial class SubpassShadingPipelineCreateInfoHUAWEI : IMarshallab
     public RenderPass RenderPass { get; set; }
     public uint Subpass { get; set; }
 
+
     public static implicit operator SubpassShadingPipelineCreateInfoHUAWEI(AdamantiumVulkan.Core.Interop.VkSubpassShadingPipelineCreateInfoHUAWEI s)
     {
         return new SubpassShadingPipelineCreateInfoHUAWEI(in s);

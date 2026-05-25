@@ -34,6 +34,7 @@ public unsafe partial class SurfaceCapabilitiesKHR : IMarshallableObject, IMarsh
     public CompositeAlphaFlagBitsKHR SupportedCompositeAlpha { get; set; }
     public ImageUsageFlagBits SupportedUsageFlags { get; set; }
 
+
     public static implicit operator SurfaceCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkSurfaceCapabilitiesKHR s)
     {
         return new SurfaceCapabilitiesKHR(in s);

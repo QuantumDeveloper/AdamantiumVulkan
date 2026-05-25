@@ -11,10 +11,24 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11249 Column: 6
+// File: vk.xml Line: 12947 Column: 6
 [Flags]
 public enum DescriptorSetLayoutCreateFlagBits : uint
 {
+    DescriptorBufferBitExt = 16,
+
+    EmbeddedImmutableSamplersBitExt = 32,
+
+    IndirectBindableBitNv = 128,
+
+    HostOnlyPoolBitExt = 4,
+
+    PerStageBitNv = 64,
+
+    UpdateAfterBindPoolBit = 2,
+
+    PushDescriptorBit = 1,
+
 }
 
 

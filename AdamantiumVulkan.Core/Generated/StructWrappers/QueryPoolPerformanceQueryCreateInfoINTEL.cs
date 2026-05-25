@@ -27,6 +27,7 @@ public unsafe partial class QueryPoolPerformanceQueryCreateInfoINTEL : IMarshall
     public object PNext { get; set; }
     public QueryPoolSamplingModeINTEL PerformanceCountersSampling { get; set; }
 
+
     public static implicit operator QueryPoolPerformanceQueryCreateInfoINTEL(AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceQueryCreateInfoINTEL q)
     {
         return new QueryPoolPerformanceQueryCreateInfoINTEL(in q);

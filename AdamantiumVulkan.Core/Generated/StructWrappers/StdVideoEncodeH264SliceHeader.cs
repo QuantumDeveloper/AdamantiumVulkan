@@ -34,6 +34,7 @@ public unsafe partial class StdVideoEncodeH264SliceHeader : IMarshallableObject,
     public StdVideoH264DisableDeblockingFilterIdc Disable_deblocking_filter_idc { get; set; }
     public StdVideoEncodeH264WeightTable PWeightTable { get; set; }
 
+
     public static implicit operator StdVideoEncodeH264SliceHeader(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeader s)
     {
         return new StdVideoEncodeH264SliceHeader(in s);

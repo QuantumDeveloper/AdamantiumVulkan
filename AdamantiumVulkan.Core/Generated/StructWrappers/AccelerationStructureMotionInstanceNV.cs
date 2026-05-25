@@ -27,6 +27,7 @@ public unsafe partial class AccelerationStructureMotionInstanceNV : IMarshallabl
     public AccelerationStructureMotionInstanceTypeNV Flags { get; set; }
     public AccelerationStructureMotionInstanceDataNV Data { get; set; }
 
+
     public static implicit operator AccelerationStructureMotionInstanceNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInstanceNV a)
     {
         return new AccelerationStructureMotionInstanceNV(in a);
@@ -35,6 +36,8 @@ public unsafe partial class AccelerationStructureMotionInstanceNV : IMarshallabl
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInstanceNV>();
+        if (Data != default)
+            size += Data.GetSize();
         return size;
     }
 

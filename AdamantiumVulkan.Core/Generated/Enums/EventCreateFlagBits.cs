@@ -11,10 +11,12 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11795 Column: 6
+// File: vk.xml Line: 13497 Column: 6
 [Flags]
 public enum EventCreateFlagBits : uint
 {
+    DeviceOnlyBit = 1,
+
 }
 
 

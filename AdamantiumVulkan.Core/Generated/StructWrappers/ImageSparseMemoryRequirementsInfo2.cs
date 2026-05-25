@@ -27,6 +27,7 @@ public unsafe partial class ImageSparseMemoryRequirementsInfo2 : IMarshallableOb
     public object PNext { get; set; }
     public Image Image { get; set; }
 
+
     public static implicit operator ImageSparseMemoryRequirementsInfo2(AdamantiumVulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2 i)
     {
         return new ImageSparseMemoryRequirementsInfo2(in i);

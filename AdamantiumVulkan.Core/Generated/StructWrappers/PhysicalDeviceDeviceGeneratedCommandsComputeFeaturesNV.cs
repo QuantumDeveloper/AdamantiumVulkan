@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsComputeFeatures
     public VkBool32 DeviceGeneratedComputePipelines { get; set; }
     public VkBool32 DeviceGeneratedComputeCaptureReplay { get; set; }
 
+
     public static implicit operator PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV p)
     {
         return new PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV(in p);

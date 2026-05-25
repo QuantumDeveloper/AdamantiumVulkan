@@ -31,6 +31,7 @@ public unsafe partial class PipelineRenderingCreateInfo : IMarshallableObject, I
     public Format DepthAttachmentFormat { get; set; }
     public Format StencilAttachmentFormat { get; set; }
 
+
     public static implicit operator PipelineRenderingCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineRenderingCreateInfo p)
     {
         return new PipelineRenderingCreateInfo(in p);

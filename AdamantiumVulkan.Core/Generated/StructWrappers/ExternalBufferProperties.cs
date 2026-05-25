@@ -27,6 +27,7 @@ public unsafe partial class ExternalBufferProperties : IMarshallableObject, IMar
     public object PNext { get; set; }
     public ExternalMemoryProperties ExternalMemoryProperties { get; set; }
 
+
     public static implicit operator ExternalBufferProperties(AdamantiumVulkan.Core.Interop.VkExternalBufferProperties e)
     {
         return new ExternalBufferProperties(in e);

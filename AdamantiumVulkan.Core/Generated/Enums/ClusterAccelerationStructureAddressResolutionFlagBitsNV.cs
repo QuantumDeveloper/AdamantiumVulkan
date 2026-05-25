@@ -11,21 +11,23 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11180 Column: 6
+// File: vk.xml Line: 12877 Column: 6
 [Flags]
 public enum ClusterAccelerationStructureAddressResolutionFlagBitsNV : uint
 {
-    DstImplicitDataBitNv = 1,
+    NoneNv = 0,
 
-    ScratchDataBitNv = 2,
+    IndirectedDstImplicitDataBitNv = 1,
 
-    DstAddressArrayBitNv = 4,
+    IndirectedScratchDataBitNv = 2,
 
-    DstSizesArrayBitNv = 8,
+    IndirectedDstAddressArrayBitNv = 4,
 
-    SrcInfosArrayBitNv = 16,
+    IndirectedDstSizesArrayBitNv = 8,
 
-    SrcInfosCountBitNv = 32,
+    IndirectedSrcInfosArrayBitNv = 16,
+
+    IndirectedSrcInfosCountBitNv = 32,
 
 }
 

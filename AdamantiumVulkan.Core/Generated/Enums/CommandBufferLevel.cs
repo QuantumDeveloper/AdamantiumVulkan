@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10262 Column: 6
+// File: vk.xml Line: 11958 Column: 6
 [Flags]
 public enum CommandBufferLevel : int
 {

@@ -39,6 +39,7 @@ public unsafe partial class PhysicalDeviceMeshShaderPropertiesNV : IMarshallable
     public uint MeshOutputPerVertexGranularity { get; set; }
     public uint MeshOutputPerPrimitiveGranularity { get; set; }
 
+
     public static implicit operator PhysicalDeviceMeshShaderPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesNV p)
     {
         return new PhysicalDeviceMeshShaderPropertiesNV(in p);

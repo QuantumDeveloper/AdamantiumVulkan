@@ -27,6 +27,7 @@ public unsafe partial class DeviceQueueShaderCoreControlCreateInfoARM : IMarshal
     public object PNext { get; set; }
     public uint ShaderCoreCount { get; set; }
 
+
     public static implicit operator DeviceQueueShaderCoreControlCreateInfoARM(AdamantiumVulkan.Core.Interop.VkDeviceQueueShaderCoreControlCreateInfoARM d)
     {
         return new DeviceQueueShaderCoreControlCreateInfoARM(in d);

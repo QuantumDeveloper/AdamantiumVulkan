@@ -28,6 +28,7 @@ public unsafe partial class ImageBlit : IMarshallableObject, IMarshallable<Adama
     public ImageSubresourceLayers DstSubresource { get; set; }
     public System.ReadOnlyMemory<Offset3D> DstOffsets { get; set; }
 
+
     public static implicit operator ImageBlit(AdamantiumVulkan.Core.Interop.VkImageBlit i)
     {
         return new ImageBlit(in i);

@@ -27,6 +27,7 @@ public unsafe partial class ClusterAccelerationStructureOpInputNV : IMarshallabl
     public ClusterAccelerationStructureTriangleClusterInputNV PTriangleClusters { get; set; }
     public ClusterAccelerationStructureMoveObjectsInputNV PMoveObjects { get; set; }
 
+
     public static implicit operator ClusterAccelerationStructureOpInputNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureOpInputNV c)
     {
         return new ClusterAccelerationStructureOpInputNV(in c);
@@ -37,15 +38,15 @@ public unsafe partial class ClusterAccelerationStructureOpInputNV : IMarshallabl
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureOpInputNV>();
         if (PClustersBottomLevel != default)
         {
-            size += PClustersBottomLevel.GetSize();
+            size = Math.Max(size, PClustersBottomLevel.GetSize());
         }
         if (PTriangleClusters != default)
         {
-            size += PTriangleClusters.GetSize();
+            size = Math.Max(size, PTriangleClusters.GetSize());
         }
         if (PMoveObjects != default)
         {
-            size += PMoveObjects.GetSize();
+            size = Math.Max(size, PMoveObjects.GetSize());
         }
         return size;
     }

@@ -28,6 +28,7 @@ public unsafe partial class CuModuleCreateInfoNVX : IMarshallableObject, IMarsha
     public nuint DataSize { get; set; }
     public System.ReadOnlyMemory<byte> PData { get; set; }
 
+
     public static implicit operator CuModuleCreateInfoNVX(AdamantiumVulkan.Core.Interop.VkCuModuleCreateInfoNVX c)
     {
         return new CuModuleCreateInfoNVX(in c);

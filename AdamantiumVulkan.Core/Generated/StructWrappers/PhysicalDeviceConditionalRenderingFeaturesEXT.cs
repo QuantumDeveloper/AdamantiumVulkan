@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceConditionalRenderingFeaturesEXT : IMar
     public VkBool32 ConditionalRendering { get; set; }
     public VkBool32 InheritedConditionalRendering { get; set; }
 
+
     public static implicit operator PhysicalDeviceConditionalRenderingFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceConditionalRenderingFeaturesEXT p)
     {
         return new PhysicalDeviceConditionalRenderingFeaturesEXT(in p);

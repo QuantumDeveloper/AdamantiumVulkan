@@ -30,6 +30,7 @@ public unsafe partial class VideoEncodeH264SessionParametersAddInfoKHR : IMarsha
     public uint StdPPSCount { get; set; }
     public System.ReadOnlyMemory<StdVideoH264PictureParameterSet> PStdPPSs { get; set; }
 
+
     public static implicit operator VideoEncodeH264SessionParametersAddInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH264SessionParametersAddInfoKHR v)
     {
         return new VideoEncodeH264SessionParametersAddInfoKHR(in v);

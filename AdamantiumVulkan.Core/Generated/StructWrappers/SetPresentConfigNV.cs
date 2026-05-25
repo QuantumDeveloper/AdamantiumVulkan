@@ -28,6 +28,7 @@ public unsafe partial class SetPresentConfigNV : IMarshallableObject, IMarshalla
     public uint NumFramesPerBatch { get; set; }
     public uint PresentConfigFeedback { get; set; }
 
+
     public static implicit operator SetPresentConfigNV(AdamantiumVulkan.Core.Interop.VkSetPresentConfigNV s)
     {
         return new SetPresentConfigNV(in s);

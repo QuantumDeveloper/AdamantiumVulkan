@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 14506 Column: 10
+// File: video.xml Line: 16455 Column: 10
 public unsafe struct PFN_vkCreateValidationCacheEXT
 {
     public PFN_vkCreateValidationCacheEXT(nuint ptr) : this((void*) ptr) { }

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceVideoMaintenance1FeaturesKHR : IMarsha
     public object PNext { get; set; }
     public VkBool32 VideoMaintenance1 { get; set; }
 
+
     public static implicit operator PhysicalDeviceVideoMaintenance1FeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoMaintenance1FeaturesKHR p)
     {
         return new PhysicalDeviceVideoMaintenance1FeaturesKHR(in p);

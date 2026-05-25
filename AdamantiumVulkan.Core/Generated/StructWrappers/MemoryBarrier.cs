@@ -28,6 +28,7 @@ public unsafe partial class MemoryBarrier : IMarshallableObject, IMarshallable<A
     public AccessFlagBits SrcAccessMask { get; set; }
     public AccessFlagBits DstAccessMask { get; set; }
 
+
     public static implicit operator MemoryBarrier(AdamantiumVulkan.Core.Interop.VkMemoryBarrier m)
     {
         return new MemoryBarrier(in m);

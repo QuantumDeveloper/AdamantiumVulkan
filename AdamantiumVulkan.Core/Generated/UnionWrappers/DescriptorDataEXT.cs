@@ -34,6 +34,7 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
     public DescriptorAddressInfoEXT PStorageBuffer { get; set; }
     public VkDeviceAddress AccelerationStructure { get; set; }
 
+
     public static implicit operator DescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDescriptorDataEXT d)
     {
         return new DescriptorDataEXT(in d);
@@ -44,35 +45,35 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDescriptorDataEXT>();
         if (PCombinedImageSampler != default)
         {
-            size += PCombinedImageSampler.GetSize();
+            size = Math.Max(size, PCombinedImageSampler.GetSize());
         }
         if (PInputAttachmentImage != default)
         {
-            size += PInputAttachmentImage.GetSize();
+            size = Math.Max(size, PInputAttachmentImage.GetSize());
         }
         if (PSampledImage != default)
         {
-            size += PSampledImage.GetSize();
+            size = Math.Max(size, PSampledImage.GetSize());
         }
         if (PStorageImage != default)
         {
-            size += PStorageImage.GetSize();
+            size = Math.Max(size, PStorageImage.GetSize());
         }
         if (PUniformTexelBuffer != default)
         {
-            size += PUniformTexelBuffer.GetSize();
+            size = Math.Max(size, PUniformTexelBuffer.GetSize());
         }
         if (PStorageTexelBuffer != default)
         {
-            size += PStorageTexelBuffer.GetSize();
+            size = Math.Max(size, PStorageTexelBuffer.GetSize());
         }
         if (PUniformBuffer != default)
         {
-            size += PUniformBuffer.GetSize();
+            size = Math.Max(size, PUniformBuffer.GetSize());
         }
         if (PStorageBuffer != default)
         {
-            size += PStorageBuffer.GetSize();
+            size = Math.Max(size, PStorageBuffer.GetSize());
         }
         return size;
     }

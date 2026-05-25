@@ -33,6 +33,7 @@ public unsafe partial class BufferMemoryBarrier : IMarshallableObject, IMarshall
     public VkDeviceSize Offset { get; set; }
     public VkDeviceSize Size { get; set; }
 
+
     public static implicit operator BufferMemoryBarrier(AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier b)
     {
         return new BufferMemoryBarrier(in b);

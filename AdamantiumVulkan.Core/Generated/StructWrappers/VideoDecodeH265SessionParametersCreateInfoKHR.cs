@@ -30,6 +30,7 @@ public unsafe partial class VideoDecodeH265SessionParametersCreateInfoKHR : IMar
     public uint MaxStdPPSCount { get; set; }
     public VideoDecodeH265SessionParametersAddInfoKHR ParametersAddInfo { get; set; }
 
+
     public static implicit operator VideoDecodeH265SessionParametersCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeH265SessionParametersCreateInfoKHR v)
     {
         return new VideoDecodeH265SessionParametersCreateInfoKHR(in v);

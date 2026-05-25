@@ -31,6 +31,7 @@ public unsafe partial class PhysicalDeviceRayTracingPipelineFeaturesKHR : IMarsh
     public VkBool32 RayTracingPipelineTraceRaysIndirect { get; set; }
     public VkBool32 RayTraversalPrimitiveCulling { get; set; }
 
+
     public static implicit operator PhysicalDeviceRayTracingPipelineFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelineFeaturesKHR p)
     {
         return new PhysicalDeviceRayTracingPipelineFeaturesKHR(in p);

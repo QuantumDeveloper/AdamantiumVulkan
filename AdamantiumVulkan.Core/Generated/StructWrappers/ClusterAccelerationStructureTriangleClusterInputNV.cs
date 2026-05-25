@@ -34,6 +34,7 @@ public unsafe partial class ClusterAccelerationStructureTriangleClusterInputNV :
     public uint MaxTotalVertexCount { get; set; }
     public uint MinPositionTruncateBitCount { get; set; }
 
+
     public static implicit operator ClusterAccelerationStructureTriangleClusterInputNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureTriangleClusterInputNV c)
     {
         return new ClusterAccelerationStructureTriangleClusterInputNV(in c);

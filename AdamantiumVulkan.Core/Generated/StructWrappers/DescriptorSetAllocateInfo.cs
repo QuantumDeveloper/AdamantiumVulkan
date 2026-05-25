@@ -29,6 +29,7 @@ public unsafe partial class DescriptorSetAllocateInfo : IMarshallableObject, IMa
     public uint DescriptorSetCount { get; set; }
     public System.ReadOnlyMemory<DescriptorSetLayout> PSetLayouts { get; set; }
 
+
     public static implicit operator DescriptorSetAllocateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorSetAllocateInfo d)
     {
         return new DescriptorSetAllocateInfo(in d);

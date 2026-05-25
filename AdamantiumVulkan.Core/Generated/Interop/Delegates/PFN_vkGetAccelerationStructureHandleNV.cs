@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15075 Column: 10
+// File: video.xml Line: 17024 Column: 10
 public unsafe struct PFN_vkGetAccelerationStructureHandleNV
 {
     public PFN_vkGetAccelerationStructureHandleNV(nuint ptr) : this((void*) ptr) { }

@@ -27,6 +27,7 @@ public unsafe partial class BufferUsageFlags2CreateInfo : IMarshallableObject, I
     public object PNext { get; set; }
     public VkBufferUsageFlags2 Usage { get; set; }
 
+
     public static implicit operator BufferUsageFlags2CreateInfo(AdamantiumVulkan.Core.Interop.VkBufferUsageFlags2CreateInfo b)
     {
         return new BufferUsageFlags2CreateInfo(in b);

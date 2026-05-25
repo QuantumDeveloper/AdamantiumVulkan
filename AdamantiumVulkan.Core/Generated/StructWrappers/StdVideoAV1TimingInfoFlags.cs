@@ -26,6 +26,7 @@ public unsafe partial class StdVideoAV1TimingInfoFlags : IMarshallableObject, IM
     public uint Equal_picture_interval { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoAV1TimingInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoAV1TimingInfoFlags s)
     {
         return new StdVideoAV1TimingInfoFlags(in s);

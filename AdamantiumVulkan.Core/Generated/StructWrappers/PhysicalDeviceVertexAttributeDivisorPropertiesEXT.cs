@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceVertexAttributeDivisorPropertiesEXT : 
     public object PNext { get; set; }
     public uint MaxVertexAttribDivisor { get; set; }
 
+
     public static implicit operator PhysicalDeviceVertexAttributeDivisorPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT p)
     {
         return new PhysicalDeviceVertexAttributeDivisorPropertiesEXT(in p);

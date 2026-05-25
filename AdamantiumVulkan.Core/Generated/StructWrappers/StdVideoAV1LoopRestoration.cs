@@ -26,6 +26,7 @@ public unsafe partial class StdVideoAV1LoopRestoration : IMarshallableObject, IM
     public System.ReadOnlyMemory<StdVideoAV1FrameRestorationType> FrameRestorationType { get; set; }
     public System.ReadOnlyMemory<ushort> LoopRestorationSize { get; set; }
 
+
     public static implicit operator StdVideoAV1LoopRestoration(AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration s)
     {
         return new StdVideoAV1LoopRestoration(in s);

@@ -26,6 +26,7 @@ public unsafe partial class DisplayModePropertiesKHR : IMarshallableObject, IMar
     public DisplayModeKHR DisplayMode { get; set; }
     public DisplayModeParametersKHR Parameters { get; set; }
 
+
     public static implicit operator DisplayModePropertiesKHR(AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR d)
     {
         return new DisplayModePropertiesKHR(in d);

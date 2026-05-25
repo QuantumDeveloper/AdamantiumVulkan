@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12232 Column: 6
+// File: vk.xml Line: 13966 Column: 6
 public enum CopyMicromapModeEXT : int
 {
     CloneExt = 0,

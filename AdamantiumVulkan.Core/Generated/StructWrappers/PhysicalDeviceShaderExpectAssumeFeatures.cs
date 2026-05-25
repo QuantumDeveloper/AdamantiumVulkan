@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderExpectAssumeFeatures : IMarshall
     public object PNext { get; set; }
     public VkBool32 ShaderExpectAssume { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderExpectAssumeFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderExpectAssumeFeatures p)
     {
         return new PhysicalDeviceShaderExpectAssumeFeatures(in p);

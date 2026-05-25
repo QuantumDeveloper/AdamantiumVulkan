@@ -28,6 +28,7 @@ public unsafe partial class WriteIndirectExecutionSetShaderEXT : IMarshallableOb
     public uint Index { get; set; }
     public ShaderEXT Shader { get; set; }
 
+
     public static implicit operator WriteIndirectExecutionSetShaderEXT(AdamantiumVulkan.Core.Interop.VkWriteIndirectExecutionSetShaderEXT w)
     {
         return new WriteIndirectExecutionSetShaderEXT(in w);

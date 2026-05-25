@@ -33,6 +33,7 @@ public unsafe partial class AccelerationStructureTrianglesOpacityMicromapEXT : I
     public System.ReadOnlyMemory<MicromapUsageEXT> PUsageCounts { get; set; }
     public MicromapEXT Micromap { get; set; }
 
+
     public static implicit operator AccelerationStructureTrianglesOpacityMicromapEXT(AdamantiumVulkan.Core.Interop.VkAccelerationStructureTrianglesOpacityMicromapEXT a)
     {
         return new AccelerationStructureTrianglesOpacityMicromapEXT(in a);
@@ -45,6 +46,8 @@ public unsafe partial class AccelerationStructureTrianglesOpacityMicromapEXT : I
         {
             size += marshallable.GetSize();
         }
+        if (IndexBuffer != default)
+            size += IndexBuffer.GetSize();
         if (!PUsageCounts.IsEmpty)
         {
             for (int i = 0; i < PUsageCounts.Length; i++)

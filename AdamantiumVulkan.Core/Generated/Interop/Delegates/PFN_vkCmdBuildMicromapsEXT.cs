@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 16287 Column: 10
+// File: video.xml Line: 18267 Column: 10
 public unsafe struct PFN_vkCmdBuildMicromapsEXT
 {
     public PFN_vkCmdBuildMicromapsEXT(nuint ptr) : this((void*) ptr) { }

@@ -15,7 +15,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: video.xml Line: 14082 Column: 10
+// File: video.xml Line: 16031 Column: 10
 public unsafe struct PFN_vkGetFenceWin32HandleKHR
 {
     public PFN_vkGetFenceWin32HandleKHR(nuint ptr) : this((void*) ptr) { }

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceColorWriteEnableFeaturesEXT : IMarshal
     public object PNext { get; set; }
     public VkBool32 ColorWriteEnable { get; set; }
 
+
     public static implicit operator PhysicalDeviceColorWriteEnableFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceColorWriteEnableFeaturesEXT p)
     {
         return new PhysicalDeviceColorWriteEnableFeaturesEXT(in p);

@@ -36,6 +36,7 @@ public unsafe partial class BindSparseInfo : IMarshallableObject, IMarshallable<
     public uint SignalSemaphoreCount { get; set; }
     public System.ReadOnlyMemory<Semaphore> PSignalSemaphores { get; set; }
 
+
     public static implicit operator BindSparseInfo(AdamantiumVulkan.Core.Interop.VkBindSparseInfo b)
     {
         return new BindSparseInfo(in b);

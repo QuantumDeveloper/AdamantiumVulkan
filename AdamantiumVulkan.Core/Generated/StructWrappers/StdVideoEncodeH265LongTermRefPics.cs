@@ -31,6 +31,7 @@ public unsafe partial class StdVideoEncodeH265LongTermRefPics : IMarshallableObj
     public System.ReadOnlyMemory<byte> Delta_poc_msb_present_flag { get; set; }
     public System.ReadOnlyMemory<byte> Delta_poc_msb_cycle_lt { get; set; }
 
+
     public static implicit operator StdVideoEncodeH265LongTermRefPics(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265LongTermRefPics s)
     {
         return new StdVideoEncodeH265LongTermRefPics(in s);

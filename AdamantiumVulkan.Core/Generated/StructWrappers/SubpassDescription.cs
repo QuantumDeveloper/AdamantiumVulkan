@@ -34,6 +34,7 @@ public unsafe partial class SubpassDescription : IMarshallableObject, IMarshalla
     public uint PreserveAttachmentCount { get; set; }
     public System.ReadOnlyMemory<uint> PreserveAttachments { get; set; }
 
+
     public static implicit operator SubpassDescription(AdamantiumVulkan.Core.Interop.VkSubpassDescription s)
     {
         return new SubpassDescription(in s);

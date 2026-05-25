@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceGroupProperties : IMarshallableObject,
     public System.ReadOnlyMemory<PhysicalDevice> PhysicalDevices { get; set; }
     public VkBool32 SubsetAllocation { get; set; }
 
+
     public static implicit operator PhysicalDeviceGroupProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties p)
     {
         return new PhysicalDeviceGroupProperties(in p);

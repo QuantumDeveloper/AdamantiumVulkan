@@ -30,6 +30,7 @@ public unsafe partial class AccelerationStructureInstanceKHR : IMarshallableObje
     public GeometryInstanceFlagBitsKHR Flags { get; set; }
     public ulong AccelerationStructureReference { get; set; }
 
+
     public static implicit operator AccelerationStructureInstanceKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureInstanceKHR a)
     {
         return new AccelerationStructureInstanceKHR(in a);

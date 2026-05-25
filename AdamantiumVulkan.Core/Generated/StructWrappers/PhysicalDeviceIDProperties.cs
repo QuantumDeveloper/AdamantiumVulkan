@@ -31,6 +31,7 @@ public unsafe partial class PhysicalDeviceIDProperties : IMarshallableObject, IM
     public uint DeviceNodeMask { get; set; }
     public VkBool32 DeviceLUIDValid { get; set; }
 
+
     public static implicit operator PhysicalDeviceIDProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIDProperties p)
     {
         return new PhysicalDeviceIDProperties(in p);

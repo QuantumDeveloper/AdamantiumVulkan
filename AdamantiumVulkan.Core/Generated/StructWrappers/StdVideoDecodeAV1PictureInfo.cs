@@ -48,6 +48,7 @@ public unsafe partial class StdVideoDecodeAV1PictureInfo : IMarshallableObject, 
     public StdVideoAV1GlobalMotion PGlobalMotion { get; set; }
     public StdVideoAV1FilmGrain PFilmGrain { get; set; }
 
+
     public static implicit operator StdVideoDecodeAV1PictureInfo(AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1PictureInfo s)
     {
         return new StdVideoDecodeAV1PictureInfo(in s);

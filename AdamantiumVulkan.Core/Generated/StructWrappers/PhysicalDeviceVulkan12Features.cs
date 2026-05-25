@@ -73,6 +73,7 @@ public unsafe partial class PhysicalDeviceVulkan12Features : IMarshallableObject
     public VkBool32 ShaderOutputLayer { get; set; }
     public VkBool32 SubgroupBroadcastDynamicId { get; set; }
 
+
     public static implicit operator PhysicalDeviceVulkan12Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan12Features p)
     {
         return new PhysicalDeviceVulkan12Features(in p);

@@ -27,6 +27,7 @@ public unsafe partial class DisplayNativeHdrSurfaceCapabilitiesAMD : IMarshallab
     public object PNext { get; set; }
     public VkBool32 LocalDimmingSupport { get; set; }
 
+
     public static implicit operator DisplayNativeHdrSurfaceCapabilitiesAMD(AdamantiumVulkan.Core.Interop.VkDisplayNativeHdrSurfaceCapabilitiesAMD d)
     {
         return new DisplayNativeHdrSurfaceCapabilitiesAMD(in d);

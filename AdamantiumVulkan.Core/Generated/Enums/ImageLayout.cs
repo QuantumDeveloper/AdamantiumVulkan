@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10224 Column: 6
+// File: vk.xml Line: 11920 Column: 6
 public enum ImageLayout : int
 {
     Undefined = 0,
@@ -54,7 +54,11 @@ public enum ImageLayout : int
 
     AttachmentFeedbackLoopOptimalExt = 1000339000,
 
+    TensorAliasingArm = 1000460000,
+
     VideoEncodeQuantizationMapKhr = 1000553000,
+
+    ZeroInitializedExt = 1000620000,
 
     DepthReadOnlyStencilAttachmentOptimal = 1000117000,
 

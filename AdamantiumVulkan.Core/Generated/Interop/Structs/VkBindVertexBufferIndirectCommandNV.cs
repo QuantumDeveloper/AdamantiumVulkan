@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: vk.xml Line: 2711 Column: 10
+// File: vk.xml Line: 2886 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkBindVertexBufferIndirectCommandNV
 {

@@ -27,6 +27,7 @@ public unsafe partial class VideoEncodeH264FrameSizeKHR : IMarshallableObject, I
     public uint FramePSize { get; set; }
     public uint FrameBSize { get; set; }
 
+
     public static implicit operator VideoEncodeH264FrameSizeKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH264FrameSizeKHR v)
     {
         return new VideoEncodeH264FrameSizeKHR(in v);

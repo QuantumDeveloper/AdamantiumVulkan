@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceDriverProperties : IMarshallableObject
     public string DriverInfo { get; set; }
     public ConformanceVersion ConformanceVersion { get; set; }
 
+
     public static implicit operator PhysicalDeviceDriverProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDriverProperties p)
     {
         return new PhysicalDeviceDriverProperties(in p);

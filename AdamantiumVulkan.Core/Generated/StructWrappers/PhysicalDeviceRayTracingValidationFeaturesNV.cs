@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceRayTracingValidationFeaturesNV : IMars
     public object PNext { get; set; }
     public VkBool32 RayTracingValidation { get; set; }
 
+
     public static implicit operator PhysicalDeviceRayTracingValidationFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingValidationFeaturesNV p)
     {
         return new PhysicalDeviceRayTracingValidationFeaturesNV(in p);

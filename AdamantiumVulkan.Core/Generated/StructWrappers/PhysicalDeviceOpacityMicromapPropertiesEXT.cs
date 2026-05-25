@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceOpacityMicromapPropertiesEXT : IMarsha
     public uint MaxOpacity2StateSubdivisionLevel { get; set; }
     public uint MaxOpacity4StateSubdivisionLevel { get; set; }
 
+
     public static implicit operator PhysicalDeviceOpacityMicromapPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceOpacityMicromapPropertiesEXT p)
     {
         return new PhysicalDeviceOpacityMicromapPropertiesEXT(in p);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceImageProcessing2PropertiesQCOM : IMars
     public object PNext { get; set; }
     public Extent2D MaxBlockMatchWindow { get; set; }
 
+
     public static implicit operator PhysicalDeviceImageProcessing2PropertiesQCOM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageProcessing2PropertiesQCOM p)
     {
         return new PhysicalDeviceImageProcessing2PropertiesQCOM(in p);

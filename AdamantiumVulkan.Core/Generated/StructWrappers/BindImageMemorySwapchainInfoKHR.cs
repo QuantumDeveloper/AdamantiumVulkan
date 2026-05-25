@@ -28,6 +28,7 @@ public unsafe partial class BindImageMemorySwapchainInfoKHR : IMarshallableObjec
     public SwapchainKHR Swapchain { get; set; }
     public uint ImageIndex { get; set; }
 
+
     public static implicit operator BindImageMemorySwapchainInfoKHR(AdamantiumVulkan.Core.Interop.VkBindImageMemorySwapchainInfoKHR b)
     {
         return new BindImageMemorySwapchainInfoKHR(in b);

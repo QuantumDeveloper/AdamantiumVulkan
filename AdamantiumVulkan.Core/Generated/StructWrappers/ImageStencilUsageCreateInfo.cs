@@ -27,6 +27,7 @@ public unsafe partial class ImageStencilUsageCreateInfo : IMarshallableObject, I
     public object PNext { get; set; }
     public ImageUsageFlagBits StencilUsage { get; set; }
 
+
     public static implicit operator ImageStencilUsageCreateInfo(AdamantiumVulkan.Core.Interop.VkImageStencilUsageCreateInfo i)
     {
         return new ImageStencilUsageCreateInfo(in i);

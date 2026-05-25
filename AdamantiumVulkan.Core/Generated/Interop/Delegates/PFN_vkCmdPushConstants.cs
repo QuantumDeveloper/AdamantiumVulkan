@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 13476 Column: 10
+// File: video.xml Line: 15407 Column: 10
 public unsafe struct PFN_vkCmdPushConstants
 {
     public PFN_vkCmdPushConstants(nuint ptr) : this((void*) ptr) { }

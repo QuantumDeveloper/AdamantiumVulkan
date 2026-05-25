@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceLineRasterizationProperties : IMarshal
     public object PNext { get; set; }
     public uint LineSubPixelPrecisionBits { get; set; }
 
+
     public static implicit operator PhysicalDeviceLineRasterizationProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLineRasterizationProperties p)
     {
         return new PhysicalDeviceLineRasterizationProperties(in p);

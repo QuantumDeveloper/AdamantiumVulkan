@@ -27,6 +27,7 @@ public unsafe partial class VideoDecodeAV1DpbSlotInfoKHR : IMarshallableObject, 
     public object PNext { get; set; }
     public StdVideoDecodeAV1ReferenceInfo PStdReferenceInfo { get; set; }
 
+
     public static implicit operator VideoDecodeAV1DpbSlotInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeAV1DpbSlotInfoKHR v)
     {
         return new VideoDecodeAV1DpbSlotInfoKHR(in v);

@@ -28,6 +28,7 @@ public unsafe partial class PipelineExecutableStatisticValueKHR : IMarshallableO
     public ulong U64 { get; set; }
     public double F64 { get; set; }
 
+
     public static implicit operator PipelineExecutableStatisticValueKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR p)
     {
         return new PipelineExecutableStatisticValueKHR(in p);

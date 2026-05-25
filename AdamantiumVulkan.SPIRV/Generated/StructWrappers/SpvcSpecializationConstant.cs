@@ -29,6 +29,7 @@ public unsafe partial class SpvcSpecializationConstant : IMarshallable<Adamantiu
     public SpvcConstantId Id { get; set; }
     public uint Constant_id { get; set; }
 
+
     public static implicit operator SpvcSpecializationConstant(AdamantiumVulkan.Spirv.Cross.Interop.SpvcSpecializationConstant s)
     {
         return new SpvcSpecializationConstant(in s);

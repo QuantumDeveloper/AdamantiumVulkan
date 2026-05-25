@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 563 Column: 10
+// File: vk.xml Line: 609 Column: 10
 public unsafe partial class ShaderModule : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkShaderModule_T>
 {
     internal VkShaderModule_T __Instance;

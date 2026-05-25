@@ -30,6 +30,7 @@ public unsafe partial class PipelineRasterizationLineStateCreateInfo : IMarshall
     public uint LineStippleFactor { get; set; }
     public ushort LineStipplePattern { get; set; }
 
+
     public static implicit operator PipelineRasterizationLineStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationLineStateCreateInfo p)
     {
         return new PipelineRasterizationLineStateCreateInfo(in p);

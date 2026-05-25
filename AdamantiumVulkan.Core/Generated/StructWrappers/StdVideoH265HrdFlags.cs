@@ -31,6 +31,7 @@ public unsafe partial class StdVideoH265HrdFlags : IMarshallableObject, IMarshal
     public uint Fixed_pic_rate_within_cvs_flag { get; set; }
     public uint Low_delay_hrd_flag { get; set; }
 
+
     public static implicit operator StdVideoH265HrdFlags(AdamantiumVulkan.Core.Interop.StdVideoH265HrdFlags s)
     {
         return new StdVideoH265HrdFlags(in s);

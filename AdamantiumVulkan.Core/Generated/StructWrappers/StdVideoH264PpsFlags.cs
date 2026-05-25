@@ -32,6 +32,7 @@ public unsafe partial class StdVideoH264PpsFlags : IMarshallableObject, IMarshal
     public uint Entropy_coding_mode_flag { get; set; }
     public uint Pic_scaling_matrix_present_flag { get; set; }
 
+
     public static implicit operator StdVideoH264PpsFlags(AdamantiumVulkan.Core.Interop.StdVideoH264PpsFlags s)
     {
         return new StdVideoH264PpsFlags(in s);

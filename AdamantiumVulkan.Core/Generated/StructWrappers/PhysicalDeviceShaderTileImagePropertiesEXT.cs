@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceShaderTileImagePropertiesEXT : IMarsha
     public VkBool32 ShaderTileImageReadSampleFromPixelRateInvocation { get; set; }
     public VkBool32 ShaderTileImageReadFromHelperInvocation { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderTileImagePropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderTileImagePropertiesEXT p)
     {
         return new PhysicalDeviceShaderTileImagePropertiesEXT(in p);

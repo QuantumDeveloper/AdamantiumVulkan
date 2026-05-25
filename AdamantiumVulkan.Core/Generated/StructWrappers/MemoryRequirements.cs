@@ -27,6 +27,7 @@ public unsafe partial class MemoryRequirements : IMarshallableObject, IMarshalla
     public VkDeviceSize Alignment { get; set; }
     public uint MemoryTypeBits { get; set; }
 
+
     public static implicit operator MemoryRequirements(AdamantiumVulkan.Core.Interop.VkMemoryRequirements m)
     {
         return new MemoryRequirements(in m);

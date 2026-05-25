@@ -40,6 +40,7 @@ public unsafe partial class PhysicalDeviceShaderCorePropertiesAMD : IMarshallabl
     public uint MaxVgprAllocation { get; set; }
     public uint VgprAllocationGranularity { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderCorePropertiesAMD(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesAMD p)
     {
         return new PhysicalDeviceShaderCorePropertiesAMD(in p);

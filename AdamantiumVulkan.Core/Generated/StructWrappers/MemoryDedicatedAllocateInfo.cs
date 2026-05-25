@@ -28,6 +28,7 @@ public unsafe partial class MemoryDedicatedAllocateInfo : IMarshallableObject, I
     public Image Image { get; set; }
     public Buffer Buffer { get; set; }
 
+
     public static implicit operator MemoryDedicatedAllocateInfo(AdamantiumVulkan.Core.Interop.VkMemoryDedicatedAllocateInfo m)
     {
         return new MemoryDedicatedAllocateInfo(in m);

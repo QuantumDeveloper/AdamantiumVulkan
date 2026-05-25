@@ -28,6 +28,7 @@ public unsafe partial class ComponentMapping : IMarshallableObject, IMarshallabl
     public ComponentSwizzle B { get; set; }
     public ComponentSwizzle A { get; set; }
 
+
     public static implicit operator ComponentMapping(AdamantiumVulkan.Core.Interop.VkComponentMapping c)
     {
         return new ComponentMapping(in c);

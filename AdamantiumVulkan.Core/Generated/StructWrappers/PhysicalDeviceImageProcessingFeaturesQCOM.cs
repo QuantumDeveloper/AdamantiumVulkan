@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceImageProcessingFeaturesQCOM : IMarshal
     public VkBool32 TextureBoxFilter { get; set; }
     public VkBool32 TextureBlockMatch { get; set; }
 
+
     public static implicit operator PhysicalDeviceImageProcessingFeaturesQCOM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageProcessingFeaturesQCOM p)
     {
         return new PhysicalDeviceImageProcessingFeaturesQCOM(in p);

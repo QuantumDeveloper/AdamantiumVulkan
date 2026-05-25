@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceSamplerFilterMinmaxProperties : IMarsh
     public VkBool32 FilterMinmaxSingleComponentFormats { get; set; }
     public VkBool32 FilterMinmaxImageComponentMapping { get; set; }
 
+
     public static implicit operator PhysicalDeviceSamplerFilterMinmaxProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerFilterMinmaxProperties p)
     {
         return new PhysicalDeviceSamplerFilterMinmaxProperties(in p);

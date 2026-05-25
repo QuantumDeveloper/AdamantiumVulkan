@@ -27,6 +27,7 @@ public unsafe partial class MemoryPriorityAllocateInfoEXT : IMarshallableObject,
     public object PNext { get; set; }
     public float Priority { get; set; }
 
+
     public static implicit operator MemoryPriorityAllocateInfoEXT(AdamantiumVulkan.Core.Interop.VkMemoryPriorityAllocateInfoEXT m)
     {
         return new MemoryPriorityAllocateInfoEXT(in m);

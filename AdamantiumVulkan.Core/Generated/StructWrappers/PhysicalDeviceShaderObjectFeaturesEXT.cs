@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderObjectFeaturesEXT : IMarshallabl
     public object PNext { get; set; }
     public VkBool32 ShaderObject { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderObjectFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderObjectFeaturesEXT p)
     {
         return new PhysicalDeviceShaderObjectFeaturesEXT(in p);

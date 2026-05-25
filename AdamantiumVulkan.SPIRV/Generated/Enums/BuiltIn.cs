@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 655 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 704 Column: 14
 public enum BuiltIn : uint
 {
     Position = 0,
@@ -130,6 +130,12 @@ public enum BuiltIn : uint
 
     ShadingRateKHR = 4444,
 
+    TileOffsetQCOM = 4492,
+
+    TileDimensionQCOM = 4493,
+
+    TileApronSizeQCOM = 4494,
+
     BaryCoordNoPerspAMD = 4992,
 
     BaryCoordNoPerspCentroidAMD = 4993,
@@ -149,6 +155,10 @@ public enum BuiltIn : uint
     RemainingRecursionLevelsAMDX = 5021,
 
     ShaderIndexAMDX = 5073,
+
+    SamplerHeapEXT = 5122,
+
+    ResourceHeapEXT = 5123,
 
     ViewportMaskNV = 5253,
 
@@ -232,6 +242,12 @@ public enum BuiltIn : uint
 
     RayGeometryIndexKHR = 5352,
 
+    HitIsSphereNV = 5359,
+
+    HitIsLSSNV = 5360,
+
+    HitSpherePositionNV = 5361,
+
     WarpsPerSMNV = 5374,
 
     SMCountNV = 5375,
@@ -240,9 +256,17 @@ public enum BuiltIn : uint
 
     Smidnv = 5377,
 
+    HitLSSPositionsNV = 5396,
+
     HitKindFrontFacingMicroTriangleNV = 5405,
 
     HitKindBackFacingMicroTriangleNV = 5406,
+
+    HitSphereRadiusNV = 5420,
+
+    HitLSSRadiiNV = 5421,
+
+    ClusterIDNV = 5436,
 
     CullMaskKHR = 6021,
 

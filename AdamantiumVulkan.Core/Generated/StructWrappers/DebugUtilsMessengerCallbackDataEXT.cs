@@ -36,6 +36,7 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : IMarshallableOb
     public uint ObjectCount { get; set; }
     public System.ReadOnlyMemory<DebugUtilsObjectNameInfoEXT> PObjects { get; set; }
 
+
     public static implicit operator DebugUtilsMessengerCallbackDataEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT d)
     {
         return new DebugUtilsMessengerCallbackDataEXT(in d);

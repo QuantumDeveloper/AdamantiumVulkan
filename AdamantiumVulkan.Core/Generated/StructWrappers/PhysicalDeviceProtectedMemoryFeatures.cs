@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceProtectedMemoryFeatures : IMarshallabl
     public object PNext { get; set; }
     public VkBool32 ProtectedMemory { get; set; }
 
+
     public static implicit operator PhysicalDeviceProtectedMemoryFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProtectedMemoryFeatures p)
     {
         return new PhysicalDeviceProtectedMemoryFeatures(in p);

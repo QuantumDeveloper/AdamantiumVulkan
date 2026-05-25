@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11628 Column: 6
+// File: vk.xml Line: 13330 Column: 6
 [Flags]
 public enum PerformanceConfigurationTypeINTEL : int
 {

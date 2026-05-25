@@ -28,6 +28,7 @@ public unsafe partial class QueueFamilyGlobalPriorityProperties : IMarshallableO
     public uint PriorityCount { get; set; }
     public System.ReadOnlyMemory<QueueGlobalPriority> Priorities { get; set; }
 
+
     public static implicit operator QueueFamilyGlobalPriorityProperties(AdamantiumVulkan.Core.Interop.VkQueueFamilyGlobalPriorityProperties q)
     {
         return new QueueFamilyGlobalPriorityProperties(in q);

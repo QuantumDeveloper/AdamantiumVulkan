@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEX
     public object PNext { get; set; }
     public VkBool32 AttachmentFeedbackLoopLayout { get; set; }
 
+
     public static implicit operator PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT p)
     {
         return new PhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT(in p);

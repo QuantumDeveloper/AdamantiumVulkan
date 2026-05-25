@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10884 Column: 6
+// File: vk.xml Line: 12580 Column: 6
 [Flags]
 public enum PipelineCreateFlagBits : uint
 {
@@ -20,6 +20,62 @@ public enum PipelineCreateFlagBits : uint
     AllowDerivativesBit = 2,
 
     DerivativeBit = 4,
+
+    RayTracingNoNullAnyHitShadersBitKhr = 16384,
+
+    RayTracingNoNullClosestHitShadersBitKhr = 32768,
+
+    RayTracingNoNullMissShadersBitKhr = 65536,
+
+    RayTracingNoNullIntersectionShadersBitKhr = 131072,
+
+    RayTracingSkipTrianglesBitKhr = 4096,
+
+    RayTracingSkipAabbsBitKhr = 8192,
+
+    RayTracingShaderGroupHandleCaptureReplayBitKhr = 524288,
+
+    DeferCompileBitNv = 32,
+
+    RenderingFragmentDensityMapAttachmentBitExt = 4194304,
+
+    RenderingFragmentShadingRateAttachmentBitKhr = 2097152,
+
+    CaptureStatisticsBitKhr = 64,
+
+    CaptureInternalRepresentationsBitKhr = 128,
+
+    IndirectBindableBitNv = 262144,
+
+    LibraryBitKhr = 2048,
+
+    DescriptorBufferBitExt = 536870912,
+
+    RetainLinkTimeOptimizationInfoBitExt = 8388608,
+
+    LinkTimeOptimizationBitExt = 1024,
+
+    RayTracingAllowMotionBitNv = 1048576,
+
+    ColorAttachmentFeedbackLoopBitExt = 33554432,
+
+    DepthStencilAttachmentFeedbackLoopBitExt = 67108864,
+
+    RayTracingOpacityMicromapBitExt = 16777216,
+
+    RayTracingDisplacementMicromapBitNv = 268435456,
+
+    DispatchBaseBit = 16,
+
+    ViewIndexFromDeviceIndexBit = 8,
+
+    FailOnPipelineCompileRequiredBit = 256,
+
+    EarlyReturnOnFailureBit = 512,
+
+    NoProtectedAccessBit = 134217728,
+
+    ProtectedAccessOnlyBit = 1073741824,
 
 }
 

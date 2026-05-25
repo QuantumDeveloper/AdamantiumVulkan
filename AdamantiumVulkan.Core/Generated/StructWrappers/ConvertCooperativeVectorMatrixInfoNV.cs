@@ -38,6 +38,7 @@ public unsafe partial class ConvertCooperativeVectorMatrixInfoNV : IMarshallable
     public CooperativeVectorMatrixLayoutNV DstLayout { get; set; }
     public nuint DstStride { get; set; }
 
+
     public static implicit operator ConvertCooperativeVectorMatrixInfoNV(AdamantiumVulkan.Core.Interop.VkConvertCooperativeVectorMatrixInfoNV c)
     {
         return new ConvertCooperativeVectorMatrixInfoNV(in c);
@@ -50,6 +51,10 @@ public unsafe partial class ConvertCooperativeVectorMatrixInfoNV : IMarshallable
         {
             size += marshallable.GetSize();
         }
+        if (SrcData != default)
+            size += SrcData.GetSize();
+        if (DstData != default)
+            size += DstData.GetSize();
         return size;
     }
 

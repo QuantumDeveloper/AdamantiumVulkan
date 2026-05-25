@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDevice16BitStorageFeatures : IMarshallableOb
     public VkBool32 StoragePushConstant16 { get; set; }
     public VkBool32 StorageInputOutput16 { get; set; }
 
+
     public static implicit operator PhysicalDevice16BitStorageFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDevice16BitStorageFeatures p)
     {
         return new PhysicalDevice16BitStorageFeatures(in p);

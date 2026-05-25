@@ -28,6 +28,7 @@ public unsafe partial class WriteDescriptorSetAccelerationStructureKHR : IMarsha
     public uint AccelerationStructureCount { get; set; }
     public System.ReadOnlyMemory<AccelerationStructureKHR> PAccelerationStructures { get; set; }
 
+
     public static implicit operator WriteDescriptorSetAccelerationStructureKHR(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureKHR w)
     {
         return new WriteDescriptorSetAccelerationStructureKHR(in w);

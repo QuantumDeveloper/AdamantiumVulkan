@@ -28,6 +28,7 @@ public unsafe partial class ImageViewAddressPropertiesNVX : IMarshallableObject,
     public VkDeviceAddress DeviceAddress { get; set; }
     public VkDeviceSize Size { get; set; }
 
+
     public static implicit operator ImageViewAddressPropertiesNVX(AdamantiumVulkan.Core.Interop.VkImageViewAddressPropertiesNVX i)
     {
         return new ImageViewAddressPropertiesNVX(in i);

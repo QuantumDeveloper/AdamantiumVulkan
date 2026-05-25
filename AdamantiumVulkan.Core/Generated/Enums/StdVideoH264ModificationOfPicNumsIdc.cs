@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: video.xml Line: 1292 Column: 6
+// File: video.xml Line: 1386 Column: 6
 public enum StdVideoH264ModificationOfPicNumsIdc : int
 {
     ShortTermSubtract = 0,

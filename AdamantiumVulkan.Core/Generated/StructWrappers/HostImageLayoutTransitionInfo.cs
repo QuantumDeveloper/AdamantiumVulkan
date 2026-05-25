@@ -30,6 +30,7 @@ public unsafe partial class HostImageLayoutTransitionInfo : IMarshallableObject,
     public ImageLayout NewLayout { get; set; }
     public ImageSubresourceRange SubresourceRange { get; set; }
 
+
     public static implicit operator HostImageLayoutTransitionInfo(AdamantiumVulkan.Core.Interop.VkHostImageLayoutTransitionInfo h)
     {
         return new HostImageLayoutTransitionInfo(in h);

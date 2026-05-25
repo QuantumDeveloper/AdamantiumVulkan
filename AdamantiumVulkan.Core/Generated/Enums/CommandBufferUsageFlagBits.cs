@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10937 Column: 6
+// File: vk.xml Line: 12633 Column: 6
 [Flags]
 public enum CommandBufferUsageFlagBits : uint
 {
@@ -20,6 +20,10 @@ public enum CommandBufferUsageFlagBits : uint
     RenderPassContinueBit = 2,
 
     SimultaneousUseBit = 4,
+
+    Reserved3BitHuawei = 8,
+
+    Reserved4BitHuawei = 16,
 
 }
 

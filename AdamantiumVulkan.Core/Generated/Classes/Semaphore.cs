@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 571 Column: 10
+// File: vk.xml Line: 617 Column: 10
 public unsafe partial class Semaphore : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkSemaphore_T>
 {
     internal VkSemaphore_T __Instance;

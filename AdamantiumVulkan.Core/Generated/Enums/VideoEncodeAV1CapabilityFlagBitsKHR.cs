@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12090 Column: 6
+// File: vk.xml Line: 13824 Column: 6
 [Flags]
 public enum VideoEncodeAV1CapabilityFlagBitsKHR : uint
 {
@@ -24,6 +24,8 @@ public enum VideoEncodeAV1CapabilityFlagBitsKHR : uint
     FrameSizeOverrideBitKhr = 8,
 
     MotionVectorScalingBitKhr = 16,
+
+    CompoundPredictionIntraRefreshBitKhr = 32,
 
 }
 

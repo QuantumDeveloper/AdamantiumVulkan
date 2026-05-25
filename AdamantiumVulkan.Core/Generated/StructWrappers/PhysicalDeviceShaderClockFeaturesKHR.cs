@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceShaderClockFeaturesKHR : IMarshallable
     public VkBool32 ShaderSubgroupClock { get; set; }
     public VkBool32 ShaderDeviceClock { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderClockFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderClockFeaturesKHR p)
     {
         return new PhysicalDeviceShaderClockFeaturesKHR(in p);

@@ -30,6 +30,7 @@ public unsafe partial class FenceGetWin32HandleInfoKHR : IMarshallableObject, IM
     public Fence Fence { get; set; }
     public ExternalFenceHandleTypeFlagBits HandleType { get; set; }
 
+
     public static implicit operator FenceGetWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR f)
     {
         return new FenceGetWin32HandleInfoKHR(in f);

@@ -33,6 +33,7 @@ public unsafe partial class FramebufferAttachmentImageInfo : IMarshallableObject
     public uint ViewFormatCount { get; set; }
     public System.ReadOnlyMemory<Format> PViewFormats { get; set; }
 
+
     public static implicit operator FramebufferAttachmentImageInfo(AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo f)
     {
         return new FramebufferAttachmentImageInfo(in f);

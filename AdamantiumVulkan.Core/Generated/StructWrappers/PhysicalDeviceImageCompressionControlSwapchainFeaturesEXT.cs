@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceImageCompressionControlSwapchainFeatur
     public object PNext { get; set; }
     public VkBool32 ImageCompressionControlSwapchain { get; set; }
 
+
     public static implicit operator PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT p)
     {
         return new PhysicalDeviceImageCompressionControlSwapchainFeaturesEXT(in p);

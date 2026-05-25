@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceDepthBiasControlFeaturesEXT : IMarshal
     public VkBool32 FloatRepresentation { get; set; }
     public VkBool32 DepthBiasExact { get; set; }
 
+
     public static implicit operator PhysicalDeviceDepthBiasControlFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDepthBiasControlFeaturesEXT p)
     {
         return new PhysicalDeviceDepthBiasControlFeaturesEXT(in p);

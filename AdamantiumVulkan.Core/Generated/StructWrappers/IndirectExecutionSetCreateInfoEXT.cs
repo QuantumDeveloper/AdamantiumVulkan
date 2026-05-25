@@ -28,6 +28,7 @@ public unsafe partial class IndirectExecutionSetCreateInfoEXT : IMarshallableObj
     public IndirectExecutionSetInfoTypeEXT Type { get; set; }
     public IndirectExecutionSetInfoEXT Info { get; set; }
 
+
     public static implicit operator IndirectExecutionSetCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetCreateInfoEXT i)
     {
         return new IndirectExecutionSetCreateInfoEXT(in i);
@@ -40,6 +41,8 @@ public unsafe partial class IndirectExecutionSetCreateInfoEXT : IMarshallableObj
         {
             size += marshallable.GetSize();
         }
+        if (Info != default)
+            size += Info.GetSize();
         return size;
     }
 

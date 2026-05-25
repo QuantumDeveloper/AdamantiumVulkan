@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceRenderPassStripedFeaturesARM : IMarsha
     public object PNext { get; set; }
     public VkBool32 RenderPassStriped { get; set; }
 
+
     public static implicit operator PhysicalDeviceRenderPassStripedFeaturesARM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRenderPassStripedFeaturesARM p)
     {
         return new PhysicalDeviceRenderPassStripedFeaturesARM(in p);

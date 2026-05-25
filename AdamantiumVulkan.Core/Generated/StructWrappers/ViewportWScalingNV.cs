@@ -26,6 +26,7 @@ public unsafe partial class ViewportWScalingNV : IMarshallableObject, IMarshalla
     public float Xcoeff { get; set; }
     public float Ycoeff { get; set; }
 
+
     public static implicit operator ViewportWScalingNV(AdamantiumVulkan.Core.Interop.VkViewportWScalingNV v)
     {
         return new ViewportWScalingNV(in v);

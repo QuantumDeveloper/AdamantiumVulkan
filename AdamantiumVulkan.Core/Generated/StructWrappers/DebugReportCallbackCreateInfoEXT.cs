@@ -29,6 +29,7 @@ public unsafe partial class DebugReportCallbackCreateInfoEXT : IMarshallableObje
     public delegate* unmanaged<DebugReportFlagBitsEXT, DebugReportObjectTypeEXT, ulong, nuint, int, sbyte*, sbyte*, void*, VkBool32> PfnCallback { get; set; }
     public nuint PUserData { get; set; }
 
+
     public static implicit operator DebugReportCallbackCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT d)
     {
         return new DebugReportCallbackCreateInfoEXT(in d);

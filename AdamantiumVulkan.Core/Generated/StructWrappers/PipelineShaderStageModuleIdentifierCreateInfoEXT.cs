@@ -28,6 +28,7 @@ public unsafe partial class PipelineShaderStageModuleIdentifierCreateInfoEXT : I
     public uint IdentifierSize { get; set; }
     public System.ReadOnlyMemory<byte> PIdentifier { get; set; }
 
+
     public static implicit operator PipelineShaderStageModuleIdentifierCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineShaderStageModuleIdentifierCreateInfoEXT p)
     {
         return new PipelineShaderStageModuleIdentifierCreateInfoEXT(in p);

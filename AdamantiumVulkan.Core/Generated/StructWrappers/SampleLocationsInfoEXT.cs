@@ -30,6 +30,7 @@ public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarsh
     public uint SampleLocationsCount { get; set; }
     public System.ReadOnlyMemory<SampleLocationEXT> PSampleLocations { get; set; }
 
+
     public static implicit operator SampleLocationsInfoEXT(AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT s)
     {
         return new SampleLocationsInfoEXT(in s);

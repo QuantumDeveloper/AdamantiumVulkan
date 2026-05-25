@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 12830 Column: 10
+// File: video.xml Line: 14741 Column: 10
 public unsafe struct PFN_vkMergePipelineCaches
 {
     public PFN_vkMergePipelineCaches(nuint ptr) : this((void*) ptr) { }

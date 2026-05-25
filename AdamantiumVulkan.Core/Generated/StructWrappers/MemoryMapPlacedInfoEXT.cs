@@ -27,6 +27,7 @@ public unsafe partial class MemoryMapPlacedInfoEXT : IMarshallableObject, IMarsh
     public object PNext { get; set; }
     public nuint PlacedAddress { get; set; }
 
+
     public static implicit operator MemoryMapPlacedInfoEXT(AdamantiumVulkan.Core.Interop.VkMemoryMapPlacedInfoEXT m)
     {
         return new MemoryMapPlacedInfoEXT(in m);

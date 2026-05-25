@@ -29,6 +29,7 @@ public unsafe partial class AccelerationStructureBuildSizesInfoKHR : IMarshallab
     public VkDeviceSize UpdateScratchSize { get; set; }
     public VkDeviceSize BuildScratchSize { get; set; }
 
+
     public static implicit operator AccelerationStructureBuildSizesInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildSizesInfoKHR a)
     {
         return new AccelerationStructureBuildSizesInfoKHR(in a);

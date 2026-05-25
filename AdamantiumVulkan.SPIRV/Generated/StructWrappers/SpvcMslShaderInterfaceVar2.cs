@@ -32,6 +32,7 @@ public unsafe partial class SpvcMslShaderInterfaceVar2 : IMarshallable<Adamantiu
     public BuiltIn Builtin { get; set; }
     public uint Vecsize { get; set; }
     public MslShaderVariableRate Rate { get; set; }
+
     ///<summary>
     /// Initializes the shader interface variable struct.
     ///</summary>

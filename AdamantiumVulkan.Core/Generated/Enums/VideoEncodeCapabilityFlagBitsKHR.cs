@@ -11,13 +11,17 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11924 Column: 6
+// File: vk.xml Line: 13650 Column: 6
 [Flags]
 public enum VideoEncodeCapabilityFlagBitsKHR : uint
 {
     PrecedingExternallyEncodedBytesBitKhr = 1,
 
     InsufficientBitstreamBufferRangeDetectionBitKhr = 2,
+
+    QuantizationDeltaMapBitKhr = 4,
+
+    EmphasisMapBitKhr = 8,
 
 }
 

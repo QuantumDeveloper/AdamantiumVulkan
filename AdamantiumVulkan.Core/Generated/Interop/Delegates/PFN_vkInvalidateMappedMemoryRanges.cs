@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 12563 Column: 10
+// File: video.xml Line: 14474 Column: 10
 public unsafe struct PFN_vkInvalidateMappedMemoryRanges
 {
     public PFN_vkInvalidateMappedMemoryRanges(nuint ptr) : this((void*) ptr) { }

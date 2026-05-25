@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceShadingRateImagePropertiesNV : IMarsha
     public uint ShadingRatePaletteSize { get; set; }
     public uint ShadingRateMaxCoarseSamples { get; set; }
 
+
     public static implicit operator PhysicalDeviceShadingRateImagePropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImagePropertiesNV p)
     {
         return new PhysicalDeviceShadingRateImagePropertiesNV(in p);

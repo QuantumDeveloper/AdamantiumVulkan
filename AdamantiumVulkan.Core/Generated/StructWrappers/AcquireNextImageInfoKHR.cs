@@ -31,6 +31,7 @@ public unsafe partial class AcquireNextImageInfoKHR : IMarshallableObject, IMars
     public Fence Fence { get; set; }
     public uint DeviceMask { get; set; }
 
+
     public static implicit operator AcquireNextImageInfoKHR(AdamantiumVulkan.Core.Interop.VkAcquireNextImageInfoKHR a)
     {
         return new AcquireNextImageInfoKHR(in a);

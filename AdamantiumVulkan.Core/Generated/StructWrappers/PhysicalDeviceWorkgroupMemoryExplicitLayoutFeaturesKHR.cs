@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesK
     public VkBool32 WorkgroupMemoryExplicitLayout8BitAccess { get; set; }
     public VkBool32 WorkgroupMemoryExplicitLayout16BitAccess { get; set; }
 
+
     public static implicit operator PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR p)
     {
         return new PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR(in p);

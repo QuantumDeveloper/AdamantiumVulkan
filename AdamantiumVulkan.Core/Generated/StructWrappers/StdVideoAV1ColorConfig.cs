@@ -33,6 +33,7 @@ public unsafe partial class StdVideoAV1ColorConfig : IMarshallableObject, IMarsh
     public StdVideoAV1MatrixCoefficients Matrix_coefficients { get; set; }
     public StdVideoAV1ChromaSamplePosition Chroma_sample_position { get; set; }
 
+
     public static implicit operator StdVideoAV1ColorConfig(AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfig s)
     {
         return new StdVideoAV1ColorConfig(in s);

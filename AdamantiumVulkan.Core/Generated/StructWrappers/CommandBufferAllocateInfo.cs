@@ -29,6 +29,7 @@ public unsafe partial class CommandBufferAllocateInfo : IMarshallableObject, IMa
     public CommandBufferLevel Level { get; set; }
     public uint CommandBufferCount { get; set; }
 
+
     public static implicit operator CommandBufferAllocateInfo(AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo c)
     {
         return new CommandBufferAllocateInfo(in c);

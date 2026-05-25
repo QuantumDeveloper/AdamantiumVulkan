@@ -27,6 +27,7 @@ public unsafe partial class DescriptorPoolInlineUniformBlockCreateInfo : IMarsha
     public object PNext { get; set; }
     public uint MaxInlineUniformBlockBindings { get; set; }
 
+
     public static implicit operator DescriptorPoolInlineUniformBlockCreateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorPoolInlineUniformBlockCreateInfo d)
     {
         return new DescriptorPoolInlineUniformBlockCreateInfo(in d);

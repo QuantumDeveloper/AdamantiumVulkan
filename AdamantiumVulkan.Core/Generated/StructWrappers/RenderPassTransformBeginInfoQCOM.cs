@@ -27,6 +27,7 @@ public unsafe partial class RenderPassTransformBeginInfoQCOM : IMarshallableObje
     public object PNext { get; set; }
     public SurfaceTransformFlagBitsKHR Transform { get; set; }
 
+
     public static implicit operator RenderPassTransformBeginInfoQCOM(AdamantiumVulkan.Core.Interop.VkRenderPassTransformBeginInfoQCOM r)
     {
         return new RenderPassTransformBeginInfoQCOM(in r);

@@ -26,6 +26,7 @@ public unsafe partial class ClearDepthStencilValue : IMarshallableObject, IMarsh
     public float Depth { get; set; }
     public uint Stencil { get; set; }
 
+
     public static implicit operator ClearDepthStencilValue(AdamantiumVulkan.Core.Interop.VkClearDepthStencilValue c)
     {
         return new ClearDepthStencilValue(in c);

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12245 Column: 6
+// File: vk.xml Line: 13979 Column: 6
 public enum OpacityMicromapSpecialIndexEXT : int
 {
     TransparentExt = -1,

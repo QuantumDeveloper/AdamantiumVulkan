@@ -33,6 +33,7 @@ public unsafe partial class DependencyInfo : IMarshallableObject, IMarshallable<
     public uint ImageMemoryBarrierCount { get; set; }
     public System.ReadOnlyMemory<ImageMemoryBarrier2> PImageMemoryBarriers { get; set; }
 
+
     public static implicit operator DependencyInfo(AdamantiumVulkan.Core.Interop.VkDependencyInfo d)
     {
         return new DependencyInfo(in d);

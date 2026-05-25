@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePartitionedAccelerationStructureProper
     public object PNext { get; set; }
     public uint MaxPartitionCount { get; set; }
 
+
     public static implicit operator PhysicalDevicePartitionedAccelerationStructurePropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePartitionedAccelerationStructurePropertiesNV p)
     {
         return new PhysicalDevicePartitionedAccelerationStructurePropertiesNV(in p);

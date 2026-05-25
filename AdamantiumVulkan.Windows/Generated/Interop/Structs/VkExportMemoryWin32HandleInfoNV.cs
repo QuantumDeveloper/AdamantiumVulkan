@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: vk.xml Line: 2454 Column: 10
+// File: vk.xml Line: 2608 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkExportMemoryWin32HandleInfoNV
 {

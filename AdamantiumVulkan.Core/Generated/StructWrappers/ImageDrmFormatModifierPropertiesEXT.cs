@@ -27,6 +27,7 @@ public unsafe partial class ImageDrmFormatModifierPropertiesEXT : IMarshallableO
     public object PNext { get; set; }
     public ulong DrmFormatModifier { get; set; }
 
+
     public static implicit operator ImageDrmFormatModifierPropertiesEXT(AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT i)
     {
         return new ImageDrmFormatModifierPropertiesEXT(in i);

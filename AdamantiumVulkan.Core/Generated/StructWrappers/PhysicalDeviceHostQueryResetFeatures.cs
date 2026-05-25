@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceHostQueryResetFeatures : IMarshallable
     public object PNext { get; set; }
     public VkBool32 HostQueryReset { get; set; }
 
+
     public static implicit operator PhysicalDeviceHostQueryResetFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHostQueryResetFeatures p)
     {
         return new PhysicalDeviceHostQueryResetFeatures(in p);

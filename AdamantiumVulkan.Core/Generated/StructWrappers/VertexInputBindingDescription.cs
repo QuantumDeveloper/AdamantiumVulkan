@@ -27,6 +27,7 @@ public unsafe partial class VertexInputBindingDescription : IMarshallableObject,
     public uint Stride { get; set; }
     public VertexInputRate InputRate { get; set; }
 
+
     public static implicit operator VertexInputBindingDescription(AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription v)
     {
         return new VertexInputBindingDescription(in v);

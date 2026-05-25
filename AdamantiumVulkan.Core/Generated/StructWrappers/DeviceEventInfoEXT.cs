@@ -27,6 +27,7 @@ public unsafe partial class DeviceEventInfoEXT : IMarshallableObject, IMarshalla
     public object PNext { get; set; }
     public DeviceEventTypeEXT DeviceEvent { get; set; }
 
+
     public static implicit operator DeviceEventInfoEXT(AdamantiumVulkan.Core.Interop.VkDeviceEventInfoEXT d)
     {
         return new DeviceEventInfoEXT(in d);

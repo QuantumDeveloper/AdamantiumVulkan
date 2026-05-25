@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceMultiviewFeatures : IMarshallableObjec
     public VkBool32 MultiviewGeometryShader { get; set; }
     public VkBool32 MultiviewTessellationShader { get; set; }
 
+
     public static implicit operator PhysicalDeviceMultiviewFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewFeatures p)
     {
         return new PhysicalDeviceMultiviewFeatures(in p);

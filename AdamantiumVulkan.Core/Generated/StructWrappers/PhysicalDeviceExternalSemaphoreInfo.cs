@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceExternalSemaphoreInfo : IMarshallableO
     public object PNext { get; set; }
     public ExternalSemaphoreHandleTypeFlagBits HandleType { get; set; }
 
+
     public static implicit operator PhysicalDeviceExternalSemaphoreInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo p)
     {
         return new PhysicalDeviceExternalSemaphoreInfo(in p);

@@ -27,6 +27,7 @@ public unsafe partial class DescriptorImageInfo : IMarshallableObject, IMarshall
     public ImageView ImageView { get; set; }
     public ImageLayout ImageLayout { get; set; }
 
+
     public static implicit operator DescriptorImageInfo(AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo d)
     {
         return new DescriptorImageInfo(in d);

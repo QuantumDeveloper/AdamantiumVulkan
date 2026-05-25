@@ -30,6 +30,7 @@ public unsafe partial class StdVideoEncodeH264PictureInfoFlags : IMarshallableOb
     public uint Adaptive_ref_pic_marking_mode_flag { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoEncodeH264PictureInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264PictureInfoFlags s)
     {
         return new StdVideoEncodeH264PictureInfoFlags(in s);

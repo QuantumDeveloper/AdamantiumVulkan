@@ -27,6 +27,7 @@ public unsafe partial class FormatProperties2 : IMarshallableObject, IMarshallab
     public object PNext { get; set; }
     public FormatProperties FormatProperties { get; set; }
 
+
     public static implicit operator FormatProperties2(AdamantiumVulkan.Core.Interop.VkFormatProperties2 f)
     {
         return new FormatProperties2(in f);

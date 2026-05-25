@@ -28,6 +28,7 @@ public unsafe partial class VideoEncodeH264SessionParametersFeedbackInfoKHR : IM
     public VkBool32 HasStdSPSOverrides { get; set; }
     public VkBool32 HasStdPPSOverrides { get; set; }
 
+
     public static implicit operator VideoEncodeH264SessionParametersFeedbackInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH264SessionParametersFeedbackInfoKHR v)
     {
         return new VideoEncodeH264SessionParametersFeedbackInfoKHR(in v);

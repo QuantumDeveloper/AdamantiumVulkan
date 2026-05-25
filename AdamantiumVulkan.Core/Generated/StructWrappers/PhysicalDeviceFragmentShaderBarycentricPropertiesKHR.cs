@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceFragmentShaderBarycentricPropertiesKHR
     public object PNext { get; set; }
     public VkBool32 TriStripVertexOrderIndependentOfProvokingVertex { get; set; }
 
+
     public static implicit operator PhysicalDeviceFragmentShaderBarycentricPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR p)
     {
         return new PhysicalDeviceFragmentShaderBarycentricPropertiesKHR(in p);

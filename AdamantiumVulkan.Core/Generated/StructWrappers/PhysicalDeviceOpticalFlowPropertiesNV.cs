@@ -37,6 +37,7 @@ public unsafe partial class PhysicalDeviceOpticalFlowPropertiesNV : IMarshallabl
     public uint MaxHeight { get; set; }
     public uint MaxNumRegionsOfInterest { get; set; }
 
+
     public static implicit operator PhysicalDeviceOpticalFlowPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceOpticalFlowPropertiesNV p)
     {
         return new PhysicalDeviceOpticalFlowPropertiesNV(in p);

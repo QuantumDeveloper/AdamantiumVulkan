@@ -28,6 +28,7 @@ public unsafe partial class BindBufferMemoryDeviceGroupInfo : IMarshallableObjec
     public uint DeviceIndexCount { get; set; }
     public System.ReadOnlyMemory<uint> PDeviceIndices { get; set; }
 
+
     public static implicit operator BindBufferMemoryDeviceGroupInfo(AdamantiumVulkan.Core.Interop.VkBindBufferMemoryDeviceGroupInfo b)
     {
         return new BindBufferMemoryDeviceGroupInfo(in b);

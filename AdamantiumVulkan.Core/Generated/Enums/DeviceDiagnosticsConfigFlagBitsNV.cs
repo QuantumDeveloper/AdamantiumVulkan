@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11567 Column: 6
+// File: vk.xml Line: 13268 Column: 6
 [Flags]
 public enum DeviceDiagnosticsConfigFlagBitsNV : uint
 {

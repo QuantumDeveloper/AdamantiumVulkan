@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12238 Column: 6
+// File: vk.xml Line: 13972 Column: 6
 [Flags]
 public enum BuildMicromapModeEXT : int
 {

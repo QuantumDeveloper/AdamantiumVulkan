@@ -27,6 +27,7 @@ public unsafe partial class DescriptorSetVariableDescriptorCountLayoutSupport : 
     public object PNext { get; set; }
     public uint MaxVariableDescriptorCount { get; set; }
 
+
     public static implicit operator DescriptorSetVariableDescriptorCountLayoutSupport(AdamantiumVulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountLayoutSupport d)
     {
         return new DescriptorSetVariableDescriptorCountLayoutSupport(in d);

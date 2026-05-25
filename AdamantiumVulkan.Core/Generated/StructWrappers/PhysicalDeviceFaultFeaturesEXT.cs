@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceFaultFeaturesEXT : IMarshallableObject
     public VkBool32 DeviceFault { get; set; }
     public VkBool32 DeviceFaultVendorBinary { get; set; }
 
+
     public static implicit operator PhysicalDeviceFaultFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFaultFeaturesEXT p)
     {
         return new PhysicalDeviceFaultFeaturesEXT(in p);

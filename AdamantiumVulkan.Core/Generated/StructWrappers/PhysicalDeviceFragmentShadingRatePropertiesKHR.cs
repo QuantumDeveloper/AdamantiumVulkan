@@ -43,6 +43,7 @@ public unsafe partial class PhysicalDeviceFragmentShadingRatePropertiesKHR : IMa
     public VkBool32 FragmentShadingRateWithCustomSampleLocations { get; set; }
     public VkBool32 FragmentShadingRateStrictMultiplyCombiner { get; set; }
 
+
     public static implicit operator PhysicalDeviceFragmentShadingRatePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR p)
     {
         return new PhysicalDeviceFragmentShadingRatePropertiesKHR(in p);

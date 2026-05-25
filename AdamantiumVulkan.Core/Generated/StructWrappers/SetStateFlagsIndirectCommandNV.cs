@@ -25,6 +25,7 @@ public unsafe partial class SetStateFlagsIndirectCommandNV : IMarshallableObject
 
     public uint Data { get; set; }
 
+
     public static implicit operator SetStateFlagsIndirectCommandNV(AdamantiumVulkan.Core.Interop.VkSetStateFlagsIndirectCommandNV s)
     {
         return new SetStateFlagsIndirectCommandNV(in s);

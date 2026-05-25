@@ -28,6 +28,7 @@ public unsafe partial class DepthBiasRepresentationInfoEXT : IMarshallableObject
     public DepthBiasRepresentationEXT DepthBiasRepresentation { get; set; }
     public VkBool32 DepthBiasExact { get; set; }
 
+
     public static implicit operator DepthBiasRepresentationInfoEXT(AdamantiumVulkan.Core.Interop.VkDepthBiasRepresentationInfoEXT d)
     {
         return new DepthBiasRepresentationInfoEXT(in d);

@@ -30,6 +30,7 @@ public unsafe partial class RenderPassSampleLocationsBeginInfoEXT : IMarshallabl
     public uint PostSubpassSampleLocationsCount { get; set; }
     public System.ReadOnlyMemory<SubpassSampleLocationsEXT> PostSubpassSampleLocations { get; set; }
 
+
     public static implicit operator RenderPassSampleLocationsBeginInfoEXT(AdamantiumVulkan.Core.Interop.VkRenderPassSampleLocationsBeginInfoEXT r)
     {
         return new RenderPassSampleLocationsBeginInfoEXT(in r);

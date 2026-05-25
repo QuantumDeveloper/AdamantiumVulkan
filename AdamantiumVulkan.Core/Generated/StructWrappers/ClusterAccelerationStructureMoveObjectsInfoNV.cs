@@ -25,6 +25,7 @@ public unsafe partial class ClusterAccelerationStructureMoveObjectsInfoNV : IMar
 
     public VkDeviceAddress SrcAccelerationStructure { get; set; }
 
+
     public static implicit operator ClusterAccelerationStructureMoveObjectsInfoNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureMoveObjectsInfoNV c)
     {
         return new ClusterAccelerationStructureMoveObjectsInfoNV(in c);

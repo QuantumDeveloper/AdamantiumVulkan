@@ -30,6 +30,7 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarsha
     public uint DiscardRectangleCount { get; set; }
     public System.ReadOnlyMemory<Rect2D> PDiscardRectangles { get; set; }
 
+
     public static implicit operator PipelineDiscardRectangleStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT p)
     {
         return new PipelineDiscardRectangleStateCreateInfoEXT(in p);

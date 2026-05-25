@@ -47,6 +47,7 @@ public unsafe partial class PhysicalDeviceVulkan14Features : IMarshallableObject
     public VkBool32 HostImageCopy { get; set; }
     public VkBool32 PushDescriptor { get; set; }
 
+
     public static implicit operator PhysicalDeviceVulkan14Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan14Features p)
     {
         return new PhysicalDeviceVulkan14Features(in p);

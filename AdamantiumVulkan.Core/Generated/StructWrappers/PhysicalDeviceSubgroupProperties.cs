@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceSubgroupProperties : IMarshallableObje
     public SubgroupFeatureFlagBits SupportedOperations { get; set; }
     public VkBool32 QuadOperationsInAllStages { get; set; }
 
+
     public static implicit operator PhysicalDeviceSubgroupProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties p)
     {
         return new PhysicalDeviceSubgroupProperties(in p);

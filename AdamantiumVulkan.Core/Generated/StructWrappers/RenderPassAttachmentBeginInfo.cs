@@ -28,6 +28,7 @@ public unsafe partial class RenderPassAttachmentBeginInfo : IMarshallableObject,
     public uint AttachmentCount { get; set; }
     public System.ReadOnlyMemory<ImageView> PAttachments { get; set; }
 
+
     public static implicit operator RenderPassAttachmentBeginInfo(AdamantiumVulkan.Core.Interop.VkRenderPassAttachmentBeginInfo r)
     {
         return new RenderPassAttachmentBeginInfo(in r);

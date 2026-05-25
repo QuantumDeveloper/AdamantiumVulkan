@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceShaderImageAtomicInt64FeaturesEXT : IM
     public VkBool32 ShaderImageInt64Atomics { get; set; }
     public VkBool32 SparseImageInt64Atomics { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderImageAtomicInt64FeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT p)
     {
         return new PhysicalDeviceShaderImageAtomicInt64FeaturesEXT(in p);

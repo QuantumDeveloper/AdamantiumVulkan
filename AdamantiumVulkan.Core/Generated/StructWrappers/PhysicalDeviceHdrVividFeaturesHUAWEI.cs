@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceHdrVividFeaturesHUAWEI : IMarshallable
     public object PNext { get; set; }
     public VkBool32 HdrVivid { get; set; }
 
+
     public static implicit operator PhysicalDeviceHdrVividFeaturesHUAWEI(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHdrVividFeaturesHUAWEI p)
     {
         return new PhysicalDeviceHdrVividFeaturesHUAWEI(in p);

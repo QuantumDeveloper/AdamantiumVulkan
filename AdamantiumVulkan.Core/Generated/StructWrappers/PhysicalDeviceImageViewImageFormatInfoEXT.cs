@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceImageViewImageFormatInfoEXT : IMarshal
     public object PNext { get; set; }
     public ImageViewType ImageViewType { get; set; }
 
+
     public static implicit operator PhysicalDeviceImageViewImageFormatInfoEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageViewImageFormatInfoEXT p)
     {
         return new PhysicalDeviceImageViewImageFormatInfoEXT(in p);

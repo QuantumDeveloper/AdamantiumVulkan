@@ -32,6 +32,7 @@ public unsafe partial class CooperativeVectorPropertiesNV : IMarshallableObject,
     public ComponentTypeKHR ResultType { get; set; }
     public VkBool32 Transpose { get; set; }
 
+
     public static implicit operator CooperativeVectorPropertiesNV(AdamantiumVulkan.Core.Interop.VkCooperativeVectorPropertiesNV c)
     {
         return new CooperativeVectorPropertiesNV(in c);

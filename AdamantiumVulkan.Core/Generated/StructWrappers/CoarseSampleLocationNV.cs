@@ -27,6 +27,7 @@ public unsafe partial class CoarseSampleLocationNV : IMarshallableObject, IMarsh
     public uint PixelY { get; set; }
     public uint Sample { get; set; }
 
+
     public static implicit operator CoarseSampleLocationNV(AdamantiumVulkan.Core.Interop.VkCoarseSampleLocationNV c)
     {
         return new CoarseSampleLocationNV(in c);

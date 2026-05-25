@@ -30,6 +30,7 @@ public unsafe partial class DescriptorUpdateTemplateEntry : IMarshallableObject,
     public nuint Offset { get; set; }
     public nuint Stride { get; set; }
 
+
     public static implicit operator DescriptorUpdateTemplateEntry(AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry d)
     {
         return new DescriptorUpdateTemplateEntry(in d);

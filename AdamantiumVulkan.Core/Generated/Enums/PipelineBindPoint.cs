@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10301 Column: 6
+// File: vk.xml Line: 11997 Column: 6
 public enum PipelineBindPoint : int
 {
     Graphics = 0,
@@ -23,6 +23,8 @@ public enum PipelineBindPoint : int
     RayTracingKhr = 1000165000,
 
     SubpassShadingHuawei = 1000369003,
+
+    DataGraphArm = 1000507000,
 
 }
 

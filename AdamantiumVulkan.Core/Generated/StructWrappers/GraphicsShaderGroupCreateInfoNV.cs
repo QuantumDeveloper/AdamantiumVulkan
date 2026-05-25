@@ -30,6 +30,7 @@ public unsafe partial class GraphicsShaderGroupCreateInfoNV : IMarshallableObjec
     public PipelineVertexInputStateCreateInfo PVertexInputState { get; set; }
     public PipelineTessellationStateCreateInfo PTessellationState { get; set; }
 
+
     public static implicit operator GraphicsShaderGroupCreateInfoNV(AdamantiumVulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV g)
     {
         return new GraphicsShaderGroupCreateInfoNV(in g);

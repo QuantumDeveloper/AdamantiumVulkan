@@ -30,6 +30,7 @@ public unsafe partial class VideoEncodeH265GopRemainingFrameInfoKHR : IMarshalla
     public uint GopRemainingP { get; set; }
     public uint GopRemainingB { get; set; }
 
+
     public static implicit operator VideoEncodeH265GopRemainingFrameInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH265GopRemainingFrameInfoKHR v)
     {
         return new VideoEncodeH265GopRemainingFrameInfoKHR(in v);

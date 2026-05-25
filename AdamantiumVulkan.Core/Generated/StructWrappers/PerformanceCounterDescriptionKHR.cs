@@ -30,6 +30,7 @@ public unsafe partial class PerformanceCounterDescriptionKHR : IMarshallableObje
     public string Category { get; set; }
     public string Description { get; set; }
 
+
     public static implicit operator PerformanceCounterDescriptionKHR(AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR p)
     {
         return new PerformanceCounterDescriptionKHR(in p);

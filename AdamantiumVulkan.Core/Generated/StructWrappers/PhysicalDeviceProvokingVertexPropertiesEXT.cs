@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceProvokingVertexPropertiesEXT : IMarsha
     public VkBool32 ProvokingVertexModePerPipeline { get; set; }
     public VkBool32 TransformFeedbackPreservesTriangleFanProvokingVertex { get; set; }
 
+
     public static implicit operator PhysicalDeviceProvokingVertexPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProvokingVertexPropertiesEXT p)
     {
         return new PhysicalDeviceProvokingVertexPropertiesEXT(in p);

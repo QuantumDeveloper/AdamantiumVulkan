@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceImageDrmFormatModifierInfoEXT : IMarsh
     public uint QueueFamilyIndexCount { get; set; }
     public System.ReadOnlyMemory<uint> PQueueFamilyIndices { get; set; }
 
+
     public static implicit operator PhysicalDeviceImageDrmFormatModifierInfoEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageDrmFormatModifierInfoEXT p)
     {
         return new PhysicalDeviceImageDrmFormatModifierInfoEXT(in p);

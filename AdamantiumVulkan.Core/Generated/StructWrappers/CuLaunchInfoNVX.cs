@@ -38,6 +38,7 @@ public unsafe partial class CuLaunchInfoNVX : IMarshallableObject, IMarshallable
     public nuint ExtraCount { get; set; }
     public System.ReadOnlyMemory<nuint> PExtras { get; set; }
 
+
     public static implicit operator CuLaunchInfoNVX(AdamantiumVulkan.Core.Interop.VkCuLaunchInfoNVX c)
     {
         return new CuLaunchInfoNVX(in c);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceMemoryPriorityFeaturesEXT : IMarshalla
     public object PNext { get; set; }
     public VkBool32 MemoryPriority { get; set; }
 
+
     public static implicit operator PhysicalDeviceMemoryPriorityFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryPriorityFeaturesEXT p)
     {
         return new PhysicalDeviceMemoryPriorityFeaturesEXT(in p);

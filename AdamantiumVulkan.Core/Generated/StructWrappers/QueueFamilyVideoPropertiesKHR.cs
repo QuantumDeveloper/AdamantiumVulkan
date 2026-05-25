@@ -27,6 +27,7 @@ public unsafe partial class QueueFamilyVideoPropertiesKHR : IMarshallableObject,
     public object PNext { get; set; }
     public VideoCodecOperationFlagBitsKHR VideoCodecOperations { get; set; }
 
+
     public static implicit operator QueueFamilyVideoPropertiesKHR(AdamantiumVulkan.Core.Interop.VkQueueFamilyVideoPropertiesKHR q)
     {
         return new QueueFamilyVideoPropertiesKHR(in q);

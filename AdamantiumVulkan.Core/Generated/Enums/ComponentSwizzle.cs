@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10266 Column: 6
+// File: vk.xml Line: 11962 Column: 6
 public enum ComponentSwizzle : int
 {
     Identity = 0,

@@ -37,6 +37,7 @@ public unsafe partial class PipelineRasterizationStateCreateInfo : IMarshallable
     public float DepthBiasSlopeFactor { get; set; }
     public float LineWidth { get; set; }
 
+
     public static implicit operator PipelineRasterizationStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateCreateInfo p)
     {
         return new PipelineRasterizationStateCreateInfo(in p);

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 14572 Column: 10
+// File: video.xml Line: 16521 Column: 10
 public unsafe struct PFN_vkGetShaderInfoAMD
 {
     public PFN_vkGetShaderInfoAMD(nuint ptr) : this((void*) ptr) { }

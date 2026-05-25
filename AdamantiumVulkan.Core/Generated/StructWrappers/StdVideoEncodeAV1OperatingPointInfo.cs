@@ -31,6 +31,7 @@ public unsafe partial class StdVideoEncodeAV1OperatingPointInfo : IMarshallableO
     public uint Encoder_buffer_delay { get; set; }
     public byte Initial_display_delay_minus_1 { get; set; }
 
+
     public static implicit operator StdVideoEncodeAV1OperatingPointInfo(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfo s)
     {
         return new StdVideoEncodeAV1OperatingPointInfo(in s);

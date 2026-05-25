@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderReplicatedCompositesFeaturesEXT 
     public object PNext { get; set; }
     public VkBool32 ShaderReplicatedComposites { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderReplicatedCompositesFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT p)
     {
         return new PhysicalDeviceShaderReplicatedCompositesFeaturesEXT(in p);

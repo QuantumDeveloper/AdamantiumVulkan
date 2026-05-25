@@ -42,6 +42,7 @@ public unsafe partial class StdVideoH265SpsVuiFlags : IMarshallableObject, IMars
     public uint Motion_vectors_over_pic_boundaries_flag { get; set; }
     public uint Restricted_ref_pic_lists_flag { get; set; }
 
+
     public static implicit operator StdVideoH265SpsVuiFlags(AdamantiumVulkan.Core.Interop.StdVideoH265SpsVuiFlags s)
     {
         return new StdVideoH265SpsVuiFlags(in s);

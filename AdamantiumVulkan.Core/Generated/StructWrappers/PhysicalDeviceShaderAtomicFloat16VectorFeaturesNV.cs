@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV : 
     public object PNext { get; set; }
     public VkBool32 ShaderFloat16VectorAtomics { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV p)
     {
         return new PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV(in p);

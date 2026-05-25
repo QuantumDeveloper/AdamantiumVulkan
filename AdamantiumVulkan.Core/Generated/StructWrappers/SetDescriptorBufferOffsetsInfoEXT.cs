@@ -32,6 +32,7 @@ public unsafe partial class SetDescriptorBufferOffsetsInfoEXT : IMarshallableObj
     public System.ReadOnlyMemory<uint> PBufferIndices { get; set; }
     public System.ReadOnlyMemory<VkDeviceSize> POffsets { get; set; }
 
+
     public static implicit operator SetDescriptorBufferOffsetsInfoEXT(AdamantiumVulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT s)
     {
         return new SetDescriptorBufferOffsetsInfoEXT(in s);

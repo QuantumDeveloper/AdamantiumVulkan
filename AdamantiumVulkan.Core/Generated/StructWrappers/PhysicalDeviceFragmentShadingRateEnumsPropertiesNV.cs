@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceFragmentShadingRateEnumsPropertiesNV :
     public object PNext { get; set; }
     public SampleCountFlagBits MaxFragmentShadingRateInvocationCount { get; set; }
 
+
     public static implicit operator PhysicalDeviceFragmentShadingRateEnumsPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV p)
     {
         return new PhysicalDeviceFragmentShadingRateEnumsPropertiesNV(in p);

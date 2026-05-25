@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceCooperativeMatrixPropertiesKHR : IMars
     public object PNext { get; set; }
     public ShaderStageFlagBits CooperativeMatrixSupportedStages { get; set; }
 
+
     public static implicit operator PhysicalDeviceCooperativeMatrixPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixPropertiesKHR p)
     {
         return new PhysicalDeviceCooperativeMatrixPropertiesKHR(in p);

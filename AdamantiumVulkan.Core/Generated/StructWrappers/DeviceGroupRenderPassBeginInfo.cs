@@ -29,6 +29,7 @@ public unsafe partial class DeviceGroupRenderPassBeginInfo : IMarshallableObject
     public uint DeviceRenderAreaCount { get; set; }
     public System.ReadOnlyMemory<Rect2D> PDeviceRenderAreas { get; set; }
 
+
     public static implicit operator DeviceGroupRenderPassBeginInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo d)
     {
         return new DeviceGroupRenderPassBeginInfo(in d);

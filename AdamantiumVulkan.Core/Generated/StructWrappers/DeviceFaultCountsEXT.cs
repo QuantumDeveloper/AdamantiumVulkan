@@ -29,6 +29,7 @@ public unsafe partial class DeviceFaultCountsEXT : IMarshallableObject, IMarshal
     public uint VendorInfoCount { get; set; }
     public VkDeviceSize VendorBinarySize { get; set; }
 
+
     public static implicit operator DeviceFaultCountsEXT(AdamantiumVulkan.Core.Interop.VkDeviceFaultCountsEXT d)
     {
         return new DeviceFaultCountsEXT(in d);

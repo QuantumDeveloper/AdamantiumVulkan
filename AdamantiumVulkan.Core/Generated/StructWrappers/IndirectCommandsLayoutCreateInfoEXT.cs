@@ -32,6 +32,7 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoEXT : IMarshallableO
     public uint TokenCount { get; set; }
     public System.ReadOnlyMemory<IndirectCommandsLayoutTokenEXT> PTokens { get; set; }
 
+
     public static implicit operator IndirectCommandsLayoutCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoEXT i)
     {
         return new IndirectCommandsLayoutCreateInfoEXT(in i);

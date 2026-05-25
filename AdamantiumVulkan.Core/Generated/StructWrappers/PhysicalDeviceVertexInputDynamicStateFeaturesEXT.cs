@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceVertexInputDynamicStateFeaturesEXT : I
     public object PNext { get; set; }
     public VkBool32 VertexInputDynamicState { get; set; }
 
+
     public static implicit operator PhysicalDeviceVertexInputDynamicStateFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT p)
     {
         return new PhysicalDeviceVertexInputDynamicStateFeaturesEXT(in p);

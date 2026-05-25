@@ -58,10 +58,11 @@ public unsafe partial class StdVideoH265SequenceParameterSet : IMarshallableObje
     public StdVideoH265ProfileTierLevel ProfileTierLevel { get; set; }
     public StdVideoH265DecPicBufMgr PDecPicBufMgr { get; set; }
     public StdVideoH265ScalingLists PScalingLists { get; set; }
-    public StdVideoH265ShortTermRefPicSet PShortTermRefPicSet { get; set; }
+    public System.ReadOnlyMemory<StdVideoH265ShortTermRefPicSet> PShortTermRefPicSet { get; set; }
     public StdVideoH265LongTermRefPicsSps PLongTermRefPicsSps { get; set; }
     public StdVideoH265SequenceParameterSetVui PSequenceParameterSetVui { get; set; }
     public StdVideoH265PredictorPaletteEntries PredictorPaletteEntries { get; set; }
+
 
     public static implicit operator StdVideoH265SequenceParameterSet(AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSet s)
     {
@@ -83,9 +84,15 @@ public unsafe partial class StdVideoH265SequenceParameterSet : IMarshallableObje
         {
             size += PScalingLists.GetSize();
         }
-        if (PShortTermRefPicSet != default)
+        if (!PShortTermRefPicSet.IsEmpty)
         {
-            size += PShortTermRefPicSet.GetSize();
+            for (int i = 0; i < PShortTermRefPicSet.Length; i++)
+            {
+                if (PShortTermRefPicSet.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet>();
+                else
+                    size += PShortTermRefPicSet.Span[i].GetSize();
+            }
         }
         if (PLongTermRefPicsSps != default)
         {
@@ -147,8 +154,15 @@ public unsafe partial class StdVideoH265SequenceParameterSet : IMarshallableObje
         NativeUtils.Free(native.pDecPicBufMgr);
         PScalingLists = new StdVideoH265ScalingLists(in *native.pScalingLists);
         NativeUtils.Free(native.pScalingLists);
-        PShortTermRefPicSet = new StdVideoH265ShortTermRefPicSet(in *native.pShortTermRefPicSet);
-        NativeUtils.Free(native.pShortTermRefPicSet);
+        var arrayLengthPShortTermRefPicSet = native.num_short_term_ref_pic_sets;
+        var tmpPShortTermRefPicSet = new StdVideoH265ShortTermRefPicSet[arrayLengthPShortTermRefPicSet];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet[arrayLengthPShortTermRefPicSet];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pShortTermRefPicSet, arrayLengthPShortTermRefPicSet, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPShortTermRefPicSet[i] = new StdVideoH265ShortTermRefPicSet(in nativeTmpArray0[i]);
+        }
+        PShortTermRefPicSet = tmpPShortTermRefPicSet;
         PLongTermRefPicsSps = new StdVideoH265LongTermRefPicsSps(in *native.pLongTermRefPicsSps);
         NativeUtils.Free(native.pLongTermRefPicsSps);
         PSequenceParameterSetVui = new StdVideoH265SequenceParameterSetVui(in *native.pSequenceParameterSetVui);
@@ -273,14 +287,9 @@ public unsafe partial class StdVideoH265SequenceParameterSet : IMarshallableObje
                 context.DataCursor = childContext.DataCursor;
             }
 
-            if (stdVideoH265SequenceParameterSet.PShortTermRefPicSet != default)
+            if (!stdVideoH265SequenceParameterSet.PShortTermRefPicSet.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet>(structSlice0).Slice(0, 1);
-                context.Destination[0].pShortTermRefPicSet = (AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet>(structDestination0, context.DataCursor);
-                stdVideoH265SequenceParameterSet.PShortTermRefPicSet.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pShortTermRefPicSet = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.StdVideoH265ShortTermRefPicSet, AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet, AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSet>(stdVideoH265SequenceParameterSet.PShortTermRefPicSet, ref context);
             }
 
             if (stdVideoH265SequenceParameterSet.PLongTermRefPicsSps != default)

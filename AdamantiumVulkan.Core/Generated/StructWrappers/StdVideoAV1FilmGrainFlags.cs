@@ -29,6 +29,7 @@ public unsafe partial class StdVideoAV1FilmGrainFlags : IMarshallableObject, IMa
     public uint Update_grain { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoAV1FilmGrainFlags(AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrainFlags s)
     {
         return new StdVideoAV1FilmGrainFlags(in s);

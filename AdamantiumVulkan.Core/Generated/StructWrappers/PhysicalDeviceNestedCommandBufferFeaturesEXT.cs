@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceNestedCommandBufferFeaturesEXT : IMars
     public VkBool32 NestedCommandBufferRendering { get; set; }
     public VkBool32 NestedCommandBufferSimultaneousUse { get; set; }
 
+
     public static implicit operator PhysicalDeviceNestedCommandBufferFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceNestedCommandBufferFeaturesEXT p)
     {
         return new PhysicalDeviceNestedCommandBufferFeaturesEXT(in p);

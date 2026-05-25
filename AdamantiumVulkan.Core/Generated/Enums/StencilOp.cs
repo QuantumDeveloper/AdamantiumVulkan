@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10397 Column: 6
+// File: vk.xml Line: 12093 Column: 6
 public enum StencilOp : int
 {
     Keep = 0,

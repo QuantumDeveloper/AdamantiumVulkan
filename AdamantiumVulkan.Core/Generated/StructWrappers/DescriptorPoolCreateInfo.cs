@@ -30,6 +30,7 @@ public unsafe partial class DescriptorPoolCreateInfo : IMarshallableObject, IMar
     public uint PoolSizeCount { get; set; }
     public System.ReadOnlyMemory<DescriptorPoolSize> PoolSizes { get; set; }
 
+
     public static implicit operator DescriptorPoolCreateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorPoolCreateInfo d)
     {
         return new DescriptorPoolCreateInfo(in d);

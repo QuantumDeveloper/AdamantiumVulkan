@@ -33,6 +33,7 @@ public unsafe partial class CopyDescriptorSet : IMarshallableObject, IMarshallab
     public uint DstArrayElement { get; set; }
     public uint DescriptorCount { get; set; }
 
+
     public static implicit operator CopyDescriptorSet(AdamantiumVulkan.Core.Interop.VkCopyDescriptorSet c)
     {
         return new CopyDescriptorSet(in c);

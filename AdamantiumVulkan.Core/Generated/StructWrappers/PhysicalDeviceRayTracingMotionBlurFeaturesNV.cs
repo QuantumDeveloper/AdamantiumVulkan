@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceRayTracingMotionBlurFeaturesNV : IMars
     public VkBool32 RayTracingMotionBlur { get; set; }
     public VkBool32 RayTracingMotionBlurPipelineTraceRaysIndirect { get; set; }
 
+
     public static implicit operator PhysicalDeviceRayTracingMotionBlurFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingMotionBlurFeaturesNV p)
     {
         return new PhysicalDeviceRayTracingMotionBlurFeaturesNV(in p);

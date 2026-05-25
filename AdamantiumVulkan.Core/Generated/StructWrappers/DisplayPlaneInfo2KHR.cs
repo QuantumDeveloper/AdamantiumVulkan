@@ -28,6 +28,7 @@ public unsafe partial class DisplayPlaneInfo2KHR : IMarshallableObject, IMarshal
     public DisplayModeKHR Mode { get; set; }
     public uint PlaneIndex { get; set; }
 
+
     public static implicit operator DisplayPlaneInfo2KHR(AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR d)
     {
         return new DisplayPlaneInfo2KHR(in d);

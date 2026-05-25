@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceRayTracingPositionFetchFeaturesKHR : I
     public object PNext { get; set; }
     public VkBool32 RayTracingPositionFetch { get; set; }
 
+
     public static implicit operator PhysicalDeviceRayTracingPositionFetchFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR p)
     {
         return new PhysicalDeviceRayTracingPositionFetchFeaturesKHR(in p);

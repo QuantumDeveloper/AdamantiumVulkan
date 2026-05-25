@@ -27,6 +27,7 @@ public unsafe partial class SwapchainLatencyCreateInfoNV : IMarshallableObject, 
     public object PNext { get; set; }
     public VkBool32 LatencyModeEnable { get; set; }
 
+
     public static implicit operator SwapchainLatencyCreateInfoNV(AdamantiumVulkan.Core.Interop.VkSwapchainLatencyCreateInfoNV s)
     {
         return new SwapchainLatencyCreateInfoNV(in s);

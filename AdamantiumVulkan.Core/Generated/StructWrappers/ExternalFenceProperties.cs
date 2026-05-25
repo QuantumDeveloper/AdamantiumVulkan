@@ -29,6 +29,7 @@ public unsafe partial class ExternalFenceProperties : IMarshallableObject, IMars
     public ExternalFenceHandleTypeFlagBits CompatibleHandleTypes { get; set; }
     public ExternalFenceFeatureFlagBits ExternalFenceFeatures { get; set; }
 
+
     public static implicit operator ExternalFenceProperties(AdamantiumVulkan.Core.Interop.VkExternalFenceProperties e)
     {
         return new ExternalFenceProperties(in e);

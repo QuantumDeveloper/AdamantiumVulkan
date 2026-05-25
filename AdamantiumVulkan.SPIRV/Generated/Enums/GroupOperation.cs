@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 959 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 1040 Column: 14
 public enum GroupOperation : uint
 {
     Reduce = 0,
@@ -22,11 +22,11 @@ public enum GroupOperation : uint
 
     ClusteredReduce = 3,
 
-    PartitionedReduceNV = 6,
+    PartitionedReduceEXT = 6,
 
-    PartitionedInclusiveScanNV = 7,
+    PartitionedInclusiveScanEXT = 7,
 
-    PartitionedExclusiveScanNV = 8,
+    PartitionedExclusiveScanEXT = 8,
 
     Max = 2147483647,
 

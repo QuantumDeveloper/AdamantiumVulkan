@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceBlendOperationAdvancedFeaturesEXT : IM
     public object PNext { get; set; }
     public VkBool32 AdvancedBlendCoherentOperations { get; set; }
 
+
     public static implicit operator PhysicalDeviceBlendOperationAdvancedFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT p)
     {
         return new PhysicalDeviceBlendOperationAdvancedFeaturesEXT(in p);

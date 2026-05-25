@@ -28,6 +28,7 @@ public unsafe partial class WriteIndirectExecutionSetPipelineEXT : IMarshallable
     public uint Index { get; set; }
     public Pipeline Pipeline { get; set; }
 
+
     public static implicit operator WriteIndirectExecutionSetPipelineEXT(AdamantiumVulkan.Core.Interop.VkWriteIndirectExecutionSetPipelineEXT w)
     {
         return new WriteIndirectExecutionSetPipelineEXT(in w);

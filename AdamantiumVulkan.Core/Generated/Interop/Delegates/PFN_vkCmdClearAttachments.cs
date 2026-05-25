@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 13372 Column: 10
+// File: video.xml Line: 15298 Column: 10
 public unsafe struct PFN_vkCmdClearAttachments
 {
     public PFN_vkCmdClearAttachments(nuint ptr) : this((void*) ptr) { }

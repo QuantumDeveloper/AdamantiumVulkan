@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceBufferDeviceAddressFeaturesEXT : IMars
     public VkBool32 BufferDeviceAddressCaptureReplay { get; set; }
     public VkBool32 BufferDeviceAddressMultiDevice { get; set; }
 
+
     public static implicit operator PhysicalDeviceBufferDeviceAddressFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferDeviceAddressFeaturesEXT p)
     {
         return new PhysicalDeviceBufferDeviceAddressFeaturesEXT(in p);

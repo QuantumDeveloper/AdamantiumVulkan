@@ -29,6 +29,7 @@ public unsafe partial class VideoSessionParametersCreateInfoKHR : IMarshallableO
     public VideoSessionParametersKHR VideoSessionParametersTemplate { get; set; }
     public VideoSessionKHR VideoSession { get; set; }
 
+
     public static implicit operator VideoSessionParametersCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR v)
     {
         return new VideoSessionParametersCreateInfoKHR(in v);

@@ -26,6 +26,7 @@ public unsafe partial class StdVideoDecodeH265ReferenceInfo : IMarshallableObjec
     public StdVideoDecodeH265ReferenceInfoFlags Flags { get; set; }
     public int PicOrderCntVal { get; set; }
 
+
     public static implicit operator StdVideoDecodeH265ReferenceInfo(AdamantiumVulkan.Core.Interop.StdVideoDecodeH265ReferenceInfo s)
     {
         return new StdVideoDecodeH265ReferenceInfo(in s);

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11229 Column: 6
+// File: vk.xml Line: 12927 Column: 6
 [Flags]
 public enum IndirectCommandsLayoutUsageFlagBitsNV : uint
 {

@@ -11,11 +11,16 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 1483 Column: 14
-[Flags]
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 1689 Column: 14
 public enum FPEncoding : uint
 {
-    pvFPEncodingMax = 2147483647,
+    BFloat16KHR = 0,
+
+    Float8E4M3EXT = 4214,
+
+    Float8E5M2EXT = 4215,
+
+    Max = 2147483647,
 
 }
 

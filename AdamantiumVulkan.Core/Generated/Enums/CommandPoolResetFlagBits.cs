@@ -11,11 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10994 Column: 6
+// File: vk.xml Line: 12690 Column: 6
 [Flags]
 public enum CommandPoolResetFlagBits : uint
 {
     ReleaseResourcesBit = 1,
+
+    Reserved1BitCoreavi = 2,
 
 }
 

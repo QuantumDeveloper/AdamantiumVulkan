@@ -27,6 +27,7 @@ public unsafe partial class BufferDeviceAddressCreateInfoEXT : IMarshallableObje
     public object PNext { get; set; }
     public VkDeviceAddress DeviceAddress { get; set; }
 
+
     public static implicit operator BufferDeviceAddressCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressCreateInfoEXT b)
     {
         return new BufferDeviceAddressCreateInfoEXT(in b);

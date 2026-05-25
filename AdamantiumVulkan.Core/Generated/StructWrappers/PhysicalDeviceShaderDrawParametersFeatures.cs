@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderDrawParametersFeatures : IMarsha
     public object PNext { get; set; }
     public VkBool32 ShaderDrawParameters { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderDrawParametersFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDrawParametersFeatures p)
     {
         return new PhysicalDeviceShaderDrawParametersFeatures(in p);

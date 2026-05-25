@@ -29,6 +29,7 @@ public unsafe partial class AntiLagDataAMD : IMarshallableObject, IMarshallable<
     public uint MaxFPS { get; set; }
     public AntiLagPresentationInfoAMD PresentationInfo { get; set; }
 
+
     public static implicit operator AntiLagDataAMD(AdamantiumVulkan.Core.Interop.VkAntiLagDataAMD a)
     {
         return new AntiLagDataAMD(in a);

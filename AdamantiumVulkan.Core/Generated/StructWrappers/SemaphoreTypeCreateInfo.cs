@@ -28,6 +28,7 @@ public unsafe partial class SemaphoreTypeCreateInfo : IMarshallableObject, IMars
     public SemaphoreType SemaphoreType { get; set; }
     public ulong InitialValue { get; set; }
 
+
     public static implicit operator SemaphoreTypeCreateInfo(AdamantiumVulkan.Core.Interop.VkSemaphoreTypeCreateInfo s)
     {
         return new SemaphoreTypeCreateInfo(in s);

@@ -29,6 +29,7 @@ public unsafe partial class ClusterAccelerationStructureMoveObjectsInputNV : IMa
     public VkBool32 NoMoveOverlap { get; set; }
     public VkDeviceSize MaxMovedBytes { get; set; }
 
+
     public static implicit operator ClusterAccelerationStructureMoveObjectsInputNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureMoveObjectsInputNV c)
     {
         return new ClusterAccelerationStructureMoveObjectsInputNV(in c);

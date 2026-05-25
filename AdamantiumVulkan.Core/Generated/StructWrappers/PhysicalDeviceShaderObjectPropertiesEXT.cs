@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceShaderObjectPropertiesEXT : IMarshalla
     public System.ReadOnlyMemory<byte> ShaderBinaryUUID { get; set; }
     public uint ShaderBinaryVersion { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderObjectPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderObjectPropertiesEXT p)
     {
         return new PhysicalDeviceShaderObjectPropertiesEXT(in p);

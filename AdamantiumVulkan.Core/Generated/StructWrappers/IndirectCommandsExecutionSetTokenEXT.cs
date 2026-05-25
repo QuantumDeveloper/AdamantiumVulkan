@@ -26,6 +26,7 @@ public unsafe partial class IndirectCommandsExecutionSetTokenEXT : IMarshallable
     public IndirectExecutionSetInfoTypeEXT Type { get; set; }
     public ShaderStageFlagBits ShaderStages { get; set; }
 
+
     public static implicit operator IndirectCommandsExecutionSetTokenEXT(AdamantiumVulkan.Core.Interop.VkIndirectCommandsExecutionSetTokenEXT i)
     {
         return new IndirectCommandsExecutionSetTokenEXT(in i);

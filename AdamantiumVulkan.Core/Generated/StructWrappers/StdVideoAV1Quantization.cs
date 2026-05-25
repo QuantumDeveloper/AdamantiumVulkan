@@ -34,6 +34,7 @@ public unsafe partial class StdVideoAV1Quantization : IMarshallableObject, IMars
     public byte Qm_u { get; set; }
     public byte Qm_v { get; set; }
 
+
     public static implicit operator StdVideoAV1Quantization(AdamantiumVulkan.Core.Interop.StdVideoAV1Quantization s)
     {
         return new StdVideoAV1Quantization(in s);

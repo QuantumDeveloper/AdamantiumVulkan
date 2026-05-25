@@ -29,6 +29,7 @@ public unsafe partial class PerformanceValueDataINTEL : IMarshallableObject, IMa
     public VkBool32 ValueBool { get; set; }
     public string ValueString { get; set; }
 
+
     public static implicit operator PerformanceValueDataINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL p)
     {
         return new PerformanceValueDataINTEL(in p);
@@ -38,7 +39,7 @@ public unsafe partial class PerformanceValueDataINTEL : IMarshallableObject, IMa
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL>();
         if (!string.IsNullOrEmpty(ValueString))
-            size += System.Text.Encoding.UTF8.GetByteCount(ValueString) + 1;
+            size = Math.Max(size, System.Text.Encoding.UTF8.GetByteCount(ValueString) + 1);
         return size;
     }
 

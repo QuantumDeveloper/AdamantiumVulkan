@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePipelineOpacityMicromapFeaturesARM : I
     public object PNext { get; set; }
     public VkBool32 PipelineOpacityMicromap { get; set; }
 
+
     public static implicit operator PhysicalDevicePipelineOpacityMicromapFeaturesARM(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineOpacityMicromapFeaturesARM p)
     {
         return new PhysicalDevicePipelineOpacityMicromapFeaturesARM(in p);

@@ -28,6 +28,7 @@ public unsafe partial class PresentIdKHR : IMarshallableObject, IMarshallable<Ad
     public uint SwapchainCount { get; set; }
     public System.ReadOnlyMemory<ulong> PresentIds { get; set; }
 
+
     public static implicit operator PresentIdKHR(AdamantiumVulkan.Core.Interop.VkPresentIdKHR p)
     {
         return new PresentIdKHR(in p);

@@ -29,6 +29,7 @@ public unsafe partial class PipelineCoverageToColorStateCreateInfoNV : IMarshall
     public VkBool32 CoverageToColorEnable { get; set; }
     public uint CoverageToColorLocation { get; set; }
 
+
     public static implicit operator PipelineCoverageToColorStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineCoverageToColorStateCreateInfoNV p)
     {
         return new PipelineCoverageToColorStateCreateInfoNV(in p);

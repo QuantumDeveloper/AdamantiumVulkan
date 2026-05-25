@@ -28,6 +28,7 @@ public unsafe partial class IndirectExecutionSetPipelineInfoEXT : IMarshallableO
     public Pipeline InitialPipeline { get; set; }
     public uint MaxPipelineCount { get; set; }
 
+
     public static implicit operator IndirectExecutionSetPipelineInfoEXT(AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetPipelineInfoEXT i)
     {
         return new IndirectExecutionSetPipelineInfoEXT(in i);

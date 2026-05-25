@@ -25,6 +25,7 @@ public unsafe partial class BindPipelineIndirectCommandNV : IMarshallableObject,
 
     public VkDeviceAddress PipelineAddress { get; set; }
 
+
     public static implicit operator BindPipelineIndirectCommandNV(AdamantiumVulkan.Core.Interop.VkBindPipelineIndirectCommandNV b)
     {
         return new BindPipelineIndirectCommandNV(in b);

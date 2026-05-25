@@ -27,6 +27,7 @@ public unsafe partial class PipelineRasterizationStateRasterizationOrderAMD : IM
     public object PNext { get; set; }
     public RasterizationOrderAMD RasterizationOrder { get; set; }
 
+
     public static implicit operator PipelineRasterizationStateRasterizationOrderAMD(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationStateRasterizationOrderAMD p)
     {
         return new PipelineRasterizationStateRasterizationOrderAMD(in p);

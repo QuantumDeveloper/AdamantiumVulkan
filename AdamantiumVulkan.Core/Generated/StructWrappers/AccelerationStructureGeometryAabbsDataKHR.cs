@@ -28,6 +28,7 @@ public unsafe partial class AccelerationStructureGeometryAabbsDataKHR : IMarshal
     public DeviceOrHostAddressConstKHR Data { get; set; }
     public VkDeviceSize Stride { get; set; }
 
+
     public static implicit operator AccelerationStructureGeometryAabbsDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryAabbsDataKHR a)
     {
         return new AccelerationStructureGeometryAabbsDataKHR(in a);
@@ -40,6 +41,8 @@ public unsafe partial class AccelerationStructureGeometryAabbsDataKHR : IMarshal
         {
             size += marshallable.GetSize();
         }
+        if (Data != default)
+            size += Data.GetSize();
         return size;
     }
 

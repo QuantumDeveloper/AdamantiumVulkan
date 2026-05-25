@@ -30,6 +30,7 @@ public unsafe partial class SpvcBufferRange : IMarshallable<AdamantiumVulkan.Spi
     public ulong Offset { get; set; }
     public ulong Range { get; set; }
 
+
     public static implicit operator SpvcBufferRange(AdamantiumVulkan.Spirv.Cross.Interop.SpvcBufferRange s)
     {
         return new SpvcBufferRange(in s);

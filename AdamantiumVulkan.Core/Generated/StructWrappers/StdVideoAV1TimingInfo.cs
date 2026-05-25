@@ -28,6 +28,7 @@ public unsafe partial class StdVideoAV1TimingInfo : IMarshallableObject, IMarsha
     public uint Time_scale { get; set; }
     public uint Num_ticks_per_picture_minus_1 { get; set; }
 
+
     public static implicit operator StdVideoAV1TimingInfo(AdamantiumVulkan.Core.Interop.StdVideoAV1TimingInfo s)
     {
         return new StdVideoAV1TimingInfo(in s);

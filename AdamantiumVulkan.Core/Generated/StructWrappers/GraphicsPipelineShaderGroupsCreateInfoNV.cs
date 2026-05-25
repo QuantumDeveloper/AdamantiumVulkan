@@ -30,6 +30,7 @@ public unsafe partial class GraphicsPipelineShaderGroupsCreateInfoNV : IMarshall
     public uint PipelineCount { get; set; }
     public System.ReadOnlyMemory<Pipeline> Pipelines { get; set; }
 
+
     public static implicit operator GraphicsPipelineShaderGroupsCreateInfoNV(AdamantiumVulkan.Core.Interop.VkGraphicsPipelineShaderGroupsCreateInfoNV g)
     {
         return new GraphicsPipelineShaderGroupsCreateInfoNV(in g);

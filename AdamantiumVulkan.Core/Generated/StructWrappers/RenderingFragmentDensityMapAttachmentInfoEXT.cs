@@ -28,6 +28,7 @@ public unsafe partial class RenderingFragmentDensityMapAttachmentInfoEXT : IMars
     public ImageView ImageView { get; set; }
     public ImageLayout ImageLayout { get; set; }
 
+
     public static implicit operator RenderingFragmentDensityMapAttachmentInfoEXT(AdamantiumVulkan.Core.Interop.VkRenderingFragmentDensityMapAttachmentInfoEXT r)
     {
         return new RenderingFragmentDensityMapAttachmentInfoEXT(in r);

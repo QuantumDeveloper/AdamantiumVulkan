@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 555 Column: 10
+// File: vk.xml Line: 601 Column: 10
 public unsafe partial class Queue : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkQueue_T>
 {
     internal VkQueue_T __Instance;
@@ -324,6 +324,32 @@ public unsafe partial class Queue : IUnmanagedWrapper<AdamantiumVulkan.Core.Inte
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PresentInfoKHR, AdamantiumVulkan.Core.Interop.VkPresentInfoKHR>(pPresentInfo, ref currentCursor);
             return Commands.vkQueuePresentKHR(this, arg1);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result QueueSetPerfHintQCOM(in PerfHintInfoQCOM pPerfHintInfo)
+    {
+        int CalculateSize(PerfHintInfoQCOM pPerfHintInfo)
+        {
+            int totalSize = 0;
+            if (pPerfHintInfo != null)
+                totalSize += pPerfHintInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pPerfHintInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerfHintInfoQCOM, AdamantiumVulkan.Core.Interop.VkPerfHintInfoQCOM>(pPerfHintInfo, ref currentCursor);
+            return Commands.vkQueueSetPerfHintQCOM(this, arg1);
         }
         finally
         {

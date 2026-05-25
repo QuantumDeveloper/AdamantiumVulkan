@@ -28,6 +28,7 @@ public unsafe partial class AcquireProfilingLockInfoKHR : IMarshallableObject, I
     public AcquireProfilingLockFlagBitsKHR Flags { get; set; }
     public ulong Timeout { get; set; }
 
+
     public static implicit operator AcquireProfilingLockInfoKHR(AdamantiumVulkan.Core.Interop.VkAcquireProfilingLockInfoKHR a)
     {
         return new AcquireProfilingLockInfoKHR(in a);

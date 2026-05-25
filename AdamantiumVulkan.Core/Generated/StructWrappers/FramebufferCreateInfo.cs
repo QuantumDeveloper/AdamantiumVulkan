@@ -33,6 +33,7 @@ public unsafe partial class FramebufferCreateInfo : IMarshallableObject, IMarsha
     public uint Height { get; set; }
     public uint Layers { get; set; }
 
+
     public static implicit operator FramebufferCreateInfo(AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo f)
     {
         return new FramebufferCreateInfo(in f);

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10331 Column: 6
+// File: vk.xml Line: 12027 Column: 6
 public enum Filter : int
 {
     Nearest = 0,

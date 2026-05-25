@@ -32,6 +32,7 @@ public unsafe partial class ResolveImageInfo2 : IMarshallableObject, IMarshallab
     public uint RegionCount { get; set; }
     public System.ReadOnlyMemory<ImageResolve2> PRegions { get; set; }
 
+
     public static implicit operator ResolveImageInfo2(AdamantiumVulkan.Core.Interop.VkResolveImageInfo2 r)
     {
         return new ResolveImageInfo2(in r);

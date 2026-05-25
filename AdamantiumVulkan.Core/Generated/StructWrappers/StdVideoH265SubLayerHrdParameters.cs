@@ -29,6 +29,7 @@ public unsafe partial class StdVideoH265SubLayerHrdParameters : IMarshallableObj
     public System.ReadOnlyMemory<uint> Bit_rate_du_value_minus1 { get; set; }
     public uint Cbr_flag { get; set; }
 
+
     public static implicit operator StdVideoH265SubLayerHrdParameters(AdamantiumVulkan.Core.Interop.StdVideoH265SubLayerHrdParameters s)
     {
         return new StdVideoH265SubLayerHrdParameters(in s);

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 809 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 870 Column: 14
 public enum LoopControlShift : uint
 {
     UnrollShift = 0,
@@ -32,25 +32,25 @@ public enum LoopControlShift : uint
 
     PartialCountShift = 8,
 
-    InitiationIntervalINTELShift = 16,
+    InitiationIntervalALTERAShift = 16,
 
-    MaxConcurrencyINTELShift = 17,
+    MaxConcurrencyALTERAShift = 17,
 
-    DependencyArrayINTELShift = 18,
+    DependencyArrayALTERAShift = 18,
 
-    PipelineEnableINTELShift = 19,
+    PipelineEnableALTERAShift = 19,
 
-    LoopCoalesceINTELShift = 20,
+    LoopCoalesceALTERAShift = 20,
 
-    MaxInterleavingINTELShift = 21,
+    MaxInterleavingALTERAShift = 21,
 
-    SpeculatedIterationsINTELShift = 22,
+    SpeculatedIterationsALTERAShift = 22,
 
-    NoFusionINTELShift = 23,
+    NoFusionALTERAShift = 23,
 
-    LoopCountINTELShift = 24,
+    LoopCountALTERAShift = 24,
 
-    MaxReinvocationDelayINTELShift = 25,
+    MaxReinvocationDelayALTERAShift = 25,
 
     Max = 2147483647,
 

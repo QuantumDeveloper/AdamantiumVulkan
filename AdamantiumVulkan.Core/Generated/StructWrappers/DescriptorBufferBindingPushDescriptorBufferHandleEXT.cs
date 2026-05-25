@@ -27,6 +27,7 @@ public unsafe partial class DescriptorBufferBindingPushDescriptorBufferHandleEXT
     public object PNext { get; set; }
     public Buffer Buffer { get; set; }
 
+
     public static implicit operator DescriptorBufferBindingPushDescriptorBufferHandleEXT(AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingPushDescriptorBufferHandleEXT d)
     {
         return new DescriptorBufferBindingPushDescriptorBufferHandleEXT(in d);

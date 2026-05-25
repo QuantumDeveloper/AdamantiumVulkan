@@ -27,6 +27,7 @@ public unsafe partial class DeviceDiagnosticsConfigCreateInfoNV : IMarshallableO
     public object PNext { get; set; }
     public DeviceDiagnosticsConfigFlagBitsNV Flags { get; set; }
 
+
     public static implicit operator DeviceDiagnosticsConfigCreateInfoNV(AdamantiumVulkan.Core.Interop.VkDeviceDiagnosticsConfigCreateInfoNV d)
     {
         return new DeviceDiagnosticsConfigCreateInfoNV(in d);

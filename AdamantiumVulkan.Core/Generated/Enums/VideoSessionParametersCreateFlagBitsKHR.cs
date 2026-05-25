@@ -11,10 +11,12 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11877 Column: 6
+// File: vk.xml Line: 13603 Column: 6
 [Flags]
 public enum VideoSessionParametersCreateFlagBitsKHR : uint
 {
+    QuantizationMapCompatibleBitKhr = 1,
+
 }
 
 

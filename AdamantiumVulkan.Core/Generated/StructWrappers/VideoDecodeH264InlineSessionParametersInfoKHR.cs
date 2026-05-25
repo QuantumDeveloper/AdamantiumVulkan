@@ -28,6 +28,7 @@ public unsafe partial class VideoDecodeH264InlineSessionParametersInfoKHR : IMar
     public StdVideoH264SequenceParameterSet PStdSPS { get; set; }
     public StdVideoH264PictureParameterSet PStdPPS { get; set; }
 
+
     public static implicit operator VideoDecodeH264InlineSessionParametersInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeH264InlineSessionParametersInfoKHR v)
     {
         return new VideoDecodeH264InlineSessionParametersInfoKHR(in v);

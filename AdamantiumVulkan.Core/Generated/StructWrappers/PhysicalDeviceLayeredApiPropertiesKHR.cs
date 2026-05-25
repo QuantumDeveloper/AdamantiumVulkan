@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceLayeredApiPropertiesKHR : IMarshallabl
     public PhysicalDeviceLayeredApiKHR LayeredAPI { get; set; }
     public string DeviceName { get; set; }
 
+
     public static implicit operator PhysicalDeviceLayeredApiPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesKHR p)
     {
         return new PhysicalDeviceLayeredApiPropertiesKHR(in p);

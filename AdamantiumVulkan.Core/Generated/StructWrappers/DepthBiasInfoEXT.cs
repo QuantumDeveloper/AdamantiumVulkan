@@ -29,6 +29,7 @@ public unsafe partial class DepthBiasInfoEXT : IMarshallableObject, IMarshallabl
     public float DepthBiasClamp { get; set; }
     public float DepthBiasSlopeFactor { get; set; }
 
+
     public static implicit operator DepthBiasInfoEXT(AdamantiumVulkan.Core.Interop.VkDepthBiasInfoEXT d)
     {
         return new DepthBiasInfoEXT(in d);

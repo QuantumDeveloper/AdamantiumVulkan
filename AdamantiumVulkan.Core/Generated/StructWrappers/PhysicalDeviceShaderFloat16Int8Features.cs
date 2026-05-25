@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceShaderFloat16Int8Features : IMarshalla
     public VkBool32 ShaderFloat16 { get; set; }
     public VkBool32 ShaderInt8 { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderFloat16Int8Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderFloat16Int8Features p)
     {
         return new PhysicalDeviceShaderFloat16Int8Features(in p);

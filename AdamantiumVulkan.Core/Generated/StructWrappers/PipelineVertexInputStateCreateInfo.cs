@@ -31,6 +31,7 @@ public unsafe partial class PipelineVertexInputStateCreateInfo : IMarshallableOb
     public uint VertexAttributeDescriptionCount { get; set; }
     public System.ReadOnlyMemory<VertexInputAttributeDescription> PVertexAttributeDescriptions { get; set; }
 
+
     public static implicit operator PipelineVertexInputStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo p)
     {
         return new PipelineVertexInputStateCreateInfo(in p);

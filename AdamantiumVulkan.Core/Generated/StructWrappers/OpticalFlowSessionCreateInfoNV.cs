@@ -35,6 +35,7 @@ public unsafe partial class OpticalFlowSessionCreateInfoNV : IMarshallableObject
     public OpticalFlowPerformanceLevelNV PerformanceLevel { get; set; }
     public OpticalFlowSessionCreateFlagBitsNV Flags { get; set; }
 
+
     public static implicit operator OpticalFlowSessionCreateInfoNV(AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV o)
     {
         return new OpticalFlowSessionCreateInfoNV(in o);

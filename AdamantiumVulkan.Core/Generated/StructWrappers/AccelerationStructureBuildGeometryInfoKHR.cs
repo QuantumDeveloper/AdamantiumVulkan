@@ -34,6 +34,7 @@ public unsafe partial class AccelerationStructureBuildGeometryInfoKHR : IMarshal
     public System.ReadOnlyMemory<AccelerationStructureGeometryKHR> PGeometries { get; set; }
     public DeviceOrHostAddressKHR ScratchData { get; set; }
 
+
     public static implicit operator AccelerationStructureBuildGeometryInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR a)
     {
         return new AccelerationStructureBuildGeometryInfoKHR(in a);
@@ -56,6 +57,8 @@ public unsafe partial class AccelerationStructureBuildGeometryInfoKHR : IMarshal
                     size += PGeometries.Span[i].GetSize();
             }
         }
+        if (ScratchData != default)
+            size += ScratchData.GetSize();
         return size;
     }
 

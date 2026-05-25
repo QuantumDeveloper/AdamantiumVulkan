@@ -13,7 +13,7 @@ using AdamantiumVulkan.Shaders.Interop;
 
 namespace AdamantiumVulkan.Shaders;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\shaderc\shaderc.h Line: 277 Column: 41
+// File: C:\VulkanSDK\1.4.350.0\Include\shaderc\shaderc.h Line: 277 Column: 41
 ///<summary>
 /// An opaque handle to an object that manages options to a single compilation result.
 ///</summary>
@@ -268,6 +268,11 @@ public unsafe partial class ShadercCompileOptionsT : IUnmanagedWrapper<Adamantiu
     public void SetLimit(ShadercLimit limit, int value)
     {
         AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_limit(this, limit, value);
+    }
+
+    public void SetMaxIdBound(uint max_id_bound)
+    {
+        AdamantiumVulkan.Shaders.Interop.VulkanShadersInterop.shaderc_compile_options_set_max_id_bound(this, max_id_bound);
     }
 
     ///<summary>

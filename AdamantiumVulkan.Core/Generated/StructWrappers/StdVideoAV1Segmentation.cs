@@ -26,6 +26,7 @@ public unsafe partial class StdVideoAV1Segmentation : IMarshallableObject, IMars
     public System.ReadOnlyMemory<byte> FeatureEnabled { get; set; }
     public System.ReadOnlyMemory<short> FeatureData { get; set; }
 
+
     public static implicit operator StdVideoAV1Segmentation(AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation s)
     {
         return new StdVideoAV1Segmentation(in s);

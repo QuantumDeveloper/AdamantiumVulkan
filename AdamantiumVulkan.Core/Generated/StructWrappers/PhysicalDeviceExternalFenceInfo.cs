@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceExternalFenceInfo : IMarshallableObjec
     public object PNext { get; set; }
     public ExternalFenceHandleTypeFlagBits HandleType { get; set; }
 
+
     public static implicit operator PhysicalDeviceExternalFenceInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo p)
     {
         return new PhysicalDeviceExternalFenceInfo(in p);

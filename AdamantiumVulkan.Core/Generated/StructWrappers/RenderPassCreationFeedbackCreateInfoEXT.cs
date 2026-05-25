@@ -27,6 +27,7 @@ public unsafe partial class RenderPassCreationFeedbackCreateInfoEXT : IMarshalla
     public object PNext { get; set; }
     public RenderPassCreationFeedbackInfoEXT PRenderPassFeedback { get; set; }
 
+
     public static implicit operator RenderPassCreationFeedbackCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkRenderPassCreationFeedbackCreateInfoEXT r)
     {
         return new RenderPassCreationFeedbackCreateInfoEXT(in r);

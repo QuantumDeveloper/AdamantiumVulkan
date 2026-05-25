@@ -28,6 +28,7 @@ public unsafe partial class AccelerationStructureCaptureDescriptorDataInfoEXT : 
     public AccelerationStructureKHR AccelerationStructure { get; set; }
     public AccelerationStructureNV AccelerationStructureNV { get; set; }
 
+
     public static implicit operator AccelerationStructureCaptureDescriptorDataInfoEXT(AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT a)
     {
         return new AccelerationStructureCaptureDescriptorDataInfoEXT(in a);

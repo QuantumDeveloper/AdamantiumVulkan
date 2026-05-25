@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceIndexTypeUint8Features : IMarshallable
     public object PNext { get; set; }
     public VkBool32 IndexTypeUint8 { get; set; }
 
+
     public static implicit operator PhysicalDeviceIndexTypeUint8Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceIndexTypeUint8Features p)
     {
         return new PhysicalDeviceIndexTypeUint8Features(in p);

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11414 Column: 6
+// File: vk.xml Line: 13112 Column: 6
 [Flags]
 public enum DescriptorBindingFlagBits : uint
 {
@@ -22,6 +22,8 @@ public enum DescriptorBindingFlagBits : uint
     PartiallyBoundBit = 4,
 
     VariableDescriptorCountBit = 8,
+
+    Reserved4BitQcom = 16,
 
 }
 

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 14848 Column: 10
+// File: video.xml Line: 16797 Column: 10
 public unsafe struct PFN_vkCmdSetCoarseSampleOrderNV
 {
     public PFN_vkCmdSetCoarseSampleOrderNV(nuint ptr) : this((void*) ptr) { }

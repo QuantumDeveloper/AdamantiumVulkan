@@ -27,6 +27,7 @@ public unsafe partial class DeviceMemoryOpaqueCaptureAddressInfo : IMarshallable
     public object PNext { get; set; }
     public DeviceMemory Memory { get; set; }
 
+
     public static implicit operator DeviceMemoryOpaqueCaptureAddressInfo(AdamantiumVulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo d)
     {
         return new DeviceMemoryOpaqueCaptureAddressInfo(in d);

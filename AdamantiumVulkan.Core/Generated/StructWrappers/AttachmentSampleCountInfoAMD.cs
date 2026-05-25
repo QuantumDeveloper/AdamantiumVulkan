@@ -29,6 +29,7 @@ public unsafe partial class AttachmentSampleCountInfoAMD : IMarshallableObject, 
     public System.ReadOnlyMemory<SampleCountFlagBits> PColorAttachmentSamples { get; set; }
     public SampleCountFlagBits DepthStencilAttachmentSamples { get; set; }
 
+
     public static implicit operator AttachmentSampleCountInfoAMD(AdamantiumVulkan.Core.Interop.VkAttachmentSampleCountInfoAMD a)
     {
         return new AttachmentSampleCountInfoAMD(in a);

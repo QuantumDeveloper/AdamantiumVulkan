@@ -29,6 +29,7 @@ public unsafe partial class PipelineCacheCreateInfo : IMarshallableObject, IMars
     public nuint InitialDataSize { get; set; }
     public System.ReadOnlyMemory<byte> PInitialData { get; set; }
 
+
     public static implicit operator PipelineCacheCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineCacheCreateInfo p)
     {
         return new PipelineCacheCreateInfo(in p);

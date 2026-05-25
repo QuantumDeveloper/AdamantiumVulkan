@@ -28,6 +28,7 @@ public unsafe partial class AmigoProfilingSubmitInfoSEC : IMarshallableObject, I
     public ulong FirstDrawTimestamp { get; set; }
     public ulong SwapBufferTimestamp { get; set; }
 
+
     public static implicit operator AmigoProfilingSubmitInfoSEC(AdamantiumVulkan.Core.Interop.VkAmigoProfilingSubmitInfoSEC a)
     {
         return new AmigoProfilingSubmitInfoSEC(in a);

@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceExtendedSparseAddressSpacePropertiesNV
     public ImageUsageFlagBits ExtendedSparseImageUsageFlags { get; set; }
     public BufferUsageFlagBits ExtendedSparseBufferUsageFlags { get; set; }
 
+
     public static implicit operator PhysicalDeviceExtendedSparseAddressSpacePropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV p)
     {
         return new PhysicalDeviceExtendedSparseAddressSpacePropertiesNV(in p);

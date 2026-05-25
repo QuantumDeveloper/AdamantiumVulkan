@@ -30,6 +30,7 @@ public unsafe partial class ValidationFeaturesEXT : IMarshallableObject, IMarsha
     public uint DisabledValidationFeatureCount { get; set; }
     public System.ReadOnlyMemory<ValidationFeatureDisableEXT> PDisabledValidationFeatures { get; set; }
 
+
     public static implicit operator ValidationFeaturesEXT(AdamantiumVulkan.Core.Interop.VkValidationFeaturesEXT v)
     {
         return new ValidationFeaturesEXT(in v);

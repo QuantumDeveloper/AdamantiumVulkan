@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceRelaxedLineRasterizationFeaturesIMG : 
     public object PNext { get; set; }
     public VkBool32 RelaxedLineRasterization { get; set; }
 
+
     public static implicit operator PhysicalDeviceRelaxedLineRasterizationFeaturesIMG(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG p)
     {
         return new PhysicalDeviceRelaxedLineRasterizationFeaturesIMG(in p);

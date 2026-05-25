@@ -27,6 +27,7 @@ public unsafe partial class VideoEncodeQuantizationMapSessionParametersCreateInf
     public object PNext { get; set; }
     public Extent2D QuantizationMapTexelSize { get; set; }
 
+
     public static implicit operator VideoEncodeQuantizationMapSessionParametersCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR v)
     {
         return new VideoEncodeQuantizationMapSessionParametersCreateInfoKHR(in v);

@@ -49,6 +49,7 @@ public unsafe partial class StdVideoAV1FilmGrain : IMarshallableObject, IMarshal
     public byte Cr_luma_mult { get; set; }
     public ushort Cr_offset { get; set; }
 
+
     public static implicit operator StdVideoAV1FilmGrain(AdamantiumVulkan.Core.Interop.StdVideoAV1FilmGrain s)
     {
         return new StdVideoAV1FilmGrain(in s);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceYcbcrImageArraysFeaturesEXT : IMarshal
     public object PNext { get; set; }
     public VkBool32 YcbcrImageArrays { get; set; }
 
+
     public static implicit operator PhysicalDeviceYcbcrImageArraysFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceYcbcrImageArraysFeaturesEXT p)
     {
         return new PhysicalDeviceYcbcrImageArraysFeaturesEXT(in p);

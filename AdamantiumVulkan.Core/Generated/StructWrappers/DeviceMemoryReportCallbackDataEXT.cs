@@ -33,6 +33,7 @@ public unsafe partial class DeviceMemoryReportCallbackDataEXT : IMarshallableObj
     public ulong ObjectHandle { get; set; }
     public uint HeapIndex { get; set; }
 
+
     public static implicit operator DeviceMemoryReportCallbackDataEXT(AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT d)
     {
         return new DeviceMemoryReportCallbackDataEXT(in d);

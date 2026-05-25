@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderImageFootprintFeaturesNV : IMars
     public object PNext { get; set; }
     public VkBool32 ImageFootprint { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderImageFootprintFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderImageFootprintFeaturesNV p)
     {
         return new PhysicalDeviceShaderImageFootprintFeaturesNV(in p);

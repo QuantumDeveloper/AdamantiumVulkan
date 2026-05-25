@@ -31,6 +31,7 @@ public unsafe partial class PipelineLayoutCreateInfo : IMarshallableObject, IMar
     public uint PushConstantRangeCount { get; set; }
     public System.ReadOnlyMemory<PushConstantRange> PushConstantRanges { get; set; }
 
+
     public static implicit operator PipelineLayoutCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineLayoutCreateInfo p)
     {
         return new PipelineLayoutCreateInfo(in p);

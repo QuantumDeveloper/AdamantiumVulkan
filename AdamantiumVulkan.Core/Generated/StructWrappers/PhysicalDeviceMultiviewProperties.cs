@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceMultiviewProperties : IMarshallableObj
     public uint MaxMultiviewViewCount { get; set; }
     public uint MaxMultiviewInstanceIndex { get; set; }
 
+
     public static implicit operator PhysicalDeviceMultiviewProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMultiviewProperties p)
     {
         return new PhysicalDeviceMultiviewProperties(in p);

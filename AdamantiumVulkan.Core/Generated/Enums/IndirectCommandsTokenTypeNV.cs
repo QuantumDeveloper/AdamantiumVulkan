@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11237 Column: 6
+// File: vk.xml Line: 12935 Column: 6
 public enum IndirectCommandsTokenTypeNV : int
 {
     ShaderGroupNv = 0,
@@ -29,6 +29,8 @@ public enum IndirectCommandsTokenTypeNV : int
     DrawNv = 6,
 
     DrawTasksNv = 7,
+
+    PushDataNv = 1000135000,
 
     DrawMeshTasksNv = 1000328000,
 

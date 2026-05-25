@@ -33,6 +33,7 @@ public unsafe partial class PhysicalDeviceCooperativeMatrix2FeaturesNV : IMarsha
     public VkBool32 CooperativeMatrixTensorAddressing { get; set; }
     public VkBool32 CooperativeMatrixBlockLoads { get; set; }
 
+
     public static implicit operator PhysicalDeviceCooperativeMatrix2FeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrix2FeaturesNV p)
     {
         return new PhysicalDeviceCooperativeMatrix2FeaturesNV(in p);

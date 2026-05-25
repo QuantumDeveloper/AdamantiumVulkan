@@ -32,6 +32,7 @@ public unsafe partial class IndirectExecutionSetShaderInfoEXT : IMarshallableObj
     public uint PushConstantRangeCount { get; set; }
     public System.ReadOnlyMemory<PushConstantRange> PushConstantRanges { get; set; }
 
+
     public static implicit operator IndirectExecutionSetShaderInfoEXT(AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetShaderInfoEXT i)
     {
         return new IndirectExecutionSetShaderInfoEXT(in i);

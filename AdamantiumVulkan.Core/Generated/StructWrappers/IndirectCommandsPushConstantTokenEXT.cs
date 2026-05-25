@@ -25,6 +25,7 @@ public unsafe partial class IndirectCommandsPushConstantTokenEXT : IMarshallable
 
     public PushConstantRange UpdateRange { get; set; }
 
+
     public static implicit operator IndirectCommandsPushConstantTokenEXT(AdamantiumVulkan.Core.Interop.VkIndirectCommandsPushConstantTokenEXT i)
     {
         return new IndirectCommandsPushConstantTokenEXT(in i);

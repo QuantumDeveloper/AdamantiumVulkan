@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceSchedulingControlsFeaturesARM : IMarsh
     public object PNext { get; set; }
     public VkBool32 SchedulingControls { get; set; }
 
+
     public static implicit operator PhysicalDeviceSchedulingControlsFeaturesARM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSchedulingControlsFeaturesARM p)
     {
         return new PhysicalDeviceSchedulingControlsFeaturesARM(in p);

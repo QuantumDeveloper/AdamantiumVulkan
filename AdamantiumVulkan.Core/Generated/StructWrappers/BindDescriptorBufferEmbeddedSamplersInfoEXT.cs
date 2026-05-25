@@ -29,6 +29,7 @@ public unsafe partial class BindDescriptorBufferEmbeddedSamplersInfoEXT : IMarsh
     public PipelineLayout Layout { get; set; }
     public uint Set { get; set; }
 
+
     public static implicit operator BindDescriptorBufferEmbeddedSamplersInfoEXT(AdamantiumVulkan.Core.Interop.VkBindDescriptorBufferEmbeddedSamplersInfoEXT b)
     {
         return new BindDescriptorBufferEmbeddedSamplersInfoEXT(in b);

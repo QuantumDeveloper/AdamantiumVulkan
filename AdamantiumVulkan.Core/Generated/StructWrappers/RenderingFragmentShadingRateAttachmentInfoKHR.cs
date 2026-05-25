@@ -29,6 +29,7 @@ public unsafe partial class RenderingFragmentShadingRateAttachmentInfoKHR : IMar
     public ImageLayout ImageLayout { get; set; }
     public Extent2D ShadingRateAttachmentTexelSize { get; set; }
 
+
     public static implicit operator RenderingFragmentShadingRateAttachmentInfoKHR(AdamantiumVulkan.Core.Interop.VkRenderingFragmentShadingRateAttachmentInfoKHR r)
     {
         return new RenderingFragmentShadingRateAttachmentInfoKHR(in r);

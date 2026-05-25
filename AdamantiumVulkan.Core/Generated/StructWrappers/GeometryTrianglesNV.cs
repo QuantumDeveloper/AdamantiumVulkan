@@ -37,6 +37,7 @@ public unsafe partial class GeometryTrianglesNV : IMarshallableObject, IMarshall
     public Buffer TransformData { get; set; }
     public VkDeviceSize TransformOffset { get; set; }
 
+
     public static implicit operator GeometryTrianglesNV(AdamantiumVulkan.Core.Interop.VkGeometryTrianglesNV g)
     {
         return new GeometryTrianglesNV(in g);

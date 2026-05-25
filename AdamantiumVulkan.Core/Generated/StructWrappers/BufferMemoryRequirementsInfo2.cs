@@ -27,6 +27,7 @@ public unsafe partial class BufferMemoryRequirementsInfo2 : IMarshallableObject,
     public object PNext { get; set; }
     public Buffer Buffer { get; set; }
 
+
     public static implicit operator BufferMemoryRequirementsInfo2(AdamantiumVulkan.Core.Interop.VkBufferMemoryRequirementsInfo2 b)
     {
         return new BufferMemoryRequirementsInfo2(in b);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceRayTracingInvocationReorderFeaturesNV 
     public object PNext { get; set; }
     public VkBool32 RayTracingInvocationReorder { get; set; }
 
+
     public static implicit operator PhysicalDeviceRayTracingInvocationReorderFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV p)
     {
         return new PhysicalDeviceRayTracingInvocationReorderFeaturesNV(in p);

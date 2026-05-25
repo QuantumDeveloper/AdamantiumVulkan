@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11739 Column: 6
+// File: vk.xml Line: 13441 Column: 6
 [Flags]
 public enum AccessFlagBits2 : ulong
 {
@@ -56,6 +56,84 @@ public enum AccessFlagBits2 : ulong
     ShaderStorageReadBit = 8589934592,
 
     ShaderStorageWriteBit = 17179869184,
+
+    VideoDecodeReadBitKhr = 34359738368,
+
+    VideoDecodeWriteBitKhr = 68719476736,
+
+    SamplerHeapReadBitExt = 144115188075855872,
+
+    ResourceHeapReadBitExt = 288230376151711744,
+
+    Reserved46BitIntel = 70368744177664,
+
+    VideoEncodeReadBitKhr = 137438953472,
+
+    VideoEncodeWriteBitKhr = 274877906944,
+
+    ShaderTileAttachmentReadBitQcom = 2251799813685248,
+
+    ShaderTileAttachmentWriteBitQcom = 4503599627370496,
+
+    TransformFeedbackWriteBitExt = 33554432,
+
+    TransformFeedbackCounterReadBitExt = 67108864,
+
+    TransformFeedbackCounterWriteBitExt = 134217728,
+
+    ConditionalRenderingReadBitExt = 1048576,
+
+    CommandPreprocessReadBitExt = 131072,
+
+    CommandPreprocessWriteBitExt = 262144,
+
+    FragmentShadingRateAttachmentReadBitKhr = 8388608,
+
+    AccelerationStructureReadBitKhr = 2097152,
+
+    AccelerationStructureWriteBitKhr = 4194304,
+
+    FragmentDensityMapReadBitExt = 16777216,
+
+    ColorAttachmentReadNoncoherentBitExt = 524288,
+
+    DescriptorBufferReadBitExt = 2199023255552,
+
+    InvocationMaskReadBitHuawei = 549755813888,
+
+    ShaderBindingTableReadBitKhr = 1099511627776,
+
+    MicromapReadBitExt = 17592186044416,
+
+    MicromapWriteBitExt = 35184372088832,
+
+    OpticalFlowReadBitNv = 4398046511104,
+
+    OpticalFlowWriteBitNv = 8796093022208,
+
+    DataGraphReadBitArm = 140737488355328,
+
+    DataGraphWriteBitArm = 281474976710656,
+
+    MemoryDecompressionReadBitExt = 36028797018963968,
+
+    MemoryDecompressionWriteBitExt = 72057594037927936,
+
+    Reserved62BitExt = 4611686018427387904,
+
+    Reserved63BitExt = 9223372036854775808,
+
+    Reserved60BitKhr = 1152921504606846976,
+
+    Reserved61BitKhr = 2305843009213693952,
+
+    Reserved28BitAmd = 268435456,
+
+    Reserved29BitAmd = 536870912,
+
+    Reserved49BitArm = 562949953421312,
+
+    Reserved50BitArm = 1125899906842624,
 
 }
 

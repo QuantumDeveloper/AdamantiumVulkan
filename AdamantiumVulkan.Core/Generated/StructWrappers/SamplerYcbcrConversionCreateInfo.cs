@@ -34,6 +34,7 @@ public unsafe partial class SamplerYcbcrConversionCreateInfo : IMarshallableObje
     public Filter ChromaFilter { get; set; }
     public VkBool32 ForceExplicitReconstruction { get; set; }
 
+
     public static implicit operator SamplerYcbcrConversionCreateInfo(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionCreateInfo s)
     {
         return new SamplerYcbcrConversionCreateInfo(in s);

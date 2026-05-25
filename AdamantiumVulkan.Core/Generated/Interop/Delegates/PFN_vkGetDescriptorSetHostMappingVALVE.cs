@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 16274 Column: 10
+// File: video.xml Line: 18254 Column: 10
 public unsafe struct PFN_vkGetDescriptorSetHostMappingVALVE
 {
     public PFN_vkGetDescriptorSetHostMappingVALVE(nuint ptr) : this((void*) ptr) { }

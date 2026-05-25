@@ -29,6 +29,7 @@ public unsafe partial class CopyMicromapInfoEXT : IMarshallableObject, IMarshall
     public MicromapEXT Dst { get; set; }
     public CopyMicromapModeEXT Mode { get; set; }
 
+
     public static implicit operator CopyMicromapInfoEXT(AdamantiumVulkan.Core.Interop.VkCopyMicromapInfoEXT c)
     {
         return new CopyMicromapInfoEXT(in c);

@@ -28,6 +28,7 @@ public unsafe partial class MultiviewPerViewAttributesInfoNVX : IMarshallableObj
     public VkBool32 PerViewAttributes { get; set; }
     public VkBool32 PerViewAttributesPositionXOnly { get; set; }
 
+
     public static implicit operator MultiviewPerViewAttributesInfoNVX(AdamantiumVulkan.Core.Interop.VkMultiviewPerViewAttributesInfoNVX m)
     {
         return new MultiviewPerViewAttributesInfoNVX(in m);

@@ -28,6 +28,7 @@ public unsafe partial class AccelerationStructureCreateInfoNV : IMarshallableObj
     public VkDeviceSize CompactedSize { get; set; }
     public AccelerationStructureInfoNV Info { get; set; }
 
+
     public static implicit operator AccelerationStructureCreateInfoNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureCreateInfoNV a)
     {
         return new AccelerationStructureCreateInfoNV(in a);

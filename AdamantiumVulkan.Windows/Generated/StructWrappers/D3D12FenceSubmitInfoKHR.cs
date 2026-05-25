@@ -31,6 +31,7 @@ public unsafe partial class D3D12FenceSubmitInfoKHR : IMarshallableObject, IMars
     public uint SignalSemaphoreValuesCount { get; set; }
     public System.ReadOnlyMemory<ulong> PSignalSemaphoreValues { get; set; }
 
+
     public static implicit operator D3D12FenceSubmitInfoKHR(AdamantiumVulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR d)
     {
         return new D3D12FenceSubmitInfoKHR(in d);

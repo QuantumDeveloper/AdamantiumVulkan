@@ -26,6 +26,7 @@ public unsafe partial class SubpassSampleLocationsEXT : IMarshallableObject, IMa
     public uint SubpassIndex { get; set; }
     public SampleLocationsInfoEXT SampleLocationsInfo { get; set; }
 
+
     public static implicit operator SubpassSampleLocationsEXT(AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT s)
     {
         return new SubpassSampleLocationsEXT(in s);

@@ -35,6 +35,7 @@ public unsafe partial class VideoSessionCreateInfoKHR : IMarshallableObject, IMa
     public uint MaxActiveReferencePictures { get; set; }
     public ExtensionProperties PStdHeaderVersion { get; set; }
 
+
     public static implicit operator VideoSessionCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoSessionCreateInfoKHR v)
     {
         return new VideoSessionCreateInfoKHR(in v);

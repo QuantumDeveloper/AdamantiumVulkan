@@ -28,6 +28,7 @@ public unsafe partial class WriteDescriptorSetAccelerationStructureNV : IMarshal
     public uint AccelerationStructureCount { get; set; }
     public System.ReadOnlyMemory<AccelerationStructureNV> PAccelerationStructures { get; set; }
 
+
     public static implicit operator WriteDescriptorSetAccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureNV w)
     {
         return new WriteDescriptorSetAccelerationStructureNV(in w);

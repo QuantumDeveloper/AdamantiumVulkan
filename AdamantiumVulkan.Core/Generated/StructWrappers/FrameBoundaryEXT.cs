@@ -35,6 +35,7 @@ public unsafe partial class FrameBoundaryEXT : IMarshallableObject, IMarshallabl
     public nuint TagSize { get; set; }
     public System.ReadOnlyMemory<byte> PTag { get; set; }
 
+
     public static implicit operator FrameBoundaryEXT(AdamantiumVulkan.Core.Interop.VkFrameBoundaryEXT f)
     {
         return new FrameBoundaryEXT(in f);

@@ -27,6 +27,7 @@ public unsafe partial class DisplayModeStereoPropertiesNV : IMarshallableObject,
     public object PNext { get; set; }
     public VkBool32 Hdmi3DSupported { get; set; }
 
+
     public static implicit operator DisplayModeStereoPropertiesNV(AdamantiumVulkan.Core.Interop.VkDisplayModeStereoPropertiesNV d)
     {
         return new DisplayModeStereoPropertiesNV(in d);

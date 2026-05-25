@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceLinearColorAttachmentFeaturesNV : IMar
     public object PNext { get; set; }
     public VkBool32 LinearColorAttachment { get; set; }
 
+
     public static implicit operator PhysicalDeviceLinearColorAttachmentFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLinearColorAttachmentFeaturesNV p)
     {
         return new PhysicalDeviceLinearColorAttachmentFeaturesNV(in p);

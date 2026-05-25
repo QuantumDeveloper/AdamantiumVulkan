@@ -27,6 +27,7 @@ public unsafe partial class MemoryRequirements2 : IMarshallableObject, IMarshall
     public object PNext { get; set; }
     public MemoryRequirements MemoryRequirements { get; set; }
 
+
     public static implicit operator MemoryRequirements2(AdamantiumVulkan.Core.Interop.VkMemoryRequirements2 m)
     {
         return new MemoryRequirements2(in m);

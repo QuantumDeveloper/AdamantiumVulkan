@@ -28,6 +28,7 @@ public unsafe partial class SurfaceFullScreenExclusiveInfoEXT : IMarshallableObj
     public object PNext { get; set; }
     public FullScreenExclusiveEXT FullScreenExclusive { get; set; }
 
+
     public static implicit operator SurfaceFullScreenExclusiveInfoEXT(AdamantiumVulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT s)
     {
         return new SurfaceFullScreenExclusiveInfoEXT(in s);

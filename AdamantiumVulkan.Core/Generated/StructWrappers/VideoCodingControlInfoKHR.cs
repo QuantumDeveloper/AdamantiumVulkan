@@ -27,6 +27,7 @@ public unsafe partial class VideoCodingControlInfoKHR : IMarshallableObject, IMa
     public object PNext { get; set; }
     public VideoCodingControlFlagBitsKHR Flags { get; set; }
 
+
     public static implicit operator VideoCodingControlInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoCodingControlInfoKHR v)
     {
         return new VideoCodingControlInfoKHR(in v);

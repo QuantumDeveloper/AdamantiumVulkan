@@ -11,10 +11,30 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11323 Column: 6
+// File: vk.xml Line: 13021 Column: 6
 [Flags]
 public enum SwapchainCreateFlagBitsKHR : uint
 {
+    SplitInstanceBindRegionsBitKhr = 1,
+
+    ProtectedBitKhr = 2,
+
+    MutableFormatBitKhr = 4,
+
+    PresentTimingBitExt = 512,
+
+    Reserved5BitExt = 32,
+
+    Reserved4BitExt = 16,
+
+    PresentId2BitKhr = 64,
+
+    PresentWait2BitKhr = 128,
+
+    DeferredMemoryAllocationBitKhr = 8,
+
+    Reserved8BitExt = 256,
+
 }
 
 

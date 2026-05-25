@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 501 Column: 16
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 530 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct spv_reducer_options_t
 {

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 14485 Column: 10
+// File: video.xml Line: 16434 Column: 10
 public unsafe struct PFN_vkCreateSamplerYcbcrConversion
 {
     public PFN_vkCreateSamplerYcbcrConversion(nuint ptr) : this((void*) ptr) { }

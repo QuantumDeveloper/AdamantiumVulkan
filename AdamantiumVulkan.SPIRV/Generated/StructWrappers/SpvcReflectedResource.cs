@@ -31,6 +31,7 @@ public unsafe partial class SpvcReflectedResource : IMarshallable<AdamantiumVulk
     public SpvcTypeId Type_id { get; set; }
     public string Name { get; set; }
 
+
     public static implicit operator SpvcReflectedResource(AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedResource s)
     {
         return new SpvcReflectedResource(in s);

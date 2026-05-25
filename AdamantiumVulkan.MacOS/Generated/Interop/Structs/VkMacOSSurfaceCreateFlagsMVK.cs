@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.MacOS.Interop;
 
-// File: vk.xml Line: 423 Column: 10
+// File: vk.xml Line: 451 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkMacOSSurfaceCreateFlagsMVK
 {

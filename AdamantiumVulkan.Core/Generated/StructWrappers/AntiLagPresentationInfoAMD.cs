@@ -28,6 +28,7 @@ public unsafe partial class AntiLagPresentationInfoAMD : IMarshallableObject, IM
     public AntiLagStageAMD Stage { get; set; }
     public ulong FrameIndex { get; set; }
 
+
     public static implicit operator AntiLagPresentationInfoAMD(AdamantiumVulkan.Core.Interop.VkAntiLagPresentationInfoAMD a)
     {
         return new AntiLagPresentationInfoAMD(in a);

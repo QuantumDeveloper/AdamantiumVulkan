@@ -54,6 +54,7 @@ public unsafe partial class StdVideoDecodeAV1PictureInfoFlags : IMarshallableObj
     public uint Apply_grain { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoDecodeAV1PictureInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1PictureInfoFlags s)
     {
         return new StdVideoDecodeAV1PictureInfoFlags(in s);

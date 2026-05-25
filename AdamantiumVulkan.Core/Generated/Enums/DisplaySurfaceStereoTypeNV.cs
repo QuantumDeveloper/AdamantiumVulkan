@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11066 Column: 6
+// File: vk.xml Line: 12762 Column: 6
 public enum DisplaySurfaceStereoTypeNV : int
 {
     NoneNv = 0,

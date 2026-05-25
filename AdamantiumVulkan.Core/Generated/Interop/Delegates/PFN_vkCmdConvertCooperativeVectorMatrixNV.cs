@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 16687 Column: 10
+// File: video.xml Line: 18711 Column: 10
 public unsafe struct PFN_vkCmdConvertCooperativeVectorMatrixNV
 {
     public PFN_vkCmdConvertCooperativeVectorMatrixNV(nuint ptr) : this((void*) ptr) { }

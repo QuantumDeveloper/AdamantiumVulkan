@@ -31,6 +31,7 @@ public unsafe partial class PushDescriptorSetInfo : IMarshallableObject, IMarsha
     public uint DescriptorWriteCount { get; set; }
     public System.ReadOnlyMemory<WriteDescriptorSet> PDescriptorWrites { get; set; }
 
+
     public static implicit operator PushDescriptorSetInfo(AdamantiumVulkan.Core.Interop.VkPushDescriptorSetInfo p)
     {
         return new PushDescriptorSetInfo(in p);

@@ -28,6 +28,7 @@ public unsafe partial class PipelineViewportExclusiveScissorStateCreateInfoNV : 
     public uint ExclusiveScissorCount { get; set; }
     public System.ReadOnlyMemory<Rect2D> PExclusiveScissors { get; set; }
 
+
     public static implicit operator PipelineViewportExclusiveScissorStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV p)
     {
         return new PipelineViewportExclusiveScissorStateCreateInfoNV(in p);

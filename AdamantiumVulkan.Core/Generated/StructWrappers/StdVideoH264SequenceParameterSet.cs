@@ -45,9 +45,10 @@ public unsafe partial class StdVideoH264SequenceParameterSet : IMarshallableObje
     public uint Frame_crop_top_offset { get; set; }
     public uint Frame_crop_bottom_offset { get; set; }
     public uint Reserved2 { get; set; }
-    public int? POffsetForRefFrame { get; set; }
+    public System.ReadOnlyMemory<int> POffsetForRefFrame { get; set; }
     public StdVideoH264ScalingLists PScalingLists { get; set; }
     public StdVideoH264SequenceParameterSetVui PSequenceParameterSetVui { get; set; }
+
 
     public static implicit operator StdVideoH264SequenceParameterSet(AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSet s)
     {
@@ -57,6 +58,8 @@ public unsafe partial class StdVideoH264SequenceParameterSet : IMarshallableObje
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSet>();
+        if (!POffsetForRefFrame.IsEmpty)
+            size += POffsetForRefFrame.Span.Length * Marshal.SizeOf<System.Int32>();
         if (PScalingLists != default)
         {
             size += PScalingLists.GetSize();
@@ -97,11 +100,10 @@ public unsafe partial class StdVideoH264SequenceParameterSet : IMarshallableObje
         Frame_crop_top_offset = native.frame_crop_top_offset;
         Frame_crop_bottom_offset = native.frame_crop_bottom_offset;
         Reserved2 = native.reserved2;
-        if (native.pOffsetForRefFrame != null)
-        {
-            POffsetForRefFrame = *native.pOffsetForRefFrame;
-            NativeUtils.Free(native.pOffsetForRefFrame);
-        }
+        var arrayLengthPOffsetForRefFrame = native.num_ref_frames_in_pic_order_cnt_cycle;
+        var tmpPOffsetForRefFrame = new int[arrayLengthPOffsetForRefFrame];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pOffsetForRefFrame, arrayLengthPOffsetForRefFrame, tmpPOffsetForRefFrame);
+        POffsetForRefFrame = tmpPOffsetForRefFrame;
         PScalingLists = new StdVideoH264ScalingLists(in *native.pScalingLists);
         NativeUtils.Free(native.pScalingLists);
         PSequenceParameterSetVui = new StdVideoH264SequenceParameterSetVui(in *native.pSequenceParameterSetVui);
@@ -174,9 +176,9 @@ public unsafe partial class StdVideoH264SequenceParameterSet : IMarshallableObje
 
             context.Destination[0].reserved2 = stdVideoH264SequenceParameterSet.Reserved2;
 
-            if (stdVideoH264SequenceParameterSet.POffsetForRefFrame.HasValue)
+            if (!stdVideoH264SequenceParameterSet.POffsetForRefFrame.IsEmpty)
             {
-                context.Destination[0].pOffsetForRefFrame = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(stdVideoH264SequenceParameterSet.POffsetForRefFrame.Value, ref context);
+                context.Destination[0].pOffsetForRefFrame = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<int, AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSet>(stdVideoH264SequenceParameterSet.POffsetForRefFrame.Span, ref context);
             }
 
             if (stdVideoH264SequenceParameterSet.PScalingLists != default)

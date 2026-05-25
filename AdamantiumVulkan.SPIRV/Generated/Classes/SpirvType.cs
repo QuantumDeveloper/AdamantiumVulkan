@@ -14,7 +14,7 @@ using AdamantiumVulkan.Spirv.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross\spirv_cross_c.h Line: 78 Column: 35
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 78 Column: 35
 public unsafe partial class SpirvType : IUnmanagedWrapper<AdamantiumVulkan.Spirv.Cross.Interop.SpvcTypeS>
 {
     internal SpvcTypeS __Instance;

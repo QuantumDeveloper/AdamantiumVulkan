@@ -29,6 +29,7 @@ public unsafe partial class SparseImageMemoryRequirements : IMarshallableObject,
     public VkDeviceSize ImageMipTailOffset { get; set; }
     public VkDeviceSize ImageMipTailStride { get; set; }
 
+
     public static implicit operator SparseImageMemoryRequirements(AdamantiumVulkan.Core.Interop.VkSparseImageMemoryRequirements s)
     {
         return new SparseImageMemoryRequirements(in s);

@@ -42,6 +42,7 @@ public unsafe partial class SamplerCreateInfo : IMarshallableObject, IMarshallab
     public BorderColor BorderColor { get; set; }
     public VkBool32 UnnormalizedCoordinates { get; set; }
 
+
     public static implicit operator SamplerCreateInfo(AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo s)
     {
         return new SamplerCreateInfo(in s);

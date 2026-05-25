@@ -27,6 +27,7 @@ public unsafe partial class OpticalFlowImageFormatInfoNV : IMarshallableObject, 
     public object PNext { get; set; }
     public OpticalFlowUsageFlagBitsNV Usage { get; set; }
 
+
     public static implicit operator OpticalFlowImageFormatInfoNV(AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV o)
     {
         return new OpticalFlowImageFormatInfoNV(in o);

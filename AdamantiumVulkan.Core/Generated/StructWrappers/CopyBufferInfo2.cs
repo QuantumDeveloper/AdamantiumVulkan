@@ -30,6 +30,7 @@ public unsafe partial class CopyBufferInfo2 : IMarshallableObject, IMarshallable
     public uint RegionCount { get; set; }
     public System.ReadOnlyMemory<BufferCopy2> PRegions { get; set; }
 
+
     public static implicit operator CopyBufferInfo2(AdamantiumVulkan.Core.Interop.VkCopyBufferInfo2 c)
     {
         return new CopyBufferInfo2(in c);

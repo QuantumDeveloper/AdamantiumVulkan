@@ -29,6 +29,7 @@ public unsafe partial class ImageResolve : IMarshallableObject, IMarshallable<Ad
     public Offset3D DstOffset { get; set; }
     public Extent3D Extent { get; set; }
 
+
     public static implicit operator ImageResolve(AdamantiumVulkan.Core.Interop.VkImageResolve i)
     {
         return new ImageResolve(in i);

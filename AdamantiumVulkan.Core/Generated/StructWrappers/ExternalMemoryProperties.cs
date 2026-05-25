@@ -27,6 +27,7 @@ public unsafe partial class ExternalMemoryProperties : IMarshallableObject, IMar
     public ExternalMemoryHandleTypeFlagBits ExportFromImportedHandleTypes { get; set; }
     public ExternalMemoryHandleTypeFlagBits CompatibleHandleTypes { get; set; }
 
+
     public static implicit operator ExternalMemoryProperties(AdamantiumVulkan.Core.Interop.VkExternalMemoryProperties e)
     {
         return new ExternalMemoryProperties(in e);

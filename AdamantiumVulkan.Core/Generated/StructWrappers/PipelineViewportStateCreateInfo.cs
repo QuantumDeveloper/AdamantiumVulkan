@@ -31,6 +31,7 @@ public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObjec
     public uint ScissorCount { get; set; }
     public System.ReadOnlyMemory<Rect2D> PScissors { get; set; }
 
+
     public static implicit operator PipelineViewportStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineViewportStateCreateInfo p)
     {
         return new PipelineViewportStateCreateInfo(in p);

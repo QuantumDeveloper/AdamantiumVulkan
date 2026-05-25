@@ -29,6 +29,7 @@ public unsafe partial class LayerSettingEXT : IMarshallableObject, IMarshallable
     public uint ValueCount { get; set; }
     public System.ReadOnlyMemory<byte> PValues { get; set; }
 
+
     public static implicit operator LayerSettingEXT(AdamantiumVulkan.Core.Interop.VkLayerSettingEXT l)
     {
         return new LayerSettingEXT(in l);

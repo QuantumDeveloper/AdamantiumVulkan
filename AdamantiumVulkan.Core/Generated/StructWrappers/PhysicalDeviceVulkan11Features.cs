@@ -38,6 +38,7 @@ public unsafe partial class PhysicalDeviceVulkan11Features : IMarshallableObject
     public VkBool32 SamplerYcbcrConversion { get; set; }
     public VkBool32 ShaderDrawParameters { get; set; }
 
+
     public static implicit operator PhysicalDeviceVulkan11Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan11Features p)
     {
         return new PhysicalDeviceVulkan11Features(in p);

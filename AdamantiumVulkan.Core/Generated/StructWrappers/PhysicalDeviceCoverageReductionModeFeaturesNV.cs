@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceCoverageReductionModeFeaturesNV : IMar
     public object PNext { get; set; }
     public VkBool32 CoverageReductionMode { get; set; }
 
+
     public static implicit operator PhysicalDeviceCoverageReductionModeFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCoverageReductionModeFeaturesNV p)
     {
         return new PhysicalDeviceCoverageReductionModeFeaturesNV(in p);

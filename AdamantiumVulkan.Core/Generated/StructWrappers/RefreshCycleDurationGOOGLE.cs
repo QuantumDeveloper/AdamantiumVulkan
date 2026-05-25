@@ -25,6 +25,7 @@ public unsafe partial class RefreshCycleDurationGOOGLE : IMarshallableObject, IM
 
     public ulong RefreshDuration { get; set; }
 
+
     public static implicit operator RefreshCycleDurationGOOGLE(AdamantiumVulkan.Core.Interop.VkRefreshCycleDurationGOOGLE r)
     {
         return new RefreshCycleDurationGOOGLE(in r);

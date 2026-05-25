@@ -30,6 +30,7 @@ public unsafe partial class ExportMemoryWin32HandleInfoKHR : IMarshallableObject
     public nuint DwAccess { get; set; }
     public nuint Name { get; set; }
 
+
     public static implicit operator ExportMemoryWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkExportMemoryWin32HandleInfoKHR e)
     {
         return new ExportMemoryWin32HandleInfoKHR(in e);

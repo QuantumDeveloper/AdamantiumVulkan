@@ -26,6 +26,7 @@ public unsafe partial class Rect2D : IMarshallableObject, IMarshallable<Adamanti
     public Offset2D Offset { get; set; }
     public Extent2D Extent { get; set; }
 
+
     public static implicit operator Rect2D(AdamantiumVulkan.Core.Interop.VkRect2D r)
     {
         return new Rect2D(in r);

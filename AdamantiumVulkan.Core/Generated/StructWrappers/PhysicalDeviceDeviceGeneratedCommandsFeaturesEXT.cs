@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT : I
     public VkBool32 DeviceGeneratedCommands { get; set; }
     public VkBool32 DynamicGeneratedPipelineLayout { get; set; }
 
+
     public static implicit operator PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT p)
     {
         return new PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT(in p);

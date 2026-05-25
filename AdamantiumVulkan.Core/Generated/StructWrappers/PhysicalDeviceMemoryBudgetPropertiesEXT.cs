@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceMemoryBudgetPropertiesEXT : IMarshalla
     public System.ReadOnlyMemory<VkDeviceSize> HeapBudget { get; set; }
     public System.ReadOnlyMemory<VkDeviceSize> HeapUsage { get; set; }
 
+
     public static implicit operator PhysicalDeviceMemoryBudgetPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT p)
     {
         return new PhysicalDeviceMemoryBudgetPropertiesEXT(in p);

@@ -27,6 +27,7 @@ public unsafe partial class PushConstantRange : IMarshallableObject, IMarshallab
     public uint Offset { get; set; }
     public uint Size { get; set; }
 
+
     public static implicit operator PushConstantRange(AdamantiumVulkan.Core.Interop.VkPushConstantRange p)
     {
         return new PushConstantRange(in p);

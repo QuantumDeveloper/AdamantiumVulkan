@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceRayQueryFeaturesKHR : IMarshallableObj
     public object PNext { get; set; }
     public VkBool32 RayQuery { get; set; }
 
+
     public static implicit operator PhysicalDeviceRayQueryFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayQueryFeaturesKHR p)
     {
         return new PhysicalDeviceRayQueryFeaturesKHR(in p);

@@ -41,6 +41,7 @@ public unsafe partial class PhysicalDeviceVulkan11Properties : IMarshallableObje
     public uint MaxPerSetDescriptors { get; set; }
     public VkDeviceSize MaxMemoryAllocationSize { get; set; }
 
+
     public static implicit operator PhysicalDeviceVulkan11Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan11Properties p)
     {
         return new PhysicalDeviceVulkan11Properties(in p);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderSubgroupUniformControlFlowFeatur
     public object PNext { get; set; }
     public VkBool32 ShaderSubgroupUniformControlFlow { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR p)
     {
         return new PhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR(in p);

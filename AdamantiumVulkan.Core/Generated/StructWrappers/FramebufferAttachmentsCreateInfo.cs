@@ -28,6 +28,7 @@ public unsafe partial class FramebufferAttachmentsCreateInfo : IMarshallableObje
     public uint AttachmentImageInfoCount { get; set; }
     public System.ReadOnlyMemory<FramebufferAttachmentImageInfo> PAttachmentImageInfos { get; set; }
 
+
     public static implicit operator FramebufferAttachmentsCreateInfo(AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentsCreateInfo f)
     {
         return new FramebufferAttachmentsCreateInfo(in f);

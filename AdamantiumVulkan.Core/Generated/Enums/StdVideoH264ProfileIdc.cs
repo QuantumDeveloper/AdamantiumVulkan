@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: video.xml Line: 1230 Column: 6
+// File: video.xml Line: 1324 Column: 6
 public enum StdVideoH264ProfileIdc : int
 {
     Baseline = 66,

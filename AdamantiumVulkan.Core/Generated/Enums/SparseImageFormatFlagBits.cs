@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10963 Column: 6
+// File: vk.xml Line: 12659 Column: 6
 [Flags]
 public enum SparseImageFormatFlagBits : uint
 {

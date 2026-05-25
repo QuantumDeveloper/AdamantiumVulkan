@@ -35,6 +35,7 @@ public unsafe partial class SpvcMslSamplerYcbcrConversion : IMarshallable<Adaman
     public MslSamplerYcbcrModelConversion Ycbcr_model { get; set; }
     public MslSamplerYcbcrRange Ycbcr_range { get; set; }
     public uint Bpc { get; set; }
+
     ///<summary>
     /// Initializes the constexpr sampler struct. The defaults are non-zero.
     ///</summary>

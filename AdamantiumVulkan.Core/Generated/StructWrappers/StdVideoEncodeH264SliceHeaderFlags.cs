@@ -27,6 +27,7 @@ public unsafe partial class StdVideoEncodeH264SliceHeaderFlags : IMarshallableOb
     public uint Num_ref_idx_active_override_flag { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoEncodeH264SliceHeaderFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeaderFlags s)
     {
         return new StdVideoEncodeH264SliceHeaderFlags(in s);

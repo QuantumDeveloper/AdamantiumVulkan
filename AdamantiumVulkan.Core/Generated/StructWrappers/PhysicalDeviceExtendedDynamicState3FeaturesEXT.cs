@@ -57,6 +57,7 @@ public unsafe partial class PhysicalDeviceExtendedDynamicState3FeaturesEXT : IMa
     public VkBool32 ExtendedDynamicState3RepresentativeFragmentTestEnable { get; set; }
     public VkBool32 ExtendedDynamicState3ShadingRateImageEnable { get; set; }
 
+
     public static implicit operator PhysicalDeviceExtendedDynamicState3FeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3FeaturesEXT p)
     {
         return new PhysicalDeviceExtendedDynamicState3FeaturesEXT(in p);

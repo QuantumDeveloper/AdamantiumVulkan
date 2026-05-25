@@ -30,6 +30,7 @@ public unsafe partial class VideoEncodeRateControlLayerInfoKHR : IMarshallableOb
     public uint FrameRateNumerator { get; set; }
     public uint FrameRateDenominator { get; set; }
 
+
     public static implicit operator VideoEncodeRateControlLayerInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR v)
     {
         return new VideoEncodeRateControlLayerInfoKHR(in v);

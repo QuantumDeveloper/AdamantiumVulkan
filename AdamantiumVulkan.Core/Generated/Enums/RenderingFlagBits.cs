@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12032 Column: 6
+// File: vk.xml Line: 13766 Column: 6
 [Flags]
 public enum RenderingFlagBits : uint
 {
@@ -20,6 +20,26 @@ public enum RenderingFlagBits : uint
     SuspendingBit = 2,
 
     ResumingBit = 4,
+
+    Reserved9BitImg = 512,
+
+    EnableLegacyDitheringBitExt = 8,
+
+    ContentsInlineBitKhr = 16,
+
+    PerLayerFragmentDensityBitValve = 32,
+
+    FragmentRegionBitExt = 64,
+
+    CustomResolveBitExt = 128,
+
+    LocalReadConcurrentAccessControlBitKhr = 256,
+
+    Reserved10BitValve = 1024,
+
+    Reserved11BitValve = 2048,
+
+    Reserved12BitValve = 4096,
 
 }
 

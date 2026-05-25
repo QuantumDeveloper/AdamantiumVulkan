@@ -36,6 +36,7 @@ public unsafe partial class PipelineDepthStencilStateCreateInfo : IMarshallableO
     public float MinDepthBounds { get; set; }
     public float MaxDepthBounds { get; set; }
 
+
     public static implicit operator PipelineDepthStencilStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo p)
     {
         return new PipelineDepthStencilStateCreateInfo(in p);

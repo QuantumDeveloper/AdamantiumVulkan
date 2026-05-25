@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceHostImageCopyFeatures : IMarshallableO
     public object PNext { get; set; }
     public VkBool32 HostImageCopy { get; set; }
 
+
     public static implicit operator PhysicalDeviceHostImageCopyFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHostImageCopyFeatures p)
     {
         return new PhysicalDeviceHostImageCopyFeatures(in p);

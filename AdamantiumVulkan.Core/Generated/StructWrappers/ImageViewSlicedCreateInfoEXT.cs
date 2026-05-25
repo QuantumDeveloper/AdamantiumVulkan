@@ -28,6 +28,7 @@ public unsafe partial class ImageViewSlicedCreateInfoEXT : IMarshallableObject, 
     public uint SliceOffset { get; set; }
     public uint SliceCount { get; set; }
 
+
     public static implicit operator ImageViewSlicedCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkImageViewSlicedCreateInfoEXT i)
     {
         return new ImageViewSlicedCreateInfoEXT(in i);

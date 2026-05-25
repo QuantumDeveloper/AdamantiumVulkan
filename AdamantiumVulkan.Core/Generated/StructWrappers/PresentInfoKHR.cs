@@ -32,6 +32,7 @@ public unsafe partial class PresentInfoKHR : IMarshallableObject, IMarshallable<
     public System.ReadOnlyMemory<uint> PImageIndices { get; set; }
     public System.ReadOnlyMemory<Result> PResults { get; set; }
 
+
     public static implicit operator PresentInfoKHR(AdamantiumVulkan.Core.Interop.VkPresentInfoKHR p)
     {
         return new PresentInfoKHR(in p);

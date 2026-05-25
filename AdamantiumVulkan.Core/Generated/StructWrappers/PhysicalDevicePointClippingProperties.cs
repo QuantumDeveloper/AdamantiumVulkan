@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePointClippingProperties : IMarshallabl
     public object PNext { get; set; }
     public PointClippingBehavior PointClippingBehavior { get; set; }
 
+
     public static implicit operator PhysicalDevicePointClippingProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePointClippingProperties p)
     {
         return new PhysicalDevicePointClippingProperties(in p);

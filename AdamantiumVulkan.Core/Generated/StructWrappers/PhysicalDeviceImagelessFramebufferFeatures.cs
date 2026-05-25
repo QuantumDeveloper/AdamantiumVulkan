@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceImagelessFramebufferFeatures : IMarsha
     public object PNext { get; set; }
     public VkBool32 ImagelessFramebuffer { get; set; }
 
+
     public static implicit operator PhysicalDeviceImagelessFramebufferFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImagelessFramebufferFeatures p)
     {
         return new PhysicalDeviceImagelessFramebufferFeatures(in p);

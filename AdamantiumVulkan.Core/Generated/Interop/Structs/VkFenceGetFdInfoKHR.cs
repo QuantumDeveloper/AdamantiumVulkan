@@ -12,7 +12,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: vk.xml Line: 3167 Column: 10
+// File: vk.xml Line: 3342 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkFenceGetFdInfoKHR
 {

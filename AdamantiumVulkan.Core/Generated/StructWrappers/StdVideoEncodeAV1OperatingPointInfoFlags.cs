@@ -28,6 +28,7 @@ public unsafe partial class StdVideoEncodeAV1OperatingPointInfoFlags : IMarshall
     public uint Initial_display_delay_present_for_this_op { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoEncodeAV1OperatingPointInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfoFlags s)
     {
         return new StdVideoEncodeAV1OperatingPointInfoFlags(in s);

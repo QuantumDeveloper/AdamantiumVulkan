@@ -26,6 +26,7 @@ public unsafe partial class DescriptorPoolSize : IMarshallableObject, IMarshalla
     public DescriptorType Type { get; set; }
     public uint DescriptorCount { get; set; }
 
+
     public static implicit operator DescriptorPoolSize(AdamantiumVulkan.Core.Interop.VkDescriptorPoolSize d)
     {
         return new DescriptorPoolSize(in d);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePipelineProtectedAccessFeatures : IMar
     public object PNext { get; set; }
     public VkBool32 PipelineProtectedAccess { get; set; }
 
+
     public static implicit operator PhysicalDevicePipelineProtectedAccessFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineProtectedAccessFeatures p)
     {
         return new PhysicalDevicePipelineProtectedAccessFeatures(in p);

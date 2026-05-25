@@ -60,6 +60,7 @@ public unsafe partial class StdVideoH265PictureParameterSet : IMarshallableObjec
     public StdVideoH265ScalingLists PScalingLists { get; set; }
     public StdVideoH265PredictorPaletteEntries PredictorPaletteEntries { get; set; }
 
+
     public static implicit operator StdVideoH265PictureParameterSet(AdamantiumVulkan.Core.Interop.StdVideoH265PictureParameterSet s)
     {
         return new StdVideoH265PictureParameterSet(in s);

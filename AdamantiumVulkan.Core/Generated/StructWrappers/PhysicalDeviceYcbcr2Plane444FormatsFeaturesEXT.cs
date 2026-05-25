@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT : IMa
     public object PNext { get; set; }
     public VkBool32 Ycbcr2plane444Formats { get; set; }
 
+
     public static implicit operator PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT p)
     {
         return new PhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT(in p);

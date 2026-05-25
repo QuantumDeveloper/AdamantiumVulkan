@@ -35,6 +35,7 @@ public unsafe partial class Win32KeyedMutexAcquireReleaseInfoNV : IMarshallableO
     public System.ReadOnlyMemory<DeviceMemory> PReleaseSyncs { get; set; }
     public System.ReadOnlyMemory<ulong> PReleaseKeys { get; set; }
 
+
     public static implicit operator Win32KeyedMutexAcquireReleaseInfoNV(AdamantiumVulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoNV w)
     {
         return new Win32KeyedMutexAcquireReleaseInfoNV(in w);

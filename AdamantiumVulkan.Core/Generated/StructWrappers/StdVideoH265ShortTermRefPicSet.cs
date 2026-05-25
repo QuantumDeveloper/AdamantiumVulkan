@@ -38,6 +38,7 @@ public unsafe partial class StdVideoH265ShortTermRefPicSet : IMarshallableObject
     public System.ReadOnlyMemory<ushort> Delta_poc_s0_minus1 { get; set; }
     public System.ReadOnlyMemory<ushort> Delta_poc_s1_minus1 { get; set; }
 
+
     public static implicit operator StdVideoH265ShortTermRefPicSet(AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet s)
     {
         return new StdVideoH265ShortTermRefPicSet(in s);

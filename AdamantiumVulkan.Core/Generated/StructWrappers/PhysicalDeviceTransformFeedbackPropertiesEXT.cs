@@ -36,6 +36,7 @@ public unsafe partial class PhysicalDeviceTransformFeedbackPropertiesEXT : IMars
     public VkBool32 TransformFeedbackRasterizationStreamSelect { get; set; }
     public VkBool32 TransformFeedbackDraw { get; set; }
 
+
     public static implicit operator PhysicalDeviceTransformFeedbackPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackPropertiesEXT p)
     {
         return new PhysicalDeviceTransformFeedbackPropertiesEXT(in p);

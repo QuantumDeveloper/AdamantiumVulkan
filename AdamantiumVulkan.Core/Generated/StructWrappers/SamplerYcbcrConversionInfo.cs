@@ -27,6 +27,7 @@ public unsafe partial class SamplerYcbcrConversionInfo : IMarshallableObject, IM
     public object PNext { get; set; }
     public SamplerYcbcrConversion Conversion { get; set; }
 
+
     public static implicit operator SamplerYcbcrConversionInfo(AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversionInfo s)
     {
         return new SamplerYcbcrConversionInfo(in s);

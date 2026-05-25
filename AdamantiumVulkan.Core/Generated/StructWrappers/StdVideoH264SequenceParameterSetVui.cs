@@ -40,6 +40,7 @@ public unsafe partial class StdVideoH264SequenceParameterSetVui : IMarshallableO
     public uint Reserved1 { get; set; }
     public StdVideoH264HrdParameters PHrdParameters { get; set; }
 
+
     public static implicit operator StdVideoH264SequenceParameterSetVui(AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSetVui s)
     {
         return new StdVideoH264SequenceParameterSetVui(in s);

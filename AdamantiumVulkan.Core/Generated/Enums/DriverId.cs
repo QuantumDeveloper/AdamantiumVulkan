@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11434 Column: 6
+// File: vk.xml Line: 13132 Column: 6
 public enum DriverId : int
 {
     AmdProprietary = 1,
@@ -67,6 +67,8 @@ public enum DriverId : int
     MesaHoneykrisp = 26,
 
     VulkanScEmulationOnVulkan = 27,
+
+    MesaKosmickrisp = 28,
 
 }
 

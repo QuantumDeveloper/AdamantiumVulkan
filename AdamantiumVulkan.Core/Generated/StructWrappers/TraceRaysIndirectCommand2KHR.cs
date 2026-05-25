@@ -38,6 +38,7 @@ public unsafe partial class TraceRaysIndirectCommand2KHR : IMarshallableObject, 
     public uint Height { get; set; }
     public uint Depth { get; set; }
 
+
     public static implicit operator TraceRaysIndirectCommand2KHR(AdamantiumVulkan.Core.Interop.VkTraceRaysIndirectCommand2KHR t)
     {
         return new TraceRaysIndirectCommand2KHR(in t);

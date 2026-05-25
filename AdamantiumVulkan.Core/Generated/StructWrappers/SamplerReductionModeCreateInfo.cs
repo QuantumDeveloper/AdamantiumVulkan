@@ -27,6 +27,7 @@ public unsafe partial class SamplerReductionModeCreateInfo : IMarshallableObject
     public object PNext { get; set; }
     public SamplerReductionMode ReductionMode { get; set; }
 
+
     public static implicit operator SamplerReductionModeCreateInfo(AdamantiumVulkan.Core.Interop.VkSamplerReductionModeCreateInfo s)
     {
         return new SamplerReductionModeCreateInfo(in s);

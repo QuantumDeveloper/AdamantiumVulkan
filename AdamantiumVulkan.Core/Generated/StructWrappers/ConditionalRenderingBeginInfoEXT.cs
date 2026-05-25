@@ -29,6 +29,7 @@ public unsafe partial class ConditionalRenderingBeginInfoEXT : IMarshallableObje
     public VkDeviceSize Offset { get; set; }
     public ConditionalRenderingFlagBitsEXT Flags { get; set; }
 
+
     public static implicit operator ConditionalRenderingBeginInfoEXT(AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT c)
     {
         return new ConditionalRenderingBeginInfoEXT(in c);

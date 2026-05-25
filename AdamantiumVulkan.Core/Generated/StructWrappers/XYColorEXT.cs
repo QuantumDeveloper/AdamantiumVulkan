@@ -26,6 +26,7 @@ public unsafe partial class XYColorEXT : IMarshallableObject, IMarshallable<Adam
     public float X { get; set; }
     public float Y { get; set; }
 
+
     public static implicit operator XYColorEXT(AdamantiumVulkan.Core.Interop.VkXYColorEXT x)
     {
         return new XYColorEXT(in x);

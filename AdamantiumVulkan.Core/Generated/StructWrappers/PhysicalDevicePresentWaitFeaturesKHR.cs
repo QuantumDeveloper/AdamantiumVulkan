@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePresentWaitFeaturesKHR : IMarshallable
     public object PNext { get; set; }
     public VkBool32 PresentWait { get; set; }
 
+
     public static implicit operator PhysicalDevicePresentWaitFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePresentWaitFeaturesKHR p)
     {
         return new PhysicalDevicePresentWaitFeaturesKHR(in p);

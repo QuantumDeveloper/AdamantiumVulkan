@@ -26,6 +26,7 @@ public unsafe partial class StdVideoH265ShortTermRefPicSetFlags : IMarshallableO
     public uint Inter_ref_pic_set_prediction_flag { get; set; }
     public uint Delta_rps_sign { get; set; }
 
+
     public static implicit operator StdVideoH265ShortTermRefPicSetFlags(AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSetFlags s)
     {
         return new StdVideoH265ShortTermRefPicSetFlags(in s);

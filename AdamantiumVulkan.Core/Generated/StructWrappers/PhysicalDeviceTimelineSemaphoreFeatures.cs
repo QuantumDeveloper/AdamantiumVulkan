@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceTimelineSemaphoreFeatures : IMarshalla
     public object PNext { get; set; }
     public VkBool32 TimelineSemaphore { get; set; }
 
+
     public static implicit operator PhysicalDeviceTimelineSemaphoreFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphoreFeatures p)
     {
         return new PhysicalDeviceTimelineSemaphoreFeatures(in p);

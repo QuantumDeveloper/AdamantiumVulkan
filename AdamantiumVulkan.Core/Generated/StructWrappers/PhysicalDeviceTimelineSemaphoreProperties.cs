@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceTimelineSemaphoreProperties : IMarshal
     public object PNext { get; set; }
     public ulong MaxTimelineSemaphoreValueDifference { get; set; }
 
+
     public static implicit operator PhysicalDeviceTimelineSemaphoreProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphoreProperties p)
     {
         return new PhysicalDeviceTimelineSemaphoreProperties(in p);

@@ -27,6 +27,7 @@ public unsafe partial class StdVideoEncodeH264RefListModEntry : IMarshallableObj
     public ushort Abs_diff_pic_num_minus1 { get; set; }
     public ushort Long_term_pic_num { get; set; }
 
+
     public static implicit operator StdVideoEncodeH264RefListModEntry(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264RefListModEntry s)
     {
         return new StdVideoEncodeH264RefListModEntry(in s);

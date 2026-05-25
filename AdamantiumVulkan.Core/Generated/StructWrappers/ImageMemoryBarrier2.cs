@@ -36,6 +36,7 @@ public unsafe partial class ImageMemoryBarrier2 : IMarshallableObject, IMarshall
     public Image Image { get; set; }
     public ImageSubresourceRange SubresourceRange { get; set; }
 
+
     public static implicit operator ImageMemoryBarrier2(AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier2 i)
     {
         return new ImageMemoryBarrier2(in i);

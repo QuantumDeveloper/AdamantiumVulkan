@@ -28,6 +28,7 @@ public unsafe partial class ImageFormatListCreateInfo : IMarshallableObject, IMa
     public uint ViewFormatCount { get; set; }
     public System.ReadOnlyMemory<Format> PViewFormats { get; set; }
 
+
     public static implicit operator ImageFormatListCreateInfo(AdamantiumVulkan.Core.Interop.VkImageFormatListCreateInfo i)
     {
         return new ImageFormatListCreateInfo(in i);

@@ -11,13 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 1435 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 1603 Column: 14
 [Flags]
 public enum InitializationModeQualifier : uint
 {
-    InitOnDeviceReprogramINTEL = 0,
+    InitOnDeviceReprogramALTERA = 0,
 
-    InitOnDeviceResetINTEL = 1,
+    InitOnDeviceResetALTERA = 1,
 
     Max = 2147483647,
 

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 13100 Column: 10
+// File: video.xml Line: 15016 Column: 10
 public unsafe struct PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT
 {
     public PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT(nuint ptr) : this((void*) ptr) { }

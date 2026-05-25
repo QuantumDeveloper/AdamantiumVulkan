@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceSamplerYcbcrConversionFeatures : IMars
     public object PNext { get; set; }
     public VkBool32 SamplerYcbcrConversion { get; set; }
 
+
     public static implicit operator PhysicalDeviceSamplerYcbcrConversionFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSamplerYcbcrConversionFeatures p)
     {
         return new PhysicalDeviceSamplerYcbcrConversionFeatures(in p);

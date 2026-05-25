@@ -25,10 +25,11 @@ public unsafe partial class QueryPoolCreateInfo : IMarshallableObject, IMarshall
 
     public StructureType SType => StructureType.QueryPoolCreateInfo;
     public object PNext { get; set; }
-    public VkQueryPoolCreateFlags Flags { get; set; }
+    public QueryPoolCreateFlagBits Flags { get; set; }
     public QueryType QueryType { get; set; }
     public uint QueryCount { get; set; }
     public QueryPipelineStatisticFlagBits PipelineStatistics { get; set; }
+
 
     public static implicit operator QueryPoolCreateInfo(AdamantiumVulkan.Core.Interop.VkQueryPoolCreateInfo q)
     {
@@ -87,10 +88,7 @@ public unsafe partial class QueryPoolCreateInfo : IMarshallableObject, IMarshall
                 context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (queryPoolCreateInfo.Flags != (uint)default)
-            {
-                context.Destination[0].flags = queryPoolCreateInfo.Flags;
-            }
+            context.Destination[0].flags = queryPoolCreateInfo.Flags;
 
             context.Destination[0].queryType = queryPoolCreateInfo.QueryType;
 

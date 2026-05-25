@@ -28,6 +28,7 @@ public unsafe partial class GetLatencyMarkerInfoNV : IMarshallableObject, IMarsh
     public uint TimingCount { get; set; }
     public System.ReadOnlyMemory<LatencyTimingsFrameReportNV> PTimings { get; set; }
 
+
     public static implicit operator GetLatencyMarkerInfoNV(AdamantiumVulkan.Core.Interop.VkGetLatencyMarkerInfoNV g)
     {
         return new GetLatencyMarkerInfoNV(in g);

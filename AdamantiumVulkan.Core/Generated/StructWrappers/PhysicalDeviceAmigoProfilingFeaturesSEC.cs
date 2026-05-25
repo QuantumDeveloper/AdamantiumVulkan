@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceAmigoProfilingFeaturesSEC : IMarshalla
     public object PNext { get; set; }
     public VkBool32 AmigoProfiling { get; set; }
 
+
     public static implicit operator PhysicalDeviceAmigoProfilingFeaturesSEC(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAmigoProfilingFeaturesSEC p)
     {
         return new PhysicalDeviceAmigoProfilingFeaturesSEC(in p);

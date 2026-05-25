@@ -29,6 +29,7 @@ public unsafe partial class ImageViewHandleInfoNVX : IMarshallableObject, IMarsh
     public DescriptorType DescriptorType { get; set; }
     public Sampler Sampler { get; set; }
 
+
     public static implicit operator ImageViewHandleInfoNVX(AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX i)
     {
         return new ImageViewHandleInfoNVX(in i);

@@ -30,6 +30,7 @@ public unsafe partial class ExportSemaphoreWin32HandleInfoKHR : IMarshallableObj
     public nuint DwAccess { get; set; }
     public nuint Name { get; set; }
 
+
     public static implicit operator ExportSemaphoreWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkExportSemaphoreWin32HandleInfoKHR e)
     {
         return new ExportSemaphoreWin32HandleInfoKHR(in e);

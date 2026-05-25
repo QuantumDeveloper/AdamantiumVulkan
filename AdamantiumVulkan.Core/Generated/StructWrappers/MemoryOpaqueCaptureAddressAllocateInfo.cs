@@ -27,6 +27,7 @@ public unsafe partial class MemoryOpaqueCaptureAddressAllocateInfo : IMarshallab
     public object PNext { get; set; }
     public ulong OpaqueCaptureAddress { get; set; }
 
+
     public static implicit operator MemoryOpaqueCaptureAddressAllocateInfo(AdamantiumVulkan.Core.Interop.VkMemoryOpaqueCaptureAddressAllocateInfo m)
     {
         return new MemoryOpaqueCaptureAddressAllocateInfo(in m);

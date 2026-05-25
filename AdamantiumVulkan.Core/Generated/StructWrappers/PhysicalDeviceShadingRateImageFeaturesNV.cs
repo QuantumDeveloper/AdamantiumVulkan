@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceShadingRateImageFeaturesNV : IMarshall
     public VkBool32 ShadingRateImage { get; set; }
     public VkBool32 ShadingRateCoarseSampleOrder { get; set; }
 
+
     public static implicit operator PhysicalDeviceShadingRateImageFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShadingRateImageFeaturesNV p)
     {
         return new PhysicalDeviceShadingRateImageFeaturesNV(in p);

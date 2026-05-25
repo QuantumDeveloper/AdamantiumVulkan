@@ -27,6 +27,7 @@ public unsafe partial class DevicePrivateDataCreateInfo : IMarshallableObject, I
     public object PNext { get; set; }
     public uint PrivateDataSlotRequestCount { get; set; }
 
+
     public static implicit operator DevicePrivateDataCreateInfo(AdamantiumVulkan.Core.Interop.VkDevicePrivateDataCreateInfo d)
     {
         return new DevicePrivateDataCreateInfo(in d);

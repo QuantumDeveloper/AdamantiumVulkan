@@ -31,6 +31,7 @@ public unsafe partial class RenderingAreaInfo : IMarshallableObject, IMarshallab
     public Format DepthAttachmentFormat { get; set; }
     public Format StencilAttachmentFormat { get; set; }
 
+
     public static implicit operator RenderingAreaInfo(AdamantiumVulkan.Core.Interop.VkRenderingAreaInfo r)
     {
         return new RenderingAreaInfo(in r);

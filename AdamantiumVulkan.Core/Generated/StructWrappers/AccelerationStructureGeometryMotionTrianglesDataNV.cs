@@ -27,6 +27,7 @@ public unsafe partial class AccelerationStructureGeometryMotionTrianglesDataNV :
     public object PNext { get; set; }
     public DeviceOrHostAddressConstKHR VertexData { get; set; }
 
+
     public static implicit operator AccelerationStructureGeometryMotionTrianglesDataNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryMotionTrianglesDataNV a)
     {
         return new AccelerationStructureGeometryMotionTrianglesDataNV(in a);
@@ -39,6 +40,8 @@ public unsafe partial class AccelerationStructureGeometryMotionTrianglesDataNV :
         {
             size += marshallable.GetSize();
         }
+        if (VertexData != default)
+            size += VertexData.GetSize();
         return size;
     }
 

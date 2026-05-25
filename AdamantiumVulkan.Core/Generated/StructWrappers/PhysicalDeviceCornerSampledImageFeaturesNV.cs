@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceCornerSampledImageFeaturesNV : IMarsha
     public object PNext { get; set; }
     public VkBool32 CornerSampledImage { get; set; }
 
+
     public static implicit operator PhysicalDeviceCornerSampledImageFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCornerSampledImageFeaturesNV p)
     {
         return new PhysicalDeviceCornerSampledImageFeaturesNV(in p);

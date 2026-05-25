@@ -27,6 +27,7 @@ public unsafe partial class VideoEncodeH264QpKHR : IMarshallableObject, IMarshal
     public int QpP { get; set; }
     public int QpB { get; set; }
 
+
     public static implicit operator VideoEncodeH264QpKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH264QpKHR v)
     {
         return new VideoEncodeH264QpKHR(in v);

@@ -33,6 +33,7 @@ public unsafe partial class AttachmentDescription : IMarshallableObject, IMarsha
     public ImageLayout InitialLayout { get; set; }
     public ImageLayout FinalLayout { get; set; }
 
+
     public static implicit operator AttachmentDescription(AdamantiumVulkan.Core.Interop.VkAttachmentDescription a)
     {
         return new AttachmentDescription(in a);

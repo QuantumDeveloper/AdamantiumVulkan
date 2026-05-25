@@ -29,6 +29,7 @@ public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : 
     public uint ViewportCount { get; set; }
     public System.ReadOnlyMemory<ShadingRatePaletteNV> PShadingRatePalettes { get; set; }
 
+
     public static implicit operator PipelineViewportShadingRateImageStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV p)
     {
         return new PipelineViewportShadingRateImageStateCreateInfoNV(in p);

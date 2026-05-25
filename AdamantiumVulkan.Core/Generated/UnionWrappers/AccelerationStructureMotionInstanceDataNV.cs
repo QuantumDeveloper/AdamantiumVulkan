@@ -27,6 +27,7 @@ public unsafe partial class AccelerationStructureMotionInstanceDataNV : IMarshal
     public AccelerationStructureMatrixMotionInstanceNV MatrixMotionInstance { get; set; }
     public AccelerationStructureSRTMotionInstanceNV SrtMotionInstance { get; set; }
 
+
     public static implicit operator AccelerationStructureMotionInstanceDataNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureMotionInstanceDataNV a)
     {
         return new AccelerationStructureMotionInstanceDataNV(in a);

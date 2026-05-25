@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11219 Column: 6
+// File: vk.xml Line: 12917 Column: 6
 [Flags]
 public enum SubgroupFeatureFlagBits : uint
 {
@@ -30,6 +30,12 @@ public enum SubgroupFeatureFlagBits : uint
     ClusteredBit = 64,
 
     QuadBit = 128,
+
+    PartitionedBitExt = 256,
+
+    RotateBit = 512,
+
+    RotateClusteredBit = 1024,
 
 }
 

@@ -32,6 +32,7 @@ public unsafe partial class PhysicalDeviceHostImageCopyProperties : IMarshallabl
     public System.ReadOnlyMemory<byte> OptimalTilingLayoutUUID { get; set; }
     public VkBool32 IdenticalMemoryTypeRequirements { get; set; }
 
+
     public static implicit operator PhysicalDeviceHostImageCopyProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceHostImageCopyProperties p)
     {
         return new PhysicalDeviceHostImageCopyProperties(in p);

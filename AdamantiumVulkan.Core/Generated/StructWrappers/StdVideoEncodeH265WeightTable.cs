@@ -35,6 +35,7 @@ public unsafe partial class StdVideoEncodeH265WeightTable : IMarshallableObject,
     public System.ReadOnlyMemory<sbyte> Delta_chroma_weight_l1 { get; set; }
     public System.ReadOnlyMemory<sbyte> Delta_chroma_offset_l1 { get; set; }
 
+
     public static implicit operator StdVideoEncodeH265WeightTable(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265WeightTable s)
     {
         return new StdVideoEncodeH265WeightTable(in s);

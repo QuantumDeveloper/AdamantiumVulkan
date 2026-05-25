@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceMaintenance3Properties : IMarshallable
     public uint MaxPerSetDescriptors { get; set; }
     public VkDeviceSize MaxMemoryAllocationSize { get; set; }
 
+
     public static implicit operator PhysicalDeviceMaintenance3Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance3Properties p)
     {
         return new PhysicalDeviceMaintenance3Properties(in p);

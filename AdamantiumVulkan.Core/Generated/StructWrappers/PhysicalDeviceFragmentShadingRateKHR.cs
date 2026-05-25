@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceFragmentShadingRateKHR : IMarshallable
     public SampleCountFlagBits SampleCounts { get; set; }
     public Extent2D FragmentSize { get; set; }
 
+
     public static implicit operator PhysicalDeviceFragmentShadingRateKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR p)
     {
         return new PhysicalDeviceFragmentShadingRateKHR(in p);

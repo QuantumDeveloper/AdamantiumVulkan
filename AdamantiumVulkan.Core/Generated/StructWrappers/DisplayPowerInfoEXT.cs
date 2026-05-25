@@ -27,6 +27,7 @@ public unsafe partial class DisplayPowerInfoEXT : IMarshallableObject, IMarshall
     public object PNext { get; set; }
     public DisplayPowerStateEXT PowerState { get; set; }
 
+
     public static implicit operator DisplayPowerInfoEXT(AdamantiumVulkan.Core.Interop.VkDisplayPowerInfoEXT d)
     {
         return new DisplayPowerInfoEXT(in d);

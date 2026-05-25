@@ -26,6 +26,7 @@ public unsafe partial class DisplayPlanePropertiesKHR : IMarshallableObject, IMa
     public DisplayKHR CurrentDisplay { get; set; }
     public uint CurrentStackIndex { get; set; }
 
+
     public static implicit operator DisplayPlanePropertiesKHR(AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR d)
     {
         return new DisplayPlanePropertiesKHR(in d);

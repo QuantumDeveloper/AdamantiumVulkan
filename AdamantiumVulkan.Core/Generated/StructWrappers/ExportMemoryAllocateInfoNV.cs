@@ -27,6 +27,7 @@ public unsafe partial class ExportMemoryAllocateInfoNV : IMarshallableObject, IM
     public object PNext { get; set; }
     public ExternalMemoryHandleTypeFlagBitsNV HandleTypes { get; set; }
 
+
     public static implicit operator ExportMemoryAllocateInfoNV(AdamantiumVulkan.Core.Interop.VkExportMemoryAllocateInfoNV e)
     {
         return new ExportMemoryAllocateInfoNV(in e);

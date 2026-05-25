@@ -28,6 +28,7 @@ public unsafe partial class CommandBufferBeginInfo : IMarshallableObject, IMarsh
     public CommandBufferUsageFlagBits Flags { get; set; }
     public CommandBufferInheritanceInfo PInheritanceInfo { get; set; }
 
+
     public static implicit operator CommandBufferBeginInfo(AdamantiumVulkan.Core.Interop.VkCommandBufferBeginInfo c)
     {
         return new CommandBufferBeginInfo(in c);

@@ -28,6 +28,7 @@ public unsafe partial class LayerSettingsCreateInfoEXT : IMarshallableObject, IM
     public uint SettingCount { get; set; }
     public System.ReadOnlyMemory<LayerSettingEXT> PSettings { get; set; }
 
+
     public static implicit operator LayerSettingsCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkLayerSettingsCreateInfoEXT l)
     {
         return new LayerSettingsCreateInfoEXT(in l);

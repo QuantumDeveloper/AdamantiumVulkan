@@ -28,6 +28,7 @@ public unsafe partial class AccelerationStructureGeometryInstancesDataKHR : IMar
     public VkBool32 ArrayOfPointers { get; set; }
     public DeviceOrHostAddressConstKHR Data { get; set; }
 
+
     public static implicit operator AccelerationStructureGeometryInstancesDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryInstancesDataKHR a)
     {
         return new AccelerationStructureGeometryInstancesDataKHR(in a);
@@ -40,6 +41,8 @@ public unsafe partial class AccelerationStructureGeometryInstancesDataKHR : IMar
         {
             size += marshallable.GetSize();
         }
+        if (Data != default)
+            size += Data.GetSize();
         return size;
     }
 

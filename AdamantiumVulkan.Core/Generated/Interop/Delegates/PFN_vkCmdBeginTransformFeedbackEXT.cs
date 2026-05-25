@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 14780 Column: 10
+// File: video.xml Line: 16729 Column: 10
 public unsafe struct PFN_vkCmdBeginTransformFeedbackEXT
 {
     public PFN_vkCmdBeginTransformFeedbackEXT(nuint ptr) : this((void*) ptr) { }

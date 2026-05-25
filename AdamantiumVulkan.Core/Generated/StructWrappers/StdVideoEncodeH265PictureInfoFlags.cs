@@ -34,6 +34,7 @@ public unsafe partial class StdVideoEncodeH265PictureInfoFlags : IMarshallableOb
     public uint Slice_temporal_mvp_enabled_flag { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoEncodeH265PictureInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265PictureInfoFlags s)
     {
         return new StdVideoEncodeH265PictureInfoFlags(in s);

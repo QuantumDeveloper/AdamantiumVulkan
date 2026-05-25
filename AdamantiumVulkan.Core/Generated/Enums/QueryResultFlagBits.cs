@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10931 Column: 6
+// File: vk.xml Line: 12627 Column: 6
 [Flags]
 public enum QueryResultFlagBits : uint
 {
@@ -22,6 +22,8 @@ public enum QueryResultFlagBits : uint
     WithAvailabilityBit = 4,
 
     PartialBit = 8,
+
+    WithStatusBitKhr = 16,
 
 }
 

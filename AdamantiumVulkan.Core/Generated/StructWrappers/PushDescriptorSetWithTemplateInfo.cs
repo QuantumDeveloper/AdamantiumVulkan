@@ -30,6 +30,7 @@ public unsafe partial class PushDescriptorSetWithTemplateInfo : IMarshallableObj
     public uint Set { get; set; }
     public nuint PData { get; set; }
 
+
     public static implicit operator PushDescriptorSetWithTemplateInfo(AdamantiumVulkan.Core.Interop.VkPushDescriptorSetWithTemplateInfo p)
     {
         return new PushDescriptorSetWithTemplateInfo(in p);

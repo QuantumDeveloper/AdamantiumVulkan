@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceExtendedDynamicState3PropertiesEXT : I
     public object PNext { get; set; }
     public VkBool32 DynamicPrimitiveTopologyUnrestricted { get; set; }
 
+
     public static implicit operator PhysicalDeviceExtendedDynamicState3PropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3PropertiesEXT p)
     {
         return new PhysicalDeviceExtendedDynamicState3PropertiesEXT(in p);

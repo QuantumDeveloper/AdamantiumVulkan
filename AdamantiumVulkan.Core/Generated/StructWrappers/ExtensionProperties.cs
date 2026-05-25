@@ -26,6 +26,7 @@ public unsafe partial class ExtensionProperties : IMarshallableObject, IMarshall
     public string ExtensionName { get; set; }
     public uint SpecVersion { get; set; }
 
+
     public static implicit operator ExtensionProperties(AdamantiumVulkan.Core.Interop.VkExtensionProperties e)
     {
         return new ExtensionProperties(in e);

@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceTexelBufferAlignmentProperties : IMars
     public VkDeviceSize UniformTexelBufferOffsetAlignmentBytes { get; set; }
     public VkBool32 UniformTexelBufferOffsetSingleTexelAlignment { get; set; }
 
+
     public static implicit operator PhysicalDeviceTexelBufferAlignmentProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentProperties p)
     {
         return new PhysicalDeviceTexelBufferAlignmentProperties(in p);

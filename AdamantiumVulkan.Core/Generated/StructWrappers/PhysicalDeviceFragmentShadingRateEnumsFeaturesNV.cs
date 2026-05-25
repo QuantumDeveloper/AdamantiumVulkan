@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceFragmentShadingRateEnumsFeaturesNV : I
     public VkBool32 SupersampleFragmentShadingRates { get; set; }
     public VkBool32 NoInvocationFragmentShadingRates { get; set; }
 
+
     public static implicit operator PhysicalDeviceFragmentShadingRateEnumsFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV p)
     {
         return new PhysicalDeviceFragmentShadingRateEnumsFeaturesNV(in p);

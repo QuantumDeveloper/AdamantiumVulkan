@@ -25,6 +25,7 @@ public unsafe partial class TransformMatrixKHR : IMarshallableObject, IMarshalla
 
     public System.ReadOnlyMemory<float> Matrix { get; set; }
 
+
     public static implicit operator TransformMatrixKHR(AdamantiumVulkan.Core.Interop.VkTransformMatrixKHR t)
     {
         return new TransformMatrixKHR(in t);

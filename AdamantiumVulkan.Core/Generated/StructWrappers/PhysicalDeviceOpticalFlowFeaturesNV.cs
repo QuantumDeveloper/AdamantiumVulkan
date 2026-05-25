@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceOpticalFlowFeaturesNV : IMarshallableO
     public object PNext { get; set; }
     public VkBool32 OpticalFlow { get; set; }
 
+
     public static implicit operator PhysicalDeviceOpticalFlowFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceOpticalFlowFeaturesNV p)
     {
         return new PhysicalDeviceOpticalFlowFeaturesNV(in p);

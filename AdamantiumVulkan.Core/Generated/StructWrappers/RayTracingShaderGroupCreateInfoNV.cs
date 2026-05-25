@@ -31,6 +31,7 @@ public unsafe partial class RayTracingShaderGroupCreateInfoNV : IMarshallableObj
     public uint AnyHitShader { get; set; }
     public uint IntersectionShader { get; set; }
 
+
     public static implicit operator RayTracingShaderGroupCreateInfoNV(AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV r)
     {
         return new RayTracingShaderGroupCreateInfoNV(in r);

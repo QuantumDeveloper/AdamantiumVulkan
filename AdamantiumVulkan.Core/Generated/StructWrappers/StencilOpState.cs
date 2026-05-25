@@ -31,6 +31,7 @@ public unsafe partial class StencilOpState : IMarshallableObject, IMarshallable<
     public uint WriteMask { get; set; }
     public uint Reference { get; set; }
 
+
     public static implicit operator StencilOpState(AdamantiumVulkan.Core.Interop.VkStencilOpState s)
     {
         return new StencilOpState(in s);

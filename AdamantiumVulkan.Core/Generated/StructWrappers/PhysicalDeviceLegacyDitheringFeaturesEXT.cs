@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceLegacyDitheringFeaturesEXT : IMarshall
     public object PNext { get; set; }
     public VkBool32 LegacyDithering { get; set; }
 
+
     public static implicit operator PhysicalDeviceLegacyDitheringFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLegacyDitheringFeaturesEXT p)
     {
         return new PhysicalDeviceLegacyDitheringFeaturesEXT(in p);

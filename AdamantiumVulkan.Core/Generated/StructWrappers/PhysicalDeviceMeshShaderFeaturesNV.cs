@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceMeshShaderFeaturesNV : IMarshallableOb
     public VkBool32 TaskShader { get; set; }
     public VkBool32 MeshShader { get; set; }
 
+
     public static implicit operator PhysicalDeviceMeshShaderFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderFeaturesNV p)
     {
         return new PhysicalDeviceMeshShaderFeaturesNV(in p);

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12272 Column: 6
+// File: vk.xml Line: 14015 Column: 6
 [Flags]
 public enum IndirectExecutionSetInfoTypeEXT : int
 {

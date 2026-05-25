@@ -30,6 +30,7 @@ public unsafe partial class GeneratedCommandsMemoryRequirementsInfoNV : IMarshal
     public IndirectCommandsLayoutNV IndirectCommandsLayout { get; set; }
     public uint MaxSequencesCount { get; set; }
 
+
     public static implicit operator GeneratedCommandsMemoryRequirementsInfoNV(AdamantiumVulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoNV g)
     {
         return new GeneratedCommandsMemoryRequirementsInfoNV(in g);

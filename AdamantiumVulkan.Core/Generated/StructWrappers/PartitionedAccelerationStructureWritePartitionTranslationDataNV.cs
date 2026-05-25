@@ -26,6 +26,7 @@ public unsafe partial class PartitionedAccelerationStructureWritePartitionTransl
     public uint PartitionIndex { get; set; }
     public System.ReadOnlyMemory<float> PartitionTranslation { get; set; }
 
+
     public static implicit operator PartitionedAccelerationStructureWritePartitionTranslationDataNV(AdamantiumVulkan.Core.Interop.VkPartitionedAccelerationStructureWritePartitionTranslationDataNV p)
     {
         return new PartitionedAccelerationStructureWritePartitionTranslationDataNV(in p);

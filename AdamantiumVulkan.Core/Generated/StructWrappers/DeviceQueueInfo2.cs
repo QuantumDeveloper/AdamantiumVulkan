@@ -29,6 +29,7 @@ public unsafe partial class DeviceQueueInfo2 : IMarshallableObject, IMarshallabl
     public uint QueueFamilyIndex { get; set; }
     public uint QueueIndex { get; set; }
 
+
     public static implicit operator DeviceQueueInfo2(AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2 d)
     {
         return new DeviceQueueInfo2(in d);

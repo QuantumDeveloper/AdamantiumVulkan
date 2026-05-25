@@ -29,6 +29,7 @@ public unsafe partial class ImageCopy : IMarshallableObject, IMarshallable<Adama
     public Offset3D DstOffset { get; set; }
     public Extent3D Extent { get; set; }
 
+
     public static implicit operator ImageCopy(AdamantiumVulkan.Core.Interop.VkImageCopy i)
     {
         return new ImageCopy(in i);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceExternalMemoryRDMAFeaturesNV : IMarsha
     public object PNext { get; set; }
     public VkBool32 ExternalMemoryRDMA { get; set; }
 
+
     public static implicit operator PhysicalDeviceExternalMemoryRDMAFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalMemoryRDMAFeaturesNV p)
     {
         return new PhysicalDeviceExternalMemoryRDMAFeaturesNV(in p);

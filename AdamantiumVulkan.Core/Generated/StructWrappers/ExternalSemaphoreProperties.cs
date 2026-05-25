@@ -29,6 +29,7 @@ public unsafe partial class ExternalSemaphoreProperties : IMarshallableObject, I
     public ExternalSemaphoreHandleTypeFlagBits CompatibleHandleTypes { get; set; }
     public ExternalSemaphoreFeatureFlagBits ExternalSemaphoreFeatures { get; set; }
 
+
     public static implicit operator ExternalSemaphoreProperties(AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties e)
     {
         return new ExternalSemaphoreProperties(in e);

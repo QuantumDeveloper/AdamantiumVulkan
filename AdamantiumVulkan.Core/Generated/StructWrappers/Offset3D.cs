@@ -27,6 +27,7 @@ public unsafe partial class Offset3D : IMarshallableObject, IMarshallable<Adaman
     public int Y { get; set; }
     public int Z { get; set; }
 
+
     public static implicit operator Offset3D(AdamantiumVulkan.Core.Interop.VkOffset3D o)
     {
         return new Offset3D(in o);

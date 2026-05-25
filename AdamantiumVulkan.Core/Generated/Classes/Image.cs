@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 561 Column: 10
+// File: vk.xml Line: 607 Column: 10
 public unsafe partial class Image : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkImage_T>
 {
     internal VkImage_T __Instance;

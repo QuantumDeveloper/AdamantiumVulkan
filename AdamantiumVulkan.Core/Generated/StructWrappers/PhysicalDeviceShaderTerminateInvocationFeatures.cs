@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderTerminateInvocationFeatures : IM
     public object PNext { get; set; }
     public VkBool32 ShaderTerminateInvocation { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderTerminateInvocationFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderTerminateInvocationFeatures p)
     {
         return new PhysicalDeviceShaderTerminateInvocationFeatures(in p);

@@ -27,6 +27,7 @@ public unsafe partial class ImageViewUsageCreateInfo : IMarshallableObject, IMar
     public object PNext { get; set; }
     public ImageUsageFlagBits Usage { get; set; }
 
+
     public static implicit operator ImageViewUsageCreateInfo(AdamantiumVulkan.Core.Interop.VkImageViewUsageCreateInfo i)
     {
         return new ImageViewUsageCreateInfo(in i);

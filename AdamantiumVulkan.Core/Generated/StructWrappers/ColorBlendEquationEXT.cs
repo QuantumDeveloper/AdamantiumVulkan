@@ -30,6 +30,7 @@ public unsafe partial class ColorBlendEquationEXT : IMarshallableObject, IMarsha
     public BlendFactor DstAlphaBlendFactor { get; set; }
     public BlendOp AlphaBlendOp { get; set; }
 
+
     public static implicit operator ColorBlendEquationEXT(AdamantiumVulkan.Core.Interop.VkColorBlendEquationEXT c)
     {
         return new ColorBlendEquationEXT(in c);

@@ -28,6 +28,7 @@ public unsafe partial class AccelerationStructureBuildRangeInfoKHR : IMarshallab
     public uint FirstVertex { get; set; }
     public uint TransformOffset { get; set; }
 
+
     public static implicit operator AccelerationStructureBuildRangeInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR a)
     {
         return new AccelerationStructureBuildRangeInfoKHR(in a);

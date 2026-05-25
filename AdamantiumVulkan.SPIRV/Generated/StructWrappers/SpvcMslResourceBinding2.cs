@@ -31,6 +31,7 @@ public unsafe partial class SpvcMslResourceBinding2 : IMarshallable<AdamantiumVu
     public uint Msl_buffer { get; set; }
     public uint Msl_texture { get; set; }
     public uint Msl_sampler { get; set; }
+
     public void CMslResourceBindingInit2()
     {
         System.Span<byte> arg0Span = stackalloc byte[GetSize()];

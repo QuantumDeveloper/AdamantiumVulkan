@@ -30,6 +30,7 @@ public unsafe partial class DeviceAddressBindingCallbackDataEXT : IMarshallableO
     public VkDeviceSize Size { get; set; }
     public DeviceAddressBindingTypeEXT BindingType { get; set; }
 
+
     public static implicit operator DeviceAddressBindingCallbackDataEXT(AdamantiumVulkan.Core.Interop.VkDeviceAddressBindingCallbackDataEXT d)
     {
         return new DeviceAddressBindingCallbackDataEXT(in d);

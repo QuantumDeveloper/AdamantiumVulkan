@@ -28,6 +28,7 @@ public unsafe partial class MemoryAllocateInfo : IMarshallableObject, IMarshalla
     public VkDeviceSize AllocationSize { get; set; }
     public uint MemoryTypeIndex { get; set; }
 
+
     public static implicit operator MemoryAllocateInfo(AdamantiumVulkan.Core.Interop.VkMemoryAllocateInfo m)
     {
         return new MemoryAllocateInfo(in m);

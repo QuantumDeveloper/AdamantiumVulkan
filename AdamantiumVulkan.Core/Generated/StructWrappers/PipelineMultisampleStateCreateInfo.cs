@@ -33,6 +33,7 @@ public unsafe partial class PipelineMultisampleStateCreateInfo : IMarshallableOb
     public VkBool32 AlphaToCoverageEnable { get; set; }
     public VkBool32 AlphaToOneEnable { get; set; }
 
+
     public static implicit operator PipelineMultisampleStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo p)
     {
         return new PipelineMultisampleStateCreateInfo(in p);

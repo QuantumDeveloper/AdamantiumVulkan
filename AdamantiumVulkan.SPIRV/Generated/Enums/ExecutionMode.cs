@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 129 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 114 Column: 14
 public enum ExecutionMode : uint
 {
     Invocations = 0,
@@ -110,6 +110,10 @@ public enum ExecutionMode : uint
 
     RoundingModeRTZ = 4463,
 
+    NonCoherentTileAttachmentReadQCOM = 4489,
+
+    TileShadingRateQCOM = 4490,
+
     EarlyAndLateFragmentTestsAMD = 5017,
 
     StencilRefReplacingEXT = 5027,
@@ -144,6 +148,8 @@ public enum ExecutionMode : uint
 
     SharesInputWithAMDX = 5102,
 
+    ArithmeticPoisonKHR = 5157,
+
     OutputLinesEXT = 5269,
 
     OutputPrimitivesEXT = 5270,
@@ -165,6 +171,8 @@ public enum ExecutionMode : uint
     ShadingRateInterlockOrderedEXT = 5370,
 
     ShadingRateInterlockUnorderedEXT = 5371,
+
+    Shader64BitIndexingEXT = 5427,
 
     SharedLocalMemorySizeINTEL = 5618,
 

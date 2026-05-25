@@ -28,6 +28,7 @@ public unsafe partial class MemoryGetFdInfoKHR : IMarshallableObject, IMarshalla
     public DeviceMemory Memory { get; set; }
     public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
 
+
     public static implicit operator MemoryGetFdInfoKHR(AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR m)
     {
         return new MemoryGetFdInfoKHR(in m);

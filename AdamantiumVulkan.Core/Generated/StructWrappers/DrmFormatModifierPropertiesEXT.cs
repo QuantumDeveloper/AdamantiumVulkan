@@ -27,6 +27,7 @@ public unsafe partial class DrmFormatModifierPropertiesEXT : IMarshallableObject
     public uint DrmFormatModifierPlaneCount { get; set; }
     public FormatFeatureFlagBits DrmFormatModifierTilingFeatures { get; set; }
 
+
     public static implicit operator DrmFormatModifierPropertiesEXT(AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT d)
     {
         return new DrmFormatModifierPropertiesEXT(in d);

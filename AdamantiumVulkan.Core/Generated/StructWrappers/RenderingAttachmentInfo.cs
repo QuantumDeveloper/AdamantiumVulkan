@@ -34,6 +34,7 @@ public unsafe partial class RenderingAttachmentInfo : IMarshallableObject, IMars
     public AttachmentStoreOp StoreOp { get; set; }
     public ClearValue ClearValue { get; set; }
 
+
     public static implicit operator RenderingAttachmentInfo(AdamantiumVulkan.Core.Interop.VkRenderingAttachmentInfo r)
     {
         return new RenderingAttachmentInfo(in r);
@@ -46,6 +47,8 @@ public unsafe partial class RenderingAttachmentInfo : IMarshallableObject, IMars
         {
             size += marshallable.GetSize();
         }
+        if (ClearValue != default)
+            size += ClearValue.GetSize();
         return size;
     }
 

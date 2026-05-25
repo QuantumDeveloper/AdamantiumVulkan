@@ -26,6 +26,7 @@ public unsafe partial class PresentRegionKHR : IMarshallableObject, IMarshallabl
     public uint RectangleCount { get; set; }
     public System.ReadOnlyMemory<RectLayerKHR> PRectangles { get; set; }
 
+
     public static implicit operator PresentRegionKHR(AdamantiumVulkan.Core.Interop.VkPresentRegionKHR p)
     {
         return new PresentRegionKHR(in p);

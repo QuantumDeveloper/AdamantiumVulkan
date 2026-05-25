@@ -11,11 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11514 Column: 6
+// File: vk.xml Line: 13213 Column: 6
 [Flags]
 public enum AccelerationStructureCreateFlagBitsKHR : uint
 {
     DeviceAddressCaptureReplayBitKhr = 1,
+
+    DescriptorBufferCaptureReplayBitExt = 8,
+
+    MotionBitNv = 4,
 
 }
 

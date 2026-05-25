@@ -13,7 +13,7 @@ using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 12474 Column: 10
+// File: video.xml Line: 14381 Column: 10
 public unsafe struct PFN_vkEnumerateInstanceLayerProperties
 {
     public PFN_vkEnumerateInstanceLayerProperties(nuint ptr) : this((void*) ptr) { }

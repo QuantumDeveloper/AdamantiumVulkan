@@ -26,6 +26,7 @@ public unsafe partial class StdVideoEncodeAV1ExtensionHeader : IMarshallableObje
     public byte Temporal_id { get; set; }
     public byte Spatial_id { get; set; }
 
+
     public static implicit operator StdVideoEncodeAV1ExtensionHeader(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader s)
     {
         return new StdVideoEncodeAV1ExtensionHeader(in s);

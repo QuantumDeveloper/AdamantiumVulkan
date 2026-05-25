@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10781 Column: 6
+// File: vk.xml Line: 12477 Column: 6
 [Flags]
 public enum QueueFlagBits : uint
 {
@@ -22,6 +22,26 @@ public enum QueueFlagBits : uint
     TransferBit = 4,
 
     SparseBindingBit = 8,
+
+    VideoDecodeBitKhr = 32,
+
+    VideoEncodeBitKhr = 64,
+
+    Reserved7BitQcom = 128,
+
+    OpticalFlowBitNv = 256,
+
+    DataGraphBitArm = 1024,
+
+    Reserved12BitExt = 4096,
+
+    Reserved9BitExt = 512,
+
+    Reserved13BitExt = 8192,
+
+    Reserved11BitArm = 2048,
+
+    ProtectedBit = 16,
 
 }
 

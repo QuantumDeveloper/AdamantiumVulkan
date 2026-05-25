@@ -37,6 +37,7 @@ public unsafe partial class StdVideoEncodeH265SliceSegmentHeaderFlags : IMarshal
     public uint Slice_loop_filter_across_slices_enabled_flag { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoEncodeH265SliceSegmentHeaderFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags s)
     {
         return new StdVideoEncodeH265SliceSegmentHeaderFlags(in s);

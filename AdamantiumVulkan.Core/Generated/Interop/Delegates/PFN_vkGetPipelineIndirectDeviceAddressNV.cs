@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15428 Column: 10
+// File: video.xml Line: 17383 Column: 10
 public unsafe struct PFN_vkGetPipelineIndirectDeviceAddressNV
 {
     public PFN_vkGetPipelineIndirectDeviceAddressNV(nuint ptr) : this((void*) ptr) { }

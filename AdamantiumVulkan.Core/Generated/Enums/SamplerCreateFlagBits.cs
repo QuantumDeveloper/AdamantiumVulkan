@@ -11,10 +11,20 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10882 Column: 6
+// File: vk.xml Line: 12578 Column: 6
 [Flags]
 public enum SamplerCreateFlagBits : uint
 {
+    SubsampledBitExt = 1,
+
+    SubsampledCoarseReconstructionBitExt = 2,
+
+    DescriptorBufferCaptureReplayBitExt = 8,
+
+    NonSeamlessCubeMapBitExt = 4,
+
+    ImageProcessingBitQcom = 16,
+
 }
 
 

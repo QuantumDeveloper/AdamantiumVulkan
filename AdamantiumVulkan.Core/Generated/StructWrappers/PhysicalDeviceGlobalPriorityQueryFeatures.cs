@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceGlobalPriorityQueryFeatures : IMarshal
     public object PNext { get; set; }
     public VkBool32 GlobalPriorityQuery { get; set; }
 
+
     public static implicit operator PhysicalDeviceGlobalPriorityQueryFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGlobalPriorityQueryFeatures p)
     {
         return new PhysicalDeviceGlobalPriorityQueryFeatures(in p);

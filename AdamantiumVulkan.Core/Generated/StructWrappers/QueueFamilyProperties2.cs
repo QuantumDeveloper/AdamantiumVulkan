@@ -27,6 +27,7 @@ public unsafe partial class QueueFamilyProperties2 : IMarshallableObject, IMarsh
     public object PNext { get; set; }
     public QueueFamilyProperties QueueFamilyProperties { get; set; }
 
+
     public static implicit operator QueueFamilyProperties2(AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2 q)
     {
         return new QueueFamilyProperties2(in q);

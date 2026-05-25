@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: video.xml Line: 1299 Column: 6
+// File: video.xml Line: 1393 Column: 6
 public enum StdVideoH264MemMgmtControlOp : int
 {
     End = 0,

@@ -31,6 +31,7 @@ public unsafe partial class SpvcHlslRootConstants : IMarshallable<AdamantiumVulk
     public uint Binding { get; set; }
     public uint Space { get; set; }
 
+
     public static implicit operator SpvcHlslRootConstants(AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslRootConstants s)
     {
         return new SpvcHlslRootConstants(in s);

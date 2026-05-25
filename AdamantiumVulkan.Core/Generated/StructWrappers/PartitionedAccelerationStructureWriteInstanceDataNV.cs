@@ -33,6 +33,7 @@ public unsafe partial class PartitionedAccelerationStructureWriteInstanceDataNV 
     public uint PartitionIndex { get; set; }
     public VkDeviceAddress AccelerationStructure { get; set; }
 
+
     public static implicit operator PartitionedAccelerationStructureWriteInstanceDataNV(AdamantiumVulkan.Core.Interop.VkPartitionedAccelerationStructureWriteInstanceDataNV p)
     {
         return new PartitionedAccelerationStructureWriteInstanceDataNV(in p);

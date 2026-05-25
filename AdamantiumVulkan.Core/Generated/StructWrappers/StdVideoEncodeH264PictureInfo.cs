@@ -34,6 +34,7 @@ public unsafe partial class StdVideoEncodeH264PictureInfo : IMarshallableObject,
     public System.ReadOnlyMemory<byte> Reserved1 { get; set; }
     public StdVideoEncodeH264ReferenceListsInfo PRefLists { get; set; }
 
+
     public static implicit operator StdVideoEncodeH264PictureInfo(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264PictureInfo s)
     {
         return new StdVideoEncodeH264PictureInfo(in s);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceComputeShaderDerivativesPropertiesKHR 
     public object PNext { get; set; }
     public VkBool32 MeshAndTaskShaderDerivatives { get; set; }
 
+
     public static implicit operator PhysicalDeviceComputeShaderDerivativesPropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesPropertiesKHR p)
     {
         return new PhysicalDeviceComputeShaderDerivativesPropertiesKHR(in p);

@@ -28,6 +28,7 @@ public unsafe partial class PresentRegionsKHR : IMarshallableObject, IMarshallab
     public uint SwapchainCount { get; set; }
     public System.ReadOnlyMemory<PresentRegionKHR> PRegions { get; set; }
 
+
     public static implicit operator PresentRegionsKHR(AdamantiumVulkan.Core.Interop.VkPresentRegionsKHR p)
     {
         return new PresentRegionsKHR(in p);

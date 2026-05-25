@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10863 Column: 6
+// File: vk.xml Line: 12559 Column: 6
 [Flags]
 public enum ImageUsageFlagBits : uint
 {
@@ -30,6 +30,52 @@ public enum ImageUsageFlagBits : uint
     TransientAttachmentBit = 64,
 
     InputAttachmentBit = 128,
+
+    VideoDecodeDstBitKhr = 1024,
+
+    VideoDecodeSrcBitKhr = 2048,
+
+    VideoDecodeDpbBitKhr = 4096,
+
+    FragmentDensityMapBitExt = 512,
+
+    FragmentShadingRateAttachmentBitKhr = 256,
+
+    VideoEncodeDstBitKhr = 8192,
+
+    VideoEncodeSrcBitKhr = 16384,
+
+    VideoEncodeDpbBitKhr = 32768,
+
+    AttachmentFeedbackLoopBitExt = 524288,
+
+    InvocationMaskBitHuawei = 262144,
+
+    SampleWeightBitQcom = 1048576,
+
+    SampleBlockMatchBitQcom = 2097152,
+
+    Reserved24BitCoreavi = 16777216,
+
+    TensorAliasingBitArm = 8388608,
+
+    Reserved28BitExt = 268435456,
+
+    TileMemoryBitQcom = 134217728,
+
+    VideoEncodeQuantizationDeltaMapBitKhr = 33554432,
+
+    VideoEncodeEmphasisMapBitKhr = 67108864,
+
+    Reserved29BitKhr = 536870912,
+
+    Reserved30BitKhr = 1073741824,
+
+    Reserved16BitHuawei = 65536,
+
+    Reserved27BitHuawei = 131072,
+
+    HostTransferBit = 4194304,
 
 }
 

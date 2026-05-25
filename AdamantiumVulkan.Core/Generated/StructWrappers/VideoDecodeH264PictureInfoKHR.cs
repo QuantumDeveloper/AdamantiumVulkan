@@ -29,6 +29,7 @@ public unsafe partial class VideoDecodeH264PictureInfoKHR : IMarshallableObject,
     public uint SliceCount { get; set; }
     public System.ReadOnlyMemory<uint> PSliceOffsets { get; set; }
 
+
     public static implicit operator VideoDecodeH264PictureInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeH264PictureInfoKHR v)
     {
         return new VideoDecodeH264PictureInfoKHR(in v);

@@ -34,6 +34,7 @@ public unsafe partial class PhysicalDeviceMaintenance7PropertiesKHR : IMarshalla
     public uint MaxDescriptorSetUpdateAfterBindTotalStorageBuffersDynamic { get; set; }
     public uint MaxDescriptorSetUpdateAfterBindTotalBuffersDynamic { get; set; }
 
+
     public static implicit operator PhysicalDeviceMaintenance7PropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance7PropertiesKHR p)
     {
         return new PhysicalDeviceMaintenance7PropertiesKHR(in p);

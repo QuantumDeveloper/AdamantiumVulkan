@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 123 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 125 Column: 14
 ///<summary>
 /// The kinds of operands that an instruction may have.
 ///</summary>
@@ -227,6 +227,9 @@ public enum spv_operand_type_t : uint
     ///</summary>
     OperandTypeFragmentShadingRate = 41,
 
+    ///<summary>
+    /// An optional operand represents zero or one logical operands. In an instruction definition, this may only appear at the end of the operand types.
+    ///</summary>
     OperandTypeOptionalId = 42,
 
     ///<summary>
@@ -274,6 +277,9 @@ public enum spv_operand_type_t : uint
     ///</summary>
     OperandTypeOptionalFpencoding = 51,
 
+    ///<summary>
+    /// A variable operand represents zero or more logical operands. In an instruction definition, this may only appear at the end of the operand types.
+    ///</summary>
     OperandTypeVariableId = 52,
 
     ///<summary>
@@ -286,6 +292,9 @@ public enum spv_operand_type_t : uint
     ///</summary>
     OperandTypeVariableLiteralIntegerId = 54,
 
+    ///<summary>
+    /// A sequence of zero or more pairs of (Id, Literal integer)
+    ///</summary>
     OperandTypeVariableIdLiteralInteger = 55,
 
     ///<summary>
@@ -484,9 +493,69 @@ public enum spv_operand_type_t : uint
     OperandTypeComponentType = 94,
 
     ///<summary>
+    /// From nonesmantic.clspvreflection
+    ///</summary>
+    OperandTypeKernelPropertyFlags = 95,
+
+    ///<summary>
+    /// From nonesmantic.shader.debuginfo.100
+    ///</summary>
+    OperandTypeShdebug100BuildIdentifierFlags = 96,
+
+    ///<summary>
+    /// From nonesmantic.shader.debuginfo.100
+    ///</summary>
+    OperandTypeShdebug100DebugBaseTypeAttributeEncoding = 97,
+
+    ///<summary>
+    /// From nonesmantic.shader.debuginfo.100
+    ///</summary>
+    OperandTypeShdebug100DebugCompositeType = 98,
+
+    ///<summary>
+    /// From nonesmantic.shader.debuginfo.100
+    ///</summary>
+    OperandTypeShdebug100DebugImportedEntity = 99,
+
+    ///<summary>
+    /// From nonesmantic.shader.debuginfo.100
+    ///</summary>
+    OperandTypeShdebug100DebugInfoFlags = 100,
+
+    ///<summary>
+    /// From nonesmantic.shader.debuginfo.100
+    ///</summary>
+    OperandTypeShdebug100DebugOperation = 101,
+
+    ///<summary>
+    /// From nonesmantic.shader.debuginfo.100
+    ///</summary>
+    OperandTypeShdebug100DebugTypeQualifier = 102,
+
+    ///<summary>
+    /// SPV_ARM_tensors
+    ///</summary>
+    OperandTypeTensorOperands = 103,
+
+    ///<summary>
+    /// SPV_ARM_tensors
+    ///</summary>
+    OperandTypeOptionalTensorOperands = 104,
+
+    ///<summary>
+    /// SPV_INTEL_function_variants
+    ///</summary>
+    OperandTypeOptionalCapability = 105,
+
+    ///<summary>
+    /// SPV_INTEL_function_variants
+    ///</summary>
+    OperandTypeVariableCapability = 106,
+
+    ///<summary>
     /// This is a sentinel value, and does not represent an operand type. It should come last.
     ///</summary>
-    OperandTypeNumOperandTypes = 95,
+    OperandTypeNumOperandTypes = 107,
 
     Force32bitSpvOperandTypeT = 2147483647,
 

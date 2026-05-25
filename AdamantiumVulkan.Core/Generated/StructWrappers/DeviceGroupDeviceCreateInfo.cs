@@ -28,6 +28,7 @@ public unsafe partial class DeviceGroupDeviceCreateInfo : IMarshallableObject, I
     public uint PhysicalDeviceCount { get; set; }
     public System.ReadOnlyMemory<PhysicalDevice> PhysicalDevices { get; set; }
 
+
     public static implicit operator DeviceGroupDeviceCreateInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupDeviceCreateInfo d)
     {
         return new DeviceGroupDeviceCreateInfo(in d);

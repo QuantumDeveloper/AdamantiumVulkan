@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePipelineCreationCacheControlFeatures :
     public object PNext { get; set; }
     public VkBool32 PipelineCreationCacheControl { get; set; }
 
+
     public static implicit operator PhysicalDevicePipelineCreationCacheControlFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelineCreationCacheControlFeatures p)
     {
         return new PhysicalDevicePipelineCreationCacheControlFeatures(in p);

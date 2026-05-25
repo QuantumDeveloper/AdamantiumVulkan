@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceOpacityMicromapFeaturesEXT : IMarshall
     public VkBool32 MicromapCaptureReplay { get; set; }
     public VkBool32 MicromapHostCommands { get; set; }
 
+
     public static implicit operator PhysicalDeviceOpacityMicromapFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceOpacityMicromapFeaturesEXT p)
     {
         return new PhysicalDeviceOpacityMicromapFeaturesEXT(in p);

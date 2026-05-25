@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 14661 Column: 10
+// File: video.xml Line: 16610 Column: 10
 public unsafe struct PFN_vkGetMemoryHostPointerPropertiesEXT
 {
     public PFN_vkGetMemoryHostPointerPropertiesEXT(nuint ptr) : this((void*) ptr) { }

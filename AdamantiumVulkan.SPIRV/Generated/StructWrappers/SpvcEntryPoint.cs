@@ -30,6 +30,7 @@ public unsafe partial class SpvcEntryPoint : IMarshallable<AdamantiumVulkan.Spir
     public ExecutionModel Execution_model { get; set; }
     public string Name { get; set; }
 
+
     public static implicit operator SpvcEntryPoint(AdamantiumVulkan.Spirv.Cross.Interop.SpvcEntryPoint s)
     {
         return new SpvcEntryPoint(in s);

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 1279 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 1428 Column: 14
 [Flags]
 public enum RayFlagsMask : uint
 {
@@ -33,7 +33,7 @@ public enum RayFlagsMask : uint
 
     CullNoOpaqueKHRMask = 128,
 
-    SkipTrianglesKHRMask = 256,
+    SkipBuiltinPrimitivesNVMask = 256,
 
     SkipAABBsKHRMask = 512,
 

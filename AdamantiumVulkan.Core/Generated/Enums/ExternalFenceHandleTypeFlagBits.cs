@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11280 Column: 6
+// File: vk.xml Line: 12978 Column: 6
 [Flags]
 public enum ExternalFenceHandleTypeFlagBits : uint
 {
@@ -22,6 +22,10 @@ public enum ExternalFenceHandleTypeFlagBits : uint
     OpaqueWin32KmtBit = 4,
 
     SyncFdBit = 8,
+
+    SciSyncObjBitNv = 16,
+
+    SciSyncFenceBitNv = 32,
 
 }
 

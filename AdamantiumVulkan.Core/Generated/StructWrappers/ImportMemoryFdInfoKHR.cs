@@ -28,6 +28,7 @@ public unsafe partial class ImportMemoryFdInfoKHR : IMarshallableObject, IMarsha
     public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
     public int Fd { get; set; }
 
+
     public static implicit operator ImportMemoryFdInfoKHR(AdamantiumVulkan.Core.Interop.VkImportMemoryFdInfoKHR i)
     {
         return new ImportMemoryFdInfoKHR(in i);

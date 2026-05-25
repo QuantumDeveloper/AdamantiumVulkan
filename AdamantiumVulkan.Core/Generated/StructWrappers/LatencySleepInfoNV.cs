@@ -28,6 +28,7 @@ public unsafe partial class LatencySleepInfoNV : IMarshallableObject, IMarshalla
     public Semaphore SignalSemaphore { get; set; }
     public ulong Value { get; set; }
 
+
     public static implicit operator LatencySleepInfoNV(AdamantiumVulkan.Core.Interop.VkLatencySleepInfoNV l)
     {
         return new LatencySleepInfoNV(in l);

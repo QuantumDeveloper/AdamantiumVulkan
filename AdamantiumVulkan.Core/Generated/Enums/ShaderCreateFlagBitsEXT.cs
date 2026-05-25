@@ -11,11 +11,43 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 12297 Column: 6
+// File: vk.xml Line: 14040 Column: 6
 [Flags]
 public enum ShaderCreateFlagBitsEXT : uint
 {
     LinkStageBitExt = 1,
+
+    Reserved17BitImg = 131072,
+
+    DescriptorHeapBitExt = 1024,
+
+    Reserved16BitKhr = 65536,
+
+    InstrumentShaderBitArm = 2048,
+
+    AllowVaryingSubgroupSizeBitExt = 2,
+
+    RequireFullSubgroupsBitExt = 4,
+
+    NoTaskShaderBitExt = 8,
+
+    DispatchBaseBitExt = 16,
+
+    FragmentShadingRateAttachmentBitExt = 32,
+
+    FragmentDensityMapAttachmentBitExt = 64,
+
+    IndirectBindableBitExt = 128,
+
+    Reserved8BitExt = 256,
+
+    Reserved9BitExt = 512,
+
+    Reserved12BitExt = 4096,
+
+    _64BitIndexingBitExt = 32768,
+
+    IndependentSetsBitKhr = 262144,
 
 }
 

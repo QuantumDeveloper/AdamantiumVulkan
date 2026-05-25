@@ -32,6 +32,7 @@ public unsafe partial class PhysicalDeviceLineRasterizationFeatures : IMarshalla
     public VkBool32 StippledBresenhamLines { get; set; }
     public VkBool32 StippledSmoothLines { get; set; }
 
+
     public static implicit operator PhysicalDeviceLineRasterizationFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLineRasterizationFeatures p)
     {
         return new PhysicalDeviceLineRasterizationFeatures(in p);

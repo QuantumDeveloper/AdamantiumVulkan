@@ -27,6 +27,7 @@ public unsafe partial class RectLayerKHR : IMarshallableObject, IMarshallable<Ad
     public Extent2D Extent { get; set; }
     public uint Layer { get; set; }
 
+
     public static implicit operator RectLayerKHR(AdamantiumVulkan.Core.Interop.VkRectLayerKHR r)
     {
         return new RectLayerKHR(in r);

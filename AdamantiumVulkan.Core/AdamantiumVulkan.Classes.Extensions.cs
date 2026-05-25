@@ -614,9 +614,11 @@ namespace AdamantiumVulkan.Core
         
         public uint GetDescriptorSetLayoutOffset(DescriptorSetLayout layout, uint bindingSlot)
         {
-            VkDeviceSize offsetSize = default;
-            DescriptorSetLayoutOffsetDelegate.Invoke(this, layout, bindingSlot, &offsetSize);
+            GetDescriptorSetLayoutBindingOffsetEXT(layout, bindingSlot, out var offsetSize);
             return (uint)offsetSize;
+            // VkDeviceSize offsetSize = default;
+            // DescriptorSetLayoutOffsetDelegate.Invoke(this, layout, bindingSlot, &offsetSize);
+            // return (uint)offsetSize;
         }
 
         public void GetDescriptor(DescriptorGetInfoEXT descriptorInfo, uint descriptorSize, nuint descriptorPtr)
@@ -628,19 +630,17 @@ namespace AdamantiumVulkan.Core
         
         public void BindDescriptorBuffers(CommandBuffer commandBuffer, DescriptorBufferBindingInfoEXT[] bindingInfos)
         {
-            using var ctx = MarshallingContext.MarshalArray<DescriptorBufferBindingInfoEXT, VkDescriptorBufferBindingInfoEXT>(bindingInfos, out var arrayPtr);
-            BindDescriptorBuffersDelegate.Invoke(commandBuffer, (uint)bindingInfos.Length, arrayPtr);
-            NativeMemory.Free(arrayPtr);
+            commandBuffer.BindDescriptorBuffersEXT((uint)bindingInfos.Length, bindingInfos);
         }
 
-        public void SetDescriptorBufferOffsets(CommandBuffer commandBuffer, PipelineBindPoint bindPoint, PipelineLayout layout, uint firstSet, uint setCount, uint[] bufferIndices, ulong[] offsets)
-        {
-            var indicesPtr = NativeUtils.ManagedArrayToPointer(bufferIndices);
-            var offsetsPtr = NativeUtils.ManagedArrayToPointer(offsets);
-            SetDescriptorBufferOffsetsDelegate.Invoke(commandBuffer, bindPoint, layout, firstSet, setCount, indicesPtr, offsetsPtr);
-            NativeMemory.Free(indicesPtr);
-            NativeMemory.Free(offsetsPtr);
-        }
+        // public void SetDescriptorBufferOffsets(CommandBuffer commandBuffer, PipelineBindPoint bindPoint, PipelineLayout layout, uint firstSet, uint setCount, uint[] bufferIndices, ulong[] offsets)
+        // {
+        //     var indicesPtr = NativeUtils.ManagedArrayToPointer(bufferIndices);
+        //     var offsetsPtr = NativeUtils.ManagedArrayToPointer(offsets);
+        //     SetDescriptorBufferOffsetsDelegate.Invoke(commandBuffer, bindPoint, layout, firstSet, setCount, indicesPtr, offsetsPtr);
+        //     NativeMemory.Free(indicesPtr);
+        //     NativeMemory.Free(offsetsPtr);
+        // }
 
         public void SetViewportWithCountEXT(CommandBuffer commandBuffer, params Viewport[] viewports)
         {
@@ -836,6 +836,67 @@ namespace AdamantiumVulkan.Core
                 CodeSize = (nuint)value.Length;
             }
         }
+    }
+
+    public unsafe partial class CommandBuffer
+    {
+        public void PipelineBarrier(PipelineStageFlagBits srcStageMask, PipelineStageFlagBits dstStageMask, DependencyFlagBits dependencyFlags, uint memoryBarrierCount, in ReadOnlySpan<MemoryBarrier> pMemoryBarriers, uint bufferMemoryBarrierCount, in ReadOnlySpan<BufferMemoryBarrier> pBufferMemoryBarriers, uint imageMemoryBarrierCount, in ImageMemoryBarrier pImageMemoryBarriers)
+    {
+        int CalculateSize(ReadOnlySpan<MemoryBarrier> pMemoryBarriers, ReadOnlySpan<BufferMemoryBarrier> pBufferMemoryBarriers, ImageMemoryBarrier pImageMemoryBarriers)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pMemoryBarriers.Length; i++)
+            {
+                if(pMemoryBarriers[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkMemoryBarrier>();
+                else
+                    totalSize += pMemoryBarriers[(int)i].GetSize();
+            }
+            for (var i = 0U; i < pBufferMemoryBarriers.Length; i++)
+            {
+                if(pBufferMemoryBarriers[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier>();
+                else
+                    totalSize += pBufferMemoryBarriers[(int)i].GetSize();
+            }
+
+            if (pImageMemoryBarriers != null)
+            {
+                totalSize += pImageMemoryBarriers.GetSize();
+            }
+            
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pMemoryBarriers, pBufferMemoryBarriers, pImageMemoryBarriers);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            AdamantiumVulkan.Core.Interop.VkMemoryBarrier* arg5 = null;
+            if (!pMemoryBarriers.IsEmpty)
+            {
+                arg5 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<AdamantiumVulkan.Core.MemoryBarrier, AdamantiumVulkan.Core.Interop.VkMemoryBarrier>(pMemoryBarriers, ref currentCursor);
+            }
+            AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier* arg7 = null;
+            if (!pBufferMemoryBarriers.IsEmpty)
+            {
+                arg7 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<AdamantiumVulkan.Core.BufferMemoryBarrier, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier>(pBufferMemoryBarriers, ref currentCursor);
+            }
+            AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier* arg9 = null;
+            if (pImageMemoryBarriers != null)
+            {
+                arg9 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<ImageMemoryBarrier, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier>(pImageMemoryBarriers, ref currentCursor);
+            }
+            Commands.vkCmdPipelineBarrier(this, srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, arg5, bufferMemoryBarrierCount, arg7, imageMemoryBarrierCount, arg9);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
     }
 
     public unsafe partial class Framebuffer

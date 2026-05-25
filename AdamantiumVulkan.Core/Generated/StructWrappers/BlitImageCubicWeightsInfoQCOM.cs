@@ -27,6 +27,7 @@ public unsafe partial class BlitImageCubicWeightsInfoQCOM : IMarshallableObject,
     public object PNext { get; set; }
     public CubicFilterWeightsQCOM CubicWeights { get; set; }
 
+
     public static implicit operator BlitImageCubicWeightsInfoQCOM(AdamantiumVulkan.Core.Interop.VkBlitImageCubicWeightsInfoQCOM b)
     {
         return new BlitImageCubicWeightsInfoQCOM(in b);

@@ -28,6 +28,7 @@ public unsafe partial class RenderPassStripeBeginInfoARM : IMarshallableObject, 
     public uint StripeInfoCount { get; set; }
     public System.ReadOnlyMemory<RenderPassStripeInfoARM> PStripeInfos { get; set; }
 
+
     public static implicit operator RenderPassStripeBeginInfoARM(AdamantiumVulkan.Core.Interop.VkRenderPassStripeBeginInfoARM r)
     {
         return new RenderPassStripeBeginInfoARM(in r);

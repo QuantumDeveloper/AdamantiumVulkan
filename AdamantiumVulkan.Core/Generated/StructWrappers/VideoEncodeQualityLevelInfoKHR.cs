@@ -27,6 +27,7 @@ public unsafe partial class VideoEncodeQualityLevelInfoKHR : IMarshallableObject
     public object PNext { get; set; }
     public uint QualityLevel { get; set; }
 
+
     public static implicit operator VideoEncodeQualityLevelInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelInfoKHR v)
     {
         return new VideoEncodeQualityLevelInfoKHR(in v);

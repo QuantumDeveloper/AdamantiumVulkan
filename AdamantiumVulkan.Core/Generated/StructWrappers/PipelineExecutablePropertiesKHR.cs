@@ -30,6 +30,7 @@ public unsafe partial class PipelineExecutablePropertiesKHR : IMarshallableObjec
     public string Description { get; set; }
     public uint SubgroupSize { get; set; }
 
+
     public static implicit operator PipelineExecutablePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR p)
     {
         return new PipelineExecutablePropertiesKHR(in p);

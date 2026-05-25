@@ -29,6 +29,7 @@ public unsafe partial class ImportMemoryWin32HandleInfoNV : IMarshallableObject,
     public ExternalMemoryHandleTypeFlagBitsNV HandleType { get; set; }
     public nuint Handle { get; set; }
 
+
     public static implicit operator ImportMemoryWin32HandleInfoNV(AdamantiumVulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV i)
     {
         return new ImportMemoryWin32HandleInfoNV(in i);

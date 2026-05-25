@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceShaderSMBuiltinsPropertiesNV : IMarsha
     public uint ShaderSMCount { get; set; }
     public uint ShaderWarpsPerSM { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderSMBuiltinsPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderSMBuiltinsPropertiesNV p)
     {
         return new PhysicalDeviceShaderSMBuiltinsPropertiesNV(in p);

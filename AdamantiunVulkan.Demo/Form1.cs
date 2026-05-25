@@ -858,8 +858,8 @@ public unsafe partial class Form1 : Form
     private void CreateSurface()
     {
         var surfaceInfo = new Win32SurfaceCreateInfoKHR();
-        surfaceInfo.Hwnd = (nuint)Handle;
-        surfaceInfo.Hinstance = (nuint)Process.GetCurrentProcess().Handle;
+        surfaceInfo.Hwnd = Handle;
+        surfaceInfo.Hinstance = Process.GetCurrentProcess().Handle;
         surface = instance.CreateWin32Surface(surfaceInfo);
         //var headlessSurfaceInfo = new HeadlessSurfaceCreateInfoEXT();
         //var addr = instance.GetInstanceProcAddr("PFN_vkCreateHeadlessSurfaceEXT");

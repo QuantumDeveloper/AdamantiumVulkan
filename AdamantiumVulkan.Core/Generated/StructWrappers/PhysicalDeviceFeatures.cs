@@ -79,6 +79,7 @@ public unsafe partial class PhysicalDeviceFeatures : IMarshallableObject, IMarsh
     public VkBool32 VariableMultisampleRate { get; set; }
     public VkBool32 InheritedQueries { get; set; }
 
+
     public static implicit operator PhysicalDeviceFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures p)
     {
         return new PhysicalDeviceFeatures(in p);

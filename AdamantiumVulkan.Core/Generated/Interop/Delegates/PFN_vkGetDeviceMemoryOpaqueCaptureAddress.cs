@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 15309 Column: 10
+// File: video.xml Line: 17264 Column: 10
 public unsafe struct PFN_vkGetDeviceMemoryOpaqueCaptureAddress
 {
     public PFN_vkGetDeviceMemoryOpaqueCaptureAddress(nuint ptr) : this((void*) ptr) { }

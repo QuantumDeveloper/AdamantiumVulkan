@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11033 Column: 6
+// File: vk.xml Line: 12729 Column: 6
 public enum PresentModeKHR : int
 {
     ImmediateKhr = 0,
@@ -26,7 +26,7 @@ public enum PresentModeKHR : int
 
     SharedContinuousRefreshKhr = 1000111001,
 
-    FifoLatestReadyExt = 1000361000,
+    FifoLatestReadyKhr = 1000361000,
 
 }
 

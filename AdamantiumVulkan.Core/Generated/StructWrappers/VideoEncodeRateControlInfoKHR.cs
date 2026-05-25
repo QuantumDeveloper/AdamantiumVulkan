@@ -32,6 +32,7 @@ public unsafe partial class VideoEncodeRateControlInfoKHR : IMarshallableObject,
     public uint VirtualBufferSizeInMs { get; set; }
     public uint InitialVirtualBufferSizeInMs { get; set; }
 
+
     public static implicit operator VideoEncodeRateControlInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlInfoKHR v)
     {
         return new VideoEncodeRateControlInfoKHR(in v);

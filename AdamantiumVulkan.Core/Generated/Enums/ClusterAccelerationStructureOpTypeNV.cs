@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11160 Column: 6
+// File: vk.xml Line: 12856 Column: 6
 public enum ClusterAccelerationStructureOpTypeNV : int
 {
     MoveObjectsNv = 0,
@@ -23,6 +23,8 @@ public enum ClusterAccelerationStructureOpTypeNV : int
     BuildTriangleClusterTemplateNv = 3,
 
     InstantiateTriangleClusterNv = 4,
+
+    GetClusterTemplateIndicesNv = 5,
 
 }
 

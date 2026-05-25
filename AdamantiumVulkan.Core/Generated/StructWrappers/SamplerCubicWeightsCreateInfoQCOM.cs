@@ -27,6 +27,7 @@ public unsafe partial class SamplerCubicWeightsCreateInfoQCOM : IMarshallableObj
     public object PNext { get; set; }
     public CubicFilterWeightsQCOM CubicWeights { get; set; }
 
+
     public static implicit operator SamplerCubicWeightsCreateInfoQCOM(AdamantiumVulkan.Core.Interop.VkSamplerCubicWeightsCreateInfoQCOM s)
     {
         return new SamplerCubicWeightsCreateInfoQCOM(in s);

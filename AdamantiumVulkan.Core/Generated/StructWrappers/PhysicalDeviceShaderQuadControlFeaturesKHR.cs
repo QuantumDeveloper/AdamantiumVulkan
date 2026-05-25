@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderQuadControlFeaturesKHR : IMarsha
     public object PNext { get; set; }
     public VkBool32 ShaderQuadControl { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderQuadControlFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderQuadControlFeaturesKHR p)
     {
         return new PhysicalDeviceShaderQuadControlFeaturesKHR(in p);

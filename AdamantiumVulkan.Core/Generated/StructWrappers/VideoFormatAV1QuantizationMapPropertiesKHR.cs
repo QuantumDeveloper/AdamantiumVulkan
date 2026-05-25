@@ -27,6 +27,7 @@ public unsafe partial class VideoFormatAV1QuantizationMapPropertiesKHR : IMarsha
     public object PNext { get; set; }
     public VideoEncodeAV1SuperblockSizeFlagBitsKHR CompatibleSuperblockSizes { get; set; }
 
+
     public static implicit operator VideoFormatAV1QuantizationMapPropertiesKHR(AdamantiumVulkan.Core.Interop.VkVideoFormatAV1QuantizationMapPropertiesKHR v)
     {
         return new VideoFormatAV1QuantizationMapPropertiesKHR(in v);

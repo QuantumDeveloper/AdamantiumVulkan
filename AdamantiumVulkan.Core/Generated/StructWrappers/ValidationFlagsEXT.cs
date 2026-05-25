@@ -28,6 +28,7 @@ public unsafe partial class ValidationFlagsEXT : IMarshallableObject, IMarshalla
     public uint DisabledValidationCheckCount { get; set; }
     public System.ReadOnlyMemory<ValidationCheckEXT> PDisabledValidationChecks { get; set; }
 
+
     public static implicit operator ValidationFlagsEXT(AdamantiumVulkan.Core.Interop.VkValidationFlagsEXT v)
     {
         return new ValidationFlagsEXT(in v);

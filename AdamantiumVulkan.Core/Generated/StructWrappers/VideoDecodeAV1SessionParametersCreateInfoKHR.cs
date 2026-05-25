@@ -27,6 +27,7 @@ public unsafe partial class VideoDecodeAV1SessionParametersCreateInfoKHR : IMars
     public object PNext { get; set; }
     public StdVideoAV1SequenceHeader PStdSequenceHeader { get; set; }
 
+
     public static implicit operator VideoDecodeAV1SessionParametersCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeAV1SessionParametersCreateInfoKHR v)
     {
         return new VideoDecodeAV1SessionParametersCreateInfoKHR(in v);

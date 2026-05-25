@@ -32,6 +32,7 @@ public unsafe partial class PhysicalDeviceDrmPropertiesEXT : IMarshallableObject
     public long RenderMajor { get; set; }
     public long RenderMinor { get; set; }
 
+
     public static implicit operator PhysicalDeviceDrmPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDrmPropertiesEXT p)
     {
         return new PhysicalDeviceDrmPropertiesEXT(in p);

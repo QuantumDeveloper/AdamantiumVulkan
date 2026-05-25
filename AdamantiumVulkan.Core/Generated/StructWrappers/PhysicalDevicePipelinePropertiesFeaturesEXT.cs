@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePipelinePropertiesFeaturesEXT : IMarsh
     public object PNext { get; set; }
     public VkBool32 PipelinePropertiesIdentifier { get; set; }
 
+
     public static implicit operator PhysicalDevicePipelinePropertiesFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePipelinePropertiesFeaturesEXT p)
     {
         return new PhysicalDevicePipelinePropertiesFeaturesEXT(in p);

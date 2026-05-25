@@ -32,6 +32,7 @@ public unsafe partial class RayTracingShaderGroupCreateInfoKHR : IMarshallableOb
     public uint IntersectionShader { get; set; }
     public nuint PShaderGroupCaptureReplayHandle { get; set; }
 
+
     public static implicit operator RayTracingShaderGroupCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR r)
     {
         return new RayTracingShaderGroupCreateInfoKHR(in r);

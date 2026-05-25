@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 583 Column: 10
+// File: vk.xml Line: 629 Column: 10
 public unsafe partial class SamplerYcbcrConversion : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkSamplerYcbcrConversion_T>
 {
     internal VkSamplerYcbcrConversion_T __Instance;

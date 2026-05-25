@@ -33,6 +33,7 @@ public unsafe partial class ImportFenceWin32HandleInfoKHR : IMarshallableObject,
     public nuint Handle { get; set; }
     public nuint Name { get; set; }
 
+
     public static implicit operator ImportFenceWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR i)
     {
         return new ImportFenceWin32HandleInfoKHR(in i);

@@ -34,7 +34,7 @@ namespace AdamantiumVulkan.Generator
             string spirvCrossLibrary = "spirv-cross-c-shared";
             string spirvToolsLibrary = "SPIRV-Tools-shared";
             string mainNamespace = "AdamantiumVulkan";
-            string vulkanBasePath = @"C:\VulkanSDK\1.4.309.0\Include";
+            string vulkanBasePath = @"C:\VulkanSDK\1.4.350.0\Include";
             string vulkanXmlPath = "vk.xml";
             string interopSubNamespace = "Interop";
 
@@ -264,13 +264,6 @@ namespace AdamantiumVulkan.Generator
             macroAction.IgnoreList.Add("VK_VERSION_PATCH");
             macroAction.IgnoreList.Add("VKSC_API_VERSION_1_0");
             macroAction.IgnoreList.Add("VK_HEADER_VERSION_COMPLETE");
-            
-            macroAction.IgnoreList.Add("VK_STD_VULKAN_VIDEO_CODEC_AV1_DECODE_SPEC_VERSION");
-            macroAction.IgnoreList.Add("VK_STD_VULKAN_VIDEO_CODEC_AV1_ENCODE_SPEC_VERSION");
-            macroAction.IgnoreList.Add("VK_STD_VULKAN_VIDEO_CODEC_H264_ENCODE_SPEC_VERSION");
-            macroAction.IgnoreList.Add("VK_STD_VULKAN_VIDEO_CODEC_H264_DECODE_SPEC_VERSION");
-            macroAction.IgnoreList.Add("VK_STD_VULKAN_VIDEO_CODEC_H265_ENCODE_SPEC_VERSION");
-            macroAction.IgnoreList.Add("VK_STD_VULKAN_VIDEO_CODEC_H265_DECODE_SPEC_VERSION");
             
             macroAction.SubstitutionList.Add("VK_MAKE_API_VERSION", VulkanBindings.MacroFunctions.CreateMakeApiVersionFunction());
             macroAction.SubstitutionList.Add("VK_API_VERSION_VARIANT", VulkanBindings.MacroFunctions.CreateApiVersionFor("variant"));

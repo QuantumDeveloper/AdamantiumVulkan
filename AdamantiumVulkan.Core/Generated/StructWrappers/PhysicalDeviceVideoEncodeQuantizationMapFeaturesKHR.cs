@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR 
     public object PNext { get; set; }
     public VkBool32 VideoEncodeQuantizationMap { get; set; }
 
+
     public static implicit operator PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR p)
     {
         return new PhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR(in p);

@@ -31,6 +31,7 @@ public unsafe partial class StdVideoEncodeH265ReferenceListsInfo : IMarshallable
     public System.ReadOnlyMemory<byte> List_entry_l0 { get; set; }
     public System.ReadOnlyMemory<byte> List_entry_l1 { get; set; }
 
+
     public static implicit operator StdVideoEncodeH265ReferenceListsInfo(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfo s)
     {
         return new StdVideoEncodeH265ReferenceListsInfo(in s);

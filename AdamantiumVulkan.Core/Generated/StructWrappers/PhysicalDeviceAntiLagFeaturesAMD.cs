@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceAntiLagFeaturesAMD : IMarshallableObje
     public object PNext { get; set; }
     public VkBool32 AntiLag { get; set; }
 
+
     public static implicit operator PhysicalDeviceAntiLagFeaturesAMD(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAntiLagFeaturesAMD p)
     {
         return new PhysicalDeviceAntiLagFeaturesAMD(in p);

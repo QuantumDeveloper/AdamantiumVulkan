@@ -27,6 +27,7 @@ public unsafe partial class StdVideoH265ProfileTierLevel : IMarshallableObject, 
     public StdVideoH265ProfileIdc General_profile_idc { get; set; }
     public StdVideoH265LevelIdc General_level_idc { get; set; }
 
+
     public static implicit operator StdVideoH265ProfileTierLevel(AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevel s)
     {
         return new StdVideoH265ProfileTierLevel(in s);

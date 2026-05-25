@@ -27,6 +27,7 @@ public unsafe partial class ClearColorValue : IMarshallableObject, IMarshallable
     public System.ReadOnlyMemory<int> Int32 { get; set; }
     public System.ReadOnlyMemory<uint> Uint32 { get; set; }
 
+
     public static implicit operator ClearColorValue(AdamantiumVulkan.Core.Interop.VkClearColorValue c)
     {
         return new ClearColorValue(in c);

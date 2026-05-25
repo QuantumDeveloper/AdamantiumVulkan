@@ -27,6 +27,7 @@ public unsafe partial class SparseImageFormatProperties2 : IMarshallableObject, 
     public object PNext { get; set; }
     public SparseImageFormatProperties Properties { get; set; }
 
+
     public static implicit operator SparseImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2 s)
     {
         return new SparseImageFormatProperties2(in s);

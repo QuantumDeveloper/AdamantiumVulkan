@@ -27,6 +27,7 @@ public unsafe partial class SubresourceLayout2 : IMarshallableObject, IMarshalla
     public object PNext { get; set; }
     public SubresourceLayout SubresourceLayout { get; set; }
 
+
     public static implicit operator SubresourceLayout2(AdamantiumVulkan.Core.Interop.VkSubresourceLayout2 s)
     {
         return new SubresourceLayout2(in s);

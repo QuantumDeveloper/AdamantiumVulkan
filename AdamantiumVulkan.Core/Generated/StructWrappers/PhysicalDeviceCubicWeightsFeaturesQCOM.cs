@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceCubicWeightsFeaturesQCOM : IMarshallab
     public object PNext { get; set; }
     public VkBool32 SelectableCubicWeights { get; set; }
 
+
     public static implicit operator PhysicalDeviceCubicWeightsFeaturesQCOM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCubicWeightsFeaturesQCOM p)
     {
         return new PhysicalDeviceCubicWeightsFeaturesQCOM(in p);

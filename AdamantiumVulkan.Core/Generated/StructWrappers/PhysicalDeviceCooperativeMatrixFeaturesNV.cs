@@ -28,6 +28,7 @@ public unsafe partial class PhysicalDeviceCooperativeMatrixFeaturesNV : IMarshal
     public VkBool32 CooperativeMatrix { get; set; }
     public VkBool32 CooperativeMatrixRobustBufferAccess { get; set; }
 
+
     public static implicit operator PhysicalDeviceCooperativeMatrixFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrixFeaturesNV p)
     {
         return new PhysicalDeviceCooperativeMatrixFeaturesNV(in p);

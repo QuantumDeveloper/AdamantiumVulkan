@@ -27,6 +27,7 @@ public unsafe partial class ExternalMemoryBufferCreateInfo : IMarshallableObject
     public object PNext { get; set; }
     public ExternalMemoryHandleTypeFlagBits HandleTypes { get; set; }
 
+
     public static implicit operator ExternalMemoryBufferCreateInfo(AdamantiumVulkan.Core.Interop.VkExternalMemoryBufferCreateInfo e)
     {
         return new ExternalMemoryBufferCreateInfo(in e);

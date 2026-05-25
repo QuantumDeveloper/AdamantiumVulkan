@@ -27,6 +27,7 @@ public unsafe partial class SubpassBeginInfo : IMarshallableObject, IMarshallabl
     public object PNext { get; set; }
     public SubpassContents Contents { get; set; }
 
+
     public static implicit operator SubpassBeginInfo(AdamantiumVulkan.Core.Interop.VkSubpassBeginInfo s)
     {
         return new SubpassBeginInfo(in s);

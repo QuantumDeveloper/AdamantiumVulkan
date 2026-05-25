@@ -28,6 +28,7 @@ public unsafe partial class ImportMemoryHostPointerInfoEXT : IMarshallableObject
     public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
     public nuint PHostPointer { get; set; }
 
+
     public static implicit operator ImportMemoryHostPointerInfoEXT(AdamantiumVulkan.Core.Interop.VkImportMemoryHostPointerInfoEXT i)
     {
         return new ImportMemoryHostPointerInfoEXT(in i);

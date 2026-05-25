@@ -28,6 +28,7 @@ public unsafe partial class RayTracingPipelineInterfaceCreateInfoKHR : IMarshall
     public uint MaxPipelineRayPayloadSize { get; set; }
     public uint MaxPipelineRayHitAttributeSize { get; set; }
 
+
     public static implicit operator RayTracingPipelineInterfaceCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkRayTracingPipelineInterfaceCreateInfoKHR r)
     {
         return new RayTracingPipelineInterfaceCreateInfoKHR(in r);

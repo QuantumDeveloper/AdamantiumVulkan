@@ -27,6 +27,7 @@ public unsafe partial class PipelineShaderStageRequiredSubgroupSizeCreateInfo : 
     public object PNext { get; set; }
     public uint RequiredSubgroupSize { get; set; }
 
+
     public static implicit operator PipelineShaderStageRequiredSubgroupSizeCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineShaderStageRequiredSubgroupSizeCreateInfo p)
     {
         return new PipelineShaderStageRequiredSubgroupSizeCreateInfo(in p);

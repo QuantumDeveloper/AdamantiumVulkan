@@ -49,6 +49,7 @@ public unsafe partial class PhysicalDeviceDescriptorIndexingProperties : IMarsha
     public uint MaxDescriptorSetUpdateAfterBindStorageImages { get; set; }
     public uint MaxDescriptorSetUpdateAfterBindInputAttachments { get; set; }
 
+
     public static implicit operator PhysicalDeviceDescriptorIndexingProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingProperties p)
     {
         return new PhysicalDeviceDescriptorIndexingProperties(in p);

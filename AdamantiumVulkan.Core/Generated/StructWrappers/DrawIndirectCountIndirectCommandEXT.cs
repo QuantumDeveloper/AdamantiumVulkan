@@ -27,6 +27,7 @@ public unsafe partial class DrawIndirectCountIndirectCommandEXT : IMarshallableO
     public uint Stride { get; set; }
     public uint CommandCount { get; set; }
 
+
     public static implicit operator DrawIndirectCountIndirectCommandEXT(AdamantiumVulkan.Core.Interop.VkDrawIndirectCountIndirectCommandEXT d)
     {
         return new DrawIndirectCountIndirectCommandEXT(in d);

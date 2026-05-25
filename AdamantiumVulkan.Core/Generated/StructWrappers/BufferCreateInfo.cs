@@ -32,6 +32,7 @@ public unsafe partial class BufferCreateInfo : IMarshallableObject, IMarshallabl
     public uint QueueFamilyIndexCount { get; set; }
     public System.ReadOnlyMemory<uint> PQueueFamilyIndices { get; set; }
 
+
     public static implicit operator BufferCreateInfo(AdamantiumVulkan.Core.Interop.VkBufferCreateInfo b)
     {
         return new BufferCreateInfo(in b);

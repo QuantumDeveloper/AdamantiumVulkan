@@ -27,6 +27,7 @@ public unsafe partial class CalibratedTimestampInfoKHR : IMarshallableObject, IM
     public object PNext { get; set; }
     public TimeDomainKHR TimeDomain { get; set; }
 
+
     public static implicit operator CalibratedTimestampInfoKHR(AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR c)
     {
         return new CalibratedTimestampInfoKHR(in c);

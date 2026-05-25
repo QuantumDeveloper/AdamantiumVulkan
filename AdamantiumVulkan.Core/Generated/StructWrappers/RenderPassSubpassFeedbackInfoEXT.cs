@@ -27,6 +27,7 @@ public unsafe partial class RenderPassSubpassFeedbackInfoEXT : IMarshallableObje
     public string Description { get; set; }
     public uint PostMergeIndex { get; set; }
 
+
     public static implicit operator RenderPassSubpassFeedbackInfoEXT(AdamantiumVulkan.Core.Interop.VkRenderPassSubpassFeedbackInfoEXT r)
     {
         return new RenderPassSubpassFeedbackInfoEXT(in r);

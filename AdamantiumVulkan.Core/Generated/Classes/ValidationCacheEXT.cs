@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 585 Column: 10
+// File: vk.xml Line: 631 Column: 10
 public unsafe partial class ValidationCacheEXT : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T>
 {
     internal VkValidationCacheEXT_T __Instance;

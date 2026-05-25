@@ -29,6 +29,7 @@ public unsafe partial class MappedMemoryRange : IMarshallableObject, IMarshallab
     public VkDeviceSize Offset { get; set; }
     public VkDeviceSize Size { get; set; }
 
+
     public static implicit operator MappedMemoryRange(AdamantiumVulkan.Core.Interop.VkMappedMemoryRange m)
     {
         return new MappedMemoryRange(in m);

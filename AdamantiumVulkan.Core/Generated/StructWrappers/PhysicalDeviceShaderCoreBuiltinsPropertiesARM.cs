@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceShaderCoreBuiltinsPropertiesARM : IMar
     public uint ShaderCoreCount { get; set; }
     public uint ShaderWarpsPerCore { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderCoreBuiltinsPropertiesARM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM p)
     {
         return new PhysicalDeviceShaderCoreBuiltinsPropertiesARM(in p);

@@ -27,6 +27,7 @@ public unsafe partial class ClusterAccelerationStructureGeometryIndexAndGeometry
     public uint Reserved { get; set; }
     public uint GeometryFlags { get; set; }
 
+
     public static implicit operator ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV c)
     {
         return new ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV(in c);

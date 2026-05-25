@@ -26,6 +26,7 @@ public unsafe partial class PipelineCreateInfoKHR : IMarshallableObject, IMarsha
     public StructureType SType => StructureType.PipelineCreateInfoKhr;
     public object PNext { get; set; }
 
+
     public static implicit operator PipelineCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineCreateInfoKHR p)
     {
         return new PipelineCreateInfoKHR(in p);

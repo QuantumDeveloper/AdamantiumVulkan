@@ -28,6 +28,7 @@ public unsafe partial class MemoryGetRemoteAddressInfoNV : IMarshallableObject, 
     public DeviceMemory Memory { get; set; }
     public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
 
+
     public static implicit operator MemoryGetRemoteAddressInfoNV(AdamantiumVulkan.Core.Interop.VkMemoryGetRemoteAddressInfoNV m)
     {
         return new MemoryGetRemoteAddressInfoNV(in m);

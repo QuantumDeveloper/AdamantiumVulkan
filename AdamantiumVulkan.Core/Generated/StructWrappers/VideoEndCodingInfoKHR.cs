@@ -27,6 +27,7 @@ public unsafe partial class VideoEndCodingInfoKHR : IMarshallableObject, IMarsha
     public object PNext { get; set; }
     public VkVideoEndCodingFlagsKHR Flags { get; set; }
 
+
     public static implicit operator VideoEndCodingInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEndCodingInfoKHR v)
     {
         return new VideoEndCodingInfoKHR(in v);

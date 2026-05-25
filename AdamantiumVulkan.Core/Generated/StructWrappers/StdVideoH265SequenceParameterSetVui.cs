@@ -50,6 +50,7 @@ public unsafe partial class StdVideoH265SequenceParameterSetVui : IMarshallableO
     public byte Log2_max_mv_length_vertical { get; set; }
     public StdVideoH265HrdParameters PHrdParameters { get; set; }
 
+
     public static implicit operator StdVideoH265SequenceParameterSetVui(AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSetVui s)
     {
         return new StdVideoH265SequenceParameterSetVui(in s);

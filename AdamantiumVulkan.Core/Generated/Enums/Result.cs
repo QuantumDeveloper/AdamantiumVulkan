@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10688 Column: 6
+// File: vk.xml Line: 12384 Column: 6
 public enum Result : int
 {
     Success = 0,
@@ -62,8 +62,6 @@ public enum Result : int
 
     ErrorIncompatibleDisplayKhr = -1000003001,
 
-    ErrorValidationFailedExt = -1000011001,
-
     ErrorInvalidShaderNv = -1000012000,
 
     ErrorImageUsageNotSupportedKhr = -1000023000,
@@ -79,6 +77,8 @@ public enum Result : int
     ErrorVideoStdVersionNotSupportedKhr = -1000023005,
 
     ErrorInvalidDrmFormatModifierPlaneLayoutExt = -1000158000,
+
+    ErrorPresentTimingQueueFullExt = -1000208000,
 
     ErrorFullScreenExclusiveModeLostExt = -1000255000,
 
@@ -100,19 +100,19 @@ public enum Result : int
 
     ErrorNotEnoughSpaceKhr = -1000483000,
 
+    ErrorValidationFailed = 1000011001,
+
     ErrorOutOfPoolMemory = 1000069000,
 
     ErrorInvalidExternalHandle = 1000072003,
 
-    ErrorFragmentation = 1000161000,
-
     ErrorInvalidOpaqueCaptureAddress = 1000257000,
+
+    ErrorFragmentation = 1000161000,
 
     PipelineCompileRequired = 1000297000,
 
     ErrorNotPermitted = 1000174001,
-
-    ErrorValidationFailed = 1000011001,
 
     ErrorInvalidPipelineCacheData = 1000298000,
 

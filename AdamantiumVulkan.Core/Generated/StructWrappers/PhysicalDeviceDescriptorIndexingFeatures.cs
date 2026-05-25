@@ -46,6 +46,7 @@ public unsafe partial class PhysicalDeviceDescriptorIndexingFeatures : IMarshall
     public VkBool32 DescriptorBindingVariableDescriptorCount { get; set; }
     public VkBool32 RuntimeDescriptorArray { get; set; }
 
+
     public static implicit operator PhysicalDeviceDescriptorIndexingFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingFeatures p)
     {
         return new PhysicalDeviceDescriptorIndexingFeatures(in p);

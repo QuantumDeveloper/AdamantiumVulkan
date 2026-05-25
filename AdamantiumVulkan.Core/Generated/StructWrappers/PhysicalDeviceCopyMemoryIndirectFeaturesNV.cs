@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceCopyMemoryIndirectFeaturesNV : IMarsha
     public object PNext { get; set; }
     public VkBool32 IndirectCopy { get; set; }
 
+
     public static implicit operator PhysicalDeviceCopyMemoryIndirectFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceCopyMemoryIndirectFeaturesNV p)
     {
         return new PhysicalDeviceCopyMemoryIndirectFeaturesNV(in p);

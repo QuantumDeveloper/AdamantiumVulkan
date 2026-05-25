@@ -35,6 +35,7 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesNV : 
     public uint MinSequencesIndexBufferOffsetAlignment { get; set; }
     public uint MinIndirectCommandsBufferOffsetAlignment { get; set; }
 
+
     public static implicit operator PhysicalDeviceDeviceGeneratedCommandsPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV p)
     {
         return new PhysicalDeviceDeviceGeneratedCommandsPropertiesNV(in p);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR 
     public object PNext { get; set; }
     public VkBool32 ShaderMaximalReconvergence { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR p)
     {
         return new PhysicalDeviceShaderMaximalReconvergenceFeaturesKHR(in p);

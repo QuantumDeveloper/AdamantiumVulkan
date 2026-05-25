@@ -28,6 +28,7 @@ public unsafe partial class VideoEncodeH264SessionCreateInfoKHR : IMarshallableO
     public VkBool32 UseMaxLevelIdc { get; set; }
     public StdVideoH264LevelIdc MaxLevelIdc { get; set; }
 
+
     public static implicit operator VideoEncodeH264SessionCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH264SessionCreateInfoKHR v)
     {
         return new VideoEncodeH264SessionCreateInfoKHR(in v);

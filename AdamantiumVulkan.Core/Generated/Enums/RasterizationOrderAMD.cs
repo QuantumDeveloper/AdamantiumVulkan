@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11135 Column: 6
+// File: vk.xml Line: 12831 Column: 6
 [Flags]
 public enum RasterizationOrderAMD : int
 {

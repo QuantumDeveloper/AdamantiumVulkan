@@ -27,6 +27,7 @@ public unsafe partial class RenderPassStripeInfoARM : IMarshallableObject, IMars
     public object PNext { get; set; }
     public Rect2D StripeArea { get; set; }
 
+
     public static implicit operator RenderPassStripeInfoARM(AdamantiumVulkan.Core.Interop.VkRenderPassStripeInfoARM r)
     {
         return new RenderPassStripeInfoARM(in r);

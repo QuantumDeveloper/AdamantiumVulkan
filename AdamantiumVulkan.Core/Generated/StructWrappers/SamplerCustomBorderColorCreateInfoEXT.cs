@@ -28,6 +28,7 @@ public unsafe partial class SamplerCustomBorderColorCreateInfoEXT : IMarshallabl
     public ClearColorValue CustomBorderColor { get; set; }
     public Format Format { get; set; }
 
+
     public static implicit operator SamplerCustomBorderColorCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkSamplerCustomBorderColorCreateInfoEXT s)
     {
         return new SamplerCustomBorderColorCreateInfoEXT(in s);
@@ -40,6 +41,8 @@ public unsafe partial class SamplerCustomBorderColorCreateInfoEXT : IMarshallabl
         {
             size += marshallable.GetSize();
         }
+        if (CustomBorderColor != default)
+            size += CustomBorderColor.GetSize();
         return size;
     }
 

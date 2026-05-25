@@ -28,6 +28,7 @@ public unsafe partial class VideoEncodeH265QuantizationMapCapabilitiesKHR : IMar
     public int MinQpDelta { get; set; }
     public int MaxQpDelta { get; set; }
 
+
     public static implicit operator VideoEncodeH265QuantizationMapCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH265QuantizationMapCapabilitiesKHR v)
     {
         return new VideoEncodeH265QuantizationMapCapabilitiesKHR(in v);

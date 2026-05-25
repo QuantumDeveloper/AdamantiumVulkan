@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 10435 Column: 6
+// File: vk.xml Line: 12131 Column: 6
 public enum PhysicalDeviceType : int
 {
     Other = 0,

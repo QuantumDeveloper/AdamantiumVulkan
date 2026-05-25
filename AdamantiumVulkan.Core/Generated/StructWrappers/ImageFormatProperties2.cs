@@ -27,6 +27,7 @@ public unsafe partial class ImageFormatProperties2 : IMarshallableObject, IMarsh
     public object PNext { get; set; }
     public ImageFormatProperties ImageFormatProperties { get; set; }
 
+
     public static implicit operator ImageFormatProperties2(AdamantiumVulkan.Core.Interop.VkImageFormatProperties2 i)
     {
         return new ImageFormatProperties2(in i);

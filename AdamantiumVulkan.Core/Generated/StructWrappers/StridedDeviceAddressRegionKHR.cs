@@ -27,6 +27,7 @@ public unsafe partial class StridedDeviceAddressRegionKHR : IMarshallableObject,
     public VkDeviceSize Stride { get; set; }
     public VkDeviceSize Size { get; set; }
 
+
     public static implicit operator StridedDeviceAddressRegionKHR(AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressRegionKHR s)
     {
         return new StridedDeviceAddressRegionKHR(in s);

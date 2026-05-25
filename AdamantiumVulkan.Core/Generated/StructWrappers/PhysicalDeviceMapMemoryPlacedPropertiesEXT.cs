@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceMapMemoryPlacedPropertiesEXT : IMarsha
     public object PNext { get; set; }
     public VkDeviceSize MinPlacedMemoryMapAlignment { get; set; }
 
+
     public static implicit operator PhysicalDeviceMapMemoryPlacedPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMapMemoryPlacedPropertiesEXT p)
     {
         return new PhysicalDeviceMapMemoryPlacedPropertiesEXT(in p);

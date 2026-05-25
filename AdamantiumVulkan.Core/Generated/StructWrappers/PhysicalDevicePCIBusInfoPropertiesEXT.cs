@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDevicePCIBusInfoPropertiesEXT : IMarshallabl
     public uint PciDevice { get; set; }
     public uint PciFunction { get; set; }
 
+
     public static implicit operator PhysicalDevicePCIBusInfoPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePCIBusInfoPropertiesEXT p)
     {
         return new PhysicalDevicePCIBusInfoPropertiesEXT(in p);

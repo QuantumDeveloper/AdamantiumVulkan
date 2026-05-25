@@ -34,6 +34,7 @@ public unsafe partial class WriteDescriptorSet : IMarshallableObject, IMarshalla
     public System.ReadOnlyMemory<DescriptorBufferInfo> PBufferInfo { get; set; }
     public System.ReadOnlyMemory<BufferView> PTexelBufferView { get; set; }
 
+
     public static implicit operator WriteDescriptorSet(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet w)
     {
         return new WriteDescriptorSet(in w);

@@ -27,6 +27,7 @@ public unsafe partial class ImageCaptureDescriptorDataInfoEXT : IMarshallableObj
     public object PNext { get; set; }
     public Image Image { get; set; }
 
+
     public static implicit operator ImageCaptureDescriptorDataInfoEXT(AdamantiumVulkan.Core.Interop.VkImageCaptureDescriptorDataInfoEXT i)
     {
         return new ImageCaptureDescriptorDataInfoEXT(in i);

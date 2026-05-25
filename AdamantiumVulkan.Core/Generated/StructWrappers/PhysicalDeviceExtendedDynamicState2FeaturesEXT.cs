@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceExtendedDynamicState2FeaturesEXT : IMa
     public VkBool32 ExtendedDynamicState2LogicOp { get; set; }
     public VkBool32 ExtendedDynamicState2PatchControlPoints { get; set; }
 
+
     public static implicit operator PhysicalDeviceExtendedDynamicState2FeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState2FeaturesEXT p)
     {
         return new PhysicalDeviceExtendedDynamicState2FeaturesEXT(in p);

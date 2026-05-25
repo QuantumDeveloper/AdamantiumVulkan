@@ -26,6 +26,7 @@ public unsafe partial class StdVideoEncodeH264ReferenceInfoFlags : IMarshallable
     public uint Used_for_long_term_reference { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator StdVideoEncodeH264ReferenceInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264ReferenceInfoFlags s)
     {
         return new StdVideoEncodeH264ReferenceInfoFlags(in s);

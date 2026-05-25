@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceFragmentDensityMap2FeaturesEXT : IMars
     public object PNext { get; set; }
     public VkBool32 FragmentDensityMapDeferred { get; set; }
 
+
     public static implicit operator PhysicalDeviceFragmentDensityMap2FeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMap2FeaturesEXT p)
     {
         return new PhysicalDeviceFragmentDensityMap2FeaturesEXT(in p);

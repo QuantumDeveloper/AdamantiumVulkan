@@ -26,6 +26,7 @@ public unsafe partial class DeviceOrHostAddressKHR : IMarshallableObject, IMarsh
     public VkDeviceAddress DeviceAddress { get; set; }
     public nuint HostAddress { get; set; }
 
+
     public static implicit operator DeviceOrHostAddressKHR(AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressKHR d)
     {
         return new DeviceOrHostAddressKHR(in d);

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross/spirv.h Line: 502 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 502 Column: 14
 public enum Decoration : uint
 {
     RelaxedPrecision = 0,
@@ -108,6 +108,8 @@ public enum Decoration : uint
 
     MaxByteOffsetId = 47,
 
+    SaturatedToLargestFloat8NormalConversionEXT = 4216,
+
     NoSignedWrap = 4469,
 
     NoUnsignedWrap = 4470,
@@ -136,6 +138,12 @@ public enum Decoration : uint
 
     PayloadDispatchIndirectAMDX = 5105,
 
+    ArrayStrideIdEXT = 5124,
+
+    OffsetIdEXT = 5125,
+
+    UTFEncodedKHR = 5145,
+
     OverrideCoverageNV = 5248,
 
     PassthroughNV = 5250,
@@ -158,7 +166,13 @@ public enum Decoration : uint
 
     AliasedPointer = 5356,
 
+    MemberOffsetNV = 5358,
+
     HitObjectShaderRecordBufferNV = 5386,
+
+    HitObjectShaderRecordBufferEXT = 5389,
+
+    BankNV = 5397,
 
     BindlessSamplerNV = 5398,
 
@@ -196,63 +210,63 @@ public enum Decoration : uint
 
     FunctionDenormModeINTEL = 5823,
 
-    RegisterINTEL = 5825,
+    RegisterALTERA = 5825,
 
-    MemoryINTEL = 5826,
+    MemoryALTERA = 5826,
 
-    NumbanksINTEL = 5827,
+    NumbanksALTERA = 5827,
 
-    BankwidthINTEL = 5828,
+    BankwidthALTERA = 5828,
 
-    MaxPrivateCopiesINTEL = 5829,
+    MaxPrivateCopiesALTERA = 5829,
 
-    SinglepumpINTEL = 5830,
+    SinglepumpALTERA = 5830,
 
-    DoublepumpINTEL = 5831,
+    DoublepumpALTERA = 5831,
 
-    MaxReplicatesINTEL = 5832,
+    MaxReplicatesALTERA = 5832,
 
-    SimpleDualPortINTEL = 5833,
+    SimpleDualPortALTERA = 5833,
 
-    MergeINTEL = 5834,
+    MergeALTERA = 5834,
 
-    BankBitsINTEL = 5835,
+    BankBitsALTERA = 5835,
 
-    ForcePow2DepthINTEL = 5836,
+    ForcePow2DepthALTERA = 5836,
 
-    StridesizeINTEL = 5883,
+    StridesizeALTERA = 5883,
 
-    WordsizeINTEL = 5884,
+    WordsizeALTERA = 5884,
 
-    TrueDualPortINTEL = 5885,
+    TrueDualPortALTERA = 5885,
 
-    BurstCoalesceINTEL = 5899,
+    BurstCoalesceALTERA = 5899,
 
-    CacheSizeINTEL = 5900,
+    CacheSizeALTERA = 5900,
 
-    DontStaticallyCoalesceINTEL = 5901,
+    DontStaticallyCoalesceALTERA = 5901,
 
-    PrefetchINTEL = 5902,
+    PrefetchALTERA = 5902,
 
-    StallEnableINTEL = 5905,
+    StallEnableALTERA = 5905,
 
-    FuseLoopsInFunctionINTEL = 5907,
+    FuseLoopsInFunctionALTERA = 5907,
 
-    MathOpDSPModeINTEL = 5909,
+    MathOpDSPModeALTERA = 5909,
 
     AliasScopeINTEL = 5914,
 
     NoAliasINTEL = 5915,
 
-    InitiationIntervalINTEL = 5917,
+    InitiationIntervalALTERA = 5917,
 
-    MaxConcurrencyINTEL = 5918,
+    MaxConcurrencyALTERA = 5918,
 
-    PipelineEnableINTEL = 5919,
+    PipelineEnableALTERA = 5919,
 
-    BufferLocationINTEL = 5921,
+    BufferLocationALTERA = 5921,
 
-    IOPipeStorageINTEL = 5944,
+    IOPipeStorageALTERA = 5944,
 
     FunctionFloatingPointModeINTEL = 6080,
 
@@ -262,37 +276,39 @@ public enum Decoration : uint
 
     MediaBlockIOINTEL = 6140,
 
-    StallFreeINTEL = 6151,
+    StallFreeALTERA = 6151,
 
     FPMaxErrorDecorationINTEL = 6170,
 
-    LatencyControlLabelINTEL = 6172,
+    LatencyControlLabelALTERA = 6172,
 
-    LatencyControlConstraintINTEL = 6173,
+    LatencyControlConstraintALTERA = 6173,
 
-    ConduitKernelArgumentINTEL = 6175,
+    ConduitKernelArgumentALTERA = 6175,
 
-    RegisterMapKernelArgumentINTEL = 6176,
+    RegisterMapKernelArgumentALTERA = 6176,
 
-    MMHostInterfaceAddressWidthINTEL = 6177,
+    MMHostInterfaceAddressWidthALTERA = 6177,
 
-    MMHostInterfaceDataWidthINTEL = 6178,
+    MMHostInterfaceDataWidthALTERA = 6178,
 
-    MMHostInterfaceLatencyINTEL = 6179,
+    MMHostInterfaceLatencyALTERA = 6179,
 
-    MMHostInterfaceReadWriteModeINTEL = 6180,
+    MMHostInterfaceReadWriteModeALTERA = 6180,
 
-    MMHostInterfaceMaxBurstINTEL = 6181,
+    MMHostInterfaceMaxBurstALTERA = 6181,
 
-    MMHostInterfaceWaitRequestINTEL = 6182,
+    MMHostInterfaceWaitRequestALTERA = 6182,
 
-    StableKernelArgumentINTEL = 6183,
+    StableKernelArgumentALTERA = 6183,
 
     HostAccessINTEL = 6188,
 
-    InitModeINTEL = 6190,
+    InitModeALTERA = 6190,
 
-    ImplementInRegisterMapINTEL = 6191,
+    ImplementInRegisterMapALTERA = 6191,
+
+    ConditionalINTEL = 6247,
 
     CacheControlLoadINTEL = 6442,
 

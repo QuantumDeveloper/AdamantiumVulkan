@@ -27,6 +27,7 @@ public unsafe partial class ClearRect : IMarshallableObject, IMarshallable<Adama
     public uint BaseArrayLayer { get; set; }
     public uint LayerCount { get; set; }
 
+
     public static implicit operator ClearRect(AdamantiumVulkan.Core.Interop.VkClearRect c)
     {
         return new ClearRect(in c);

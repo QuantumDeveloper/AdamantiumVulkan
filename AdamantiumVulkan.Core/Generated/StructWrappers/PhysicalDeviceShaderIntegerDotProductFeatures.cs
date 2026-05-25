@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderIntegerDotProductFeatures : IMar
     public object PNext { get; set; }
     public VkBool32 ShaderIntegerDotProduct { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderIntegerDotProductFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderIntegerDotProductFeatures p)
     {
         return new PhysicalDeviceShaderIntegerDotProductFeatures(in p);

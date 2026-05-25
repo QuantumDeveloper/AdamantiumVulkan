@@ -27,6 +27,7 @@ public unsafe partial class CopyCommandTransformInfoQCOM : IMarshallableObject, 
     public object PNext { get; set; }
     public SurfaceTransformFlagBitsKHR Transform { get; set; }
 
+
     public static implicit operator CopyCommandTransformInfoQCOM(AdamantiumVulkan.Core.Interop.VkCopyCommandTransformInfoQCOM c)
     {
         return new CopyCommandTransformInfoQCOM(in c);

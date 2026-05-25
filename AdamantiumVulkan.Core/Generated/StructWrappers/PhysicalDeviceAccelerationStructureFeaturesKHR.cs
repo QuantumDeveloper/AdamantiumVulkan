@@ -31,6 +31,7 @@ public unsafe partial class PhysicalDeviceAccelerationStructureFeaturesKHR : IMa
     public VkBool32 AccelerationStructureHostCommands { get; set; }
     public VkBool32 DescriptorBindingAccelerationStructureUpdateAfterBind { get; set; }
 
+
     public static implicit operator PhysicalDeviceAccelerationStructureFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructureFeaturesKHR p)
     {
         return new PhysicalDeviceAccelerationStructureFeaturesKHR(in p);

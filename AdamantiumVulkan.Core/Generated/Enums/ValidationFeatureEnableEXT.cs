@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11192 Column: 6
+// File: vk.xml Line: 12890 Column: 6
 public enum ValidationFeatureEnableEXT : int
 {
     GpuAssistedExt = 0,

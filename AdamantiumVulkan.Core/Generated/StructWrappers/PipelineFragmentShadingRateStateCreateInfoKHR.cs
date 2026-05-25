@@ -28,6 +28,7 @@ public unsafe partial class PipelineFragmentShadingRateStateCreateInfoKHR : IMar
     public Extent2D FragmentSize { get; set; }
     public System.ReadOnlyMemory<FragmentShadingRateCombinerOpKHR> CombinerOps { get; set; }
 
+
     public static implicit operator PipelineFragmentShadingRateStateCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkPipelineFragmentShadingRateStateCreateInfoKHR p)
     {
         return new PipelineFragmentShadingRateStateCreateInfoKHR(in p);

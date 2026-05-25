@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDeviceSubgroupSizeControlProperties : IMarsh
     public uint MaxComputeWorkgroupSubgroups { get; set; }
     public ShaderStageFlagBits RequiredSubgroupSizeStages { get; set; }
 
+
     public static implicit operator PhysicalDeviceSubgroupSizeControlProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlProperties p)
     {
         return new PhysicalDeviceSubgroupSizeControlProperties(in p);

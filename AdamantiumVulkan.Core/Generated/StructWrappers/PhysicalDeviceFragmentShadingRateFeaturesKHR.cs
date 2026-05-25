@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceFragmentShadingRateFeaturesKHR : IMars
     public VkBool32 PrimitiveFragmentShadingRate { get; set; }
     public VkBool32 AttachmentFragmentShadingRate { get; set; }
 
+
     public static implicit operator PhysicalDeviceFragmentShadingRateFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateFeaturesKHR p)
     {
         return new PhysicalDeviceFragmentShadingRateFeaturesKHR(in p);

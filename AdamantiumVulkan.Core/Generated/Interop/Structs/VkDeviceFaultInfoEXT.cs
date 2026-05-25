@@ -12,15 +12,15 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: vk.xml Line: 9289 Column: 10
+// File: vk.xml Line: 9782 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDeviceFaultInfoEXT
 {
     public StructureType sType;
     public void* pNext;
     public unsafe fixed sbyte description[256];
-    public AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoEXT* pAddressInfos;
-    public AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoEXT* pVendorInfos;
+    public AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoKHR* pAddressInfos;
+    public AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoKHR* pVendorInfos;
     public void* pVendorBinaryData;
 }
 

@@ -28,6 +28,7 @@ public unsafe partial class ImageSubresourceLayers : IMarshallableObject, IMarsh
     public uint BaseArrayLayer { get; set; }
     public uint LayerCount { get; set; }
 
+
     public static implicit operator ImageSubresourceLayers(AdamantiumVulkan.Core.Interop.VkImageSubresourceLayers i)
     {
         return new ImageSubresourceLayers(in i);

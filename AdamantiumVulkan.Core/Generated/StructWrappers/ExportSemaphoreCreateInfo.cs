@@ -27,6 +27,7 @@ public unsafe partial class ExportSemaphoreCreateInfo : IMarshallableObject, IMa
     public object PNext { get; set; }
     public ExternalSemaphoreHandleTypeFlagBits HandleTypes { get; set; }
 
+
     public static implicit operator ExportSemaphoreCreateInfo(AdamantiumVulkan.Core.Interop.VkExportSemaphoreCreateInfo e)
     {
         return new ExportSemaphoreCreateInfo(in e);

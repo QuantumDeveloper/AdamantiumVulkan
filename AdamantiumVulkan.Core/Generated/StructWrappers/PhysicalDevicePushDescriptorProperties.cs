@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDevicePushDescriptorProperties : IMarshallab
     public object PNext { get; set; }
     public uint MaxPushDescriptors { get; set; }
 
+
     public static implicit operator PhysicalDevicePushDescriptorProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePushDescriptorProperties p)
     {
         return new PhysicalDevicePushDescriptorProperties(in p);

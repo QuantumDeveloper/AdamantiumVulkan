@@ -27,6 +27,7 @@ public unsafe partial class ImageAlignmentControlCreateInfoMESA : IMarshallableO
     public object PNext { get; set; }
     public uint MaximumRequestedAlignment { get; set; }
 
+
     public static implicit operator ImageAlignmentControlCreateInfoMESA(AdamantiumVulkan.Core.Interop.VkImageAlignmentControlCreateInfoMESA i)
     {
         return new ImageAlignmentControlCreateInfoMESA(in i);

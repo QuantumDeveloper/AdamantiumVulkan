@@ -34,6 +34,7 @@ public unsafe partial class PhysicalDeviceAccelerationStructurePropertiesKHR : I
     public uint MaxDescriptorSetUpdateAfterBindAccelerationStructures { get; set; }
     public uint MinAccelerationStructureScratchOffsetAlignment { get; set; }
 
+
     public static implicit operator PhysicalDeviceAccelerationStructurePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceAccelerationStructurePropertiesKHR p)
     {
         return new PhysicalDeviceAccelerationStructurePropertiesKHR(in p);

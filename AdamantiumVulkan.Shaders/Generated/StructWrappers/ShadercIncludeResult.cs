@@ -32,6 +32,7 @@ public unsafe partial class ShadercIncludeResult : IMarshallable<AdamantiumVulka
     public ulong Content_length { get; set; }
     public nuint User_data { get; set; }
 
+
     public static implicit operator ShadercIncludeResult(AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult s)
     {
         return new ShadercIncludeResult(in s);

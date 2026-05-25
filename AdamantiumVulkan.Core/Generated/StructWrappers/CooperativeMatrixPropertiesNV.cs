@@ -34,6 +34,7 @@ public unsafe partial class CooperativeMatrixPropertiesNV : IMarshallableObject,
     public ComponentTypeKHR DType { get; set; }
     public ScopeKHR Scope { get; set; }
 
+
     public static implicit operator CooperativeMatrixPropertiesNV(AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV c)
     {
         return new CooperativeMatrixPropertiesNV(in c);

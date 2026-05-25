@@ -56,6 +56,7 @@ public unsafe partial class PhysicalDeviceShaderIntegerDotProductProperties : IM
     public VkBool32 IntegerDotProductAccumulatingSaturating64BitSignedAccelerated { get; set; }
     public VkBool32 IntegerDotProductAccumulatingSaturating64BitMixedSignednessAccelerated { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderIntegerDotProductProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderIntegerDotProductProperties p)
     {
         return new PhysicalDeviceShaderIntegerDotProductProperties(in p);

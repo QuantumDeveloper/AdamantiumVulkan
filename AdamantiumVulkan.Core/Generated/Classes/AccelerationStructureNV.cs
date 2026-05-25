@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 587 Column: 10
+// File: vk.xml Line: 633 Column: 10
 public unsafe partial class AccelerationStructureNV : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkAccelerationStructureNV_T>
 {
     internal VkAccelerationStructureNV_T __Instance;

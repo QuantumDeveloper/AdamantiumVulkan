@@ -27,6 +27,7 @@ public unsafe partial class DeviceBufferMemoryRequirements : IMarshallableObject
     public object PNext { get; set; }
     public BufferCreateInfo PCreateInfo { get; set; }
 
+
     public static implicit operator DeviceBufferMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDeviceBufferMemoryRequirements d)
     {
         return new DeviceBufferMemoryRequirements(in d);

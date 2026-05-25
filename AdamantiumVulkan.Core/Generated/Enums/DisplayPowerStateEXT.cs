@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: vk.xml Line: 11297 Column: 6
+// File: vk.xml Line: 12995 Column: 6
 [Flags]
 public enum DisplayPowerStateEXT : int
 {

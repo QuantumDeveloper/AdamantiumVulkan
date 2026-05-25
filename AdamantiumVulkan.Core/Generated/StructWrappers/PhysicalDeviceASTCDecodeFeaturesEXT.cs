@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceASTCDecodeFeaturesEXT : IMarshallableO
     public object PNext { get; set; }
     public VkBool32 DecodeModeSharedExponent { get; set; }
 
+
     public static implicit operator PhysicalDeviceASTCDecodeFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceASTCDecodeFeaturesEXT p)
     {
         return new PhysicalDeviceASTCDecodeFeaturesEXT(in p);

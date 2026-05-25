@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: video.xml Line: 14804 Column: 10
+// File: video.xml Line: 16753 Column: 10
 public unsafe struct PFN_vkCmdEndQueryIndexedEXT
 {
     public PFN_vkCmdEndQueryIndexedEXT(nuint ptr) : this((void*) ptr) { }

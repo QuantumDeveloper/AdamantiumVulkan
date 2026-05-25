@@ -29,6 +29,7 @@ public unsafe partial class TilePropertiesQCOM : IMarshallableObject, IMarshalla
     public Extent2D ApronSize { get; set; }
     public Offset2D Origin { get; set; }
 
+
     public static implicit operator TilePropertiesQCOM(AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM t)
     {
         return new TilePropertiesQCOM(in t);

@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderRelaxedExtendedInstructionFeatur
     public object PNext { get; set; }
     public VkBool32 ShaderRelaxedExtendedInstruction { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR p)
     {
         return new PhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR(in p);

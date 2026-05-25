@@ -29,6 +29,7 @@ public unsafe partial class StdVideoH265ProfileTierLevelFlags : IMarshallableObj
     public uint General_non_packed_constraint_flag { get; set; }
     public uint General_frame_only_constraint_flag { get; set; }
 
+
     public static implicit operator StdVideoH265ProfileTierLevelFlags(AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevelFlags s)
     {
         return new StdVideoH265ProfileTierLevelFlags(in s);

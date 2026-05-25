@@ -29,6 +29,7 @@ public unsafe partial class VideoInlineQueryInfoKHR : IMarshallableObject, IMars
     public uint FirstQuery { get; set; }
     public uint QueryCount { get; set; }
 
+
     public static implicit operator VideoInlineQueryInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoInlineQueryInfoKHR v)
     {
         return new VideoInlineQueryInfoKHR(in v);

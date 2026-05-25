@@ -35,6 +35,7 @@ public unsafe partial class Spv_parsed_instruction_t : IMarshallable<AdamantiumV
     public Spv_parsed_operand_t[] Operands { get; set; }
     public ushort Num_operands { get; set; }
 
+
     public static implicit operator Spv_parsed_instruction_t(AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t s)
     {
         return new Spv_parsed_instruction_t(in s);

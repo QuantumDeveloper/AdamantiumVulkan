@@ -30,6 +30,7 @@ public unsafe partial class RenderingInputAttachmentIndexInfo : IMarshallableObj
     public uint? PDepthInputAttachmentIndex { get; set; }
     public uint? PStencilInputAttachmentIndex { get; set; }
 
+
     public static implicit operator RenderingInputAttachmentIndexInfo(AdamantiumVulkan.Core.Interop.VkRenderingInputAttachmentIndexInfo r)
     {
         return new RenderingInputAttachmentIndexInfo(in r);

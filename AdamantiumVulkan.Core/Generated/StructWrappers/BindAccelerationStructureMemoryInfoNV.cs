@@ -31,6 +31,7 @@ public unsafe partial class BindAccelerationStructureMemoryInfoNV : IMarshallabl
     public uint DeviceIndexCount { get; set; }
     public System.ReadOnlyMemory<uint> PDeviceIndices { get; set; }
 
+
     public static implicit operator BindAccelerationStructureMemoryInfoNV(AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV b)
     {
         return new BindAccelerationStructureMemoryInfoNV(in b);

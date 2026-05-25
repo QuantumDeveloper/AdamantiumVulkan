@@ -27,6 +27,7 @@ public unsafe partial class PerformanceMarkerInfoINTEL : IMarshallableObject, IM
     public object PNext { get; set; }
     public ulong Marker { get; set; }
 
+
     public static implicit operator PerformanceMarkerInfoINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceMarkerInfoINTEL p)
     {
         return new PerformanceMarkerInfoINTEL(in p);

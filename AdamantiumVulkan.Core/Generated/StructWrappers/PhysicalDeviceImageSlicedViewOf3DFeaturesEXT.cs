@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceImageSlicedViewOf3DFeaturesEXT : IMars
     public object PNext { get; set; }
     public VkBool32 ImageSlicedViewOf3D { get; set; }
 
+
     public static implicit operator PhysicalDeviceImageSlicedViewOf3DFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT p)
     {
         return new PhysicalDeviceImageSlicedViewOf3DFeaturesEXT(in p);

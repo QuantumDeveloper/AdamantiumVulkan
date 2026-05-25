@@ -29,6 +29,7 @@ public unsafe partial class PipelineRasterizationConservativeStateCreateInfoEXT 
     public ConservativeRasterizationModeEXT ConservativeRasterizationMode { get; set; }
     public float ExtraPrimitiveOverestimationSize { get; set; }
 
+
     public static implicit operator PipelineRasterizationConservativeStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationConservativeStateCreateInfoEXT p)
     {
         return new PipelineRasterizationConservativeStateCreateInfoEXT(in p);

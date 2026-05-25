@@ -29,6 +29,7 @@ public unsafe partial class ShaderResourceUsageAMD : IMarshallableObject, IMarsh
     public nuint LdsUsageSizeInBytes { get; set; }
     public nuint ScratchMemUsageInBytes { get; set; }
 
+
     public static implicit operator ShaderResourceUsageAMD(AdamantiumVulkan.Core.Interop.VkShaderResourceUsageAMD s)
     {
         return new ShaderResourceUsageAMD(in s);

@@ -28,6 +28,7 @@ public unsafe partial class VideoReferenceSlotInfoKHR : IMarshallableObject, IMa
     public int SlotIndex { get; set; }
     public VideoPictureResourceInfoKHR PictureResource { get; set; }
 
+
     public static implicit operator VideoReferenceSlotInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoReferenceSlotInfoKHR v)
     {
         return new VideoReferenceSlotInfoKHR(in v);

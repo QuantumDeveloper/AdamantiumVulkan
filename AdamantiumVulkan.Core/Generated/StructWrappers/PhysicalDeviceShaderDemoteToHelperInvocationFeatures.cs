@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceShaderDemoteToHelperInvocationFeatures
     public object PNext { get; set; }
     public VkBool32 ShaderDemoteToHelperInvocation { get; set; }
 
+
     public static implicit operator PhysicalDeviceShaderDemoteToHelperInvocationFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures p)
     {
         return new PhysicalDeviceShaderDemoteToHelperInvocationFeatures(in p);
