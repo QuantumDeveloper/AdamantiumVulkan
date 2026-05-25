@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14566 Column: 1
+// File: vk.xml Line: 631 Column: 10
 public unsafe partial class ValidationCacheEXT : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T>
 {
     internal VkValidationCacheEXT_T __Instance;
@@ -27,7 +27,7 @@ public unsafe partial class ValidationCacheEXT : IUnmanagedWrapper<AdamantiumVul
     }
 
     public AdamantiumVulkan.Core.Interop.VkValidationCacheEXT_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public ref readonly VkValidationCacheEXT_T GetPinnableReference() => ref __Instance;
 

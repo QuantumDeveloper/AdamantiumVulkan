@@ -12,14 +12,14 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10370 Column: 16
+// File: vk.xml Line: 3334 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkImportFenceFdInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkFence_T fence;
-    public VkFenceImportFlags flags;
+    public FenceImportFlagBits flags;
     public ExternalFenceHandleTypeFlagBits handleType;
     public int fd;
 }

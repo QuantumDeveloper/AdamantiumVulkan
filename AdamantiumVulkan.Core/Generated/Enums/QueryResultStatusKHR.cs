@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8941 Column: 14
+// File: vk.xml Line: 13613 Column: 6
 public enum QueryResultStatusKHR : int
 {
     ErrorKhr = -1,
@@ -21,8 +21,6 @@ public enum QueryResultStatusKHR : int
     CompleteKhr = 1,
 
     InsufficientBitstreamBufferRangeKhr = -1000299000,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

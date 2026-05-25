@@ -23,12 +23,13 @@ public unsafe partial class PhysicalDeviceFragmentDensityMap2PropertiesEXT : IMa
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceFragmentDensityMap2PropertiesExt;
     public object PNext { get; set; }
     public VkBool32 SubsampledLoads { get; set; }
     public VkBool32 SubsampledCoarseReconstructionEarlyAccess { get; set; }
     public uint MaxSubsampledArrayLayers { get; set; }
     public uint MaxDescriptorSetSubsampledSamplers { get; set; }
+
 
     public static implicit operator PhysicalDeviceFragmentDensityMap2PropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMap2PropertiesEXT p)
     {
@@ -52,7 +53,6 @@ public unsafe partial class PhysicalDeviceFragmentDensityMap2PropertiesEXT : IMa
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMap2PropertiesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         SubsampledLoads = native.subsampledLoads;
         SubsampledCoarseReconstructionEarlyAccess = native.subsampledCoarseReconstructionEarlyAccess;
@@ -60,14 +60,14 @@ public unsafe partial class PhysicalDeviceFragmentDensityMap2PropertiesEXT : IMa
         MaxDescriptorSetSubsampledSamplers = native.maxDescriptorSetSubsampledSamplers;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMap2PropertiesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMap2PropertiesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceFragmentDensityMap2PropertiesEXTMarshaller
     {
@@ -81,11 +81,11 @@ public unsafe partial class PhysicalDeviceFragmentDensityMap2PropertiesEXT : IMa
             }
             else if (physicalDeviceFragmentDensityMap2PropertiesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceFragmentDensityMap2PropertiesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceFragmentDensityMap2PropertiesEXT.SubsampledLoads != (uint)default)

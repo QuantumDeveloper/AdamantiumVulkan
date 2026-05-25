@@ -23,11 +23,12 @@ public unsafe partial class AttachmentReference2 : IMarshallableObject, IMarshal
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.AttachmentReference2;
     public object PNext { get; set; }
     public uint Attachment { get; set; }
     public ImageLayout Layout { get; set; }
-    public VkImageAspectFlags AspectMask { get; set; }
+    public ImageAspectFlagBits AspectMask { get; set; }
+
 
     public static implicit operator AttachmentReference2(AdamantiumVulkan.Core.Interop.VkAttachmentReference2 a)
     {
@@ -51,21 +52,20 @@ public unsafe partial class AttachmentReference2 : IMarshallableObject, IMarshal
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkAttachmentReference2 native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Attachment = native.attachment;
         Layout = native.layout;
         AspectMask = native.aspectMask;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkAttachmentReference2>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkAttachmentReference2>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkAttachmentReference2Marshaller
     {
@@ -79,21 +79,18 @@ public unsafe partial class AttachmentReference2 : IMarshallableObject, IMarshal
             }
             else if (attachmentReference2.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (attachmentReference2.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].attachment = attachmentReference2.Attachment;
 
             context.Destination[0].layout = attachmentReference2.Layout;
 
-            if (attachmentReference2.AspectMask != (uint)default)
-            {
-                context.Destination[0].aspectMask = attachmentReference2.AspectMask;
-            }
+            context.Destination[0].aspectMask = attachmentReference2.AspectMask;
 
         }
     }

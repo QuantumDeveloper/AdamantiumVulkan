@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19576 Column: 14
-public enum OpticalFlowPerformanceLevelNV : uint
+// File: vk.xml Line: 13928 Column: 6
+public enum OpticalFlowPerformanceLevelNV : int
 {
     UnknownNv = 0,
 
@@ -21,8 +21,6 @@ public enum OpticalFlowPerformanceLevelNV : uint
     MediumNv = 2,
 
     FastNv = 3,
-
-    MaxEnumNv = 2147483647,
 
 }
 

@@ -26,6 +26,7 @@ public unsafe partial class Spv_diagnostic : IMarshallable<AdamantiumVulkan.Spir
     public spv_position Position { get; set; }
     public sbyte? Error { get; set; }
     public bool IsTextSource { get; set; }
+
     ///<summary>
     /// Destroys a diagnostic object. This is a no-op if diagnostic is a null pointer.
     ///</summary>

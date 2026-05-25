@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18787 Column: 16
+// File: vk.xml Line: 9247 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDescriptorSetLayoutHostMappingInfoVALVE
 {
     public StructureType sType;
-    public nuint pNext;
-    public ulong descriptorOffset;
+    public void* pNext;
+    public nuint descriptorOffset;
     public uint descriptorSize;
 }
 

@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20009 Column: 16
+// File: vk.xml Line: 10753 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceCooperativeVectorPropertiesNV
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkShaderStageFlags cooperativeVectorSupportedStages;
+    public void* pNext;
+    public ShaderStageFlagBits cooperativeVectorSupportedStages;
     public VkBool32 cooperativeVectorTrainingFloat16Accumulation;
     public VkBool32 cooperativeVectorTrainingFloat32Accumulation;
     public uint maxCooperativeVectorComponents;

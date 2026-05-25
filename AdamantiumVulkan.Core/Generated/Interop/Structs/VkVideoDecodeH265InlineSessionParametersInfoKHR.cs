@@ -9,19 +9,18 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using AdamantiumVulkan.Core;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12881 Column: 16
+// File: vk.xml Line: 7938 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkVideoDecodeH265InlineSessionParametersInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
-    public AdamantiumVulkan.Interop.StdVideoH265VideoParameterSet* pStdVPS;
-    public AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSet* pStdSPS;
-    public AdamantiumVulkan.Interop.StdVideoH265PictureParameterSet* pStdPPS;
+    public void* pNext;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265VideoParameterSet* pStdVPS;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSet* pStdSPS;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265PictureParameterSet* pStdPPS;
 }
 
 

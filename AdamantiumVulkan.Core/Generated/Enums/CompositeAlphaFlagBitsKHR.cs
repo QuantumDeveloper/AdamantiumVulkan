@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8553 Column: 14
+// File: vk.xml Line: 12745 Column: 6
 [Flags]
 public enum CompositeAlphaFlagBitsKHR : uint
 {
@@ -22,8 +22,6 @@ public enum CompositeAlphaFlagBitsKHR : uint
     PostMultipliedBitKhr = 4,
 
     InheritBitKhr = 8,
-
-    FlagBitsMaxEnumKhr = 2147483647,
 
 }
 

@@ -8,16 +8,17 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3183 Column: 16
+// File: vk.xml Line: 1343 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkFormatProperties
 {
-    public VkFormatFeatureFlags linearTilingFeatures;
-    public VkFormatFeatureFlags optimalTilingFeatures;
-    public VkFormatFeatureFlags bufferFeatures;
+    public FormatFeatureFlagBits linearTilingFeatures;
+    public FormatFeatureFlagBits optimalTilingFeatures;
+    public FormatFeatureFlagBits bufferFeatures;
 }
 
 

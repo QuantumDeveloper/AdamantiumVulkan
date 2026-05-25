@@ -23,9 +23,10 @@ public unsafe partial class PhysicalDeviceMaintenance6Features : IMarshallableOb
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceMaintenance6Features;
     public object PNext { get; set; }
     public VkBool32 Maintenance6 { get; set; }
+
 
     public static implicit operator PhysicalDeviceMaintenance6Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance6Features p)
     {
@@ -49,19 +50,18 @@ public unsafe partial class PhysicalDeviceMaintenance6Features : IMarshallableOb
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance6Features native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Maintenance6 = native.maintenance6;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance6Features>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance6Features>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceMaintenance6FeaturesMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class PhysicalDeviceMaintenance6Features : IMarshallableOb
             }
             else if (physicalDeviceMaintenance6Features.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceMaintenance6Features.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceMaintenance6Features.Maintenance6 != (uint)default)

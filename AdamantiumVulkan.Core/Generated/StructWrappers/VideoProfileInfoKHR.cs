@@ -23,12 +23,13 @@ public unsafe partial class VideoProfileInfoKHR : IMarshallableObject, IMarshall
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoProfileInfoKhr;
     public object PNext { get; set; }
     public VideoCodecOperationFlagBitsKHR VideoCodecOperation { get; set; }
-    public VkVideoChromaSubsamplingFlagsKHR ChromaSubsampling { get; set; }
-    public VkVideoComponentBitDepthFlagsKHR LumaBitDepth { get; set; }
-    public VkVideoComponentBitDepthFlagsKHR ChromaBitDepth { get; set; }
+    public VideoChromaSubsamplingFlagBitsKHR ChromaSubsampling { get; set; }
+    public VideoComponentBitDepthFlagBitsKHR LumaBitDepth { get; set; }
+    public VideoComponentBitDepthFlagBitsKHR ChromaBitDepth { get; set; }
+
 
     public static implicit operator VideoProfileInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR v)
     {
@@ -52,7 +53,6 @@ public unsafe partial class VideoProfileInfoKHR : IMarshallableObject, IMarshall
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         VideoCodecOperation = native.videoCodecOperation;
         ChromaSubsampling = native.chromaSubsampling;
@@ -60,14 +60,14 @@ public unsafe partial class VideoProfileInfoKHR : IMarshallableObject, IMarshall
         ChromaBitDepth = native.chromaBitDepth;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoProfileInfoKHRMarshaller
     {
@@ -81,29 +81,20 @@ public unsafe partial class VideoProfileInfoKHR : IMarshallableObject, IMarshall
             }
             else if (videoProfileInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoProfileInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].videoCodecOperation = videoProfileInfoKHR.VideoCodecOperation;
 
-            if (videoProfileInfoKHR.ChromaSubsampling != (uint)default)
-            {
-                context.Destination[0].chromaSubsampling = videoProfileInfoKHR.ChromaSubsampling;
-            }
+            context.Destination[0].chromaSubsampling = videoProfileInfoKHR.ChromaSubsampling;
 
-            if (videoProfileInfoKHR.LumaBitDepth != (uint)default)
-            {
-                context.Destination[0].lumaBitDepth = videoProfileInfoKHR.LumaBitDepth;
-            }
+            context.Destination[0].lumaBitDepth = videoProfileInfoKHR.LumaBitDepth;
 
-            if (videoProfileInfoKHR.ChromaBitDepth != (uint)default)
-            {
-                context.Destination[0].chromaBitDepth = videoProfileInfoKHR.ChromaBitDepth;
-            }
+            context.Destination[0].chromaBitDepth = videoProfileInfoKHR.ChromaBitDepth;
 
         }
     }

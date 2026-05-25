@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20948 Column: 14
+// File: vk.xml Line: 14015 Column: 6
 [Flags]
-public enum IndirectExecutionSetInfoTypeEXT : uint
+public enum IndirectExecutionSetInfoTypeEXT : int
 {
     PipelinesExt = 0,
 
     ShaderObjectsExt = 1,
-
-    MaxEnumExt = 2147483647,
 
 }
 

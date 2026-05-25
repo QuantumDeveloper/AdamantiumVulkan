@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeAV1ExtensionHeader : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader>
+public unsafe partial class StdVideoEncodeAV1ExtensionHeader : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader>
 {
     public StdVideoEncodeAV1ExtensionHeader()
     {
     }
 
-    public StdVideoEncodeAV1ExtensionHeader(in AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader native)
+    public StdVideoEncodeAV1ExtensionHeader(in AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader native)
     {
         MarshalFrom(in native);
     }
@@ -26,40 +26,41 @@ public unsafe partial class StdVideoEncodeAV1ExtensionHeader : IMarshallableObje
     public byte Temporal_id { get; set; }
     public byte Spatial_id { get; set; }
 
-    public static implicit operator StdVideoEncodeAV1ExtensionHeader(AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader s)
+
+    public static implicit operator StdVideoEncodeAV1ExtensionHeader(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader s)
     {
         return new StdVideoEncodeAV1ExtensionHeader(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader> context)
     {
         new StdVideoEncodeAV1ExtensionHeaderMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader native)
     {
         Temporal_id = native.temporal_id;
         Spatial_id = native.spatial_id;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeAV1ExtensionHeaderMarshaller
     {
-        public StdVideoEncodeAV1ExtensionHeaderMarshaller(AdamantiumVulkan.StdVideoEncodeAV1ExtensionHeader stdVideoEncodeAV1ExtensionHeader, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader> context)
+        public StdVideoEncodeAV1ExtensionHeaderMarshaller(AdamantiumVulkan.Core.StdVideoEncodeAV1ExtensionHeader stdVideoEncodeAV1ExtensionHeader, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader> context)
         {
             context.Destination[0].temporal_id = stdVideoEncodeAV1ExtensionHeader.Temporal_id;
 

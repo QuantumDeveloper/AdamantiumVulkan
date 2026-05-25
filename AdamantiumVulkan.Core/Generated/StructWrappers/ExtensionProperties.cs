@@ -26,6 +26,7 @@ public unsafe partial class ExtensionProperties : IMarshallableObject, IMarshall
     public string ExtensionName { get; set; }
     public uint SpecVersion { get; set; }
 
+
     public static implicit operator ExtensionProperties(AdamantiumVulkan.Core.Interop.VkExtensionProperties e)
     {
         return new ExtensionProperties(in e);
@@ -51,14 +52,14 @@ public unsafe partial class ExtensionProperties : IMarshallableObject, IMarshall
         SpecVersion = native.specVersion;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkExtensionProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkExtensionProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkExtensionPropertiesMarshaller
     {

@@ -30,11 +30,12 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : IMarshallableOb
     public int MessageIdNumber { get; set; }
     public string PMessage { get; set; }
     public uint QueueLabelCount { get; set; }
-    public DebugUtilsLabelEXT PQueueLabels { get; set; }
+    public System.ReadOnlyMemory<DebugUtilsLabelEXT> PQueueLabels { get; set; }
     public uint CmdBufLabelCount { get; set; }
-    public DebugUtilsLabelEXT PCmdBufLabels { get; set; }
+    public System.ReadOnlyMemory<DebugUtilsLabelEXT> PCmdBufLabels { get; set; }
     public uint ObjectCount { get; set; }
-    public DebugUtilsObjectNameInfoEXT PObjects { get; set; }
+    public System.ReadOnlyMemory<DebugUtilsObjectNameInfoEXT> PObjects { get; set; }
+
 
     public static implicit operator DebugUtilsMessengerCallbackDataEXT(AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT d)
     {
@@ -52,17 +53,35 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : IMarshallableOb
             size += System.Text.Encoding.UTF8.GetByteCount(PMessageIdName) + 1;
         if (!string.IsNullOrEmpty(PMessage))
             size += System.Text.Encoding.UTF8.GetByteCount(PMessage) + 1;
-        if (PQueueLabels != default)
+        if (!PQueueLabels.IsEmpty)
         {
-            size += PQueueLabels.GetSize();
+            for (int i = 0; i < PQueueLabels.Length; i++)
+            {
+                if (PQueueLabels.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>();
+                else
+                    size += PQueueLabels.Span[i].GetSize();
+            }
         }
-        if (PCmdBufLabels != default)
+        if (!PCmdBufLabels.IsEmpty)
         {
-            size += PCmdBufLabels.GetSize();
+            for (int i = 0; i < PCmdBufLabels.Length; i++)
+            {
+                if (PCmdBufLabels.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>();
+                else
+                    size += PCmdBufLabels.Span[i].GetSize();
+            }
         }
-        if (PObjects != default)
+        if (!PObjects.IsEmpty)
         {
-            size += PObjects.GetSize();
+            for (int i = 0; i < PObjects.Length; i++)
+            {
+                if (PObjects.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT>();
+                else
+                    size += PObjects.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -80,24 +99,45 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : IMarshallableOb
         MessageIdNumber = native.messageIdNumber;
         PMessage = new string(native.pMessage);
         QueueLabelCount = native.queueLabelCount;
-        PQueueLabels = new DebugUtilsLabelEXT(in *native.pQueueLabels);
-        NativeUtils.Free(native.pQueueLabels);
+        var arrayLengthPQueueLabels = native.queueLabelCount;
+        var tmpPQueueLabels = new DebugUtilsLabelEXT[arrayLengthPQueueLabels];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT[arrayLengthPQueueLabels];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pQueueLabels, arrayLengthPQueueLabels, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPQueueLabels[i] = new DebugUtilsLabelEXT(in nativeTmpArray0[i]);
+        }
+        PQueueLabels = tmpPQueueLabels;
         CmdBufLabelCount = native.cmdBufLabelCount;
-        PCmdBufLabels = new DebugUtilsLabelEXT(in *native.pCmdBufLabels);
-        NativeUtils.Free(native.pCmdBufLabels);
+        var arrayLengthPCmdBufLabels = native.cmdBufLabelCount;
+        var tmpPCmdBufLabels = new DebugUtilsLabelEXT[arrayLengthPCmdBufLabels];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT[arrayLengthPCmdBufLabels];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCmdBufLabels, arrayLengthPCmdBufLabels, nativeTmpArray1);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        {
+            tmpPCmdBufLabels[i] = new DebugUtilsLabelEXT(in nativeTmpArray1[i]);
+        }
+        PCmdBufLabels = tmpPCmdBufLabels;
         ObjectCount = native.objectCount;
-        PObjects = new DebugUtilsObjectNameInfoEXT(in *native.pObjects);
-        NativeUtils.Free(native.pObjects);
+        var arrayLengthPObjects = native.objectCount;
+        var tmpPObjects = new DebugUtilsObjectNameInfoEXT[arrayLengthPObjects];
+        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT[arrayLengthPObjects];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pObjects, arrayLengthPObjects, nativeTmpArray2);
+        for (int i = 0; i < nativeTmpArray2.Length; ++i)
+        {
+            tmpPObjects[i] = new DebugUtilsObjectNameInfoEXT(in nativeTmpArray2[i]);
+        }
+        PObjects = tmpPObjects;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDebugUtilsMessengerCallbackDataEXTMarshaller
     {
@@ -111,11 +151,11 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : IMarshallableOb
             }
             else if (debugUtilsMessengerCallbackDataEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (debugUtilsMessengerCallbackDataEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (debugUtilsMessengerCallbackDataEXT.Flags != (uint)default)
@@ -143,38 +183,23 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : IMarshallableOb
 
             context.Destination[0].queueLabelCount = debugUtilsMessengerCallbackDataEXT.QueueLabelCount;
 
-            if (debugUtilsMessengerCallbackDataEXT.PQueueLabels != default)
+            if (!debugUtilsMessengerCallbackDataEXT.PQueueLabels.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(structSlice0).Slice(0, 1);
-                context.Destination[0].pQueueLabels = (AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(structDestination0, context.DataCursor);
-                debugUtilsMessengerCallbackDataEXT.PQueueLabels.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pQueueLabels = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.DebugUtilsLabelEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT>(debugUtilsMessengerCallbackDataEXT.PQueueLabels, ref context);
             }
 
             context.Destination[0].cmdBufLabelCount = debugUtilsMessengerCallbackDataEXT.CmdBufLabelCount;
 
-            if (debugUtilsMessengerCallbackDataEXT.PCmdBufLabels != default)
+            if (!debugUtilsMessengerCallbackDataEXT.PCmdBufLabels.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(structSlice0).Slice(0, 1);
-                context.Destination[0].pCmdBufLabels = (AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT>(structDestination0, context.DataCursor);
-                debugUtilsMessengerCallbackDataEXT.PCmdBufLabels.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pCmdBufLabels = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.DebugUtilsLabelEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsLabelEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT>(debugUtilsMessengerCallbackDataEXT.PCmdBufLabels, ref context);
             }
 
             context.Destination[0].objectCount = debugUtilsMessengerCallbackDataEXT.ObjectCount;
 
-            if (debugUtilsMessengerCallbackDataEXT.PObjects != default)
+            if (!debugUtilsMessengerCallbackDataEXT.PObjects.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT>(structSlice0).Slice(0, 1);
-                context.Destination[0].pObjects = (AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT>(structDestination0, context.DataCursor);
-                debugUtilsMessengerCallbackDataEXT.PObjects.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pObjects = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.DebugUtilsObjectNameInfoEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT>(debugUtilsMessengerCallbackDataEXT.PObjects, ref context);
             }
 
         }

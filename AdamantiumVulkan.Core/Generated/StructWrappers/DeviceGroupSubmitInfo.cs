@@ -26,11 +26,12 @@ public unsafe partial class DeviceGroupSubmitInfo : IMarshallableObject, IMarsha
     public StructureType SType => StructureType.DeviceGroupSubmitInfo;
     public object PNext { get; set; }
     public uint WaitSemaphoreCount { get; set; }
-    public uint? PWaitSemaphoreDeviceIndices { get; set; }
+    public System.ReadOnlyMemory<uint> PWaitSemaphoreDeviceIndices { get; set; }
     public uint CommandBufferCount { get; set; }
-    public uint? PCommandBufferDeviceMasks { get; set; }
+    public System.ReadOnlyMemory<uint> PCommandBufferDeviceMasks { get; set; }
     public uint SignalSemaphoreCount { get; set; }
-    public uint? PSignalSemaphoreDeviceIndices { get; set; }
+    public System.ReadOnlyMemory<uint> PSignalSemaphoreDeviceIndices { get; set; }
+
 
     public static implicit operator DeviceGroupSubmitInfo(AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo d)
     {
@@ -44,6 +45,12 @@ public unsafe partial class DeviceGroupSubmitInfo : IMarshallableObject, IMarsha
         {
             size += marshallable.GetSize();
         }
+        if (!PWaitSemaphoreDeviceIndices.IsEmpty)
+            size += PWaitSemaphoreDeviceIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+        if (!PCommandBufferDeviceMasks.IsEmpty)
+            size += PCommandBufferDeviceMasks.Span.Length * Marshal.SizeOf<System.UInt32>();
+        if (!PSignalSemaphoreDeviceIndices.IsEmpty)
+            size += PSignalSemaphoreDeviceIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -56,33 +63,30 @@ public unsafe partial class DeviceGroupSubmitInfo : IMarshallableObject, IMarsha
     {
         PNext = (System.IntPtr)native.pNext;
         WaitSemaphoreCount = native.waitSemaphoreCount;
-        if (native.pWaitSemaphoreDeviceIndices != null)
-        {
-            PWaitSemaphoreDeviceIndices = *native.pWaitSemaphoreDeviceIndices;
-            NativeUtils.Free(native.pWaitSemaphoreDeviceIndices);
-        }
+        var arrayLengthPWaitSemaphoreDeviceIndices = native.waitSemaphoreCount;
+        var tmpPWaitSemaphoreDeviceIndices = new uint[arrayLengthPWaitSemaphoreDeviceIndices];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pWaitSemaphoreDeviceIndices, arrayLengthPWaitSemaphoreDeviceIndices, tmpPWaitSemaphoreDeviceIndices);
+        PWaitSemaphoreDeviceIndices = tmpPWaitSemaphoreDeviceIndices;
         CommandBufferCount = native.commandBufferCount;
-        if (native.pCommandBufferDeviceMasks != null)
-        {
-            PCommandBufferDeviceMasks = *native.pCommandBufferDeviceMasks;
-            NativeUtils.Free(native.pCommandBufferDeviceMasks);
-        }
+        var arrayLengthPCommandBufferDeviceMasks = native.commandBufferCount;
+        var tmpPCommandBufferDeviceMasks = new uint[arrayLengthPCommandBufferDeviceMasks];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCommandBufferDeviceMasks, arrayLengthPCommandBufferDeviceMasks, tmpPCommandBufferDeviceMasks);
+        PCommandBufferDeviceMasks = tmpPCommandBufferDeviceMasks;
         SignalSemaphoreCount = native.signalSemaphoreCount;
-        if (native.pSignalSemaphoreDeviceIndices != null)
-        {
-            PSignalSemaphoreDeviceIndices = *native.pSignalSemaphoreDeviceIndices;
-            NativeUtils.Free(native.pSignalSemaphoreDeviceIndices);
-        }
+        var arrayLengthPSignalSemaphoreDeviceIndices = native.signalSemaphoreCount;
+        var tmpPSignalSemaphoreDeviceIndices = new uint[arrayLengthPSignalSemaphoreDeviceIndices];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSignalSemaphoreDeviceIndices, arrayLengthPSignalSemaphoreDeviceIndices, tmpPSignalSemaphoreDeviceIndices);
+        PSignalSemaphoreDeviceIndices = tmpPSignalSemaphoreDeviceIndices;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDeviceGroupSubmitInfoMarshaller
     {
@@ -96,32 +100,32 @@ public unsafe partial class DeviceGroupSubmitInfo : IMarshallableObject, IMarsha
             }
             else if (deviceGroupSubmitInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (deviceGroupSubmitInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].waitSemaphoreCount = deviceGroupSubmitInfo.WaitSemaphoreCount;
 
-            if (deviceGroupSubmitInfo.PWaitSemaphoreDeviceIndices.HasValue)
+            if (!deviceGroupSubmitInfo.PWaitSemaphoreDeviceIndices.IsEmpty)
             {
-                context.Destination[0].pWaitSemaphoreDeviceIndices = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(deviceGroupSubmitInfo.PWaitSemaphoreDeviceIndices.Value, ref context);
+                context.Destination[0].pWaitSemaphoreDeviceIndices = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo>(deviceGroupSubmitInfo.PWaitSemaphoreDeviceIndices.Span, ref context);
             }
 
             context.Destination[0].commandBufferCount = deviceGroupSubmitInfo.CommandBufferCount;
 
-            if (deviceGroupSubmitInfo.PCommandBufferDeviceMasks.HasValue)
+            if (!deviceGroupSubmitInfo.PCommandBufferDeviceMasks.IsEmpty)
             {
-                context.Destination[0].pCommandBufferDeviceMasks = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(deviceGroupSubmitInfo.PCommandBufferDeviceMasks.Value, ref context);
+                context.Destination[0].pCommandBufferDeviceMasks = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo>(deviceGroupSubmitInfo.PCommandBufferDeviceMasks.Span, ref context);
             }
 
             context.Destination[0].signalSemaphoreCount = deviceGroupSubmitInfo.SignalSemaphoreCount;
 
-            if (deviceGroupSubmitInfo.PSignalSemaphoreDeviceIndices.HasValue)
+            if (!deviceGroupSubmitInfo.PSignalSemaphoreDeviceIndices.IsEmpty)
             {
-                context.Destination[0].pSignalSemaphoreDeviceIndices = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(deviceGroupSubmitInfo.PSignalSemaphoreDeviceIndices.Value, ref context);
+                context.Destination[0].pSignalSemaphoreDeviceIndices = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkDeviceGroupSubmitInfo>(deviceGroupSubmitInfo.PSignalSemaphoreDeviceIndices.Span, ref context);
             }
 
         }

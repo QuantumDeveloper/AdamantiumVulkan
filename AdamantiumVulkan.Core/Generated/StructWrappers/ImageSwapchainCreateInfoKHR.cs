@@ -27,6 +27,7 @@ public unsafe partial class ImageSwapchainCreateInfoKHR : IMarshallableObject, I
     public object PNext { get; set; }
     public SwapchainKHR Swapchain { get; set; }
 
+
     public static implicit operator ImageSwapchainCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkImageSwapchainCreateInfoKHR i)
     {
         return new ImageSwapchainCreateInfoKHR(in i);
@@ -53,14 +54,14 @@ public unsafe partial class ImageSwapchainCreateInfoKHR : IMarshallableObject, I
         Swapchain = new SwapchainKHR(native.swapchain);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageSwapchainCreateInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageSwapchainCreateInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageSwapchainCreateInfoKHRMarshaller
     {
@@ -74,11 +75,11 @@ public unsafe partial class ImageSwapchainCreateInfoKHR : IMarshallableObject, I
             }
             else if (imageSwapchainCreateInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (imageSwapchainCreateInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (imageSwapchainCreateInfoKHR.Swapchain != default)

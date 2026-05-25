@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9158 Column: 30
+// File: video.xml Line: 17949 Column: 10
 public unsafe struct PFN_vkGetVideoSessionMemoryRequirementsKHR
 {
     public PFN_vkGetVideoSessionMemoryRequirementsKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetVideoSessionMemoryRequirementsKHR
     public PFN_vkGetVideoSessionMemoryRequirementsKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, ref uint* pMemoryRequirementsCount, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, ref uint pMemoryRequirementsCount, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements)
     {
         return InvokeFunc(device, videoSession, ref pMemoryRequirementsCount, pMemoryRequirements);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, ref uint* pMemoryRequirementsCount, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, ref uint pMemoryRequirementsCount, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR*, Result>)ptr)(device, videoSession, ref pMemoryRequirementsCount, pMemoryRequirements);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR*, Result>)ptr)(device, videoSession, ref pMemoryRequirementsCount, pMemoryRequirements);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, ref uint* pMemoryRequirementsCount, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T videoSession, ref uint pMemoryRequirementsCount, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T, ref uint*, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR*, Result>)(void*)ptr)(device, videoSession, ref pMemoryRequirementsCount, pMemoryRequirements);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoSessionKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR*, Result>)(void*)ptr)(device, videoSession, ref pMemoryRequirementsCount, pMemoryRequirements);
     }
 
     public static explicit operator PFN_vkGetVideoSessionMemoryRequirementsKHR(void* ptr) => new(ptr);

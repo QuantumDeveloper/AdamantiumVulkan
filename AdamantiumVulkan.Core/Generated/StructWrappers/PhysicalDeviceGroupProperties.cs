@@ -29,6 +29,7 @@ public unsafe partial class PhysicalDeviceGroupProperties : IMarshallableObject,
     public System.ReadOnlyMemory<PhysicalDevice> PhysicalDevices { get; set; }
     public VkBool32 SubsetAllocation { get; set; }
 
+
     public static implicit operator PhysicalDeviceGroupProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties p)
     {
         return new PhysicalDeviceGroupProperties(in p);
@@ -60,17 +61,18 @@ public unsafe partial class PhysicalDeviceGroupProperties : IMarshallableObject,
         {
             tmpPhysicalDevices[i] = new AdamantiumVulkan.Core.PhysicalDevice(spanPhysicalDevices[i]);
         }
+        PhysicalDevices = tmpPhysicalDevices;
         SubsetAllocation = native.subsetAllocation;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceGroupPropertiesMarshaller
     {
@@ -84,11 +86,11 @@ public unsafe partial class PhysicalDeviceGroupProperties : IMarshallableObject,
             }
             else if (physicalDeviceGroupProperties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceGroupProperties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].physicalDeviceCount = physicalDeviceGroupProperties.PhysicalDeviceCount;
@@ -96,7 +98,7 @@ public unsafe partial class PhysicalDeviceGroupProperties : IMarshallableObject,
             ref var fixedField1 = ref context.Destination[0].physicalDevices;
             var fixedField1Span = physicalDeviceGroupProperties.PhysicalDevices.Span;
             var pPhysicalDevices = (AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref fixedField1.item0);
-            QuantumBinding.Utils.MarshalingUtils.MarshalArrayOfHandleWrappersToFixedBuffer(fixedField1Span , pPhysicalDevices, 32);
+            QuantumBinding.Utils.MarshalingUtils.MarshalArrayOfHandleWrappersToFixedBuffer(fixedField1Span, pPhysicalDevices, 32);
 
             if (physicalDeviceGroupProperties.SubsetAllocation != (uint)default)
             {

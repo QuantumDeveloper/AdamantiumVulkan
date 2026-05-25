@@ -23,11 +23,12 @@ public unsafe partial class CopyMicromapToMemoryInfoEXT : IMarshallableObject, I
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.CopyMicromapToMemoryInfoExt;
     public object PNext { get; set; }
     public MicromapEXT Src { get; set; }
     public DeviceOrHostAddressKHR Dst { get; set; }
     public CopyMicromapModeEXT Mode { get; set; }
+
 
     public static implicit operator CopyMicromapToMemoryInfoEXT(AdamantiumVulkan.Core.Interop.VkCopyMicromapToMemoryInfoEXT c)
     {
@@ -41,6 +42,8 @@ public unsafe partial class CopyMicromapToMemoryInfoEXT : IMarshallableObject, I
         {
             size += marshallable.GetSize();
         }
+        if (Dst != default)
+            size += Dst.GetSize();
         return size;
     }
 
@@ -51,21 +54,20 @@ public unsafe partial class CopyMicromapToMemoryInfoEXT : IMarshallableObject, I
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkCopyMicromapToMemoryInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Src = new MicromapEXT(native.src);
         Dst = new DeviceOrHostAddressKHR(native.dst);
         Mode = native.mode;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkCopyMicromapToMemoryInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkCopyMicromapToMemoryInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkCopyMicromapToMemoryInfoEXTMarshaller
     {
@@ -79,11 +81,11 @@ public unsafe partial class CopyMicromapToMemoryInfoEXT : IMarshallableObject, I
             }
             else if (copyMicromapToMemoryInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (copyMicromapToMemoryInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (copyMicromapToMemoryInfoEXT.Src != default)

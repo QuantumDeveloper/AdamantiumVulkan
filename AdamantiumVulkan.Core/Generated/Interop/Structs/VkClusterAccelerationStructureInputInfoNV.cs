@@ -12,14 +12,14 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20701 Column: 16
+// File: vk.xml Line: 2836 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkClusterAccelerationStructureInputInfoNV
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public uint maxAccelerationStructureCount;
-    public VkBuildAccelerationStructureFlagsKHR flags;
+    public BuildAccelerationStructureFlagBitsKHR flags;
     public ClusterAccelerationStructureOpTypeNV opType;
     public ClusterAccelerationStructureOpModeNV opMode;
     public VkClusterAccelerationStructureOpInputNV opInput;

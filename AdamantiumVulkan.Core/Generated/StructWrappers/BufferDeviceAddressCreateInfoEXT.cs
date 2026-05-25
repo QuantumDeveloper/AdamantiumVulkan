@@ -27,6 +27,7 @@ public unsafe partial class BufferDeviceAddressCreateInfoEXT : IMarshallableObje
     public object PNext { get; set; }
     public VkDeviceAddress DeviceAddress { get; set; }
 
+
     public static implicit operator BufferDeviceAddressCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressCreateInfoEXT b)
     {
         return new BufferDeviceAddressCreateInfoEXT(in b);
@@ -53,14 +54,14 @@ public unsafe partial class BufferDeviceAddressCreateInfoEXT : IMarshallableObje
         DeviceAddress = native.deviceAddress;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkBufferDeviceAddressCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkBufferDeviceAddressCreateInfoEXTMarshaller
     {
@@ -74,11 +75,11 @@ public unsafe partial class BufferDeviceAddressCreateInfoEXT : IMarshallableObje
             }
             else if (bufferDeviceAddressCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (bufferDeviceAddressCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (bufferDeviceAddressCreateInfoEXT.DeviceAddress != (ulong)default)

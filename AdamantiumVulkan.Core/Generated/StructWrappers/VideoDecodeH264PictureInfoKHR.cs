@@ -9,8 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core;
 
@@ -25,11 +23,12 @@ public unsafe partial class VideoDecodeH264PictureInfoKHR : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoDecodeH264PictureInfoKhr;
     public object PNext { get; set; }
     public StdVideoDecodeH264PictureInfo PStdPictureInfo { get; set; }
     public uint SliceCount { get; set; }
-    public uint? PSliceOffsets { get; set; }
+    public System.ReadOnlyMemory<uint> PSliceOffsets { get; set; }
+
 
     public static implicit operator VideoDecodeH264PictureInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeH264PictureInfoKHR v)
     {
@@ -47,6 +46,8 @@ public unsafe partial class VideoDecodeH264PictureInfoKHR : IMarshallableObject,
         {
             size += PStdPictureInfo.GetSize();
         }
+        if (!PSliceOffsets.IsEmpty)
+            size += PSliceOffsets.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -57,26 +58,24 @@ public unsafe partial class VideoDecodeH264PictureInfoKHR : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoDecodeH264PictureInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PStdPictureInfo = new StdVideoDecodeH264PictureInfo(in *native.pStdPictureInfo);
         NativeUtils.Free(native.pStdPictureInfo);
         SliceCount = native.sliceCount;
-        if (native.pSliceOffsets != null)
-        {
-            PSliceOffsets = *native.pSliceOffsets;
-            NativeUtils.Free(native.pSliceOffsets);
-        }
+        var arrayLengthPSliceOffsets = native.sliceCount;
+        var tmpPSliceOffsets = new uint[arrayLengthPSliceOffsets];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSliceOffsets, arrayLengthPSliceOffsets, tmpPSliceOffsets);
+        PSliceOffsets = tmpPSliceOffsets;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoDecodeH264PictureInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoDecodeH264PictureInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoDecodeH264PictureInfoKHRMarshaller
     {
@@ -90,28 +89,28 @@ public unsafe partial class VideoDecodeH264PictureInfoKHR : IMarshallableObject,
             }
             else if (videoDecodeH264PictureInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoDecodeH264PictureInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoDecodeH264PictureInfoKHR.PStdPictureInfo != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoDecodeH264PictureInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoDecodeH264PictureInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStdPictureInfo = (AdamantiumVulkan.Interop.StdVideoDecodeH264PictureInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoDecodeH264PictureInfo>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoDecodeH264PictureInfo));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoDecodeH264PictureInfo>(structSlice0).Slice(0, 1);
+                context.Destination[0].pStdPictureInfo = (AdamantiumVulkan.Core.Interop.StdVideoDecodeH264PictureInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoDecodeH264PictureInfo>(structDestination0, context.DataCursor);
                 videoDecodeH264PictureInfoKHR.PStdPictureInfo.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             context.Destination[0].sliceCount = videoDecodeH264PictureInfoKHR.SliceCount;
 
-            if (videoDecodeH264PictureInfoKHR.PSliceOffsets.HasValue)
+            if (!videoDecodeH264PictureInfoKHR.PSliceOffsets.IsEmpty)
             {
-                context.Destination[0].pSliceOffsets = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(videoDecodeH264PictureInfoKHR.PSliceOffsets.Value, ref context);
+                context.Destination[0].pSliceOffsets = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkVideoDecodeH264PictureInfoKHR>(videoDecodeH264PictureInfoKHR.PSliceOffsets.Span, ref context);
             }
 
         }

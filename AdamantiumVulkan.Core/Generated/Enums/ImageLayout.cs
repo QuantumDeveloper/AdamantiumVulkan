@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 1480 Column: 14
-public enum ImageLayout : uint
+// File: vk.xml Line: 11920 Column: 6
+public enum ImageLayout : int
 {
     Undefined = 0,
 
@@ -31,24 +31,6 @@ public enum ImageLayout : uint
     TransferDstOptimal = 7,
 
     Preinitialized = 8,
-
-    DepthReadOnlyStencilAttachmentOptimal = 1000117000,
-
-    DepthAttachmentStencilReadOnlyOptimal = 1000117001,
-
-    DepthAttachmentOptimal = 1000241000,
-
-    DepthReadOnlyOptimal = 1000241001,
-
-    StencilAttachmentOptimal = 1000241002,
-
-    StencilReadOnlyOptimal = 1000241003,
-
-    ReadOnlyOptimal = 1000314000,
-
-    AttachmentOptimal = 1000314001,
-
-    RenderingLocalRead = 1000232000,
 
     PresentSrcKhr = 1000001002,
 
@@ -72,9 +54,29 @@ public enum ImageLayout : uint
 
     AttachmentFeedbackLoopOptimalExt = 1000339000,
 
+    TensorAliasingArm = 1000460000,
+
     VideoEncodeQuantizationMapKhr = 1000553000,
 
-    MaxEnum = 2147483647,
+    ZeroInitializedExt = 1000620000,
+
+    DepthReadOnlyStencilAttachmentOptimal = 1000117000,
+
+    DepthAttachmentStencilReadOnlyOptimal = 1000117001,
+
+    DepthAttachmentOptimal = 1000241000,
+
+    DepthReadOnlyOptimal = 1000241001,
+
+    StencilAttachmentOptimal = 1000241002,
+
+    StencilReadOnlyOptimal = 1000241003,
+
+    ReadOnlyOptimal = 1000314000,
+
+    AttachmentOptimal = 1000314001,
+
+    RenderingLocalRead = 1000232000,
 
 }
 

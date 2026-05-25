@@ -23,10 +23,11 @@ public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM :
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.MultiviewPerViewRenderAreasRenderPassBeginInfoQcom;
     public object PNext { get; set; }
     public uint PerViewRenderAreaCount { get; set; }
-    public Rect2D PerViewRenderAreas { get; set; }
+    public System.ReadOnlyMemory<Rect2D> PerViewRenderAreas { get; set; }
+
 
     public static implicit operator MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM(AdamantiumVulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM m)
     {
@@ -40,9 +41,15 @@ public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM :
         {
             size += marshallable.GetSize();
         }
-        if (PerViewRenderAreas != default)
+        if (!PerViewRenderAreas.IsEmpty)
         {
-            size += PerViewRenderAreas.GetSize();
+            for (int i = 0; i < PerViewRenderAreas.Length; i++)
+            {
+                if (PerViewRenderAreas.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkRect2D>();
+                else
+                    size += PerViewRenderAreas.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -54,21 +61,27 @@ public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM :
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PerViewRenderAreaCount = native.perViewRenderAreaCount;
-        PerViewRenderAreas = new Rect2D(in *native.pPerViewRenderAreas);
-        NativeUtils.Free(native.pPerViewRenderAreas);
+        var arrayLengthPerViewRenderAreas = native.perViewRenderAreaCount;
+        var tmpPerViewRenderAreas = new Rect2D[arrayLengthPerViewRenderAreas];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkRect2D[arrayLengthPerViewRenderAreas];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPerViewRenderAreas, arrayLengthPerViewRenderAreas, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPerViewRenderAreas[i] = new Rect2D(in nativeTmpArray0[i]);
+        }
+        PerViewRenderAreas = tmpPerViewRenderAreas;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOMMarshaller
     {
@@ -82,23 +95,18 @@ public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM :
             }
             else if (multiviewPerViewRenderAreasRenderPassBeginInfoQCOM.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (multiviewPerViewRenderAreasRenderPassBeginInfoQCOM.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].perViewRenderAreaCount = multiviewPerViewRenderAreasRenderPassBeginInfoQCOM.PerViewRenderAreaCount;
 
-            if (multiviewPerViewRenderAreasRenderPassBeginInfoQCOM.PerViewRenderAreas != default)
+            if (!multiviewPerViewRenderAreasRenderPassBeginInfoQCOM.PerViewRenderAreas.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkRect2D));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkRect2D>(structSlice0).Slice(0, 1);
-                context.Destination[0].pPerViewRenderAreas = (AdamantiumVulkan.Core.Interop.VkRect2D*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkRect2D>(structDestination0, context.DataCursor);
-                multiviewPerViewRenderAreasRenderPassBeginInfoQCOM.PerViewRenderAreas.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pPerViewRenderAreas = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.Rect2D, AdamantiumVulkan.Core.Interop.VkRect2D, AdamantiumVulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM>(multiviewPerViewRenderAreasRenderPassBeginInfoQCOM.PerViewRenderAreas, ref context);
             }
 
         }

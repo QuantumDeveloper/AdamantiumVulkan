@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 1984 Column: 14
-public enum ImageViewType : uint
+// File: vk.xml Line: 11949 Column: 6
+public enum ImageViewType : int
 {
     _1d = 0,
 
@@ -27,8 +27,6 @@ public enum ImageViewType : uint
     _2dArray = 5,
 
     CubeArray = 6,
-
-    MaxEnum = 2147483647,
 
 }
 

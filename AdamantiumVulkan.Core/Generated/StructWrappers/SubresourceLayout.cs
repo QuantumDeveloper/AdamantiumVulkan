@@ -29,6 +29,7 @@ public unsafe partial class SubresourceLayout : IMarshallableObject, IMarshallab
     public VkDeviceSize ArrayPitch { get; set; }
     public VkDeviceSize DepthPitch { get; set; }
 
+
     public static implicit operator SubresourceLayout(AdamantiumVulkan.Core.Interop.VkSubresourceLayout s)
     {
         return new SubresourceLayout(in s);
@@ -54,14 +55,14 @@ public unsafe partial class SubresourceLayout : IMarshallableObject, IMarshallab
         DepthPitch = native.depthPitch;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSubresourceLayout>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSubresourceLayout>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSubresourceLayoutMarshaller
     {

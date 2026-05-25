@@ -23,9 +23,10 @@ public unsafe partial class ImageCaptureDescriptorDataInfoEXT : IMarshallableObj
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ImageCaptureDescriptorDataInfoExt;
     public object PNext { get; set; }
     public Image Image { get; set; }
+
 
     public static implicit operator ImageCaptureDescriptorDataInfoEXT(AdamantiumVulkan.Core.Interop.VkImageCaptureDescriptorDataInfoEXT i)
     {
@@ -49,19 +50,18 @@ public unsafe partial class ImageCaptureDescriptorDataInfoEXT : IMarshallableObj
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkImageCaptureDescriptorDataInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Image = new Image(native.image);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageCaptureDescriptorDataInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageCaptureDescriptorDataInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageCaptureDescriptorDataInfoEXTMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class ImageCaptureDescriptorDataInfoEXT : IMarshallableObj
             }
             else if (imageCaptureDescriptorDataInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (imageCaptureDescriptorDataInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (imageCaptureDescriptorDataInfoEXT.Image != default)

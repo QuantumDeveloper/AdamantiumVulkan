@@ -23,9 +23,10 @@ public unsafe partial class VideoEncodeQualityLevelInfoKHR : IMarshallableObject
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeQualityLevelInfoKhr;
     public object PNext { get; set; }
     public uint QualityLevel { get; set; }
+
 
     public static implicit operator VideoEncodeQualityLevelInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelInfoKHR v)
     {
@@ -49,19 +50,18 @@ public unsafe partial class VideoEncodeQualityLevelInfoKHR : IMarshallableObject
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         QualityLevel = native.qualityLevel;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeQualityLevelInfoKHRMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class VideoEncodeQualityLevelInfoKHR : IMarshallableObject
             }
             else if (videoEncodeQualityLevelInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeQualityLevelInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].qualityLevel = videoEncodeQualityLevelInfoKHR.QualityLevel;

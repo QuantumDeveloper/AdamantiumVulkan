@@ -11,17 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19760 Column: 14
+// File: vk.xml Line: 12466 Column: 6
 [Flags]
-public enum AntiLagModeAMD : uint
+public enum AntiLagModeAMD : int
 {
     DriverControlAmd = 0,
 
     OnAmd = 1,
 
     OffAmd = 2,
-
-    MaxEnumAmd = 2147483647,
 
 }
 

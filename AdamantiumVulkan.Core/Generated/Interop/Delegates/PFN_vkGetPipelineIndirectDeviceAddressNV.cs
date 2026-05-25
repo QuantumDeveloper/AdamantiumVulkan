@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19027 Column: 37
+// File: video.xml Line: 17383 Column: 10
 public unsafe struct PFN_vkGetPipelineIndirectDeviceAddressNV
 {
     public PFN_vkGetPipelineIndirectDeviceAddressNV(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPipelineIndirectDeviceAddressNV
     public PFN_vkGetPipelineIndirectDeviceAddressNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV*, ulong>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV*, VkDeviceAddress>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV*, ulong> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV*, VkDeviceAddress> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public ulong Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV* pInfo)
+    public VkDeviceAddress Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV* pInfo)
     {
         return InvokeFunc(device, pInfo);
     }
-    public static ulong Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV* pInfo)
+    public static VkDeviceAddress Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV* pInfo)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV*, ulong>)ptr)(device, pInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV*, VkDeviceAddress>)ptr)(device, pInfo);
     }
-    public static ulong Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV* pInfo)
+    public static VkDeviceAddress Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV* pInfo)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV*, ulong>)(void*)ptr)(device, pInfo);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV*, VkDeviceAddress>)(void*)ptr)(device, pInfo);
     }
 
     public static explicit operator PFN_vkGetPipelineIndirectDeviceAddressNV(void* ptr) => new(ptr);

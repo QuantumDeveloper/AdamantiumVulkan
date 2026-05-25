@@ -23,11 +23,12 @@ public unsafe partial class ClusterAccelerationStructureMoveObjectsInputNV : IMa
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ClusterAccelerationStructureMoveObjectsInputNv;
     public object PNext { get; set; }
     public ClusterAccelerationStructureTypeNV Type { get; set; }
     public VkBool32 NoMoveOverlap { get; set; }
     public VkDeviceSize MaxMovedBytes { get; set; }
+
 
     public static implicit operator ClusterAccelerationStructureMoveObjectsInputNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureMoveObjectsInputNV c)
     {
@@ -51,21 +52,20 @@ public unsafe partial class ClusterAccelerationStructureMoveObjectsInputNV : IMa
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureMoveObjectsInputNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Type = native.type;
         NoMoveOverlap = native.noMoveOverlap;
         MaxMovedBytes = native.maxMovedBytes;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureMoveObjectsInputNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureMoveObjectsInputNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkClusterAccelerationStructureMoveObjectsInputNVMarshaller
     {
@@ -79,11 +79,11 @@ public unsafe partial class ClusterAccelerationStructureMoveObjectsInputNV : IMa
             }
             else if (clusterAccelerationStructureMoveObjectsInputNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (clusterAccelerationStructureMoveObjectsInputNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].type = clusterAccelerationStructureMoveObjectsInputNV.Type;

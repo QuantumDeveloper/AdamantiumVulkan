@@ -24,7 +24,8 @@ public unsafe partial class PresentRegionKHR : IMarshallableObject, IMarshallabl
     }
 
     public uint RectangleCount { get; set; }
-    public RectLayerKHR PRectangles { get; set; }
+    public System.ReadOnlyMemory<RectLayerKHR> PRectangles { get; set; }
+
 
     public static implicit operator PresentRegionKHR(AdamantiumVulkan.Core.Interop.VkPresentRegionKHR p)
     {
@@ -34,9 +35,15 @@ public unsafe partial class PresentRegionKHR : IMarshallableObject, IMarshallabl
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPresentRegionKHR>();
-        if (PRectangles != default)
+        if (!PRectangles.IsEmpty)
         {
-            size += PRectangles.GetSize();
+            for (int i = 0; i < PRectangles.Length; i++)
+            {
+                if (PRectangles.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkRectLayerKHR>();
+                else
+                    size += PRectangles.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -49,18 +56,25 @@ public unsafe partial class PresentRegionKHR : IMarshallableObject, IMarshallabl
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPresentRegionKHR native)
     {
         RectangleCount = native.rectangleCount;
-        PRectangles = new RectLayerKHR(in *native.pRectangles);
-        NativeUtils.Free(native.pRectangles);
+        var arrayLengthPRectangles = native.rectangleCount;
+        var tmpPRectangles = new RectLayerKHR[arrayLengthPRectangles];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkRectLayerKHR[arrayLengthPRectangles];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pRectangles, arrayLengthPRectangles, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPRectangles[i] = new RectLayerKHR(in nativeTmpArray0[i]);
+        }
+        PRectangles = tmpPRectangles;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPresentRegionKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPresentRegionKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPresentRegionKHRMarshaller
     {
@@ -68,14 +82,9 @@ public unsafe partial class PresentRegionKHR : IMarshallableObject, IMarshallabl
         {
             context.Destination[0].rectangleCount = presentRegionKHR.RectangleCount;
 
-            if (presentRegionKHR.PRectangles != default)
+            if (!presentRegionKHR.PRectangles.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkRectLayerKHR));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkRectLayerKHR>(structSlice0).Slice(0, 1);
-                context.Destination[0].pRectangles = (AdamantiumVulkan.Core.Interop.VkRectLayerKHR*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkRectLayerKHR>(structDestination0, context.DataCursor);
-                presentRegionKHR.PRectangles.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pRectangles = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.RectLayerKHR, AdamantiumVulkan.Core.Interop.VkRectLayerKHR, AdamantiumVulkan.Core.Interop.VkPresentRegionKHR>(presentRegionKHR.PRectangles, ref context);
             }
 
         }

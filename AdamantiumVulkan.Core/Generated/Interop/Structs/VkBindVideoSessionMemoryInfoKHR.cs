@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9095 Column: 16
+// File: vk.xml Line: 7786 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkBindVideoSessionMemoryInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public uint memoryBindIndex;
     public VkDeviceMemory_T memory;
     public VkDeviceSize memoryOffset;

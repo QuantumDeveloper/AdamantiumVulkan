@@ -23,7 +23,7 @@ public unsafe partial class DependencyInfo : IMarshallableObject, IMarshallable<
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.DependencyInfo;
     public object PNext { get; set; }
     public DependencyFlagBits DependencyFlags { get; set; }
     public uint MemoryBarrierCount { get; set; }
@@ -32,6 +32,7 @@ public unsafe partial class DependencyInfo : IMarshallableObject, IMarshallable<
     public System.ReadOnlyMemory<BufferMemoryBarrier2> PBufferMemoryBarriers { get; set; }
     public uint ImageMemoryBarrierCount { get; set; }
     public System.ReadOnlyMemory<ImageMemoryBarrier2> PImageMemoryBarriers { get; set; }
+
 
     public static implicit operator DependencyInfo(AdamantiumVulkan.Core.Interop.VkDependencyInfo d)
     {
@@ -85,7 +86,6 @@ public unsafe partial class DependencyInfo : IMarshallableObject, IMarshallable<
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkDependencyInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         DependencyFlags = native.dependencyFlags;
         MemoryBarrierCount = native.memoryBarrierCount;
@@ -93,14 +93,14 @@ public unsafe partial class DependencyInfo : IMarshallableObject, IMarshallable<
         ImageMemoryBarrierCount = native.imageMemoryBarrierCount;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDependencyInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDependencyInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDependencyInfoMarshaller
     {
@@ -114,11 +114,11 @@ public unsafe partial class DependencyInfo : IMarshallableObject, IMarshallable<
             }
             else if (dependencyInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (dependencyInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].dependencyFlags = dependencyInfo.DependencyFlags;

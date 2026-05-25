@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 113 Column: 1
+// File: vk.xml Line: 618 Column: 10
 public unsafe partial class Event : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkEvent_T>
 {
     internal VkEvent_T __Instance;
@@ -27,7 +27,7 @@ public unsafe partial class Event : IUnmanagedWrapper<AdamantiumVulkan.Core.Inte
     }
 
     public AdamantiumVulkan.Core.Interop.VkEvent_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public ref readonly VkEvent_T GetPinnableReference() => ref __Instance;
 

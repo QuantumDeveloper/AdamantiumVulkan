@@ -28,7 +28,8 @@ public unsafe partial class PhysicalDeviceImageDrmFormatModifierInfoEXT : IMarsh
     public ulong DrmFormatModifier { get; set; }
     public SharingMode SharingMode { get; set; }
     public uint QueueFamilyIndexCount { get; set; }
-    public uint? PQueueFamilyIndices { get; set; }
+    public System.ReadOnlyMemory<uint> PQueueFamilyIndices { get; set; }
+
 
     public static implicit operator PhysicalDeviceImageDrmFormatModifierInfoEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageDrmFormatModifierInfoEXT p)
     {
@@ -42,6 +43,8 @@ public unsafe partial class PhysicalDeviceImageDrmFormatModifierInfoEXT : IMarsh
         {
             size += marshallable.GetSize();
         }
+        if (!PQueueFamilyIndices.IsEmpty)
+            size += PQueueFamilyIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -56,21 +59,20 @@ public unsafe partial class PhysicalDeviceImageDrmFormatModifierInfoEXT : IMarsh
         DrmFormatModifier = native.drmFormatModifier;
         SharingMode = native.sharingMode;
         QueueFamilyIndexCount = native.queueFamilyIndexCount;
-        if (native.pQueueFamilyIndices != null)
-        {
-            PQueueFamilyIndices = *native.pQueueFamilyIndices;
-            NativeUtils.Free(native.pQueueFamilyIndices);
-        }
+        var arrayLengthPQueueFamilyIndices = native.queueFamilyIndexCount;
+        var tmpPQueueFamilyIndices = new uint[arrayLengthPQueueFamilyIndices];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pQueueFamilyIndices, arrayLengthPQueueFamilyIndices, tmpPQueueFamilyIndices);
+        PQueueFamilyIndices = tmpPQueueFamilyIndices;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageDrmFormatModifierInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageDrmFormatModifierInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceImageDrmFormatModifierInfoEXTMarshaller
     {
@@ -84,11 +86,11 @@ public unsafe partial class PhysicalDeviceImageDrmFormatModifierInfoEXT : IMarsh
             }
             else if (physicalDeviceImageDrmFormatModifierInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceImageDrmFormatModifierInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].drmFormatModifier = physicalDeviceImageDrmFormatModifierInfoEXT.DrmFormatModifier;
@@ -97,9 +99,9 @@ public unsafe partial class PhysicalDeviceImageDrmFormatModifierInfoEXT : IMarsh
 
             context.Destination[0].queueFamilyIndexCount = physicalDeviceImageDrmFormatModifierInfoEXT.QueueFamilyIndexCount;
 
-            if (physicalDeviceImageDrmFormatModifierInfoEXT.PQueueFamilyIndices.HasValue)
+            if (!physicalDeviceImageDrmFormatModifierInfoEXT.PQueueFamilyIndices.IsEmpty)
             {
-                context.Destination[0].pQueueFamilyIndices = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(physicalDeviceImageDrmFormatModifierInfoEXT.PQueueFamilyIndices.Value, ref context);
+                context.Destination[0].pQueueFamilyIndices = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageDrmFormatModifierInfoEXT>(physicalDeviceImageDrmFormatModifierInfoEXT.PQueueFamilyIndices.Span, ref context);
             }
 
         }

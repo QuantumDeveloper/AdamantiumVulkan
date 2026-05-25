@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14591 Column: 30
+// File: video.xml Line: 16475 Column: 10
 public unsafe struct PFN_vkMergeValidationCachesEXT
 {
     public PFN_vkMergeValidationCachesEXT(nuint ptr) : this((void*) ptr) { }

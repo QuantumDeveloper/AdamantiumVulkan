@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6645 Column: 30
+// File: video.xml Line: 16653 Column: 10
 public unsafe struct PFN_vkGetSemaphoreCounterValue
 {
     public PFN_vkGetSemaphoreCounterValue(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetSemaphoreCounterValue
     public PFN_vkGetSemaphoreCounterValue(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphore_T, ref ulong*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphore_T, out ulong, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphore_T, ref ulong*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphore_T, out ulong, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, ref ulong* pValue)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, out ulong pValue)
     {
-        return InvokeFunc(device, semaphore, ref pValue);
+        return InvokeFunc(device, semaphore, out pValue);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, ref ulong* pValue)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, out ulong pValue)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphore_T, ref ulong*, Result>)ptr)(device, semaphore, ref pValue);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphore_T, out ulong, Result>)ptr)(device, semaphore, out pValue);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, ref ulong* pValue)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSemaphore_T semaphore, out ulong pValue)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphore_T, ref ulong*, Result>)(void*)ptr)(device, semaphore, ref pValue);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSemaphore_T, out ulong, Result>)(void*)ptr)(device, semaphore, out pValue);
     }
 
     public static explicit operator PFN_vkGetSemaphoreCounterValue(void* ptr) => new(ptr);

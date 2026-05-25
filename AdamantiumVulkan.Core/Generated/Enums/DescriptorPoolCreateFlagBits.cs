@@ -11,13 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2910 Column: 14
+// File: vk.xml Line: 12714 Column: 6
 [Flags]
 public enum DescriptorPoolCreateFlagBits : uint
 {
     FreeDescriptorSetBit = 1,
-
-    UpdateAfterBindBit = 2,
 
     HostOnlyBitExt = 4,
 
@@ -25,7 +23,7 @@ public enum DescriptorPoolCreateFlagBits : uint
 
     AllowOverallocationPoolsBitNv = 16,
 
-    FlagBitsMaxEnum = 2147483647,
+    UpdateAfterBindBit = 2,
 
 }
 

@@ -23,12 +23,13 @@ public unsafe partial class VideoEncodeRateControlLayerInfoKHR : IMarshallableOb
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeRateControlLayerInfoKhr;
     public object PNext { get; set; }
     public ulong AverageBitrate { get; set; }
     public ulong MaxBitrate { get; set; }
     public uint FrameRateNumerator { get; set; }
     public uint FrameRateDenominator { get; set; }
+
 
     public static implicit operator VideoEncodeRateControlLayerInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR v)
     {
@@ -52,7 +53,6 @@ public unsafe partial class VideoEncodeRateControlLayerInfoKHR : IMarshallableOb
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         AverageBitrate = native.averageBitrate;
         MaxBitrate = native.maxBitrate;
@@ -60,14 +60,14 @@ public unsafe partial class VideoEncodeRateControlLayerInfoKHR : IMarshallableOb
         FrameRateDenominator = native.frameRateDenominator;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeRateControlLayerInfoKHRMarshaller
     {
@@ -81,11 +81,11 @@ public unsafe partial class VideoEncodeRateControlLayerInfoKHR : IMarshallableOb
             }
             else if (videoEncodeRateControlLayerInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeRateControlLayerInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].averageBitrate = videoEncodeRateControlLayerInfoKHR.AverageBitrate;

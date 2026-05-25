@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 1585 Column: 14
-public enum VendorId : uint
+// File: vk.xml Line: 13118 Column: 6
+public enum VendorId : int
 {
     Khronos = 65536,
 
@@ -29,8 +29,6 @@ public enum VendorId : uint
     Pocl = 65542,
 
     Mobileye = 65543,
-
-    MaxEnum = 2147483647,
 
 }
 

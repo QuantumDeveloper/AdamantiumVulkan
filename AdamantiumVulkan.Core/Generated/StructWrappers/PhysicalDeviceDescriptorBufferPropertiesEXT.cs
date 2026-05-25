@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceDescriptorBufferPropertiesEXT : IMarsh
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceDescriptorBufferPropertiesExt;
     public object PNext { get; set; }
     public VkBool32 CombinedImageSamplerDescriptorSingleArray { get; set; }
     public VkBool32 BufferlessPushDescriptors { get; set; }
@@ -34,30 +34,31 @@ public unsafe partial class PhysicalDeviceDescriptorBufferPropertiesEXT : IMarsh
     public uint MaxSamplerDescriptorBufferBindings { get; set; }
     public uint MaxEmbeddedImmutableSamplerBindings { get; set; }
     public uint MaxEmbeddedImmutableSamplers { get; set; }
-    public ulong BufferCaptureReplayDescriptorDataSize { get; set; }
-    public ulong ImageCaptureReplayDescriptorDataSize { get; set; }
-    public ulong ImageViewCaptureReplayDescriptorDataSize { get; set; }
-    public ulong SamplerCaptureReplayDescriptorDataSize { get; set; }
-    public ulong AccelerationStructureCaptureReplayDescriptorDataSize { get; set; }
-    public ulong SamplerDescriptorSize { get; set; }
-    public ulong CombinedImageSamplerDescriptorSize { get; set; }
-    public ulong SampledImageDescriptorSize { get; set; }
-    public ulong StorageImageDescriptorSize { get; set; }
-    public ulong UniformTexelBufferDescriptorSize { get; set; }
-    public ulong RobustUniformTexelBufferDescriptorSize { get; set; }
-    public ulong StorageTexelBufferDescriptorSize { get; set; }
-    public ulong RobustStorageTexelBufferDescriptorSize { get; set; }
-    public ulong UniformBufferDescriptorSize { get; set; }
-    public ulong RobustUniformBufferDescriptorSize { get; set; }
-    public ulong StorageBufferDescriptorSize { get; set; }
-    public ulong RobustStorageBufferDescriptorSize { get; set; }
-    public ulong InputAttachmentDescriptorSize { get; set; }
-    public ulong AccelerationStructureDescriptorSize { get; set; }
+    public nuint BufferCaptureReplayDescriptorDataSize { get; set; }
+    public nuint ImageCaptureReplayDescriptorDataSize { get; set; }
+    public nuint ImageViewCaptureReplayDescriptorDataSize { get; set; }
+    public nuint SamplerCaptureReplayDescriptorDataSize { get; set; }
+    public nuint AccelerationStructureCaptureReplayDescriptorDataSize { get; set; }
+    public nuint SamplerDescriptorSize { get; set; }
+    public nuint CombinedImageSamplerDescriptorSize { get; set; }
+    public nuint SampledImageDescriptorSize { get; set; }
+    public nuint StorageImageDescriptorSize { get; set; }
+    public nuint UniformTexelBufferDescriptorSize { get; set; }
+    public nuint RobustUniformTexelBufferDescriptorSize { get; set; }
+    public nuint StorageTexelBufferDescriptorSize { get; set; }
+    public nuint RobustStorageTexelBufferDescriptorSize { get; set; }
+    public nuint UniformBufferDescriptorSize { get; set; }
+    public nuint RobustUniformBufferDescriptorSize { get; set; }
+    public nuint StorageBufferDescriptorSize { get; set; }
+    public nuint RobustStorageBufferDescriptorSize { get; set; }
+    public nuint InputAttachmentDescriptorSize { get; set; }
+    public nuint AccelerationStructureDescriptorSize { get; set; }
     public VkDeviceSize MaxSamplerDescriptorBufferRange { get; set; }
     public VkDeviceSize MaxResourceDescriptorBufferRange { get; set; }
     public VkDeviceSize SamplerDescriptorBufferAddressSpaceSize { get; set; }
     public VkDeviceSize ResourceDescriptorBufferAddressSpaceSize { get; set; }
     public VkDeviceSize DescriptorBufferAddressSpaceSize { get; set; }
+
 
     public static implicit operator PhysicalDeviceDescriptorBufferPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferPropertiesEXT p)
     {
@@ -81,7 +82,6 @@ public unsafe partial class PhysicalDeviceDescriptorBufferPropertiesEXT : IMarsh
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferPropertiesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         CombinedImageSamplerDescriptorSingleArray = native.combinedImageSamplerDescriptorSingleArray;
         BufferlessPushDescriptors = native.bufferlessPushDescriptors;
@@ -118,14 +118,14 @@ public unsafe partial class PhysicalDeviceDescriptorBufferPropertiesEXT : IMarsh
         DescriptorBufferAddressSpaceSize = native.descriptorBufferAddressSpaceSize;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferPropertiesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferPropertiesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceDescriptorBufferPropertiesEXTMarshaller
     {
@@ -139,11 +139,11 @@ public unsafe partial class PhysicalDeviceDescriptorBufferPropertiesEXT : IMarsh
             }
             else if (physicalDeviceDescriptorBufferPropertiesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceDescriptorBufferPropertiesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceDescriptorBufferPropertiesEXT.CombinedImageSamplerDescriptorSingleArray != (uint)default)

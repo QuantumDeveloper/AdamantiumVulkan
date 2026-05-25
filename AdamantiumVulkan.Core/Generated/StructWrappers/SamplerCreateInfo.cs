@@ -25,7 +25,7 @@ public unsafe partial class SamplerCreateInfo : IMarshallableObject, IMarshallab
 
     public StructureType SType => StructureType.SamplerCreateInfo;
     public object PNext { get; set; }
-    public VkSamplerCreateFlags Flags { get; set; }
+    public SamplerCreateFlagBits Flags { get; set; }
     public Filter MagFilter { get; set; }
     public Filter MinFilter { get; set; }
     public SamplerMipmapMode MipmapMode { get; set; }
@@ -41,6 +41,7 @@ public unsafe partial class SamplerCreateInfo : IMarshallableObject, IMarshallab
     public float MaxLod { get; set; }
     public BorderColor BorderColor { get; set; }
     public VkBool32 UnnormalizedCoordinates { get; set; }
+
 
     public static implicit operator SamplerCreateInfo(AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo s)
     {
@@ -83,14 +84,14 @@ public unsafe partial class SamplerCreateInfo : IMarshallableObject, IMarshallab
         UnnormalizedCoordinates = native.unnormalizedCoordinates;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSamplerCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSamplerCreateInfoMarshaller
     {
@@ -104,17 +105,14 @@ public unsafe partial class SamplerCreateInfo : IMarshallableObject, IMarshallab
             }
             else if (samplerCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (samplerCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (samplerCreateInfo.Flags != (uint)default)
-            {
-                context.Destination[0].flags = samplerCreateInfo.Flags;
-            }
+            context.Destination[0].flags = samplerCreateInfo.Flags;
 
             context.Destination[0].magFilter = samplerCreateInfo.MagFilter;
 

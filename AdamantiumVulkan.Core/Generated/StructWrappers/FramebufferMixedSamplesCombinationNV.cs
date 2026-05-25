@@ -23,12 +23,13 @@ public unsafe partial class FramebufferMixedSamplesCombinationNV : IMarshallable
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.FramebufferMixedSamplesCombinationNv;
     public object PNext { get; set; }
     public CoverageReductionModeNV CoverageReductionMode { get; set; }
     public SampleCountFlagBits RasterizationSamples { get; set; }
-    public VkSampleCountFlags DepthStencilSamples { get; set; }
-    public VkSampleCountFlags ColorSamples { get; set; }
+    public SampleCountFlagBits DepthStencilSamples { get; set; }
+    public SampleCountFlagBits ColorSamples { get; set; }
+
 
     public static implicit operator FramebufferMixedSamplesCombinationNV(AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV f)
     {
@@ -52,7 +53,6 @@ public unsafe partial class FramebufferMixedSamplesCombinationNV : IMarshallable
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         CoverageReductionMode = native.coverageReductionMode;
         RasterizationSamples = native.rasterizationSamples;
@@ -60,14 +60,14 @@ public unsafe partial class FramebufferMixedSamplesCombinationNV : IMarshallable
         ColorSamples = native.colorSamples;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkFramebufferMixedSamplesCombinationNVMarshaller
     {
@@ -81,26 +81,20 @@ public unsafe partial class FramebufferMixedSamplesCombinationNV : IMarshallable
             }
             else if (framebufferMixedSamplesCombinationNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (framebufferMixedSamplesCombinationNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].coverageReductionMode = framebufferMixedSamplesCombinationNV.CoverageReductionMode;
 
             context.Destination[0].rasterizationSamples = framebufferMixedSamplesCombinationNV.RasterizationSamples;
 
-            if (framebufferMixedSamplesCombinationNV.DepthStencilSamples != (uint)default)
-            {
-                context.Destination[0].depthStencilSamples = framebufferMixedSamplesCombinationNV.DepthStencilSamples;
-            }
+            context.Destination[0].depthStencilSamples = framebufferMixedSamplesCombinationNV.DepthStencilSamples;
 
-            if (framebufferMixedSamplesCombinationNV.ColorSamples != (uint)default)
-            {
-                context.Destination[0].colorSamples = framebufferMixedSamplesCombinationNV.ColorSamples;
-            }
+            context.Destination[0].colorSamples = framebufferMixedSamplesCombinationNV.ColorSamples;
 
         }
     }

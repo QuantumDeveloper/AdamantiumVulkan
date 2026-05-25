@@ -28,7 +28,8 @@ public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarsh
     public SampleCountFlagBits SampleLocationsPerPixel { get; set; }
     public Extent2D SampleLocationGridSize { get; set; }
     public uint SampleLocationsCount { get; set; }
-    public SampleLocationEXT PSampleLocations { get; set; }
+    public System.ReadOnlyMemory<SampleLocationEXT> PSampleLocations { get; set; }
+
 
     public static implicit operator SampleLocationsInfoEXT(AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT s)
     {
@@ -42,9 +43,15 @@ public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarsh
         {
             size += marshallable.GetSize();
         }
-        if (PSampleLocations != default)
+        if (!PSampleLocations.IsEmpty)
         {
-            size += PSampleLocations.GetSize();
+            for (int i = 0; i < PSampleLocations.Length; i++)
+            {
+                if (PSampleLocations.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSampleLocationEXT>();
+                else
+                    size += PSampleLocations.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -60,18 +67,25 @@ public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarsh
         SampleLocationsPerPixel = native.sampleLocationsPerPixel;
         SampleLocationGridSize = new Extent2D(native.sampleLocationGridSize);
         SampleLocationsCount = native.sampleLocationsCount;
-        PSampleLocations = new SampleLocationEXT(in *native.pSampleLocations);
-        NativeUtils.Free(native.pSampleLocations);
+        var arrayLengthPSampleLocations = native.sampleLocationsCount;
+        var tmpPSampleLocations = new SampleLocationEXT[arrayLengthPSampleLocations];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkSampleLocationEXT[arrayLengthPSampleLocations];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSampleLocations, arrayLengthPSampleLocations, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPSampleLocations[i] = new SampleLocationEXT(in nativeTmpArray0[i]);
+        }
+        PSampleLocations = tmpPSampleLocations;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSampleLocationsInfoEXTMarshaller
     {
@@ -85,11 +99,11 @@ public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarsh
             }
             else if (sampleLocationsInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (sampleLocationsInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].sampleLocationsPerPixel = sampleLocationsInfoEXT.SampleLocationsPerPixel;
@@ -107,14 +121,9 @@ public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarsh
 
             context.Destination[0].sampleLocationsCount = sampleLocationsInfoEXT.SampleLocationsCount;
 
-            if (sampleLocationsInfoEXT.PSampleLocations != default)
+            if (!sampleLocationsInfoEXT.PSampleLocations.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkSampleLocationEXT));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSampleLocationEXT>(structSlice0).Slice(0, 1);
-                context.Destination[0].pSampleLocations = (AdamantiumVulkan.Core.Interop.VkSampleLocationEXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSampleLocationEXT>(structDestination0, context.DataCursor);
-                sampleLocationsInfoEXT.PSampleLocations.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pSampleLocations = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.SampleLocationEXT, AdamantiumVulkan.Core.Interop.VkSampleLocationEXT, AdamantiumVulkan.Core.Interop.VkSampleLocationsInfoEXT>(sampleLocationsInfoEXT.PSampleLocations, ref context);
             }
 
         }

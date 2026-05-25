@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 111 Column: 1
+// File: vk.xml Line: 616 Column: 10
 public unsafe partial class Fence : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkFence_T>
 {
     internal VkFence_T __Instance;
@@ -27,7 +27,7 @@ public unsafe partial class Fence : IUnmanagedWrapper<AdamantiumVulkan.Core.Inte
     }
 
     public AdamantiumVulkan.Core.Interop.VkFence_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public ref readonly VkFence_T GetPinnableReference() => ref __Instance;
 

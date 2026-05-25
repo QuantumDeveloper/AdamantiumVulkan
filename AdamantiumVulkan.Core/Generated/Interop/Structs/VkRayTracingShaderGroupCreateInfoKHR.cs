@@ -12,18 +12,18 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21655 Column: 16
+// File: vk.xml Line: 5252 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkRayTracingShaderGroupCreateInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public RayTracingShaderGroupTypeKHR type;
     public uint generalShader;
     public uint closestHitShader;
     public uint anyHitShader;
     public uint intersectionShader;
-    public nuint pShaderGroupCaptureReplayHandle;
+    public void* pShaderGroupCaptureReplayHandle;
 }
 
 

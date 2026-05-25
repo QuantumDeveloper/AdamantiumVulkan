@@ -29,6 +29,7 @@ public unsafe partial class PerformanceValueDataINTEL : IMarshallableObject, IMa
     public VkBool32 ValueBool { get; set; }
     public string ValueString { get; set; }
 
+
     public static implicit operator PerformanceValueDataINTEL(AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL p)
     {
         return new PerformanceValueDataINTEL(in p);
@@ -38,7 +39,7 @@ public unsafe partial class PerformanceValueDataINTEL : IMarshallableObject, IMa
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL>();
         if (!string.IsNullOrEmpty(ValueString))
-            size += System.Text.Encoding.UTF8.GetByteCount(ValueString) + 1;
+            size = Math.Max(size, System.Text.Encoding.UTF8.GetByteCount(ValueString) + 1);
         return size;
     }
 
@@ -56,14 +57,14 @@ public unsafe partial class PerformanceValueDataINTEL : IMarshallableObject, IMa
         ValueString = new string(native.valueString);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPerformanceValueDataINTELMarshaller
     {

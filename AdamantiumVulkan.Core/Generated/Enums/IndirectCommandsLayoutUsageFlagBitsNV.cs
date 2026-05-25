@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16555 Column: 14
+// File: vk.xml Line: 12927 Column: 6
 [Flags]
 public enum IndirectCommandsLayoutUsageFlagBitsNV : uint
 {
@@ -20,8 +20,6 @@ public enum IndirectCommandsLayoutUsageFlagBitsNV : uint
     IndexedSequencesBitNv = 2,
 
     UnorderedSequencesBitNv = 4,
-
-    FlagBitsMaxEnumNv = 2147483647,
 
 }
 

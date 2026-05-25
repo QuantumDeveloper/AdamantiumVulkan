@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1LoopRestoration : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration>
+public unsafe partial class StdVideoAV1LoopRestoration : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration>
 {
     public StdVideoAV1LoopRestoration()
     {
     }
 
-    public StdVideoAV1LoopRestoration(in AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration native)
+    public StdVideoAV1LoopRestoration(in AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration native)
     {
         MarshalFrom(in native);
     }
@@ -26,23 +26,24 @@ public unsafe partial class StdVideoAV1LoopRestoration : IMarshallableObject, IM
     public System.ReadOnlyMemory<StdVideoAV1FrameRestorationType> FrameRestorationType { get; set; }
     public System.ReadOnlyMemory<ushort> LoopRestorationSize { get; set; }
 
-    public static implicit operator StdVideoAV1LoopRestoration(AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration s)
+
+    public static implicit operator StdVideoAV1LoopRestoration(AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration s)
     {
         return new StdVideoAV1LoopRestoration(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration> context)
     {
         new StdVideoAV1LoopRestorationMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration native)
     {
         var tmpFrameRestorationType = new StdVideoAV1FrameRestorationType[3];
         for (int i = 0; i < 3; ++i)
@@ -51,23 +52,24 @@ public unsafe partial class StdVideoAV1LoopRestoration : IMarshallableObject, IM
         }
         FrameRestorationType = tmpFrameRestorationType;
         var tmpLoopRestorationSize = new ushort[3];
-        var pLoopRestorationSize = (ushort*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.LoopRestorationSize[0]));
+        var LoopRestorationSizep = native.LoopRestorationSize[0];
+        var pLoopRestorationSize = (ushort*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in LoopRestorationSizep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pLoopRestorationSize, 3, tmpLoopRestorationSize);
         LoopRestorationSize = tmpLoopRestorationSize;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1LoopRestorationMarshaller
     {
-        public StdVideoAV1LoopRestorationMarshaller(AdamantiumVulkan.StdVideoAV1LoopRestoration stdVideoAV1LoopRestoration, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration> context)
+        public StdVideoAV1LoopRestorationMarshaller(AdamantiumVulkan.Core.StdVideoAV1LoopRestoration stdVideoAV1LoopRestoration, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration> context)
         {
             for (int i = 0; i < stdVideoAV1LoopRestoration.FrameRestorationType.Length; ++i)
             {

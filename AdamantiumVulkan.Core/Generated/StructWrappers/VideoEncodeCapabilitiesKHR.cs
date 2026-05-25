@@ -23,15 +23,16 @@ public unsafe partial class VideoEncodeCapabilitiesKHR : IMarshallableObject, IM
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeCapabilitiesKhr;
     public object PNext { get; set; }
-    public VkVideoEncodeCapabilityFlagsKHR Flags { get; set; }
-    public VkVideoEncodeRateControlModeFlagsKHR RateControlModes { get; set; }
+    public VideoEncodeCapabilityFlagBitsKHR Flags { get; set; }
+    public VideoEncodeRateControlModeFlagBitsKHR RateControlModes { get; set; }
     public uint MaxRateControlLayers { get; set; }
     public ulong MaxBitrate { get; set; }
     public uint MaxQualityLevels { get; set; }
     public Extent2D EncodeInputPictureGranularity { get; set; }
-    public VkVideoEncodeFeedbackFlagsKHR SupportedEncodeFeedbackFlags { get; set; }
+    public VideoEncodeFeedbackFlagBitsKHR SupportedEncodeFeedbackFlags { get; set; }
+
 
     public static implicit operator VideoEncodeCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeCapabilitiesKHR v)
     {
@@ -55,7 +56,6 @@ public unsafe partial class VideoEncodeCapabilitiesKHR : IMarshallableObject, IM
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeCapabilitiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         RateControlModes = native.rateControlModes;
@@ -66,14 +66,14 @@ public unsafe partial class VideoEncodeCapabilitiesKHR : IMarshallableObject, IM
         SupportedEncodeFeedbackFlags = native.supportedEncodeFeedbackFlags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeCapabilitiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeCapabilitiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeCapabilitiesKHRMarshaller
     {
@@ -87,22 +87,16 @@ public unsafe partial class VideoEncodeCapabilitiesKHR : IMarshallableObject, IM
             }
             else if (videoEncodeCapabilitiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeCapabilitiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (videoEncodeCapabilitiesKHR.Flags != (uint)default)
-            {
-                context.Destination[0].flags = videoEncodeCapabilitiesKHR.Flags;
-            }
+            context.Destination[0].flags = videoEncodeCapabilitiesKHR.Flags;
 
-            if (videoEncodeCapabilitiesKHR.RateControlModes != (uint)default)
-            {
-                context.Destination[0].rateControlModes = videoEncodeCapabilitiesKHR.RateControlModes;
-            }
+            context.Destination[0].rateControlModes = videoEncodeCapabilitiesKHR.RateControlModes;
 
             context.Destination[0].maxRateControlLayers = videoEncodeCapabilitiesKHR.MaxRateControlLayers;
 
@@ -121,10 +115,7 @@ public unsafe partial class VideoEncodeCapabilitiesKHR : IMarshallableObject, IM
                 }
             }
 
-            if (videoEncodeCapabilitiesKHR.SupportedEncodeFeedbackFlags != (uint)default)
-            {
-                context.Destination[0].supportedEncodeFeedbackFlags = videoEncodeCapabilitiesKHR.SupportedEncodeFeedbackFlags;
-            }
+            context.Destination[0].supportedEncodeFeedbackFlags = videoEncodeCapabilitiesKHR.SupportedEncodeFeedbackFlags;
 
         }
     }

@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1ColorConfigFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1ColorConfigFlags>
+public unsafe partial class StdVideoAV1ColorConfigFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfigFlags>
 {
     public StdVideoAV1ColorConfigFlags()
     {
     }
 
-    public StdVideoAV1ColorConfigFlags(in AdamantiumVulkan.Interop.StdVideoAV1ColorConfigFlags native)
+    public StdVideoAV1ColorConfigFlags(in AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfigFlags native)
     {
         MarshalFrom(in native);
     }
@@ -29,23 +29,24 @@ public unsafe partial class StdVideoAV1ColorConfigFlags : IMarshallableObject, I
     public uint Color_description_present_flag { get; set; }
     public uint Reserved { get; set; }
 
-    public static implicit operator StdVideoAV1ColorConfigFlags(AdamantiumVulkan.Interop.StdVideoAV1ColorConfigFlags s)
+
+    public static implicit operator StdVideoAV1ColorConfigFlags(AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfigFlags s)
     {
         return new StdVideoAV1ColorConfigFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1ColorConfigFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfigFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1ColorConfigFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfigFlags> context)
     {
         new StdVideoAV1ColorConfigFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1ColorConfigFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfigFlags native)
     {
         Mono_chrome = native.mono_chrome;
         Color_range = native.color_range;
@@ -54,18 +55,18 @@ public unsafe partial class StdVideoAV1ColorConfigFlags : IMarshallableObject, I
         Reserved = native.reserved;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1ColorConfigFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfigFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1ColorConfigFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfigFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1ColorConfigFlagsMarshaller
     {
-        public StdVideoAV1ColorConfigFlagsMarshaller(AdamantiumVulkan.StdVideoAV1ColorConfigFlags stdVideoAV1ColorConfigFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1ColorConfigFlags> context)
+        public StdVideoAV1ColorConfigFlagsMarshaller(AdamantiumVulkan.Core.StdVideoAV1ColorConfigFlags stdVideoAV1ColorConfigFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1ColorConfigFlags> context)
         {
             context.Destination[0].mono_chrome = stdVideoAV1ColorConfigFlags.Mono_chrome;
 

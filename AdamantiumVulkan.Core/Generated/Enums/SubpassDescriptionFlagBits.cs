@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2969 Column: 14
+// File: vk.xml Line: 13037 Column: 6
 [Flags]
 public enum SubpassDescriptionFlagBits : uint
 {
@@ -19,9 +19,7 @@ public enum SubpassDescriptionFlagBits : uint
 
     PerViewPositionXOnlyBitNvx = 2,
 
-    FragmentRegionBitQcom = 4,
-
-    ShaderResolveBitQcom = 8,
+    TileShadingApronBitQcom = 256,
 
     RasterizationOrderAttachmentColorAccessBitExt = 16,
 
@@ -31,7 +29,9 @@ public enum SubpassDescriptionFlagBits : uint
 
     EnableLegacyDitheringBitExt = 128,
 
-    FlagBitsMaxEnum = 2147483647,
+    FragmentRegionBitExt = 4,
+
+    CustomResolveBitExt = 8,
 
 }
 

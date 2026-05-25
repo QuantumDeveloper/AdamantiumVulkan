@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10521 Column: 26
+// File: video.xml Line: 17171 Column: 10
 public unsafe struct PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR
 {
     public PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR
     public PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR*, ref uint*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR*, out uint, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR*, ref uint*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR*, out uint, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, ref uint* pNumPasses)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, out uint pNumPasses)
     {
-         InvokeFunc(physicalDevice, pPerformanceQueryCreateInfo, ref pNumPasses);
+         InvokeFunc(physicalDevice, pPerformanceQueryCreateInfo, out pNumPasses);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, ref uint* pNumPasses)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, out uint pNumPasses)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR*, ref uint*, void>)ptr)(physicalDevice, pPerformanceQueryCreateInfo, ref pNumPasses);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR*, out uint, void>)ptr)(physicalDevice, pPerformanceQueryCreateInfo, out pNumPasses);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, ref uint* pNumPasses)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, out uint pNumPasses)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR*, ref uint*, void>)(void*)ptr)(physicalDevice, pPerformanceQueryCreateInfo, ref pNumPasses);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR*, out uint, void>)(void*)ptr)(physicalDevice, pPerformanceQueryCreateInfo, out pNumPasses);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(void* ptr) => new(ptr);

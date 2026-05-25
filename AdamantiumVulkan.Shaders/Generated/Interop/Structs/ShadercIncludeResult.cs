@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Shaders.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\shaderc\shaderc.h Line: 345 Column: 16
+// File: C:\VulkanSDK\1.4.350.0\Include\shaderc\shaderc.h Line: 345 Column: 16
 ///<summary>
 /// An include result.
 ///</summary>
@@ -31,7 +31,7 @@ public unsafe partial struct ShadercIncludeResult
     ///<summary>
     /// User data to be passed along with this request.
     ///</summary>
-    public nuint user_data;
+    public void* user_data;
 }
 
 

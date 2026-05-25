@@ -15,7 +15,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 234 Column: 30
+// File: video.xml Line: 15748 Column: 10
 public unsafe struct PFN_vkGetMemoryWin32HandleNV
 {
     public PFN_vkGetMemoryWin32HandleNV(nuint ptr) : this((void*) ptr) { }
@@ -23,24 +23,24 @@ public unsafe struct PFN_vkGetMemoryWin32HandleNV
     public PFN_vkGetMemoryWin32HandleNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkExternalMemoryHandleTypeFlagsNV, IntPtr, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, ExternalMemoryHandleTypeFlagBitsNV, void*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkExternalMemoryHandleTypeFlagsNV, IntPtr, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, ExternalMemoryHandleTypeFlagBitsNV, void*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkExternalMemoryHandleTypeFlagsNV handleType, IntPtr pHandle)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, ExternalMemoryHandleTypeFlagBitsNV handleType, void* pHandle)
     {
         return InvokeFunc(device, memory, handleType, pHandle);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkExternalMemoryHandleTypeFlagsNV handleType, IntPtr pHandle)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, ExternalMemoryHandleTypeFlagBitsNV handleType, void* pHandle)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkExternalMemoryHandleTypeFlagsNV, IntPtr, Result>)ptr)(device, memory, handleType, pHandle);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, ExternalMemoryHandleTypeFlagBitsNV, void*, Result>)ptr)(device, memory, handleType, pHandle);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, VkExternalMemoryHandleTypeFlagsNV handleType, IntPtr pHandle)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T memory, ExternalMemoryHandleTypeFlagBitsNV handleType, void* pHandle)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, VkExternalMemoryHandleTypeFlagsNV, IntPtr, Result>)(void*)ptr)(device, memory, handleType, pHandle);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceMemory_T, ExternalMemoryHandleTypeFlagBitsNV, void*, Result>)(void*)ptr)(device, memory, handleType, pHandle);
     }
 
     public static explicit operator PFN_vkGetMemoryWin32HandleNV(void* ptr) => new(ptr);

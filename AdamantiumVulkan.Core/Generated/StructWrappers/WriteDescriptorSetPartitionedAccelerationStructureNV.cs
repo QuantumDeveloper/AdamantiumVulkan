@@ -23,10 +23,11 @@ public unsafe partial class WriteDescriptorSetPartitionedAccelerationStructureNV
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.WriteDescriptorSetPartitionedAccelerationStructureNv;
     public object PNext { get; set; }
     public uint AccelerationStructureCount { get; set; }
-    public VkDeviceAddress? PAccelerationStructures { get; set; }
+    public System.ReadOnlyMemory<VkDeviceAddress> PAccelerationStructures { get; set; }
+
 
     public static implicit operator WriteDescriptorSetPartitionedAccelerationStructureNV(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetPartitionedAccelerationStructureNV w)
     {
@@ -40,10 +41,6 @@ public unsafe partial class WriteDescriptorSetPartitionedAccelerationStructureNV
         {
             size += marshallable.GetSize();
         }
-        if (PAccelerationStructures != default)
-        {
-            size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDeviceAddress>();
-        }
         return size;
     }
 
@@ -54,24 +51,22 @@ public unsafe partial class WriteDescriptorSetPartitionedAccelerationStructureNV
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetPartitionedAccelerationStructureNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         AccelerationStructureCount = native.accelerationStructureCount;
-        if (native.pAccelerationStructures != null)
-        {
-            PAccelerationStructures = *native.pAccelerationStructures;
-            NativeUtils.Free(native.pAccelerationStructures);
-        }
+        var arrayLengthPAccelerationStructures = native.accelerationStructureCount;
+        var tmpPAccelerationStructures = new VkDeviceAddress[arrayLengthPAccelerationStructures];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAccelerationStructures, arrayLengthPAccelerationStructures, tmpPAccelerationStructures);
+        PAccelerationStructures = tmpPAccelerationStructures;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetPartitionedAccelerationStructureNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkWriteDescriptorSetPartitionedAccelerationStructureNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkWriteDescriptorSetPartitionedAccelerationStructureNVMarshaller
     {
@@ -85,18 +80,26 @@ public unsafe partial class WriteDescriptorSetPartitionedAccelerationStructureNV
             }
             else if (writeDescriptorSetPartitionedAccelerationStructureNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (writeDescriptorSetPartitionedAccelerationStructureNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].accelerationStructureCount = writeDescriptorSetPartitionedAccelerationStructureNV.AccelerationStructureCount;
 
-            if (writeDescriptorSetPartitionedAccelerationStructureNV.PAccelerationStructures.HasValue)
+            if (!writeDescriptorSetPartitionedAccelerationStructureNV.PAccelerationStructures.IsEmpty)
             {
-                context.Destination[0].pAccelerationStructures = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(writeDescriptorSetPartitionedAccelerationStructureNV.PAccelerationStructures.Value, ref context);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.Interop.VkDeviceAddress> sourceSpan = writeDescriptorSetPartitionedAccelerationStructureNV.PAccelerationStructures.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(VkDeviceAddress));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, VkDeviceAddress>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (VkDeviceAddress*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pAccelerationStructures = pDestination;
             }
 
         }

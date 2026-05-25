@@ -11,13 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15563 Column: 14
+// File: vk.xml Line: 13333 Column: 6
 [Flags]
-public enum QueryPoolSamplingModeINTEL : uint
+public enum QueryPoolSamplingModeINTEL : int
 {
-    NualIntel = 0,
-
-    XEnumIntel = 2147483647,
+    ManualIntel = 0,
 
 }
 

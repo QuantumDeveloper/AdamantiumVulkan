@@ -23,7 +23,7 @@ public unsafe partial class AccelerationStructureGeometryLinearSweptSpheresDataN
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.AccelerationStructureGeometryLinearSweptSpheresDataNv;
     public object PNext { get; set; }
     public Format VertexFormat { get; set; }
     public DeviceOrHostAddressConstKHR VertexData { get; set; }
@@ -37,6 +37,7 @@ public unsafe partial class AccelerationStructureGeometryLinearSweptSpheresDataN
     public RayTracingLssIndexingModeNV IndexingMode { get; set; }
     public RayTracingLssPrimitiveEndCapsModeNV EndCapsMode { get; set; }
 
+
     public static implicit operator AccelerationStructureGeometryLinearSweptSpheresDataNV(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryLinearSweptSpheresDataNV a)
     {
         return new AccelerationStructureGeometryLinearSweptSpheresDataNV(in a);
@@ -49,6 +50,12 @@ public unsafe partial class AccelerationStructureGeometryLinearSweptSpheresDataN
         {
             size += marshallable.GetSize();
         }
+        if (VertexData != default)
+            size += VertexData.GetSize();
+        if (RadiusData != default)
+            size += RadiusData.GetSize();
+        if (IndexData != default)
+            size += IndexData.GetSize();
         return size;
     }
 
@@ -59,7 +66,6 @@ public unsafe partial class AccelerationStructureGeometryLinearSweptSpheresDataN
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryLinearSweptSpheresDataNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         VertexFormat = native.vertexFormat;
         VertexData = new DeviceOrHostAddressConstKHR(native.vertexData);
@@ -74,14 +80,14 @@ public unsafe partial class AccelerationStructureGeometryLinearSweptSpheresDataN
         EndCapsMode = native.endCapsMode;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryLinearSweptSpheresDataNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryLinearSweptSpheresDataNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkAccelerationStructureGeometryLinearSweptSpheresDataNVMarshaller
     {
@@ -95,11 +101,11 @@ public unsafe partial class AccelerationStructureGeometryLinearSweptSpheresDataN
             }
             else if (accelerationStructureGeometryLinearSweptSpheresDataNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (accelerationStructureGeometryLinearSweptSpheresDataNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].vertexFormat = accelerationStructureGeometryLinearSweptSpheresDataNV.VertexFormat;

@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceMaintenance5Properties : IMarshallable
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceMaintenance5Properties;
     public object PNext { get; set; }
     public VkBool32 EarlyFragmentMultisampleCoverageAfterSampleCounting { get; set; }
     public VkBool32 EarlyFragmentSampleMaskTestBeforeSampleCounting { get; set; }
@@ -31,6 +31,7 @@ public unsafe partial class PhysicalDeviceMaintenance5Properties : IMarshallable
     public VkBool32 PolygonModePointSize { get; set; }
     public VkBool32 NonStrictSinglePixelWideLinesUseParallelogram { get; set; }
     public VkBool32 NonStrictWideLinesUseParallelogram { get; set; }
+
 
     public static implicit operator PhysicalDeviceMaintenance5Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance5Properties p)
     {
@@ -54,7 +55,6 @@ public unsafe partial class PhysicalDeviceMaintenance5Properties : IMarshallable
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance5Properties native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         EarlyFragmentMultisampleCoverageAfterSampleCounting = native.earlyFragmentMultisampleCoverageAfterSampleCounting;
         EarlyFragmentSampleMaskTestBeforeSampleCounting = native.earlyFragmentSampleMaskTestBeforeSampleCounting;
@@ -64,14 +64,14 @@ public unsafe partial class PhysicalDeviceMaintenance5Properties : IMarshallable
         NonStrictWideLinesUseParallelogram = native.nonStrictWideLinesUseParallelogram;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance5Properties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance5Properties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceMaintenance5PropertiesMarshaller
     {
@@ -85,11 +85,11 @@ public unsafe partial class PhysicalDeviceMaintenance5Properties : IMarshallable
             }
             else if (physicalDeviceMaintenance5Properties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceMaintenance5Properties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceMaintenance5Properties.EarlyFragmentMultisampleCoverageAfterSampleCounting != (uint)default)

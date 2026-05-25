@@ -23,9 +23,10 @@ public unsafe partial class PhysicalDeviceTextureCompressionASTCHDRFeatures : IM
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceTextureCompressionAstcHdrFeatures;
     public object PNext { get; set; }
     public VkBool32 TextureCompressionASTC_HDR { get; set; }
+
 
     public static implicit operator PhysicalDeviceTextureCompressionASTCHDRFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTCHDRFeatures p)
     {
@@ -49,19 +50,18 @@ public unsafe partial class PhysicalDeviceTextureCompressionASTCHDRFeatures : IM
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTCHDRFeatures native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         TextureCompressionASTC_HDR = native.textureCompressionASTC_HDR;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTCHDRFeatures>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTCHDRFeatures>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceTextureCompressionASTCHDRFeaturesMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class PhysicalDeviceTextureCompressionASTCHDRFeatures : IM
             }
             else if (physicalDeviceTextureCompressionASTCHDRFeatures.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceTextureCompressionASTCHDRFeatures.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceTextureCompressionASTCHDRFeatures.TextureCompressionASTC_HDR != (uint)default)

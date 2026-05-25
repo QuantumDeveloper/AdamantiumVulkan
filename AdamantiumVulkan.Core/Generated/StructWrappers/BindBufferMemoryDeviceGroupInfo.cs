@@ -26,7 +26,8 @@ public unsafe partial class BindBufferMemoryDeviceGroupInfo : IMarshallableObjec
     public StructureType SType => StructureType.BindBufferMemoryDeviceGroupInfo;
     public object PNext { get; set; }
     public uint DeviceIndexCount { get; set; }
-    public uint? PDeviceIndices { get; set; }
+    public System.ReadOnlyMemory<uint> PDeviceIndices { get; set; }
+
 
     public static implicit operator BindBufferMemoryDeviceGroupInfo(AdamantiumVulkan.Core.Interop.VkBindBufferMemoryDeviceGroupInfo b)
     {
@@ -40,6 +41,8 @@ public unsafe partial class BindBufferMemoryDeviceGroupInfo : IMarshallableObjec
         {
             size += marshallable.GetSize();
         }
+        if (!PDeviceIndices.IsEmpty)
+            size += PDeviceIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -52,21 +55,20 @@ public unsafe partial class BindBufferMemoryDeviceGroupInfo : IMarshallableObjec
     {
         PNext = (System.IntPtr)native.pNext;
         DeviceIndexCount = native.deviceIndexCount;
-        if (native.pDeviceIndices != null)
-        {
-            PDeviceIndices = *native.pDeviceIndices;
-            NativeUtils.Free(native.pDeviceIndices);
-        }
+        var arrayLengthPDeviceIndices = native.deviceIndexCount;
+        var tmpPDeviceIndices = new uint[arrayLengthPDeviceIndices];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDeviceIndices, arrayLengthPDeviceIndices, tmpPDeviceIndices);
+        PDeviceIndices = tmpPDeviceIndices;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkBindBufferMemoryDeviceGroupInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkBindBufferMemoryDeviceGroupInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkBindBufferMemoryDeviceGroupInfoMarshaller
     {
@@ -80,18 +82,18 @@ public unsafe partial class BindBufferMemoryDeviceGroupInfo : IMarshallableObjec
             }
             else if (bindBufferMemoryDeviceGroupInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (bindBufferMemoryDeviceGroupInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].deviceIndexCount = bindBufferMemoryDeviceGroupInfo.DeviceIndexCount;
 
-            if (bindBufferMemoryDeviceGroupInfo.PDeviceIndices.HasValue)
+            if (!bindBufferMemoryDeviceGroupInfo.PDeviceIndices.IsEmpty)
             {
-                context.Destination[0].pDeviceIndices = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(bindBufferMemoryDeviceGroupInfo.PDeviceIndices.Value, ref context);
+                context.Destination[0].pDeviceIndices = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkBindBufferMemoryDeviceGroupInfo>(bindBufferMemoryDeviceGroupInfo.PDeviceIndices.Span, ref context);
             }
 
         }

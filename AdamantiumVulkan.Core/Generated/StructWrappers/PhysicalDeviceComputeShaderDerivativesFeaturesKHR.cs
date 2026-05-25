@@ -23,10 +23,11 @@ public unsafe partial class PhysicalDeviceComputeShaderDerivativesFeaturesKHR : 
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceComputeShaderDerivativesFeaturesKhr;
     public object PNext { get; set; }
     public VkBool32 ComputeDerivativeGroupQuads { get; set; }
     public VkBool32 ComputeDerivativeGroupLinear { get; set; }
+
 
     public static implicit operator PhysicalDeviceComputeShaderDerivativesFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR p)
     {
@@ -50,20 +51,19 @@ public unsafe partial class PhysicalDeviceComputeShaderDerivativesFeaturesKHR : 
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ComputeDerivativeGroupQuads = native.computeDerivativeGroupQuads;
         ComputeDerivativeGroupLinear = native.computeDerivativeGroupLinear;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceComputeShaderDerivativesFeaturesKHRMarshaller
     {
@@ -77,11 +77,11 @@ public unsafe partial class PhysicalDeviceComputeShaderDerivativesFeaturesKHR : 
             }
             else if (physicalDeviceComputeShaderDerivativesFeaturesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceComputeShaderDerivativesFeaturesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceComputeShaderDerivativesFeaturesKHR.ComputeDerivativeGroupQuads != (uint)default)

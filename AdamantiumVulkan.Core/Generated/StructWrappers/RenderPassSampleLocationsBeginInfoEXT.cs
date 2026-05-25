@@ -26,9 +26,10 @@ public unsafe partial class RenderPassSampleLocationsBeginInfoEXT : IMarshallabl
     public StructureType SType => StructureType.RenderPassSampleLocationsBeginInfoExt;
     public object PNext { get; set; }
     public uint AttachmentInitialSampleLocationsCount { get; set; }
-    public AttachmentSampleLocationsEXT PAttachmentInitialSampleLocations { get; set; }
+    public System.ReadOnlyMemory<AttachmentSampleLocationsEXT> PAttachmentInitialSampleLocations { get; set; }
     public uint PostSubpassSampleLocationsCount { get; set; }
-    public SubpassSampleLocationsEXT PostSubpassSampleLocations { get; set; }
+    public System.ReadOnlyMemory<SubpassSampleLocationsEXT> PostSubpassSampleLocations { get; set; }
+
 
     public static implicit operator RenderPassSampleLocationsBeginInfoEXT(AdamantiumVulkan.Core.Interop.VkRenderPassSampleLocationsBeginInfoEXT r)
     {
@@ -42,13 +43,25 @@ public unsafe partial class RenderPassSampleLocationsBeginInfoEXT : IMarshallabl
         {
             size += marshallable.GetSize();
         }
-        if (PAttachmentInitialSampleLocations != default)
+        if (!PAttachmentInitialSampleLocations.IsEmpty)
         {
-            size += PAttachmentInitialSampleLocations.GetSize();
+            for (int i = 0; i < PAttachmentInitialSampleLocations.Length; i++)
+            {
+                if (PAttachmentInitialSampleLocations.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT>();
+                else
+                    size += PAttachmentInitialSampleLocations.Span[i].GetSize();
+            }
         }
-        if (PostSubpassSampleLocations != default)
+        if (!PostSubpassSampleLocations.IsEmpty)
         {
-            size += PostSubpassSampleLocations.GetSize();
+            for (int i = 0; i < PostSubpassSampleLocations.Length; i++)
+            {
+                if (PostSubpassSampleLocations.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT>();
+                else
+                    size += PostSubpassSampleLocations.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -62,21 +75,35 @@ public unsafe partial class RenderPassSampleLocationsBeginInfoEXT : IMarshallabl
     {
         PNext = (System.IntPtr)native.pNext;
         AttachmentInitialSampleLocationsCount = native.attachmentInitialSampleLocationsCount;
-        PAttachmentInitialSampleLocations = new AttachmentSampleLocationsEXT(in *native.pAttachmentInitialSampleLocations);
-        NativeUtils.Free(native.pAttachmentInitialSampleLocations);
+        var arrayLengthPAttachmentInitialSampleLocations = native.attachmentInitialSampleLocationsCount;
+        var tmpPAttachmentInitialSampleLocations = new AttachmentSampleLocationsEXT[arrayLengthPAttachmentInitialSampleLocations];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT[arrayLengthPAttachmentInitialSampleLocations];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAttachmentInitialSampleLocations, arrayLengthPAttachmentInitialSampleLocations, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPAttachmentInitialSampleLocations[i] = new AttachmentSampleLocationsEXT(in nativeTmpArray0[i]);
+        }
+        PAttachmentInitialSampleLocations = tmpPAttachmentInitialSampleLocations;
         PostSubpassSampleLocationsCount = native.postSubpassSampleLocationsCount;
-        PostSubpassSampleLocations = new SubpassSampleLocationsEXT(in *native.pPostSubpassSampleLocations);
-        NativeUtils.Free(native.pPostSubpassSampleLocations);
+        var arrayLengthPostSubpassSampleLocations = native.postSubpassSampleLocationsCount;
+        var tmpPostSubpassSampleLocations = new SubpassSampleLocationsEXT[arrayLengthPostSubpassSampleLocations];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT[arrayLengthPostSubpassSampleLocations];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPostSubpassSampleLocations, arrayLengthPostSubpassSampleLocations, nativeTmpArray1);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        {
+            tmpPostSubpassSampleLocations[i] = new SubpassSampleLocationsEXT(in nativeTmpArray1[i]);
+        }
+        PostSubpassSampleLocations = tmpPostSubpassSampleLocations;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderPassSampleLocationsBeginInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderPassSampleLocationsBeginInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderPassSampleLocationsBeginInfoEXTMarshaller
     {
@@ -90,35 +117,25 @@ public unsafe partial class RenderPassSampleLocationsBeginInfoEXT : IMarshallabl
             }
             else if (renderPassSampleLocationsBeginInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderPassSampleLocationsBeginInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].attachmentInitialSampleLocationsCount = renderPassSampleLocationsBeginInfoEXT.AttachmentInitialSampleLocationsCount;
 
-            if (renderPassSampleLocationsBeginInfoEXT.PAttachmentInitialSampleLocations != default)
+            if (!renderPassSampleLocationsBeginInfoEXT.PAttachmentInitialSampleLocations.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT>(structSlice0).Slice(0, 1);
-                context.Destination[0].pAttachmentInitialSampleLocations = (AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT>(structDestination0, context.DataCursor);
-                renderPassSampleLocationsBeginInfoEXT.PAttachmentInitialSampleLocations.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pAttachmentInitialSampleLocations = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.AttachmentSampleLocationsEXT, AdamantiumVulkan.Core.Interop.VkAttachmentSampleLocationsEXT, AdamantiumVulkan.Core.Interop.VkRenderPassSampleLocationsBeginInfoEXT>(renderPassSampleLocationsBeginInfoEXT.PAttachmentInitialSampleLocations, ref context);
             }
 
             context.Destination[0].postSubpassSampleLocationsCount = renderPassSampleLocationsBeginInfoEXT.PostSubpassSampleLocationsCount;
 
-            if (renderPassSampleLocationsBeginInfoEXT.PostSubpassSampleLocations != default)
+            if (!renderPassSampleLocationsBeginInfoEXT.PostSubpassSampleLocations.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT>(structSlice0).Slice(0, 1);
-                context.Destination[0].pPostSubpassSampleLocations = (AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT>(structDestination0, context.DataCursor);
-                renderPassSampleLocationsBeginInfoEXT.PostSubpassSampleLocations.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pPostSubpassSampleLocations = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.SubpassSampleLocationsEXT, AdamantiumVulkan.Core.Interop.VkSubpassSampleLocationsEXT, AdamantiumVulkan.Core.Interop.VkRenderPassSampleLocationsBeginInfoEXT>(renderPassSampleLocationsBeginInfoEXT.PostSubpassSampleLocations, ref context);
             }
 
         }

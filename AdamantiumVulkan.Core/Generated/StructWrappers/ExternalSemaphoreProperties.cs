@@ -25,9 +25,10 @@ public unsafe partial class ExternalSemaphoreProperties : IMarshallableObject, I
 
     public StructureType SType => StructureType.ExternalSemaphoreProperties;
     public object PNext { get; set; }
-    public VkExternalSemaphoreHandleTypeFlags ExportFromImportedHandleTypes { get; set; }
-    public VkExternalSemaphoreHandleTypeFlags CompatibleHandleTypes { get; set; }
-    public VkExternalSemaphoreFeatureFlags ExternalSemaphoreFeatures { get; set; }
+    public ExternalSemaphoreHandleTypeFlagBits ExportFromImportedHandleTypes { get; set; }
+    public ExternalSemaphoreHandleTypeFlagBits CompatibleHandleTypes { get; set; }
+    public ExternalSemaphoreFeatureFlagBits ExternalSemaphoreFeatures { get; set; }
+
 
     public static implicit operator ExternalSemaphoreProperties(AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties e)
     {
@@ -57,14 +58,14 @@ public unsafe partial class ExternalSemaphoreProperties : IMarshallableObject, I
         ExternalSemaphoreFeatures = native.externalSemaphoreFeatures;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkExternalSemaphorePropertiesMarshaller
     {
@@ -78,27 +79,18 @@ public unsafe partial class ExternalSemaphoreProperties : IMarshallableObject, I
             }
             else if (externalSemaphoreProperties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (externalSemaphoreProperties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (externalSemaphoreProperties.ExportFromImportedHandleTypes != (uint)default)
-            {
-                context.Destination[0].exportFromImportedHandleTypes = externalSemaphoreProperties.ExportFromImportedHandleTypes;
-            }
+            context.Destination[0].exportFromImportedHandleTypes = externalSemaphoreProperties.ExportFromImportedHandleTypes;
 
-            if (externalSemaphoreProperties.CompatibleHandleTypes != (uint)default)
-            {
-                context.Destination[0].compatibleHandleTypes = externalSemaphoreProperties.CompatibleHandleTypes;
-            }
+            context.Destination[0].compatibleHandleTypes = externalSemaphoreProperties.CompatibleHandleTypes;
 
-            if (externalSemaphoreProperties.ExternalSemaphoreFeatures != (uint)default)
-            {
-                context.Destination[0].externalSemaphoreFeatures = externalSemaphoreProperties.ExternalSemaphoreFeatures;
-            }
+            context.Destination[0].externalSemaphoreFeatures = externalSemaphoreProperties.ExternalSemaphoreFeatures;
 
         }
     }

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21386 Column: 14
+// File: vk.xml Line: 13213 Column: 6
 [Flags]
 public enum AccelerationStructureCreateFlagBitsKHR : uint
 {
@@ -20,8 +20,6 @@ public enum AccelerationStructureCreateFlagBitsKHR : uint
     DescriptorBufferCaptureReplayBitExt = 8,
 
     MotionBitNv = 4,
-
-    FlagBitsMaxEnumKhr = 2147483647,
 
 }
 

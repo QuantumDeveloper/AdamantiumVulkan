@@ -23,13 +23,14 @@ public unsafe partial class PhysicalDeviceToolProperties : IMarshallableObject, 
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceToolProperties;
     public object PNext { get; set; }
     public string Name { get; set; }
     public string Version { get; set; }
-    public VkToolPurposeFlags Purposes { get; set; }
+    public ToolPurposeFlagBits Purposes { get; set; }
     public string Description { get; set; }
     public string Layer { get; set; }
+
 
     public static implicit operator PhysicalDeviceToolProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties p)
     {
@@ -53,7 +54,6 @@ public unsafe partial class PhysicalDeviceToolProperties : IMarshallableObject, 
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         fixed(sbyte* pSource = native.name)
         {
@@ -74,14 +74,14 @@ public unsafe partial class PhysicalDeviceToolProperties : IMarshallableObject, 
         }
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceToolPropertiesMarshaller
     {
@@ -95,11 +95,11 @@ public unsafe partial class PhysicalDeviceToolProperties : IMarshallableObject, 
             }
             else if (physicalDeviceToolProperties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceToolProperties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             ref var tmpDestination0 = ref context.Destination[0];
@@ -116,10 +116,7 @@ public unsafe partial class PhysicalDeviceToolProperties : IMarshallableObject, 
                 QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(physicalDeviceToolProperties.Version, destinationSpan);
             }
 
-            if (physicalDeviceToolProperties.Purposes != (uint)default)
-            {
-                context.Destination[0].purposes = physicalDeviceToolProperties.Purposes;
-            }
+            context.Destination[0].purposes = physicalDeviceToolProperties.Purposes;
 
             ref var tmpDestination2 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination2.description)

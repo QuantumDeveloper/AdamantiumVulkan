@@ -23,13 +23,14 @@ public unsafe partial class PhysicalDeviceInlineUniformBlockProperties : IMarsha
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceInlineUniformBlockProperties;
     public object PNext { get; set; }
     public uint MaxInlineUniformBlockSize { get; set; }
     public uint MaxPerStageDescriptorInlineUniformBlocks { get; set; }
     public uint MaxPerStageDescriptorUpdateAfterBindInlineUniformBlocks { get; set; }
     public uint MaxDescriptorSetInlineUniformBlocks { get; set; }
     public uint MaxDescriptorSetUpdateAfterBindInlineUniformBlocks { get; set; }
+
 
     public static implicit operator PhysicalDeviceInlineUniformBlockProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockProperties p)
     {
@@ -53,7 +54,6 @@ public unsafe partial class PhysicalDeviceInlineUniformBlockProperties : IMarsha
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockProperties native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MaxInlineUniformBlockSize = native.maxInlineUniformBlockSize;
         MaxPerStageDescriptorInlineUniformBlocks = native.maxPerStageDescriptorInlineUniformBlocks;
@@ -62,14 +62,14 @@ public unsafe partial class PhysicalDeviceInlineUniformBlockProperties : IMarsha
         MaxDescriptorSetUpdateAfterBindInlineUniformBlocks = native.maxDescriptorSetUpdateAfterBindInlineUniformBlocks;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceInlineUniformBlockProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceInlineUniformBlockPropertiesMarshaller
     {
@@ -83,11 +83,11 @@ public unsafe partial class PhysicalDeviceInlineUniformBlockProperties : IMarsha
             }
             else if (physicalDeviceInlineUniformBlockProperties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceInlineUniformBlockProperties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].maxInlineUniformBlockSize = physicalDeviceInlineUniformBlockProperties.MaxInlineUniformBlockSize;

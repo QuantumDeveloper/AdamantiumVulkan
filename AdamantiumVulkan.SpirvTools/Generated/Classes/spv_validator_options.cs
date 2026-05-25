@@ -13,7 +13,7 @@ using AdamantiumVulkan.SpirvTools.Interop;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 516 Column: 34
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 545 Column: 34
 public unsafe partial class spv_validator_options : IUnmanagedWrapper<AdamantiumVulkan.SpirvTools.Interop.spv_validator_options_t>
 {
     internal spv_validator_options_t __Instance;
@@ -60,7 +60,7 @@ public unsafe partial class spv_validator_options : IUnmanagedWrapper<Adamantium
     }
 
     ///<summary>
-    /// Allow base operands of some bit operations to be non-32-bit wide.
+    /// Allow base operands of some bit operations to be non-32-bit wide. Was added for VK_KHR_maintenance9
     ///</summary>
     public void SpvValidatorOptionsSetAllowVulkan32BitBitwise(bool val)
     {

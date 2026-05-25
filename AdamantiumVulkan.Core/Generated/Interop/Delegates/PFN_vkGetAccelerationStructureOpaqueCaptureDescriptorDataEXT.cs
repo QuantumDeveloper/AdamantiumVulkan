@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17301 Column: 30
+// File: video.xml Line: 18124 Column: 10
 public unsafe struct PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT
 {
     public PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEX
     public PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT*, nuint, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT*, void*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT*, nuint, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT*, void*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, nuint pData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, void* pData)
     {
         return InvokeFunc(device, pInfo, pData);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, nuint pData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, void* pData)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT*, nuint, Result>)ptr)(device, pInfo, pData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT*, void*, Result>)ptr)(device, pInfo, pData);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, nuint pData)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, void* pData)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT*, nuint, Result>)(void*)ptr)(device, pInfo, pData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkAccelerationStructureCaptureDescriptorDataInfoEXT*, void*, Result>)(void*)ptr)(device, pInfo, pData);
     }
 
     public static explicit operator PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(void* ptr) => new(ptr);

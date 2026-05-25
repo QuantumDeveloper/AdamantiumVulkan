@@ -23,11 +23,12 @@ public unsafe partial class OpticalFlowSessionCreatePrivateDataInfoNV : IMarshal
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.OpticalFlowSessionCreatePrivateDataInfoNv;
     public object PNext { get; set; }
     public uint Id { get; set; }
     public uint Size { get; set; }
     public nuint PrivateData { get; set; }
+
 
     public static implicit operator OpticalFlowSessionCreatePrivateDataInfoNV(AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV o)
     {
@@ -51,21 +52,20 @@ public unsafe partial class OpticalFlowSessionCreatePrivateDataInfoNV : IMarshal
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Id = native.id;
         Size = native.size;
-        PrivateData = native.pPrivateData;
+        PrivateData = (nuint)native.pPrivateData;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkOpticalFlowSessionCreatePrivateDataInfoNVMarshaller
     {
@@ -79,18 +79,21 @@ public unsafe partial class OpticalFlowSessionCreatePrivateDataInfoNV : IMarshal
             }
             else if (opticalFlowSessionCreatePrivateDataInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (opticalFlowSessionCreatePrivateDataInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].id = opticalFlowSessionCreatePrivateDataInfoNV.Id;
 
             context.Destination[0].size = opticalFlowSessionCreatePrivateDataInfoNV.Size;
 
-            context.Destination[0].pPrivateData = opticalFlowSessionCreatePrivateDataInfoNV.PrivateData;
+            if (opticalFlowSessionCreatePrivateDataInfoNV.PrivateData != default)
+            {
+                context.Destination[0].pPrivateData = (void*)opticalFlowSessionCreatePrivateDataInfoNV.PrivateData;
+            }
 
         }
     }

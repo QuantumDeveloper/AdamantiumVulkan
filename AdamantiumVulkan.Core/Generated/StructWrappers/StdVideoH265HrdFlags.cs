@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoH265HrdFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoH265HrdFlags>
+public unsafe partial class StdVideoH265HrdFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoH265HrdFlags>
 {
     public StdVideoH265HrdFlags()
     {
     }
 
-    public StdVideoH265HrdFlags(in AdamantiumVulkan.Interop.StdVideoH265HrdFlags native)
+    public StdVideoH265HrdFlags(in AdamantiumVulkan.Core.Interop.StdVideoH265HrdFlags native)
     {
         MarshalFrom(in native);
     }
@@ -31,23 +31,24 @@ public unsafe partial class StdVideoH265HrdFlags : IMarshallableObject, IMarshal
     public uint Fixed_pic_rate_within_cvs_flag { get; set; }
     public uint Low_delay_hrd_flag { get; set; }
 
-    public static implicit operator StdVideoH265HrdFlags(AdamantiumVulkan.Interop.StdVideoH265HrdFlags s)
+
+    public static implicit operator StdVideoH265HrdFlags(AdamantiumVulkan.Core.Interop.StdVideoH265HrdFlags s)
     {
         return new StdVideoH265HrdFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoH265HrdFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH265HrdFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265HrdFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265HrdFlags> context)
     {
         new StdVideoH265HrdFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoH265HrdFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoH265HrdFlags native)
     {
         Nal_hrd_parameters_present_flag = native.nal_hrd_parameters_present_flag;
         Vcl_hrd_parameters_present_flag = native.vcl_hrd_parameters_present_flag;
@@ -58,18 +59,18 @@ public unsafe partial class StdVideoH265HrdFlags : IMarshallableObject, IMarshal
         Low_delay_hrd_flag = native.low_delay_hrd_flag;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoH265HrdFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoH265HrdFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265HrdFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265HrdFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoH265HrdFlagsMarshaller
     {
-        public StdVideoH265HrdFlagsMarshaller(AdamantiumVulkan.StdVideoH265HrdFlags stdVideoH265HrdFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265HrdFlags> context)
+        public StdVideoH265HrdFlagsMarshaller(AdamantiumVulkan.Core.StdVideoH265HrdFlags stdVideoH265HrdFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265HrdFlags> context)
         {
             context.Destination[0].nal_hrd_parameters_present_flag = stdVideoH265HrdFlags.Nal_hrd_parameters_present_flag;
 

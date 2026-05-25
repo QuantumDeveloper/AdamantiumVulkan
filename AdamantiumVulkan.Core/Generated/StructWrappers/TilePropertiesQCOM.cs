@@ -23,11 +23,12 @@ public unsafe partial class TilePropertiesQCOM : IMarshallableObject, IMarshalla
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.TilePropertiesQcom;
     public object PNext { get; set; }
     public Extent3D TileSize { get; set; }
     public Extent2D ApronSize { get; set; }
     public Offset2D Origin { get; set; }
+
 
     public static implicit operator TilePropertiesQCOM(AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM t)
     {
@@ -51,21 +52,20 @@ public unsafe partial class TilePropertiesQCOM : IMarshallableObject, IMarshalla
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         TileSize = new Extent3D(native.tileSize);
         ApronSize = new Extent2D(native.apronSize);
         Origin = new Offset2D(native.origin);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkTilePropertiesQCOM>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkTilePropertiesQCOMMarshaller
     {
@@ -79,11 +79,11 @@ public unsafe partial class TilePropertiesQCOM : IMarshallableObject, IMarshalla
             }
             else if (tilePropertiesQCOM.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (tilePropertiesQCOM.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (tilePropertiesQCOM.TileSize != default)

@@ -26,8 +26,9 @@ public unsafe partial class ShaderModuleCreateInfo : IMarshallableObject, IMarsh
     public StructureType SType => StructureType.ShaderModuleCreateInfo;
     public object PNext { get; set; }
     public VkShaderModuleCreateFlags Flags { get; set; }
-    public ulong CodeSize { get; set; }
-    public System.ReadOnlyMemory<byte> PCode { get; set; }
+    public nuint CodeSize { get; set; }
+    public System.ReadOnlyMemory<uint> PCode { get; set; }
+
 
     public static implicit operator ShaderModuleCreateInfo(AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo s)
     {
@@ -42,7 +43,7 @@ public unsafe partial class ShaderModuleCreateInfo : IMarshallableObject, IMarsh
             size += marshallable.GetSize();
         }
         if (!PCode.IsEmpty)
-            size += PCode.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PCode.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -56,18 +57,20 @@ public unsafe partial class ShaderModuleCreateInfo : IMarshallableObject, IMarsh
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         CodeSize = native.codeSize;
-        var tmpPCode = new byte[native.codeSize];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCode, native.codeSize, tmpPCode);
+        var arrayLengthPCode = (uint)native.codeSize / 4;
+        var tmpPCode = new uint[arrayLengthPCode];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCode, arrayLengthPCode, tmpPCode);
+        PCode = tmpPCode;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkShaderModuleCreateInfoMarshaller
     {
@@ -81,11 +84,11 @@ public unsafe partial class ShaderModuleCreateInfo : IMarshallableObject, IMarsh
             }
             else if (shaderModuleCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (shaderModuleCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (shaderModuleCreateInfo.Flags != (uint)default)
@@ -97,7 +100,7 @@ public unsafe partial class ShaderModuleCreateInfo : IMarshallableObject, IMarsh
 
             if (!shaderModuleCreateInfo.PCode.IsEmpty)
             {
-                context.Destination[0].pCode = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<byte, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo>(shaderModuleCreateInfo.PCode.Span, ref context);
+                context.Destination[0].pCode = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkShaderModuleCreateInfo>(shaderModuleCreateInfo.PCode.Span, ref context);
             }
 
         }

@@ -25,7 +25,8 @@ public unsafe partial class InputAttachmentAspectReference : IMarshallableObject
 
     public uint Subpass { get; set; }
     public uint InputAttachmentIndex { get; set; }
-    public VkImageAspectFlags AspectMask { get; set; }
+    public ImageAspectFlagBits AspectMask { get; set; }
+
 
     public static implicit operator InputAttachmentAspectReference(AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference i)
     {
@@ -50,14 +51,14 @@ public unsafe partial class InputAttachmentAspectReference : IMarshallableObject
         AspectMask = native.aspectMask;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkInputAttachmentAspectReference>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkInputAttachmentAspectReferenceMarshaller
     {
@@ -67,10 +68,7 @@ public unsafe partial class InputAttachmentAspectReference : IMarshallableObject
 
             context.Destination[0].inputAttachmentIndex = inputAttachmentAspectReference.InputAttachmentIndex;
 
-            if (inputAttachmentAspectReference.AspectMask != (uint)default)
-            {
-                context.Destination[0].aspectMask = inputAttachmentAspectReference.AspectMask;
-            }
+            context.Destination[0].aspectMask = inputAttachmentAspectReference.AspectMask;
 
         }
     }

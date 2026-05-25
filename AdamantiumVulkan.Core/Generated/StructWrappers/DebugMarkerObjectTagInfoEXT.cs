@@ -28,8 +28,9 @@ public unsafe partial class DebugMarkerObjectTagInfoEXT : IMarshallableObject, I
     public DebugReportObjectTypeEXT ObjectType { get; set; }
     public ulong Object { get; set; }
     public ulong TagName { get; set; }
-    public ulong TagSize { get; set; }
-    public nuint PTag { get; set; }
+    public nuint TagSize { get; set; }
+    public System.ReadOnlyMemory<byte> PTag { get; set; }
+
 
     public static implicit operator DebugMarkerObjectTagInfoEXT(AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT d)
     {
@@ -43,6 +44,8 @@ public unsafe partial class DebugMarkerObjectTagInfoEXT : IMarshallableObject, I
         {
             size += marshallable.GetSize();
         }
+        if (!PTag.IsEmpty)
+            size += PTag.Span.Length * Marshal.SizeOf<System.Byte>();
         return size;
     }
 
@@ -58,17 +61,20 @@ public unsafe partial class DebugMarkerObjectTagInfoEXT : IMarshallableObject, I
         Object = native.@object;
         TagName = native.tagName;
         TagSize = native.tagSize;
-        PTag = native.pTag;
+        var arrayLengthPTag = native.tagSize;
+        var tmpPTag = new byte[arrayLengthPTag];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pTag, arrayLengthPTag, tmpPTag);
+        PTag = tmpPTag;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDebugMarkerObjectTagInfoEXTMarshaller
     {
@@ -82,11 +88,11 @@ public unsafe partial class DebugMarkerObjectTagInfoEXT : IMarshallableObject, I
             }
             else if (debugMarkerObjectTagInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (debugMarkerObjectTagInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].objectType = debugMarkerObjectTagInfoEXT.ObjectType;
@@ -97,7 +103,10 @@ public unsafe partial class DebugMarkerObjectTagInfoEXT : IMarshallableObject, I
 
             context.Destination[0].tagSize = debugMarkerObjectTagInfoEXT.TagSize;
 
-            context.Destination[0].pTag = debugMarkerObjectTagInfoEXT.PTag;
+            if (!debugMarkerObjectTagInfoEXT.PTag.IsEmpty)
+            {
+                context.Destination[0].pTag = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<byte, AdamantiumVulkan.Core.Interop.VkDebugMarkerObjectTagInfoEXT>(debugMarkerObjectTagInfoEXT.PTag.Span, ref context);
+            }
 
         }
     }

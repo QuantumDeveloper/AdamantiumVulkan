@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceRayTracingPipelinePropertiesKHR : IMar
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceRayTracingPipelinePropertiesKhr;
     public object PNext { get; set; }
     public uint ShaderGroupHandleSize { get; set; }
     public uint MaxRayRecursionDepth { get; set; }
@@ -33,6 +33,7 @@ public unsafe partial class PhysicalDeviceRayTracingPipelinePropertiesKHR : IMar
     public uint MaxRayDispatchInvocationCount { get; set; }
     public uint ShaderGroupHandleAlignment { get; set; }
     public uint MaxRayHitAttributeSize { get; set; }
+
 
     public static implicit operator PhysicalDeviceRayTracingPipelinePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelinePropertiesKHR p)
     {
@@ -56,7 +57,6 @@ public unsafe partial class PhysicalDeviceRayTracingPipelinePropertiesKHR : IMar
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelinePropertiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ShaderGroupHandleSize = native.shaderGroupHandleSize;
         MaxRayRecursionDepth = native.maxRayRecursionDepth;
@@ -68,14 +68,14 @@ public unsafe partial class PhysicalDeviceRayTracingPipelinePropertiesKHR : IMar
         MaxRayHitAttributeSize = native.maxRayHitAttributeSize;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelinePropertiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceRayTracingPipelinePropertiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceRayTracingPipelinePropertiesKHRMarshaller
     {
@@ -89,11 +89,11 @@ public unsafe partial class PhysicalDeviceRayTracingPipelinePropertiesKHR : IMar
             }
             else if (physicalDeviceRayTracingPipelinePropertiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceRayTracingPipelinePropertiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].shaderGroupHandleSize = physicalDeviceRayTracingPipelinePropertiesKHR.ShaderGroupHandleSize;

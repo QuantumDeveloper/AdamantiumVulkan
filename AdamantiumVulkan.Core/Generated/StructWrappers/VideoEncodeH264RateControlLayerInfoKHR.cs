@@ -23,7 +23,7 @@ public unsafe partial class VideoEncodeH264RateControlLayerInfoKHR : IMarshallab
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeH264RateControlLayerInfoKhr;
     public object PNext { get; set; }
     public VkBool32 UseMinQp { get; set; }
     public VideoEncodeH264QpKHR MinQp { get; set; }
@@ -31,6 +31,7 @@ public unsafe partial class VideoEncodeH264RateControlLayerInfoKHR : IMarshallab
     public VideoEncodeH264QpKHR MaxQp { get; set; }
     public VkBool32 UseMaxFrameSize { get; set; }
     public VideoEncodeH264FrameSizeKHR MaxFrameSize { get; set; }
+
 
     public static implicit operator VideoEncodeH264RateControlLayerInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH264RateControlLayerInfoKHR v)
     {
@@ -54,7 +55,6 @@ public unsafe partial class VideoEncodeH264RateControlLayerInfoKHR : IMarshallab
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeH264RateControlLayerInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         UseMinQp = native.useMinQp;
         MinQp = new VideoEncodeH264QpKHR(native.minQp);
@@ -64,14 +64,14 @@ public unsafe partial class VideoEncodeH264RateControlLayerInfoKHR : IMarshallab
         MaxFrameSize = new VideoEncodeH264FrameSizeKHR(native.maxFrameSize);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeH264RateControlLayerInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeH264RateControlLayerInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeH264RateControlLayerInfoKHRMarshaller
     {
@@ -85,11 +85,11 @@ public unsafe partial class VideoEncodeH264RateControlLayerInfoKHR : IMarshallab
             }
             else if (videoEncodeH264RateControlLayerInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeH264RateControlLayerInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoEncodeH264RateControlLayerInfoKHR.UseMinQp != (uint)default)

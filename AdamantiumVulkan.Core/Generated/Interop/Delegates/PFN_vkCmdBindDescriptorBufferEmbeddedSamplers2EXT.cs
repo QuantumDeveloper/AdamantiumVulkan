@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12672 Column: 26
+// File: video.xml Line: 18629 Column: 10
 public unsafe struct PFN_vkCmdBindDescriptorBufferEmbeddedSamplers2EXT
 {
     public PFN_vkCmdBindDescriptorBufferEmbeddedSamplers2EXT(nuint ptr) : this((void*) ptr) { }

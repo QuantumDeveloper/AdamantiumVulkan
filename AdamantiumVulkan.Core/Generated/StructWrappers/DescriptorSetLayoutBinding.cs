@@ -27,7 +27,8 @@ public unsafe partial class DescriptorSetLayoutBinding : IMarshallableObject, IM
     public DescriptorType DescriptorType { get; set; }
     public uint DescriptorCount { get; set; }
     public ShaderStageFlagBits StageFlags { get; set; }
-    public Sampler PImmutableSamplers { get; set; }
+    public System.ReadOnlyMemory<Sampler> PImmutableSamplers { get; set; }
+
 
     public static implicit operator DescriptorSetLayoutBinding(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding d)
     {
@@ -37,6 +38,8 @@ public unsafe partial class DescriptorSetLayoutBinding : IMarshallableObject, IM
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding>();
+        if (!PImmutableSamplers.IsEmpty)
+            size += PImmutableSamplers.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSampler_T>();
         return size;
     }
 
@@ -51,18 +54,25 @@ public unsafe partial class DescriptorSetLayoutBinding : IMarshallableObject, IM
         DescriptorType = native.descriptorType;
         DescriptorCount = native.descriptorCount;
         StageFlags = native.stageFlags;
-        PImmutableSamplers = new Sampler(in *native.pImmutableSamplers);
-        NativeUtils.Free(native.pImmutableSamplers);
+        var arrayLengthPImmutableSamplers = native.descriptorCount;
+        var tmpPImmutableSamplers = new Sampler[arrayLengthPImmutableSamplers];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkSampler_T[arrayLengthPImmutableSamplers];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pImmutableSamplers, arrayLengthPImmutableSamplers, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPImmutableSamplers[i] = new Sampler(in nativeTmpArray0[i]);
+        }
+        PImmutableSamplers = tmpPImmutableSamplers;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDescriptorSetLayoutBindingMarshaller
     {
@@ -76,10 +86,17 @@ public unsafe partial class DescriptorSetLayoutBinding : IMarshallableObject, IM
 
             context.Destination[0].stageFlags = descriptorSetLayoutBinding.StageFlags;
 
-            if (descriptorSetLayoutBinding.PImmutableSamplers != default)
+            if (!descriptorSetLayoutBinding.PImmutableSamplers.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkSampler_T struct0 = descriptorSetLayoutBinding.PImmutableSamplers;
-                context.Destination[0].pImmutableSamplers = (AdamantiumVulkan.Core.Interop.VkSampler_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.Sampler> sourceSpan = descriptorSetLayoutBinding.PImmutableSamplers.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkSampler_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSampler_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkSampler_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pImmutableSamplers = pDestination;
             }
 
         }

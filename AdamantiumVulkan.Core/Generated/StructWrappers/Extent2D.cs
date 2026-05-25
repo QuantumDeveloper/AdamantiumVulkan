@@ -26,6 +26,7 @@ public unsafe partial class Extent2D : IMarshallableObject, IMarshallable<Adaman
     public uint Width { get; set; }
     public uint Height { get; set; }
 
+
     public static implicit operator Extent2D(AdamantiumVulkan.Core.Interop.VkExtent2D e)
     {
         return new Extent2D(in e);
@@ -48,14 +49,14 @@ public unsafe partial class Extent2D : IMarshallableObject, IMarshallable<Adaman
         Height = native.height;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkExtent2D>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkExtent2D>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkExtent2DMarshaller
     {

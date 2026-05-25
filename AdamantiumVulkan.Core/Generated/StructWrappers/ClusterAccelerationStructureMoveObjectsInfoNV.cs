@@ -25,6 +25,7 @@ public unsafe partial class ClusterAccelerationStructureMoveObjectsInfoNV : IMar
 
     public VkDeviceAddress SrcAccelerationStructure { get; set; }
 
+
     public static implicit operator ClusterAccelerationStructureMoveObjectsInfoNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureMoveObjectsInfoNV c)
     {
         return new ClusterAccelerationStructureMoveObjectsInfoNV(in c);
@@ -46,14 +47,14 @@ public unsafe partial class ClusterAccelerationStructureMoveObjectsInfoNV : IMar
         SrcAccelerationStructure = native.srcAccelerationStructure;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureMoveObjectsInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureMoveObjectsInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkClusterAccelerationStructureMoveObjectsInfoNVMarshaller
     {

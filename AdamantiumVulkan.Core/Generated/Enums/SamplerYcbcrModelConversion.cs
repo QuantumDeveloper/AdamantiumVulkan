@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5118 Column: 14
-public enum SamplerYcbcrModelConversion : uint
+// File: vk.xml Line: 13052 Column: 6
+public enum SamplerYcbcrModelConversion : int
 {
     RgbIdentity = 0,
 
@@ -23,8 +23,6 @@ public enum SamplerYcbcrModelConversion : uint
     Ycbcr601 = 3,
 
     Ycbcr2020 = 4,
-
-    MaxEnum = 2147483647,
 
 }
 

@@ -32,6 +32,7 @@ public unsafe partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : 
     public VkBool32 AdvancedBlendCorrelatedOverlap { get; set; }
     public VkBool32 AdvancedBlendAllOperations { get; set; }
 
+
     public static implicit operator PhysicalDeviceBlendOperationAdvancedPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT p)
     {
         return new PhysicalDeviceBlendOperationAdvancedPropertiesEXT(in p);
@@ -63,14 +64,14 @@ public unsafe partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : 
         AdvancedBlendAllOperations = native.advancedBlendAllOperations;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceBlendOperationAdvancedPropertiesEXTMarshaller
     {
@@ -84,11 +85,11 @@ public unsafe partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : 
             }
             else if (physicalDeviceBlendOperationAdvancedPropertiesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceBlendOperationAdvancedPropertiesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].advancedBlendMaxColorAttachments = physicalDeviceBlendOperationAdvancedPropertiesEXT.AdvancedBlendMaxColorAttachments;

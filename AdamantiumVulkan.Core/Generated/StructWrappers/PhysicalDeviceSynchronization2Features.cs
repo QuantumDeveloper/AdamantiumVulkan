@@ -23,9 +23,10 @@ public unsafe partial class PhysicalDeviceSynchronization2Features : IMarshallab
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceSynchronization2Features;
     public object PNext { get; set; }
     public VkBool32 Synchronization2 { get; set; }
+
 
     public static implicit operator PhysicalDeviceSynchronization2Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSynchronization2Features p)
     {
@@ -49,19 +50,18 @@ public unsafe partial class PhysicalDeviceSynchronization2Features : IMarshallab
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSynchronization2Features native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Synchronization2 = native.synchronization2;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSynchronization2Features>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSynchronization2Features>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceSynchronization2FeaturesMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class PhysicalDeviceSynchronization2Features : IMarshallab
             }
             else if (physicalDeviceSynchronization2Features.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceSynchronization2Features.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceSynchronization2Features.Synchronization2 != (uint)default)

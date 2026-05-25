@@ -23,14 +23,15 @@ public unsafe partial class ResolveImageInfo2 : IMarshallableObject, IMarshallab
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ResolveImageInfo2;
     public object PNext { get; set; }
     public Image SrcImage { get; set; }
     public ImageLayout SrcImageLayout { get; set; }
     public Image DstImage { get; set; }
     public ImageLayout DstImageLayout { get; set; }
     public uint RegionCount { get; set; }
-    public ImageResolve2 PRegions { get; set; }
+    public System.ReadOnlyMemory<ImageResolve2> PRegions { get; set; }
+
 
     public static implicit operator ResolveImageInfo2(AdamantiumVulkan.Core.Interop.VkResolveImageInfo2 r)
     {
@@ -44,9 +45,15 @@ public unsafe partial class ResolveImageInfo2 : IMarshallableObject, IMarshallab
         {
             size += marshallable.GetSize();
         }
-        if (PRegions != default)
+        if (!PRegions.IsEmpty)
         {
-            size += PRegions.GetSize();
+            for (int i = 0; i < PRegions.Length; i++)
+            {
+                if (PRegions.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkImageResolve2>();
+                else
+                    size += PRegions.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -58,25 +65,31 @@ public unsafe partial class ResolveImageInfo2 : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkResolveImageInfo2 native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         SrcImage = new Image(native.srcImage);
         SrcImageLayout = native.srcImageLayout;
         DstImage = new Image(native.dstImage);
         DstImageLayout = native.dstImageLayout;
         RegionCount = native.regionCount;
-        PRegions = new ImageResolve2(in *native.pRegions);
-        NativeUtils.Free(native.pRegions);
+        var arrayLengthPRegions = native.regionCount;
+        var tmpPRegions = new ImageResolve2[arrayLengthPRegions];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkImageResolve2[arrayLengthPRegions];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pRegions, arrayLengthPRegions, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPRegions[i] = new ImageResolve2(in nativeTmpArray0[i]);
+        }
+        PRegions = tmpPRegions;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkResolveImageInfo2>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkResolveImageInfo2>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkResolveImageInfo2Marshaller
     {
@@ -90,11 +103,11 @@ public unsafe partial class ResolveImageInfo2 : IMarshallableObject, IMarshallab
             }
             else if (resolveImageInfo2.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (resolveImageInfo2.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (resolveImageInfo2.SrcImage != default)
@@ -113,14 +126,9 @@ public unsafe partial class ResolveImageInfo2 : IMarshallableObject, IMarshallab
 
             context.Destination[0].regionCount = resolveImageInfo2.RegionCount;
 
-            if (resolveImageInfo2.PRegions != default)
+            if (!resolveImageInfo2.PRegions.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkImageResolve2));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkImageResolve2>(structSlice0).Slice(0, 1);
-                context.Destination[0].pRegions = (AdamantiumVulkan.Core.Interop.VkImageResolve2*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageResolve2>(structDestination0, context.DataCursor);
-                resolveImageInfo2.PRegions.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pRegions = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.ImageResolve2, AdamantiumVulkan.Core.Interop.VkImageResolve2, AdamantiumVulkan.Core.Interop.VkResolveImageInfo2>(resolveImageInfo2.PRegions, ref context);
             }
 
         }

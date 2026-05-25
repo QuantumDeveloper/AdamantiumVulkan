@@ -23,13 +23,14 @@ public unsafe partial class PipelineExecutableInternalRepresentationKHR : IMarsh
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PipelineExecutableInternalRepresentationKhr;
     public object PNext { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public VkBool32 IsText { get; set; }
-    public ulong DataSize { get; set; }
-    public nuint PData { get; set; }
+    public nuint DataSize { get; set; }
+    public System.ReadOnlyMemory<byte> PData { get; set; }
+
 
     public static implicit operator PipelineExecutableInternalRepresentationKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR p)
     {
@@ -43,6 +44,8 @@ public unsafe partial class PipelineExecutableInternalRepresentationKHR : IMarsh
         {
             size += marshallable.GetSize();
         }
+        if (!PData.IsEmpty)
+            size += PData.Span.Length * Marshal.SizeOf<System.Byte>();
         return size;
     }
 
@@ -53,7 +56,6 @@ public unsafe partial class PipelineExecutableInternalRepresentationKHR : IMarsh
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         fixed(sbyte* pSource = native.name)
         {
@@ -65,17 +67,20 @@ public unsafe partial class PipelineExecutableInternalRepresentationKHR : IMarsh
         }
         IsText = native.isText;
         DataSize = native.dataSize;
-        PData = native.pData;
+        var arrayLengthPData = native.dataSize;
+        var tmpPData = new byte[arrayLengthPData];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pData, arrayLengthPData, tmpPData);
+        PData = tmpPData;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineExecutableInternalRepresentationKHRMarshaller
     {
@@ -89,11 +94,11 @@ public unsafe partial class PipelineExecutableInternalRepresentationKHR : IMarsh
             }
             else if (pipelineExecutableInternalRepresentationKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineExecutableInternalRepresentationKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             ref var tmpDestination0 = ref context.Destination[0];
@@ -117,7 +122,10 @@ public unsafe partial class PipelineExecutableInternalRepresentationKHR : IMarsh
 
             context.Destination[0].dataSize = pipelineExecutableInternalRepresentationKHR.DataSize;
 
-            context.Destination[0].pData = pipelineExecutableInternalRepresentationKHR.PData;
+            if (!pipelineExecutableInternalRepresentationKHR.PData.IsEmpty)
+            {
+                context.Destination[0].pData = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<byte, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR>(pipelineExecutableInternalRepresentationKHR.PData.Span, ref context);
+            }
 
         }
     }

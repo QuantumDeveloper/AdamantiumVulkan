@@ -23,12 +23,13 @@ public unsafe partial class PhysicalDeviceClusterCullingShaderPropertiesHUAWEI :
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceClusterCullingShaderPropertiesHuawei;
     public object PNext { get; set; }
     public System.ReadOnlyMemory<uint> MaxWorkGroupCount { get; set; }
     public System.ReadOnlyMemory<uint> MaxWorkGroupSize { get; set; }
     public uint MaxOutputClusterCount { get; set; }
     public VkDeviceSize IndirectBufferOffsetAlignment { get; set; }
+
 
     public static implicit operator PhysicalDeviceClusterCullingShaderPropertiesHUAWEI(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI p)
     {
@@ -52,28 +53,29 @@ public unsafe partial class PhysicalDeviceClusterCullingShaderPropertiesHUAWEI :
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         var tmpMaxWorkGroupCount = new uint[3];
-        var pMaxWorkGroupCount = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.maxWorkGroupCount[0]));
+        var maxWorkGroupCountp = native.maxWorkGroupCount[0];
+        var pMaxWorkGroupCount = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in maxWorkGroupCountp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMaxWorkGroupCount, 3, tmpMaxWorkGroupCount);
         MaxWorkGroupCount = tmpMaxWorkGroupCount;
         var tmpMaxWorkGroupSize = new uint[3];
-        var pMaxWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.maxWorkGroupSize[0]));
+        var maxWorkGroupSizep = native.maxWorkGroupSize[0];
+        var pMaxWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in maxWorkGroupSizep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMaxWorkGroupSize, 3, tmpMaxWorkGroupSize);
         MaxWorkGroupSize = tmpMaxWorkGroupSize;
         MaxOutputClusterCount = native.maxOutputClusterCount;
         IndirectBufferOffsetAlignment = native.indirectBufferOffsetAlignment;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEIMarshaller
     {
@@ -87,11 +89,11 @@ public unsafe partial class PhysicalDeviceClusterCullingShaderPropertiesHUAWEI :
             }
             else if (physicalDeviceClusterCullingShaderPropertiesHUAWEI.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceClusterCullingShaderPropertiesHUAWEI.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             ref var tmpDestination0 = ref context.Destination[0];

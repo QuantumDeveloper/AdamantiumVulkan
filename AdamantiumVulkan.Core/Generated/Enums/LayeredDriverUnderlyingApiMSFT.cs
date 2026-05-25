@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20477 Column: 14
+// File: vk.xml Line: 14083 Column: 6
 [Flags]
-public enum LayeredDriverUnderlyingApiMSFT : uint
+public enum LayeredDriverUnderlyingApiMSFT : int
 {
     NoneMsft = 0,
 
     D3d12Msft = 1,
-
-    MaxEnumMsft = 2147483647,
 
 }
 

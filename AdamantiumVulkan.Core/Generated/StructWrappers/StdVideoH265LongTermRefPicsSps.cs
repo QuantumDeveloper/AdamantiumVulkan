@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoH265LongTermRefPicsSps : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps>
+public unsafe partial class StdVideoH265LongTermRefPicsSps : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps>
 {
     public StdVideoH265LongTermRefPicsSps()
     {
     }
 
-    public StdVideoH265LongTermRefPicsSps(in AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps native)
+    public StdVideoH265LongTermRefPicsSps(in AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps native)
     {
         MarshalFrom(in native);
     }
@@ -26,43 +26,45 @@ public unsafe partial class StdVideoH265LongTermRefPicsSps : IMarshallableObject
     public uint Used_by_curr_pic_lt_sps_flag { get; set; }
     public System.ReadOnlyMemory<uint> Lt_ref_pic_poc_lsb_sps { get; set; }
 
-    public static implicit operator StdVideoH265LongTermRefPicsSps(AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps s)
+
+    public static implicit operator StdVideoH265LongTermRefPicsSps(AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps s)
     {
         return new StdVideoH265LongTermRefPicsSps(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps> context)
     {
         new StdVideoH265LongTermRefPicsSpsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps native)
     {
         Used_by_curr_pic_lt_sps_flag = native.used_by_curr_pic_lt_sps_flag;
         var tmpLt_ref_pic_poc_lsb_sps = new uint[32];
-        var pLt_ref_pic_poc_lsb_sps = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.lt_ref_pic_poc_lsb_sps[0]));
+        var lt_ref_pic_poc_lsb_spsp = native.lt_ref_pic_poc_lsb_sps[0];
+        var pLt_ref_pic_poc_lsb_sps = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in lt_ref_pic_poc_lsb_spsp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pLt_ref_pic_poc_lsb_sps, 32, tmpLt_ref_pic_poc_lsb_sps);
         Lt_ref_pic_poc_lsb_sps = tmpLt_ref_pic_poc_lsb_sps;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoH265LongTermRefPicsSpsMarshaller
     {
-        public StdVideoH265LongTermRefPicsSpsMarshaller(AdamantiumVulkan.StdVideoH265LongTermRefPicsSps stdVideoH265LongTermRefPicsSps, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps> context)
+        public StdVideoH265LongTermRefPicsSpsMarshaller(AdamantiumVulkan.Core.StdVideoH265LongTermRefPicsSps stdVideoH265LongTermRefPicsSps, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps> context)
         {
             context.Destination[0].used_by_curr_pic_lt_sps_flag = stdVideoH265LongTermRefPicsSps.Used_by_curr_pic_lt_sps_flag;
 

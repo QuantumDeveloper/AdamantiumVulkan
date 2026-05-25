@@ -13,10 +13,11 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 105 Column: 1
+// File: vk.xml Line: 598 Column: 10
 public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkInstance_T>
 {
     internal VkInstance_T __Instance;
+    internal AdamantiumVulkan.Core.InstanceDispatchTable Commands;
     public Instance()
     {
     }
@@ -24,10 +25,11 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
     public Instance(in AdamantiumVulkan.Core.Interop.VkInstance_T __Instance)
     {
         this.__Instance = __Instance;
+        this.Commands = new InstanceDispatchTable(this);
     }
 
     public AdamantiumVulkan.Core.Interop.VkInstance_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public Result CreateDebugReportCallbackEXT(in DebugReportCallbackCreateInfoEXT pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.DebugReportCallbackEXT pCallback)
     {
@@ -49,8 +51,8 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DebugReportCallbackCreateInfoEXT, AdamantiumVulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT>(pCreateInfo, ref currentCursor);
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.AllocationCallbacks, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
-            VkDebugReportCallbackEXT_T arg3;
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateDebugReportCallbackEXT(this, arg1, arg2, out arg3);
+            VkDebugReportCallbackEXT_T arg3 = default;
+            var result = Commands.vkCreateDebugReportCallbackEXT(this, arg1, arg2, &arg3);
             pCallback = new DebugReportCallbackEXT(arg3);
             return result;
         }
@@ -81,8 +83,8 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DebugUtilsMessengerCreateInfoEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT>(pCreateInfo, ref currentCursor);
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.AllocationCallbacks, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
-            VkDebugUtilsMessengerEXT_T arg3;
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateDebugUtilsMessengerEXT(this, arg1, arg2, out arg3);
+            VkDebugUtilsMessengerEXT_T arg3 = default;
+            var result = Commands.vkCreateDebugUtilsMessengerEXT(this, arg1, arg2, &arg3);
             pMessenger = new DebugUtilsMessengerEXT(arg3);
             return result;
         }
@@ -113,8 +115,8 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplaySurfaceCreateInfoKHR, AdamantiumVulkan.Core.Interop.VkDisplaySurfaceCreateInfoKHR>(pCreateInfo, ref currentCursor);
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.AllocationCallbacks, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
-            VkSurfaceKHR_T arg3;
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateDisplayPlaneSurfaceKHR(this, arg1, arg2, out arg3);
+            VkSurfaceKHR_T arg3 = default;
+            var result = Commands.vkCreateDisplayPlaneSurfaceKHR(this, arg1, arg2, &arg3);
             pSurface = new SurfaceKHR(arg3);
             return result;
         }
@@ -145,8 +147,8 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.HeadlessSurfaceCreateInfoEXT, AdamantiumVulkan.Core.Interop.VkHeadlessSurfaceCreateInfoEXT>(pCreateInfo, ref currentCursor);
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.AllocationCallbacks, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
-            VkSurfaceKHR_T arg3;
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateHeadlessSurfaceEXT(this, arg1, arg2, out arg3);
+            VkSurfaceKHR_T arg3 = default;
+            var result = Commands.vkCreateHeadlessSurfaceEXT(this, arg1, arg2, &arg3);
             pSurface = new SurfaceKHR(arg3);
             return result;
         }
@@ -157,7 +159,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
         }
     }
 
-    public void DebugReportMessageEXT(VkDebugReportFlagsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, ulong location, int messageCode, string pLayerPrefix, string pMessage)
+    public void DebugReportMessageEXT(DebugReportFlagBitsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, nuint location, int messageCode, in string pLayerPrefix, in string pMessage)
     {
         int CalculateSize(string pLayerPrefix, string pMessage)
         {
@@ -177,7 +179,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg6 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(pLayerPrefix, ref currentCursor);
             var arg7 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(pMessage, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkDebugReportMessageEXT(this, flags, objectType, @object, location, messageCode, arg6, arg7);
+            Commands.vkDebugReportMessageEXT(this, flags, objectType, @object, location, messageCode, arg6, arg7);
         }
         finally
         {
@@ -204,7 +206,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = callback == null ? new VkDebugReportCallbackEXT_T() : (VkDebugReportCallbackEXT_T)callback;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.AllocationCallbacks, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyDebugReportCallbackEXT(this, arg1, arg2);
+            Commands.vkDestroyDebugReportCallbackEXT(this, arg1, arg2);
         }
         finally
         {
@@ -231,7 +233,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = messenger == null ? new VkDebugUtilsMessengerEXT_T() : (VkDebugUtilsMessengerEXT_T)messenger;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.AllocationCallbacks, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyDebugUtilsMessengerEXT(this, arg1, arg2);
+            Commands.vkDestroyDebugUtilsMessengerEXT(this, arg1, arg2);
         }
         finally
         {
@@ -257,7 +259,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.AllocationCallbacks, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroyInstance(this, arg1);
+            Commands.vkDestroyInstance(this, arg1);
         }
         finally
         {
@@ -284,7 +286,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = surface == null ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.AllocationCallbacks, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkDestroySurfaceKHR(this, arg1, arg2);
+            Commands.vkDestroySurfaceKHR(this, arg1, arg2);
         }
         finally
         {
@@ -293,13 +295,18 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
         }
     }
 
-    public Result EnumeratePhysicalDeviceGroups(ref uint pPhysicalDeviceGroupCount, PhysicalDeviceGroupProperties pPhysicalDeviceGroupProperties)
+    public Result EnumeratePhysicalDeviceGroups(ref uint pPhysicalDeviceGroupCount, System.Span<PhysicalDeviceGroupProperties> pPhysicalDeviceGroupProperties)
     {
-        int CalculateSize(PhysicalDeviceGroupProperties pPhysicalDeviceGroupProperties)
+        int CalculateSize(System.Span<PhysicalDeviceGroupProperties> pPhysicalDeviceGroupProperties)
         {
             int totalSize = 0;
-            if (pPhysicalDeviceGroupProperties != null)
-                totalSize += pPhysicalDeviceGroupProperties.GetSize();
+            for (var i = 0U; i < pPhysicalDeviceGroupProperties.Length; i++)
+            {
+                if(pPhysicalDeviceGroupProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties>();
+                else
+                    totalSize += pPhysicalDeviceGroupProperties[(int)i].GetSize();
+            }
             return totalSize;
         }
 
@@ -309,11 +316,12 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPhysicalDeviceGroupCount;
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceGroupProperties, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties>(pPhysicalDeviceGroupProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumeratePhysicalDeviceGroups(this, arg1, arg2);
-            pPhysicalDeviceGroupCount = *arg1;
+            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties[(int)pPhysicalDeviceGroupProperties.Length];
+            var result = Commands.vkEnumeratePhysicalDeviceGroups(this, ref pPhysicalDeviceGroupCount, arg2);
+            for (var i = 0; i < pPhysicalDeviceGroupProperties.Length; ++i)
+            {
+                pPhysicalDeviceGroupProperties[i] = new PhysicalDeviceGroupProperties(arg2[i]);
+            }
             return result;
         }
         finally
@@ -323,7 +331,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
         }
     }
 
-    public Result EnumeratePhysicalDeviceGroupsKHR(ref uint pPhysicalDeviceGroupCount, PhysicalDeviceGroupProperties pPhysicalDeviceGroupProperties)
+    public Result EnumeratePhysicalDeviceGroups(ref uint pPhysicalDeviceGroupCount, ref PhysicalDeviceGroupProperties pPhysicalDeviceGroupProperties)
     {
         int CalculateSize(PhysicalDeviceGroupProperties pPhysicalDeviceGroupProperties)
         {
@@ -339,11 +347,12 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPhysicalDeviceGroupCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceGroupProperties, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties>(pPhysicalDeviceGroupProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumeratePhysicalDeviceGroupsKHR(this, arg1, arg2);
-            pPhysicalDeviceGroupCount = *arg1;
+            var result = Commands.vkEnumeratePhysicalDeviceGroups(this, ref pPhysicalDeviceGroupCount, arg2);
+            if (arg2 is not null)
+            {
+                pPhysicalDeviceGroupProperties = new AdamantiumVulkan.Core.PhysicalDeviceGroupProperties(*arg2);
+            }
             return result;
         }
         finally
@@ -355,19 +364,17 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
 
     public Result EnumeratePhysicalDevices(ref uint pPhysicalDeviceCount, System.Span<AdamantiumVulkan.Core.PhysicalDevice> pPhysicalDevices)
     {
-        var arg1 = stackalloc uint[1];
-        *arg1 = pPhysicalDeviceCount;
         var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T[(int)pPhysicalDevices.Length];
-        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumeratePhysicalDevices(this, arg1, arg2);
-        pPhysicalDeviceCount = *arg1;
+        var result = Commands.vkEnumeratePhysicalDevices(this, ref pPhysicalDeviceCount, arg2);
         for (var i = 0; i < pPhysicalDevices.Length; ++i)
         {
             pPhysicalDevices[i] = arg2[i];
+            pPhysicalDevices[i].Commands = this.Commands;
         }
         return result;
     }
 
-    public nuint GetInstanceProcAddr(string pName)
+    public nuint GetInstanceProcAddr(in string pName)
     {
         int CalculateSize(string pName)
         {
@@ -384,7 +391,8 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(pName, ref currentCursor);
-            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetInstanceProcAddr(this, arg1);
+            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetInstanceProcAddr(this, arg1);
+            return (nuint)result;
         }
         finally
         {
@@ -393,7 +401,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
         }
     }
 
-    public void SubmitDebugUtilsMessageEXT(DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, in DebugUtilsMessengerCallbackDataEXT pCallbackData)
+    public void SubmitDebugUtilsMessageEXT(DebugUtilsMessageSeverityFlagBitsEXT messageSeverity, DebugUtilsMessageTypeFlagBitsEXT messageTypes, in DebugUtilsMessengerCallbackDataEXT pCallbackData)
     {
         int CalculateSize(DebugUtilsMessengerCallbackDataEXT pCallbackData)
         {
@@ -410,7 +418,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<AdamantiumVulkan.Core.I
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DebugUtilsMessengerCallbackDataEXT, AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT>(pCallbackData, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkSubmitDebugUtilsMessageEXT(this, messageSeverity, messageTypes, arg3);
+            Commands.vkSubmitDebugUtilsMessageEXT(this, messageSeverity, messageTypes, arg3);
         }
         finally
         {

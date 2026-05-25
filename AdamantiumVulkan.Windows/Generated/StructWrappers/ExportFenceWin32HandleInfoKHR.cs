@@ -24,11 +24,12 @@ public unsafe partial class ExportFenceWin32HandleInfoKHR : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ExportFenceWin32HandleInfoKhr;
     public object PNext { get; set; }
     public nuint PAttributes { get; set; }
-    public uint DwAccess { get; set; }
-    public char Name { get; set; }
+    public nuint DwAccess { get; set; }
+    public nuint Name { get; set; }
+
 
     public static implicit operator ExportFenceWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR e)
     {
@@ -52,21 +53,20 @@ public unsafe partial class ExportFenceWin32HandleInfoKHR : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
-        PAttributes = native.pAttributes;
+        PAttributes = (nuint)native.pAttributes;
         DwAccess = native.dwAccess;
         Name = native.name;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Windows.Interop.VkExportFenceWin32HandleInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkExportFenceWin32HandleInfoKHRMarshaller
     {
@@ -80,14 +80,17 @@ public unsafe partial class ExportFenceWin32HandleInfoKHR : IMarshallableObject,
             }
             else if (exportFenceWin32HandleInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (exportFenceWin32HandleInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            context.Destination[0].pAttributes = exportFenceWin32HandleInfoKHR.PAttributes;
+            if (exportFenceWin32HandleInfoKHR.PAttributes != default)
+            {
+                context.Destination[0].pAttributes = (void*)exportFenceWin32HandleInfoKHR.PAttributes;
+            }
 
             context.Destination[0].dwAccess = exportFenceWin32HandleInfoKHR.DwAccess;
 

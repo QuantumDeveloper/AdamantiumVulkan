@@ -12,6 +12,9 @@ using AdamantiumVulkan.SpirvTools.Interop;
 
 namespace AdamantiumVulkan.SpirvTools;
 
+///<summary>
+/// Information about an operand parsed from a binary SPIR-V module. Note that the values are not included. You still need access to the binary to extract the values.
+///</summary>
 public unsafe partial class Spv_parsed_operand_t : IMarshallable<AdamantiumVulkan.SpirvTools.Interop.spv_parsed_operand_t>
 {
     public Spv_parsed_operand_t()
@@ -28,6 +31,8 @@ public unsafe partial class Spv_parsed_operand_t : IMarshallable<AdamantiumVulka
     public spv_operand_type_t Type { get; set; }
     public spv_number_kind_t Number_kind { get; set; }
     public uint Number_bit_width { get; set; }
+    public spv_fp_encoding_t Fp_encoding { get; set; }
+
 
     public static implicit operator Spv_parsed_operand_t(AdamantiumVulkan.SpirvTools.Interop.spv_parsed_operand_t s)
     {
@@ -52,6 +57,7 @@ public unsafe partial class Spv_parsed_operand_t : IMarshallable<AdamantiumVulka
         Type = native.type;
         Number_kind = native.number_kind;
         Number_bit_width = native.number_bit_width;
+        Fp_encoding = native.fp_encoding;
 
     }
     private ref struct spv_parsed_operand_tMarshaller
@@ -67,6 +73,8 @@ public unsafe partial class Spv_parsed_operand_t : IMarshallable<AdamantiumVulka
             context.Destination[0].number_kind = spv_parsed_operand_t.Number_kind;
 
             context.Destination[0].number_bit_width = spv_parsed_operand_t.Number_bit_width;
+
+            context.Destination[0].fp_encoding = spv_parsed_operand_t.Fp_encoding;
 
         }
     }

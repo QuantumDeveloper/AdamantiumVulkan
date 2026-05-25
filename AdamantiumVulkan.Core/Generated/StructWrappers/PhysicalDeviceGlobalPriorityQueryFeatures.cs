@@ -23,9 +23,10 @@ public unsafe partial class PhysicalDeviceGlobalPriorityQueryFeatures : IMarshal
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceGlobalPriorityQueryFeatures;
     public object PNext { get; set; }
     public VkBool32 GlobalPriorityQuery { get; set; }
+
 
     public static implicit operator PhysicalDeviceGlobalPriorityQueryFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGlobalPriorityQueryFeatures p)
     {
@@ -49,19 +50,18 @@ public unsafe partial class PhysicalDeviceGlobalPriorityQueryFeatures : IMarshal
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGlobalPriorityQueryFeatures native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         GlobalPriorityQuery = native.globalPriorityQuery;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGlobalPriorityQueryFeatures>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGlobalPriorityQueryFeatures>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceGlobalPriorityQueryFeaturesMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class PhysicalDeviceGlobalPriorityQueryFeatures : IMarshal
             }
             else if (physicalDeviceGlobalPriorityQueryFeatures.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceGlobalPriorityQueryFeatures.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceGlobalPriorityQueryFeatures.GlobalPriorityQuery != (uint)default)

@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13945 Column: 14
+// File: vk.xml Line: 13033 Column: 6
 [Flags]
-public enum DiscardRectangleModeEXT : uint
+public enum DiscardRectangleModeEXT : int
 {
     InclusiveExt = 0,
 
     ExclusiveExt = 1,
-
-    MaxEnumExt = 2147483647,
 
 }
 

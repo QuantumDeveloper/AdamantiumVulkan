@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2246 Column: 14
-public enum BorderColor : uint
+// File: vk.xml Line: 11989 Column: 6
+public enum BorderColor : int
 {
     FloatTransparentBlack = 0,
 
@@ -29,8 +29,6 @@ public enum BorderColor : uint
     FloatCustomExt = 1000287003,
 
     IntCustomExt = 1000287004,
-
-    MaxEnum = 2147483647,
 
 }
 

@@ -8,10 +8,11 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3276 Column: 16
+// File: vk.xml Line: 2139 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceLimits
 {
@@ -81,7 +82,7 @@ public unsafe partial struct VkPhysicalDeviceLimits
     public unsafe fixed uint maxViewportDimensions[2];
     public unsafe fixed float viewportBoundsRange[2];
     public uint viewportSubPixelBits;
-    public ulong minMemoryMapAlignment;
+    public nuint minMemoryMapAlignment;
     public VkDeviceSize minTexelBufferOffsetAlignment;
     public VkDeviceSize minUniformBufferOffsetAlignment;
     public VkDeviceSize minStorageBufferOffsetAlignment;
@@ -95,16 +96,16 @@ public unsafe partial struct VkPhysicalDeviceLimits
     public uint maxFramebufferWidth;
     public uint maxFramebufferHeight;
     public uint maxFramebufferLayers;
-    public VkSampleCountFlags framebufferColorSampleCounts;
-    public VkSampleCountFlags framebufferDepthSampleCounts;
-    public VkSampleCountFlags framebufferStencilSampleCounts;
-    public VkSampleCountFlags framebufferNoAttachmentsSampleCounts;
+    public SampleCountFlagBits framebufferColorSampleCounts;
+    public SampleCountFlagBits framebufferDepthSampleCounts;
+    public SampleCountFlagBits framebufferStencilSampleCounts;
+    public SampleCountFlagBits framebufferNoAttachmentsSampleCounts;
     public uint maxColorAttachments;
-    public VkSampleCountFlags sampledImageColorSampleCounts;
-    public VkSampleCountFlags sampledImageIntegerSampleCounts;
-    public VkSampleCountFlags sampledImageDepthSampleCounts;
-    public VkSampleCountFlags sampledImageStencilSampleCounts;
-    public VkSampleCountFlags storageImageSampleCounts;
+    public SampleCountFlagBits sampledImageColorSampleCounts;
+    public SampleCountFlagBits sampledImageIntegerSampleCounts;
+    public SampleCountFlagBits sampledImageDepthSampleCounts;
+    public SampleCountFlagBits sampledImageStencilSampleCounts;
+    public SampleCountFlagBits storageImageSampleCounts;
     public uint maxSampleMaskWords;
     public VkBool32 timestampComputeAndGraphics;
     public float timestampPeriod;

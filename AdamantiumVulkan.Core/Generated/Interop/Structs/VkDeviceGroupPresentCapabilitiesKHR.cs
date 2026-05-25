@@ -12,14 +12,14 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8695 Column: 16
+// File: vk.xml Line: 3562 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDeviceGroupPresentCapabilitiesKHR
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public unsafe fixed uint presentMask[32];
-    public VkDeviceGroupPresentModeFlagsKHR modes;
+    public DeviceGroupPresentModeFlagBitsKHR modes;
 }
 
 

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12975 Column: 30
+// File: vk.xml Line: 1134 Column: 10
 public unsafe struct PFN_vkDebugReportCallbackEXT
 {
     public PFN_vkDebugReportCallbackEXT(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkDebugReportCallbackEXT
     public PFN_vkDebugReportCallbackEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, nuint, uint>)ptr;
+        InvokeFunc = (delegate* unmanaged<DebugReportFlagBitsEXT, DebugReportObjectTypeEXT, ulong, nuint, int, sbyte*, sbyte*, void*, VkBool32>)ptr;
     }
 
-    private delegate* unmanaged<VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, nuint, uint> InvokeFunc;
+    private delegate* unmanaged<DebugReportFlagBitsEXT, DebugReportObjectTypeEXT, ulong, nuint, int, sbyte*, sbyte*, void*, VkBool32> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public uint Invoke(VkDebugReportFlagsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, ulong location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage, nuint pUserData)
+    public VkBool32 Invoke(DebugReportFlagBitsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, nuint location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage, void* pUserData)
     {
         return InvokeFunc(flags, objectType, @object, location, messageCode, pLayerPrefix, pMessage, pUserData);
     }
-    public static uint Invoke(void* ptr, VkDebugReportFlagsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, ulong location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage, nuint pUserData)
+    public static VkBool32 Invoke(void* ptr, DebugReportFlagBitsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, nuint location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage, void* pUserData)
     {
-        return ((delegate* unmanaged<VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, nuint, uint>)ptr)(flags, objectType, @object, location, messageCode, pLayerPrefix, pMessage, pUserData);
+        return ((delegate* unmanaged<DebugReportFlagBitsEXT, DebugReportObjectTypeEXT, ulong, nuint, int, sbyte*, sbyte*, void*, VkBool32>)ptr)(flags, objectType, @object, location, messageCode, pLayerPrefix, pMessage, pUserData);
     }
-    public static uint Invoke(nuint ptr, VkDebugReportFlagsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, ulong location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage, nuint pUserData)
+    public static VkBool32 Invoke(nuint ptr, DebugReportFlagBitsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, nuint location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage, void* pUserData)
     {
-        return ((delegate* unmanaged<VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, nuint, uint>)(void*)ptr)(flags, objectType, @object, location, messageCode, pLayerPrefix, pMessage, pUserData);
+        return ((delegate* unmanaged<DebugReportFlagBitsEXT, DebugReportObjectTypeEXT, ulong, nuint, int, sbyte*, sbyte*, void*, VkBool32>)(void*)ptr)(flags, objectType, @object, location, messageCode, pLayerPrefix, pMessage, pUserData);
     }
 
     public static explicit operator PFN_vkDebugReportCallbackEXT(void* ptr) => new(ptr);

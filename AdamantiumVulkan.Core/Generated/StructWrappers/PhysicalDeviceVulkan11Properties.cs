@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceVulkan11Properties : IMarshallableObje
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceVulkan11Properties;
     public object PNext { get; set; }
     public System.ReadOnlyMemory<byte> DeviceUUID { get; set; }
     public System.ReadOnlyMemory<byte> DriverUUID { get; set; }
@@ -31,8 +31,8 @@ public unsafe partial class PhysicalDeviceVulkan11Properties : IMarshallableObje
     public uint DeviceNodeMask { get; set; }
     public VkBool32 DeviceLUIDValid { get; set; }
     public uint SubgroupSize { get; set; }
-    public VkShaderStageFlags SubgroupSupportedStages { get; set; }
-    public VkSubgroupFeatureFlags SubgroupSupportedOperations { get; set; }
+    public ShaderStageFlagBits SubgroupSupportedStages { get; set; }
+    public SubgroupFeatureFlagBits SubgroupSupportedOperations { get; set; }
     public VkBool32 SubgroupQuadOperationsInAllStages { get; set; }
     public PointClippingBehavior PointClippingBehavior { get; set; }
     public uint MaxMultiviewViewCount { get; set; }
@@ -40,6 +40,7 @@ public unsafe partial class PhysicalDeviceVulkan11Properties : IMarshallableObje
     public VkBool32 ProtectedNoFault { get; set; }
     public uint MaxPerSetDescriptors { get; set; }
     public VkDeviceSize MaxMemoryAllocationSize { get; set; }
+
 
     public static implicit operator PhysicalDeviceVulkan11Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan11Properties p)
     {
@@ -63,18 +64,20 @@ public unsafe partial class PhysicalDeviceVulkan11Properties : IMarshallableObje
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan11Properties native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         var tmpDeviceUUID = new byte[16];
-        var pDeviceUUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.deviceUUID[0]));
+        var deviceUUIDp = native.deviceUUID[0];
+        var pDeviceUUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in deviceUUIDp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pDeviceUUID, 16, tmpDeviceUUID);
         DeviceUUID = tmpDeviceUUID;
         var tmpDriverUUID = new byte[16];
-        var pDriverUUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.driverUUID[0]));
+        var driverUUIDp = native.driverUUID[0];
+        var pDriverUUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in driverUUIDp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pDriverUUID, 16, tmpDriverUUID);
         DriverUUID = tmpDriverUUID;
         var tmpDeviceLUID = new byte[8];
-        var pDeviceLUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.deviceLUID[0]));
+        var deviceLUIDp = native.deviceLUID[0];
+        var pDeviceLUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in deviceLUIDp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pDeviceLUID, 8, tmpDeviceLUID);
         DeviceLUID = tmpDeviceLUID;
         DeviceNodeMask = native.deviceNodeMask;
@@ -91,14 +94,14 @@ public unsafe partial class PhysicalDeviceVulkan11Properties : IMarshallableObje
         MaxMemoryAllocationSize = native.maxMemoryAllocationSize;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan11Properties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan11Properties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceVulkan11PropertiesMarshaller
     {
@@ -112,11 +115,11 @@ public unsafe partial class PhysicalDeviceVulkan11Properties : IMarshallableObje
             }
             else if (physicalDeviceVulkan11Properties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceVulkan11Properties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             ref var tmpDestination0 = ref context.Destination[0];
@@ -146,15 +149,9 @@ public unsafe partial class PhysicalDeviceVulkan11Properties : IMarshallableObje
 
             context.Destination[0].subgroupSize = physicalDeviceVulkan11Properties.SubgroupSize;
 
-            if (physicalDeviceVulkan11Properties.SubgroupSupportedStages != (uint)default)
-            {
-                context.Destination[0].subgroupSupportedStages = physicalDeviceVulkan11Properties.SubgroupSupportedStages;
-            }
+            context.Destination[0].subgroupSupportedStages = physicalDeviceVulkan11Properties.SubgroupSupportedStages;
 
-            if (physicalDeviceVulkan11Properties.SubgroupSupportedOperations != (uint)default)
-            {
-                context.Destination[0].subgroupSupportedOperations = physicalDeviceVulkan11Properties.SubgroupSupportedOperations;
-            }
+            context.Destination[0].subgroupSupportedOperations = physicalDeviceVulkan11Properties.SubgroupSupportedOperations;
 
             if (physicalDeviceVulkan11Properties.SubgroupQuadOperationsInAllStages != (uint)default)
             {

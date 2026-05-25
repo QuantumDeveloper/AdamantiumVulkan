@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5276 Column: 14
+// File: vk.xml Line: 12963 Column: 6
 [Flags]
 public enum ExternalSemaphoreHandleTypeFlagBits : uint
 {
@@ -23,11 +23,13 @@ public enum ExternalSemaphoreHandleTypeFlagBits : uint
 
     D3d12FenceBit = 8,
 
+    D3d11FenceBit = 0,
+
     SyncFdBit = 16,
 
     ZirconEventBitFuchsia = 128,
 
-    FlagBitsMaxEnum = 2147483647,
+    SciSyncObjBitNv = 32,
 
 }
 

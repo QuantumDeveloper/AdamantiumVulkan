@@ -23,11 +23,12 @@ public unsafe partial class ImageCompressionControlEXT : IMarshallableObject, IM
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ImageCompressionControlExt;
     public object PNext { get; set; }
-    public VkImageCompressionFlagsEXT Flags { get; set; }
+    public ImageCompressionFlagBitsEXT Flags { get; set; }
     public uint CompressionControlPlaneCount { get; set; }
-    public VkImageCompressionFixedRateFlagsEXT? PFixedRateFlags { get; set; }
+    public System.ReadOnlyMemory<ImageCompressionFixedRateFlagBitsEXT> PFixedRateFlags { get; set; }
+
 
     public static implicit operator ImageCompressionControlEXT(AdamantiumVulkan.Core.Interop.VkImageCompressionControlEXT i)
     {
@@ -41,10 +42,8 @@ public unsafe partial class ImageCompressionControlEXT : IMarshallableObject, IM
         {
             size += marshallable.GetSize();
         }
-        if (PFixedRateFlags != default)
-        {
-            size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkImageCompressionFixedRateFlagsEXT>();
-        }
+        if (!PFixedRateFlags.IsEmpty)
+            size += PFixedRateFlags.Span.Length * sizeof(uint);
         return size;
     }
 
@@ -55,25 +54,23 @@ public unsafe partial class ImageCompressionControlEXT : IMarshallableObject, IM
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkImageCompressionControlEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         CompressionControlPlaneCount = native.compressionControlPlaneCount;
-        if (native.pFixedRateFlags != null)
-        {
-            PFixedRateFlags = *native.pFixedRateFlags;
-            NativeUtils.Free(native.pFixedRateFlags);
-        }
+        var arrayLengthPFixedRateFlags = native.compressionControlPlaneCount;
+        var tmpPFixedRateFlags = new ImageCompressionFixedRateFlagBitsEXT[arrayLengthPFixedRateFlags];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pFixedRateFlags, arrayLengthPFixedRateFlags, tmpPFixedRateFlags);
+        PFixedRateFlags = tmpPFixedRateFlags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageCompressionControlEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageCompressionControlEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageCompressionControlEXTMarshaller
     {
@@ -87,23 +84,27 @@ public unsafe partial class ImageCompressionControlEXT : IMarshallableObject, IM
             }
             else if (imageCompressionControlEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (imageCompressionControlEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (imageCompressionControlEXT.Flags != (uint)default)
-            {
-                context.Destination[0].flags = imageCompressionControlEXT.Flags;
-            }
+            context.Destination[0].flags = imageCompressionControlEXT.Flags;
 
             context.Destination[0].compressionControlPlaneCount = imageCompressionControlEXT.CompressionControlPlaneCount;
 
-            if (imageCompressionControlEXT.PFixedRateFlags.HasValue)
+            if (!imageCompressionControlEXT.PFixedRateFlags.IsEmpty)
             {
-                context.Destination[0].pFixedRateFlags = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(imageCompressionControlEXT.PFixedRateFlags.Value, ref context);
+                var sizeInBytes = sizeof(uint) * imageCompressionControlEXT.PFixedRateFlags.Length;
+                var byteSpan = context.AllocateData(sizeInBytes);
+                var enumSpanPFixedRateFlags = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, uint>(byteSpan);
+                context.Destination[0].pFixedRateFlags = (AdamantiumVulkan.Core.ImageCompressionFixedRateFlagBitsEXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPFixedRateFlags));
+                for (int i = 0; i < enumSpanPFixedRateFlags.Length; i++)
+                {
+                    enumSpanPFixedRateFlags[i] = (uint)imageCompressionControlEXT.PFixedRateFlags.Span[i];
+                }
             }
 
         }

@@ -27,6 +27,7 @@ public unsafe partial class VideoEncodeAV1QIndexKHR : IMarshallableObject, IMars
     public uint PredictiveQIndex { get; set; }
     public uint BipredictiveQIndex { get; set; }
 
+
     public static implicit operator VideoEncodeAV1QIndexKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1QIndexKHR v)
     {
         return new VideoEncodeAV1QIndexKHR(in v);
@@ -50,14 +51,14 @@ public unsafe partial class VideoEncodeAV1QIndexKHR : IMarshallableObject, IMars
         BipredictiveQIndex = native.bipredictiveQIndex;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1QIndexKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1QIndexKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeAV1QIndexKHRMarshaller
     {

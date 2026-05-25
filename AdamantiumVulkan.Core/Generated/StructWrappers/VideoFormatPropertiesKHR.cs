@@ -23,14 +23,15 @@ public unsafe partial class VideoFormatPropertiesKHR : IMarshallableObject, IMar
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoFormatPropertiesKhr;
     public object PNext { get; set; }
     public Format Format { get; set; }
     public ComponentMapping ComponentMapping { get; set; }
-    public VkImageCreateFlags ImageCreateFlags { get; set; }
+    public ImageCreateFlagBits ImageCreateFlags { get; set; }
     public ImageType ImageType { get; set; }
     public ImageTiling ImageTiling { get; set; }
-    public VkImageUsageFlags ImageUsageFlags { get; set; }
+    public ImageUsageFlagBits ImageUsageFlags { get; set; }
+
 
     public static implicit operator VideoFormatPropertiesKHR(AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR v)
     {
@@ -54,7 +55,6 @@ public unsafe partial class VideoFormatPropertiesKHR : IMarshallableObject, IMar
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Format = native.format;
         ComponentMapping = new ComponentMapping(native.componentMapping);
@@ -64,14 +64,14 @@ public unsafe partial class VideoFormatPropertiesKHR : IMarshallableObject, IMar
         ImageUsageFlags = native.imageUsageFlags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoFormatPropertiesKHRMarshaller
     {
@@ -85,11 +85,11 @@ public unsafe partial class VideoFormatPropertiesKHR : IMarshallableObject, IMar
             }
             else if (videoFormatPropertiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoFormatPropertiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].format = videoFormatPropertiesKHR.Format;
@@ -105,19 +105,13 @@ public unsafe partial class VideoFormatPropertiesKHR : IMarshallableObject, IMar
                 }
             }
 
-            if (videoFormatPropertiesKHR.ImageCreateFlags != (uint)default)
-            {
-                context.Destination[0].imageCreateFlags = videoFormatPropertiesKHR.ImageCreateFlags;
-            }
+            context.Destination[0].imageCreateFlags = videoFormatPropertiesKHR.ImageCreateFlags;
 
             context.Destination[0].imageType = videoFormatPropertiesKHR.ImageType;
 
             context.Destination[0].imageTiling = videoFormatPropertiesKHR.ImageTiling;
 
-            if (videoFormatPropertiesKHR.ImageUsageFlags != (uint)default)
-            {
-                context.Destination[0].imageUsageFlags = videoFormatPropertiesKHR.ImageUsageFlags;
-            }
+            context.Destination[0].imageUsageFlags = videoFormatPropertiesKHR.ImageUsageFlags;
 
         }
     }

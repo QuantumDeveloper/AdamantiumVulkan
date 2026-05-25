@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2085 Column: 14
-public enum DynamicState : uint
+// File: vk.xml Line: 12408 Column: 6
+public enum DynamicState : int
 {
     Viewport = 0,
 
@@ -31,38 +31,6 @@ public enum DynamicState : uint
     StencilWriteMask = 7,
 
     StencilReference = 8,
-
-    CullMode = 1000267000,
-
-    FrontFace = 1000267001,
-
-    PrimitiveTopology = 1000267002,
-
-    ViewportWithCount = 1000267003,
-
-    ScissorWithCount = 1000267004,
-
-    VertexInputBindingStride = 1000267005,
-
-    DepthTestEnable = 1000267006,
-
-    DepthWriteEnable = 1000267007,
-
-    DepthCompareOp = 1000267008,
-
-    DepthBoundsTestEnable = 1000267009,
-
-    StencilTestEnable = 1000267010,
-
-    StencilOp = 1000267011,
-
-    RasterizerDiscardEnable = 1000377001,
-
-    DepthBiasEnable = 1000377002,
-
-    PrimitiveRestartEnable = 1000377004,
-
-    LineStipple = 1000259000,
 
     ViewportWScalingNv = 1000087000,
 
@@ -160,7 +128,37 @@ public enum DynamicState : uint
 
     DepthClampRangeExt = 1000582000,
 
-    MaxEnum = 2147483647,
+    CullMode = 1000267000,
+
+    FrontFace = 1000267001,
+
+    PrimitiveTopology = 1000267002,
+
+    ViewportWithCount = 1000267003,
+
+    ScissorWithCount = 1000267004,
+
+    VertexInputBindingStride = 1000267005,
+
+    DepthTestEnable = 1000267006,
+
+    DepthWriteEnable = 1000267007,
+
+    DepthCompareOp = 1000267008,
+
+    DepthBoundsTestEnable = 1000267009,
+
+    StencilTestEnable = 1000267010,
+
+    StencilOp = 1000267011,
+
+    RasterizerDiscardEnable = 1000377001,
+
+    DepthBiasEnable = 1000377002,
+
+    PrimitiveRestartEnable = 1000377004,
+
+    LineStipple = 1000259000,
 
 }
 

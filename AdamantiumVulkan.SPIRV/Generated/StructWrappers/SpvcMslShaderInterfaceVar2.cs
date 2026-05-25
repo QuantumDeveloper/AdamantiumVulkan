@@ -13,6 +13,9 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+///<summary>
+/// Maps to C++ API.
+///</summary>
 public unsafe partial class SpvcMslShaderInterfaceVar2 : IMarshallable<AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar2>
 {
     public SpvcMslShaderInterfaceVar2()
@@ -26,13 +29,14 @@ public unsafe partial class SpvcMslShaderInterfaceVar2 : IMarshallable<Adamantiu
 
     public uint Location { get; set; }
     public MslShaderVariableFormat Format { get; set; }
-    public SpvBuiltIn Builtin { get; set; }
+    public BuiltIn Builtin { get; set; }
     public uint Vecsize { get; set; }
     public MslShaderVariableRate Rate { get; set; }
+
     ///<summary>
     /// Initializes the shader interface variable struct.
     ///</summary>
-    public void MslShaderInterfaceVarInit2()
+    public void CMslShaderInterfaceVarInit2()
     {
         System.Span<byte> arg0Span = stackalloc byte[GetSize()];
         var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslShaderInterfaceVar2, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar2>(this, ref arg0Span);

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Spirv.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross\spirv_cross_c.h Line: 72 Column: 32
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 72 Column: 32
 ///<summary>
 /// These types are opaque to the user.
 ///</summary>
@@ -36,8 +36,8 @@ public unsafe partial class SpirvContext : IUnmanagedWrapper<AdamantiumVulkan.Sp
     ///</summary>
     public static Result Create(out AdamantiumVulkan.Spirv.Cross.SpirvContext context)
     {
-        SpvcContextS arg0;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_create(out arg0);
+        SpvcContextS arg0 = default;
+        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_create(&arg0);
         context = new SpirvContext(arg0);
         return result;
     }
@@ -48,8 +48,8 @@ public unsafe partial class SpirvContext : IUnmanagedWrapper<AdamantiumVulkan.Sp
     public Result CreateCompiler(Backend backend, AdamantiumVulkan.Spirv.Cross.SpirvParsedIr parsed_ir, CaptureMode mode, out AdamantiumVulkan.Spirv.Cross.SpirvCompiler compiler)
     {
         var arg2 = parsed_ir == null ? new SpvcParsedIrS() : (SpvcParsedIrS)parsed_ir;
-        SpvcCompilerS arg4;
-        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_create_compiler(this, backend, arg2, mode, out arg4);
+        SpvcCompilerS arg4 = default;
+        var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_create_compiler(this, backend, arg2, mode, &arg4);
         compiler = new SpirvCompiler(arg4);
         return result;
     }
@@ -90,8 +90,8 @@ public unsafe partial class SpirvContext : IUnmanagedWrapper<AdamantiumVulkan.Sp
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalBlittableArray<byte>(spirv, ref currentCursor);
-            SpvcParsedIrS arg3;
-            var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_parse_spirv(this, arg1, word_count, out arg3);
+            SpvcParsedIrS arg3 = default;
+            var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_parse_spirv(this, arg1, word_count, &arg3);
             parsed_ir = new SpirvParsedIr(arg3);
             return result;
         }
@@ -112,7 +112,9 @@ public unsafe partial class SpirvContext : IUnmanagedWrapper<AdamantiumVulkan.Sp
 
     public void SetErrorCallback(nuint cb, ref nuint userdata)
     {
-        AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_set_error_callback(this, cb, userdata);
+        var arg2 = (void*)userdata;
+        AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_set_error_callback(this, cb, arg2);
+        userdata = (nuint)arg2;
     }
 
     public ref readonly SpvcContextS GetPinnableReference() => ref __Instance;

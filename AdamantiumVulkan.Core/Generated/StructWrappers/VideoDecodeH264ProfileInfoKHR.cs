@@ -9,7 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
 
 namespace AdamantiumVulkan.Core;
 
@@ -24,10 +23,11 @@ public unsafe partial class VideoDecodeH264ProfileInfoKHR : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoDecodeH264ProfileInfoKhr;
     public object PNext { get; set; }
     public StdVideoH264ProfileIdc StdProfileIdc { get; set; }
     public VideoDecodeH264PictureLayoutFlagBitsKHR PictureLayout { get; set; }
+
 
     public static implicit operator VideoDecodeH264ProfileInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeH264ProfileInfoKHR v)
     {
@@ -51,20 +51,19 @@ public unsafe partial class VideoDecodeH264ProfileInfoKHR : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoDecodeH264ProfileInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         StdProfileIdc = native.stdProfileIdc;
         PictureLayout = native.pictureLayout;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoDecodeH264ProfileInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoDecodeH264ProfileInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoDecodeH264ProfileInfoKHRMarshaller
     {
@@ -78,11 +77,11 @@ public unsafe partial class VideoDecodeH264ProfileInfoKHR : IMarshallableObject,
             }
             else if (videoDecodeH264ProfileInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoDecodeH264ProfileInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].stdProfileIdc = videoDecodeH264ProfileInfoKHR.StdProfileIdc;

@@ -28,6 +28,7 @@ public unsafe partial class QueueFamilyProperties : IMarshallableObject, IMarsha
     public uint TimestampValidBits { get; set; }
     public Extent3D MinImageTransferGranularity { get; set; }
 
+
     public static implicit operator QueueFamilyProperties(AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties q)
     {
         return new QueueFamilyProperties(in q);
@@ -52,14 +53,14 @@ public unsafe partial class QueueFamilyProperties : IMarshallableObject, IMarsha
         MinImageTransferGranularity = new Extent3D(native.minImageTransferGranularity);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkQueueFamilyPropertiesMarshaller
     {

@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20463 Column: 26
+// File: video.xml Line: 15016 Column: 10
 public unsafe struct PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT
 {
     public PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT
     public PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkImageAspectFlags, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, ImageAspectFlagBits, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkImageAspectFlags, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, ImageAspectFlagBits, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkImageAspectFlags aspectMask)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, ImageAspectFlagBits aspectMask)
     {
          InvokeFunc(commandBuffer, aspectMask);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkImageAspectFlags aspectMask)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, ImageAspectFlagBits aspectMask)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkImageAspectFlags, void>)ptr)(commandBuffer, aspectMask);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, ImageAspectFlagBits, void>)ptr)(commandBuffer, aspectMask);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, VkImageAspectFlags aspectMask)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, ImageAspectFlagBits aspectMask)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, VkImageAspectFlags, void>)(void*)ptr)(commandBuffer, aspectMask);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, ImageAspectFlagBits, void>)(void*)ptr)(commandBuffer, aspectMask);
     }
 
     public static explicit operator PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT(void* ptr) => new(ptr);

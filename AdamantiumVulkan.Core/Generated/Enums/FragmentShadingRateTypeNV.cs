@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17419 Column: 14
+// File: vk.xml Line: 13421 Column: 6
 [Flags]
-public enum FragmentShadingRateTypeNV : uint
+public enum FragmentShadingRateTypeNV : int
 {
     FragmentSizeNv = 0,
 
     EnumsNv = 1,
-
-    MaxEnumNv = 2147483647,
 
 }
 

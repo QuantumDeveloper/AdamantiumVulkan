@@ -11,17 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15312 Column: 14
+// File: vk.xml Line: 13259 Column: 6
 [Flags]
-public enum MemoryOverallocationBehaviorAMD : uint
+public enum MemoryOverallocationBehaviorAMD : int
 {
     DefaultAmd = 0,
 
     AllowedAmd = 1,
 
     DisallowedAmd = 2,
-
-    MaxEnumAmd = 2147483647,
 
 }
 

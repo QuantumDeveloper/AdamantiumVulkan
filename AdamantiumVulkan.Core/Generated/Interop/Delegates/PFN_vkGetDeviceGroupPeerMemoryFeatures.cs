@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5792 Column: 26
+// File: video.xml Line: 16175 Column: 10
 public unsafe struct PFN_vkGetDeviceGroupPeerMemoryFeatures
 {
     public PFN_vkGetDeviceGroupPeerMemoryFeatures(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetDeviceGroupPeerMemoryFeatures
     public PFN_vkGetDeviceGroupPeerMemoryFeatures(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, uint, uint, ref VkPeerMemoryFeatureFlags*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, uint, uint, PeerMemoryFeatureFlagBits*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, uint, uint, ref VkPeerMemoryFeatureFlags*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, uint, uint, PeerMemoryFeatureFlagBits*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, ref VkPeerMemoryFeatureFlags* pPeerMemoryFeatures)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, PeerMemoryFeatureFlagBits* pPeerMemoryFeatures)
     {
-         InvokeFunc(device, heapIndex, localDeviceIndex, remoteDeviceIndex, ref pPeerMemoryFeatures);
+         InvokeFunc(device, heapIndex, localDeviceIndex, remoteDeviceIndex, pPeerMemoryFeatures);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, ref VkPeerMemoryFeatureFlags* pPeerMemoryFeatures)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, PeerMemoryFeatureFlagBits* pPeerMemoryFeatures)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, uint, uint, ref VkPeerMemoryFeatureFlags*, void>)ptr)(device, heapIndex, localDeviceIndex, remoteDeviceIndex, ref pPeerMemoryFeatures);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, uint, uint, PeerMemoryFeatureFlagBits*, void>)ptr)(device, heapIndex, localDeviceIndex, remoteDeviceIndex, pPeerMemoryFeatures);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, ref VkPeerMemoryFeatureFlags* pPeerMemoryFeatures)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint heapIndex, uint localDeviceIndex, uint remoteDeviceIndex, PeerMemoryFeatureFlagBits* pPeerMemoryFeatures)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, uint, uint, ref VkPeerMemoryFeatureFlags*, void>)(void*)ptr)(device, heapIndex, localDeviceIndex, remoteDeviceIndex, ref pPeerMemoryFeatures);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, uint, uint, PeerMemoryFeatureFlagBits*, void>)(void*)ptr)(device, heapIndex, localDeviceIndex, remoteDeviceIndex, pPeerMemoryFeatures);
     }
 
     public static explicit operator PFN_vkGetDeviceGroupPeerMemoryFeatures(void* ptr) => new(ptr);

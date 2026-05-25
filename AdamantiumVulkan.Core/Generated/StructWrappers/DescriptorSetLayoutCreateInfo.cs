@@ -29,6 +29,7 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : IMarshallableObject,
     public uint BindingCount { get; set; }
     public System.ReadOnlyMemory<DescriptorSetLayoutBinding> PBindings { get; set; }
 
+
     public static implicit operator DescriptorSetLayoutCreateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo d)
     {
         return new DescriptorSetLayoutCreateInfo(in d);
@@ -64,9 +65,10 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : IMarshallableObject,
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         BindingCount = native.bindingCount;
-        var tmpPBindings = new DescriptorSetLayoutBinding[native.bindingCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding[native.bindingCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pBindings, native.bindingCount, nativeTmpArray0);
+        var arrayLengthPBindings = native.bindingCount;
+        var tmpPBindings = new DescriptorSetLayoutBinding[arrayLengthPBindings];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutBinding[arrayLengthPBindings];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pBindings, arrayLengthPBindings, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPBindings[i] = new DescriptorSetLayoutBinding(in nativeTmpArray0[i]);
@@ -74,14 +76,14 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : IMarshallableObject,
         PBindings = tmpPBindings;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDescriptorSetLayoutCreateInfoMarshaller
     {
@@ -95,11 +97,11 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : IMarshallableObject,
             }
             else if (descriptorSetLayoutCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (descriptorSetLayoutCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].flags = descriptorSetLayoutCreateInfo.Flags;

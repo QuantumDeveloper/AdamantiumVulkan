@@ -23,9 +23,9 @@ public unsafe partial class VideoCapabilitiesKHR : IMarshallableObject, IMarshal
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoCapabilitiesKhr;
     public object PNext { get; set; }
-    public VkVideoCapabilityFlagsKHR Flags { get; set; }
+    public VideoCapabilityFlagBitsKHR Flags { get; set; }
     public VkDeviceSize MinBitstreamBufferOffsetAlignment { get; set; }
     public VkDeviceSize MinBitstreamBufferSizeAlignment { get; set; }
     public Extent2D PictureAccessGranularity { get; set; }
@@ -34,6 +34,7 @@ public unsafe partial class VideoCapabilitiesKHR : IMarshallableObject, IMarshal
     public uint MaxDpbSlots { get; set; }
     public uint MaxActiveReferencePictures { get; set; }
     public ExtensionProperties StdHeaderVersion { get; set; }
+
 
     public static implicit operator VideoCapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoCapabilitiesKHR v)
     {
@@ -57,7 +58,6 @@ public unsafe partial class VideoCapabilitiesKHR : IMarshallableObject, IMarshal
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoCapabilitiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         MinBitstreamBufferOffsetAlignment = native.minBitstreamBufferOffsetAlignment;
@@ -70,14 +70,14 @@ public unsafe partial class VideoCapabilitiesKHR : IMarshallableObject, IMarshal
         StdHeaderVersion = new ExtensionProperties(native.stdHeaderVersion);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoCapabilitiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoCapabilitiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoCapabilitiesKHRMarshaller
     {
@@ -91,17 +91,14 @@ public unsafe partial class VideoCapabilitiesKHR : IMarshallableObject, IMarshal
             }
             else if (videoCapabilitiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoCapabilitiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (videoCapabilitiesKHR.Flags != (uint)default)
-            {
-                context.Destination[0].flags = videoCapabilitiesKHR.Flags;
-            }
+            context.Destination[0].flags = videoCapabilitiesKHR.Flags;
 
             if (videoCapabilitiesKHR.MinBitstreamBufferOffsetAlignment != (ulong)default)
             {

@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeAV1PictureInfo : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfo>
+public unsafe partial class StdVideoEncodeAV1PictureInfo : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo>
 {
     public StdVideoEncodeAV1PictureInfo()
     {
     }
 
-    public StdVideoEncodeAV1PictureInfo(in AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfo native)
+    public StdVideoEncodeAV1PictureInfo(in AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo native)
     {
         MarshalFrom(in native);
     }
@@ -38,7 +38,7 @@ public unsafe partial class StdVideoEncodeAV1PictureInfo : IMarshallableObject, 
     public byte Delta_q_res { get; set; }
     public byte Delta_lf_res { get; set; }
     public System.ReadOnlyMemory<byte> Ref_order_hint { get; set; }
-    public string Ref_frame_idx { get; set; }
+    public System.ReadOnlyMemory<sbyte> Ref_frame_idx { get; set; }
     public System.ReadOnlyMemory<byte> Reserved1 { get; set; }
     public System.ReadOnlyMemory<uint> Delta_frame_id_minus_1 { get; set; }
     public StdVideoAV1TileInfo PTileInfo { get; set; }
@@ -51,14 +51,15 @@ public unsafe partial class StdVideoEncodeAV1PictureInfo : IMarshallableObject, 
     public StdVideoEncodeAV1ExtensionHeader PExtensionHeader { get; set; }
     public uint? PBufferRemovalTimes { get; set; }
 
-    public static implicit operator StdVideoEncodeAV1PictureInfo(AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfo s)
+
+    public static implicit operator StdVideoEncodeAV1PictureInfo(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo s)
     {
         return new StdVideoEncodeAV1PictureInfo(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfo>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo>();
         if (PTileInfo != default)
         {
             size += PTileInfo.GetSize();
@@ -94,12 +95,12 @@ public unsafe partial class StdVideoEncodeAV1PictureInfo : IMarshallableObject, 
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfo> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo> context)
     {
         new StdVideoEncodeAV1PictureInfoMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfo native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo native)
     {
         Flags = new StdVideoEncodeAV1PictureInfoFlags(native.flags);
         Frame_type = native.frame_type;
@@ -116,19 +117,23 @@ public unsafe partial class StdVideoEncodeAV1PictureInfo : IMarshallableObject, 
         Delta_q_res = native.delta_q_res;
         Delta_lf_res = native.delta_lf_res;
         var tmpRef_order_hint = new byte[8];
-        var pRef_order_hint = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.ref_order_hint[0]));
+        var ref_order_hintp = native.ref_order_hint[0];
+        var pRef_order_hint = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in ref_order_hintp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pRef_order_hint, 8, tmpRef_order_hint);
         Ref_order_hint = tmpRef_order_hint;
-        fixed(sbyte* pSource = native.ref_frame_idx)
-        {
-            Ref_frame_idx = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 7);
-        }
+        var tmpRef_frame_idx = new sbyte[7];
+        var ref_frame_idxp = native.ref_frame_idx[0];
+        var pRef_frame_idx = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in ref_frame_idxp ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pRef_frame_idx, 7, tmpRef_frame_idx);
+        Ref_frame_idx = tmpRef_frame_idx;
         var tmpReserved1 = new byte[3];
-        var pReserved1 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.reserved1[0]));
+        var reserved1p = native.reserved1[0];
+        var pReserved1 = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in reserved1p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pReserved1, 3, tmpReserved1);
         Reserved1 = tmpReserved1;
         var tmpDelta_frame_id_minus_1 = new uint[7];
-        var pDelta_frame_id_minus_1 = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.delta_frame_id_minus_1[0]));
+        var delta_frame_id_minus_1p = native.delta_frame_id_minus_1[0];
+        var pDelta_frame_id_minus_1 = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in delta_frame_id_minus_1p ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pDelta_frame_id_minus_1, 7, tmpDelta_frame_id_minus_1);
         Delta_frame_id_minus_1 = tmpDelta_frame_id_minus_1;
         PTileInfo = new StdVideoAV1TileInfo(in *native.pTileInfo);
@@ -154,25 +159,25 @@ public unsafe partial class StdVideoEncodeAV1PictureInfo : IMarshallableObject, 
         }
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfo>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfo>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeAV1PictureInfoMarshaller
     {
-        public StdVideoEncodeAV1PictureInfoMarshaller(AdamantiumVulkan.StdVideoEncodeAV1PictureInfo stdVideoEncodeAV1PictureInfo, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfo> context)
+        public StdVideoEncodeAV1PictureInfoMarshaller(AdamantiumVulkan.Core.StdVideoEncodeAV1PictureInfo stdVideoEncodeAV1PictureInfo, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo> context)
         {
             if (stdVideoEncodeAV1PictureInfo.Flags != default)
             {
-                fixed (AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfoFlags* pField = &context.Destination[0].flags)
+                fixed (AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfoFlags* pField = &context.Destination[0].flags)
                 {
-                    var fieldSpan = new System.Span<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfoFlags>(pField, 1);
-                    var childContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfoFlags>(fieldSpan, context.DataCursor);
+                    var fieldSpan = new System.Span<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfoFlags>(pField, 1);
+                    var childContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfoFlags>(fieldSpan, context.DataCursor);
                     stdVideoEncodeAV1PictureInfo.Flags.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
@@ -213,8 +218,7 @@ public unsafe partial class StdVideoEncodeAV1PictureInfo : IMarshallableObject, 
             ref var tmpDestination1 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination1.ref_frame_idx)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 7);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoEncodeAV1PictureInfo.Ref_frame_idx, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoEncodeAV1PictureInfo.Ref_frame_idx.Span, pDest, 7);
             }
 
             ref var tmpDestination2 = ref context.Destination[0];
@@ -231,80 +235,80 @@ public unsafe partial class StdVideoEncodeAV1PictureInfo : IMarshallableObject, 
 
             if (stdVideoEncodeAV1PictureInfo.PTileInfo != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoAV1TileInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoAV1TileInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pTileInfo = (AdamantiumVulkan.Interop.StdVideoAV1TileInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1TileInfo>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo>(structSlice0).Slice(0, 1);
+                context.Destination[0].pTileInfo = (AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1TileInfo>(structDestination0, context.DataCursor);
                 stdVideoEncodeAV1PictureInfo.PTileInfo.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (stdVideoEncodeAV1PictureInfo.PQuantization != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoAV1Quantization));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoAV1Quantization>(structSlice0).Slice(0, 1);
-                context.Destination[0].pQuantization = (AdamantiumVulkan.Interop.StdVideoAV1Quantization*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1Quantization>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoAV1Quantization));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoAV1Quantization>(structSlice0).Slice(0, 1);
+                context.Destination[0].pQuantization = (AdamantiumVulkan.Core.Interop.StdVideoAV1Quantization*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1Quantization>(structDestination0, context.DataCursor);
                 stdVideoEncodeAV1PictureInfo.PQuantization.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (stdVideoEncodeAV1PictureInfo.PSegmentation != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoAV1Segmentation));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoAV1Segmentation>(structSlice0).Slice(0, 1);
-                context.Destination[0].pSegmentation = (AdamantiumVulkan.Interop.StdVideoAV1Segmentation*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1Segmentation>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation>(structSlice0).Slice(0, 1);
+                context.Destination[0].pSegmentation = (AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation>(structDestination0, context.DataCursor);
                 stdVideoEncodeAV1PictureInfo.PSegmentation.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (stdVideoEncodeAV1PictureInfo.PLoopFilter != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoAV1LoopFilter));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoAV1LoopFilter>(structSlice0).Slice(0, 1);
-                context.Destination[0].pLoopFilter = (AdamantiumVulkan.Interop.StdVideoAV1LoopFilter*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1LoopFilter>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter>(structSlice0).Slice(0, 1);
+                context.Destination[0].pLoopFilter = (AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter>(structDestination0, context.DataCursor);
                 stdVideoEncodeAV1PictureInfo.PLoopFilter.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (stdVideoEncodeAV1PictureInfo.PCDEF != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoAV1CDEF));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoAV1CDEF>(structSlice0).Slice(0, 1);
-                context.Destination[0].pCDEF = (AdamantiumVulkan.Interop.StdVideoAV1CDEF*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1CDEF>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF>(structSlice0).Slice(0, 1);
+                context.Destination[0].pCDEF = (AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF>(structDestination0, context.DataCursor);
                 stdVideoEncodeAV1PictureInfo.PCDEF.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (stdVideoEncodeAV1PictureInfo.PLoopRestoration != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration>(structSlice0).Slice(0, 1);
-                context.Destination[0].pLoopRestoration = (AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1LoopRestoration>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration>(structSlice0).Slice(0, 1);
+                context.Destination[0].pLoopRestoration = (AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopRestoration>(structDestination0, context.DataCursor);
                 stdVideoEncodeAV1PictureInfo.PLoopRestoration.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (stdVideoEncodeAV1PictureInfo.PGlobalMotion != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion>(structSlice0).Slice(0, 1);
-                context.Destination[0].pGlobalMotion = (AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1GlobalMotion>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion>(structSlice0).Slice(0, 1);
+                context.Destination[0].pGlobalMotion = (AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1GlobalMotion>(structDestination0, context.DataCursor);
                 stdVideoEncodeAV1PictureInfo.PGlobalMotion.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (stdVideoEncodeAV1PictureInfo.PExtensionHeader != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader>(structSlice0).Slice(0, 1);
-                context.Destination[0].pExtensionHeader = (AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader>(structSlice0).Slice(0, 1);
+                context.Destination[0].pExtensionHeader = (AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader>(structDestination0, context.DataCursor);
                 stdVideoEncodeAV1PictureInfo.PExtensionHeader.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }

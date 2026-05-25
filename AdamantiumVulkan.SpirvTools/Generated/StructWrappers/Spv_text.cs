@@ -25,6 +25,7 @@ public unsafe partial class Spv_text : IMarshallable<AdamantiumVulkan.SpirvTools
 
     public string Str { get; set; }
     public ulong Length { get; set; }
+
     ///<summary>
     /// Frees an allocated text stream. This is a no-op if the text parameter is a null pointer.
     ///</summary>

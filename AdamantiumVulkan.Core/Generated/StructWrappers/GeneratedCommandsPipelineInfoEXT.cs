@@ -23,9 +23,10 @@ public unsafe partial class GeneratedCommandsPipelineInfoEXT : IMarshallableObje
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.GeneratedCommandsPipelineInfoExt;
     public object PNext { get; set; }
     public Pipeline Pipeline { get; set; }
+
 
     public static implicit operator GeneratedCommandsPipelineInfoEXT(AdamantiumVulkan.Core.Interop.VkGeneratedCommandsPipelineInfoEXT g)
     {
@@ -49,19 +50,18 @@ public unsafe partial class GeneratedCommandsPipelineInfoEXT : IMarshallableObje
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkGeneratedCommandsPipelineInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Pipeline = new Pipeline(native.pipeline);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkGeneratedCommandsPipelineInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkGeneratedCommandsPipelineInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkGeneratedCommandsPipelineInfoEXTMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class GeneratedCommandsPipelineInfoEXT : IMarshallableObje
             }
             else if (generatedCommandsPipelineInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (generatedCommandsPipelineInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (generatedCommandsPipelineInfoEXT.Pipeline != default)

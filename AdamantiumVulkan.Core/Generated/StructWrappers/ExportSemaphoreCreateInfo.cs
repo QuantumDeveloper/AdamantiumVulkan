@@ -25,7 +25,8 @@ public unsafe partial class ExportSemaphoreCreateInfo : IMarshallableObject, IMa
 
     public StructureType SType => StructureType.ExportSemaphoreCreateInfo;
     public object PNext { get; set; }
-    public VkExternalSemaphoreHandleTypeFlags HandleTypes { get; set; }
+    public ExternalSemaphoreHandleTypeFlagBits HandleTypes { get; set; }
+
 
     public static implicit operator ExportSemaphoreCreateInfo(AdamantiumVulkan.Core.Interop.VkExportSemaphoreCreateInfo e)
     {
@@ -53,14 +54,14 @@ public unsafe partial class ExportSemaphoreCreateInfo : IMarshallableObject, IMa
         HandleTypes = native.handleTypes;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkExportSemaphoreCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkExportSemaphoreCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkExportSemaphoreCreateInfoMarshaller
     {
@@ -74,17 +75,14 @@ public unsafe partial class ExportSemaphoreCreateInfo : IMarshallableObject, IMa
             }
             else if (exportSemaphoreCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (exportSemaphoreCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (exportSemaphoreCreateInfo.HandleTypes != (uint)default)
-            {
-                context.Destination[0].handleTypes = exportSemaphoreCreateInfo.HandleTypes;
-            }
+            context.Destination[0].handleTypes = exportSemaphoreCreateInfo.HandleTypes;
 
         }
     }

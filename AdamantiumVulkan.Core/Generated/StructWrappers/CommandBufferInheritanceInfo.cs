@@ -29,8 +29,9 @@ public unsafe partial class CommandBufferInheritanceInfo : IMarshallableObject, 
     public uint Subpass { get; set; }
     public Framebuffer Framebuffer { get; set; }
     public VkBool32 OcclusionQueryEnable { get; set; }
-    public VkQueryControlFlags QueryFlags { get; set; }
-    public VkQueryPipelineStatisticFlags PipelineStatistics { get; set; }
+    public QueryControlFlagBits QueryFlags { get; set; }
+    public QueryPipelineStatisticFlagBits PipelineStatistics { get; set; }
+
 
     public static implicit operator CommandBufferInheritanceInfo(AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo c)
     {
@@ -63,14 +64,14 @@ public unsafe partial class CommandBufferInheritanceInfo : IMarshallableObject, 
         PipelineStatistics = native.pipelineStatistics;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkCommandBufferInheritanceInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkCommandBufferInheritanceInfoMarshaller
     {
@@ -84,11 +85,11 @@ public unsafe partial class CommandBufferInheritanceInfo : IMarshallableObject, 
             }
             else if (commandBufferInheritanceInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (commandBufferInheritanceInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (commandBufferInheritanceInfo.RenderPass != default)
@@ -108,15 +109,9 @@ public unsafe partial class CommandBufferInheritanceInfo : IMarshallableObject, 
                 context.Destination[0].occlusionQueryEnable = commandBufferInheritanceInfo.OcclusionQueryEnable;
             }
 
-            if (commandBufferInheritanceInfo.QueryFlags != (uint)default)
-            {
-                context.Destination[0].queryFlags = commandBufferInheritanceInfo.QueryFlags;
-            }
+            context.Destination[0].queryFlags = commandBufferInheritanceInfo.QueryFlags;
 
-            if (commandBufferInheritanceInfo.PipelineStatistics != (uint)default)
-            {
-                context.Destination[0].pipelineStatistics = commandBufferInheritanceInfo.PipelineStatistics;
-            }
+            context.Destination[0].pipelineStatistics = commandBufferInheritanceInfo.PipelineStatistics;
 
         }
     }

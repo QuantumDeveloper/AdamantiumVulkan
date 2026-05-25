@@ -27,6 +27,7 @@ public unsafe partial class DisplayPlaneProperties2KHR : IMarshallableObject, IM
     public object PNext { get; set; }
     public DisplayPlanePropertiesKHR DisplayPlaneProperties { get; set; }
 
+
     public static implicit operator DisplayPlaneProperties2KHR(AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR d)
     {
         return new DisplayPlaneProperties2KHR(in d);
@@ -53,14 +54,14 @@ public unsafe partial class DisplayPlaneProperties2KHR : IMarshallableObject, IM
         DisplayPlaneProperties = new DisplayPlanePropertiesKHR(native.displayPlaneProperties);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDisplayPlaneProperties2KHRMarshaller
     {
@@ -74,11 +75,11 @@ public unsafe partial class DisplayPlaneProperties2KHR : IMarshallableObject, IM
             }
             else if (displayPlaneProperties2KHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (displayPlaneProperties2KHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (displayPlaneProperties2KHR.DisplayPlaneProperties != default)

@@ -23,9 +23,10 @@ public unsafe partial class OpticalFlowImageFormatPropertiesNV : IMarshallableOb
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.OpticalFlowImageFormatPropertiesNv;
     public object PNext { get; set; }
     public Format Format { get; set; }
+
 
     public static implicit operator OpticalFlowImageFormatPropertiesNV(AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV o)
     {
@@ -49,19 +50,18 @@ public unsafe partial class OpticalFlowImageFormatPropertiesNV : IMarshallableOb
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Format = native.format;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkOpticalFlowImageFormatPropertiesNVMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class OpticalFlowImageFormatPropertiesNV : IMarshallableOb
             }
             else if (opticalFlowImageFormatPropertiesNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (opticalFlowImageFormatPropertiesNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].format = opticalFlowImageFormatPropertiesNV.Format;

@@ -26,6 +26,7 @@ public unsafe partial class MemoryType : IMarshallableObject, IMarshallable<Adam
     public MemoryPropertyFlagBits PropertyFlags { get; set; }
     public uint HeapIndex { get; set; }
 
+
     public static implicit operator MemoryType(AdamantiumVulkan.Core.Interop.VkMemoryType m)
     {
         return new MemoryType(in m);
@@ -48,14 +49,14 @@ public unsafe partial class MemoryType : IMarshallableObject, IMarshallable<Adam
         HeapIndex = native.heapIndex;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkMemoryType>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkMemoryType>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkMemoryTypeMarshaller
     {

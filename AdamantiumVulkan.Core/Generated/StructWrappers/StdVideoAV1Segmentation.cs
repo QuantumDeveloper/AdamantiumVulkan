@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1Segmentation : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1Segmentation>
+public unsafe partial class StdVideoAV1Segmentation : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation>
 {
     public StdVideoAV1Segmentation()
     {
     }
 
-    public StdVideoAV1Segmentation(in AdamantiumVulkan.Interop.StdVideoAV1Segmentation native)
+    public StdVideoAV1Segmentation(in AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation native)
     {
         MarshalFrom(in native);
     }
@@ -26,46 +26,49 @@ public unsafe partial class StdVideoAV1Segmentation : IMarshallableObject, IMars
     public System.ReadOnlyMemory<byte> FeatureEnabled { get; set; }
     public System.ReadOnlyMemory<short> FeatureData { get; set; }
 
-    public static implicit operator StdVideoAV1Segmentation(AdamantiumVulkan.Interop.StdVideoAV1Segmentation s)
+
+    public static implicit operator StdVideoAV1Segmentation(AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation s)
     {
         return new StdVideoAV1Segmentation(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1Segmentation>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1Segmentation> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation> context)
     {
         new StdVideoAV1SegmentationMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1Segmentation native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation native)
     {
         var tmpFeatureEnabled = new byte[8];
-        var pFeatureEnabled = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.FeatureEnabled[0]));
+        var FeatureEnabledp = native.FeatureEnabled[0];
+        var pFeatureEnabled = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in FeatureEnabledp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pFeatureEnabled, 8, tmpFeatureEnabled);
         FeatureEnabled = tmpFeatureEnabled;
         var tmpFeatureData = new short[64];
-        var pFeatureData = (short*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.FeatureData[0]));
+        var FeatureDatap = native.FeatureData[0];
+        var pFeatureData = (short*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in FeatureDatap ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pFeatureData, 64, tmpFeatureData);
         FeatureData = tmpFeatureData;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1Segmentation>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1Segmentation>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1SegmentationMarshaller
     {
-        public StdVideoAV1SegmentationMarshaller(AdamantiumVulkan.StdVideoAV1Segmentation stdVideoAV1Segmentation, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1Segmentation> context)
+        public StdVideoAV1SegmentationMarshaller(AdamantiumVulkan.Core.StdVideoAV1Segmentation stdVideoAV1Segmentation, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1Segmentation> context)
         {
             ref var tmpDestination0 = ref context.Destination[0];
             fixed (byte* pDest = tmpDestination0.FeatureEnabled)

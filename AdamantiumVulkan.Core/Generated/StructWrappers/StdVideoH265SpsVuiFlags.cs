@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoH265SpsVuiFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoH265SpsVuiFlags>
+public unsafe partial class StdVideoH265SpsVuiFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoH265SpsVuiFlags>
 {
     public StdVideoH265SpsVuiFlags()
     {
     }
 
-    public StdVideoH265SpsVuiFlags(in AdamantiumVulkan.Interop.StdVideoH265SpsVuiFlags native)
+    public StdVideoH265SpsVuiFlags(in AdamantiumVulkan.Core.Interop.StdVideoH265SpsVuiFlags native)
     {
         MarshalFrom(in native);
     }
@@ -42,23 +42,24 @@ public unsafe partial class StdVideoH265SpsVuiFlags : IMarshallableObject, IMars
     public uint Motion_vectors_over_pic_boundaries_flag { get; set; }
     public uint Restricted_ref_pic_lists_flag { get; set; }
 
-    public static implicit operator StdVideoH265SpsVuiFlags(AdamantiumVulkan.Interop.StdVideoH265SpsVuiFlags s)
+
+    public static implicit operator StdVideoH265SpsVuiFlags(AdamantiumVulkan.Core.Interop.StdVideoH265SpsVuiFlags s)
     {
         return new StdVideoH265SpsVuiFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoH265SpsVuiFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH265SpsVuiFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265SpsVuiFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265SpsVuiFlags> context)
     {
         new StdVideoH265SpsVuiFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoH265SpsVuiFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoH265SpsVuiFlags native)
     {
         Aspect_ratio_info_present_flag = native.aspect_ratio_info_present_flag;
         Overscan_info_present_flag = native.overscan_info_present_flag;
@@ -80,18 +81,18 @@ public unsafe partial class StdVideoH265SpsVuiFlags : IMarshallableObject, IMars
         Restricted_ref_pic_lists_flag = native.restricted_ref_pic_lists_flag;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoH265SpsVuiFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoH265SpsVuiFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265SpsVuiFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265SpsVuiFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoH265SpsVuiFlagsMarshaller
     {
-        public StdVideoH265SpsVuiFlagsMarshaller(AdamantiumVulkan.StdVideoH265SpsVuiFlags stdVideoH265SpsVuiFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265SpsVuiFlags> context)
+        public StdVideoH265SpsVuiFlagsMarshaller(AdamantiumVulkan.Core.StdVideoH265SpsVuiFlags stdVideoH265SpsVuiFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265SpsVuiFlags> context)
         {
             context.Destination[0].aspect_ratio_info_present_flag = stdVideoH265SpsVuiFlags.Aspect_ratio_info_present_flag;
 

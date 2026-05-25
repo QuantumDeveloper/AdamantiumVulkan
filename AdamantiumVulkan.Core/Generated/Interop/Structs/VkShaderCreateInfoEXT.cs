@@ -12,17 +12,17 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19845 Column: 16
+// File: vk.xml Line: 10083 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkShaderCreateInfoEXT
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkShaderCreateFlagsEXT flags;
+    public void* pNext;
+    public ShaderCreateFlagBitsEXT flags;
     public ShaderStageFlagBits stage;
     public ShaderStageFlagBits nextStage;
     public ShaderCodeTypeEXT codeType;
-    public ulong codeSize;
+    public nuint codeSize;
     public byte* pCode;
     public sbyte* pName;
     public uint setLayoutCount;

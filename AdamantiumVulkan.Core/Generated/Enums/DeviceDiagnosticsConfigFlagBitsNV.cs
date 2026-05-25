@@ -11,19 +11,17 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17023 Column: 14
+// File: vk.xml Line: 13268 Column: 6
 [Flags]
 public enum DeviceDiagnosticsConfigFlagBitsNV : uint
 {
-    EnableShaderDebugInfoBitNv = 1,
+    ShaderDebugInfoBitNv = 1,
 
-    EnableResourceTrackingBitNv = 2,
+    ResourceTrackingBitNv = 2,
 
-    EnableAutomaticCheckpointsBitNv = 4,
+    AutomaticCheckpointsBitNv = 4,
 
-    EnableShaderErrorReportingBitNv = 8,
-
-    FlagBitsMaxEnumNv = 2147483647,
+    ShaderErrorReportingBitNv = 8,
 
 }
 

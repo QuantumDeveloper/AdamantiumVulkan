@@ -23,9 +23,10 @@ public unsafe partial class ImageSubresource : IMarshallableObject, IMarshallabl
         MarshalFrom(in native);
     }
 
-    public VkImageAspectFlags AspectMask { get; set; }
+    public ImageAspectFlagBits AspectMask { get; set; }
     public uint MipLevel { get; set; }
     public uint ArrayLayer { get; set; }
+
 
     public static implicit operator ImageSubresource(AdamantiumVulkan.Core.Interop.VkImageSubresource i)
     {
@@ -50,23 +51,20 @@ public unsafe partial class ImageSubresource : IMarshallableObject, IMarshallabl
         ArrayLayer = native.arrayLayer;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageSubresource>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageSubresource>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageSubresourceMarshaller
     {
         public VkImageSubresourceMarshaller(AdamantiumVulkan.Core.ImageSubresource imageSubresource, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageSubresource> context)
         {
-            if (imageSubresource.AspectMask != (uint)default)
-            {
-                context.Destination[0].aspectMask = imageSubresource.AspectMask;
-            }
+            context.Destination[0].aspectMask = imageSubresource.AspectMask;
 
             context.Destination[0].mipLevel = imageSubresource.MipLevel;
 

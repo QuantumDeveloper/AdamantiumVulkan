@@ -23,9 +23,10 @@ public unsafe partial class RayTracingPipelineClusterAccelerationStructureCreate
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.RayTracingPipelineClusterAccelerationStructureCreateInfoNv;
     public object PNext { get; set; }
     public VkBool32 AllowClusterAccelerationStructure { get; set; }
+
 
     public static implicit operator RayTracingPipelineClusterAccelerationStructureCreateInfoNV(AdamantiumVulkan.Core.Interop.VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV r)
     {
@@ -49,19 +50,18 @@ public unsafe partial class RayTracingPipelineClusterAccelerationStructureCreate
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         AllowClusterAccelerationStructure = native.allowClusterAccelerationStructure;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRayTracingPipelineClusterAccelerationStructureCreateInfoNVMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class RayTracingPipelineClusterAccelerationStructureCreate
             }
             else if (rayTracingPipelineClusterAccelerationStructureCreateInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (rayTracingPipelineClusterAccelerationStructureCreateInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (rayTracingPipelineClusterAccelerationStructureCreateInfoNV.AllowClusterAccelerationStructure != (uint)default)

@@ -23,10 +23,11 @@ public unsafe partial class PhysicalDeviceImage2DViewOf3DFeaturesEXT : IMarshall
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceImage2dViewOf3dFeaturesExt;
     public object PNext { get; set; }
     public VkBool32 Image2DViewOf3D { get; set; }
     public VkBool32 Sampler2DViewOf3D { get; set; }
+
 
     public static implicit operator PhysicalDeviceImage2DViewOf3DFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImage2DViewOf3DFeaturesEXT p)
     {
@@ -50,20 +51,19 @@ public unsafe partial class PhysicalDeviceImage2DViewOf3DFeaturesEXT : IMarshall
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImage2DViewOf3DFeaturesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Image2DViewOf3D = native.image2DViewOf3D;
         Sampler2DViewOf3D = native.sampler2DViewOf3D;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImage2DViewOf3DFeaturesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImage2DViewOf3DFeaturesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceImage2DViewOf3DFeaturesEXTMarshaller
     {
@@ -77,11 +77,11 @@ public unsafe partial class PhysicalDeviceImage2DViewOf3DFeaturesEXT : IMarshall
             }
             else if (physicalDeviceImage2DViewOf3DFeaturesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceImage2DViewOf3DFeaturesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceImage2DViewOf3DFeaturesEXT.Image2DViewOf3D != (uint)default)

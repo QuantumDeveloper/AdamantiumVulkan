@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20123 Column: 14
-public enum LayerSettingTypeEXT : uint
+// File: vk.xml Line: 12907 Column: 6
+public enum LayerSettingTypeEXT : int
 {
     Bool32Ext = 0,
 
@@ -29,8 +29,6 @@ public enum LayerSettingTypeEXT : uint
     Float64Ext = 6,
 
     StringExt = 7,
-
-    MaxEnumExt = 2147483647,
 
 }
 

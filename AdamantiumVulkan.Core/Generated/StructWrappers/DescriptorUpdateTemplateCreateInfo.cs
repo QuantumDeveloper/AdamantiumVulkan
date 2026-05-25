@@ -27,12 +27,13 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : IMarshallableOb
     public object PNext { get; set; }
     public VkDescriptorUpdateTemplateCreateFlags Flags { get; set; }
     public uint DescriptorUpdateEntryCount { get; set; }
-    public DescriptorUpdateTemplateEntry PDescriptorUpdateEntries { get; set; }
+    public System.ReadOnlyMemory<DescriptorUpdateTemplateEntry> PDescriptorUpdateEntries { get; set; }
     public DescriptorUpdateTemplateType TemplateType { get; set; }
     public DescriptorSetLayout DescriptorSetLayout { get; set; }
     public PipelineBindPoint PipelineBindPoint { get; set; }
     public PipelineLayout PipelineLayout { get; set; }
     public uint Set { get; set; }
+
 
     public static implicit operator DescriptorUpdateTemplateCreateInfo(AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo d)
     {
@@ -46,9 +47,15 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : IMarshallableOb
         {
             size += marshallable.GetSize();
         }
-        if (PDescriptorUpdateEntries != default)
+        if (!PDescriptorUpdateEntries.IsEmpty)
         {
-            size += PDescriptorUpdateEntries.GetSize();
+            for (int i = 0; i < PDescriptorUpdateEntries.Length; i++)
+            {
+                if (PDescriptorUpdateEntries.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>();
+                else
+                    size += PDescriptorUpdateEntries.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -63,8 +70,15 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : IMarshallableOb
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         DescriptorUpdateEntryCount = native.descriptorUpdateEntryCount;
-        PDescriptorUpdateEntries = new DescriptorUpdateTemplateEntry(in *native.pDescriptorUpdateEntries);
-        NativeUtils.Free(native.pDescriptorUpdateEntries);
+        var arrayLengthPDescriptorUpdateEntries = native.descriptorUpdateEntryCount;
+        var tmpPDescriptorUpdateEntries = new DescriptorUpdateTemplateEntry[arrayLengthPDescriptorUpdateEntries];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry[arrayLengthPDescriptorUpdateEntries];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDescriptorUpdateEntries, arrayLengthPDescriptorUpdateEntries, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPDescriptorUpdateEntries[i] = new DescriptorUpdateTemplateEntry(in nativeTmpArray0[i]);
+        }
+        PDescriptorUpdateEntries = tmpPDescriptorUpdateEntries;
         TemplateType = native.templateType;
         DescriptorSetLayout = new DescriptorSetLayout(native.descriptorSetLayout);
         PipelineBindPoint = native.pipelineBindPoint;
@@ -72,14 +86,14 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : IMarshallableOb
         Set = native.set;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDescriptorUpdateTemplateCreateInfoMarshaller
     {
@@ -93,11 +107,11 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : IMarshallableOb
             }
             else if (descriptorUpdateTemplateCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (descriptorUpdateTemplateCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (descriptorUpdateTemplateCreateInfo.Flags != (uint)default)
@@ -107,14 +121,9 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : IMarshallableOb
 
             context.Destination[0].descriptorUpdateEntryCount = descriptorUpdateTemplateCreateInfo.DescriptorUpdateEntryCount;
 
-            if (descriptorUpdateTemplateCreateInfo.PDescriptorUpdateEntries != default)
+            if (!descriptorUpdateTemplateCreateInfo.PDescriptorUpdateEntries.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>(structSlice0).Slice(0, 1);
-                context.Destination[0].pDescriptorUpdateEntries = (AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>(structDestination0, context.DataCursor);
-                descriptorUpdateTemplateCreateInfo.PDescriptorUpdateEntries.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pDescriptorUpdateEntries = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.DescriptorUpdateTemplateEntry, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry, AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo>(descriptorUpdateTemplateCreateInfo.PDescriptorUpdateEntries, ref context);
             }
 
             context.Destination[0].templateType = descriptorUpdateTemplateCreateInfo.TemplateType;

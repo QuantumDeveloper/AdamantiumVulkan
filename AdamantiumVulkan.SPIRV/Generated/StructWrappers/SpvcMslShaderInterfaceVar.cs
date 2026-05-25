@@ -13,6 +13,9 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+///<summary>
+/// Maps to C++ API. Deprecated; use spvc_msl_shader_interface_var_2.
+///</summary>
 public unsafe partial class SpvcMslShaderInterfaceVar : IMarshallable<AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar>
 {
     public SpvcMslShaderInterfaceVar()
@@ -26,12 +29,13 @@ public unsafe partial class SpvcMslShaderInterfaceVar : IMarshallable<Adamantium
 
     public uint Location { get; set; }
     public MslShaderVariableFormat Format { get; set; }
-    public SpvBuiltIn Builtin { get; set; }
+    public BuiltIn Builtin { get; set; }
     public uint Vecsize { get; set; }
+
     ///<summary>
     /// Deprecated. Use spvc_msl_shader_interface_var_init_2().
     ///</summary>
-    public void MslShaderInputInit()
+    public void CMslShaderInputInit()
     {
         System.Span<byte> arg0Span = stackalloc byte[GetSize()];
         var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslShaderInterfaceVar, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar>(this, ref arg0Span);
@@ -41,7 +45,7 @@ public unsafe partial class SpvcMslShaderInterfaceVar : IMarshallable<Adamantium
     ///<summary>
     /// Initializes the shader input struct. Deprecated. Use spvc_msl_shader_interface_var_init_2().
     ///</summary>
-    public void MslShaderInterfaceVarInit()
+    public void CMslShaderInterfaceVarInit()
     {
         System.Span<byte> arg0Span = stackalloc byte[GetSize()];
         var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslShaderInterfaceVar, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar>(this, ref arg0Span);

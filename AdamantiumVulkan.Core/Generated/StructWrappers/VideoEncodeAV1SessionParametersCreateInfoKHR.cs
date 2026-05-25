@@ -9,8 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core;
 
@@ -25,12 +23,13 @@ public unsafe partial class VideoEncodeAV1SessionParametersCreateInfoKHR : IMars
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeAv1SessionParametersCreateInfoKhr;
     public object PNext { get; set; }
     public StdVideoAV1SequenceHeader PStdSequenceHeader { get; set; }
     public StdVideoEncodeAV1DecoderModelInfo PStdDecoderModelInfo { get; set; }
     public uint StdOperatingPointCount { get; set; }
-    public StdVideoEncodeAV1OperatingPointInfo PStdOperatingPoints { get; set; }
+    public System.ReadOnlyMemory<StdVideoEncodeAV1OperatingPointInfo> PStdOperatingPoints { get; set; }
+
 
     public static implicit operator VideoEncodeAV1SessionParametersCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR v)
     {
@@ -52,9 +51,15 @@ public unsafe partial class VideoEncodeAV1SessionParametersCreateInfoKHR : IMars
         {
             size += PStdDecoderModelInfo.GetSize();
         }
-        if (PStdOperatingPoints != default)
+        if (!PStdOperatingPoints.IsEmpty)
         {
-            size += PStdOperatingPoints.GetSize();
+            for (int i = 0; i < PStdOperatingPoints.Length; i++)
+            {
+                if (PStdOperatingPoints.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfo>();
+                else
+                    size += PStdOperatingPoints.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -66,25 +71,31 @@ public unsafe partial class VideoEncodeAV1SessionParametersCreateInfoKHR : IMars
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PStdSequenceHeader = new StdVideoAV1SequenceHeader(in *native.pStdSequenceHeader);
         NativeUtils.Free(native.pStdSequenceHeader);
         PStdDecoderModelInfo = new StdVideoEncodeAV1DecoderModelInfo(in *native.pStdDecoderModelInfo);
         NativeUtils.Free(native.pStdDecoderModelInfo);
         StdOperatingPointCount = native.stdOperatingPointCount;
-        PStdOperatingPoints = new StdVideoEncodeAV1OperatingPointInfo(in *native.pStdOperatingPoints);
-        NativeUtils.Free(native.pStdOperatingPoints);
+        var arrayLengthPStdOperatingPoints = native.stdOperatingPointCount;
+        var tmpPStdOperatingPoints = new StdVideoEncodeAV1OperatingPointInfo[arrayLengthPStdOperatingPoints];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfo[arrayLengthPStdOperatingPoints];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pStdOperatingPoints, arrayLengthPStdOperatingPoints, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPStdOperatingPoints[i] = new StdVideoEncodeAV1OperatingPointInfo(in nativeTmpArray0[i]);
+        }
+        PStdOperatingPoints = tmpPStdOperatingPoints;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeAV1SessionParametersCreateInfoKHRMarshaller
     {
@@ -98,43 +109,38 @@ public unsafe partial class VideoEncodeAV1SessionParametersCreateInfoKHR : IMars
             }
             else if (videoEncodeAV1SessionParametersCreateInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeAV1SessionParametersCreateInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoEncodeAV1SessionParametersCreateInfoKHR.PStdSequenceHeader != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoAV1SequenceHeader));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoAV1SequenceHeader>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStdSequenceHeader = (AdamantiumVulkan.Interop.StdVideoAV1SequenceHeader*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1SequenceHeader>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeader));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeader>(structSlice0).Slice(0, 1);
+                context.Destination[0].pStdSequenceHeader = (AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeader*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeader>(structDestination0, context.DataCursor);
                 videoEncodeAV1SessionParametersCreateInfoKHR.PStdSequenceHeader.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             if (videoEncodeAV1SessionParametersCreateInfoKHR.PStdDecoderModelInfo != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStdDecoderModelInfo = (AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo>(structSlice0).Slice(0, 1);
+                context.Destination[0].pStdDecoderModelInfo = (AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo>(structDestination0, context.DataCursor);
                 videoEncodeAV1SessionParametersCreateInfoKHR.PStdDecoderModelInfo.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
 
             context.Destination[0].stdOperatingPointCount = videoEncodeAV1SessionParametersCreateInfoKHR.StdOperatingPointCount;
 
-            if (videoEncodeAV1SessionParametersCreateInfoKHR.PStdOperatingPoints != default)
+            if (!videoEncodeAV1SessionParametersCreateInfoKHR.PStdOperatingPoints.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStdOperatingPoints = (AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfo>(structDestination0, context.DataCursor);
-                videoEncodeAV1SessionParametersCreateInfoKHR.PStdOperatingPoints.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pStdOperatingPoints = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.StdVideoEncodeAV1OperatingPointInfo, AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR>(videoEncodeAV1SessionParametersCreateInfoKHR.PStdOperatingPoints, ref context);
             }
 
         }

@@ -9,20 +9,19 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using AdamantiumVulkan.Core;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12433 Column: 16
+// File: vk.xml Line: 8501 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkVideoEncodeAV1SessionParametersCreateInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
-    public AdamantiumVulkan.Interop.StdVideoAV1SequenceHeader* pStdSequenceHeader;
-    public AdamantiumVulkan.Interop.StdVideoEncodeAV1DecoderModelInfo* pStdDecoderModelInfo;
+    public void* pNext;
+    public AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeader* pStdSequenceHeader;
+    public AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1DecoderModelInfo* pStdDecoderModelInfo;
     public uint stdOperatingPointCount;
-    public AdamantiumVulkan.Interop.StdVideoEncodeAV1OperatingPointInfo* pStdOperatingPoints;
+    public AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfo* pStdOperatingPoints;
 }
 
 

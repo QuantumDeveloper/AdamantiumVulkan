@@ -11,13 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2938 Column: 14
+// File: vk.xml Line: 12705 Column: 6
 [Flags]
 public enum AttachmentDescriptionFlagBits : uint
 {
     MayAliasBit = 1,
 
-    FlagBitsMaxEnum = 2147483647,
+    ResolveSkipTransferFunctionBitKhr = 2,
+
+    ResolveEnableTransferFunctionBitKhr = 4,
 
 }
 

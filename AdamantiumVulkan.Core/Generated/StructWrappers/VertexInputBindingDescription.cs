@@ -27,6 +27,7 @@ public unsafe partial class VertexInputBindingDescription : IMarshallableObject,
     public uint Stride { get; set; }
     public VertexInputRate InputRate { get; set; }
 
+
     public static implicit operator VertexInputBindingDescription(AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription v)
     {
         return new VertexInputBindingDescription(in v);
@@ -50,14 +51,14 @@ public unsafe partial class VertexInputBindingDescription : IMarshallableObject,
         InputRate = native.inputRate;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVertexInputBindingDescriptionMarshaller
     {

@@ -24,17 +24,18 @@ public unsafe partial class SpvcHlslResourceBinding : IMarshallable<AdamantiumVu
         MarshalFrom(in native);
     }
 
-    public SpvExecutionModel Stage { get; set; }
+    public ExecutionModel Stage { get; set; }
     public uint Desc_set { get; set; }
     public uint Binding { get; set; }
     public SpvcHlslResourceBindingMapping Cbv { get; set; }
     public SpvcHlslResourceBindingMapping Uav { get; set; }
     public SpvcHlslResourceBindingMapping Srv { get; set; }
     public SpvcHlslResourceBindingMapping Sampler { get; set; }
+
     ///<summary>
     /// Initializes the resource binding struct. The defaults are non-zero.
     ///</summary>
-    public void HlslResourceBindingInit()
+    public void CHlslResourceBindingInit()
     {
         System.Span<byte> arg0Span = stackalloc byte[GetSize()];
         var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcHlslResourceBinding, AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslResourceBinding>(this, ref arg0Span);

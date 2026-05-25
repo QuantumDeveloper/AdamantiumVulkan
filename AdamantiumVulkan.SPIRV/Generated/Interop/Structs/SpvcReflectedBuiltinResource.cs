@@ -12,11 +12,11 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross\spirv_cross_c.h Line: 102 Column: 16
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 102 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct SpvcReflectedBuiltinResource
 {
-    public SpvBuiltIn builtin;
+    public BuiltIn builtin;
     public SpvcTypeId value_type_id;
     public SpvcReflectedResource resource;
 }

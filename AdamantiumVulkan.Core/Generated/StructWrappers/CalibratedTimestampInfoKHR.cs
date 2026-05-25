@@ -23,9 +23,10 @@ public unsafe partial class CalibratedTimestampInfoKHR : IMarshallableObject, IM
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.CalibratedTimestampInfoKhr;
     public object PNext { get; set; }
     public TimeDomainKHR TimeDomain { get; set; }
+
 
     public static implicit operator CalibratedTimestampInfoKHR(AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR c)
     {
@@ -49,19 +50,18 @@ public unsafe partial class CalibratedTimestampInfoKHR : IMarshallableObject, IM
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         TimeDomain = native.timeDomain;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkCalibratedTimestampInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkCalibratedTimestampInfoKHRMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class CalibratedTimestampInfoKHR : IMarshallableObject, IM
             }
             else if (calibratedTimestampInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (calibratedTimestampInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].timeDomain = calibratedTimestampInfoKHR.TimeDomain;

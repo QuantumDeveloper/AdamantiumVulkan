@@ -23,11 +23,12 @@ public unsafe partial class ImageViewHandleInfoNVX : IMarshallableObject, IMarsh
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ImageViewHandleInfoNvx;
     public object PNext { get; set; }
     public ImageView ImageView { get; set; }
     public DescriptorType DescriptorType { get; set; }
     public Sampler Sampler { get; set; }
+
 
     public static implicit operator ImageViewHandleInfoNVX(AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX i)
     {
@@ -51,21 +52,20 @@ public unsafe partial class ImageViewHandleInfoNVX : IMarshallableObject, IMarsh
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ImageView = new ImageView(native.imageView);
         DescriptorType = native.descriptorType;
         Sampler = new Sampler(native.sampler);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageViewHandleInfoNVX>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageViewHandleInfoNVXMarshaller
     {
@@ -79,11 +79,11 @@ public unsafe partial class ImageViewHandleInfoNVX : IMarshallableObject, IMarsh
             }
             else if (imageViewHandleInfoNVX.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (imageViewHandleInfoNVX.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (imageViewHandleInfoNVX.ImageView != default)

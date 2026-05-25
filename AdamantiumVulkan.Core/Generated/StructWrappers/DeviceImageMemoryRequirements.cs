@@ -23,10 +23,11 @@ public unsafe partial class DeviceImageMemoryRequirements : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.DeviceImageMemoryRequirements;
     public object PNext { get; set; }
     public ImageCreateInfo PCreateInfo { get; set; }
     public ImageAspectFlagBits PlaneAspect { get; set; }
+
 
     public static implicit operator DeviceImageMemoryRequirements(AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements d)
     {
@@ -54,21 +55,20 @@ public unsafe partial class DeviceImageMemoryRequirements : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PCreateInfo = new ImageCreateInfo(in *native.pCreateInfo);
         NativeUtils.Free(native.pCreateInfo);
         PlaneAspect = native.planeAspect;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDeviceImageMemoryRequirements>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDeviceImageMemoryRequirementsMarshaller
     {
@@ -82,11 +82,11 @@ public unsafe partial class DeviceImageMemoryRequirements : IMarshallableObject,
             }
             else if (deviceImageMemoryRequirements.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (deviceImageMemoryRequirements.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (deviceImageMemoryRequirements.PCreateInfo != default)

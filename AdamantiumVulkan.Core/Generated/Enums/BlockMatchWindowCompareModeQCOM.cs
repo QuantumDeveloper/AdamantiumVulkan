@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20364 Column: 14
+// File: vk.xml Line: 14072 Column: 6
 [Flags]
-public enum BlockMatchWindowCompareModeQCOM : uint
+public enum BlockMatchWindowCompareModeQCOM : int
 {
-    InQcom = 0,
+    MinQcom = 0,
 
-    AxQcom = 1,
-
-    AxEnumQcom = 2147483647,
+    MaxQcom = 1,
 
 }
 

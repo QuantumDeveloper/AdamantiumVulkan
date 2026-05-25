@@ -23,11 +23,12 @@ public unsafe partial class CopyAccelerationStructureInfoKHR : IMarshallableObje
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.CopyAccelerationStructureInfoKhr;
     public object PNext { get; set; }
     public AccelerationStructureKHR Src { get; set; }
     public AccelerationStructureKHR Dst { get; set; }
     public CopyAccelerationStructureModeKHR Mode { get; set; }
+
 
     public static implicit operator CopyAccelerationStructureInfoKHR(AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR c)
     {
@@ -51,21 +52,20 @@ public unsafe partial class CopyAccelerationStructureInfoKHR : IMarshallableObje
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Src = new AccelerationStructureKHR(native.src);
         Dst = new AccelerationStructureKHR(native.dst);
         Mode = native.mode;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkCopyAccelerationStructureInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkCopyAccelerationStructureInfoKHRMarshaller
     {
@@ -79,11 +79,11 @@ public unsafe partial class CopyAccelerationStructureInfoKHR : IMarshallableObje
             }
             else if (copyAccelerationStructureInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (copyAccelerationStructureInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (copyAccelerationStructureInfoKHR.Src != default)

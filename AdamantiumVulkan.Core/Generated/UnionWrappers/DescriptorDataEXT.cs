@@ -34,6 +34,7 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
     public DescriptorAddressInfoEXT PStorageBuffer { get; set; }
     public VkDeviceAddress AccelerationStructure { get; set; }
 
+
     public static implicit operator DescriptorDataEXT(AdamantiumVulkan.Core.Interop.VkDescriptorDataEXT d)
     {
         return new DescriptorDataEXT(in d);
@@ -44,35 +45,35 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDescriptorDataEXT>();
         if (PCombinedImageSampler != default)
         {
-            size += PCombinedImageSampler.GetSize();
+            size = Math.Max(size, PCombinedImageSampler.GetSize());
         }
         if (PInputAttachmentImage != default)
         {
-            size += PInputAttachmentImage.GetSize();
+            size = Math.Max(size, PInputAttachmentImage.GetSize());
         }
         if (PSampledImage != default)
         {
-            size += PSampledImage.GetSize();
+            size = Math.Max(size, PSampledImage.GetSize());
         }
         if (PStorageImage != default)
         {
-            size += PStorageImage.GetSize();
+            size = Math.Max(size, PStorageImage.GetSize());
         }
         if (PUniformTexelBuffer != default)
         {
-            size += PUniformTexelBuffer.GetSize();
+            size = Math.Max(size, PUniformTexelBuffer.GetSize());
         }
         if (PStorageTexelBuffer != default)
         {
-            size += PStorageTexelBuffer.GetSize();
+            size = Math.Max(size, PStorageTexelBuffer.GetSize());
         }
         if (PUniformBuffer != default)
         {
-            size += PUniformBuffer.GetSize();
+            size = Math.Max(size, PUniformBuffer.GetSize());
         }
         if (PStorageBuffer != default)
         {
-            size += PStorageBuffer.GetSize();
+            size = Math.Max(size, PStorageBuffer.GetSize());
         }
         return size;
     }
@@ -105,14 +106,14 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
         AccelerationStructure = native.accelerationStructure;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDescriptorDataEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorDataEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDescriptorDataEXTMarshaller
     {

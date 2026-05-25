@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14034 Column: 16
+// File: vk.xml Line: 5579 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineRasterizationDepthClipStateCreateInfoEXT
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkPipelineRasterizationDepthClipStateCreateFlagsEXT flags;
     public VkBool32 depthClipEnable;
 }

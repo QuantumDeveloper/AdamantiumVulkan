@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7383 Column: 16
+// File: vk.xml Line: 4208 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceInlineUniformBlockProperties
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public uint maxInlineUniformBlockSize;
     public uint maxPerStageDescriptorInlineUniformBlocks;
     public uint maxPerStageDescriptorUpdateAfterBindInlineUniformBlocks;

@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1SequenceHeaderFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1SequenceHeaderFlags>
+public unsafe partial class StdVideoAV1SequenceHeaderFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeaderFlags>
 {
     public StdVideoAV1SequenceHeaderFlags()
     {
     }
 
-    public StdVideoAV1SequenceHeaderFlags(in AdamantiumVulkan.Interop.StdVideoAV1SequenceHeaderFlags native)
+    public StdVideoAV1SequenceHeaderFlags(in AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeaderFlags native)
     {
         MarshalFrom(in native);
     }
@@ -44,23 +44,24 @@ public unsafe partial class StdVideoAV1SequenceHeaderFlags : IMarshallableObject
     public uint Initial_display_delay_present_flag { get; set; }
     public uint Reserved { get; set; }
 
-    public static implicit operator StdVideoAV1SequenceHeaderFlags(AdamantiumVulkan.Interop.StdVideoAV1SequenceHeaderFlags s)
+
+    public static implicit operator StdVideoAV1SequenceHeaderFlags(AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeaderFlags s)
     {
         return new StdVideoAV1SequenceHeaderFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1SequenceHeaderFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeaderFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1SequenceHeaderFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeaderFlags> context)
     {
         new StdVideoAV1SequenceHeaderFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1SequenceHeaderFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeaderFlags native)
     {
         Still_picture = native.still_picture;
         Reduced_still_picture_header = native.reduced_still_picture_header;
@@ -84,18 +85,18 @@ public unsafe partial class StdVideoAV1SequenceHeaderFlags : IMarshallableObject
         Reserved = native.reserved;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1SequenceHeaderFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeaderFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1SequenceHeaderFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeaderFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1SequenceHeaderFlagsMarshaller
     {
-        public StdVideoAV1SequenceHeaderFlagsMarshaller(AdamantiumVulkan.StdVideoAV1SequenceHeaderFlags stdVideoAV1SequenceHeaderFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1SequenceHeaderFlags> context)
+        public StdVideoAV1SequenceHeaderFlagsMarshaller(AdamantiumVulkan.Core.StdVideoAV1SequenceHeaderFlags stdVideoAV1SequenceHeaderFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1SequenceHeaderFlags> context)
         {
             context.Destination[0].still_picture = stdVideoAV1SequenceHeaderFlags.Still_picture;
 

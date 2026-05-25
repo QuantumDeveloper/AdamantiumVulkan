@@ -9,9 +9,9 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace AdamantiumVulkan.Interop;
+namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 188 Column: 16
+// File: video.xml Line: 436 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoH265VideoParameterSet
 {
@@ -24,9 +24,9 @@ public unsafe partial struct StdVideoH265VideoParameterSet
     public uint vps_time_scale;
     public uint vps_num_ticks_poc_diff_one_minus1;
     public uint reserved3;
-    public AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr* pDecPicBufMgr;
-    public AdamantiumVulkan.Interop.StdVideoH265HrdParameters* pHrdParameters;
-    public AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevel* pProfileTierLevel;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr* pDecPicBufMgr;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265HrdParameters* pHrdParameters;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevel* pProfileTierLevel;
 }
 
 

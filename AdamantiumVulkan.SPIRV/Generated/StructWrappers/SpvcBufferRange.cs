@@ -12,6 +12,9 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+///<summary>
+/// See C++ API.
+///</summary>
 public unsafe partial class SpvcBufferRange : IMarshallable<AdamantiumVulkan.Spirv.Cross.Interop.SpvcBufferRange>
 {
     public SpvcBufferRange()
@@ -26,6 +29,7 @@ public unsafe partial class SpvcBufferRange : IMarshallable<AdamantiumVulkan.Spi
     public uint Index { get; set; }
     public ulong Offset { get; set; }
     public ulong Range { get; set; }
+
 
     public static implicit operator SpvcBufferRange(AdamantiumVulkan.Spirv.Cross.Interop.SpvcBufferRange s)
     {

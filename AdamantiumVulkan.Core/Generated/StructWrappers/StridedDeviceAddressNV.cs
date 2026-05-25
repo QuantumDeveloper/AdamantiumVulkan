@@ -26,6 +26,7 @@ public unsafe partial class StridedDeviceAddressNV : IMarshallableObject, IMarsh
     public VkDeviceAddress StartAddress { get; set; }
     public VkDeviceSize StrideInBytes { get; set; }
 
+
     public static implicit operator StridedDeviceAddressNV(AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressNV s)
     {
         return new StridedDeviceAddressNV(in s);
@@ -48,14 +49,14 @@ public unsafe partial class StridedDeviceAddressNV : IMarshallableObject, IMarsh
         StrideInBytes = native.strideInBytes;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkStridedDeviceAddressNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkStridedDeviceAddressNVMarshaller
     {

@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7213 Column: 16
+// File: vk.xml Line: 7427 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkSubmitInfo2
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkSubmitFlags flags;
+    public void* pNext;
+    public SubmitFlagBits flags;
     public uint waitSemaphoreInfoCount;
     public AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo* pWaitSemaphoreInfos;
     public uint commandBufferInfoCount;

@@ -12,6 +12,9 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+///<summary>
+/// See C++ API.
+///</summary>
 public unsafe partial class SpvcCombinedImageSampler : IMarshallable<AdamantiumVulkan.Spirv.Cross.Interop.SpvcCombinedImageSampler>
 {
     public SpvcCombinedImageSampler()
@@ -26,6 +29,7 @@ public unsafe partial class SpvcCombinedImageSampler : IMarshallable<AdamantiumV
     public SpvcVariableId Combined_id { get; set; }
     public SpvcVariableId Image_id { get; set; }
     public SpvcVariableId Sampler_id { get; set; }
+
 
     public static implicit operator SpvcCombinedImageSampler(AdamantiumVulkan.Spirv.Cross.Interop.SpvcCombinedImageSampler s)
     {

@@ -8,16 +8,17 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5668 Column: 16
+// File: vk.xml Line: 3067 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkExternalMemoryProperties
 {
-    public VkExternalMemoryFeatureFlags externalMemoryFeatures;
-    public VkExternalMemoryHandleTypeFlags exportFromImportedHandleTypes;
-    public VkExternalMemoryHandleTypeFlags compatibleHandleTypes;
+    public ExternalMemoryFeatureFlagBits externalMemoryFeatures;
+    public ExternalMemoryHandleTypeFlagBits exportFromImportedHandleTypes;
+    public ExternalMemoryHandleTypeFlagBits compatibleHandleTypes;
 }
 
 

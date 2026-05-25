@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoH265ProfileTierLevelFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevelFlags>
+public unsafe partial class StdVideoH265ProfileTierLevelFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevelFlags>
 {
     public StdVideoH265ProfileTierLevelFlags()
     {
     }
 
-    public StdVideoH265ProfileTierLevelFlags(in AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevelFlags native)
+    public StdVideoH265ProfileTierLevelFlags(in AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevelFlags native)
     {
         MarshalFrom(in native);
     }
@@ -29,23 +29,24 @@ public unsafe partial class StdVideoH265ProfileTierLevelFlags : IMarshallableObj
     public uint General_non_packed_constraint_flag { get; set; }
     public uint General_frame_only_constraint_flag { get; set; }
 
-    public static implicit operator StdVideoH265ProfileTierLevelFlags(AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevelFlags s)
+
+    public static implicit operator StdVideoH265ProfileTierLevelFlags(AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevelFlags s)
     {
         return new StdVideoH265ProfileTierLevelFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevelFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevelFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevelFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevelFlags> context)
     {
         new StdVideoH265ProfileTierLevelFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevelFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevelFlags native)
     {
         General_tier_flag = native.general_tier_flag;
         General_progressive_source_flag = native.general_progressive_source_flag;
@@ -54,18 +55,18 @@ public unsafe partial class StdVideoH265ProfileTierLevelFlags : IMarshallableObj
         General_frame_only_constraint_flag = native.general_frame_only_constraint_flag;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevelFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevelFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevelFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevelFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoH265ProfileTierLevelFlagsMarshaller
     {
-        public StdVideoH265ProfileTierLevelFlagsMarshaller(AdamantiumVulkan.StdVideoH265ProfileTierLevelFlags stdVideoH265ProfileTierLevelFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevelFlags> context)
+        public StdVideoH265ProfileTierLevelFlagsMarshaller(AdamantiumVulkan.Core.StdVideoH265ProfileTierLevelFlags stdVideoH265ProfileTierLevelFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevelFlags> context)
         {
             context.Destination[0].general_tier_flag = stdVideoH265ProfileTierLevelFlags.General_tier_flag;
 

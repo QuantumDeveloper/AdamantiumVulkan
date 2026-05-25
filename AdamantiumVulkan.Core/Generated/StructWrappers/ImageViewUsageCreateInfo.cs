@@ -25,7 +25,8 @@ public unsafe partial class ImageViewUsageCreateInfo : IMarshallableObject, IMar
 
     public StructureType SType => StructureType.ImageViewUsageCreateInfo;
     public object PNext { get; set; }
-    public VkImageUsageFlags Usage { get; set; }
+    public ImageUsageFlagBits Usage { get; set; }
+
 
     public static implicit operator ImageViewUsageCreateInfo(AdamantiumVulkan.Core.Interop.VkImageViewUsageCreateInfo i)
     {
@@ -53,14 +54,14 @@ public unsafe partial class ImageViewUsageCreateInfo : IMarshallableObject, IMar
         Usage = native.usage;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageViewUsageCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageViewUsageCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageViewUsageCreateInfoMarshaller
     {
@@ -74,17 +75,14 @@ public unsafe partial class ImageViewUsageCreateInfo : IMarshallableObject, IMar
             }
             else if (imageViewUsageCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (imageViewUsageCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (imageViewUsageCreateInfo.Usage != (uint)default)
-            {
-                context.Destination[0].usage = imageViewUsageCreateInfo.Usage;
-            }
+            context.Destination[0].usage = imageViewUsageCreateInfo.Usage;
 
         }
     }

@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7817 Column: 14
-public enum LineRasterizationMode : uint
+// File: vk.xml Line: 13362 Column: 6
+public enum LineRasterizationMode : int
 {
     Default = 0,
 
@@ -21,8 +21,6 @@ public enum LineRasterizationMode : uint
     Bresenham = 2,
 
     RectangularSmooth = 3,
-
-    MaxEnum = 2147483647,
 
 }
 

@@ -23,10 +23,11 @@ public unsafe partial class PhysicalDeviceFaultFeaturesEXT : IMarshallableObject
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceFaultFeaturesExt;
     public object PNext { get; set; }
     public VkBool32 DeviceFault { get; set; }
     public VkBool32 DeviceFaultVendorBinary { get; set; }
+
 
     public static implicit operator PhysicalDeviceFaultFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFaultFeaturesEXT p)
     {
@@ -50,20 +51,19 @@ public unsafe partial class PhysicalDeviceFaultFeaturesEXT : IMarshallableObject
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFaultFeaturesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         DeviceFault = native.deviceFault;
         DeviceFaultVendorBinary = native.deviceFaultVendorBinary;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFaultFeaturesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFaultFeaturesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceFaultFeaturesEXTMarshaller
     {
@@ -77,11 +77,11 @@ public unsafe partial class PhysicalDeviceFaultFeaturesEXT : IMarshallableObject
             }
             else if (physicalDeviceFaultFeaturesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceFaultFeaturesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceFaultFeaturesEXT.DeviceFault != (uint)default)

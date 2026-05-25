@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12130 Column: 30
+// File: video.xml Line: 14775 Column: 10
 public unsafe struct PFN_vkReleaseCapturedPipelineDataKHR
 {
     public PFN_vkReleaseCapturedPipelineDataKHR(nuint ptr) : this((void*) ptr) { }

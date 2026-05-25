@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21535 Column: 30
+// File: video.xml Line: 17337 Column: 10
 public unsafe struct PFN_vkBuildAccelerationStructuresKHR
 {
     public PFN_vkBuildAccelerationStructuresKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkBuildAccelerationStructuresKHR
     public PFN_vkBuildAccelerationStructuresKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR**, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, void**, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR**, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, void**, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR** ppBuildRangeInfos)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, void** ppBuildRangeInfos)
     {
         return InvokeFunc(device, deferredOperation, infoCount, pInfos, ppBuildRangeInfos);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR** ppBuildRangeInfos)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, void** ppBuildRangeInfos)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR**, Result>)ptr)(device, deferredOperation, infoCount, pInfos, ppBuildRangeInfos);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, void**, Result>)ptr)(device, deferredOperation, infoCount, pInfos, ppBuildRangeInfos);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR** ppBuildRangeInfos)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T deferredOperation, uint infoCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR* pInfos, void** ppBuildRangeInfos)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR**, Result>)(void*)ptr)(device, deferredOperation, infoCount, pInfos, ppBuildRangeInfos);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeferredOperationKHR_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR*, void**, Result>)(void*)ptr)(device, deferredOperation, infoCount, pInfos, ppBuildRangeInfos);
     }
 
     public static explicit operator PFN_vkBuildAccelerationStructuresKHR(void* ptr) => new(ptr);

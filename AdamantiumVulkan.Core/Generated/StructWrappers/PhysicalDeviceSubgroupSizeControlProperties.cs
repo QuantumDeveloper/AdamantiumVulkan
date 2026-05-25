@@ -23,12 +23,13 @@ public unsafe partial class PhysicalDeviceSubgroupSizeControlProperties : IMarsh
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceSubgroupSizeControlProperties;
     public object PNext { get; set; }
     public uint MinSubgroupSize { get; set; }
     public uint MaxSubgroupSize { get; set; }
     public uint MaxComputeWorkgroupSubgroups { get; set; }
-    public VkShaderStageFlags RequiredSubgroupSizeStages { get; set; }
+    public ShaderStageFlagBits RequiredSubgroupSizeStages { get; set; }
+
 
     public static implicit operator PhysicalDeviceSubgroupSizeControlProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlProperties p)
     {
@@ -52,7 +53,6 @@ public unsafe partial class PhysicalDeviceSubgroupSizeControlProperties : IMarsh
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlProperties native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MinSubgroupSize = native.minSubgroupSize;
         MaxSubgroupSize = native.maxSubgroupSize;
@@ -60,14 +60,14 @@ public unsafe partial class PhysicalDeviceSubgroupSizeControlProperties : IMarsh
         RequiredSubgroupSizeStages = native.requiredSubgroupSizeStages;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceSubgroupSizeControlPropertiesMarshaller
     {
@@ -81,11 +81,11 @@ public unsafe partial class PhysicalDeviceSubgroupSizeControlProperties : IMarsh
             }
             else if (physicalDeviceSubgroupSizeControlProperties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceSubgroupSizeControlProperties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].minSubgroupSize = physicalDeviceSubgroupSizeControlProperties.MinSubgroupSize;
@@ -94,10 +94,7 @@ public unsafe partial class PhysicalDeviceSubgroupSizeControlProperties : IMarsh
 
             context.Destination[0].maxComputeWorkgroupSubgroups = physicalDeviceSubgroupSizeControlProperties.MaxComputeWorkgroupSubgroups;
 
-            if (physicalDeviceSubgroupSizeControlProperties.RequiredSubgroupSizeStages != (uint)default)
-            {
-                context.Destination[0].requiredSubgroupSizeStages = physicalDeviceSubgroupSizeControlProperties.RequiredSubgroupSizeStages;
-            }
+            context.Destination[0].requiredSubgroupSizeStages = physicalDeviceSubgroupSizeControlProperties.RequiredSubgroupSizeStages;
 
         }
     }

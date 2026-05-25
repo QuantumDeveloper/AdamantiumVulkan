@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11497 Column: 14
-public enum VideoEncodeTuningModeKHR : uint
+// File: vk.xml Line: 13643 Column: 6
+public enum VideoEncodeTuningModeKHR : int
 {
     DefaultKhr = 0,
 
@@ -23,8 +23,6 @@ public enum VideoEncodeTuningModeKHR : uint
     UltraLowLatencyKhr = 3,
 
     LosslessKhr = 4,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

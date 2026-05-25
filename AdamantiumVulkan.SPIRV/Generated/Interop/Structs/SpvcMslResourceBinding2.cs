@@ -12,11 +12,11 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross\spirv_cross_c.h Line: 396 Column: 16
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 397 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct SpvcMslResourceBinding2
 {
-    public SpvExecutionModel stage;
+    public ExecutionModel stage;
     public uint desc_set;
     public uint binding;
     public uint count;

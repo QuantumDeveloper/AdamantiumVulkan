@@ -29,6 +29,7 @@ public unsafe partial class ImageResolve : IMarshallableObject, IMarshallable<Ad
     public Offset3D DstOffset { get; set; }
     public Extent3D Extent { get; set; }
 
+
     public static implicit operator ImageResolve(AdamantiumVulkan.Core.Interop.VkImageResolve i)
     {
         return new ImageResolve(in i);
@@ -54,14 +55,14 @@ public unsafe partial class ImageResolve : IMarshallableObject, IMarshallable<Ad
         Extent = new Extent3D(native.extent);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageResolve>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageResolve>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageResolveMarshaller
     {

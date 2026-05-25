@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3134 Column: 27
+// File: vk.xml Line: 1119 Column: 10
 public unsafe struct PFN_vkAllocationFunction
 {
     public PFN_vkAllocationFunction(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkAllocationFunction
     public PFN_vkAllocationFunction(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<nuint, ulong, ulong, SystemAllocationScope, nuint>)ptr;
+        InvokeFunc = (delegate* unmanaged<void*, nuint, nuint, SystemAllocationScope, void>)ptr;
     }
 
-    private delegate* unmanaged<nuint, ulong, ulong, SystemAllocationScope, nuint> InvokeFunc;
+    private delegate* unmanaged<void*, nuint, nuint, SystemAllocationScope, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public nuint Invoke(nuint pUserData, ulong size, ulong alignment, SystemAllocationScope allocationScope)
+    public void Invoke(void* pUserData, nuint size, nuint alignment, SystemAllocationScope allocationScope)
     {
-        return InvokeFunc(pUserData, size, alignment, allocationScope);
+         InvokeFunc(pUserData, size, alignment, allocationScope);
     }
-    public static nuint Invoke(void* ptr, nuint pUserData, ulong size, ulong alignment, SystemAllocationScope allocationScope)
+    public static void Invoke(void* ptr, void* pUserData, nuint size, nuint alignment, SystemAllocationScope allocationScope)
     {
-        return ((delegate* unmanaged<nuint, ulong, ulong, SystemAllocationScope, nuint>)ptr)(pUserData, size, alignment, allocationScope);
+         ((delegate* unmanaged<void*, nuint, nuint, SystemAllocationScope, void>)ptr)(pUserData, size, alignment, allocationScope);
     }
-    public static nuint Invoke(nuint ptr, nuint pUserData, ulong size, ulong alignment, SystemAllocationScope allocationScope)
+    public static void Invoke(nuint ptr, void* pUserData, nuint size, nuint alignment, SystemAllocationScope allocationScope)
     {
-        return ((delegate* unmanaged<nuint, ulong, ulong, SystemAllocationScope, nuint>)(void*)ptr)(pUserData, size, alignment, allocationScope);
+         ((delegate* unmanaged<void*, nuint, nuint, SystemAllocationScope, void>)(void*)ptr)(pUserData, size, alignment, allocationScope);
     }
 
     public static explicit operator PFN_vkAllocationFunction(void* ptr) => new(ptr);

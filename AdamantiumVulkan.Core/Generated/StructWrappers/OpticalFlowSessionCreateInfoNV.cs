@@ -23,17 +23,18 @@ public unsafe partial class OpticalFlowSessionCreateInfoNV : IMarshallableObject
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.OpticalFlowSessionCreateInfoNv;
     public object PNext { get; set; }
     public uint Width { get; set; }
     public uint Height { get; set; }
     public Format ImageFormat { get; set; }
     public Format FlowVectorFormat { get; set; }
     public Format CostFormat { get; set; }
-    public VkOpticalFlowGridSizeFlagsNV OutputGridSize { get; set; }
-    public VkOpticalFlowGridSizeFlagsNV HintGridSize { get; set; }
+    public OpticalFlowGridSizeFlagBitsNV OutputGridSize { get; set; }
+    public OpticalFlowGridSizeFlagBitsNV HintGridSize { get; set; }
     public OpticalFlowPerformanceLevelNV PerformanceLevel { get; set; }
-    public VkOpticalFlowSessionCreateFlagsNV Flags { get; set; }
+    public OpticalFlowSessionCreateFlagBitsNV Flags { get; set; }
+
 
     public static implicit operator OpticalFlowSessionCreateInfoNV(AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV o)
     {
@@ -57,7 +58,6 @@ public unsafe partial class OpticalFlowSessionCreateInfoNV : IMarshallableObject
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Width = native.width;
         Height = native.height;
@@ -70,14 +70,14 @@ public unsafe partial class OpticalFlowSessionCreateInfoNV : IMarshallableObject
         Flags = native.flags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkOpticalFlowSessionCreateInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkOpticalFlowSessionCreateInfoNVMarshaller
     {
@@ -91,11 +91,11 @@ public unsafe partial class OpticalFlowSessionCreateInfoNV : IMarshallableObject
             }
             else if (opticalFlowSessionCreateInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (opticalFlowSessionCreateInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].width = opticalFlowSessionCreateInfoNV.Width;
@@ -108,22 +108,13 @@ public unsafe partial class OpticalFlowSessionCreateInfoNV : IMarshallableObject
 
             context.Destination[0].costFormat = opticalFlowSessionCreateInfoNV.CostFormat;
 
-            if (opticalFlowSessionCreateInfoNV.OutputGridSize != (uint)default)
-            {
-                context.Destination[0].outputGridSize = opticalFlowSessionCreateInfoNV.OutputGridSize;
-            }
+            context.Destination[0].outputGridSize = opticalFlowSessionCreateInfoNV.OutputGridSize;
 
-            if (opticalFlowSessionCreateInfoNV.HintGridSize != (uint)default)
-            {
-                context.Destination[0].hintGridSize = opticalFlowSessionCreateInfoNV.HintGridSize;
-            }
+            context.Destination[0].hintGridSize = opticalFlowSessionCreateInfoNV.HintGridSize;
 
             context.Destination[0].performanceLevel = opticalFlowSessionCreateInfoNV.PerformanceLevel;
 
-            if (opticalFlowSessionCreateInfoNV.Flags != (uint)default)
-            {
-                context.Destination[0].flags = opticalFlowSessionCreateInfoNV.Flags;
-            }
+            context.Destination[0].flags = opticalFlowSessionCreateInfoNV.Flags;
 
         }
     }

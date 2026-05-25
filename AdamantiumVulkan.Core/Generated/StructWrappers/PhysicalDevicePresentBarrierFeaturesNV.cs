@@ -23,9 +23,10 @@ public unsafe partial class PhysicalDevicePresentBarrierFeaturesNV : IMarshallab
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDevicePresentBarrierFeaturesNv;
     public object PNext { get; set; }
     public VkBool32 PresentBarrier { get; set; }
+
 
     public static implicit operator PhysicalDevicePresentBarrierFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDevicePresentBarrierFeaturesNV p)
     {
@@ -49,19 +50,18 @@ public unsafe partial class PhysicalDevicePresentBarrierFeaturesNV : IMarshallab
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDevicePresentBarrierFeaturesNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PresentBarrier = native.presentBarrier;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDevicePresentBarrierFeaturesNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDevicePresentBarrierFeaturesNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDevicePresentBarrierFeaturesNVMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class PhysicalDevicePresentBarrierFeaturesNV : IMarshallab
             }
             else if (physicalDevicePresentBarrierFeaturesNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDevicePresentBarrierFeaturesNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDevicePresentBarrierFeaturesNV.PresentBarrier != (uint)default)

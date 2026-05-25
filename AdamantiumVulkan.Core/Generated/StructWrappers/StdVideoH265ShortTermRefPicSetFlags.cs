@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoH265ShortTermRefPicSetFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSetFlags>
+public unsafe partial class StdVideoH265ShortTermRefPicSetFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSetFlags>
 {
     public StdVideoH265ShortTermRefPicSetFlags()
     {
     }
 
-    public StdVideoH265ShortTermRefPicSetFlags(in AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSetFlags native)
+    public StdVideoH265ShortTermRefPicSetFlags(in AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSetFlags native)
     {
         MarshalFrom(in native);
     }
@@ -26,40 +26,41 @@ public unsafe partial class StdVideoH265ShortTermRefPicSetFlags : IMarshallableO
     public uint Inter_ref_pic_set_prediction_flag { get; set; }
     public uint Delta_rps_sign { get; set; }
 
-    public static implicit operator StdVideoH265ShortTermRefPicSetFlags(AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSetFlags s)
+
+    public static implicit operator StdVideoH265ShortTermRefPicSetFlags(AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSetFlags s)
     {
         return new StdVideoH265ShortTermRefPicSetFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSetFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSetFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSetFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSetFlags> context)
     {
         new StdVideoH265ShortTermRefPicSetFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSetFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSetFlags native)
     {
         Inter_ref_pic_set_prediction_flag = native.inter_ref_pic_set_prediction_flag;
         Delta_rps_sign = native.delta_rps_sign;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSetFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSetFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSetFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSetFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoH265ShortTermRefPicSetFlagsMarshaller
     {
-        public StdVideoH265ShortTermRefPicSetFlagsMarshaller(AdamantiumVulkan.StdVideoH265ShortTermRefPicSetFlags stdVideoH265ShortTermRefPicSetFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSetFlags> context)
+        public StdVideoH265ShortTermRefPicSetFlagsMarshaller(AdamantiumVulkan.Core.StdVideoH265ShortTermRefPicSetFlags stdVideoH265ShortTermRefPicSetFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSetFlags> context)
         {
             context.Destination[0].inter_ref_pic_set_prediction_flag = stdVideoH265ShortTermRefPicSetFlags.Inter_ref_pic_set_prediction_flag;
 

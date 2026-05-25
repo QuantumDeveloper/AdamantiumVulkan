@@ -9,16 +9,15 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using AdamantiumVulkan.Core;
-using AdamantiumVulkan;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12426 Column: 16
+// File: vk.xml Line: 8495 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkVideoEncodeAV1SessionCreateInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkBool32 useMaxLevel;
     public StdVideoAV1Level maxLevel;
 }

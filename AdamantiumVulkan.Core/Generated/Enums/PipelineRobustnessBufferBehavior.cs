@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7777 Column: 14
-public enum PipelineRobustnessBufferBehavior : uint
+// File: vk.xml Line: 13901 Column: 6
+public enum PipelineRobustnessBufferBehavior : int
 {
     DeviceDefault = 0,
 
@@ -21,8 +21,6 @@ public enum PipelineRobustnessBufferBehavior : uint
     RobustBufferAccess = 2,
 
     RobustBufferAccess2 = 3,
-
-    MaxEnum = 2147483647,
 
 }
 

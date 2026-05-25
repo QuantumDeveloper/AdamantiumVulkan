@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2559 Column: 14
+// File: vk.xml Line: 12493 Column: 6
 [Flags]
 public enum MemoryPropertyFlagBits : uint
 {
@@ -25,15 +25,13 @@ public enum MemoryPropertyFlagBits : uint
 
     LazilyAllocatedBit = 16,
 
-    ProtectedBit = 32,
-
     DeviceCoherentBitAmd = 64,
 
     DeviceUncachedBitAmd = 128,
 
     RdmaCapableBitNv = 256,
 
-    FlagBitsMaxEnum = 2147483647,
+    ProtectedBit = 32,
 
 }
 

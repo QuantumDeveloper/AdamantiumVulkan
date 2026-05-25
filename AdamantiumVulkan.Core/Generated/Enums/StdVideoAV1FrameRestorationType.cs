@@ -9,10 +9,10 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_av1std.h Line: 124 Column: 14
-public enum StdVideoAV1FrameRestorationType : uint
+// File: video.xml Line: 1644 Column: 6
+public enum StdVideoAV1FrameRestorationType : int
 {
     None = 0,
 
@@ -22,7 +22,7 @@ public enum StdVideoAV1FrameRestorationType : uint
 
     Switchable = 3,
 
-    Invalid = 2147483647,
+    Invalid = 7,
 
 }
 

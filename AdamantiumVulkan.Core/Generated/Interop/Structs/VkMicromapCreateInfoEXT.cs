@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18439 Column: 16
+// File: vk.xml Line: 9367 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkMicromapCreateInfoEXT
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkMicromapCreateFlagsEXT createFlags;
+    public void* pNext;
+    public MicromapCreateFlagBitsEXT createFlags;
     public VkBuffer_T buffer;
     public VkDeviceSize offset;
     public VkDeviceSize size;

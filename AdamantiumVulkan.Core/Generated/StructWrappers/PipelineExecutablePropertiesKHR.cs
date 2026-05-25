@@ -23,12 +23,13 @@ public unsafe partial class PipelineExecutablePropertiesKHR : IMarshallableObjec
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PipelineExecutablePropertiesKhr;
     public object PNext { get; set; }
-    public VkShaderStageFlags Stages { get; set; }
+    public ShaderStageFlagBits Stages { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public uint SubgroupSize { get; set; }
+
 
     public static implicit operator PipelineExecutablePropertiesKHR(AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR p)
     {
@@ -52,7 +53,6 @@ public unsafe partial class PipelineExecutablePropertiesKHR : IMarshallableObjec
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Stages = native.stages;
         fixed(sbyte* pSource = native.name)
@@ -66,14 +66,14 @@ public unsafe partial class PipelineExecutablePropertiesKHR : IMarshallableObjec
         SubgroupSize = native.subgroupSize;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineExecutablePropertiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineExecutablePropertiesKHRMarshaller
     {
@@ -87,17 +87,14 @@ public unsafe partial class PipelineExecutablePropertiesKHR : IMarshallableObjec
             }
             else if (pipelineExecutablePropertiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineExecutablePropertiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (pipelineExecutablePropertiesKHR.Stages != (uint)default)
-            {
-                context.Destination[0].stages = pipelineExecutablePropertiesKHR.Stages;
-            }
+            context.Destination[0].stages = pipelineExecutablePropertiesKHR.Stages;
 
             ref var tmpDestination0 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination0.name)

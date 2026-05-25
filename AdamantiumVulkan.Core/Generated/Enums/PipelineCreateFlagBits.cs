@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2773 Column: 14
+// File: vk.xml Line: 12580 Column: 6
 [Flags]
 public enum PipelineCreateFlagBits : uint
 {
@@ -20,18 +20,6 @@ public enum PipelineCreateFlagBits : uint
     AllowDerivativesBit = 2,
 
     DerivativeBit = 4,
-
-    ViewIndexFromDeviceIndexBit = 8,
-
-    DispatchBaseBit = 16,
-
-    FailOnPipelineCompileRequiredBit = 256,
-
-    EarlyReturnOnFailureBit = 512,
-
-    NoProtectedAccessBit = 134217728,
-
-    ProtectedAccessOnlyBit = 1073741824,
 
     RayTracingNoNullAnyHitShadersBitKhr = 16384,
 
@@ -75,10 +63,19 @@ public enum PipelineCreateFlagBits : uint
 
     RayTracingOpacityMicromapBitExt = 16777216,
 
-    ///<summary>
-    /// VK_PIPELINE_RASTERIZATION_STATE_CREATE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR is a deprecated alias
-    ///</summary>
-    FlagBitsMaxEnum = 2147483647,
+    RayTracingDisplacementMicromapBitNv = 268435456,
+
+    DispatchBaseBit = 16,
+
+    ViewIndexFromDeviceIndexBit = 8,
+
+    FailOnPipelineCompileRequiredBit = 256,
+
+    EarlyReturnOnFailureBit = 512,
+
+    NoProtectedAccessBit = 134217728,
+
+    ProtectedAccessOnlyBit = 1073741824,
 
 }
 

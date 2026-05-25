@@ -27,6 +27,7 @@ public unsafe partial class BindVertexBufferIndirectCommandEXT : IMarshallableOb
     public uint Size { get; set; }
     public uint Stride { get; set; }
 
+
     public static implicit operator BindVertexBufferIndirectCommandEXT(AdamantiumVulkan.Core.Interop.VkBindVertexBufferIndirectCommandEXT b)
     {
         return new BindVertexBufferIndirectCommandEXT(in b);
@@ -50,14 +51,14 @@ public unsafe partial class BindVertexBufferIndirectCommandEXT : IMarshallableOb
         Stride = native.stride;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkBindVertexBufferIndirectCommandEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkBindVertexBufferIndirectCommandEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkBindVertexBufferIndirectCommandEXTMarshaller
     {

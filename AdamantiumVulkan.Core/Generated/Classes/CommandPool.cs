@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 127 Column: 1
+// File: vk.xml Line: 604 Column: 10
 public unsafe partial class CommandPool : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkCommandPool_T>
 {
     internal VkCommandPool_T __Instance;
@@ -27,7 +27,7 @@ public unsafe partial class CommandPool : IUnmanagedWrapper<AdamantiumVulkan.Cor
     }
 
     public AdamantiumVulkan.Core.Interop.VkCommandPool_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public ref readonly VkCommandPool_T GetPinnableReference() => ref __Instance;
 

@@ -29,9 +29,10 @@ public unsafe partial class PipelineMultisampleStateCreateInfo : IMarshallableOb
     public SampleCountFlagBits RasterizationSamples { get; set; }
     public VkBool32 SampleShadingEnable { get; set; }
     public float MinSampleShading { get; set; }
-    public VkSampleMask? PSampleMask { get; set; }
+    public System.ReadOnlyMemory<VkSampleMask> PSampleMask { get; set; }
     public VkBool32 AlphaToCoverageEnable { get; set; }
     public VkBool32 AlphaToOneEnable { get; set; }
+
 
     public static implicit operator PipelineMultisampleStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo p)
     {
@@ -44,10 +45,6 @@ public unsafe partial class PipelineMultisampleStateCreateInfo : IMarshallableOb
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
-        }
-        if (PSampleMask != default)
-        {
-            size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSampleMask>();
         }
         return size;
     }
@@ -64,23 +61,22 @@ public unsafe partial class PipelineMultisampleStateCreateInfo : IMarshallableOb
         RasterizationSamples = native.rasterizationSamples;
         SampleShadingEnable = native.sampleShadingEnable;
         MinSampleShading = native.minSampleShading;
-        if (native.pSampleMask != null)
-        {
-            PSampleMask = *native.pSampleMask;
-            NativeUtils.Free(native.pSampleMask);
-        }
+        var arrayLengthPSampleMask = ((uint)native.rasterizationSamples + 31) / 32;
+        var tmpPSampleMask = new VkSampleMask[arrayLengthPSampleMask];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSampleMask, arrayLengthPSampleMask, tmpPSampleMask);
+        PSampleMask = tmpPSampleMask;
         AlphaToCoverageEnable = native.alphaToCoverageEnable;
         AlphaToOneEnable = native.alphaToOneEnable;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineMultisampleStateCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineMultisampleStateCreateInfoMarshaller
     {
@@ -94,11 +90,11 @@ public unsafe partial class PipelineMultisampleStateCreateInfo : IMarshallableOb
             }
             else if (pipelineMultisampleStateCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineMultisampleStateCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineMultisampleStateCreateInfo.Flags != (uint)default)
@@ -115,9 +111,17 @@ public unsafe partial class PipelineMultisampleStateCreateInfo : IMarshallableOb
 
             context.Destination[0].minSampleShading = pipelineMultisampleStateCreateInfo.MinSampleShading;
 
-            if (pipelineMultisampleStateCreateInfo.PSampleMask.HasValue)
+            if (!pipelineMultisampleStateCreateInfo.PSampleMask.IsEmpty)
             {
-                context.Destination[0].pSampleMask = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(pipelineMultisampleStateCreateInfo.PSampleMask.Value, ref context);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.Interop.VkSampleMask> sourceSpan = pipelineMultisampleStateCreateInfo.PSampleMask.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(VkSampleMask));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, VkSampleMask>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (VkSampleMask*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pSampleMask = pDestination;
             }
 
             if (pipelineMultisampleStateCreateInfo.AlphaToCoverageEnable != (uint)default)

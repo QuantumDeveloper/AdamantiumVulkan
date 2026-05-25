@@ -23,9 +23,10 @@ public unsafe partial class PhysicalDeviceDiagnosticsConfigFeaturesNV : IMarshal
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceDiagnosticsConfigFeaturesNv;
     public object PNext { get; set; }
     public VkBool32 DiagnosticsConfig { get; set; }
+
 
     public static implicit operator PhysicalDeviceDiagnosticsConfigFeaturesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiagnosticsConfigFeaturesNV p)
     {
@@ -49,19 +50,18 @@ public unsafe partial class PhysicalDeviceDiagnosticsConfigFeaturesNV : IMarshal
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiagnosticsConfigFeaturesNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         DiagnosticsConfig = native.diagnosticsConfig;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiagnosticsConfigFeaturesNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDiagnosticsConfigFeaturesNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceDiagnosticsConfigFeaturesNVMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class PhysicalDeviceDiagnosticsConfigFeaturesNV : IMarshal
             }
             else if (physicalDeviceDiagnosticsConfigFeaturesNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceDiagnosticsConfigFeaturesNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceDiagnosticsConfigFeaturesNV.DiagnosticsConfig != (uint)default)

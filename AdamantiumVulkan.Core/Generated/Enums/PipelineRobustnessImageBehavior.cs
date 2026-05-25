@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7789 Column: 14
-public enum PipelineRobustnessImageBehavior : uint
+// File: vk.xml Line: 13907 Column: 6
+public enum PipelineRobustnessImageBehavior : int
 {
     DeviceDefault = 0,
 
@@ -21,8 +21,6 @@ public enum PipelineRobustnessImageBehavior : uint
     RobustImageAccess = 2,
 
     RobustImageAccess2 = 3,
-
-    MaxEnum = 2147483647,
 
 }
 

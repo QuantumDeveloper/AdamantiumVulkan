@@ -23,15 +23,16 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.SubmitInfo2;
     public object PNext { get; set; }
-    public VkSubmitFlags Flags { get; set; }
+    public SubmitFlagBits Flags { get; set; }
     public uint WaitSemaphoreInfoCount { get; set; }
-    public SemaphoreSubmitInfo PWaitSemaphoreInfos { get; set; }
+    public System.ReadOnlyMemory<SemaphoreSubmitInfo> PWaitSemaphoreInfos { get; set; }
     public uint CommandBufferInfoCount { get; set; }
-    public CommandBufferSubmitInfo PCommandBufferInfos { get; set; }
+    public System.ReadOnlyMemory<CommandBufferSubmitInfo> PCommandBufferInfos { get; set; }
     public uint SignalSemaphoreInfoCount { get; set; }
-    public SemaphoreSubmitInfo PSignalSemaphoreInfos { get; set; }
+    public System.ReadOnlyMemory<SemaphoreSubmitInfo> PSignalSemaphoreInfos { get; set; }
+
 
     public static implicit operator SubmitInfo2(AdamantiumVulkan.Core.Interop.VkSubmitInfo2 s)
     {
@@ -45,17 +46,35 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
         {
             size += marshallable.GetSize();
         }
-        if (PWaitSemaphoreInfos != default)
+        if (!PWaitSemaphoreInfos.IsEmpty)
         {
-            size += PWaitSemaphoreInfos.GetSize();
+            for (int i = 0; i < PWaitSemaphoreInfos.Length; i++)
+            {
+                if (PWaitSemaphoreInfos.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>();
+                else
+                    size += PWaitSemaphoreInfos.Span[i].GetSize();
+            }
         }
-        if (PCommandBufferInfos != default)
+        if (!PCommandBufferInfos.IsEmpty)
         {
-            size += PCommandBufferInfos.GetSize();
+            for (int i = 0; i < PCommandBufferInfos.Length; i++)
+            {
+                if (PCommandBufferInfos.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo>();
+                else
+                    size += PCommandBufferInfos.Span[i].GetSize();
+            }
         }
-        if (PSignalSemaphoreInfos != default)
+        if (!PSignalSemaphoreInfos.IsEmpty)
         {
-            size += PSignalSemaphoreInfos.GetSize();
+            for (int i = 0; i < PSignalSemaphoreInfos.Length; i++)
+            {
+                if (PSignalSemaphoreInfos.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>();
+                else
+                    size += PSignalSemaphoreInfos.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -67,28 +86,48 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkSubmitInfo2 native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         WaitSemaphoreInfoCount = native.waitSemaphoreInfoCount;
-        PWaitSemaphoreInfos = new SemaphoreSubmitInfo(in *native.pWaitSemaphoreInfos);
-        NativeUtils.Free(native.pWaitSemaphoreInfos);
+        var arrayLengthPWaitSemaphoreInfos = native.waitSemaphoreInfoCount;
+        var tmpPWaitSemaphoreInfos = new SemaphoreSubmitInfo[arrayLengthPWaitSemaphoreInfos];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo[arrayLengthPWaitSemaphoreInfos];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pWaitSemaphoreInfos, arrayLengthPWaitSemaphoreInfos, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPWaitSemaphoreInfos[i] = new SemaphoreSubmitInfo(in nativeTmpArray0[i]);
+        }
+        PWaitSemaphoreInfos = tmpPWaitSemaphoreInfos;
         CommandBufferInfoCount = native.commandBufferInfoCount;
-        PCommandBufferInfos = new CommandBufferSubmitInfo(in *native.pCommandBufferInfos);
-        NativeUtils.Free(native.pCommandBufferInfos);
+        var arrayLengthPCommandBufferInfos = native.commandBufferInfoCount;
+        var tmpPCommandBufferInfos = new CommandBufferSubmitInfo[arrayLengthPCommandBufferInfos];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo[arrayLengthPCommandBufferInfos];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCommandBufferInfos, arrayLengthPCommandBufferInfos, nativeTmpArray1);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        {
+            tmpPCommandBufferInfos[i] = new CommandBufferSubmitInfo(in nativeTmpArray1[i]);
+        }
+        PCommandBufferInfos = tmpPCommandBufferInfos;
         SignalSemaphoreInfoCount = native.signalSemaphoreInfoCount;
-        PSignalSemaphoreInfos = new SemaphoreSubmitInfo(in *native.pSignalSemaphoreInfos);
-        NativeUtils.Free(native.pSignalSemaphoreInfos);
+        var arrayLengthPSignalSemaphoreInfos = native.signalSemaphoreInfoCount;
+        var tmpPSignalSemaphoreInfos = new SemaphoreSubmitInfo[arrayLengthPSignalSemaphoreInfos];
+        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo[arrayLengthPSignalSemaphoreInfos];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSignalSemaphoreInfos, arrayLengthPSignalSemaphoreInfos, nativeTmpArray2);
+        for (int i = 0; i < nativeTmpArray2.Length; ++i)
+        {
+            tmpPSignalSemaphoreInfos[i] = new SemaphoreSubmitInfo(in nativeTmpArray2[i]);
+        }
+        PSignalSemaphoreInfos = tmpPSignalSemaphoreInfos;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSubmitInfo2>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSubmitInfo2>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSubmitInfo2Marshaller
     {
@@ -102,52 +141,34 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
             }
             else if (submitInfo2.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (submitInfo2.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (submitInfo2.Flags != (uint)default)
-            {
-                context.Destination[0].flags = submitInfo2.Flags;
-            }
+            context.Destination[0].flags = submitInfo2.Flags;
 
             context.Destination[0].waitSemaphoreInfoCount = submitInfo2.WaitSemaphoreInfoCount;
 
-            if (submitInfo2.PWaitSemaphoreInfos != default)
+            if (!submitInfo2.PWaitSemaphoreInfos.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pWaitSemaphoreInfos = (AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>(structDestination0, context.DataCursor);
-                submitInfo2.PWaitSemaphoreInfos.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pWaitSemaphoreInfos = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.SemaphoreSubmitInfo, AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo, AdamantiumVulkan.Core.Interop.VkSubmitInfo2>(submitInfo2.PWaitSemaphoreInfos, ref context);
             }
 
             context.Destination[0].commandBufferInfoCount = submitInfo2.CommandBufferInfoCount;
 
-            if (submitInfo2.PCommandBufferInfos != default)
+            if (!submitInfo2.PCommandBufferInfos.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pCommandBufferInfos = (AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo>(structDestination0, context.DataCursor);
-                submitInfo2.PCommandBufferInfos.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pCommandBufferInfos = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.CommandBufferSubmitInfo, AdamantiumVulkan.Core.Interop.VkCommandBufferSubmitInfo, AdamantiumVulkan.Core.Interop.VkSubmitInfo2>(submitInfo2.PCommandBufferInfos, ref context);
             }
 
             context.Destination[0].signalSemaphoreInfoCount = submitInfo2.SignalSemaphoreInfoCount;
 
-            if (submitInfo2.PSignalSemaphoreInfos != default)
+            if (!submitInfo2.PSignalSemaphoreInfos.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pSignalSemaphoreInfos = (AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo>(structDestination0, context.DataCursor);
-                submitInfo2.PSignalSemaphoreInfos.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pSignalSemaphoreInfos = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.SemaphoreSubmitInfo, AdamantiumVulkan.Core.Interop.VkSemaphoreSubmitInfo, AdamantiumVulkan.Core.Interop.VkSubmitInfo2>(submitInfo2.PSignalSemaphoreInfos, ref context);
             }
 
         }

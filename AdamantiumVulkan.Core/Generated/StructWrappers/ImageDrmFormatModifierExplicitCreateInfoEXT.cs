@@ -27,7 +27,8 @@ public unsafe partial class ImageDrmFormatModifierExplicitCreateInfoEXT : IMarsh
     public object PNext { get; set; }
     public ulong DrmFormatModifier { get; set; }
     public uint DrmFormatModifierPlaneCount { get; set; }
-    public SubresourceLayout PlaneLayouts { get; set; }
+    public System.ReadOnlyMemory<SubresourceLayout> PlaneLayouts { get; set; }
+
 
     public static implicit operator ImageDrmFormatModifierExplicitCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT i)
     {
@@ -41,9 +42,15 @@ public unsafe partial class ImageDrmFormatModifierExplicitCreateInfoEXT : IMarsh
         {
             size += marshallable.GetSize();
         }
-        if (PlaneLayouts != default)
+        if (!PlaneLayouts.IsEmpty)
         {
-            size += PlaneLayouts.GetSize();
+            for (int i = 0; i < PlaneLayouts.Length; i++)
+            {
+                if (PlaneLayouts.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSubresourceLayout>();
+                else
+                    size += PlaneLayouts.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -58,18 +65,25 @@ public unsafe partial class ImageDrmFormatModifierExplicitCreateInfoEXT : IMarsh
         PNext = (System.IntPtr)native.pNext;
         DrmFormatModifier = native.drmFormatModifier;
         DrmFormatModifierPlaneCount = native.drmFormatModifierPlaneCount;
-        PlaneLayouts = new SubresourceLayout(in *native.pPlaneLayouts);
-        NativeUtils.Free(native.pPlaneLayouts);
+        var arrayLengthPlaneLayouts = native.drmFormatModifierPlaneCount;
+        var tmpPlaneLayouts = new SubresourceLayout[arrayLengthPlaneLayouts];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkSubresourceLayout[arrayLengthPlaneLayouts];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPlaneLayouts, arrayLengthPlaneLayouts, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPlaneLayouts[i] = new SubresourceLayout(in nativeTmpArray0[i]);
+        }
+        PlaneLayouts = tmpPlaneLayouts;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageDrmFormatModifierExplicitCreateInfoEXTMarshaller
     {
@@ -83,25 +97,20 @@ public unsafe partial class ImageDrmFormatModifierExplicitCreateInfoEXT : IMarsh
             }
             else if (imageDrmFormatModifierExplicitCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (imageDrmFormatModifierExplicitCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].drmFormatModifier = imageDrmFormatModifierExplicitCreateInfoEXT.DrmFormatModifier;
 
             context.Destination[0].drmFormatModifierPlaneCount = imageDrmFormatModifierExplicitCreateInfoEXT.DrmFormatModifierPlaneCount;
 
-            if (imageDrmFormatModifierExplicitCreateInfoEXT.PlaneLayouts != default)
+            if (!imageDrmFormatModifierExplicitCreateInfoEXT.PlaneLayouts.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkSubresourceLayout));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSubresourceLayout>(structSlice0).Slice(0, 1);
-                context.Destination[0].pPlaneLayouts = (AdamantiumVulkan.Core.Interop.VkSubresourceLayout*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSubresourceLayout>(structDestination0, context.DataCursor);
-                imageDrmFormatModifierExplicitCreateInfoEXT.PlaneLayouts.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pPlaneLayouts = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.SubresourceLayout, AdamantiumVulkan.Core.Interop.VkSubresourceLayout, AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT>(imageDrmFormatModifierExplicitCreateInfoEXT.PlaneLayouts, ref context);
             }
 
         }

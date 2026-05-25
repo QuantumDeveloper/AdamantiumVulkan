@@ -23,11 +23,12 @@ public unsafe partial class VideoEncodeH265SessionParametersFeedbackInfoKHR : IM
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeH265SessionParametersFeedbackInfoKhr;
     public object PNext { get; set; }
     public VkBool32 HasStdVPSOverrides { get; set; }
     public VkBool32 HasStdSPSOverrides { get; set; }
     public VkBool32 HasStdPPSOverrides { get; set; }
+
 
     public static implicit operator VideoEncodeH265SessionParametersFeedbackInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH265SessionParametersFeedbackInfoKHR v)
     {
@@ -51,21 +52,20 @@ public unsafe partial class VideoEncodeH265SessionParametersFeedbackInfoKHR : IM
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeH265SessionParametersFeedbackInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         HasStdVPSOverrides = native.hasStdVPSOverrides;
         HasStdSPSOverrides = native.hasStdSPSOverrides;
         HasStdPPSOverrides = native.hasStdPPSOverrides;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeH265SessionParametersFeedbackInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeH265SessionParametersFeedbackInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeH265SessionParametersFeedbackInfoKHRMarshaller
     {
@@ -79,11 +79,11 @@ public unsafe partial class VideoEncodeH265SessionParametersFeedbackInfoKHR : IM
             }
             else if (videoEncodeH265SessionParametersFeedbackInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeH265SessionParametersFeedbackInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoEncodeH265SessionParametersFeedbackInfoKHR.HasStdVPSOverrides != (uint)default)

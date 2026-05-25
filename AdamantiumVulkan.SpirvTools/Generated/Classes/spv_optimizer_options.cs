@@ -13,7 +13,7 @@ using AdamantiumVulkan.SpirvTools.Interop;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 518 Column: 34
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 547 Column: 34
 public unsafe partial class spv_optimizer_options : IUnmanagedWrapper<AdamantiumVulkan.SpirvTools.Interop.spv_optimizer_options_t>
 {
     internal spv_optimizer_options_t __Instance;

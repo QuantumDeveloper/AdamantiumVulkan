@@ -30,6 +30,7 @@ public unsafe partial class PhysicalDevice16BitStorageFeatures : IMarshallableOb
     public VkBool32 StoragePushConstant16 { get; set; }
     public VkBool32 StorageInputOutput16 { get; set; }
 
+
     public static implicit operator PhysicalDevice16BitStorageFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDevice16BitStorageFeatures p)
     {
         return new PhysicalDevice16BitStorageFeatures(in p);
@@ -59,14 +60,14 @@ public unsafe partial class PhysicalDevice16BitStorageFeatures : IMarshallableOb
         StorageInputOutput16 = native.storageInputOutput16;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDevice16BitStorageFeatures>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDevice16BitStorageFeatures>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDevice16BitStorageFeaturesMarshaller
     {
@@ -80,11 +81,11 @@ public unsafe partial class PhysicalDevice16BitStorageFeatures : IMarshallableOb
             }
             else if (physicalDevice16BitStorageFeatures.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDevice16BitStorageFeatures.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDevice16BitStorageFeatures.StorageBuffer16BitAccess != (uint)default)

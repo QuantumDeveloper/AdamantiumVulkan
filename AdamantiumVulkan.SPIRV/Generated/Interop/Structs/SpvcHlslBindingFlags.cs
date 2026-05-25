@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv.Cross.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross\spirv_cross_c.h Line: 593 Column: 18
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 594 Column: 18
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct SpvcHlslBindingFlags
 {

@@ -28,6 +28,7 @@ public unsafe partial class ValidationFlagsEXT : IMarshallableObject, IMarshalla
     public uint DisabledValidationCheckCount { get; set; }
     public System.ReadOnlyMemory<ValidationCheckEXT> PDisabledValidationChecks { get; set; }
 
+
     public static implicit operator ValidationFlagsEXT(AdamantiumVulkan.Core.Interop.VkValidationFlagsEXT v)
     {
         return new ValidationFlagsEXT(in v);
@@ -41,7 +42,7 @@ public unsafe partial class ValidationFlagsEXT : IMarshallableObject, IMarshalla
             size += marshallable.GetSize();
         }
         if (!PDisabledValidationChecks.IsEmpty)
-            size += PDisabledValidationChecks.Span.Length * sizeof(uint);
+            size += PDisabledValidationChecks.Span.Length * sizeof(int);
         return size;
     }
 
@@ -54,18 +55,20 @@ public unsafe partial class ValidationFlagsEXT : IMarshallableObject, IMarshalla
     {
         PNext = (System.IntPtr)native.pNext;
         DisabledValidationCheckCount = native.disabledValidationCheckCount;
-        var tmpPDisabledValidationChecks = new ValidationCheckEXT[native.disabledValidationCheckCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDisabledValidationChecks, native.disabledValidationCheckCount, tmpPDisabledValidationChecks);
+        var arrayLengthPDisabledValidationChecks = native.disabledValidationCheckCount;
+        var tmpPDisabledValidationChecks = new ValidationCheckEXT[arrayLengthPDisabledValidationChecks];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDisabledValidationChecks, arrayLengthPDisabledValidationChecks, tmpPDisabledValidationChecks);
+        PDisabledValidationChecks = tmpPDisabledValidationChecks;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkValidationFlagsEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkValidationFlagsEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkValidationFlagsEXTMarshaller
     {
@@ -79,24 +82,24 @@ public unsafe partial class ValidationFlagsEXT : IMarshallableObject, IMarshalla
             }
             else if (validationFlagsEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (validationFlagsEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].disabledValidationCheckCount = validationFlagsEXT.DisabledValidationCheckCount;
 
             if (!validationFlagsEXT.PDisabledValidationChecks.IsEmpty)
             {
-                var sizeInBytes = sizeof(uint) * validationFlagsEXT.PDisabledValidationChecks.Length;
+                var sizeInBytes = sizeof(int) * validationFlagsEXT.PDisabledValidationChecks.Length;
                 var byteSpan = context.AllocateData(sizeInBytes);
-                var enumSpanPDisabledValidationChecks = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, uint>(byteSpan);
+                var enumSpanPDisabledValidationChecks = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, int>(byteSpan);
                 context.Destination[0].pDisabledValidationChecks = (AdamantiumVulkan.Core.ValidationCheckEXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPDisabledValidationChecks));
                 for (int i = 0; i < enumSpanPDisabledValidationChecks.Length; i++)
                 {
-                    enumSpanPDisabledValidationChecks[i] = (uint)validationFlagsEXT.PDisabledValidationChecks.Span[i];
+                    enumSpanPDisabledValidationChecks[i] = (int)validationFlagsEXT.PDisabledValidationChecks.Span[i];
                 }
             }
 

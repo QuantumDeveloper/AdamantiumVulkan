@@ -25,9 +25,10 @@ public unsafe partial class PhysicalDeviceExternalBufferInfo : IMarshallableObje
 
     public StructureType SType => StructureType.PhysicalDeviceExternalBufferInfo;
     public object PNext { get; set; }
-    public VkBufferCreateFlags Flags { get; set; }
-    public VkBufferUsageFlags Usage { get; set; }
+    public BufferCreateFlagBits Flags { get; set; }
+    public BufferUsageFlagBits Usage { get; set; }
     public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
+
 
     public static implicit operator PhysicalDeviceExternalBufferInfo(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo p)
     {
@@ -57,14 +58,14 @@ public unsafe partial class PhysicalDeviceExternalBufferInfo : IMarshallableObje
         HandleType = native.handleType;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceExternalBufferInfoMarshaller
     {
@@ -78,22 +79,16 @@ public unsafe partial class PhysicalDeviceExternalBufferInfo : IMarshallableObje
             }
             else if (physicalDeviceExternalBufferInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceExternalBufferInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (physicalDeviceExternalBufferInfo.Flags != (uint)default)
-            {
-                context.Destination[0].flags = physicalDeviceExternalBufferInfo.Flags;
-            }
+            context.Destination[0].flags = physicalDeviceExternalBufferInfo.Flags;
 
-            if (physicalDeviceExternalBufferInfo.Usage != (uint)default)
-            {
-                context.Destination[0].usage = physicalDeviceExternalBufferInfo.Usage;
-            }
+            context.Destination[0].usage = physicalDeviceExternalBufferInfo.Usage;
 
             context.Destination[0].handleType = physicalDeviceExternalBufferInfo.HandleType;
 

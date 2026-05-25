@@ -11,11 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv.Cross.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross\spirv_cross_c.h Line: 72 Column: 16
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 72 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct SpvcContextS
 {
-    public nuint pointer;
+    public void* pointer;
 }
 
 

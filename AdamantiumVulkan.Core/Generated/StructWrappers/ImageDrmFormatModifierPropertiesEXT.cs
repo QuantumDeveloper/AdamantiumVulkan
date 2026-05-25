@@ -27,6 +27,7 @@ public unsafe partial class ImageDrmFormatModifierPropertiesEXT : IMarshallableO
     public object PNext { get; set; }
     public ulong DrmFormatModifier { get; set; }
 
+
     public static implicit operator ImageDrmFormatModifierPropertiesEXT(AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT i)
     {
         return new ImageDrmFormatModifierPropertiesEXT(in i);
@@ -53,14 +54,14 @@ public unsafe partial class ImageDrmFormatModifierPropertiesEXT : IMarshallableO
         DrmFormatModifier = native.drmFormatModifier;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageDrmFormatModifierPropertiesEXTMarshaller
     {
@@ -74,11 +75,11 @@ public unsafe partial class ImageDrmFormatModifierPropertiesEXT : IMarshallableO
             }
             else if (imageDrmFormatModifierPropertiesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (imageDrmFormatModifierPropertiesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].drmFormatModifier = imageDrmFormatModifierPropertiesEXT.DrmFormatModifier;

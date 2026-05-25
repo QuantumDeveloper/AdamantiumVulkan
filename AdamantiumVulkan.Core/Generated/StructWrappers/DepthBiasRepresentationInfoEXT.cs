@@ -23,10 +23,11 @@ public unsafe partial class DepthBiasRepresentationInfoEXT : IMarshallableObject
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.DepthBiasRepresentationInfoExt;
     public object PNext { get; set; }
     public DepthBiasRepresentationEXT DepthBiasRepresentation { get; set; }
     public VkBool32 DepthBiasExact { get; set; }
+
 
     public static implicit operator DepthBiasRepresentationInfoEXT(AdamantiumVulkan.Core.Interop.VkDepthBiasRepresentationInfoEXT d)
     {
@@ -50,20 +51,19 @@ public unsafe partial class DepthBiasRepresentationInfoEXT : IMarshallableObject
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkDepthBiasRepresentationInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         DepthBiasRepresentation = native.depthBiasRepresentation;
         DepthBiasExact = native.depthBiasExact;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDepthBiasRepresentationInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDepthBiasRepresentationInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDepthBiasRepresentationInfoEXTMarshaller
     {
@@ -77,11 +77,11 @@ public unsafe partial class DepthBiasRepresentationInfoEXT : IMarshallableObject
             }
             else if (depthBiasRepresentationInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (depthBiasRepresentationInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].depthBiasRepresentation = depthBiasRepresentationInfoEXT.DepthBiasRepresentation;

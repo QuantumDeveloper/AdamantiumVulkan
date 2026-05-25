@@ -9,8 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core;
 
@@ -25,14 +23,15 @@ public unsafe partial class VideoDecodeAV1PictureInfoKHR : IMarshallableObject, 
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoDecodeAv1PictureInfoKhr;
     public object PNext { get; set; }
     public StdVideoDecodeAV1PictureInfo PStdPictureInfo { get; set; }
     public System.ReadOnlyMemory<int> ReferenceNameSlotIndices { get; set; }
     public uint FrameHeaderOffset { get; set; }
     public uint TileCount { get; set; }
-    public uint? PTileOffsets { get; set; }
-    public uint? PTileSizes { get; set; }
+    public System.ReadOnlyMemory<uint> PTileOffsets { get; set; }
+    public System.ReadOnlyMemory<uint> PTileSizes { get; set; }
+
 
     public static implicit operator VideoDecodeAV1PictureInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeAV1PictureInfoKHR v)
     {
@@ -50,6 +49,10 @@ public unsafe partial class VideoDecodeAV1PictureInfoKHR : IMarshallableObject, 
         {
             size += PStdPictureInfo.GetSize();
         }
+        if (!PTileOffsets.IsEmpty)
+            size += PTileOffsets.Span.Length * Marshal.SizeOf<System.UInt32>();
+        if (!PTileSizes.IsEmpty)
+            size += PTileSizes.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -60,36 +63,34 @@ public unsafe partial class VideoDecodeAV1PictureInfoKHR : IMarshallableObject, 
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoDecodeAV1PictureInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PStdPictureInfo = new StdVideoDecodeAV1PictureInfo(in *native.pStdPictureInfo);
         NativeUtils.Free(native.pStdPictureInfo);
         var tmpReferenceNameSlotIndices = new int[7];
-        var pReferenceNameSlotIndices = (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.referenceNameSlotIndices[0]));
+        var referenceNameSlotIndicesp = native.referenceNameSlotIndices[0];
+        var pReferenceNameSlotIndices = (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in referenceNameSlotIndicesp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pReferenceNameSlotIndices, 7, tmpReferenceNameSlotIndices);
         ReferenceNameSlotIndices = tmpReferenceNameSlotIndices;
         FrameHeaderOffset = native.frameHeaderOffset;
         TileCount = native.tileCount;
-        if (native.pTileOffsets != null)
-        {
-            PTileOffsets = *native.pTileOffsets;
-            NativeUtils.Free(native.pTileOffsets);
-        }
-        if (native.pTileSizes != null)
-        {
-            PTileSizes = *native.pTileSizes;
-            NativeUtils.Free(native.pTileSizes);
-        }
+        var arrayLengthPTileOffsets = native.tileCount;
+        var tmpPTileOffsets = new uint[arrayLengthPTileOffsets];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pTileOffsets, arrayLengthPTileOffsets, tmpPTileOffsets);
+        PTileOffsets = tmpPTileOffsets;
+        var arrayLengthPTileSizes = native.tileCount;
+        var tmpPTileSizes = new uint[arrayLengthPTileSizes];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pTileSizes, arrayLengthPTileSizes, tmpPTileSizes);
+        PTileSizes = tmpPTileSizes;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoDecodeAV1PictureInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoDecodeAV1PictureInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoDecodeAV1PictureInfoKHRMarshaller
     {
@@ -103,19 +104,19 @@ public unsafe partial class VideoDecodeAV1PictureInfoKHR : IMarshallableObject, 
             }
             else if (videoDecodeAV1PictureInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoDecodeAV1PictureInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoDecodeAV1PictureInfoKHR.PStdPictureInfo != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoDecodeAV1PictureInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoDecodeAV1PictureInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStdPictureInfo = (AdamantiumVulkan.Interop.StdVideoDecodeAV1PictureInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoDecodeAV1PictureInfo>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1PictureInfo));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1PictureInfo>(structSlice0).Slice(0, 1);
+                context.Destination[0].pStdPictureInfo = (AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1PictureInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoDecodeAV1PictureInfo>(structDestination0, context.DataCursor);
                 videoDecodeAV1PictureInfoKHR.PStdPictureInfo.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }
@@ -130,14 +131,14 @@ public unsafe partial class VideoDecodeAV1PictureInfoKHR : IMarshallableObject, 
 
             context.Destination[0].tileCount = videoDecodeAV1PictureInfoKHR.TileCount;
 
-            if (videoDecodeAV1PictureInfoKHR.PTileOffsets.HasValue)
+            if (!videoDecodeAV1PictureInfoKHR.PTileOffsets.IsEmpty)
             {
-                context.Destination[0].pTileOffsets = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(videoDecodeAV1PictureInfoKHR.PTileOffsets.Value, ref context);
+                context.Destination[0].pTileOffsets = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkVideoDecodeAV1PictureInfoKHR>(videoDecodeAV1PictureInfoKHR.PTileOffsets.Span, ref context);
             }
 
-            if (videoDecodeAV1PictureInfoKHR.PTileSizes.HasValue)
+            if (!videoDecodeAV1PictureInfoKHR.PTileSizes.IsEmpty)
             {
-                context.Destination[0].pTileSizes = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(videoDecodeAV1PictureInfoKHR.PTileSizes.Value, ref context);
+                context.Destination[0].pTileSizes = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkVideoDecodeAV1PictureInfoKHR>(videoDecodeAV1PictureInfoKHR.PTileSizes.Span, ref context);
             }
 
         }

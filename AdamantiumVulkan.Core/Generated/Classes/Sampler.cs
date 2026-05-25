@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 123 Column: 1
+// File: vk.xml Line: 612 Column: 10
 public unsafe partial class Sampler : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkSampler_T>
 {
     internal VkSampler_T __Instance;
@@ -27,7 +27,7 @@ public unsafe partial class Sampler : IUnmanagedWrapper<AdamantiumVulkan.Core.In
     }
 
     public AdamantiumVulkan.Core.Interop.VkSampler_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public ref readonly VkSampler_T GetPinnableReference() => ref __Instance;
 

@@ -23,7 +23,7 @@ public unsafe partial class CooperativeMatrixFlexibleDimensionsPropertiesNV : IM
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.CooperativeMatrixFlexibleDimensionsPropertiesNv;
     public object PNext { get; set; }
     public uint MGranularity { get; set; }
     public uint NGranularity { get; set; }
@@ -35,6 +35,7 @@ public unsafe partial class CooperativeMatrixFlexibleDimensionsPropertiesNV : IM
     public VkBool32 SaturatingAccumulation { get; set; }
     public ScopeKHR Scope { get; set; }
     public uint WorkgroupInvocations { get; set; }
+
 
     public static implicit operator CooperativeMatrixFlexibleDimensionsPropertiesNV(AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV c)
     {
@@ -58,7 +59,6 @@ public unsafe partial class CooperativeMatrixFlexibleDimensionsPropertiesNV : IM
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MGranularity = native.MGranularity;
         NGranularity = native.NGranularity;
@@ -72,14 +72,14 @@ public unsafe partial class CooperativeMatrixFlexibleDimensionsPropertiesNV : IM
         WorkgroupInvocations = native.workgroupInvocations;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkCooperativeMatrixFlexibleDimensionsPropertiesNVMarshaller
     {
@@ -93,11 +93,11 @@ public unsafe partial class CooperativeMatrixFlexibleDimensionsPropertiesNV : IM
             }
             else if (cooperativeMatrixFlexibleDimensionsPropertiesNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (cooperativeMatrixFlexibleDimensionsPropertiesNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].MGranularity = cooperativeMatrixFlexibleDimensionsPropertiesNV.MGranularity;

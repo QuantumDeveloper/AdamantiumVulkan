@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8722 Column: 30
+// File: video.xml Line: 16209 Column: 10
 public unsafe struct PFN_vkGetDeviceGroupSurfacePresentModesKHR
 {
     public PFN_vkGetDeviceGroupSurfacePresentModesKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetDeviceGroupSurfacePresentModesKHR
     public PFN_vkGetDeviceGroupSurfacePresentModesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref VkDeviceGroupPresentModeFlagsKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, DeviceGroupPresentModeFlagBitsKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref VkDeviceGroupPresentModeFlagsKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, DeviceGroupPresentModeFlagBitsKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref VkDeviceGroupPresentModeFlagsKHR* pModes)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, DeviceGroupPresentModeFlagBitsKHR* pModes)
     {
-        return InvokeFunc(device, surface, ref pModes);
+        return InvokeFunc(device, surface, pModes);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref VkDeviceGroupPresentModeFlagsKHR* pModes)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, DeviceGroupPresentModeFlagBitsKHR* pModes)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref VkDeviceGroupPresentModeFlagsKHR*, Result>)ptr)(device, surface, ref pModes);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, DeviceGroupPresentModeFlagBitsKHR*, Result>)ptr)(device, surface, pModes);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, ref VkDeviceGroupPresentModeFlagsKHR* pModes)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T surface, DeviceGroupPresentModeFlagBitsKHR* pModes)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, ref VkDeviceGroupPresentModeFlagsKHR*, Result>)(void*)ptr)(device, surface, ref pModes);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSurfaceKHR_T, DeviceGroupPresentModeFlagBitsKHR*, Result>)(void*)ptr)(device, surface, pModes);
     }
 
     public static explicit operator PFN_vkGetDeviceGroupSurfacePresentModesKHR(void* ptr) => new(ptr);

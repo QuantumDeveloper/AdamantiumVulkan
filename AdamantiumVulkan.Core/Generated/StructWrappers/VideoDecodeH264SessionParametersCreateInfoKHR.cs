@@ -23,11 +23,12 @@ public unsafe partial class VideoDecodeH264SessionParametersCreateInfoKHR : IMar
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoDecodeH264SessionParametersCreateInfoKhr;
     public object PNext { get; set; }
     public uint MaxStdSPSCount { get; set; }
     public uint MaxStdPPSCount { get; set; }
     public VideoDecodeH264SessionParametersAddInfoKHR ParametersAddInfo { get; set; }
+
 
     public static implicit operator VideoDecodeH264SessionParametersCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeH264SessionParametersCreateInfoKHR v)
     {
@@ -55,7 +56,6 @@ public unsafe partial class VideoDecodeH264SessionParametersCreateInfoKHR : IMar
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoDecodeH264SessionParametersCreateInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MaxStdSPSCount = native.maxStdSPSCount;
         MaxStdPPSCount = native.maxStdPPSCount;
@@ -63,14 +63,14 @@ public unsafe partial class VideoDecodeH264SessionParametersCreateInfoKHR : IMar
         NativeUtils.Free(native.pParametersAddInfo);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoDecodeH264SessionParametersCreateInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoDecodeH264SessionParametersCreateInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoDecodeH264SessionParametersCreateInfoKHRMarshaller
     {
@@ -84,11 +84,11 @@ public unsafe partial class VideoDecodeH264SessionParametersCreateInfoKHR : IMar
             }
             else if (videoDecodeH264SessionParametersCreateInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoDecodeH264SessionParametersCreateInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].maxStdSPSCount = videoDecodeH264SessionParametersCreateInfoKHR.MaxStdSPSCount;

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7896 Column: 37
+// File: vk.xml Line: 12533 Column: 6
 [Flags]
 public enum BufferUsageFlagBits2 : ulong
 {
@@ -33,7 +33,9 @@ public enum BufferUsageFlagBits2 : ulong
 
     IndirectBufferBit = 256,
 
-    ShaderDeviceAddressBit = 131072,
+    ExecutionGraphScratchBitAmdx = 33554432,
+
+    DescriptorHeapBitExt = 268435456,
 
     ConditionalRenderingBitExt = 512,
 
@@ -65,7 +67,29 @@ public enum BufferUsageFlagBits2 : ulong
 
     MicromapStorageBitExt = 16777216,
 
+    CompressedDataDgf1BitAmdx = 8589934592,
+
+    DataGraphForeignDescriptorBitArm = 536870912,
+
+    Reserved34BitExt = 17179869184,
+
+    TileMemoryBitQcom = 134217728,
+
+    MemoryDecompressionBitExt = 4294967296,
+
     PreprocessBufferBitExt = 2147483648,
+
+    Reserved18BitExt = 262144,
+
+    Reserved30BitExt = 1073741824,
+
+    Reserved35BitKhr = 34359738368,
+
+    Reserved36BitKhr = 68719476736,
+
+    Reserved37BitHuawei = 137438953472,
+
+    ShaderDeviceAddressBit = 131072,
 
 }
 

@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 109 Column: 1
+// File: vk.xml Line: 617 Column: 10
 public unsafe partial class Semaphore : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkSemaphore_T>
 {
     internal VkSemaphore_T __Instance;
@@ -27,7 +27,7 @@ public unsafe partial class Semaphore : IUnmanagedWrapper<AdamantiumVulkan.Core.
     }
 
     public AdamantiumVulkan.Core.Interop.VkSemaphore_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public ref readonly VkSemaphore_T GetPinnableReference() => ref __Instance;
 

@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7472 Column: 16
+// File: vk.xml Line: 8787 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceShaderIntegerDotProductProperties
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkBool32 integerDotProduct8BitUnsignedAccelerated;
     public VkBool32 integerDotProduct8BitSignedAccelerated;
     public VkBool32 integerDotProduct8BitMixedSignednessAccelerated;

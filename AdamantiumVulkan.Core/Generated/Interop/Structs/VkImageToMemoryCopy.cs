@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8317 Column: 16
+// File: vk.xml Line: 7490 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkImageToMemoryCopy
 {
     public StructureType sType;
-    public nuint pNext;
-    public nuint pHostPointer;
+    public void* pNext;
+    public void* pHostPointer;
     public uint memoryRowLength;
     public uint memoryImageHeight;
     public VkImageSubresourceLayers imageSubresource;

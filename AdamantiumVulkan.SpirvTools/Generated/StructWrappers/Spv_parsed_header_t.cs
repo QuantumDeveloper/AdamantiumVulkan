@@ -29,6 +29,7 @@ public unsafe partial class Spv_parsed_header_t : IMarshallable<AdamantiumVulkan
     public uint Bound { get; set; }
     public uint Reserved { get; set; }
 
+
     public static implicit operator Spv_parsed_header_t(AdamantiumVulkan.SpirvTools.Interop.spv_parsed_header_t s)
     {
         return new Spv_parsed_header_t(in s);

@@ -27,6 +27,7 @@ public unsafe partial class DisplayModeProperties2KHR : IMarshallableObject, IMa
     public object PNext { get; set; }
     public DisplayModePropertiesKHR DisplayModeProperties { get; set; }
 
+
     public static implicit operator DisplayModeProperties2KHR(AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR d)
     {
         return new DisplayModeProperties2KHR(in d);
@@ -53,14 +54,14 @@ public unsafe partial class DisplayModeProperties2KHR : IMarshallableObject, IMa
         DisplayModeProperties = new DisplayModePropertiesKHR(native.displayModeProperties);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDisplayModeProperties2KHRMarshaller
     {
@@ -74,11 +75,11 @@ public unsafe partial class DisplayModeProperties2KHR : IMarshallableObject, IMa
             }
             else if (displayModeProperties2KHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (displayModeProperties2KHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (displayModeProperties2KHR.DisplayModeProperties != default)
