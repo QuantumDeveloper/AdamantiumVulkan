@@ -27,8 +27,9 @@ public unsafe partial class DescriptorUpdateTemplateEntry : IMarshallableObject,
     public uint DstArrayElement { get; set; }
     public uint DescriptorCount { get; set; }
     public DescriptorType DescriptorType { get; set; }
-    public ulong Offset { get; set; }
-    public ulong Stride { get; set; }
+    public nuint Offset { get; set; }
+    public nuint Stride { get; set; }
+
 
     public static implicit operator DescriptorUpdateTemplateEntry(AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry d)
     {
@@ -56,14 +57,14 @@ public unsafe partial class DescriptorUpdateTemplateEntry : IMarshallableObject,
         Stride = native.stride;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDescriptorUpdateTemplateEntryMarshaller
     {

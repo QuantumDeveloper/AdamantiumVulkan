@@ -12,24 +12,24 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20036 Column: 16
+// File: vk.xml Line: 10761 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkConvertCooperativeVectorMatrixInfoNV
 {
     public StructureType sType;
-    public nuint pNext;
-    public ulong srcSize;
+    public void* pNext;
+    public nuint srcSize;
     public VkDeviceOrHostAddressConstKHR srcData;
-    public ulong* pDstSize;
+    public void* pDstSize;
     public VkDeviceOrHostAddressKHR dstData;
     public ComponentTypeKHR srcComponentType;
     public ComponentTypeKHR dstComponentType;
     public uint numRows;
     public uint numColumns;
     public CooperativeVectorMatrixLayoutNV srcLayout;
-    public ulong srcStride;
+    public nuint srcStride;
     public CooperativeVectorMatrixLayoutNV dstLayout;
-    public ulong dstStride;
+    public nuint dstStride;
 }
 
 

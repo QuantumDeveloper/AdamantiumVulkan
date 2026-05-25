@@ -68,7 +68,31 @@ public static partial class VulkanBindings
             .WithField("pPushConstantRanges")
             .InterpretAsPointerToArray(new CustomType("VkPushConstantRange"), arraySizeSource: "pushConstantRangeCount");
         
-        
+        api.Class("VkAccelerationStructureBuildGeometryInfoKHR")
+            .WithField("pGeometries")
+            .InterpretAsPointerToArray(new CustomType("VkAccelerationStructureGeometryKHR"),
+                arraySizeSource: "geometryCount")
+            .WithField("ppGeometries")
+            .InterpretAsPointerToArray(new CustomType("VkAccelerationStructureGeometryKHR"),
+                arraySizeSource: "geometryCount");
+
+        api.Class("VkImageFormatListCreateInfo")
+            .WithField("pViewFormats")
+            .InterpretAsPointerToArray(new CustomType("VkFormat"), arraySizeSource: "viewFormatCount");
+
+        api.Class("VkFramebufferAttachmentImageInfo")
+            .WithField("pViewFormats")
+            .InterpretAsPointerToArray(new CustomType("VkFormat"), arraySizeSource: "viewFormatCount");
+
+        api.Class("VkIndirectCommandsLayoutTokenNV")
+            .WithField("pIndexTypes")
+            .InterpretAsPointerToArray(new CustomType("VkIndexType"), arraySizeSource: "indexTypeCount")
+            .WithField("pIndexTypeValues")
+            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), arraySizeSource: "indexTypeCount");
+
+        api.Class("VkPipelineColorWriteCreateInfoEXT")
+            .WithField("pColorWriteEnables")
+            .InterpretAsPointerToArray(new CustomType("VkBool32"), arraySizeSource: "attachmentCount");
         
         api.Function("vkUpdateDescriptorSets")
             .WithParameterName("pDescriptorWrites")
@@ -127,114 +151,16 @@ public static partial class VulkanBindings
         
         api.Function("vkGetInstanceProcAddr").WithReturnType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void)});
         api.Function("vkGetDeviceProcAddr").WithReturnType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void)});
-
-        api.Function("shaderc_result_get_bytes").WithReturnType(new BuiltinType(PrimitiveType.IntPtr));
-
-        api.Function("spvc_context_parse_spirv").WithParameterName("spirv")
-            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Byte));
-
-        api.Function("spvc_resources_get_resource_list_for_type")
-            .WithParameterName("resource_list")
-            .InterpretAsPointerToArray(new CustomType("SpvcReflectedResource"), true, "resource_size", pointerDepth: 2)
-            .SetParameterKind(ParameterKind.Out)
-            .WithParameterName("resource_size")
-            .InterpretAsIs()
-            .SetParameterKind(ParameterKind.Out);
-
+        
         api.Function("vkCmdExecuteCommands")
             .WithParameterName("pCommandBuffers")
             .InterpretAsPointerToArray(new CustomType("VkCommandBuffer"), true, "commandBufferCount");
-
-        api.Delegate("spvc_error_callback")
-            .WithParameterName("error")
-            .InterpretAsIs()
-            .SetParameterKind(ParameterKind.Out);
-
-        api.Function("spvc_constant_get_type").RenameTo("spvc_constant_get_constant_type");
-
+        
         api.Function("vkCreateShadersEXT")
             .WithParameterName("pCreateInfos")
             .InterpretAsPointerToArray(new CustomType("VkShaderCreateInfoEXT"), arraySizeSource: "createInfoCount")
             .WithParameterName("pShaders")
             .InterpretAsPointerToArray(new CustomType("VkShaderEXT"), arraySizeSource: "createInfoCount");
-
-        //api.Function("vkEnumerateInstanceExtensionProperties").
-        //    WithParameterName("pProperties").
-        //    TreatAsPointerToArray(new CustomType("VkExtensionProperties")).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.Function("vkEnumerateInstanceLayerProperties").
-        //    WithParameterName("pProperties").
-        //    TreatAsPointerToArray(new CustomType("VkLayerProperties")).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.Function("vkEnumeratePhysicalDevices").
-        //    WithParameterName("pPhysicalDevices").
-        //    TreatAsPointerToArray(new CustomType("VkPhysicalDevice")).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.Function("VkGetPhysicalDeviceProperties").
-        //    WithParameterName("pProperties").
-        //    TreatAsIs().
-        //    SetParameterKind(ParameterKind.Out);
-
-        //api.Function("VkGetPhysicalDeviceFeatures").
-        //    WithParameterName("pFeatures").
-        //    TreatAsIs().
-        //    SetParameterKind(ParameterKind.Out);
-
-        //api.Function("vkCmdBindTransformFeedbackBuffersEXT").
-        //    WithParameterName("pOffsets").
-        //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
-        //    SetParameterKind(ParameterKind.InOut).
-        //    WithParameterName("pSizes").
-        //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.Function("vkCmdBeginTransformFeedbackEXT").
-        //    WithParameterName("pCounterBufferOffsets").
-        //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.Function("vkCmdEndTransformFeedbackEXT").
-        //    WithParameterName("pCounterBufferOffsets").
-        //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.Function("vkCmdBindVertexBuffers").
-        //    WithParameterName("pOffsets").
-        //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt64)).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.Functions(
-        //        "vkGetPhysicalDeviceMemoryProperties", 
-        //        "vkGetPhysicalDeviceMemoryProperties2", 
-        //        "vkGetPhysicalDeviceMemoryProperties2KHR").
-        //    WithParameterName("pMemoryProperties").
-        //    TreatAsIs().
-        //    SetParameterKind(ParameterKind.Out);
-
-        //api.Function("vkGetPhysicalDeviceQueueFamilyProperties").
-        //    WithParameterName("pQueueFamilyProperties").
-        //    TreatAsPointerToArray(new CustomType("VkQueueFamilyProperties")).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.Function("vkGetPhysicalDeviceQueueFamilyProperties2").
-        //    WithParameterName("pQueueFamilyProperties").
-        //    TreatAsPointerToArray(new CustomType("VkQueueFamilyProperties2")).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.AllFunctions().
-        //    WithParameterType("VkAllocationCallbacks").
-        //    TreatAsPointerType().
-        //    SetNullable(true).
-        //    SetDelegateNullable(true).
-        //    SetParameterKind(ParameterKind.Readonly);
-
-        //api.Functions("vkDestroyInstance", "vkDestroyDevice").
-        //    WithParameterName("pAllocator").
-        //    TreatAsIs().
-        //    SetDefaultValue("null");
 
         api.Delegate("PFN_vkGetInstanceProcAddr").WithReturnType(new PointerType() {Pointee = new BuiltinType(PrimitiveType.Void)});
         api.Delegate("PFN_vkGetDeviceProcAddr").WithReturnType(new PointerType() {Pointee = new BuiltinType(PrimitiveType.Void)});
@@ -244,9 +170,6 @@ public static partial class VulkanBindings
             .WithParameterName("messageTypes")
             .ChangeType(new CustomType("VkDebugUtilsMessageTypeFlagBitsEXT"));
         
-        // api.Delegate("PFN_vkCreateInstance").WithParameterName("pInstance").InterpretAsIs()
-        //     .SetParameterKind(ParameterKind.In);
-
         var structsList = new List<string>
         {
             "VkInstance_T",
@@ -383,272 +306,26 @@ public static partial class VulkanBindings
         api.Functions(defaultParamFunctions).WithParameterName("pAllocator").InterpretAsIs()
             .SetDefaultValue("null");
 
-        api.Class("VkAccelerationStructureBuildGeometryInfoKHR")
-            .WithField("pGeometries")
-            .InterpretAsPointerToArray(new CustomType("VkAccelerationStructureGeometryKHR"),
-                arraySizeSource: "geometryCount")
-            .WithField("ppGeometries")
-            .InterpretAsPointerToArray(new CustomType("VkAccelerationStructureGeometryKHR"),
-                arraySizeSource: "geometryCount");
-
-        api.Class("VkImageFormatListCreateInfo")
-            .WithField("pViewFormats")
-            .InterpretAsPointerToArray(new CustomType("VkFormat"), arraySizeSource: "viewFormatCount");
-
-        api.Class("VkFramebufferAttachmentImageInfo")
-            .WithField("pViewFormats")
-            .InterpretAsPointerToArray(new CustomType("VkFormat"), arraySizeSource: "viewFormatCount");
-
-        api.Class("VkIndirectCommandsLayoutTokenNV")
-            .WithField("pIndexTypes")
-            .InterpretAsPointerToArray(new CustomType("VkIndexType"), arraySizeSource: "indexTypeCount")
-            .WithField("pIndexTypeValues")
-            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), arraySizeSource: "indexTypeCount");
-
-        api.Class("VkCuLaunchInfoNVX")
-            .WithField("pParams")
-            .InterpretAsPointerToPrimitiveType(PrimitiveType.Void, pointerDepth: 2)
-            .WithField("pExtras")
-            .InterpretAsPointerToPrimitiveType(PrimitiveType.Void, pointerDepth: 2);
-
-        api.Class("VkPipelineColorWriteCreateInfoEXT")
-            .WithField("pColorWriteEnables")
-            .InterpretAsPointerToArray(new CustomType("VkBool32"), arraySizeSource: "attachmentCount");
-
         api.Function("vkCmdSetVertexInputEXT")
             .WithParameterName("pVertexAttributeDescriptions")
             .InterpretAsPointerToArray(new CustomType("VkVertexInputAttributeDescription2EXT"),
                 arraySizeSource: "vertexAttributeDescriptionCount");
-        
-        //api.Function("vkGetPhysicalDeviceSurfaceCapabilitiesKHR").
-        //    WithParameterName("pSurfaceCapabilities").
-        //    TreatAsIs().
-        //    SetParameterKind(ParameterKind.Out);
 
-        //api.Function("vkGetPhysicalDeviceSurfaceFormatsKHR").
-        //    WithParameterName("pSurfaceFormats").
-        //    TreatAsPointerToArray(new CustomType("VkSurfaceFormatKHR")).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.Function("vkGetPhysicalDeviceSurfacePresentModesKHR").
-        //    WithParameterName("pPresentModes").
-        //    TreatAsPointerToArray(new CustomType("VkPresentModeKHR")).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.Function("vkGetSwapchainImagesKHR").
-        //    WithParameterName("pSwapchainImages").
-        //    TreatAsPointerToArray(new CustomType("VkImage")).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.Function("vkAllocateCommandBuffers").
-        //    WithParameterName("pCommandBuffers").
-        //    TreatAsPointerToArray(new CustomType("VkCommandBuffer")).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.Function("vkWaitForFences").
-        //    WithParameterName("pFences").
-        //    TreatAsPointerToArray(new CustomType("VkFence")).
-        //    SetParameterKind(ParameterKind.In);
-
-        //api.Function("vkResetFences").
-        //    WithParameterName("pFences").
-        //    TreatAsPointerToArray(new CustomType("VkFence")).
-        //    SetParameterKind(ParameterKind.In);
-
-        //api.Function("vkQueueSubmit").
-        //    WithParameterName("pSubmits").
-        //    TreatAsPointerToArray(new CustomType("VkSubmitInfo")).
-        //    SetParameterKind(ParameterKind.In);
-
-        //api.Function("vkFreeCommandBuffers").
-        //    WithParameterName("pCommandBuffers").
-        //    TreatAsPointerToArray(new CustomType("VkCommandBuffer")).
-        //    SetParameterKind(ParameterKind.In);
-
-        //api.Functions("vKGetBufferMemoryRequirements", "vKGetImageMemoryRequirements")
-        //    .WithParameterName("pMemoryRequirements")
-        //    .TreatAsIs()
-        //    .SetParameterKind(ParameterKind.Out);
-
-        //api.Function("vkCmdBindVertexBuffers")
-        //    .WithParameterName("pBuffers")
-        //    .TreatAsPointerToArray(new CustomType("VkBuffer"), true)
-        //    .SetParameterKind(ParameterKind.In);
-
-        //api.Function("vkCmdCopyBuffer")
-        //    .WithParameterName("pRegions")
-        //    .TreatAsPointerToArray(new CustomType("VkBufferCopy"))
-        //    .SetParameterKind(ParameterKind.In);
-
-        //api.Functions("vkCreateGraphicsPipelines", "vkCreateComputePipelines")
-        //    .WithParameterName("pPipelines")
-        //    .TreatAsPointerToArray(new CustomType("VkPipeline"), true, "createInfoCount")
-        //    .SetParameterKind(ParameterKind.Out);
-
-        //api.Function("vkCmdPipelineBarrier").
-        //    WithParameterName("pMemoryBarriers").
-        //    TreatAsPointerToArray(new CustomType("vkMemoryBarrier")).
-        //    SetParameterKind(ParameterKind.In).
-        //    WithParameterName("pBufferMemoryBarriers").
-        //    TreatAsPointerToArray(new CustomType("vkBufferMemoryBarrier")).
-        //    SetParameterKind(ParameterKind.In).
-        //    WithParameterName("pImageMemoryBarriers").
-        //    TreatAsPointerToArray(new CustomType("vkImageMemoryBarrier")).
-        //    SetParameterKind(ParameterKind.In);
-
-        //api.Function("vkAllocateDescriptorSets").
-        //    WithParameterName("pDescriptorSets").
-        //    TreatAsPointerToArray(new CustomType("VkDescriptorSet_T")).
-        //    SetParameterKind(ParameterKind.InOut);
-
-        //api.Class("VkBool32").
-        //    SetUnderlyingType(new BuiltinType(PrimitiveType.Bool32));
-
-        //api.Class("VkDeviceCreateInfo").
-        //    WithField("pQueueCreateInfos").
-        //    TreatAsPointerToArray(new CustomType("VkDeviceQueueCreateInfo"), true, "queueCreateInfoCount");
-
-        //api.Class("VkSubmitInfo").
-        //    WithField("pWaitSemaphores").
-        //    TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "waitSemaphoreCount")
-        //    .WithField("pSignalSemaphores").
-        //    TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "signalSemaphoreCount")
-        //    .WithField("pWaitDstStageMask").
-        //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32));
-
-        //api.Class("VkPresentInfoKHR")
-        //    .WithField("pWaitSemaphores").TreatAsPointerToArray(new CustomType("VkSemaphore"), true, "waitSemaphoreCount")
-        //    .WithField("pSwapchains").TreatAsPointerToArray(new CustomType("VkSwapchainKHR"), true, "swapchainCount")
-        //    .WithField("pImageIndices").TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "swapchainCount")
-        //    .WithField("pResults").TreatAsPointerToArray(new CustomType("VkResult"), true, "swapchainCount");
-
-        //api.Class("VkShaderModuleCreateInfo").
-        //    WithField("pCode").TreatAsPointerToArray(new BuiltinType(PrimitiveType.Byte), true, "codeSize");
-
-        //api.Class("VkSwapchainCreateInfoKHR").
-        //    WithField("pQueueFamilyIndices").TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "queueFamilyIndexCount");
-
-        //api.Class("VkGraphicsPipelineCreateInfo")
-        //    .WithField("pStages")
-        //    .TreatAsPointerToArray(new CustomType("VkPipelineShaderStageCreateInfo"), true, "stageCount");
-
-        //api.Class("VkRenderPassBeginInfo")
-        //    .WithField("pClearValues")
-        //    .TreatAsPointerToArray(new CustomType("VkClearValue"), true, "clearValueCount");
-
-        //api.Class("VkPipelineVertexInputStateCreateInfo")
-        //    .WithField("pVertexBindingDescriptions")
-        //    .TreatAsPointerToArray(new CustomType("VkVertexInputBindingDescription"), true, "vertexBindingDescriptionCount")
-        //    .WithField("pVertexAttributeDescriptions")
-        //    .TreatAsPointerToArray(new CustomType("VkVertexInputAttributeDescription"), true, "vertexAttributeDescriptionCount");
-
-        //api.Class("VkSubmitInfo")
-        //    .WithField("pCommandBuffers")
-        //    .TreatAsPointerToArray(new CustomType("VkCommandBuffer"), true, "commandBufferCount");
-
-        //api.Class("VkPipelineDynamicStateCreateInfo").
-        //    WithField("pDynamicStates").
-        //    TreatAsPointerToArray(new CustomType("VkDynamicState"), true, "dynamicStateCount");
-
-        //api.Class("VkImageFormatListCreateInfoKHR").
-        //    WithField("pViewFormats").
-        //    TreatAsPointerToArray(new CustomType("VkFormat"), true, "viewFormatCount");
-
-        //api.Class("VkValidationFlagsEXT")
-        //    .WithField("pDisabledValidationChecks").
-        //    TreatAsPointerToArray(new CustomType("VkValidationCheckEXT"), true, "disabledValidationCheckCount");
-
-        //api.Class("VkObjectTableCreateInfoNVX")
-        //    .WithField("pObjectEntryTypes").
-        //    TreatAsPointerToArray(new CustomType("VkObjectEntryTypeNVX"), true, "objectCount")
-        //    .WithField("pObjectEntryCounts").
-        //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "objectCount")
-        //    .WithField("pObjectEntryUsageFlags").
-        //    TreatAsPointerToArray(new BuiltinType(PrimitiveType.UInt32), true, "objectCount");
-
-        //api.Class("VkShadingRatePaletteNV")
-        //    .WithField("pShadingRatePaletteEntries").
-        //    TreatAsPointerToArray(new CustomType("VkShadingRatePaletteEntryNV"), true, "shadingRatePaletteEntryCount");
-
-        //api.Class("VkValidationFeaturesEXT")
-        //    .WithField("pEnabledValidationFeatures").
-        //    TreatAsPointerToArray(new CustomType("VkValidationFeatureEnableEXT"), true, "enabledValidationFeatureCount")
-        //    .WithField("pDisabledValidationFeatures").
-        //    TreatAsPointerToArray(new CustomType("VkValidationFeatureDisableEXT"), true, "disabledValidationFeatureCount");
-
-        //api.Class("VkDescriptorSetAllocateInfo").
-        //    WithField("pSetLayouts").
-        //    TreatAsPointerToArray(new CustomType("VkDescriptorSetLayout"), true, "descriptorSetCount");
-        
-        var spirvToolsStructsList = new List<string>
-        {
-            "spv_binary_t",
-            "spv_const_binary_t",
-            "spv_optimizer_t"
-        };
-
-        api.Classes(spirvToolsStructsList)
-            .AddField("pointer")
-            .SetType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void) });
-
-        api.Wrappers().WithField("pNext").InterpretAsPointerToPrimitiveType(PrimitiveType.Object);
-
-        api.Class("spv_parsed_instruction_t").WithField("operands")
-            .InterpretAsPointerToArray(new CustomType("spv_parsed_operand_t"));
-
-        api.Class("spv_text_t").Ignore();
-        api.Class("spv_text")
-            .CleanObject()
-            .CopyFieldsFromLinkedObject()
-            .SetClassType(ClassType.Struct);
-        
-        api.Class("spv_diagnostic_t").Ignore();
-        api.Class("spv_diagnostic")
-            .CleanObject()
-            .CopyFieldsFromLinkedObject()
-            .SetClassType(ClassType.Struct);
-
-        api.CreateClass("libspirv", "spv_optimizer", ClassType.Class, "spv_optimizer_t")
-            .AddField("__Instance")
-            .SetType(new CustomType("spv_optimizer_t"))
-            .ChangeType()
-            .Return()
-            .AddOverloadOperator(OperatorKind.Implicit, TransformationKind.FromClassToValue, "__Instance", false)
-            .AddOverloadOperator(OperatorKind.Implicit, TransformationKind.FromValueToClass, "__Instance", true)
-            .AddDefaultConstructor()
-            .AddConstructorWithParameters<Class>("__Instance", ParameterKind.In, new CustomType("spv_optimizer_t"))
-            .AddProperty("NativePointer")
-            .SetField("__Instance.pointer")
-            .SetType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void) })
-            .SetGetter(new Method());
-            
-        api.Class("spv_optimizer_t").UpdateLinkedClass("spv_optimizer");
-        
-        api.Function("spvBinaryToText")
-            .WithParameterName("binary")
-            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Byte))
-            .WithParameterName("text")
-            .InterpretAsPointerType(new CustomType("spv_text"), 2)
-            .SetParameterKind(ParameterKind.Out)
-            .WithParameterName("diagnostic")
-            .InterpretAsPointerType(new CustomType("spv_diagnostic"), 2)
-            .SetParameterKind(ParameterKind.Out);
-
-        api.Function("spvBinaryParse")
-            .WithParameterName("user_data")
+        api.Function("vkMapMemory")
+            .WithParameterName("ppData")
             .InterpretAsIs()
-            .SetParameterKind(ParameterKind.In);
+            .SetParameterKind(ParameterKind.Out);
         
-        api.Function("VkGetPhysicalDeviceProperties2").
+        api.Function("vkAcquireNextImageKHR")
+            .WithParameterName("pImageIndex")
+            .InterpretAsIs()
+            .SetParameterKind(ParameterKind.Ref);
+        
+        api.Function("vkGetPhysicalDeviceProperties2").
             WithParameterName("pProperties").
             InterpretAsIs().
             SetParameterKind(ParameterKind.Ref);
         
-        api.Function("VkGetPhysicalDeviceProperties2KHR").
-            WithParameterName("pProperties").
-            InterpretAsIs().
-            SetParameterKind(ParameterKind.Ref);
-
         api.Delegate("PFN_vkCreateShadersEXT").
             WithParameterName("pShaders").
             InterpretAsPointerToArray(new CustomType("VkShaderEXT_T")).
@@ -697,6 +374,109 @@ public static partial class VulkanBindings
             .WithField("pQueuePriorities")
             .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Float), arraySizeSource: "queueCount");
         
+        api.Class("VkWin32SurfaceCreateInfoKHR")
+            .WithField("hinstance")
+            .InterpretAs(new BuiltinType(PrimitiveType.IntPtr))
+            .WithField("hwnd")
+            .InterpretAs(new BuiltinType(PrimitiveType.IntPtr));
+
+        api.Class("StdVideoH265HrdParameters")
+            .SaveInteropSource(true)
+            .WithField("pSubLayerHrdParametersNal")
+            .InterpretAsPointerToArray(new CustomType("StdVideoH265SubLayerHrdParameters"))
+            .WithField("pSubLayerHrdParametersVcl")
+            .InterpretAsPointerToArray(new CustomType("StdVideoH265SubLayerHrdParameters"));
+
+        api.Function("vkGetDescriptorEXT")
+            .WithParameterName("pDescriptor")
+            .InterpretAsPointerToVoid()
+            .SetParameterKind(ParameterKind.In);
+        
+        // SPIRV tools, SPIRV reflection
+        var spirvToolsStructsList = new List<string>
+        {
+            "spv_binary_t",
+            "spv_const_binary_t",
+            "spv_optimizer_t"
+        };
+
+        api.Classes(spirvToolsStructsList)
+            .AddField("pointer")
+            .SetType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void) });
+
+        api.Wrappers().WithField("pNext").InterpretAsPointerToPrimitiveType(PrimitiveType.Object);
+        
+        api.Function("shaderc_result_get_bytes").WithReturnType(new BuiltinType(PrimitiveType.IntPtr));
+
+        api.Function("spvc_context_parse_spirv").WithParameterName("spirv")
+            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Byte));
+
+        api.Function("spvc_resources_get_resource_list_for_type")
+            .WithParameterName("resource_list")
+            .InterpretAsPointerToArray(new CustomType("SpvcReflectedResource"), true, "resource_size", pointerDepth: 2)
+            .SetParameterKind(ParameterKind.Out)
+            .WithParameterName("resource_size")
+            .InterpretAsIs()
+            .SetParameterKind(ParameterKind.Out);
+
+        api.Delegate("spvc_error_callback")
+            .WithParameterName("error")
+            .InterpretAsIs()
+            .SetParameterKind(ParameterKind.Out);
+
+        api.Function("spvc_constant_get_type").RenameTo("spvc_constant_get_constant_type");
+
+        api.Class("spv_parsed_instruction_t").WithField("operands")
+            .InterpretAsPointerToArray(new CustomType("spv_parsed_operand_t"));
+
+        api.Class("spv_text_t").Ignore();
+        api.Class("spv_text")
+            .CleanObject()
+            .CopyFieldsFromLinkedObject()
+            .SetClassType(ClassType.Struct);
+        
+        api.Class("spv_diagnostic_t").Ignore();
+        api.Class("spv_diagnostic")
+            .CleanObject()
+            .CopyFieldsFromLinkedObject()
+            .SetClassType(ClassType.Struct);
+
+        api.CreateClass("libspirv", "spv_optimizer", ClassType.Class, "spv_optimizer_t")
+            .AddField("__Instance")
+            .SetType(new CustomType("spv_optimizer_t"))
+            .ChangeType()
+            .Return()
+            .AddOverloadOperator(OperatorKind.Implicit, TransformationKind.FromClassToValue, "__Instance", false)
+            .AddOverloadOperator(OperatorKind.Implicit, TransformationKind.FromValueToClass, "__Instance", true)
+            .AddDefaultConstructor()
+            .AddConstructorWithParameters<Class>("__Instance", ParameterKind.In, new CustomType("spv_optimizer_t"))
+            .AddProperty("NativePointer")
+            .SetField("__Instance.pointer")
+            .SetType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void) })
+            .SetGetter(new Method());
+            
+        api.Class("spv_optimizer_t").UpdateLinkedClass("spv_optimizer");
+        
+        api.Function("spvBinaryToText")
+            .WithParameterName("binary")
+            .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Byte))
+            .WithParameterName("text")
+            .InterpretAsPointerType(new CustomType("spv_text"), 2)
+            .SetParameterKind(ParameterKind.Out)
+            .WithParameterName("diagnostic")
+            .InterpretAsPointerType(new CustomType("spv_diagnostic"), 2)
+            .SetParameterKind(ParameterKind.Out);
+        
+        api.Function("spvc_compiler_get_active_buffer_ranges")
+            .WithParameterName("ranges")
+            .InterpretAsPointerToArray(new CustomType("spvc_buffer_range"), pointerDepth: 2, arraySizeSource: "num_ranges")
+            .SetParameterKind(ParameterKind.Out);
+
+        api.Function("spvBinaryParse")
+            .WithParameterName("user_data")
+            .InterpretAsIs()
+            .SetParameterKind(ParameterKind.In);
+        
         api.Function("spvc_compiler_get_declared_extensions")
             .WithParameterName("extensions")
             .InterpretAsPointerToArray(new BuiltinType(PrimitiveType.Sbyte), pointerDepth: 3, arraySizeSource: "num_extensions", isConst:true)
@@ -714,6 +494,15 @@ public static partial class VulkanBindings
             .WithParameterName("count")
             .InterpretAsIs()
             .SetParameterKind(ParameterKind.Ref);
+
+        // macros 
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_VP9_DECODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_AV1_DECODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_AV1_ENCODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_H264_ENCODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_H264_DECODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_H265_ENCODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
+        api.Macro("VK_STD_VULKAN_VIDEO_CODEC_H265_DECODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
         
         var fixingFunctionParameters = new PostProcessingApiPass(api);
         ctx.AddPreGeneratorPass(fixingFunctionParameters, ExecutionPassKind.PerTranslationUnit);

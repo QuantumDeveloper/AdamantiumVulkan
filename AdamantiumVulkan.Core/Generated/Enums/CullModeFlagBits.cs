@@ -11,7 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2861 Column: 14
+// File: vk.xml Line: 12483 Column: 6
+[Flags]
 public enum CullModeFlagBits : uint
 {
     None = 0,
@@ -21,8 +22,6 @@ public enum CullModeFlagBits : uint
     BackBit = 2,
 
     FrontAndBack = 3,
-
-    FlagBitsMaxEnum = 2147483647,
 
 }
 

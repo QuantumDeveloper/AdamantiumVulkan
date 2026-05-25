@@ -23,9 +23,9 @@ public unsafe partial class GeneratedCommandsInfoEXT : IMarshallableObject, IMar
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.GeneratedCommandsInfoExt;
     public object PNext { get; set; }
-    public VkShaderStageFlags ShaderStages { get; set; }
+    public ShaderStageFlagBits ShaderStages { get; set; }
     public IndirectExecutionSetEXT IndirectExecutionSet { get; set; }
     public IndirectCommandsLayoutEXT IndirectCommandsLayout { get; set; }
     public VkDeviceAddress IndirectAddress { get; set; }
@@ -35,6 +35,7 @@ public unsafe partial class GeneratedCommandsInfoEXT : IMarshallableObject, IMar
     public uint MaxSequenceCount { get; set; }
     public VkDeviceAddress SequenceCountAddress { get; set; }
     public uint MaxDrawCount { get; set; }
+
 
     public static implicit operator GeneratedCommandsInfoEXT(AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoEXT g)
     {
@@ -58,7 +59,6 @@ public unsafe partial class GeneratedCommandsInfoEXT : IMarshallableObject, IMar
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ShaderStages = native.shaderStages;
         IndirectExecutionSet = new IndirectExecutionSetEXT(native.indirectExecutionSet);
@@ -72,14 +72,14 @@ public unsafe partial class GeneratedCommandsInfoEXT : IMarshallableObject, IMar
         MaxDrawCount = native.maxDrawCount;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkGeneratedCommandsInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkGeneratedCommandsInfoEXTMarshaller
     {
@@ -93,17 +93,14 @@ public unsafe partial class GeneratedCommandsInfoEXT : IMarshallableObject, IMar
             }
             else if (generatedCommandsInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (generatedCommandsInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (generatedCommandsInfoEXT.ShaderStages != (uint)default)
-            {
-                context.Destination[0].shaderStages = generatedCommandsInfoEXT.ShaderStages;
-            }
+            context.Destination[0].shaderStages = generatedCommandsInfoEXT.ShaderStages;
 
             if (generatedCommandsInfoEXT.IndirectExecutionSet != default)
             {

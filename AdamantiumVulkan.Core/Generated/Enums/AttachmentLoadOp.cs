@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2307 Column: 14
-public enum AttachmentLoadOp : uint
+// File: vk.xml Line: 11931 Column: 6
+public enum AttachmentLoadOp : int
 {
     Load = 0,
 
@@ -21,8 +21,6 @@ public enum AttachmentLoadOp : uint
     DontCare = 2,
 
     None = 1000400000,
-
-    MaxEnum = 2147483647,
 
 }
 

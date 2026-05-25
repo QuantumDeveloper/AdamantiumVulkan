@@ -12,6 +12,9 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+///<summary>
+/// See C++ API.
+///</summary>
 public unsafe partial class SpvcReflectedResource : IMarshallable<AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedResource>
 {
     public SpvcReflectedResource()
@@ -27,6 +30,7 @@ public unsafe partial class SpvcReflectedResource : IMarshallable<AdamantiumVulk
     public SpvcTypeId Base_type_id { get; set; }
     public SpvcTypeId Type_id { get; set; }
     public string Name { get; set; }
+
 
     public static implicit operator SpvcReflectedResource(AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedResource s)
     {

@@ -23,7 +23,7 @@ public unsafe partial class SubpassDescription : IMarshallableObject, IMarshalla
         MarshalFrom(in native);
     }
 
-    public VkSubpassDescriptionFlags Flags { get; set; }
+    public SubpassDescriptionFlagBits Flags { get; set; }
     public PipelineBindPoint PipelineBindPoint { get; set; }
     public uint InputAttachmentCount { get; set; }
     public System.ReadOnlyMemory<AttachmentReference> PInputAttachments { get; set; }
@@ -33,6 +33,7 @@ public unsafe partial class SubpassDescription : IMarshallableObject, IMarshalla
     public AttachmentReference PDepthStencilAttachment { get; set; }
     public uint PreserveAttachmentCount { get; set; }
     public System.ReadOnlyMemory<uint> PreserveAttachments { get; set; }
+
 
     public static implicit operator SubpassDescription(AdamantiumVulkan.Core.Interop.VkSubpassDescription s)
     {
@@ -91,26 +92,29 @@ public unsafe partial class SubpassDescription : IMarshallableObject, IMarshalla
         Flags = native.flags;
         PipelineBindPoint = native.pipelineBindPoint;
         InputAttachmentCount = native.inputAttachmentCount;
-        var tmpPInputAttachments = new AttachmentReference[native.inputAttachmentCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[native.inputAttachmentCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pInputAttachments, native.inputAttachmentCount, nativeTmpArray0);
+        var arrayLengthPInputAttachments = native.inputAttachmentCount;
+        var tmpPInputAttachments = new AttachmentReference[arrayLengthPInputAttachments];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[arrayLengthPInputAttachments];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pInputAttachments, arrayLengthPInputAttachments, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPInputAttachments[i] = new AttachmentReference(in nativeTmpArray0[i]);
         }
         PInputAttachments = tmpPInputAttachments;
         ColorAttachmentCount = native.colorAttachmentCount;
-        var tmpPColorAttachments = new AttachmentReference[native.colorAttachmentCount];
-        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[native.colorAttachmentCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pColorAttachments, native.colorAttachmentCount, nativeTmpArray1);
+        var arrayLengthPColorAttachments = native.colorAttachmentCount;
+        var tmpPColorAttachments = new AttachmentReference[arrayLengthPColorAttachments];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[arrayLengthPColorAttachments];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pColorAttachments, arrayLengthPColorAttachments, nativeTmpArray1);
         for (int i = 0; i < nativeTmpArray1.Length; ++i)
         {
             tmpPColorAttachments[i] = new AttachmentReference(in nativeTmpArray1[i]);
         }
         PColorAttachments = tmpPColorAttachments;
-        var tmpPResolveAttachments = new AttachmentReference[native.colorAttachmentCount];
-        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[native.colorAttachmentCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pResolveAttachments, native.colorAttachmentCount, nativeTmpArray2);
+        var arrayLengthPResolveAttachments = native.colorAttachmentCount;
+        var tmpPResolveAttachments = new AttachmentReference[arrayLengthPResolveAttachments];
+        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkAttachmentReference[arrayLengthPResolveAttachments];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pResolveAttachments, arrayLengthPResolveAttachments, nativeTmpArray2);
         for (int i = 0; i < nativeTmpArray2.Length; ++i)
         {
             tmpPResolveAttachments[i] = new AttachmentReference(in nativeTmpArray2[i]);
@@ -119,27 +123,26 @@ public unsafe partial class SubpassDescription : IMarshallableObject, IMarshalla
         PDepthStencilAttachment = new AttachmentReference(in *native.pDepthStencilAttachment);
         NativeUtils.Free(native.pDepthStencilAttachment);
         PreserveAttachmentCount = native.preserveAttachmentCount;
-        var tmpPreserveAttachments = new uint[native.preserveAttachmentCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPreserveAttachments, native.preserveAttachmentCount, tmpPreserveAttachments);
+        var arrayLengthPreserveAttachments = native.preserveAttachmentCount;
+        var tmpPreserveAttachments = new uint[arrayLengthPreserveAttachments];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPreserveAttachments, arrayLengthPreserveAttachments, tmpPreserveAttachments);
+        PreserveAttachments = tmpPreserveAttachments;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSubpassDescription>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSubpassDescription>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSubpassDescriptionMarshaller
     {
         public VkSubpassDescriptionMarshaller(AdamantiumVulkan.Core.SubpassDescription subpassDescription, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSubpassDescription> context)
         {
-            if (subpassDescription.Flags != (uint)default)
-            {
-                context.Destination[0].flags = subpassDescription.Flags;
-            }
+            context.Destination[0].flags = subpassDescription.Flags;
 
             context.Destination[0].pipelineBindPoint = subpassDescription.PipelineBindPoint;
 

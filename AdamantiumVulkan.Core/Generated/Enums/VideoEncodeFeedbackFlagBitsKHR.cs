@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11531 Column: 14
+// File: vk.xml Line: 13654 Column: 6
 [Flags]
 public enum VideoEncodeFeedbackFlagBitsKHR : uint
 {
@@ -21,7 +21,19 @@ public enum VideoEncodeFeedbackFlagBitsKHR : uint
 
     BitstreamHasOverridesBitKhr = 4,
 
-    FlagBitsMaxEnumKhr = 2147483647,
+    Reserved3BitKhr = 8,
+
+    Reserved4BitKhr = 16,
+
+    Reserved5BitKhr = 32,
+
+    Reserved6BitKhr = 64,
+
+    Reserved7BitKhr = 128,
+
+    Reserved8BitKhr = 256,
+
+    Reserved9BitKhr = 512,
 
 }
 

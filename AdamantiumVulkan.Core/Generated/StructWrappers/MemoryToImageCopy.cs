@@ -23,7 +23,7 @@ public unsafe partial class MemoryToImageCopy : IMarshallableObject, IMarshallab
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.MemoryToImageCopy;
     public object PNext { get; set; }
     public nuint PHostPointer { get; set; }
     public uint MemoryRowLength { get; set; }
@@ -31,6 +31,7 @@ public unsafe partial class MemoryToImageCopy : IMarshallableObject, IMarshallab
     public ImageSubresourceLayers ImageSubresource { get; set; }
     public Offset3D ImageOffset { get; set; }
     public Extent3D ImageExtent { get; set; }
+
 
     public static implicit operator MemoryToImageCopy(AdamantiumVulkan.Core.Interop.VkMemoryToImageCopy m)
     {
@@ -54,9 +55,8 @@ public unsafe partial class MemoryToImageCopy : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkMemoryToImageCopy native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
-        PHostPointer = native.pHostPointer;
+        PHostPointer = (nuint)native.pHostPointer;
         MemoryRowLength = native.memoryRowLength;
         MemoryImageHeight = native.memoryImageHeight;
         ImageSubresource = new ImageSubresourceLayers(native.imageSubresource);
@@ -64,14 +64,14 @@ public unsafe partial class MemoryToImageCopy : IMarshallableObject, IMarshallab
         ImageExtent = new Extent3D(native.imageExtent);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkMemoryToImageCopy>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkMemoryToImageCopy>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkMemoryToImageCopyMarshaller
     {
@@ -85,14 +85,17 @@ public unsafe partial class MemoryToImageCopy : IMarshallableObject, IMarshallab
             }
             else if (memoryToImageCopy.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (memoryToImageCopy.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            context.Destination[0].pHostPointer = memoryToImageCopy.PHostPointer;
+            if (memoryToImageCopy.PHostPointer != default)
+            {
+                context.Destination[0].pHostPointer = (void*)memoryToImageCopy.PHostPointer;
+            }
 
             context.Destination[0].memoryRowLength = memoryToImageCopy.MemoryRowLength;
 

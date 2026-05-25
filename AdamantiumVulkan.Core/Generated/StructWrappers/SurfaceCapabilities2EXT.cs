@@ -31,11 +31,12 @@ public unsafe partial class SurfaceCapabilities2EXT : IMarshallableObject, IMars
     public Extent2D MinImageExtent { get; set; }
     public Extent2D MaxImageExtent { get; set; }
     public uint MaxImageArrayLayers { get; set; }
-    public VkSurfaceTransformFlagsKHR SupportedTransforms { get; set; }
+    public SurfaceTransformFlagBitsKHR SupportedTransforms { get; set; }
     public SurfaceTransformFlagBitsKHR CurrentTransform { get; set; }
-    public VkCompositeAlphaFlagsKHR SupportedCompositeAlpha { get; set; }
-    public VkImageUsageFlags SupportedUsageFlags { get; set; }
-    public VkSurfaceCounterFlagsEXT SupportedSurfaceCounters { get; set; }
+    public CompositeAlphaFlagBitsKHR SupportedCompositeAlpha { get; set; }
+    public ImageUsageFlagBits SupportedUsageFlags { get; set; }
+    public SurfaceCounterFlagBitsEXT SupportedSurfaceCounters { get; set; }
+
 
     public static implicit operator SurfaceCapabilities2EXT(AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT s)
     {
@@ -73,14 +74,14 @@ public unsafe partial class SurfaceCapabilities2EXT : IMarshallableObject, IMars
         SupportedSurfaceCounters = native.supportedSurfaceCounters;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSurfaceCapabilities2EXTMarshaller
     {
@@ -94,11 +95,11 @@ public unsafe partial class SurfaceCapabilities2EXT : IMarshallableObject, IMars
             }
             else if (surfaceCapabilities2EXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (surfaceCapabilities2EXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].minImageCount = surfaceCapabilities2EXT.MinImageCount;
@@ -140,27 +141,15 @@ public unsafe partial class SurfaceCapabilities2EXT : IMarshallableObject, IMars
 
             context.Destination[0].maxImageArrayLayers = surfaceCapabilities2EXT.MaxImageArrayLayers;
 
-            if (surfaceCapabilities2EXT.SupportedTransforms != (uint)default)
-            {
-                context.Destination[0].supportedTransforms = surfaceCapabilities2EXT.SupportedTransforms;
-            }
+            context.Destination[0].supportedTransforms = surfaceCapabilities2EXT.SupportedTransforms;
 
             context.Destination[0].currentTransform = surfaceCapabilities2EXT.CurrentTransform;
 
-            if (surfaceCapabilities2EXT.SupportedCompositeAlpha != (uint)default)
-            {
-                context.Destination[0].supportedCompositeAlpha = surfaceCapabilities2EXT.SupportedCompositeAlpha;
-            }
+            context.Destination[0].supportedCompositeAlpha = surfaceCapabilities2EXT.SupportedCompositeAlpha;
 
-            if (surfaceCapabilities2EXT.SupportedUsageFlags != (uint)default)
-            {
-                context.Destination[0].supportedUsageFlags = surfaceCapabilities2EXT.SupportedUsageFlags;
-            }
+            context.Destination[0].supportedUsageFlags = surfaceCapabilities2EXT.SupportedUsageFlags;
 
-            if (surfaceCapabilities2EXT.SupportedSurfaceCounters != (uint)default)
-            {
-                context.Destination[0].supportedSurfaceCounters = surfaceCapabilities2EXT.SupportedSurfaceCounters;
-            }
+            context.Destination[0].supportedSurfaceCounters = surfaceCapabilities2EXT.SupportedSurfaceCounters;
 
         }
     }

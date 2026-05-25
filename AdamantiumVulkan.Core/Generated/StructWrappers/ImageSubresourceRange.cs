@@ -29,6 +29,7 @@ public unsafe partial class ImageSubresourceRange : IMarshallableObject, IMarsha
     public uint BaseArrayLayer { get; set; }
     public uint LayerCount { get; set; }
 
+
     public static implicit operator ImageSubresourceRange(AdamantiumVulkan.Core.Interop.VkImageSubresourceRange i)
     {
         return new ImageSubresourceRange(in i);
@@ -54,14 +55,14 @@ public unsafe partial class ImageSubresourceRange : IMarshallableObject, IMarsha
         LayerCount = native.layerCount;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageSubresourceRange>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageSubresourceRange>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageSubresourceRangeMarshaller
     {

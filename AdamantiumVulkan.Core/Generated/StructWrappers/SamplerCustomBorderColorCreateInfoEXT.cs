@@ -23,10 +23,11 @@ public unsafe partial class SamplerCustomBorderColorCreateInfoEXT : IMarshallabl
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.SamplerCustomBorderColorCreateInfoExt;
     public object PNext { get; set; }
     public ClearColorValue CustomBorderColor { get; set; }
     public Format Format { get; set; }
+
 
     public static implicit operator SamplerCustomBorderColorCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkSamplerCustomBorderColorCreateInfoEXT s)
     {
@@ -40,6 +41,8 @@ public unsafe partial class SamplerCustomBorderColorCreateInfoEXT : IMarshallabl
         {
             size += marshallable.GetSize();
         }
+        if (CustomBorderColor != default)
+            size += CustomBorderColor.GetSize();
         return size;
     }
 
@@ -50,20 +53,19 @@ public unsafe partial class SamplerCustomBorderColorCreateInfoEXT : IMarshallabl
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkSamplerCustomBorderColorCreateInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         CustomBorderColor = new ClearColorValue(native.customBorderColor);
         Format = native.format;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSamplerCustomBorderColorCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSamplerCustomBorderColorCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSamplerCustomBorderColorCreateInfoEXTMarshaller
     {
@@ -77,11 +79,11 @@ public unsafe partial class SamplerCustomBorderColorCreateInfoEXT : IMarshallabl
             }
             else if (samplerCustomBorderColorCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (samplerCustomBorderColorCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (samplerCustomBorderColorCreateInfoEXT.CustomBorderColor != default)

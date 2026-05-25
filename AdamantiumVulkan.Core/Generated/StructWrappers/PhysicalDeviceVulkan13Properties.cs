@@ -23,12 +23,12 @@ public unsafe partial class PhysicalDeviceVulkan13Properties : IMarshallableObje
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceVulkan13Properties;
     public object PNext { get; set; }
     public uint MinSubgroupSize { get; set; }
     public uint MaxSubgroupSize { get; set; }
     public uint MaxComputeWorkgroupSubgroups { get; set; }
-    public VkShaderStageFlags RequiredSubgroupSizeStages { get; set; }
+    public ShaderStageFlagBits RequiredSubgroupSizeStages { get; set; }
     public uint MaxInlineUniformBlockSize { get; set; }
     public uint MaxPerStageDescriptorInlineUniformBlocks { get; set; }
     public uint MaxPerStageDescriptorUpdateAfterBindInlineUniformBlocks { get; set; }
@@ -71,6 +71,7 @@ public unsafe partial class PhysicalDeviceVulkan13Properties : IMarshallableObje
     public VkBool32 UniformTexelBufferOffsetSingleTexelAlignment { get; set; }
     public VkDeviceSize MaxBufferSize { get; set; }
 
+
     public static implicit operator PhysicalDeviceVulkan13Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Properties p)
     {
         return new PhysicalDeviceVulkan13Properties(in p);
@@ -93,7 +94,6 @@ public unsafe partial class PhysicalDeviceVulkan13Properties : IMarshallableObje
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Properties native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MinSubgroupSize = native.minSubgroupSize;
         MaxSubgroupSize = native.maxSubgroupSize;
@@ -142,14 +142,14 @@ public unsafe partial class PhysicalDeviceVulkan13Properties : IMarshallableObje
         MaxBufferSize = native.maxBufferSize;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Properties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Properties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceVulkan13PropertiesMarshaller
     {
@@ -163,11 +163,11 @@ public unsafe partial class PhysicalDeviceVulkan13Properties : IMarshallableObje
             }
             else if (physicalDeviceVulkan13Properties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceVulkan13Properties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].minSubgroupSize = physicalDeviceVulkan13Properties.MinSubgroupSize;
@@ -176,10 +176,7 @@ public unsafe partial class PhysicalDeviceVulkan13Properties : IMarshallableObje
 
             context.Destination[0].maxComputeWorkgroupSubgroups = physicalDeviceVulkan13Properties.MaxComputeWorkgroupSubgroups;
 
-            if (physicalDeviceVulkan13Properties.RequiredSubgroupSizeStages != (uint)default)
-            {
-                context.Destination[0].requiredSubgroupSizeStages = physicalDeviceVulkan13Properties.RequiredSubgroupSizeStages;
-            }
+            context.Destination[0].requiredSubgroupSizeStages = physicalDeviceVulkan13Properties.RequiredSubgroupSizeStages;
 
             context.Destination[0].maxInlineUniformBlockSize = physicalDeviceVulkan13Properties.MaxInlineUniformBlockSize;
 

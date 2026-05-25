@@ -11,16 +11,14 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2317 Column: 14
-public enum AttachmentStoreOp : uint
+// File: vk.xml Line: 11936 Column: 6
+public enum AttachmentStoreOp : int
 {
     Store = 0,
 
     DontCare = 1,
 
     None = 1000301000,
-
-    MaxEnum = 2147483647,
 
 }
 

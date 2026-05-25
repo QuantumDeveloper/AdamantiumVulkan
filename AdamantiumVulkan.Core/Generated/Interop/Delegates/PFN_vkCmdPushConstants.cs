@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4285 Column: 26
+// File: video.xml Line: 15407 Column: 10
 public unsafe struct PFN_vkCmdPushConstants
 {
     public PFN_vkCmdPushConstants(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkCmdPushConstants
     public PFN_vkCmdPushConstants(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, VkShaderStageFlags, uint, uint, nuint, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, ShaderStageFlagBits, uint, uint, byte*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, VkShaderStageFlags, uint, uint, nuint, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, ShaderStageFlagBits, uint, uint, byte*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, VkShaderStageFlags stageFlags, uint offset, uint size, nuint pValues)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, ShaderStageFlagBits stageFlags, uint offset, uint size, byte* pValues)
     {
          InvokeFunc(commandBuffer, layout, stageFlags, offset, size, pValues);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, VkShaderStageFlags stageFlags, uint offset, uint size, nuint pValues)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, ShaderStageFlagBits stageFlags, uint offset, uint size, byte* pValues)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, VkShaderStageFlags, uint, uint, nuint, void>)ptr)(commandBuffer, layout, stageFlags, offset, size, pValues);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, ShaderStageFlagBits, uint, uint, byte*, void>)ptr)(commandBuffer, layout, stageFlags, offset, size, pValues);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, VkShaderStageFlags stageFlags, uint offset, uint size, nuint pValues)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T layout, ShaderStageFlagBits stageFlags, uint offset, uint size, byte* pValues)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, VkShaderStageFlags, uint, uint, nuint, void>)(void*)ptr)(commandBuffer, layout, stageFlags, offset, size, pValues);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, AdamantiumVulkan.Core.Interop.VkPipelineLayout_T, ShaderStageFlagBits, uint, uint, byte*, void>)(void*)ptr)(commandBuffer, layout, stageFlags, offset, size, pValues);
     }
 
     public static explicit operator PFN_vkCmdPushConstants(void* ptr) => new(ptr);

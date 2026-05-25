@@ -23,11 +23,12 @@ public unsafe partial class AntiLagDataAMD : IMarshallableObject, IMarshallable<
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.AntiLagDataAmd;
     public object PNext { get; set; }
     public AntiLagModeAMD Mode { get; set; }
     public uint MaxFPS { get; set; }
     public AntiLagPresentationInfoAMD PresentationInfo { get; set; }
+
 
     public static implicit operator AntiLagDataAMD(AdamantiumVulkan.Core.Interop.VkAntiLagDataAMD a)
     {
@@ -55,7 +56,6 @@ public unsafe partial class AntiLagDataAMD : IMarshallableObject, IMarshallable<
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkAntiLagDataAMD native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Mode = native.mode;
         MaxFPS = native.maxFPS;
@@ -63,14 +63,14 @@ public unsafe partial class AntiLagDataAMD : IMarshallableObject, IMarshallable<
         NativeUtils.Free(native.pPresentationInfo);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkAntiLagDataAMD>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkAntiLagDataAMD>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkAntiLagDataAMDMarshaller
     {
@@ -84,11 +84,11 @@ public unsafe partial class AntiLagDataAMD : IMarshallableObject, IMarshallable<
             }
             else if (antiLagDataAMD.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (antiLagDataAMD.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].mode = antiLagDataAMD.Mode;

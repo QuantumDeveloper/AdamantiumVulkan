@@ -28,6 +28,7 @@ public unsafe partial class MemoryGetFdInfoKHR : IMarshallableObject, IMarshalla
     public DeviceMemory Memory { get; set; }
     public ExternalMemoryHandleTypeFlagBits HandleType { get; set; }
 
+
     public static implicit operator MemoryGetFdInfoKHR(AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR m)
     {
         return new MemoryGetFdInfoKHR(in m);
@@ -55,14 +56,14 @@ public unsafe partial class MemoryGetFdInfoKHR : IMarshallableObject, IMarshalla
         HandleType = native.handleType;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkMemoryGetFdInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkMemoryGetFdInfoKHRMarshaller
     {
@@ -76,11 +77,11 @@ public unsafe partial class MemoryGetFdInfoKHR : IMarshallableObject, IMarshalla
             }
             else if (memoryGetFdInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (memoryGetFdInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (memoryGetFdInfoKHR.Memory != default)

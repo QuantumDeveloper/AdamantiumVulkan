@@ -11,17 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20609 Column: 14
+// File: vk.xml Line: 12864 Column: 6
 [Flags]
-public enum ClusterAccelerationStructureOpModeNV : uint
+public enum ClusterAccelerationStructureOpModeNV : int
 {
     ImplicitDestinationsNv = 0,
 
     ExplicitDestinationsNv = 1,
 
     ComputeSizesNv = 2,
-
-    MaxEnumNv = 2147483647,
 
 }
 

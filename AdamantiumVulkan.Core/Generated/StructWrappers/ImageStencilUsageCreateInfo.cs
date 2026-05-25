@@ -23,9 +23,10 @@ public unsafe partial class ImageStencilUsageCreateInfo : IMarshallableObject, I
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ImageStencilUsageCreateInfo;
     public object PNext { get; set; }
-    public VkImageUsageFlags StencilUsage { get; set; }
+    public ImageUsageFlagBits StencilUsage { get; set; }
+
 
     public static implicit operator ImageStencilUsageCreateInfo(AdamantiumVulkan.Core.Interop.VkImageStencilUsageCreateInfo i)
     {
@@ -49,19 +50,18 @@ public unsafe partial class ImageStencilUsageCreateInfo : IMarshallableObject, I
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkImageStencilUsageCreateInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         StencilUsage = native.stencilUsage;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageStencilUsageCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageStencilUsageCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageStencilUsageCreateInfoMarshaller
     {
@@ -75,17 +75,14 @@ public unsafe partial class ImageStencilUsageCreateInfo : IMarshallableObject, I
             }
             else if (imageStencilUsageCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (imageStencilUsageCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (imageStencilUsageCreateInfo.StencilUsage != (uint)default)
-            {
-                context.Destination[0].stencilUsage = imageStencilUsageCreateInfo.StencilUsage;
-            }
+            context.Destination[0].stencilUsage = imageStencilUsageCreateInfo.StencilUsage;
 
         }
     }

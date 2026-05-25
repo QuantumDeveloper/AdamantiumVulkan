@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1CDEF : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1CDEF>
+public unsafe partial class StdVideoAV1CDEF : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF>
 {
     public StdVideoAV1CDEF()
     {
     }
 
-    public StdVideoAV1CDEF(in AdamantiumVulkan.Interop.StdVideoAV1CDEF native)
+    public StdVideoAV1CDEF(in AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF native)
     {
         MarshalFrom(in native);
     }
@@ -30,56 +30,61 @@ public unsafe partial class StdVideoAV1CDEF : IMarshallableObject, IMarshallable
     public System.ReadOnlyMemory<byte> Cdef_uv_pri_strength { get; set; }
     public System.ReadOnlyMemory<byte> Cdef_uv_sec_strength { get; set; }
 
-    public static implicit operator StdVideoAV1CDEF(AdamantiumVulkan.Interop.StdVideoAV1CDEF s)
+
+    public static implicit operator StdVideoAV1CDEF(AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF s)
     {
         return new StdVideoAV1CDEF(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1CDEF>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1CDEF> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF> context)
     {
         new StdVideoAV1CDEFMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1CDEF native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF native)
     {
         Cdef_damping_minus_3 = native.cdef_damping_minus_3;
         Cdef_bits = native.cdef_bits;
         var tmpCdef_y_pri_strength = new byte[8];
-        var pCdef_y_pri_strength = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.cdef_y_pri_strength[0]));
+        var cdef_y_pri_strengthp = native.cdef_y_pri_strength[0];
+        var pCdef_y_pri_strength = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in cdef_y_pri_strengthp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pCdef_y_pri_strength, 8, tmpCdef_y_pri_strength);
         Cdef_y_pri_strength = tmpCdef_y_pri_strength;
         var tmpCdef_y_sec_strength = new byte[8];
-        var pCdef_y_sec_strength = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.cdef_y_sec_strength[0]));
+        var cdef_y_sec_strengthp = native.cdef_y_sec_strength[0];
+        var pCdef_y_sec_strength = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in cdef_y_sec_strengthp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pCdef_y_sec_strength, 8, tmpCdef_y_sec_strength);
         Cdef_y_sec_strength = tmpCdef_y_sec_strength;
         var tmpCdef_uv_pri_strength = new byte[8];
-        var pCdef_uv_pri_strength = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.cdef_uv_pri_strength[0]));
+        var cdef_uv_pri_strengthp = native.cdef_uv_pri_strength[0];
+        var pCdef_uv_pri_strength = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in cdef_uv_pri_strengthp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pCdef_uv_pri_strength, 8, tmpCdef_uv_pri_strength);
         Cdef_uv_pri_strength = tmpCdef_uv_pri_strength;
         var tmpCdef_uv_sec_strength = new byte[8];
-        var pCdef_uv_sec_strength = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.cdef_uv_sec_strength[0]));
+        var cdef_uv_sec_strengthp = native.cdef_uv_sec_strength[0];
+        var pCdef_uv_sec_strength = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in cdef_uv_sec_strengthp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pCdef_uv_sec_strength, 8, tmpCdef_uv_sec_strength);
         Cdef_uv_sec_strength = tmpCdef_uv_sec_strength;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1CDEF>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1CDEF>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1CDEFMarshaller
     {
-        public StdVideoAV1CDEFMarshaller(AdamantiumVulkan.StdVideoAV1CDEF stdVideoAV1CDEF, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1CDEF> context)
+        public StdVideoAV1CDEFMarshaller(AdamantiumVulkan.Core.StdVideoAV1CDEF stdVideoAV1CDEF, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1CDEF> context)
         {
             context.Destination[0].cdef_damping_minus_3 = stdVideoAV1CDEF.Cdef_damping_minus_3;
 

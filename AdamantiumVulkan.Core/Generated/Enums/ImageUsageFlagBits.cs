@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2515 Column: 14
+// File: vk.xml Line: 12559 Column: 6
 [Flags]
 public enum ImageUsageFlagBits : uint
 {
@@ -30,8 +30,6 @@ public enum ImageUsageFlagBits : uint
     TransientAttachmentBit = 64,
 
     InputAttachmentBit = 128,
-
-    HostTransferBit = 4194304,
 
     VideoDecodeDstBitKhr = 1024,
 
@@ -57,11 +55,27 @@ public enum ImageUsageFlagBits : uint
 
     SampleBlockMatchBitQcom = 2097152,
 
+    Reserved24BitCoreavi = 16777216,
+
+    TensorAliasingBitArm = 8388608,
+
+    Reserved28BitExt = 268435456,
+
+    TileMemoryBitQcom = 134217728,
+
     VideoEncodeQuantizationDeltaMapBitKhr = 33554432,
 
     VideoEncodeEmphasisMapBitKhr = 67108864,
 
-    FlagBitsMaxEnum = 2147483647,
+    Reserved29BitKhr = 536870912,
+
+    Reserved30BitKhr = 1073741824,
+
+    Reserved16BitHuawei = 65536,
+
+    Reserved27BitHuawei = 131072,
+
+    HostTransferBit = 4194304,
 
 }
 

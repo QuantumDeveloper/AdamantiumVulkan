@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14667 Column: 14
-public enum CoarseSampleOrderTypeNV : uint
+// File: vk.xml Line: 13189 Column: 6
+public enum CoarseSampleOrderTypeNV : int
 {
     DefaultNv = 0,
 
@@ -21,8 +21,6 @@ public enum CoarseSampleOrderTypeNV : uint
     PixelMajorNv = 2,
 
     SampleMajorNv = 3,
-
-    MaxEnumNv = 2147483647,
 
 }
 

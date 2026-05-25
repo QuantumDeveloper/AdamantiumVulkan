@@ -23,11 +23,12 @@ public unsafe partial class PhysicalDeviceBufferDeviceAddressFeatures : IMarshal
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceBufferDeviceAddressFeatures;
     public object PNext { get; set; }
     public VkBool32 BufferDeviceAddress { get; set; }
     public VkBool32 BufferDeviceAddressCaptureReplay { get; set; }
     public VkBool32 BufferDeviceAddressMultiDevice { get; set; }
+
 
     public static implicit operator PhysicalDeviceBufferDeviceAddressFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferDeviceAddressFeatures p)
     {
@@ -51,21 +52,20 @@ public unsafe partial class PhysicalDeviceBufferDeviceAddressFeatures : IMarshal
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferDeviceAddressFeatures native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         BufferDeviceAddress = native.bufferDeviceAddress;
         BufferDeviceAddressCaptureReplay = native.bufferDeviceAddressCaptureReplay;
         BufferDeviceAddressMultiDevice = native.bufferDeviceAddressMultiDevice;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferDeviceAddressFeatures>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceBufferDeviceAddressFeatures>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceBufferDeviceAddressFeaturesMarshaller
     {
@@ -79,11 +79,11 @@ public unsafe partial class PhysicalDeviceBufferDeviceAddressFeatures : IMarshal
             }
             else if (physicalDeviceBufferDeviceAddressFeatures.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceBufferDeviceAddressFeatures.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceBufferDeviceAddressFeatures.BufferDeviceAddress != (uint)default)

@@ -8,11 +8,11 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using AdamantiumVulkan;
+using AdamantiumVulkan.Core;
 
-namespace AdamantiumVulkan.Interop;
+namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_av1std_encode.h Line: 129 Column: 16
+// File: video.xml Line: 1306 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoEncodeAV1ReferenceInfo
 {
@@ -21,7 +21,7 @@ public unsafe partial struct StdVideoEncodeAV1ReferenceInfo
     public StdVideoAV1FrameType frame_type;
     public byte OrderHint;
     public unsafe fixed byte reserved1[3];
-    public AdamantiumVulkan.Interop.StdVideoEncodeAV1ExtensionHeader* pExtensionHeader;
+    public AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader* pExtensionHeader;
 }
 
 

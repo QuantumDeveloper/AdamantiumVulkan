@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13102 Column: 26
+// File: video.xml Line: 15732 Column: 10
 public unsafe struct PFN_vkCmdDebugMarkerInsertEXT
 {
     public PFN_vkCmdDebugMarkerInsertEXT(nuint ptr) : this((void*) ptr) { }

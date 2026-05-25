@@ -26,11 +26,12 @@ public unsafe partial class RenderPassMultiviewCreateInfo : IMarshallableObject,
     public StructureType SType => StructureType.RenderPassMultiviewCreateInfo;
     public object PNext { get; set; }
     public uint SubpassCount { get; set; }
-    public uint? PViewMasks { get; set; }
+    public System.ReadOnlyMemory<uint> PViewMasks { get; set; }
     public uint DependencyCount { get; set; }
-    public int? PViewOffsets { get; set; }
+    public System.ReadOnlyMemory<int> PViewOffsets { get; set; }
     public uint CorrelationMaskCount { get; set; }
-    public uint? PCorrelationMasks { get; set; }
+    public System.ReadOnlyMemory<uint> PCorrelationMasks { get; set; }
+
 
     public static implicit operator RenderPassMultiviewCreateInfo(AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo r)
     {
@@ -44,6 +45,12 @@ public unsafe partial class RenderPassMultiviewCreateInfo : IMarshallableObject,
         {
             size += marshallable.GetSize();
         }
+        if (!PViewMasks.IsEmpty)
+            size += PViewMasks.Span.Length * Marshal.SizeOf<System.UInt32>();
+        if (!PViewOffsets.IsEmpty)
+            size += PViewOffsets.Span.Length * Marshal.SizeOf<System.Int32>();
+        if (!PCorrelationMasks.IsEmpty)
+            size += PCorrelationMasks.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -56,33 +63,30 @@ public unsafe partial class RenderPassMultiviewCreateInfo : IMarshallableObject,
     {
         PNext = (System.IntPtr)native.pNext;
         SubpassCount = native.subpassCount;
-        if (native.pViewMasks != null)
-        {
-            PViewMasks = *native.pViewMasks;
-            NativeUtils.Free(native.pViewMasks);
-        }
+        var arrayLengthPViewMasks = native.subpassCount;
+        var tmpPViewMasks = new uint[arrayLengthPViewMasks];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pViewMasks, arrayLengthPViewMasks, tmpPViewMasks);
+        PViewMasks = tmpPViewMasks;
         DependencyCount = native.dependencyCount;
-        if (native.pViewOffsets != null)
-        {
-            PViewOffsets = *native.pViewOffsets;
-            NativeUtils.Free(native.pViewOffsets);
-        }
+        var arrayLengthPViewOffsets = native.dependencyCount;
+        var tmpPViewOffsets = new int[arrayLengthPViewOffsets];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pViewOffsets, arrayLengthPViewOffsets, tmpPViewOffsets);
+        PViewOffsets = tmpPViewOffsets;
         CorrelationMaskCount = native.correlationMaskCount;
-        if (native.pCorrelationMasks != null)
-        {
-            PCorrelationMasks = *native.pCorrelationMasks;
-            NativeUtils.Free(native.pCorrelationMasks);
-        }
+        var arrayLengthPCorrelationMasks = native.correlationMaskCount;
+        var tmpPCorrelationMasks = new uint[arrayLengthPCorrelationMasks];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCorrelationMasks, arrayLengthPCorrelationMasks, tmpPCorrelationMasks);
+        PCorrelationMasks = tmpPCorrelationMasks;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderPassMultiviewCreateInfoMarshaller
     {
@@ -96,32 +100,32 @@ public unsafe partial class RenderPassMultiviewCreateInfo : IMarshallableObject,
             }
             else if (renderPassMultiviewCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderPassMultiviewCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].subpassCount = renderPassMultiviewCreateInfo.SubpassCount;
 
-            if (renderPassMultiviewCreateInfo.PViewMasks.HasValue)
+            if (!renderPassMultiviewCreateInfo.PViewMasks.IsEmpty)
             {
-                context.Destination[0].pViewMasks = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(renderPassMultiviewCreateInfo.PViewMasks.Value, ref context);
+                context.Destination[0].pViewMasks = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo>(renderPassMultiviewCreateInfo.PViewMasks.Span, ref context);
             }
 
             context.Destination[0].dependencyCount = renderPassMultiviewCreateInfo.DependencyCount;
 
-            if (renderPassMultiviewCreateInfo.PViewOffsets.HasValue)
+            if (!renderPassMultiviewCreateInfo.PViewOffsets.IsEmpty)
             {
-                context.Destination[0].pViewOffsets = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(renderPassMultiviewCreateInfo.PViewOffsets.Value, ref context);
+                context.Destination[0].pViewOffsets = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<int, AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo>(renderPassMultiviewCreateInfo.PViewOffsets.Span, ref context);
             }
 
             context.Destination[0].correlationMaskCount = renderPassMultiviewCreateInfo.CorrelationMaskCount;
 
-            if (renderPassMultiviewCreateInfo.PCorrelationMasks.HasValue)
+            if (!renderPassMultiviewCreateInfo.PCorrelationMasks.IsEmpty)
             {
-                context.Destination[0].pCorrelationMasks = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(renderPassMultiviewCreateInfo.PCorrelationMasks.Value, ref context);
+                context.Destination[0].pCorrelationMasks = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkRenderPassMultiviewCreateInfo>(renderPassMultiviewCreateInfo.PCorrelationMasks.Span, ref context);
             }
 
         }

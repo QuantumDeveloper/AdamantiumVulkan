@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14879 Column: 16
+// File: vk.xml Line: 5262 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkRayTracingPipelineCreateInfoNV
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkPipelineCreateFlags flags;
+    public void* pNext;
+    public PipelineCreateFlagBits flags;
     public uint stageCount;
     public AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo* pStages;
     public uint groupCount;

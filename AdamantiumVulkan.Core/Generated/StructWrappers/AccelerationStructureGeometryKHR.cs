@@ -23,11 +23,12 @@ public unsafe partial class AccelerationStructureGeometryKHR : IMarshallableObje
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.AccelerationStructureGeometryKhr;
     public object PNext { get; set; }
     public GeometryTypeKHR GeometryType { get; set; }
     public AccelerationStructureGeometryDataKHR Geometry { get; set; }
     public GeometryFlagBitsKHR Flags { get; set; }
+
 
     public static implicit operator AccelerationStructureGeometryKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR a)
     {
@@ -41,6 +42,8 @@ public unsafe partial class AccelerationStructureGeometryKHR : IMarshallableObje
         {
             size += marshallable.GetSize();
         }
+        if (Geometry != default)
+            size += Geometry.GetSize();
         return size;
     }
 
@@ -51,21 +54,20 @@ public unsafe partial class AccelerationStructureGeometryKHR : IMarshallableObje
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         GeometryType = native.geometryType;
         Geometry = new AccelerationStructureGeometryDataKHR(native.geometry);
         Flags = native.flags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkAccelerationStructureGeometryKHRMarshaller
     {
@@ -79,11 +81,11 @@ public unsafe partial class AccelerationStructureGeometryKHR : IMarshallableObje
             }
             else if (accelerationStructureGeometryKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (accelerationStructureGeometryKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].geometryType = accelerationStructureGeometryKHR.GeometryType;

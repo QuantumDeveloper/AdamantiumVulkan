@@ -23,15 +23,16 @@ public unsafe partial class FramebufferAttachmentImageInfo : IMarshallableObject
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.FramebufferAttachmentImageInfo;
     public object PNext { get; set; }
-    public VkImageCreateFlags Flags { get; set; }
-    public VkImageUsageFlags Usage { get; set; }
+    public ImageCreateFlagBits Flags { get; set; }
+    public ImageUsageFlagBits Usage { get; set; }
     public uint Width { get; set; }
     public uint Height { get; set; }
     public uint LayerCount { get; set; }
     public uint ViewFormatCount { get; set; }
     public System.ReadOnlyMemory<Format> PViewFormats { get; set; }
+
 
     public static implicit operator FramebufferAttachmentImageInfo(AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo f)
     {
@@ -46,7 +47,7 @@ public unsafe partial class FramebufferAttachmentImageInfo : IMarshallableObject
             size += marshallable.GetSize();
         }
         if (!PViewFormats.IsEmpty)
-            size += PViewFormats.Span.Length * sizeof(uint);
+            size += PViewFormats.Span.Length * sizeof(int);
         return size;
     }
 
@@ -57,7 +58,6 @@ public unsafe partial class FramebufferAttachmentImageInfo : IMarshallableObject
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         Usage = native.usage;
@@ -65,18 +65,20 @@ public unsafe partial class FramebufferAttachmentImageInfo : IMarshallableObject
         Height = native.height;
         LayerCount = native.layerCount;
         ViewFormatCount = native.viewFormatCount;
-        var tmpPViewFormats = new Format[native.viewFormatCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pViewFormats, native.viewFormatCount, tmpPViewFormats);
+        var arrayLengthPViewFormats = native.viewFormatCount;
+        var tmpPViewFormats = new Format[arrayLengthPViewFormats];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pViewFormats, arrayLengthPViewFormats, tmpPViewFormats);
+        PViewFormats = tmpPViewFormats;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkFramebufferAttachmentImageInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkFramebufferAttachmentImageInfoMarshaller
     {
@@ -90,22 +92,16 @@ public unsafe partial class FramebufferAttachmentImageInfo : IMarshallableObject
             }
             else if (framebufferAttachmentImageInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (framebufferAttachmentImageInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (framebufferAttachmentImageInfo.Flags != (uint)default)
-            {
-                context.Destination[0].flags = framebufferAttachmentImageInfo.Flags;
-            }
+            context.Destination[0].flags = framebufferAttachmentImageInfo.Flags;
 
-            if (framebufferAttachmentImageInfo.Usage != (uint)default)
-            {
-                context.Destination[0].usage = framebufferAttachmentImageInfo.Usage;
-            }
+            context.Destination[0].usage = framebufferAttachmentImageInfo.Usage;
 
             context.Destination[0].width = framebufferAttachmentImageInfo.Width;
 
@@ -117,13 +113,13 @@ public unsafe partial class FramebufferAttachmentImageInfo : IMarshallableObject
 
             if (!framebufferAttachmentImageInfo.PViewFormats.IsEmpty)
             {
-                var sizeInBytes = sizeof(uint) * framebufferAttachmentImageInfo.PViewFormats.Length;
+                var sizeInBytes = sizeof(int) * framebufferAttachmentImageInfo.PViewFormats.Length;
                 var byteSpan = context.AllocateData(sizeInBytes);
-                var enumSpanPViewFormats = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, uint>(byteSpan);
+                var enumSpanPViewFormats = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, int>(byteSpan);
                 context.Destination[0].pViewFormats = (AdamantiumVulkan.Core.Format*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPViewFormats));
                 for (int i = 0; i < enumSpanPViewFormats.Length; i++)
                 {
-                    enumSpanPViewFormats[i] = (uint)framebufferAttachmentImageInfo.PViewFormats.Span[i];
+                    enumSpanPViewFormats[i] = (int)framebufferAttachmentImageInfo.PViewFormats.Span[i];
                 }
             }
 

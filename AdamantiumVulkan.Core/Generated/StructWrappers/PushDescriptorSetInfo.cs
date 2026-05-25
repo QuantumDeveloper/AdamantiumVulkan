@@ -23,13 +23,14 @@ public unsafe partial class PushDescriptorSetInfo : IMarshallableObject, IMarsha
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PushDescriptorSetInfo;
     public object PNext { get; set; }
-    public VkShaderStageFlags StageFlags { get; set; }
+    public ShaderStageFlagBits StageFlags { get; set; }
     public PipelineLayout Layout { get; set; }
     public uint Set { get; set; }
     public uint DescriptorWriteCount { get; set; }
-    public WriteDescriptorSet PDescriptorWrites { get; set; }
+    public System.ReadOnlyMemory<WriteDescriptorSet> PDescriptorWrites { get; set; }
+
 
     public static implicit operator PushDescriptorSetInfo(AdamantiumVulkan.Core.Interop.VkPushDescriptorSetInfo p)
     {
@@ -43,9 +44,15 @@ public unsafe partial class PushDescriptorSetInfo : IMarshallableObject, IMarsha
         {
             size += marshallable.GetSize();
         }
-        if (PDescriptorWrites != default)
+        if (!PDescriptorWrites.IsEmpty)
         {
-            size += PDescriptorWrites.GetSize();
+            for (int i = 0; i < PDescriptorWrites.Length; i++)
+            {
+                if (PDescriptorWrites.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet>();
+                else
+                    size += PDescriptorWrites.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -57,24 +64,30 @@ public unsafe partial class PushDescriptorSetInfo : IMarshallableObject, IMarsha
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPushDescriptorSetInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         StageFlags = native.stageFlags;
         Layout = new PipelineLayout(native.layout);
         Set = native.set;
         DescriptorWriteCount = native.descriptorWriteCount;
-        PDescriptorWrites = new WriteDescriptorSet(in *native.pDescriptorWrites);
-        NativeUtils.Free(native.pDescriptorWrites);
+        var arrayLengthPDescriptorWrites = native.descriptorWriteCount;
+        var tmpPDescriptorWrites = new WriteDescriptorSet[arrayLengthPDescriptorWrites];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet[arrayLengthPDescriptorWrites];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDescriptorWrites, arrayLengthPDescriptorWrites, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPDescriptorWrites[i] = new WriteDescriptorSet(in nativeTmpArray0[i]);
+        }
+        PDescriptorWrites = tmpPDescriptorWrites;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPushDescriptorSetInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPushDescriptorSetInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPushDescriptorSetInfoMarshaller
     {
@@ -88,17 +101,14 @@ public unsafe partial class PushDescriptorSetInfo : IMarshallableObject, IMarsha
             }
             else if (pushDescriptorSetInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pushDescriptorSetInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (pushDescriptorSetInfo.StageFlags != (uint)default)
-            {
-                context.Destination[0].stageFlags = pushDescriptorSetInfo.StageFlags;
-            }
+            context.Destination[0].stageFlags = pushDescriptorSetInfo.StageFlags;
 
             if (pushDescriptorSetInfo.Layout != default)
             {
@@ -109,14 +119,9 @@ public unsafe partial class PushDescriptorSetInfo : IMarshallableObject, IMarsha
 
             context.Destination[0].descriptorWriteCount = pushDescriptorSetInfo.DescriptorWriteCount;
 
-            if (pushDescriptorSetInfo.PDescriptorWrites != default)
+            if (!pushDescriptorSetInfo.PDescriptorWrites.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet>(structSlice0).Slice(0, 1);
-                context.Destination[0].pDescriptorWrites = (AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet>(structDestination0, context.DataCursor);
-                pushDescriptorSetInfo.PDescriptorWrites.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pDescriptorWrites = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.WriteDescriptorSet, AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet, AdamantiumVulkan.Core.Interop.VkPushDescriptorSetInfo>(pushDescriptorSetInfo.PDescriptorWrites, ref context);
             }
 
         }

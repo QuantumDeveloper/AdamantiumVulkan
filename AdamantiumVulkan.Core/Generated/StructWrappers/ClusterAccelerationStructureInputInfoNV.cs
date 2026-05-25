@@ -23,13 +23,14 @@ public unsafe partial class ClusterAccelerationStructureInputInfoNV : IMarshalla
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ClusterAccelerationStructureInputInfoNv;
     public object PNext { get; set; }
     public uint MaxAccelerationStructureCount { get; set; }
-    public VkBuildAccelerationStructureFlagsKHR Flags { get; set; }
+    public BuildAccelerationStructureFlagBitsKHR Flags { get; set; }
     public ClusterAccelerationStructureOpTypeNV OpType { get; set; }
     public ClusterAccelerationStructureOpModeNV OpMode { get; set; }
     public ClusterAccelerationStructureOpInputNV OpInput { get; set; }
+
 
     public static implicit operator ClusterAccelerationStructureInputInfoNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureInputInfoNV c)
     {
@@ -43,6 +44,8 @@ public unsafe partial class ClusterAccelerationStructureInputInfoNV : IMarshalla
         {
             size += marshallable.GetSize();
         }
+        if (OpInput != default)
+            size += OpInput.GetSize();
         return size;
     }
 
@@ -53,7 +56,6 @@ public unsafe partial class ClusterAccelerationStructureInputInfoNV : IMarshalla
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureInputInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MaxAccelerationStructureCount = native.maxAccelerationStructureCount;
         Flags = native.flags;
@@ -62,14 +64,14 @@ public unsafe partial class ClusterAccelerationStructureInputInfoNV : IMarshalla
         OpInput = new ClusterAccelerationStructureOpInputNV(native.opInput);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureInputInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureInputInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkClusterAccelerationStructureInputInfoNVMarshaller
     {
@@ -83,19 +85,16 @@ public unsafe partial class ClusterAccelerationStructureInputInfoNV : IMarshalla
             }
             else if (clusterAccelerationStructureInputInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (clusterAccelerationStructureInputInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].maxAccelerationStructureCount = clusterAccelerationStructureInputInfoNV.MaxAccelerationStructureCount;
 
-            if (clusterAccelerationStructureInputInfoNV.Flags != (uint)default)
-            {
-                context.Destination[0].flags = clusterAccelerationStructureInputInfoNV.Flags;
-            }
+            context.Destination[0].flags = clusterAccelerationStructureInputInfoNV.Flags;
 
             context.Destination[0].opType = clusterAccelerationStructureInputInfoNV.OpType;
 

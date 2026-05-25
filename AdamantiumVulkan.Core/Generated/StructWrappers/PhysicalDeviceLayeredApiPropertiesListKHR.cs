@@ -23,10 +23,11 @@ public unsafe partial class PhysicalDeviceLayeredApiPropertiesListKHR : IMarshal
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceLayeredApiPropertiesListKhr;
     public object PNext { get; set; }
     public uint LayeredApiCount { get; set; }
-    public PhysicalDeviceLayeredApiPropertiesKHR PLayeredApis { get; set; }
+    public System.ReadOnlyMemory<PhysicalDeviceLayeredApiPropertiesKHR> PLayeredApis { get; set; }
+
 
     public static implicit operator PhysicalDeviceLayeredApiPropertiesListKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesListKHR p)
     {
@@ -40,9 +41,15 @@ public unsafe partial class PhysicalDeviceLayeredApiPropertiesListKHR : IMarshal
         {
             size += marshallable.GetSize();
         }
-        if (PLayeredApis != default)
+        if (!PLayeredApis.IsEmpty)
         {
-            size += PLayeredApis.GetSize();
+            for (int i = 0; i < PLayeredApis.Length; i++)
+            {
+                if (PLayeredApis.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesKHR>();
+                else
+                    size += PLayeredApis.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -54,21 +61,27 @@ public unsafe partial class PhysicalDeviceLayeredApiPropertiesListKHR : IMarshal
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesListKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         LayeredApiCount = native.layeredApiCount;
-        PLayeredApis = new PhysicalDeviceLayeredApiPropertiesKHR(in *native.pLayeredApis);
-        NativeUtils.Free(native.pLayeredApis);
+        var arrayLengthPLayeredApis = native.layeredApiCount;
+        var tmpPLayeredApis = new PhysicalDeviceLayeredApiPropertiesKHR[arrayLengthPLayeredApis];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesKHR[arrayLengthPLayeredApis];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pLayeredApis, arrayLengthPLayeredApis, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPLayeredApis[i] = new PhysicalDeviceLayeredApiPropertiesKHR(in nativeTmpArray0[i]);
+        }
+        PLayeredApis = tmpPLayeredApis;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesListKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesListKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceLayeredApiPropertiesListKHRMarshaller
     {
@@ -82,23 +95,18 @@ public unsafe partial class PhysicalDeviceLayeredApiPropertiesListKHR : IMarshal
             }
             else if (physicalDeviceLayeredApiPropertiesListKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceLayeredApiPropertiesListKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].layeredApiCount = physicalDeviceLayeredApiPropertiesListKHR.LayeredApiCount;
 
-            if (physicalDeviceLayeredApiPropertiesListKHR.PLayeredApis != default)
+            if (!physicalDeviceLayeredApiPropertiesListKHR.PLayeredApis.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesKHR));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesKHR>(structSlice0).Slice(0, 1);
-                context.Destination[0].pLayeredApis = (AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesKHR*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesKHR>(structDestination0, context.DataCursor);
-                physicalDeviceLayeredApiPropertiesListKHR.PLayeredApis.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pLayeredApis = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.PhysicalDeviceLayeredApiPropertiesKHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesKHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesListKHR>(physicalDeviceLayeredApiPropertiesListKHR.PLayeredApis, ref context);
             }
 
         }

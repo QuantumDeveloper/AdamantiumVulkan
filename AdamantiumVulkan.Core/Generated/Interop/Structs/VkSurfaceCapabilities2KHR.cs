@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 10581 Column: 16
+// File: vk.xml Line: 3879 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkSurfaceCapabilities2KHR
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkSurfaceCapabilitiesKHR surfaceCapabilities;
 }
 

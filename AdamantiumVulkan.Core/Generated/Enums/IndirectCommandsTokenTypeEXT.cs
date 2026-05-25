@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20954 Column: 14
-public enum IndirectCommandsTokenTypeEXT : uint
+// File: vk.xml Line: 14023 Column: 6
+public enum IndirectCommandsTokenTypeEXT : int
 {
     ExecutionSetExt = 0,
 
@@ -34,6 +34,10 @@ public enum IndirectCommandsTokenTypeEXT : uint
 
     DispatchExt = 9,
 
+    PushDataExt = 1000135000,
+
+    PushDataSequenceIndexExt = 1000135001,
+
     DrawMeshTasksNvExt = 1000202002,
 
     DrawMeshTasksCountNvExt = 1000202003,
@@ -43,8 +47,6 @@ public enum IndirectCommandsTokenTypeEXT : uint
     DrawMeshTasksCountExt = 1000328001,
 
     TraceRays2Ext = 1000386004,
-
-    MaxEnumExt = 2147483647,
 
 }
 

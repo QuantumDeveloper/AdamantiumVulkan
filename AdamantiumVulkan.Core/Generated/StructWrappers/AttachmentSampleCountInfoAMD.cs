@@ -23,11 +23,12 @@ public unsafe partial class AttachmentSampleCountInfoAMD : IMarshallableObject, 
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.AttachmentSampleCountInfoAmd;
     public object PNext { get; set; }
     public uint ColorAttachmentCount { get; set; }
-    public SampleCountFlagBits? PColorAttachmentSamples { get; set; }
+    public System.ReadOnlyMemory<SampleCountFlagBits> PColorAttachmentSamples { get; set; }
     public SampleCountFlagBits DepthStencilAttachmentSamples { get; set; }
+
 
     public static implicit operator AttachmentSampleCountInfoAMD(AdamantiumVulkan.Core.Interop.VkAttachmentSampleCountInfoAMD a)
     {
@@ -41,6 +42,8 @@ public unsafe partial class AttachmentSampleCountInfoAMD : IMarshallableObject, 
         {
             size += marshallable.GetSize();
         }
+        if (!PColorAttachmentSamples.IsEmpty)
+            size += PColorAttachmentSamples.Span.Length * sizeof(uint);
         return size;
     }
 
@@ -51,21 +54,23 @@ public unsafe partial class AttachmentSampleCountInfoAMD : IMarshallableObject, 
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkAttachmentSampleCountInfoAMD native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ColorAttachmentCount = native.colorAttachmentCount;
-        PColorAttachmentSamples = *native.pColorAttachmentSamples;
+        var arrayLengthPColorAttachmentSamples = native.colorAttachmentCount;
+        var tmpPColorAttachmentSamples = new SampleCountFlagBits[arrayLengthPColorAttachmentSamples];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pColorAttachmentSamples, arrayLengthPColorAttachmentSamples, tmpPColorAttachmentSamples);
+        PColorAttachmentSamples = tmpPColorAttachmentSamples;
         DepthStencilAttachmentSamples = native.depthStencilAttachmentSamples;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkAttachmentSampleCountInfoAMD>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkAttachmentSampleCountInfoAMD>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkAttachmentSampleCountInfoAMDMarshaller
     {
@@ -79,19 +84,26 @@ public unsafe partial class AttachmentSampleCountInfoAMD : IMarshallableObject, 
             }
             else if (attachmentSampleCountInfoAMD.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (attachmentSampleCountInfoAMD.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].colorAttachmentCount = attachmentSampleCountInfoAMD.ColorAttachmentCount;
 
-            var enumSpanPColorAttachmentSamples = context.AllocateData(sizeof(uint));
-            ref uint enumValuePColorAttachmentSamples = ref System.Runtime.InteropServices.MemoryMarshal.AsRef<uint>(enumSpanPColorAttachmentSamples);
-            enumValuePColorAttachmentSamples = (uint)attachmentSampleCountInfoAMD.PColorAttachmentSamples;
-            context.Destination[0].pColorAttachmentSamples = (AdamantiumVulkan.Core.SampleCountFlagBits*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPColorAttachmentSamples));
+            if (!attachmentSampleCountInfoAMD.PColorAttachmentSamples.IsEmpty)
+            {
+                var sizeInBytes = sizeof(uint) * attachmentSampleCountInfoAMD.PColorAttachmentSamples.Length;
+                var byteSpan = context.AllocateData(sizeInBytes);
+                var enumSpanPColorAttachmentSamples = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, uint>(byteSpan);
+                context.Destination[0].pColorAttachmentSamples = (AdamantiumVulkan.Core.SampleCountFlagBits*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPColorAttachmentSamples));
+                for (int i = 0; i < enumSpanPColorAttachmentSamples.Length; i++)
+                {
+                    enumSpanPColorAttachmentSamples[i] = (uint)attachmentSampleCountInfoAMD.PColorAttachmentSamples.Span[i];
+                }
+            }
 
             context.Destination[0].depthStencilAttachmentSamples = attachmentSampleCountInfoAMD.DepthStencilAttachmentSamples;
 

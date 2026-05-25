@@ -26,6 +26,7 @@ public unsafe partial class DisplayModeParametersKHR : IMarshallableObject, IMar
     public Extent2D VisibleRegion { get; set; }
     public uint RefreshRate { get; set; }
 
+
     public static implicit operator DisplayModeParametersKHR(AdamantiumVulkan.Core.Interop.VkDisplayModeParametersKHR d)
     {
         return new DisplayModeParametersKHR(in d);
@@ -48,14 +49,14 @@ public unsafe partial class DisplayModeParametersKHR : IMarshallableObject, IMar
         RefreshRate = native.refreshRate;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDisplayModeParametersKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDisplayModeParametersKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDisplayModeParametersKHRMarshaller
     {

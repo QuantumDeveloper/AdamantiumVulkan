@@ -30,6 +30,7 @@ public unsafe partial class VertexInputBindingDescription2EXT : IMarshallableObj
     public VertexInputRate InputRate { get; set; }
     public uint Divisor { get; set; }
 
+
     public static implicit operator VertexInputBindingDescription2EXT(AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription2EXT v)
     {
         return new VertexInputBindingDescription2EXT(in v);
@@ -59,14 +60,14 @@ public unsafe partial class VertexInputBindingDescription2EXT : IMarshallableObj
         Divisor = native.divisor;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription2EXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVertexInputBindingDescription2EXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVertexInputBindingDescription2EXTMarshaller
     {
@@ -80,11 +81,11 @@ public unsafe partial class VertexInputBindingDescription2EXT : IMarshallableObj
             }
             else if (vertexInputBindingDescription2EXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (vertexInputBindingDescription2EXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].binding = vertexInputBindingDescription2EXT.Binding;

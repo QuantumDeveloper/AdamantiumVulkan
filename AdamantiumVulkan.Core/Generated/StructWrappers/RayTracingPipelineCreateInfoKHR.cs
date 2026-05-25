@@ -23,13 +23,13 @@ public unsafe partial class RayTracingPipelineCreateInfoKHR : IMarshallableObjec
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.RayTracingPipelineCreateInfoKhr;
     public object PNext { get; set; }
-    public VkPipelineCreateFlags Flags { get; set; }
+    public PipelineCreateFlagBits Flags { get; set; }
     public uint StageCount { get; set; }
-    public PipelineShaderStageCreateInfo PStages { get; set; }
+    public System.ReadOnlyMemory<PipelineShaderStageCreateInfo> PStages { get; set; }
     public uint GroupCount { get; set; }
-    public RayTracingShaderGroupCreateInfoKHR PGroups { get; set; }
+    public System.ReadOnlyMemory<RayTracingShaderGroupCreateInfoKHR> PGroups { get; set; }
     public uint MaxPipelineRayRecursionDepth { get; set; }
     public PipelineLibraryCreateInfoKHR PLibraryInfo { get; set; }
     public RayTracingPipelineInterfaceCreateInfoKHR PLibraryInterface { get; set; }
@@ -37,6 +37,7 @@ public unsafe partial class RayTracingPipelineCreateInfoKHR : IMarshallableObjec
     public PipelineLayout Layout { get; set; }
     public Pipeline BasePipelineHandle { get; set; }
     public int BasePipelineIndex { get; set; }
+
 
     public static implicit operator RayTracingPipelineCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR r)
     {
@@ -50,13 +51,25 @@ public unsafe partial class RayTracingPipelineCreateInfoKHR : IMarshallableObjec
         {
             size += marshallable.GetSize();
         }
-        if (PStages != default)
+        if (!PStages.IsEmpty)
         {
-            size += PStages.GetSize();
+            for (int i = 0; i < PStages.Length; i++)
+            {
+                if (PStages.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>();
+                else
+                    size += PStages.Span[i].GetSize();
+            }
         }
-        if (PGroups != default)
+        if (!PGroups.IsEmpty)
         {
-            size += PGroups.GetSize();
+            for (int i = 0; i < PGroups.Length; i++)
+            {
+                if (PGroups.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR>();
+                else
+                    size += PGroups.Span[i].GetSize();
+            }
         }
         if (PLibraryInfo != default)
         {
@@ -80,15 +93,28 @@ public unsafe partial class RayTracingPipelineCreateInfoKHR : IMarshallableObjec
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         StageCount = native.stageCount;
-        PStages = new PipelineShaderStageCreateInfo(in *native.pStages);
-        NativeUtils.Free(native.pStages);
+        var arrayLengthPStages = native.stageCount;
+        var tmpPStages = new PipelineShaderStageCreateInfo[arrayLengthPStages];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo[arrayLengthPStages];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pStages, arrayLengthPStages, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPStages[i] = new PipelineShaderStageCreateInfo(in nativeTmpArray0[i]);
+        }
+        PStages = tmpPStages;
         GroupCount = native.groupCount;
-        PGroups = new RayTracingShaderGroupCreateInfoKHR(in *native.pGroups);
-        NativeUtils.Free(native.pGroups);
+        var arrayLengthPGroups = native.groupCount;
+        var tmpPGroups = new RayTracingShaderGroupCreateInfoKHR[arrayLengthPGroups];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR[arrayLengthPGroups];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pGroups, arrayLengthPGroups, nativeTmpArray1);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        {
+            tmpPGroups[i] = new RayTracingShaderGroupCreateInfoKHR(in nativeTmpArray1[i]);
+        }
+        PGroups = tmpPGroups;
         MaxPipelineRayRecursionDepth = native.maxPipelineRayRecursionDepth;
         PLibraryInfo = new PipelineLibraryCreateInfoKHR(in *native.pLibraryInfo);
         NativeUtils.Free(native.pLibraryInfo);
@@ -101,14 +127,14 @@ public unsafe partial class RayTracingPipelineCreateInfoKHR : IMarshallableObjec
         BasePipelineIndex = native.basePipelineIndex;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRayTracingPipelineCreateInfoKHRMarshaller
     {
@@ -122,40 +148,27 @@ public unsafe partial class RayTracingPipelineCreateInfoKHR : IMarshallableObjec
             }
             else if (rayTracingPipelineCreateInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (rayTracingPipelineCreateInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (rayTracingPipelineCreateInfoKHR.Flags != (uint)default)
-            {
-                context.Destination[0].flags = rayTracingPipelineCreateInfoKHR.Flags;
-            }
+            context.Destination[0].flags = rayTracingPipelineCreateInfoKHR.Flags;
 
             context.Destination[0].stageCount = rayTracingPipelineCreateInfoKHR.StageCount;
 
-            if (rayTracingPipelineCreateInfoKHR.PStages != default)
+            if (!rayTracingPipelineCreateInfoKHR.PStages.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStages = (AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo>(structDestination0, context.DataCursor);
-                rayTracingPipelineCreateInfoKHR.PStages.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pStages = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.PipelineShaderStageCreateInfo, AdamantiumVulkan.Core.Interop.VkPipelineShaderStageCreateInfo, AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR>(rayTracingPipelineCreateInfoKHR.PStages, ref context);
             }
 
             context.Destination[0].groupCount = rayTracingPipelineCreateInfoKHR.GroupCount;
 
-            if (rayTracingPipelineCreateInfoKHR.PGroups != default)
+            if (!rayTracingPipelineCreateInfoKHR.PGroups.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR>(structSlice0).Slice(0, 1);
-                context.Destination[0].pGroups = (AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR>(structDestination0, context.DataCursor);
-                rayTracingPipelineCreateInfoKHR.PGroups.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pGroups = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.RayTracingShaderGroupCreateInfoKHR, AdamantiumVulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR, AdamantiumVulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR>(rayTracingPipelineCreateInfoKHR.PGroups, ref context);
             }
 
             context.Destination[0].maxPipelineRayRecursionDepth = rayTracingPipelineCreateInfoKHR.MaxPipelineRayRecursionDepth;

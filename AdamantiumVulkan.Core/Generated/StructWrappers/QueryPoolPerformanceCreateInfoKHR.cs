@@ -23,11 +23,12 @@ public unsafe partial class QueryPoolPerformanceCreateInfoKHR : IMarshallableObj
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.QueryPoolPerformanceCreateInfoKhr;
     public object PNext { get; set; }
     public uint QueueFamilyIndex { get; set; }
     public uint CounterIndexCount { get; set; }
-    public uint? PCounterIndices { get; set; }
+    public System.ReadOnlyMemory<uint> PCounterIndices { get; set; }
+
 
     public static implicit operator QueryPoolPerformanceCreateInfoKHR(AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR q)
     {
@@ -41,6 +42,8 @@ public unsafe partial class QueryPoolPerformanceCreateInfoKHR : IMarshallableObj
         {
             size += marshallable.GetSize();
         }
+        if (!PCounterIndices.IsEmpty)
+            size += PCounterIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -51,25 +54,23 @@ public unsafe partial class QueryPoolPerformanceCreateInfoKHR : IMarshallableObj
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         QueueFamilyIndex = native.queueFamilyIndex;
         CounterIndexCount = native.counterIndexCount;
-        if (native.pCounterIndices != null)
-        {
-            PCounterIndices = *native.pCounterIndices;
-            NativeUtils.Free(native.pCounterIndices);
-        }
+        var arrayLengthPCounterIndices = native.counterIndexCount;
+        var tmpPCounterIndices = new uint[arrayLengthPCounterIndices];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCounterIndices, arrayLengthPCounterIndices, tmpPCounterIndices);
+        PCounterIndices = tmpPCounterIndices;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkQueryPoolPerformanceCreateInfoKHRMarshaller
     {
@@ -83,20 +84,20 @@ public unsafe partial class QueryPoolPerformanceCreateInfoKHR : IMarshallableObj
             }
             else if (queryPoolPerformanceCreateInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (queryPoolPerformanceCreateInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].queueFamilyIndex = queryPoolPerformanceCreateInfoKHR.QueueFamilyIndex;
 
             context.Destination[0].counterIndexCount = queryPoolPerformanceCreateInfoKHR.CounterIndexCount;
 
-            if (queryPoolPerformanceCreateInfoKHR.PCounterIndices.HasValue)
+            if (!queryPoolPerformanceCreateInfoKHR.PCounterIndices.IsEmpty)
             {
-                context.Destination[0].pCounterIndices = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(queryPoolPerformanceCreateInfoKHR.PCounterIndices.Value, ref context);
+                context.Destination[0].pCounterIndices = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR>(queryPoolPerformanceCreateInfoKHR.PCounterIndices.Span, ref context);
             }
 
         }

@@ -89,7 +89,7 @@ public unsafe partial class PhysicalDeviceLimits : IMarshallableObject, IMarshal
     public System.ReadOnlyMemory<uint> MaxViewportDimensions { get; set; }
     public System.ReadOnlyMemory<float> ViewportBoundsRange { get; set; }
     public uint ViewportSubPixelBits { get; set; }
-    public ulong MinMemoryMapAlignment { get; set; }
+    public nuint MinMemoryMapAlignment { get; set; }
     public VkDeviceSize MinTexelBufferOffsetAlignment { get; set; }
     public VkDeviceSize MinUniformBufferOffsetAlignment { get; set; }
     public VkDeviceSize MinStorageBufferOffsetAlignment { get; set; }
@@ -103,16 +103,16 @@ public unsafe partial class PhysicalDeviceLimits : IMarshallableObject, IMarshal
     public uint MaxFramebufferWidth { get; set; }
     public uint MaxFramebufferHeight { get; set; }
     public uint MaxFramebufferLayers { get; set; }
-    public VkSampleCountFlags FramebufferColorSampleCounts { get; set; }
-    public VkSampleCountFlags FramebufferDepthSampleCounts { get; set; }
-    public VkSampleCountFlags FramebufferStencilSampleCounts { get; set; }
-    public VkSampleCountFlags FramebufferNoAttachmentsSampleCounts { get; set; }
+    public SampleCountFlagBits FramebufferColorSampleCounts { get; set; }
+    public SampleCountFlagBits FramebufferDepthSampleCounts { get; set; }
+    public SampleCountFlagBits FramebufferStencilSampleCounts { get; set; }
+    public SampleCountFlagBits FramebufferNoAttachmentsSampleCounts { get; set; }
     public uint MaxColorAttachments { get; set; }
-    public VkSampleCountFlags SampledImageColorSampleCounts { get; set; }
-    public VkSampleCountFlags SampledImageIntegerSampleCounts { get; set; }
-    public VkSampleCountFlags SampledImageDepthSampleCounts { get; set; }
-    public VkSampleCountFlags SampledImageStencilSampleCounts { get; set; }
-    public VkSampleCountFlags StorageImageSampleCounts { get; set; }
+    public SampleCountFlagBits SampledImageColorSampleCounts { get; set; }
+    public SampleCountFlagBits SampledImageIntegerSampleCounts { get; set; }
+    public SampleCountFlagBits SampledImageDepthSampleCounts { get; set; }
+    public SampleCountFlagBits SampledImageStencilSampleCounts { get; set; }
+    public SampleCountFlagBits StorageImageSampleCounts { get; set; }
     public uint MaxSampleMaskWords { get; set; }
     public VkBool32 TimestampComputeAndGraphics { get; set; }
     public float TimestampPeriod { get; set; }
@@ -129,6 +129,7 @@ public unsafe partial class PhysicalDeviceLimits : IMarshallableObject, IMarshal
     public VkDeviceSize OptimalBufferCopyOffsetAlignment { get; set; }
     public VkDeviceSize OptimalBufferCopyRowPitchAlignment { get; set; }
     public VkDeviceSize NonCoherentAtomSize { get; set; }
+
 
     public static implicit operator PhysicalDeviceLimits(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLimits p)
     {
@@ -201,12 +202,14 @@ public unsafe partial class PhysicalDeviceLimits : IMarshallableObject, IMarshal
         MaxFragmentCombinedOutputResources = native.maxFragmentCombinedOutputResources;
         MaxComputeSharedMemorySize = native.maxComputeSharedMemorySize;
         var tmpMaxComputeWorkGroupCount = new uint[3];
-        var pMaxComputeWorkGroupCount = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.maxComputeWorkGroupCount[0]));
+        var maxComputeWorkGroupCountp = native.maxComputeWorkGroupCount[0];
+        var pMaxComputeWorkGroupCount = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in maxComputeWorkGroupCountp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMaxComputeWorkGroupCount, 3, tmpMaxComputeWorkGroupCount);
         MaxComputeWorkGroupCount = tmpMaxComputeWorkGroupCount;
         MaxComputeWorkGroupInvocations = native.maxComputeWorkGroupInvocations;
         var tmpMaxComputeWorkGroupSize = new uint[3];
-        var pMaxComputeWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.maxComputeWorkGroupSize[0]));
+        var maxComputeWorkGroupSizep = native.maxComputeWorkGroupSize[0];
+        var pMaxComputeWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in maxComputeWorkGroupSizep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMaxComputeWorkGroupSize, 3, tmpMaxComputeWorkGroupSize);
         MaxComputeWorkGroupSize = tmpMaxComputeWorkGroupSize;
         SubPixelPrecisionBits = native.subPixelPrecisionBits;
@@ -218,11 +221,13 @@ public unsafe partial class PhysicalDeviceLimits : IMarshallableObject, IMarshal
         MaxSamplerAnisotropy = native.maxSamplerAnisotropy;
         MaxViewports = native.maxViewports;
         var tmpMaxViewportDimensions = new uint[2];
-        var pMaxViewportDimensions = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.maxViewportDimensions[0]));
+        var maxViewportDimensionsp = native.maxViewportDimensions[0];
+        var pMaxViewportDimensions = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in maxViewportDimensionsp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMaxViewportDimensions, 2, tmpMaxViewportDimensions);
         MaxViewportDimensions = tmpMaxViewportDimensions;
         var tmpViewportBoundsRange = new float[2];
-        var pViewportBoundsRange = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.viewportBoundsRange[0]));
+        var viewportBoundsRangep = native.viewportBoundsRange[0];
+        var pViewportBoundsRange = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in viewportBoundsRangep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pViewportBoundsRange, 2, tmpViewportBoundsRange);
         ViewportBoundsRange = tmpViewportBoundsRange;
         ViewportSubPixelBits = native.viewportSubPixelBits;
@@ -258,11 +263,13 @@ public unsafe partial class PhysicalDeviceLimits : IMarshallableObject, IMarshal
         MaxCombinedClipAndCullDistances = native.maxCombinedClipAndCullDistances;
         DiscreteQueuePriorities = native.discreteQueuePriorities;
         var tmpPointSizeRange = new float[2];
-        var pPointSizeRange = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.pointSizeRange[0]));
+        var pointSizeRangep = native.pointSizeRange[0];
+        var pPointSizeRange = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in pointSizeRangep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pPointSizeRange, 2, tmpPointSizeRange);
         PointSizeRange = tmpPointSizeRange;
         var tmpLineWidthRange = new float[2];
-        var pLineWidthRange = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.lineWidthRange[0]));
+        var lineWidthRangep = native.lineWidthRange[0];
+        var pLineWidthRange = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in lineWidthRangep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pLineWidthRange, 2, tmpLineWidthRange);
         LineWidthRange = tmpLineWidthRange;
         PointSizeGranularity = native.pointSizeGranularity;
@@ -274,14 +281,14 @@ public unsafe partial class PhysicalDeviceLimits : IMarshallableObject, IMarshal
         NonCoherentAtomSize = native.nonCoherentAtomSize;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLimits>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceLimits>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceLimitsMarshaller
     {
@@ -478,52 +485,25 @@ public unsafe partial class PhysicalDeviceLimits : IMarshallableObject, IMarshal
 
             context.Destination[0].maxFramebufferLayers = physicalDeviceLimits.MaxFramebufferLayers;
 
-            if (physicalDeviceLimits.FramebufferColorSampleCounts != (uint)default)
-            {
-                context.Destination[0].framebufferColorSampleCounts = physicalDeviceLimits.FramebufferColorSampleCounts;
-            }
+            context.Destination[0].framebufferColorSampleCounts = physicalDeviceLimits.FramebufferColorSampleCounts;
 
-            if (physicalDeviceLimits.FramebufferDepthSampleCounts != (uint)default)
-            {
-                context.Destination[0].framebufferDepthSampleCounts = physicalDeviceLimits.FramebufferDepthSampleCounts;
-            }
+            context.Destination[0].framebufferDepthSampleCounts = physicalDeviceLimits.FramebufferDepthSampleCounts;
 
-            if (physicalDeviceLimits.FramebufferStencilSampleCounts != (uint)default)
-            {
-                context.Destination[0].framebufferStencilSampleCounts = physicalDeviceLimits.FramebufferStencilSampleCounts;
-            }
+            context.Destination[0].framebufferStencilSampleCounts = physicalDeviceLimits.FramebufferStencilSampleCounts;
 
-            if (physicalDeviceLimits.FramebufferNoAttachmentsSampleCounts != (uint)default)
-            {
-                context.Destination[0].framebufferNoAttachmentsSampleCounts = physicalDeviceLimits.FramebufferNoAttachmentsSampleCounts;
-            }
+            context.Destination[0].framebufferNoAttachmentsSampleCounts = physicalDeviceLimits.FramebufferNoAttachmentsSampleCounts;
 
             context.Destination[0].maxColorAttachments = physicalDeviceLimits.MaxColorAttachments;
 
-            if (physicalDeviceLimits.SampledImageColorSampleCounts != (uint)default)
-            {
-                context.Destination[0].sampledImageColorSampleCounts = physicalDeviceLimits.SampledImageColorSampleCounts;
-            }
+            context.Destination[0].sampledImageColorSampleCounts = physicalDeviceLimits.SampledImageColorSampleCounts;
 
-            if (physicalDeviceLimits.SampledImageIntegerSampleCounts != (uint)default)
-            {
-                context.Destination[0].sampledImageIntegerSampleCounts = physicalDeviceLimits.SampledImageIntegerSampleCounts;
-            }
+            context.Destination[0].sampledImageIntegerSampleCounts = physicalDeviceLimits.SampledImageIntegerSampleCounts;
 
-            if (physicalDeviceLimits.SampledImageDepthSampleCounts != (uint)default)
-            {
-                context.Destination[0].sampledImageDepthSampleCounts = physicalDeviceLimits.SampledImageDepthSampleCounts;
-            }
+            context.Destination[0].sampledImageDepthSampleCounts = physicalDeviceLimits.SampledImageDepthSampleCounts;
 
-            if (physicalDeviceLimits.SampledImageStencilSampleCounts != (uint)default)
-            {
-                context.Destination[0].sampledImageStencilSampleCounts = physicalDeviceLimits.SampledImageStencilSampleCounts;
-            }
+            context.Destination[0].sampledImageStencilSampleCounts = physicalDeviceLimits.SampledImageStencilSampleCounts;
 
-            if (physicalDeviceLimits.StorageImageSampleCounts != (uint)default)
-            {
-                context.Destination[0].storageImageSampleCounts = physicalDeviceLimits.StorageImageSampleCounts;
-            }
+            context.Destination[0].storageImageSampleCounts = physicalDeviceLimits.StorageImageSampleCounts;
 
             context.Destination[0].maxSampleMaskWords = physicalDeviceLimits.MaxSampleMaskWords;
 

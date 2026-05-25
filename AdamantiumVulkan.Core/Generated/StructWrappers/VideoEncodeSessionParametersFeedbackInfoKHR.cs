@@ -23,9 +23,10 @@ public unsafe partial class VideoEncodeSessionParametersFeedbackInfoKHR : IMarsh
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeSessionParametersFeedbackInfoKhr;
     public object PNext { get; set; }
     public VkBool32 HasOverrides { get; set; }
+
 
     public static implicit operator VideoEncodeSessionParametersFeedbackInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR v)
     {
@@ -49,19 +50,18 @@ public unsafe partial class VideoEncodeSessionParametersFeedbackInfoKHR : IMarsh
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         HasOverrides = native.hasOverrides;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeSessionParametersFeedbackInfoKHRMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class VideoEncodeSessionParametersFeedbackInfoKHR : IMarsh
             }
             else if (videoEncodeSessionParametersFeedbackInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeSessionParametersFeedbackInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (videoEncodeSessionParametersFeedbackInfoKHR.HasOverrides != (uint)default)

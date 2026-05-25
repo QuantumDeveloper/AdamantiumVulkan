@@ -26,6 +26,7 @@ public unsafe partial class Rect2D : IMarshallableObject, IMarshallable<Adamanti
     public Offset2D Offset { get; set; }
     public Extent2D Extent { get; set; }
 
+
     public static implicit operator Rect2D(AdamantiumVulkan.Core.Interop.VkRect2D r)
     {
         return new Rect2D(in r);
@@ -48,14 +49,14 @@ public unsafe partial class Rect2D : IMarshallableObject, IMarshallable<Adamanti
         Extent = new Extent2D(native.extent);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRect2D>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRect2D>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRect2DMarshaller
     {

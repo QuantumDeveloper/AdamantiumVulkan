@@ -32,6 +32,7 @@ public unsafe partial class PipelineColorBlendStateCreateInfo : IMarshallableObj
     public System.ReadOnlyMemory<PipelineColorBlendAttachmentState> PAttachments { get; set; }
     public System.ReadOnlyMemory<float> BlendConstants { get; set; }
 
+
     public static implicit operator PipelineColorBlendStateCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo p)
     {
         return new PipelineColorBlendStateCreateInfo(in p);
@@ -69,28 +70,30 @@ public unsafe partial class PipelineColorBlendStateCreateInfo : IMarshallableObj
         LogicOpEnable = native.logicOpEnable;
         LogicOp = native.logicOp;
         AttachmentCount = native.attachmentCount;
-        var tmpPAttachments = new PipelineColorBlendAttachmentState[native.attachmentCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState[native.attachmentCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAttachments, native.attachmentCount, nativeTmpArray0);
+        var arrayLengthPAttachments = native.attachmentCount;
+        var tmpPAttachments = new PipelineColorBlendAttachmentState[arrayLengthPAttachments];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipelineColorBlendAttachmentState[arrayLengthPAttachments];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAttachments, arrayLengthPAttachments, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPAttachments[i] = new PipelineColorBlendAttachmentState(in nativeTmpArray0[i]);
         }
         PAttachments = tmpPAttachments;
         var tmpBlendConstants = new float[4];
-        var pBlendConstants = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.blendConstants[0]));
+        var blendConstantsp = native.blendConstants[0];
+        var pBlendConstants = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in blendConstantsp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pBlendConstants, 4, tmpBlendConstants);
         BlendConstants = tmpBlendConstants;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineColorBlendStateCreateInfoMarshaller
     {
@@ -104,11 +107,11 @@ public unsafe partial class PipelineColorBlendStateCreateInfo : IMarshallableObj
             }
             else if (pipelineColorBlendStateCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineColorBlendStateCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineColorBlendStateCreateInfo.Flags != (uint)default)

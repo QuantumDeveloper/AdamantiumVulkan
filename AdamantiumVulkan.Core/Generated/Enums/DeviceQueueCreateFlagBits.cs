@@ -11,13 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2587 Column: 14
+// File: vk.xml Line: 12491 Column: 6
 [Flags]
 public enum DeviceQueueCreateFlagBits : uint
 {
-    ProtectedBit = 1,
+    Reserved1BitQcom = 2,
 
-    FlagBitsMaxEnum = 2147483647,
+    InternallySynchronizedBitKhr = 4,
+
+    ProtectedBit = 1,
 
 }
 

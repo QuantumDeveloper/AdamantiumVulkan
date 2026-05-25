@@ -23,14 +23,15 @@ public unsafe partial class MicromapCreateInfoEXT : IMarshallableObject, IMarsha
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.MicromapCreateInfoExt;
     public object PNext { get; set; }
-    public VkMicromapCreateFlagsEXT CreateFlags { get; set; }
+    public MicromapCreateFlagBitsEXT CreateFlags { get; set; }
     public Buffer Buffer { get; set; }
     public VkDeviceSize Offset { get; set; }
     public VkDeviceSize Size { get; set; }
     public MicromapTypeEXT Type { get; set; }
     public VkDeviceAddress DeviceAddress { get; set; }
+
 
     public static implicit operator MicromapCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkMicromapCreateInfoEXT m)
     {
@@ -54,7 +55,6 @@ public unsafe partial class MicromapCreateInfoEXT : IMarshallableObject, IMarsha
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkMicromapCreateInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         CreateFlags = native.createFlags;
         Buffer = new Buffer(native.buffer);
@@ -64,14 +64,14 @@ public unsafe partial class MicromapCreateInfoEXT : IMarshallableObject, IMarsha
         DeviceAddress = native.deviceAddress;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkMicromapCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkMicromapCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkMicromapCreateInfoEXTMarshaller
     {
@@ -85,17 +85,14 @@ public unsafe partial class MicromapCreateInfoEXT : IMarshallableObject, IMarsha
             }
             else if (micromapCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (micromapCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (micromapCreateInfoEXT.CreateFlags != (uint)default)
-            {
-                context.Destination[0].createFlags = micromapCreateInfoEXT.CreateFlags;
-            }
+            context.Destination[0].createFlags = micromapCreateInfoEXT.CreateFlags;
 
             if (micromapCreateInfoEXT.Buffer != default)
             {

@@ -23,12 +23,13 @@ public unsafe partial class PerformanceCounterKHR : IMarshallableObject, IMarsha
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PerformanceCounterKhr;
     public object PNext { get; set; }
     public PerformanceCounterUnitKHR Unit { get; set; }
     public PerformanceCounterScopeKHR Scope { get; set; }
     public PerformanceCounterStorageKHR Storage { get; set; }
     public System.ReadOnlyMemory<byte> Uuid { get; set; }
+
 
     public static implicit operator PerformanceCounterKHR(AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR p)
     {
@@ -52,25 +53,25 @@ public unsafe partial class PerformanceCounterKHR : IMarshallableObject, IMarsha
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Unit = native.unit;
         Scope = native.scope;
         Storage = native.storage;
         var tmpUuid = new byte[16];
-        var pUuid = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.uuid[0]));
+        var uuidp = native.uuid[0];
+        var pUuid = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in uuidp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pUuid, 16, tmpUuid);
         Uuid = tmpUuid;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPerformanceCounterKHRMarshaller
     {
@@ -84,11 +85,11 @@ public unsafe partial class PerformanceCounterKHR : IMarshallableObject, IMarsha
             }
             else if (performanceCounterKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (performanceCounterKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].unit = performanceCounterKHR.Unit;

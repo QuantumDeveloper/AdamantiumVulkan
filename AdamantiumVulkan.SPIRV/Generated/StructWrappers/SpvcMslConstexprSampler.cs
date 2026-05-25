@@ -12,6 +12,9 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+///<summary>
+/// Maps to C++ API.
+///</summary>
 public unsafe partial class SpvcMslConstexprSampler : IMarshallable<AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler>
 {
     public SpvcMslConstexprSampler()
@@ -38,10 +41,11 @@ public unsafe partial class SpvcMslConstexprSampler : IMarshallable<AdamantiumVu
     public SpvcBool Compare_enable { get; set; }
     public SpvcBool Lod_clamp_enable { get; set; }
     public SpvcBool Anisotropy_enable { get; set; }
+
     ///<summary>
     /// Initializes the constexpr sampler struct. The defaults are non-zero.
     ///</summary>
-    public void MslConstexprSamplerInit()
+    public void CMslConstexprSamplerInit()
     {
         System.Span<byte> arg0Span = stackalloc byte[GetSize()];
         var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslConstexprSampler, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler>(this, ref arg0Span);

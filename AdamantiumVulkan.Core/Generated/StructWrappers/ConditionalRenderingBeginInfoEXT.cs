@@ -27,7 +27,8 @@ public unsafe partial class ConditionalRenderingBeginInfoEXT : IMarshallableObje
     public object PNext { get; set; }
     public Buffer Buffer { get; set; }
     public VkDeviceSize Offset { get; set; }
-    public VkConditionalRenderingFlagsEXT Flags { get; set; }
+    public ConditionalRenderingFlagBitsEXT Flags { get; set; }
+
 
     public static implicit operator ConditionalRenderingBeginInfoEXT(AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT c)
     {
@@ -57,14 +58,14 @@ public unsafe partial class ConditionalRenderingBeginInfoEXT : IMarshallableObje
         Flags = native.flags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkConditionalRenderingBeginInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkConditionalRenderingBeginInfoEXTMarshaller
     {
@@ -78,11 +79,11 @@ public unsafe partial class ConditionalRenderingBeginInfoEXT : IMarshallableObje
             }
             else if (conditionalRenderingBeginInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (conditionalRenderingBeginInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (conditionalRenderingBeginInfoEXT.Buffer != default)
@@ -95,10 +96,7 @@ public unsafe partial class ConditionalRenderingBeginInfoEXT : IMarshallableObje
                 context.Destination[0].offset = conditionalRenderingBeginInfoEXT.Offset;
             }
 
-            if (conditionalRenderingBeginInfoEXT.Flags != (uint)default)
-            {
-                context.Destination[0].flags = conditionalRenderingBeginInfoEXT.Flags;
-            }
+            context.Destination[0].flags = conditionalRenderingBeginInfoEXT.Flags;
 
         }
     }

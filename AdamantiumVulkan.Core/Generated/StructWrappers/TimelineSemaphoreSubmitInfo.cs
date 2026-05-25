@@ -23,12 +23,13 @@ public unsafe partial class TimelineSemaphoreSubmitInfo : IMarshallableObject, I
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.TimelineSemaphoreSubmitInfo;
     public object PNext { get; set; }
     public uint WaitSemaphoreValueCount { get; set; }
-    public ulong? PWaitSemaphoreValues { get; set; }
+    public System.ReadOnlyMemory<ulong> PWaitSemaphoreValues { get; set; }
     public uint SignalSemaphoreValueCount { get; set; }
-    public ulong? PSignalSemaphoreValues { get; set; }
+    public System.ReadOnlyMemory<ulong> PSignalSemaphoreValues { get; set; }
+
 
     public static implicit operator TimelineSemaphoreSubmitInfo(AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo t)
     {
@@ -42,6 +43,10 @@ public unsafe partial class TimelineSemaphoreSubmitInfo : IMarshallableObject, I
         {
             size += marshallable.GetSize();
         }
+        if (!PWaitSemaphoreValues.IsEmpty)
+            size += PWaitSemaphoreValues.Span.Length * Marshal.SizeOf<System.UInt64>();
+        if (!PSignalSemaphoreValues.IsEmpty)
+            size += PSignalSemaphoreValues.Span.Length * Marshal.SizeOf<System.UInt64>();
         return size;
     }
 
@@ -52,30 +57,27 @@ public unsafe partial class TimelineSemaphoreSubmitInfo : IMarshallableObject, I
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         WaitSemaphoreValueCount = native.waitSemaphoreValueCount;
-        if (native.pWaitSemaphoreValues != null)
-        {
-            PWaitSemaphoreValues = *native.pWaitSemaphoreValues;
-            NativeUtils.Free(native.pWaitSemaphoreValues);
-        }
+        var arrayLengthPWaitSemaphoreValues = native.waitSemaphoreValueCount;
+        var tmpPWaitSemaphoreValues = new ulong[arrayLengthPWaitSemaphoreValues];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pWaitSemaphoreValues, arrayLengthPWaitSemaphoreValues, tmpPWaitSemaphoreValues);
+        PWaitSemaphoreValues = tmpPWaitSemaphoreValues;
         SignalSemaphoreValueCount = native.signalSemaphoreValueCount;
-        if (native.pSignalSemaphoreValues != null)
-        {
-            PSignalSemaphoreValues = *native.pSignalSemaphoreValues;
-            NativeUtils.Free(native.pSignalSemaphoreValues);
-        }
+        var arrayLengthPSignalSemaphoreValues = native.signalSemaphoreValueCount;
+        var tmpPSignalSemaphoreValues = new ulong[arrayLengthPSignalSemaphoreValues];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pSignalSemaphoreValues, arrayLengthPSignalSemaphoreValues, tmpPSignalSemaphoreValues);
+        PSignalSemaphoreValues = tmpPSignalSemaphoreValues;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkTimelineSemaphoreSubmitInfoMarshaller
     {
@@ -89,25 +91,25 @@ public unsafe partial class TimelineSemaphoreSubmitInfo : IMarshallableObject, I
             }
             else if (timelineSemaphoreSubmitInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (timelineSemaphoreSubmitInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].waitSemaphoreValueCount = timelineSemaphoreSubmitInfo.WaitSemaphoreValueCount;
 
-            if (timelineSemaphoreSubmitInfo.PWaitSemaphoreValues.HasValue)
+            if (!timelineSemaphoreSubmitInfo.PWaitSemaphoreValues.IsEmpty)
             {
-                context.Destination[0].pWaitSemaphoreValues = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(timelineSemaphoreSubmitInfo.PWaitSemaphoreValues.Value, ref context);
+                context.Destination[0].pWaitSemaphoreValues = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<ulong, AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo>(timelineSemaphoreSubmitInfo.PWaitSemaphoreValues.Span, ref context);
             }
 
             context.Destination[0].signalSemaphoreValueCount = timelineSemaphoreSubmitInfo.SignalSemaphoreValueCount;
 
-            if (timelineSemaphoreSubmitInfo.PSignalSemaphoreValues.HasValue)
+            if (!timelineSemaphoreSubmitInfo.PSignalSemaphoreValues.IsEmpty)
             {
-                context.Destination[0].pSignalSemaphoreValues = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(timelineSemaphoreSubmitInfo.PSignalSemaphoreValues.Value, ref context);
+                context.Destination[0].pSignalSemaphoreValues = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<ulong, AdamantiumVulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo>(timelineSemaphoreSubmitInfo.PSignalSemaphoreValues.Span, ref context);
             }
 
         }

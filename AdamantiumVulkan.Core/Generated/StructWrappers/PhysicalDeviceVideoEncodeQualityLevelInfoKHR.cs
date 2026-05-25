@@ -23,10 +23,11 @@ public unsafe partial class PhysicalDeviceVideoEncodeQualityLevelInfoKHR : IMars
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceVideoEncodeQualityLevelInfoKhr;
     public object PNext { get; set; }
     public VideoProfileInfoKHR PVideoProfile { get; set; }
     public uint QualityLevel { get; set; }
+
 
     public static implicit operator PhysicalDeviceVideoEncodeQualityLevelInfoKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR p)
     {
@@ -54,21 +55,20 @@ public unsafe partial class PhysicalDeviceVideoEncodeQualityLevelInfoKHR : IMars
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PVideoProfile = new VideoProfileInfoKHR(in *native.pVideoProfile);
         NativeUtils.Free(native.pVideoProfile);
         QualityLevel = native.qualityLevel;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceVideoEncodeQualityLevelInfoKHRMarshaller
     {
@@ -82,11 +82,11 @@ public unsafe partial class PhysicalDeviceVideoEncodeQualityLevelInfoKHR : IMars
             }
             else if (physicalDeviceVideoEncodeQualityLevelInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceVideoEncodeQualityLevelInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceVideoEncodeQualityLevelInfoKHR.PVideoProfile != default)

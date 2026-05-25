@@ -26,6 +26,7 @@ public unsafe partial class DeviceOrHostAddressConstKHR : IMarshallableObject, I
     public VkDeviceAddress DeviceAddress { get; set; }
     public nuint HostAddress { get; set; }
 
+
     public static implicit operator DeviceOrHostAddressConstKHR(AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressConstKHR d)
     {
         return new DeviceOrHostAddressConstKHR(in d);
@@ -45,17 +46,17 @@ public unsafe partial class DeviceOrHostAddressConstKHR : IMarshallableObject, I
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressConstKHR native)
     {
         DeviceAddress = native.deviceAddress;
-        HostAddress = native.hostAddress;
+        HostAddress = (nuint)native.hostAddress;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressConstKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDeviceOrHostAddressConstKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDeviceOrHostAddressConstKHRMarshaller
     {
@@ -66,7 +67,10 @@ public unsafe partial class DeviceOrHostAddressConstKHR : IMarshallableObject, I
                 context.Destination[0].deviceAddress = deviceOrHostAddressConstKHR.DeviceAddress;
             }
 
-            context.Destination[0].hostAddress = deviceOrHostAddressConstKHR.HostAddress;
+            if (deviceOrHostAddressConstKHR.HostAddress != default)
+            {
+                context.Destination[0].hostAddress = (void*)deviceOrHostAddressConstKHR.HostAddress;
+            }
 
         }
     }

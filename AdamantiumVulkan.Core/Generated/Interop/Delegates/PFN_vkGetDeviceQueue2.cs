@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5807 Column: 26
+// File: video.xml Line: 16449 Column: 10
 public unsafe struct PFN_vkGetDeviceQueue2
 {
     public PFN_vkGetDeviceQueue2(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetDeviceQueue2
     public PFN_vkGetDeviceQueue2(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2*, out AdamantiumVulkan.Core.Interop.VkQueue_T, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2*, AdamantiumVulkan.Core.Interop.VkQueue_T*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2*, out AdamantiumVulkan.Core.Interop.VkQueue_T, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2*, AdamantiumVulkan.Core.Interop.VkQueue_T*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2* pQueueInfo, out AdamantiumVulkan.Core.Interop.VkQueue_T pQueue)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2* pQueueInfo, AdamantiumVulkan.Core.Interop.VkQueue_T* pQueue)
     {
-         InvokeFunc(device, pQueueInfo, out pQueue);
+         InvokeFunc(device, pQueueInfo, pQueue);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2* pQueueInfo, out AdamantiumVulkan.Core.Interop.VkQueue_T pQueue)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2* pQueueInfo, AdamantiumVulkan.Core.Interop.VkQueue_T* pQueue)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2*, out AdamantiumVulkan.Core.Interop.VkQueue_T, void>)ptr)(device, pQueueInfo, out pQueue);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2*, AdamantiumVulkan.Core.Interop.VkQueue_T*, void>)ptr)(device, pQueueInfo, pQueue);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2* pQueueInfo, out AdamantiumVulkan.Core.Interop.VkQueue_T pQueue)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2* pQueueInfo, AdamantiumVulkan.Core.Interop.VkQueue_T* pQueue)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2*, out AdamantiumVulkan.Core.Interop.VkQueue_T, void>)(void*)ptr)(device, pQueueInfo, out pQueue);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkDeviceQueueInfo2*, AdamantiumVulkan.Core.Interop.VkQueue_T*, void>)(void*)ptr)(device, pQueueInfo, pQueue);
     }
 
     public static explicit operator PFN_vkGetDeviceQueue2(void* ptr) => new(ptr);

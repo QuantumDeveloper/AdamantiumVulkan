@@ -8,11 +8,11 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using AdamantiumVulkan;
+using AdamantiumVulkan.Core;
 
-namespace AdamantiumVulkan.Interop;
+namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_h265std_encode.h Line: 124 Column: 16
+// File: video.xml Line: 825 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoEncodeH265PictureInfo
 {
@@ -25,9 +25,9 @@ public unsafe partial struct StdVideoEncodeH265PictureInfo
     public int PicOrderCntVal;
     public byte TemporalId;
     public unsafe fixed byte reserved1[7];
-    public AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceListsInfo* pRefLists;
-    public AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSet* pShortTermRefPicSet;
-    public AdamantiumVulkan.Interop.StdVideoEncodeH265LongTermRefPics* pLongTermRefPics;
+    public AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceListsInfo* pRefLists;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet* pShortTermRefPicSet;
+    public AdamantiumVulkan.Core.Interop.StdVideoEncodeH265LongTermRefPics* pLongTermRefPics;
 }
 
 

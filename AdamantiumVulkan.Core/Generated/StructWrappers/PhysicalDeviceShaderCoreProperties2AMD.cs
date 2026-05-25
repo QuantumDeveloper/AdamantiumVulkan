@@ -23,10 +23,11 @@ public unsafe partial class PhysicalDeviceShaderCoreProperties2AMD : IMarshallab
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceShaderCoreProperties2Amd;
     public object PNext { get; set; }
-    public VkShaderCorePropertiesFlagsAMD ShaderCoreFeatures { get; set; }
+    public ShaderCorePropertiesFlagBitsAMD ShaderCoreFeatures { get; set; }
     public uint ActiveComputeUnitCount { get; set; }
+
 
     public static implicit operator PhysicalDeviceShaderCoreProperties2AMD(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreProperties2AMD p)
     {
@@ -50,20 +51,19 @@ public unsafe partial class PhysicalDeviceShaderCoreProperties2AMD : IMarshallab
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreProperties2AMD native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ShaderCoreFeatures = native.shaderCoreFeatures;
         ActiveComputeUnitCount = native.activeComputeUnitCount;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreProperties2AMD>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCoreProperties2AMD>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceShaderCoreProperties2AMDMarshaller
     {
@@ -77,17 +77,14 @@ public unsafe partial class PhysicalDeviceShaderCoreProperties2AMD : IMarshallab
             }
             else if (physicalDeviceShaderCoreProperties2AMD.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceShaderCoreProperties2AMD.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (physicalDeviceShaderCoreProperties2AMD.ShaderCoreFeatures != (uint)default)
-            {
-                context.Destination[0].shaderCoreFeatures = physicalDeviceShaderCoreProperties2AMD.ShaderCoreFeatures;
-            }
+            context.Destination[0].shaderCoreFeatures = physicalDeviceShaderCoreProperties2AMD.ShaderCoreFeatures;
 
             context.Destination[0].activeComputeUnitCount = physicalDeviceShaderCoreProperties2AMD.ActiveComputeUnitCount;
 

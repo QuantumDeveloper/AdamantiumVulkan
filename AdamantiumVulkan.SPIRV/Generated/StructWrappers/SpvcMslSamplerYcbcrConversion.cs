@@ -12,6 +12,9 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+///<summary>
+/// Maps to the sampler Y'CbCr conversion-related portions of MSLConstexprSampler. See C++ API for defaults and details.
+///</summary>
 public unsafe partial class SpvcMslSamplerYcbcrConversion : IMarshallable<AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslSamplerYcbcrConversion>
 {
     public SpvcMslSamplerYcbcrConversion()
@@ -32,10 +35,11 @@ public unsafe partial class SpvcMslSamplerYcbcrConversion : IMarshallable<Adaman
     public MslSamplerYcbcrModelConversion Ycbcr_model { get; set; }
     public MslSamplerYcbcrRange Ycbcr_range { get; set; }
     public uint Bpc { get; set; }
+
     ///<summary>
     /// Initializes the constexpr sampler struct. The defaults are non-zero.
     ///</summary>
-    public void MslSamplerYcbcrConversionInit()
+    public void CMslSamplerYcbcrConversionInit()
     {
         System.Span<byte> arg0Span = stackalloc byte[GetSize()];
         var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslSamplerYcbcrConversion, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslSamplerYcbcrConversion>(this, ref arg0Span);

@@ -28,6 +28,7 @@ public unsafe partial class AccelerationStructureBuildRangeInfoKHR : IMarshallab
     public uint FirstVertex { get; set; }
     public uint TransformOffset { get; set; }
 
+
     public static implicit operator AccelerationStructureBuildRangeInfoKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR a)
     {
         return new AccelerationStructureBuildRangeInfoKHR(in a);
@@ -52,14 +53,14 @@ public unsafe partial class AccelerationStructureBuildRangeInfoKHR : IMarshallab
         TransformOffset = native.transformOffset;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkAccelerationStructureBuildRangeInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkAccelerationStructureBuildRangeInfoKHRMarshaller
     {

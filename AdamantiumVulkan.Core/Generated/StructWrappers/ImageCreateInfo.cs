@@ -36,8 +36,9 @@ public unsafe partial class ImageCreateInfo : IMarshallableObject, IMarshallable
     public ImageUsageFlagBits Usage { get; set; }
     public SharingMode SharingMode { get; set; }
     public uint QueueFamilyIndexCount { get; set; }
-    public uint? PQueueFamilyIndices { get; set; }
+    public System.ReadOnlyMemory<uint> PQueueFamilyIndices { get; set; }
     public ImageLayout InitialLayout { get; set; }
+
 
     public static implicit operator ImageCreateInfo(AdamantiumVulkan.Core.Interop.VkImageCreateInfo i)
     {
@@ -51,6 +52,8 @@ public unsafe partial class ImageCreateInfo : IMarshallableObject, IMarshallable
         {
             size += marshallable.GetSize();
         }
+        if (!PQueueFamilyIndices.IsEmpty)
+            size += PQueueFamilyIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -73,22 +76,21 @@ public unsafe partial class ImageCreateInfo : IMarshallableObject, IMarshallable
         Usage = native.usage;
         SharingMode = native.sharingMode;
         QueueFamilyIndexCount = native.queueFamilyIndexCount;
-        if (native.pQueueFamilyIndices != null)
-        {
-            PQueueFamilyIndices = *native.pQueueFamilyIndices;
-            NativeUtils.Free(native.pQueueFamilyIndices);
-        }
+        var arrayLengthPQueueFamilyIndices = native.queueFamilyIndexCount;
+        var tmpPQueueFamilyIndices = new uint[arrayLengthPQueueFamilyIndices];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pQueueFamilyIndices, arrayLengthPQueueFamilyIndices, tmpPQueueFamilyIndices);
+        PQueueFamilyIndices = tmpPQueueFamilyIndices;
         InitialLayout = native.initialLayout;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageCreateInfoMarshaller
     {
@@ -102,11 +104,11 @@ public unsafe partial class ImageCreateInfo : IMarshallableObject, IMarshallable
             }
             else if (imageCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (imageCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].flags = imageCreateInfo.Flags;
@@ -140,9 +142,9 @@ public unsafe partial class ImageCreateInfo : IMarshallableObject, IMarshallable
 
             context.Destination[0].queueFamilyIndexCount = imageCreateInfo.QueueFamilyIndexCount;
 
-            if (imageCreateInfo.PQueueFamilyIndices.HasValue)
+            if (!imageCreateInfo.PQueueFamilyIndices.IsEmpty)
             {
-                context.Destination[0].pQueueFamilyIndices = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(imageCreateInfo.PQueueFamilyIndices.Value, ref context);
+                context.Destination[0].pQueueFamilyIndices = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkImageCreateInfo>(imageCreateInfo.PQueueFamilyIndices.Span, ref context);
             }
 
             context.Destination[0].initialLayout = imageCreateInfo.InitialLayout;

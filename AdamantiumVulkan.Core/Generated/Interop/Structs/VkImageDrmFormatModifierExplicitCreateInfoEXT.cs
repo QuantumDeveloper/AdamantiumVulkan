@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14527 Column: 16
+// File: vk.xml Line: 5483 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkImageDrmFormatModifierExplicitCreateInfoEXT
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public ulong drmFormatModifier;
     public uint drmFormatModifierPlaneCount;
     public AdamantiumVulkan.Core.Interop.VkSubresourceLayout* pPlaneLayouts;

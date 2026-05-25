@@ -23,16 +23,17 @@ public unsafe partial class SubpassDependency2 : IMarshallableObject, IMarshalla
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.SubpassDependency2;
     public object PNext { get; set; }
     public uint SrcSubpass { get; set; }
     public uint DstSubpass { get; set; }
-    public VkPipelineStageFlags SrcStageMask { get; set; }
-    public VkPipelineStageFlags DstStageMask { get; set; }
-    public VkAccessFlags SrcAccessMask { get; set; }
-    public VkAccessFlags DstAccessMask { get; set; }
-    public VkDependencyFlags DependencyFlags { get; set; }
+    public PipelineStageFlagBits SrcStageMask { get; set; }
+    public PipelineStageFlagBits DstStageMask { get; set; }
+    public AccessFlagBits SrcAccessMask { get; set; }
+    public AccessFlagBits DstAccessMask { get; set; }
+    public DependencyFlagBits DependencyFlags { get; set; }
     public int ViewOffset { get; set; }
+
 
     public static implicit operator SubpassDependency2(AdamantiumVulkan.Core.Interop.VkSubpassDependency2 s)
     {
@@ -56,7 +57,6 @@ public unsafe partial class SubpassDependency2 : IMarshallableObject, IMarshalla
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkSubpassDependency2 native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         SrcSubpass = native.srcSubpass;
         DstSubpass = native.dstSubpass;
@@ -68,14 +68,14 @@ public unsafe partial class SubpassDependency2 : IMarshallableObject, IMarshalla
         ViewOffset = native.viewOffset;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSubpassDependency2>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSubpassDependency2>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSubpassDependency2Marshaller
     {
@@ -89,41 +89,26 @@ public unsafe partial class SubpassDependency2 : IMarshallableObject, IMarshalla
             }
             else if (subpassDependency2.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (subpassDependency2.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].srcSubpass = subpassDependency2.SrcSubpass;
 
             context.Destination[0].dstSubpass = subpassDependency2.DstSubpass;
 
-            if (subpassDependency2.SrcStageMask != (uint)default)
-            {
-                context.Destination[0].srcStageMask = subpassDependency2.SrcStageMask;
-            }
+            context.Destination[0].srcStageMask = subpassDependency2.SrcStageMask;
 
-            if (subpassDependency2.DstStageMask != (uint)default)
-            {
-                context.Destination[0].dstStageMask = subpassDependency2.DstStageMask;
-            }
+            context.Destination[0].dstStageMask = subpassDependency2.DstStageMask;
 
-            if (subpassDependency2.SrcAccessMask != (uint)default)
-            {
-                context.Destination[0].srcAccessMask = subpassDependency2.SrcAccessMask;
-            }
+            context.Destination[0].srcAccessMask = subpassDependency2.SrcAccessMask;
 
-            if (subpassDependency2.DstAccessMask != (uint)default)
-            {
-                context.Destination[0].dstAccessMask = subpassDependency2.DstAccessMask;
-            }
+            context.Destination[0].dstAccessMask = subpassDependency2.DstAccessMask;
 
-            if (subpassDependency2.DependencyFlags != (uint)default)
-            {
-                context.Destination[0].dependencyFlags = subpassDependency2.DependencyFlags;
-            }
+            context.Destination[0].dependencyFlags = subpassDependency2.DependencyFlags;
 
             context.Destination[0].viewOffset = subpassDependency2.ViewOffset;
 

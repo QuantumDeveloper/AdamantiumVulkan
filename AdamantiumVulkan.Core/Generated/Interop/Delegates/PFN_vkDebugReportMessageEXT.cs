@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12995 Column: 26
+// File: video.xml Line: 15702 Column: 10
 public unsafe struct PFN_vkDebugReportMessageEXT
 {
     public PFN_vkDebugReportMessageEXT(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkDebugReportMessageEXT
     public PFN_vkDebugReportMessageEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, DebugReportFlagBitsEXT, DebugReportObjectTypeEXT, ulong, nuint, int, sbyte*, sbyte*, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, DebugReportFlagBitsEXT, DebugReportObjectTypeEXT, ulong, nuint, int, sbyte*, sbyte*, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, VkDebugReportFlagsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, ulong location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, DebugReportFlagBitsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, nuint location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage)
     {
          InvokeFunc(instance, flags, objectType, @object, location, messageCode, pLayerPrefix, pMessage);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, VkDebugReportFlagsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, ulong location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, DebugReportFlagBitsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, nuint location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, void>)ptr)(instance, flags, objectType, @object, location, messageCode, pLayerPrefix, pMessage);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, DebugReportFlagBitsEXT, DebugReportObjectTypeEXT, ulong, nuint, int, sbyte*, sbyte*, void>)ptr)(instance, flags, objectType, @object, location, messageCode, pLayerPrefix, pMessage);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, VkDebugReportFlagsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, ulong location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, DebugReportFlagBitsEXT flags, DebugReportObjectTypeEXT objectType, ulong @object, nuint location, int messageCode, sbyte* pLayerPrefix, sbyte* pMessage)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, VkDebugReportFlagsEXT, DebugReportObjectTypeEXT, ulong, ulong, int, sbyte*, sbyte*, void>)(void*)ptr)(instance, flags, objectType, @object, location, messageCode, pLayerPrefix, pMessage);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, DebugReportFlagBitsEXT, DebugReportObjectTypeEXT, ulong, nuint, int, sbyte*, sbyte*, void>)(void*)ptr)(instance, flags, objectType, @object, location, messageCode, pLayerPrefix, pMessage);
     }
 
     public static explicit operator PFN_vkDebugReportMessageEXT(void* ptr) => new(ptr);

@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoAV1LoopFilter : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoAV1LoopFilter>
+public unsafe partial class StdVideoAV1LoopFilter : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter>
 {
     public StdVideoAV1LoopFilter()
     {
     }
 
-    public StdVideoAV1LoopFilter(in AdamantiumVulkan.Interop.StdVideoAV1LoopFilter native)
+    public StdVideoAV1LoopFilter(in AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter native)
     {
         MarshalFrom(in native);
     }
@@ -27,65 +27,69 @@ public unsafe partial class StdVideoAV1LoopFilter : IMarshallableObject, IMarsha
     public System.ReadOnlyMemory<byte> Loop_filter_level { get; set; }
     public byte Loop_filter_sharpness { get; set; }
     public byte Update_ref_delta { get; set; }
-    public string Loop_filter_ref_deltas { get; set; }
+    public System.ReadOnlyMemory<sbyte> Loop_filter_ref_deltas { get; set; }
     public byte Update_mode_delta { get; set; }
-    public string Loop_filter_mode_deltas { get; set; }
+    public System.ReadOnlyMemory<sbyte> Loop_filter_mode_deltas { get; set; }
 
-    public static implicit operator StdVideoAV1LoopFilter(AdamantiumVulkan.Interop.StdVideoAV1LoopFilter s)
+
+    public static implicit operator StdVideoAV1LoopFilter(AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter s)
     {
         return new StdVideoAV1LoopFilter(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoAV1LoopFilter>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1LoopFilter> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter> context)
     {
         new StdVideoAV1LoopFilterMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoAV1LoopFilter native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter native)
     {
         Flags = new StdVideoAV1LoopFilterFlags(native.flags);
         var tmpLoop_filter_level = new byte[4];
-        var pLoop_filter_level = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.loop_filter_level[0]));
+        var loop_filter_levelp = native.loop_filter_level[0];
+        var pLoop_filter_level = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in loop_filter_levelp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pLoop_filter_level, 4, tmpLoop_filter_level);
         Loop_filter_level = tmpLoop_filter_level;
         Loop_filter_sharpness = native.loop_filter_sharpness;
         Update_ref_delta = native.update_ref_delta;
-        fixed(sbyte* pSource = native.loop_filter_ref_deltas)
-        {
-            Loop_filter_ref_deltas = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 8);
-        }
+        var tmpLoop_filter_ref_deltas = new sbyte[8];
+        var loop_filter_ref_deltasp = native.loop_filter_ref_deltas[0];
+        var pLoop_filter_ref_deltas = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in loop_filter_ref_deltasp ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pLoop_filter_ref_deltas, 8, tmpLoop_filter_ref_deltas);
+        Loop_filter_ref_deltas = tmpLoop_filter_ref_deltas;
         Update_mode_delta = native.update_mode_delta;
-        fixed(sbyte* pSource = native.loop_filter_mode_deltas)
-        {
-            Loop_filter_mode_deltas = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 2);
-        }
+        var tmpLoop_filter_mode_deltas = new sbyte[2];
+        var loop_filter_mode_deltasp = native.loop_filter_mode_deltas[0];
+        var pLoop_filter_mode_deltas = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in loop_filter_mode_deltasp ));
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pLoop_filter_mode_deltas, 2, tmpLoop_filter_mode_deltas);
+        Loop_filter_mode_deltas = tmpLoop_filter_mode_deltas;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoAV1LoopFilter>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1LoopFilter>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoAV1LoopFilterMarshaller
     {
-        public StdVideoAV1LoopFilterMarshaller(AdamantiumVulkan.StdVideoAV1LoopFilter stdVideoAV1LoopFilter, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1LoopFilter> context)
+        public StdVideoAV1LoopFilterMarshaller(AdamantiumVulkan.Core.StdVideoAV1LoopFilter stdVideoAV1LoopFilter, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilter> context)
         {
             if (stdVideoAV1LoopFilter.Flags != default)
             {
-                fixed (AdamantiumVulkan.Interop.StdVideoAV1LoopFilterFlags* pField = &context.Destination[0].flags)
+                fixed (AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilterFlags* pField = &context.Destination[0].flags)
                 {
-                    var fieldSpan = new System.Span<AdamantiumVulkan.Interop.StdVideoAV1LoopFilterFlags>(pField, 1);
-                    var childContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoAV1LoopFilterFlags>(fieldSpan, context.DataCursor);
+                    var fieldSpan = new System.Span<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilterFlags>(pField, 1);
+                    var childContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoAV1LoopFilterFlags>(fieldSpan, context.DataCursor);
                     stdVideoAV1LoopFilter.Flags.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
@@ -104,8 +108,7 @@ public unsafe partial class StdVideoAV1LoopFilter : IMarshallableObject, IMarsha
             ref var tmpDestination1 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination1.loop_filter_ref_deltas)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 8);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoAV1LoopFilter.Loop_filter_ref_deltas, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoAV1LoopFilter.Loop_filter_ref_deltas.Span, pDest, 8);
             }
 
             context.Destination[0].update_mode_delta = stdVideoAV1LoopFilter.Update_mode_delta;
@@ -113,8 +116,7 @@ public unsafe partial class StdVideoAV1LoopFilter : IMarshallableObject, IMarsha
             ref var tmpDestination2 = ref context.Destination[0];
             fixed (sbyte* pDest = tmpDestination2.loop_filter_mode_deltas)
             {
-                var destinationSpan = new System.Span<byte>((byte*)pDest, 2);
-                QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(stdVideoAV1LoopFilter.Loop_filter_mode_deltas, destinationSpan);
+                QuantumBinding.Utils.MarshalingUtils.MarshalFixedArrayToPointer(stdVideoAV1LoopFilter.Loop_filter_mode_deltas.Span, pDest, 2);
             }
 
         }

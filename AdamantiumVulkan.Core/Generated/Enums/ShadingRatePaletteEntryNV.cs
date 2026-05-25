@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14651 Column: 14
-public enum ShadingRatePaletteEntryNV : uint
+// File: vk.xml Line: 13175 Column: 6
+public enum ShadingRatePaletteEntryNV : int
 {
     NoInvocationsNv = 0,
 
@@ -37,8 +37,6 @@ public enum ShadingRatePaletteEntryNV : uint
     _1InvocationPer2x4PixelsNv = 10,
 
     _1InvocationPer4x4PixelsNv = 11,
-
-    MaxEnumNv = 2147483647,
 
 }
 

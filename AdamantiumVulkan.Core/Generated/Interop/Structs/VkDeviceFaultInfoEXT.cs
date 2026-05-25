@@ -12,16 +12,16 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17754 Column: 16
+// File: vk.xml Line: 9782 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDeviceFaultInfoEXT
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public unsafe fixed sbyte description[256];
-    public AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoEXT* pAddressInfos;
-    public AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoEXT* pVendorInfos;
-    public nuint pVendorBinaryData;
+    public AdamantiumVulkan.Core.Interop.VkDeviceFaultAddressInfoKHR* pAddressInfos;
+    public AdamantiumVulkan.Core.Interop.VkDeviceFaultVendorInfoKHR* pVendorInfos;
+    public void* pVendorBinaryData;
 }
 
 

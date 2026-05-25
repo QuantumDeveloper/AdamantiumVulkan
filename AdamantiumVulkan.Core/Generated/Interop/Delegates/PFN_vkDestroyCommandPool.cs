@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4239 Column: 26
+// File: video.xml Line: 14957 Column: 10
 public unsafe struct PFN_vkDestroyCommandPool
 {
     public PFN_vkDestroyCommandPool(nuint ptr) : this((void*) ptr) { }

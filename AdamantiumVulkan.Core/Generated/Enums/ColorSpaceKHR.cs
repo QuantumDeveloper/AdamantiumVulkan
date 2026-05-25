@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8515 Column: 14
-public enum ColorSpaceKHR : uint
+// File: vk.xml Line: 12735 Column: 6
+public enum ColorSpaceKHR : int
 {
     SrgbNonlinearKhr = 0,
 
@@ -32,45 +32,19 @@ public enum ColorSpaceKHR : uint
 
     Hdr10St2084Ext = 1000104008,
 
-    ///<summary>
-    /// VK_COLOR_SPACE_DOLBYVISION_EXT is deprecated, but no reason was given in the API XML
-    ///</summary>
     DolbyvisionExt = 1000104009,
 
-    ///<summary>
-    /// VK_COLOR_SPACE_DOLBYVISION_EXT is deprecated, but no reason was given in the API XML
-    ///</summary>
     Hdr10HlgExt = 1000104010,
 
-    ///<summary>
-    /// VK_COLOR_SPACE_DOLBYVISION_EXT is deprecated, but no reason was given in the API XML
-    ///</summary>
     AdobergbLinearExt = 1000104011,
 
-    ///<summary>
-    /// VK_COLOR_SPACE_DOLBYVISION_EXT is deprecated, but no reason was given in the API XML
-    ///</summary>
     AdobergbNonlinearExt = 1000104012,
 
-    ///<summary>
-    /// VK_COLOR_SPACE_DOLBYVISION_EXT is deprecated, but no reason was given in the API XML
-    ///</summary>
     PassThroughExt = 1000104013,
 
-    ///<summary>
-    /// VK_COLOR_SPACE_DOLBYVISION_EXT is deprecated, but no reason was given in the API XML
-    ///</summary>
     ExtendedSrgbNonlinearExt = 1000104014,
 
-    ///<summary>
-    /// VK_COLOR_SPACE_DOLBYVISION_EXT is deprecated, but no reason was given in the API XML
-    ///</summary>
     DisplayNativeAmd = 1000213000,
-
-    ///<summary>
-    /// VK_COLOR_SPACE_DCI_P3_LINEAR_EXT is a deprecated alias
-    ///</summary>
-    MaxEnumKhr = 2147483647,
 
 }
 

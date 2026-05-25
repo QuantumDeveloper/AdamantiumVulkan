@@ -11,20 +11,16 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18377 Column: 14
+// File: vk.xml Line: 13979 Column: 6
 public enum OpacityMicromapSpecialIndexEXT : int
 {
-    FullyTransparentExt = -1,
+    TransparentExt = -1,
 
-    FullyOpaqueExt = -2,
+    OpaqueExt = -2,
 
-    FullyUnknownTransparentExt = -3,
+    UnknownTransparentExt = -3,
 
-    FullyUnknownOpaqueExt = -4,
-
-    ClusterGeometryDisableOpacityMicromapNv = -5,
-
-    MaxEnumExt = 2147483647,
+    UnknownOpaqueExt = -4,
 
 }
 

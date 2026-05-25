@@ -12,6 +12,9 @@ using AdamantiumVulkan.SpirvTools.Interop;
 
 namespace AdamantiumVulkan.SpirvTools;
 
+///<summary>
+/// An instruction parsed from a binary SPIR-V module.
+///</summary>
 public unsafe partial class Spv_parsed_instruction_t : IMarshallable<AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t>
 {
     public Spv_parsed_instruction_t()
@@ -31,6 +34,7 @@ public unsafe partial class Spv_parsed_instruction_t : IMarshallable<AdamantiumV
     public uint Result_id { get; set; }
     public Spv_parsed_operand_t[] Operands { get; set; }
     public ushort Num_operands { get; set; }
+
 
     public static implicit operator Spv_parsed_instruction_t(AdamantiumVulkan.SpirvTools.Interop.spv_parsed_instruction_t s)
     {

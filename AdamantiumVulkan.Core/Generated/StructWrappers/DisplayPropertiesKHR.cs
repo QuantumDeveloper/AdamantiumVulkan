@@ -27,9 +27,10 @@ public unsafe partial class DisplayPropertiesKHR : IMarshallableObject, IMarshal
     public string DisplayName { get; set; }
     public Extent2D PhysicalDimensions { get; set; }
     public Extent2D PhysicalResolution { get; set; }
-    public VkSurfaceTransformFlagsKHR SupportedTransforms { get; set; }
+    public SurfaceTransformFlagBitsKHR SupportedTransforms { get; set; }
     public VkBool32 PlaneReorderPossible { get; set; }
     public VkBool32 PersistentContent { get; set; }
+
 
     public static implicit operator DisplayPropertiesKHR(AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR d)
     {
@@ -60,14 +61,14 @@ public unsafe partial class DisplayPropertiesKHR : IMarshallableObject, IMarshal
         PersistentContent = native.persistentContent;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDisplayPropertiesKHRMarshaller
     {
@@ -108,10 +109,7 @@ public unsafe partial class DisplayPropertiesKHR : IMarshallableObject, IMarshal
                 }
             }
 
-            if (displayPropertiesKHR.SupportedTransforms != (uint)default)
-            {
-                context.Destination[0].supportedTransforms = displayPropertiesKHR.SupportedTransforms;
-            }
+            context.Destination[0].supportedTransforms = displayPropertiesKHR.SupportedTransforms;
 
             if (displayPropertiesKHR.PlaneReorderPossible != (uint)default)
             {

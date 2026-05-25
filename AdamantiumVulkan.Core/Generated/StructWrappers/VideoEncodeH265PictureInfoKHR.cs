@@ -9,8 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core;
 
@@ -25,11 +23,12 @@ public unsafe partial class VideoEncodeH265PictureInfoKHR : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeH265PictureInfoKhr;
     public object PNext { get; set; }
     public uint NaluSliceSegmentEntryCount { get; set; }
-    public VideoEncodeH265NaluSliceSegmentInfoKHR PNaluSliceSegmentEntries { get; set; }
+    public System.ReadOnlyMemory<VideoEncodeH265NaluSliceSegmentInfoKHR> PNaluSliceSegmentEntries { get; set; }
     public StdVideoEncodeH265PictureInfo PStdPictureInfo { get; set; }
+
 
     public static implicit operator VideoEncodeH265PictureInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH265PictureInfoKHR v)
     {
@@ -43,9 +42,15 @@ public unsafe partial class VideoEncodeH265PictureInfoKHR : IMarshallableObject,
         {
             size += marshallable.GetSize();
         }
-        if (PNaluSliceSegmentEntries != default)
+        if (!PNaluSliceSegmentEntries.IsEmpty)
         {
-            size += PNaluSliceSegmentEntries.GetSize();
+            for (int i = 0; i < PNaluSliceSegmentEntries.Length; i++)
+            {
+                if (PNaluSliceSegmentEntries.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkVideoEncodeH265NaluSliceSegmentInfoKHR>();
+                else
+                    size += PNaluSliceSegmentEntries.Span[i].GetSize();
+            }
         }
         if (PStdPictureInfo != default)
         {
@@ -61,23 +66,29 @@ public unsafe partial class VideoEncodeH265PictureInfoKHR : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeH265PictureInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         NaluSliceSegmentEntryCount = native.naluSliceSegmentEntryCount;
-        PNaluSliceSegmentEntries = new VideoEncodeH265NaluSliceSegmentInfoKHR(in *native.pNaluSliceSegmentEntries);
-        NativeUtils.Free(native.pNaluSliceSegmentEntries);
+        var arrayLengthPNaluSliceSegmentEntries = native.naluSliceSegmentEntryCount;
+        var tmpPNaluSliceSegmentEntries = new VideoEncodeH265NaluSliceSegmentInfoKHR[arrayLengthPNaluSliceSegmentEntries];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkVideoEncodeH265NaluSliceSegmentInfoKHR[arrayLengthPNaluSliceSegmentEntries];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pNaluSliceSegmentEntries, arrayLengthPNaluSliceSegmentEntries, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPNaluSliceSegmentEntries[i] = new VideoEncodeH265NaluSliceSegmentInfoKHR(in nativeTmpArray0[i]);
+        }
+        PNaluSliceSegmentEntries = tmpPNaluSliceSegmentEntries;
         PStdPictureInfo = new StdVideoEncodeH265PictureInfo(in *native.pStdPictureInfo);
         NativeUtils.Free(native.pStdPictureInfo);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeH265PictureInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeH265PictureInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeH265PictureInfoKHRMarshaller
     {
@@ -91,31 +102,26 @@ public unsafe partial class VideoEncodeH265PictureInfoKHR : IMarshallableObject,
             }
             else if (videoEncodeH265PictureInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeH265PictureInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].naluSliceSegmentEntryCount = videoEncodeH265PictureInfoKHR.NaluSliceSegmentEntryCount;
 
-            if (videoEncodeH265PictureInfoKHR.PNaluSliceSegmentEntries != default)
+            if (!videoEncodeH265PictureInfoKHR.PNaluSliceSegmentEntries.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkVideoEncodeH265NaluSliceSegmentInfoKHR));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkVideoEncodeH265NaluSliceSegmentInfoKHR>(structSlice0).Slice(0, 1);
-                context.Destination[0].pNaluSliceSegmentEntries = (AdamantiumVulkan.Core.Interop.VkVideoEncodeH265NaluSliceSegmentInfoKHR*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeH265NaluSliceSegmentInfoKHR>(structDestination0, context.DataCursor);
-                videoEncodeH265PictureInfoKHR.PNaluSliceSegmentEntries.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pNaluSliceSegmentEntries = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.VideoEncodeH265NaluSliceSegmentInfoKHR, AdamantiumVulkan.Core.Interop.VkVideoEncodeH265NaluSliceSegmentInfoKHR, AdamantiumVulkan.Core.Interop.VkVideoEncodeH265PictureInfoKHR>(videoEncodeH265PictureInfoKHR.PNaluSliceSegmentEntries, ref context);
             }
 
             if (videoEncodeH265PictureInfoKHR.PStdPictureInfo != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoEncodeH265PictureInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoEncodeH265PictureInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStdPictureInfo = (AdamantiumVulkan.Interop.StdVideoEncodeH265PictureInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265PictureInfo>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265PictureInfo));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoEncodeH265PictureInfo>(structSlice0).Slice(0, 1);
+                context.Destination[0].pStdPictureInfo = (AdamantiumVulkan.Core.Interop.StdVideoEncodeH265PictureInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265PictureInfo>(structDestination0, context.DataCursor);
                 videoEncodeH265PictureInfoKHR.PStdPictureInfo.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }

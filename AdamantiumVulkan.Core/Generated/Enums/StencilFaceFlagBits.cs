@@ -11,19 +11,17 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3019 Column: 14
+// File: vk.xml Line: 12708 Column: 6
+[Flags]
 public enum StencilFaceFlagBits : uint
 {
-    FrontBit = 1,
+    FaceFrontBit = 1,
 
-    BackBit = 2,
+    FaceBackBit = 2,
 
-    FrontAndBack = 3,
+    FaceFrontAndBack = 3,
 
-    ///<summary>
-    /// VK_STENCIL_FRONT_AND_BACK is a deprecated alias
-    ///</summary>
-    FlagBitsMaxEnum = 2147483647,
+    FrontAndBack = 0,
 
 }
 

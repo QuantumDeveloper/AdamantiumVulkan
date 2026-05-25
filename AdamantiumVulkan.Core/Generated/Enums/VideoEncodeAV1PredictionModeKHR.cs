@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12316 Column: 14
-public enum VideoEncodeAV1PredictionModeKHR : uint
+// File: vk.xml Line: 13847 Column: 6
+public enum VideoEncodeAV1PredictionModeKHR : int
 {
     IntraOnlyKhr = 0,
 
@@ -21,8 +21,6 @@ public enum VideoEncodeAV1PredictionModeKHR : uint
     UnidirectionalCompoundKhr = 2,
 
     BidirectionalCompoundKhr = 3,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

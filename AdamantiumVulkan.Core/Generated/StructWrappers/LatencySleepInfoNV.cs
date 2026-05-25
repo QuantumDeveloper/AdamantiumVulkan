@@ -23,10 +23,11 @@ public unsafe partial class LatencySleepInfoNV : IMarshallableObject, IMarshalla
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.LatencySleepInfoNv;
     public object PNext { get; set; }
     public Semaphore SignalSemaphore { get; set; }
     public ulong Value { get; set; }
+
 
     public static implicit operator LatencySleepInfoNV(AdamantiumVulkan.Core.Interop.VkLatencySleepInfoNV l)
     {
@@ -50,20 +51,19 @@ public unsafe partial class LatencySleepInfoNV : IMarshallableObject, IMarshalla
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkLatencySleepInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         SignalSemaphore = new Semaphore(native.signalSemaphore);
         Value = native.value;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkLatencySleepInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkLatencySleepInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkLatencySleepInfoNVMarshaller
     {
@@ -77,11 +77,11 @@ public unsafe partial class LatencySleepInfoNV : IMarshallableObject, IMarshalla
             }
             else if (latencySleepInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (latencySleepInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (latencySleepInfoNV.SignalSemaphore != default)

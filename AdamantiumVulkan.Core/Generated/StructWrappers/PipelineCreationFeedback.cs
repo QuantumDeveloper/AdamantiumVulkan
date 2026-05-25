@@ -23,8 +23,9 @@ public unsafe partial class PipelineCreationFeedback : IMarshallableObject, IMar
         MarshalFrom(in native);
     }
 
-    public VkPipelineCreationFeedbackFlags Flags { get; set; }
+    public PipelineCreationFeedbackFlagBits Flags { get; set; }
     public ulong Duration { get; set; }
+
 
     public static implicit operator PipelineCreationFeedback(AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback p)
     {
@@ -48,23 +49,20 @@ public unsafe partial class PipelineCreationFeedback : IMarshallableObject, IMar
         Duration = native.duration;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineCreationFeedbackMarshaller
     {
         public VkPipelineCreationFeedbackMarshaller(AdamantiumVulkan.Core.PipelineCreationFeedback pipelineCreationFeedback, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback> context)
         {
-            if (pipelineCreationFeedback.Flags != (uint)default)
-            {
-                context.Destination[0].flags = pipelineCreationFeedback.Flags;
-            }
+            context.Destination[0].flags = pipelineCreationFeedback.Flags;
 
             context.Destination[0].duration = pipelineCreationFeedback.Duration;
 

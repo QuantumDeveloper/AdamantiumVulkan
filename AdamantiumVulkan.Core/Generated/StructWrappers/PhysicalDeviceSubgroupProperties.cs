@@ -26,9 +26,10 @@ public unsafe partial class PhysicalDeviceSubgroupProperties : IMarshallableObje
     public StructureType SType => StructureType.PhysicalDeviceSubgroupProperties;
     public object PNext { get; set; }
     public uint SubgroupSize { get; set; }
-    public VkShaderStageFlags SupportedStages { get; set; }
-    public VkSubgroupFeatureFlags SupportedOperations { get; set; }
+    public ShaderStageFlagBits SupportedStages { get; set; }
+    public SubgroupFeatureFlagBits SupportedOperations { get; set; }
     public VkBool32 QuadOperationsInAllStages { get; set; }
+
 
     public static implicit operator PhysicalDeviceSubgroupProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties p)
     {
@@ -59,14 +60,14 @@ public unsafe partial class PhysicalDeviceSubgroupProperties : IMarshallableObje
         QuadOperationsInAllStages = native.quadOperationsInAllStages;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceSubgroupPropertiesMarshaller
     {
@@ -80,24 +81,18 @@ public unsafe partial class PhysicalDeviceSubgroupProperties : IMarshallableObje
             }
             else if (physicalDeviceSubgroupProperties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceSubgroupProperties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].subgroupSize = physicalDeviceSubgroupProperties.SubgroupSize;
 
-            if (physicalDeviceSubgroupProperties.SupportedStages != (uint)default)
-            {
-                context.Destination[0].supportedStages = physicalDeviceSubgroupProperties.SupportedStages;
-            }
+            context.Destination[0].supportedStages = physicalDeviceSubgroupProperties.SupportedStages;
 
-            if (physicalDeviceSubgroupProperties.SupportedOperations != (uint)default)
-            {
-                context.Destination[0].supportedOperations = physicalDeviceSubgroupProperties.SupportedOperations;
-            }
+            context.Destination[0].supportedOperations = physicalDeviceSubgroupProperties.SupportedOperations;
 
             if (physicalDeviceSubgroupProperties.QuadOperationsInAllStages != (uint)default)
             {

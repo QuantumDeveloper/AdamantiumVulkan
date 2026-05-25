@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18956 Column: 16
+// File: vk.xml Line: 9836 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDecompressMemoryRegionNV
 {
@@ -19,7 +19,7 @@ public unsafe partial struct VkDecompressMemoryRegionNV
     public VkDeviceAddress dstAddress;
     public VkDeviceSize compressedSize;
     public VkDeviceSize decompressedSize;
-    public VkMemoryDecompressionMethodFlagsNV decompressionMethod;
+    public VkMemoryDecompressionMethodFlagsEXT decompressionMethod;
 }
 
 

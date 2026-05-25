@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8076 Column: 16
+// File: vk.xml Line: 4840 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPipelineVertexInputDivisorStateCreateInfo
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public uint vertexBindingDivisorCount;
     public AdamantiumVulkan.Core.Interop.VkVertexInputBindingDivisorDescription* pVertexBindingDivisors;
 }

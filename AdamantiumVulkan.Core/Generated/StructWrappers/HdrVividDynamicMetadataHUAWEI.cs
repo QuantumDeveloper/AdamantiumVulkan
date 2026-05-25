@@ -23,10 +23,11 @@ public unsafe partial class HdrVividDynamicMetadataHUAWEI : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.HdrVividDynamicMetadataHuawei;
     public object PNext { get; set; }
-    public ulong DynamicMetadataSize { get; set; }
-    public nuint PDynamicMetadata { get; set; }
+    public nuint DynamicMetadataSize { get; set; }
+    public System.ReadOnlyMemory<byte> PDynamicMetadata { get; set; }
+
 
     public static implicit operator HdrVividDynamicMetadataHUAWEI(AdamantiumVulkan.Core.Interop.VkHdrVividDynamicMetadataHUAWEI h)
     {
@@ -40,6 +41,8 @@ public unsafe partial class HdrVividDynamicMetadataHUAWEI : IMarshallableObject,
         {
             size += marshallable.GetSize();
         }
+        if (!PDynamicMetadata.IsEmpty)
+            size += PDynamicMetadata.Span.Length * Marshal.SizeOf<System.Byte>();
         return size;
     }
 
@@ -50,20 +53,22 @@ public unsafe partial class HdrVividDynamicMetadataHUAWEI : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkHdrVividDynamicMetadataHUAWEI native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         DynamicMetadataSize = native.dynamicMetadataSize;
-        PDynamicMetadata = native.pDynamicMetadata;
+        var arrayLengthPDynamicMetadata = native.dynamicMetadataSize;
+        var tmpPDynamicMetadata = new byte[arrayLengthPDynamicMetadata];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDynamicMetadata, arrayLengthPDynamicMetadata, tmpPDynamicMetadata);
+        PDynamicMetadata = tmpPDynamicMetadata;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkHdrVividDynamicMetadataHUAWEI>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkHdrVividDynamicMetadataHUAWEI>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkHdrVividDynamicMetadataHUAWEIMarshaller
     {
@@ -77,16 +82,19 @@ public unsafe partial class HdrVividDynamicMetadataHUAWEI : IMarshallableObject,
             }
             else if (hdrVividDynamicMetadataHUAWEI.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (hdrVividDynamicMetadataHUAWEI.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].dynamicMetadataSize = hdrVividDynamicMetadataHUAWEI.DynamicMetadataSize;
 
-            context.Destination[0].pDynamicMetadata = hdrVividDynamicMetadataHUAWEI.PDynamicMetadata;
+            if (!hdrVividDynamicMetadataHUAWEI.PDynamicMetadata.IsEmpty)
+            {
+                context.Destination[0].pDynamicMetadata = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<byte, AdamantiumVulkan.Core.Interop.VkHdrVividDynamicMetadataHUAWEI>(hdrVividDynamicMetadataHUAWEI.PDynamicMetadata.Span, ref context);
+            }
 
         }
     }

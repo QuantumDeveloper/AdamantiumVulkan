@@ -23,11 +23,12 @@ public unsafe partial class FormatProperties3 : IMarshallableObject, IMarshallab
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.FormatProperties3;
     public object PNext { get; set; }
     public VkFormatFeatureFlags2 LinearTilingFeatures { get; set; }
     public VkFormatFeatureFlags2 OptimalTilingFeatures { get; set; }
     public VkFormatFeatureFlags2 BufferFeatures { get; set; }
+
 
     public static implicit operator FormatProperties3(AdamantiumVulkan.Core.Interop.VkFormatProperties3 f)
     {
@@ -51,21 +52,20 @@ public unsafe partial class FormatProperties3 : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkFormatProperties3 native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         LinearTilingFeatures = native.linearTilingFeatures;
         OptimalTilingFeatures = native.optimalTilingFeatures;
         BufferFeatures = native.bufferFeatures;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkFormatProperties3>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkFormatProperties3>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkFormatProperties3Marshaller
     {
@@ -79,11 +79,11 @@ public unsafe partial class FormatProperties3 : IMarshallableObject, IMarshallab
             }
             else if (formatProperties3.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (formatProperties3.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (formatProperties3.LinearTilingFeatures != (ulong)default)

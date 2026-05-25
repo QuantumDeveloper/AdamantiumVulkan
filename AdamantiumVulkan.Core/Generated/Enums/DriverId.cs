@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5974 Column: 14
-public enum DriverId : uint
+// File: vk.xml Line: 13132 Column: 6
+public enum DriverId : int
 {
     AmdProprietary = 1,
 
@@ -68,7 +68,7 @@ public enum DriverId : uint
 
     VulkanScEmulationOnVulkan = 27,
 
-    MaxEnum = 2147483647,
+    MesaKosmickrisp = 28,
 
 }
 

@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2018 Column: 14
-public enum BlendOp : uint
+// File: vk.xml Line: 12086 Column: 6
+public enum BlendOp : int
 {
     Add = 0,
 
@@ -115,8 +115,6 @@ public enum BlendOp : uint
     GreenExt = 1000148044,
 
     BlueExt = 1000148045,
-
-    MaxEnum = 2147483647,
 
 }
 

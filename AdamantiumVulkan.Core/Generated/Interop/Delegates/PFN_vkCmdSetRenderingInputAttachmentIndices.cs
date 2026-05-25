@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8392 Column: 26
+// File: video.xml Line: 18669 Column: 10
 public unsafe struct PFN_vkCmdSetRenderingInputAttachmentIndices
 {
     public PFN_vkCmdSetRenderingInputAttachmentIndices(nuint ptr) : this((void*) ptr) { }

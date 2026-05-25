@@ -27,7 +27,8 @@ public unsafe partial class DecompressMemoryRegionNV : IMarshallableObject, IMar
     public VkDeviceAddress DstAddress { get; set; }
     public VkDeviceSize CompressedSize { get; set; }
     public VkDeviceSize DecompressedSize { get; set; }
-    public VkMemoryDecompressionMethodFlagsNV DecompressionMethod { get; set; }
+    public VkMemoryDecompressionMethodFlagsEXT DecompressionMethod { get; set; }
+
 
     public static implicit operator DecompressMemoryRegionNV(AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV d)
     {
@@ -54,14 +55,14 @@ public unsafe partial class DecompressMemoryRegionNV : IMarshallableObject, IMar
         DecompressionMethod = native.decompressionMethod;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDecompressMemoryRegionNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDecompressMemoryRegionNVMarshaller
     {

@@ -23,10 +23,11 @@ public unsafe partial class ImageCompressionPropertiesEXT : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ImageCompressionPropertiesExt;
     public object PNext { get; set; }
-    public VkImageCompressionFlagsEXT ImageCompressionFlags { get; set; }
-    public VkImageCompressionFixedRateFlagsEXT ImageCompressionFixedRateFlags { get; set; }
+    public ImageCompressionFlagBitsEXT ImageCompressionFlags { get; set; }
+    public ImageCompressionFixedRateFlagBitsEXT ImageCompressionFixedRateFlags { get; set; }
+
 
     public static implicit operator ImageCompressionPropertiesEXT(AdamantiumVulkan.Core.Interop.VkImageCompressionPropertiesEXT i)
     {
@@ -50,20 +51,19 @@ public unsafe partial class ImageCompressionPropertiesEXT : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkImageCompressionPropertiesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ImageCompressionFlags = native.imageCompressionFlags;
         ImageCompressionFixedRateFlags = native.imageCompressionFixedRateFlags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageCompressionPropertiesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageCompressionPropertiesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageCompressionPropertiesEXTMarshaller
     {
@@ -77,22 +77,16 @@ public unsafe partial class ImageCompressionPropertiesEXT : IMarshallableObject,
             }
             else if (imageCompressionPropertiesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (imageCompressionPropertiesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (imageCompressionPropertiesEXT.ImageCompressionFlags != (uint)default)
-            {
-                context.Destination[0].imageCompressionFlags = imageCompressionPropertiesEXT.ImageCompressionFlags;
-            }
+            context.Destination[0].imageCompressionFlags = imageCompressionPropertiesEXT.ImageCompressionFlags;
 
-            if (imageCompressionPropertiesEXT.ImageCompressionFixedRateFlags != (uint)default)
-            {
-                context.Destination[0].imageCompressionFixedRateFlags = imageCompressionPropertiesEXT.ImageCompressionFixedRateFlags;
-            }
+            context.Destination[0].imageCompressionFixedRateFlags = imageCompressionPropertiesEXT.ImageCompressionFixedRateFlags;
 
         }
     }

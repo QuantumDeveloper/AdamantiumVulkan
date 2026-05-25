@@ -29,7 +29,8 @@ public unsafe partial class PipelineCoverageModulationStateCreateInfoNV : IMarsh
     public CoverageModulationModeNV CoverageModulationMode { get; set; }
     public VkBool32 CoverageModulationTableEnable { get; set; }
     public uint CoverageModulationTableCount { get; set; }
-    public float? PCoverageModulationTable { get; set; }
+    public System.ReadOnlyMemory<float> PCoverageModulationTable { get; set; }
+
 
     public static implicit operator PipelineCoverageModulationStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV p)
     {
@@ -43,6 +44,8 @@ public unsafe partial class PipelineCoverageModulationStateCreateInfoNV : IMarsh
         {
             size += marshallable.GetSize();
         }
+        if (!PCoverageModulationTable.IsEmpty)
+            size += PCoverageModulationTable.Span.Length * Marshal.SizeOf<System.Single>();
         return size;
     }
 
@@ -58,21 +61,20 @@ public unsafe partial class PipelineCoverageModulationStateCreateInfoNV : IMarsh
         CoverageModulationMode = native.coverageModulationMode;
         CoverageModulationTableEnable = native.coverageModulationTableEnable;
         CoverageModulationTableCount = native.coverageModulationTableCount;
-        if (native.pCoverageModulationTable != null)
-        {
-            PCoverageModulationTable = *native.pCoverageModulationTable;
-            NativeUtils.Free(native.pCoverageModulationTable);
-        }
+        var arrayLengthPCoverageModulationTable = native.coverageModulationTableCount;
+        var tmpPCoverageModulationTable = new float[arrayLengthPCoverageModulationTable];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pCoverageModulationTable, arrayLengthPCoverageModulationTable, tmpPCoverageModulationTable);
+        PCoverageModulationTable = tmpPCoverageModulationTable;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineCoverageModulationStateCreateInfoNVMarshaller
     {
@@ -86,11 +88,11 @@ public unsafe partial class PipelineCoverageModulationStateCreateInfoNV : IMarsh
             }
             else if (pipelineCoverageModulationStateCreateInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineCoverageModulationStateCreateInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineCoverageModulationStateCreateInfoNV.Flags != (uint)default)
@@ -107,9 +109,9 @@ public unsafe partial class PipelineCoverageModulationStateCreateInfoNV : IMarsh
 
             context.Destination[0].coverageModulationTableCount = pipelineCoverageModulationStateCreateInfoNV.CoverageModulationTableCount;
 
-            if (pipelineCoverageModulationStateCreateInfoNV.PCoverageModulationTable.HasValue)
+            if (!pipelineCoverageModulationStateCreateInfoNV.PCoverageModulationTable.IsEmpty)
             {
-                context.Destination[0].pCoverageModulationTable = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(pipelineCoverageModulationStateCreateInfoNV.PCoverageModulationTable.Value, ref context);
+                context.Destination[0].pCoverageModulationTable = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<float, AdamantiumVulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV>(pipelineCoverageModulationStateCreateInfoNV.PCoverageModulationTable.Span, ref context);
             }
 
         }

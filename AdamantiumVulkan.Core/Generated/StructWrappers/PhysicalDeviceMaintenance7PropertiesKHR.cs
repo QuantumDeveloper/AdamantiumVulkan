@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceMaintenance7PropertiesKHR : IMarshalla
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceMaintenance7PropertiesKhr;
     public object PNext { get; set; }
     public VkBool32 RobustFragmentShadingRateAttachmentAccess { get; set; }
     public VkBool32 SeparateDepthStencilAttachmentAccess { get; set; }
@@ -33,6 +33,7 @@ public unsafe partial class PhysicalDeviceMaintenance7PropertiesKHR : IMarshalla
     public uint MaxDescriptorSetUpdateAfterBindTotalUniformBuffersDynamic { get; set; }
     public uint MaxDescriptorSetUpdateAfterBindTotalStorageBuffersDynamic { get; set; }
     public uint MaxDescriptorSetUpdateAfterBindTotalBuffersDynamic { get; set; }
+
 
     public static implicit operator PhysicalDeviceMaintenance7PropertiesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance7PropertiesKHR p)
     {
@@ -56,7 +57,6 @@ public unsafe partial class PhysicalDeviceMaintenance7PropertiesKHR : IMarshalla
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance7PropertiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         RobustFragmentShadingRateAttachmentAccess = native.robustFragmentShadingRateAttachmentAccess;
         SeparateDepthStencilAttachmentAccess = native.separateDepthStencilAttachmentAccess;
@@ -68,14 +68,14 @@ public unsafe partial class PhysicalDeviceMaintenance7PropertiesKHR : IMarshalla
         MaxDescriptorSetUpdateAfterBindTotalBuffersDynamic = native.maxDescriptorSetUpdateAfterBindTotalBuffersDynamic;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance7PropertiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMaintenance7PropertiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceMaintenance7PropertiesKHRMarshaller
     {
@@ -89,11 +89,11 @@ public unsafe partial class PhysicalDeviceMaintenance7PropertiesKHR : IMarshalla
             }
             else if (physicalDeviceMaintenance7PropertiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceMaintenance7PropertiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceMaintenance7PropertiesKHR.RobustFragmentShadingRateAttachmentAccess != (uint)default)

@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12659 Column: 16
+// File: vk.xml Line: 10325 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkBindDescriptorBufferEmbeddedSamplersInfoEXT
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkShaderStageFlags stageFlags;
+    public void* pNext;
+    public ShaderStageFlagBits stageFlags;
     public VkPipelineLayout_T layout;
     public uint set;
 }

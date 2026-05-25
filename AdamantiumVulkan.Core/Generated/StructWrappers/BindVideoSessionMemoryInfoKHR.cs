@@ -23,12 +23,13 @@ public unsafe partial class BindVideoSessionMemoryInfoKHR : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.BindVideoSessionMemoryInfoKhr;
     public object PNext { get; set; }
     public uint MemoryBindIndex { get; set; }
     public DeviceMemory Memory { get; set; }
     public VkDeviceSize MemoryOffset { get; set; }
     public VkDeviceSize MemorySize { get; set; }
+
 
     public static implicit operator BindVideoSessionMemoryInfoKHR(AdamantiumVulkan.Core.Interop.VkBindVideoSessionMemoryInfoKHR b)
     {
@@ -52,7 +53,6 @@ public unsafe partial class BindVideoSessionMemoryInfoKHR : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkBindVideoSessionMemoryInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MemoryBindIndex = native.memoryBindIndex;
         Memory = new DeviceMemory(native.memory);
@@ -60,14 +60,14 @@ public unsafe partial class BindVideoSessionMemoryInfoKHR : IMarshallableObject,
         MemorySize = native.memorySize;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkBindVideoSessionMemoryInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkBindVideoSessionMemoryInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkBindVideoSessionMemoryInfoKHRMarshaller
     {
@@ -81,11 +81,11 @@ public unsafe partial class BindVideoSessionMemoryInfoKHR : IMarshallableObject,
             }
             else if (bindVideoSessionMemoryInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (bindVideoSessionMemoryInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].memoryBindIndex = bindVideoSessionMemoryInfoKHR.MemoryBindIndex;

@@ -450,7 +450,7 @@ namespace AdamantiumVulkan.Core
             return deviceMemory;
         }
 
-        public nuint MapMemory(DeviceMemory memory, ulong offset, ulong size, uint flags)
+        public nuint MapMemory(DeviceMemory memory, ulong offset, ulong size, MemoryMapFlagBits flags)
         {
             var result = MapMemory(memory, offset, size, flags, out var data);
             ResultHelper.CheckResult(result, nameof(MapMemory));
@@ -459,8 +459,8 @@ namespace AdamantiumVulkan.Core
 
         public CommandBuffer[] AllocateCommandBuffers(CommandBufferAllocateInfo allocateInfo)
         {
-            var commandBuffers = new CommandBuffer[allocateInfo.CommandBufferCount];
-            var result = AllocateCommandBuffers(allocateInfo, commandBuffers);
+            //var commandBuffers = new CommandBuffer[allocateInfo.CommandBufferCount];
+            var result = AllocateCommandBuffers(allocateInfo, out var commandBuffers);
             ResultHelper.CheckResult(result, nameof(AllocateCommandBuffers));
             return commandBuffers;
         }
@@ -607,38 +607,40 @@ namespace AdamantiumVulkan.Core
 
         public uint GetDescriptorSetLayoutSize(DescriptorSetLayout layout)
         {
-            DescriptorSetLayoutSizeDelegate.Invoke(this, layout, out var deviceSize);
+            VkDeviceSize deviceSize = default;
+            DescriptorSetLayoutSizeDelegate.Invoke(this, layout, &deviceSize);
             return (uint)deviceSize;
         }
         
         public uint GetDescriptorSetLayoutOffset(DescriptorSetLayout layout, uint bindingSlot)
         {
-            DescriptorSetLayoutOffsetDelegate.Invoke(this, layout, bindingSlot, out var offsetSize);
+            GetDescriptorSetLayoutBindingOffsetEXT(layout, bindingSlot, out var offsetSize);
             return (uint)offsetSize;
+            // VkDeviceSize offsetSize = default;
+            // DescriptorSetLayoutOffsetDelegate.Invoke(this, layout, bindingSlot, &offsetSize);
+            // return (uint)offsetSize;
         }
 
         public void GetDescriptor(DescriptorGetInfoEXT descriptorInfo, uint descriptorSize, nuint descriptorPtr)
         {
             using var ctx = new NativeContext(descriptorInfo.GetSize(), stackalloc byte[(int)MarshalingUtils.StackAllocThreshold]);
             var infoPtr = descriptorInfo.MarshalToNative(ctx);
-            GetDescriptorDelegate.Invoke(this, &infoPtr, descriptorSize, descriptorPtr);
+            GetDescriptorDelegate.Invoke(this, &infoPtr, descriptorSize, (byte*)descriptorPtr);
         }
         
         public void BindDescriptorBuffers(CommandBuffer commandBuffer, DescriptorBufferBindingInfoEXT[] bindingInfos)
         {
-            using var ctx = MarshallingContext.MarshalArray<DescriptorBufferBindingInfoEXT, VkDescriptorBufferBindingInfoEXT>(bindingInfos, out var arrayPtr);
-            BindDescriptorBuffersDelegate.Invoke(commandBuffer, (uint)bindingInfos.Length, arrayPtr);
-            NativeMemory.Free(arrayPtr);
+            commandBuffer.BindDescriptorBuffersEXT((uint)bindingInfos.Length, bindingInfos);
         }
 
-        public void SetDescriptorBufferOffsets(CommandBuffer commandBuffer, PipelineBindPoint bindPoint, PipelineLayout layout, uint firstSet, uint setCount, uint[] bufferIndices, ulong[] offsets)
-        {
-            var indicesPtr = NativeUtils.ManagedArrayToPointer(bufferIndices);
-            var offsetsPtr = NativeUtils.ManagedArrayToPointer(offsets);
-            SetDescriptorBufferOffsetsDelegate.Invoke(commandBuffer, bindPoint, layout, firstSet, setCount, indicesPtr, offsetsPtr);
-            NativeMemory.Free(indicesPtr);
-            NativeMemory.Free(offsetsPtr);
-        }
+        // public void SetDescriptorBufferOffsets(CommandBuffer commandBuffer, PipelineBindPoint bindPoint, PipelineLayout layout, uint firstSet, uint setCount, uint[] bufferIndices, ulong[] offsets)
+        // {
+        //     var indicesPtr = NativeUtils.ManagedArrayToPointer(bufferIndices);
+        //     var offsetsPtr = NativeUtils.ManagedArrayToPointer(offsets);
+        //     SetDescriptorBufferOffsetsDelegate.Invoke(commandBuffer, bindPoint, layout, firstSet, setCount, indicesPtr, offsetsPtr);
+        //     NativeMemory.Free(indicesPtr);
+        //     NativeMemory.Free(offsetsPtr);
+        // }
 
         public void SetViewportWithCountEXT(CommandBuffer commandBuffer, params Viewport[] viewports)
         {
@@ -823,14 +825,88 @@ namespace AdamantiumVulkan.Core
         }
     }
 
+    public unsafe partial class ShaderModuleCreateInfo
+    {
+        public ReadOnlySpan<byte> PCodeBytes
+        {
+            set 
+            {
+                if (value.Length % 4 != 0) throw new ArgumentException("SPIR-V size must be % 4");
+                PCode = MemoryMarshal.Cast<byte, uint>(value).ToArray();
+                CodeSize = (nuint)value.Length;
+            }
+        }
+    }
+
+    public unsafe partial class CommandBuffer
+    {
+        public void PipelineBarrier(PipelineStageFlagBits srcStageMask, PipelineStageFlagBits dstStageMask, DependencyFlagBits dependencyFlags, uint memoryBarrierCount, in ReadOnlySpan<MemoryBarrier> pMemoryBarriers, uint bufferMemoryBarrierCount, in ReadOnlySpan<BufferMemoryBarrier> pBufferMemoryBarriers, uint imageMemoryBarrierCount, in ImageMemoryBarrier pImageMemoryBarriers)
+    {
+        int CalculateSize(ReadOnlySpan<MemoryBarrier> pMemoryBarriers, ReadOnlySpan<BufferMemoryBarrier> pBufferMemoryBarriers, ImageMemoryBarrier pImageMemoryBarriers)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pMemoryBarriers.Length; i++)
+            {
+                if(pMemoryBarriers[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkMemoryBarrier>();
+                else
+                    totalSize += pMemoryBarriers[(int)i].GetSize();
+            }
+            for (var i = 0U; i < pBufferMemoryBarriers.Length; i++)
+            {
+                if(pBufferMemoryBarriers[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier>();
+                else
+                    totalSize += pBufferMemoryBarriers[(int)i].GetSize();
+            }
+
+            if (pImageMemoryBarriers != null)
+            {
+                totalSize += pImageMemoryBarriers.GetSize();
+            }
+            
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pMemoryBarriers, pBufferMemoryBarriers, pImageMemoryBarriers);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            AdamantiumVulkan.Core.Interop.VkMemoryBarrier* arg5 = null;
+            if (!pMemoryBarriers.IsEmpty)
+            {
+                arg5 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<AdamantiumVulkan.Core.MemoryBarrier, AdamantiumVulkan.Core.Interop.VkMemoryBarrier>(pMemoryBarriers, ref currentCursor);
+            }
+            AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier* arg7 = null;
+            if (!pBufferMemoryBarriers.IsEmpty)
+            {
+                arg7 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<AdamantiumVulkan.Core.BufferMemoryBarrier, AdamantiumVulkan.Core.Interop.VkBufferMemoryBarrier>(pBufferMemoryBarriers, ref currentCursor);
+            }
+            AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier* arg9 = null;
+            if (pImageMemoryBarriers != null)
+            {
+                arg9 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<ImageMemoryBarrier, AdamantiumVulkan.Core.Interop.VkImageMemoryBarrier>(pImageMemoryBarriers, ref currentCursor);
+            }
+            Commands.vkCmdPipelineBarrier(this, srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, arg5, bufferMemoryBarrierCount, arg7, imageMemoryBarrierCount, arg9);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+    }
+
     public unsafe partial class Framebuffer
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyFramebuffer(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -838,10 +914,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyImage(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -849,10 +925,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyImageView(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -860,10 +936,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyPipeline(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -871,10 +947,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroySwapchainKHR(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -882,10 +958,10 @@ namespace AdamantiumVulkan.Core
     {
         public void FreeMemory(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.FreeMemory(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -893,10 +969,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyBuffer(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -904,10 +980,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyBufferView(this);
-            __Instance.pointer = 0;
+            __Instance.pointer = null;
         }
     }
 
@@ -915,11 +991,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyDescriptorSetLayout(this);
-            __Instance.pointer = 0;
-
+            __Instance.pointer = null;
         }
     }
 
@@ -927,11 +1002,10 @@ namespace AdamantiumVulkan.Core
     {
         public void Destroy(Device device)
         {
-            if (NativePointer == 0) return;
+            if (NativePointer == null) return;
 
             device.DestroyPipelineLayout(this);
-            __Instance.pointer = 0;
-
+            __Instance.pointer = null;
         }
     }
 

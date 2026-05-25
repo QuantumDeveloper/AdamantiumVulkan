@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9154 Column: 30
+// File: video.xml Line: 17890 Column: 10
 public unsafe struct PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR
 {
     public PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR(nuint ptr) : this((void*) ptr) { }

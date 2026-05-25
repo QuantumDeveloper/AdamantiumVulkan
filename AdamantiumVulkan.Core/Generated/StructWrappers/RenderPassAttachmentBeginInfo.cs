@@ -23,10 +23,11 @@ public unsafe partial class RenderPassAttachmentBeginInfo : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.RenderPassAttachmentBeginInfo;
     public object PNext { get; set; }
     public uint AttachmentCount { get; set; }
-    public ImageView PAttachments { get; set; }
+    public System.ReadOnlyMemory<ImageView> PAttachments { get; set; }
+
 
     public static implicit operator RenderPassAttachmentBeginInfo(AdamantiumVulkan.Core.Interop.VkRenderPassAttachmentBeginInfo r)
     {
@@ -40,6 +41,8 @@ public unsafe partial class RenderPassAttachmentBeginInfo : IMarshallableObject,
         {
             size += marshallable.GetSize();
         }
+        if (!PAttachments.IsEmpty)
+            size += PAttachments.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkImageView_T>();
         return size;
     }
 
@@ -50,21 +53,27 @@ public unsafe partial class RenderPassAttachmentBeginInfo : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkRenderPassAttachmentBeginInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         AttachmentCount = native.attachmentCount;
-        PAttachments = new ImageView(in *native.pAttachments);
-        NativeUtils.Free(native.pAttachments);
+        var arrayLengthPAttachments = native.attachmentCount;
+        var tmpPAttachments = new ImageView[arrayLengthPAttachments];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkImageView_T[arrayLengthPAttachments];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAttachments, arrayLengthPAttachments, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPAttachments[i] = new ImageView(in nativeTmpArray0[i]);
+        }
+        PAttachments = tmpPAttachments;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderPassAttachmentBeginInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderPassAttachmentBeginInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderPassAttachmentBeginInfoMarshaller
     {
@@ -78,19 +87,26 @@ public unsafe partial class RenderPassAttachmentBeginInfo : IMarshallableObject,
             }
             else if (renderPassAttachmentBeginInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderPassAttachmentBeginInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].attachmentCount = renderPassAttachmentBeginInfo.AttachmentCount;
 
-            if (renderPassAttachmentBeginInfo.PAttachments != default)
+            if (!renderPassAttachmentBeginInfo.PAttachments.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkImageView_T struct0 = renderPassAttachmentBeginInfo.PAttachments;
-                context.Destination[0].pAttachments = (AdamantiumVulkan.Core.Interop.VkImageView_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.ImageView> sourceSpan = renderPassAttachmentBeginInfo.PAttachments.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkImageView_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkImageView_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkImageView_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pAttachments = pDestination;
             }
 
         }

@@ -11,13 +11,14 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 1475 Column: 14
-[Flags]
-public enum PipelineCacheHeaderVersion : uint
+// File: vk.xml Line: 12001 Column: 6
+public enum PipelineCacheHeaderVersion : int
 {
     One = 1,
 
-    MaxEnum = 2147483647,
+    DataGraphQcom = 1000629000,
+
+    SafetyCriticalOne = 1000298001,
 
 }
 

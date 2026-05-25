@@ -23,10 +23,11 @@ public unsafe partial class RenderingAttachmentLocationInfo : IMarshallableObjec
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.RenderingAttachmentLocationInfo;
     public object PNext { get; set; }
     public uint ColorAttachmentCount { get; set; }
-    public uint? PColorAttachmentLocations { get; set; }
+    public System.ReadOnlyMemory<uint> PColorAttachmentLocations { get; set; }
+
 
     public static implicit operator RenderingAttachmentLocationInfo(AdamantiumVulkan.Core.Interop.VkRenderingAttachmentLocationInfo r)
     {
@@ -40,6 +41,8 @@ public unsafe partial class RenderingAttachmentLocationInfo : IMarshallableObjec
         {
             size += marshallable.GetSize();
         }
+        if (!PColorAttachmentLocations.IsEmpty)
+            size += PColorAttachmentLocations.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -50,24 +53,22 @@ public unsafe partial class RenderingAttachmentLocationInfo : IMarshallableObjec
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkRenderingAttachmentLocationInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ColorAttachmentCount = native.colorAttachmentCount;
-        if (native.pColorAttachmentLocations != null)
-        {
-            PColorAttachmentLocations = *native.pColorAttachmentLocations;
-            NativeUtils.Free(native.pColorAttachmentLocations);
-        }
+        var arrayLengthPColorAttachmentLocations = native.colorAttachmentCount;
+        var tmpPColorAttachmentLocations = new uint[arrayLengthPColorAttachmentLocations];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pColorAttachmentLocations, arrayLengthPColorAttachmentLocations, tmpPColorAttachmentLocations);
+        PColorAttachmentLocations = tmpPColorAttachmentLocations;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderingAttachmentLocationInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderingAttachmentLocationInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderingAttachmentLocationInfoMarshaller
     {
@@ -81,18 +82,18 @@ public unsafe partial class RenderingAttachmentLocationInfo : IMarshallableObjec
             }
             else if (renderingAttachmentLocationInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderingAttachmentLocationInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].colorAttachmentCount = renderingAttachmentLocationInfo.ColorAttachmentCount;
 
-            if (renderingAttachmentLocationInfo.PColorAttachmentLocations.HasValue)
+            if (!renderingAttachmentLocationInfo.PColorAttachmentLocations.IsEmpty)
             {
-                context.Destination[0].pColorAttachmentLocations = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(renderingAttachmentLocationInfo.PColorAttachmentLocations.Value, ref context);
+                context.Destination[0].pColorAttachmentLocations = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkRenderingAttachmentLocationInfo>(renderingAttachmentLocationInfo.PColorAttachmentLocations.Span, ref context);
             }
 
         }

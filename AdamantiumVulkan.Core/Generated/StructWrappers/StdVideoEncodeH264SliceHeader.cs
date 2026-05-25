@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeH264SliceHeader : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeader>
+public unsafe partial class StdVideoEncodeH264SliceHeader : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeader>
 {
     public StdVideoEncodeH264SliceHeader()
     {
     }
 
-    public StdVideoEncodeH264SliceHeader(in AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeader native)
+    public StdVideoEncodeH264SliceHeader(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeader native)
     {
         MarshalFrom(in native);
     }
@@ -34,14 +34,15 @@ public unsafe partial class StdVideoEncodeH264SliceHeader : IMarshallableObject,
     public StdVideoH264DisableDeblockingFilterIdc Disable_deblocking_filter_idc { get; set; }
     public StdVideoEncodeH264WeightTable PWeightTable { get; set; }
 
-    public static implicit operator StdVideoEncodeH264SliceHeader(AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeader s)
+
+    public static implicit operator StdVideoEncodeH264SliceHeader(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeader s)
     {
         return new StdVideoEncodeH264SliceHeader(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeader>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeader>();
         if (PWeightTable != default)
         {
             size += PWeightTable.GetSize();
@@ -49,12 +50,12 @@ public unsafe partial class StdVideoEncodeH264SliceHeader : IMarshallableObject,
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeader> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeader> context)
     {
         new StdVideoEncodeH264SliceHeaderMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeader native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeader native)
     {
         Flags = new StdVideoEncodeH264SliceHeaderFlags(native.flags);
         First_mb_in_slice = native.first_mb_in_slice;
@@ -69,25 +70,25 @@ public unsafe partial class StdVideoEncodeH264SliceHeader : IMarshallableObject,
         NativeUtils.Free(native.pWeightTable);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeader>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeader>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeader>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeader>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeH264SliceHeaderMarshaller
     {
-        public StdVideoEncodeH264SliceHeaderMarshaller(AdamantiumVulkan.StdVideoEncodeH264SliceHeader stdVideoEncodeH264SliceHeader, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeader> context)
+        public StdVideoEncodeH264SliceHeaderMarshaller(AdamantiumVulkan.Core.StdVideoEncodeH264SliceHeader stdVideoEncodeH264SliceHeader, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeader> context)
         {
             if (stdVideoEncodeH264SliceHeader.Flags != default)
             {
-                fixed (AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeaderFlags* pField = &context.Destination[0].flags)
+                fixed (AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeaderFlags* pField = &context.Destination[0].flags)
                 {
-                    var fieldSpan = new System.Span<AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeaderFlags>(pField, 1);
-                    var childContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264SliceHeaderFlags>(fieldSpan, context.DataCursor);
+                    var fieldSpan = new System.Span<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeaderFlags>(pField, 1);
+                    var childContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264SliceHeaderFlags>(fieldSpan, context.DataCursor);
                     stdVideoEncodeH264SliceHeader.Flags.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
@@ -111,10 +112,10 @@ public unsafe partial class StdVideoEncodeH264SliceHeader : IMarshallableObject,
 
             if (stdVideoEncodeH264SliceHeader.PWeightTable != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoEncodeH264WeightTable));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoEncodeH264WeightTable>(structSlice0).Slice(0, 1);
-                context.Destination[0].pWeightTable = (AdamantiumVulkan.Interop.StdVideoEncodeH264WeightTable*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264WeightTable>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264WeightTable));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoEncodeH264WeightTable>(structSlice0).Slice(0, 1);
+                context.Destination[0].pWeightTable = (AdamantiumVulkan.Core.Interop.StdVideoEncodeH264WeightTable*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264WeightTable>(structDestination0, context.DataCursor);
                 stdVideoEncodeH264SliceHeader.PWeightTable.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }

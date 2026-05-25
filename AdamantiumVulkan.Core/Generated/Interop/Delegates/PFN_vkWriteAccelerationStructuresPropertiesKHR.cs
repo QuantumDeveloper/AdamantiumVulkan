@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21539 Column: 30
+// File: video.xml Line: 16966 Column: 10
 public unsafe struct PFN_vkWriteAccelerationStructuresPropertiesKHR
 {
     public PFN_vkWriteAccelerationStructuresPropertiesKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkWriteAccelerationStructuresPropertiesKHR
     public PFN_vkWriteAccelerationStructuresPropertiesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T*, QueryType, ulong, nuint, ulong, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T*, QueryType, nuint, byte*, nuint, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T*, QueryType, ulong, nuint, ulong, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T*, QueryType, nuint, byte*, nuint, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, ulong dataSize, nuint pData, ulong stride)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, nuint dataSize, byte* pData, nuint stride)
     {
         return InvokeFunc(device, accelerationStructureCount, pAccelerationStructures, queryType, dataSize, pData, stride);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, ulong dataSize, nuint pData, ulong stride)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, nuint dataSize, byte* pData, nuint stride)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T*, QueryType, ulong, nuint, ulong, Result>)ptr)(device, accelerationStructureCount, pAccelerationStructures, queryType, dataSize, pData, stride);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T*, QueryType, nuint, byte*, nuint, Result>)ptr)(device, accelerationStructureCount, pAccelerationStructures, queryType, dataSize, pData, stride);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, ulong dataSize, nuint pData, ulong stride)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, uint accelerationStructureCount, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T* pAccelerationStructures, QueryType queryType, nuint dataSize, byte* pData, nuint stride)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T*, QueryType, ulong, nuint, ulong, Result>)(void*)ptr)(device, accelerationStructureCount, pAccelerationStructures, queryType, dataSize, pData, stride);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, uint, AdamantiumVulkan.Core.Interop.VkAccelerationStructureKHR_T*, QueryType, nuint, byte*, nuint, Result>)(void*)ptr)(device, accelerationStructureCount, pAccelerationStructures, queryType, dataSize, pData, stride);
     }
 
     public static explicit operator PFN_vkWriteAccelerationStructuresPropertiesKHR(void* ptr) => new(ptr);

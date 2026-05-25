@@ -11,16 +11,14 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2258 Column: 14
-public enum Filter : uint
+// File: vk.xml Line: 12027 Column: 6
+public enum Filter : int
 {
     Nearest = 0,
 
     Linear = 1,
 
     CubicExt = 1000015000,
-
-    MaxEnum = 2147483647,
 
 }
 

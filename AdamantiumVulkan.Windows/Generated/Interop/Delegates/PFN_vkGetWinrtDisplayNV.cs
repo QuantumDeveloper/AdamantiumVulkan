@@ -15,7 +15,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 325 Column: 30
+// File: video.xml Line: 16128 Column: 10
 public unsafe struct PFN_vkGetWinrtDisplayNV
 {
     public PFN_vkGetWinrtDisplayNV(nuint ptr) : this((void*) ptr) { }
@@ -23,24 +23,24 @@ public unsafe struct PFN_vkGetWinrtDisplayNV
     public PFN_vkGetWinrtDisplayNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T pDisplay)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplay)
     {
-        return InvokeFunc(physicalDevice, deviceRelativeId, out pDisplay);
+        return InvokeFunc(physicalDevice, deviceRelativeId, pDisplay);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T pDisplay)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplay)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result>)ptr)(physicalDevice, deviceRelativeId, out pDisplay);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T*, Result>)ptr)(physicalDevice, deviceRelativeId, pDisplay);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T pDisplay)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, uint deviceRelativeId, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* pDisplay)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, out AdamantiumVulkan.Core.Interop.VkDisplayKHR_T, Result>)(void*)ptr)(physicalDevice, deviceRelativeId, out pDisplay);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, uint, AdamantiumVulkan.Core.Interop.VkDisplayKHR_T*, Result>)(void*)ptr)(physicalDevice, deviceRelativeId, pDisplay);
     }
 
     public static explicit operator PFN_vkGetWinrtDisplayNV(void* ptr) => new(ptr);

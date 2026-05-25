@@ -23,9 +23,10 @@ public unsafe partial class PhysicalDeviceVideoMaintenance1FeaturesKHR : IMarsha
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceVideoMaintenance1FeaturesKhr;
     public object PNext { get; set; }
     public VkBool32 VideoMaintenance1 { get; set; }
+
 
     public static implicit operator PhysicalDeviceVideoMaintenance1FeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoMaintenance1FeaturesKHR p)
     {
@@ -49,19 +50,18 @@ public unsafe partial class PhysicalDeviceVideoMaintenance1FeaturesKHR : IMarsha
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoMaintenance1FeaturesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         VideoMaintenance1 = native.videoMaintenance1;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoMaintenance1FeaturesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoMaintenance1FeaturesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceVideoMaintenance1FeaturesKHRMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class PhysicalDeviceVideoMaintenance1FeaturesKHR : IMarsha
             }
             else if (physicalDeviceVideoMaintenance1FeaturesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceVideoMaintenance1FeaturesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceVideoMaintenance1FeaturesKHR.VideoMaintenance1 != (uint)default)

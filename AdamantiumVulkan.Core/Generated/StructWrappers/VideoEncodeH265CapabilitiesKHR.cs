@@ -9,7 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
 
 namespace AdamantiumVulkan.Core;
 
@@ -24,14 +23,14 @@ public unsafe partial class VideoEncodeH265CapabilitiesKHR : IMarshallableObject
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeH265CapabilitiesKhr;
     public object PNext { get; set; }
-    public VkVideoEncodeH265CapabilityFlagsKHR Flags { get; set; }
+    public VideoEncodeH265CapabilityFlagBitsKHR Flags { get; set; }
     public StdVideoH265LevelIdc MaxLevelIdc { get; set; }
     public uint MaxSliceSegmentCount { get; set; }
     public Extent2D MaxTiles { get; set; }
-    public VkVideoEncodeH265CtbSizeFlagsKHR CtbSizes { get; set; }
-    public VkVideoEncodeH265TransformBlockSizeFlagsKHR TransformBlockSizes { get; set; }
+    public VideoEncodeH265CtbSizeFlagBitsKHR CtbSizes { get; set; }
+    public VideoEncodeH265TransformBlockSizeFlagBitsKHR TransformBlockSizes { get; set; }
     public uint MaxPPictureL0ReferenceCount { get; set; }
     public uint MaxBPictureL0ReferenceCount { get; set; }
     public uint MaxL1ReferenceCount { get; set; }
@@ -41,7 +40,8 @@ public unsafe partial class VideoEncodeH265CapabilitiesKHR : IMarshallableObject
     public int MaxQp { get; set; }
     public VkBool32 PrefersGopRemainingFrames { get; set; }
     public VkBool32 RequiresGopRemainingFrames { get; set; }
-    public VkVideoEncodeH265StdFlagsKHR StdSyntaxFlags { get; set; }
+    public VideoEncodeH265StdFlagBitsKHR StdSyntaxFlags { get; set; }
+
 
     public static implicit operator VideoEncodeH265CapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH265CapabilitiesKHR v)
     {
@@ -65,7 +65,6 @@ public unsafe partial class VideoEncodeH265CapabilitiesKHR : IMarshallableObject
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeH265CapabilitiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         MaxLevelIdc = native.maxLevelIdc;
@@ -85,14 +84,14 @@ public unsafe partial class VideoEncodeH265CapabilitiesKHR : IMarshallableObject
         StdSyntaxFlags = native.stdSyntaxFlags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeH265CapabilitiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeH265CapabilitiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeH265CapabilitiesKHRMarshaller
     {
@@ -106,17 +105,14 @@ public unsafe partial class VideoEncodeH265CapabilitiesKHR : IMarshallableObject
             }
             else if (videoEncodeH265CapabilitiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeH265CapabilitiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (videoEncodeH265CapabilitiesKHR.Flags != (uint)default)
-            {
-                context.Destination[0].flags = videoEncodeH265CapabilitiesKHR.Flags;
-            }
+            context.Destination[0].flags = videoEncodeH265CapabilitiesKHR.Flags;
 
             context.Destination[0].maxLevelIdc = videoEncodeH265CapabilitiesKHR.MaxLevelIdc;
 
@@ -133,15 +129,9 @@ public unsafe partial class VideoEncodeH265CapabilitiesKHR : IMarshallableObject
                 }
             }
 
-            if (videoEncodeH265CapabilitiesKHR.CtbSizes != (uint)default)
-            {
-                context.Destination[0].ctbSizes = videoEncodeH265CapabilitiesKHR.CtbSizes;
-            }
+            context.Destination[0].ctbSizes = videoEncodeH265CapabilitiesKHR.CtbSizes;
 
-            if (videoEncodeH265CapabilitiesKHR.TransformBlockSizes != (uint)default)
-            {
-                context.Destination[0].transformBlockSizes = videoEncodeH265CapabilitiesKHR.TransformBlockSizes;
-            }
+            context.Destination[0].transformBlockSizes = videoEncodeH265CapabilitiesKHR.TransformBlockSizes;
 
             context.Destination[0].maxPPictureL0ReferenceCount = videoEncodeH265CapabilitiesKHR.MaxPPictureL0ReferenceCount;
 
@@ -170,10 +160,7 @@ public unsafe partial class VideoEncodeH265CapabilitiesKHR : IMarshallableObject
                 context.Destination[0].requiresGopRemainingFrames = videoEncodeH265CapabilitiesKHR.RequiresGopRemainingFrames;
             }
 
-            if (videoEncodeH265CapabilitiesKHR.StdSyntaxFlags != (uint)default)
-            {
-                context.Destination[0].stdSyntaxFlags = videoEncodeH265CapabilitiesKHR.StdSyntaxFlags;
-            }
+            context.Destination[0].stdSyntaxFlags = videoEncodeH265CapabilitiesKHR.StdSyntaxFlags;
 
         }
     }

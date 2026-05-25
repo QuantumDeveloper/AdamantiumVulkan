@@ -13,6 +13,9 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+///<summary>
+/// See C++ API.
+///</summary>
 public unsafe partial class SpvcEntryPoint : IMarshallable<AdamantiumVulkan.Spirv.Cross.Interop.SpvcEntryPoint>
 {
     public SpvcEntryPoint()
@@ -24,8 +27,9 @@ public unsafe partial class SpvcEntryPoint : IMarshallable<AdamantiumVulkan.Spir
         MarshalFrom(in native);
     }
 
-    public SpvExecutionModel Execution_model { get; set; }
+    public ExecutionModel Execution_model { get; set; }
     public string Name { get; set; }
+
 
     public static implicit operator SpvcEntryPoint(AdamantiumVulkan.Spirv.Cross.Interop.SpvcEntryPoint s)
     {

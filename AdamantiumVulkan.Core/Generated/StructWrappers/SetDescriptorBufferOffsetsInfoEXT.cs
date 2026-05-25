@@ -23,14 +23,15 @@ public unsafe partial class SetDescriptorBufferOffsetsInfoEXT : IMarshallableObj
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.SetDescriptorBufferOffsetsInfoExt;
     public object PNext { get; set; }
-    public VkShaderStageFlags StageFlags { get; set; }
+    public ShaderStageFlagBits StageFlags { get; set; }
     public PipelineLayout Layout { get; set; }
     public uint FirstSet { get; set; }
     public uint SetCount { get; set; }
-    public uint? PBufferIndices { get; set; }
-    public VkDeviceSize? POffsets { get; set; }
+    public System.ReadOnlyMemory<uint> PBufferIndices { get; set; }
+    public System.ReadOnlyMemory<VkDeviceSize> POffsets { get; set; }
+
 
     public static implicit operator SetDescriptorBufferOffsetsInfoEXT(AdamantiumVulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT s)
     {
@@ -44,10 +45,8 @@ public unsafe partial class SetDescriptorBufferOffsetsInfoEXT : IMarshallableObj
         {
             size += marshallable.GetSize();
         }
-        if (POffsets != default)
-        {
-            size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDeviceSize>();
-        }
+        if (!PBufferIndices.IsEmpty)
+            size += PBufferIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -58,32 +57,29 @@ public unsafe partial class SetDescriptorBufferOffsetsInfoEXT : IMarshallableObj
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         StageFlags = native.stageFlags;
         Layout = new PipelineLayout(native.layout);
         FirstSet = native.firstSet;
         SetCount = native.setCount;
-        if (native.pBufferIndices != null)
-        {
-            PBufferIndices = *native.pBufferIndices;
-            NativeUtils.Free(native.pBufferIndices);
-        }
-        if (native.pOffsets != null)
-        {
-            POffsets = *native.pOffsets;
-            NativeUtils.Free(native.pOffsets);
-        }
+        var arrayLengthPBufferIndices = native.setCount;
+        var tmpPBufferIndices = new uint[arrayLengthPBufferIndices];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pBufferIndices, arrayLengthPBufferIndices, tmpPBufferIndices);
+        PBufferIndices = tmpPBufferIndices;
+        var arrayLengthPOffsets = native.setCount;
+        var tmpPOffsets = new VkDeviceSize[arrayLengthPOffsets];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pOffsets, arrayLengthPOffsets, tmpPOffsets);
+        POffsets = tmpPOffsets;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSetDescriptorBufferOffsetsInfoEXTMarshaller
     {
@@ -97,17 +93,14 @@ public unsafe partial class SetDescriptorBufferOffsetsInfoEXT : IMarshallableObj
             }
             else if (setDescriptorBufferOffsetsInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (setDescriptorBufferOffsetsInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (setDescriptorBufferOffsetsInfoEXT.StageFlags != (uint)default)
-            {
-                context.Destination[0].stageFlags = setDescriptorBufferOffsetsInfoEXT.StageFlags;
-            }
+            context.Destination[0].stageFlags = setDescriptorBufferOffsetsInfoEXT.StageFlags;
 
             if (setDescriptorBufferOffsetsInfoEXT.Layout != default)
             {
@@ -118,14 +111,22 @@ public unsafe partial class SetDescriptorBufferOffsetsInfoEXT : IMarshallableObj
 
             context.Destination[0].setCount = setDescriptorBufferOffsetsInfoEXT.SetCount;
 
-            if (setDescriptorBufferOffsetsInfoEXT.PBufferIndices.HasValue)
+            if (!setDescriptorBufferOffsetsInfoEXT.PBufferIndices.IsEmpty)
             {
-                context.Destination[0].pBufferIndices = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(setDescriptorBufferOffsetsInfoEXT.PBufferIndices.Value, ref context);
+                context.Destination[0].pBufferIndices = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT>(setDescriptorBufferOffsetsInfoEXT.PBufferIndices.Span, ref context);
             }
 
-            if (setDescriptorBufferOffsetsInfoEXT.POffsets.HasValue)
+            if (!setDescriptorBufferOffsetsInfoEXT.POffsets.IsEmpty)
             {
-                context.Destination[0].pOffsets = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(setDescriptorBufferOffsetsInfoEXT.POffsets.Value, ref context);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.Interop.VkDeviceSize> sourceSpan = setDescriptorBufferOffsetsInfoEXT.POffsets.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(VkDeviceSize));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, VkDeviceSize>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (VkDeviceSize*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pOffsets = pDestination;
             }
 
         }

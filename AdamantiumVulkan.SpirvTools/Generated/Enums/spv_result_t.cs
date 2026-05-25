@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 60 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 60 Column: 14
 ///<summary>
 /// Enumerations
 ///</summary>
@@ -69,6 +69,8 @@ public enum spv_result_t : int
     /// Indicates wrong SPIR-V version
     ///</summary>
     ErrorWrongVersion = -16,
+
+    ErrorFnvar = -17,
 
     Force32bitSpvResultT = 2147483647,
 

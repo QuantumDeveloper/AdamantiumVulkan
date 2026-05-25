@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12788 Column: 14
-public enum PhysicalDeviceLayeredApiKHR : uint
+// File: vk.xml Line: 14076 Column: 6
+public enum PhysicalDeviceLayeredApiKHR : int
 {
     VulkanKhr = 0,
 
@@ -23,8 +23,6 @@ public enum PhysicalDeviceLayeredApiKHR : uint
     OpenglKhr = 3,
 
     OpenglesKhr = 4,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

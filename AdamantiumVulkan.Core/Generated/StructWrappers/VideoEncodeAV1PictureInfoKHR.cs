@@ -9,8 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core;
 
@@ -25,7 +23,7 @@ public unsafe partial class VideoEncodeAV1PictureInfoKHR : IMarshallableObject, 
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeAv1PictureInfoKhr;
     public object PNext { get; set; }
     public VideoEncodeAV1PredictionModeKHR PredictionMode { get; set; }
     public VideoEncodeAV1RateControlGroupKHR RateControlGroup { get; set; }
@@ -34,6 +32,7 @@ public unsafe partial class VideoEncodeAV1PictureInfoKHR : IMarshallableObject, 
     public System.ReadOnlyMemory<int> ReferenceNameSlotIndices { get; set; }
     public VkBool32 PrimaryReferenceCdfOnly { get; set; }
     public VkBool32 GenerateObuExtensionHeader { get; set; }
+
 
     public static implicit operator VideoEncodeAV1PictureInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1PictureInfoKHR v)
     {
@@ -61,7 +60,6 @@ public unsafe partial class VideoEncodeAV1PictureInfoKHR : IMarshallableObject, 
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1PictureInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PredictionMode = native.predictionMode;
         RateControlGroup = native.rateControlGroup;
@@ -69,21 +67,22 @@ public unsafe partial class VideoEncodeAV1PictureInfoKHR : IMarshallableObject, 
         PStdPictureInfo = new StdVideoEncodeAV1PictureInfo(in *native.pStdPictureInfo);
         NativeUtils.Free(native.pStdPictureInfo);
         var tmpReferenceNameSlotIndices = new int[7];
-        var pReferenceNameSlotIndices = (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.referenceNameSlotIndices[0]));
+        var referenceNameSlotIndicesp = native.referenceNameSlotIndices[0];
+        var pReferenceNameSlotIndices = (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in referenceNameSlotIndicesp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pReferenceNameSlotIndices, 7, tmpReferenceNameSlotIndices);
         ReferenceNameSlotIndices = tmpReferenceNameSlotIndices;
         PrimaryReferenceCdfOnly = native.primaryReferenceCdfOnly;
         GenerateObuExtensionHeader = native.generateObuExtensionHeader;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1PictureInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1PictureInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeAV1PictureInfoKHRMarshaller
     {
@@ -97,11 +96,11 @@ public unsafe partial class VideoEncodeAV1PictureInfoKHR : IMarshallableObject, 
             }
             else if (videoEncodeAV1PictureInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeAV1PictureInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].predictionMode = videoEncodeAV1PictureInfoKHR.PredictionMode;
@@ -112,10 +111,10 @@ public unsafe partial class VideoEncodeAV1PictureInfoKHR : IMarshallableObject, 
 
             if (videoEncodeAV1PictureInfoKHR.PStdPictureInfo != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfo));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfo>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStdPictureInfo = (AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeAV1PictureInfo>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo>(structSlice0).Slice(0, 1);
+                context.Destination[0].pStdPictureInfo = (AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeAV1PictureInfo>(structDestination0, context.DataCursor);
                 videoEncodeAV1PictureInfoKHR.PStdPictureInfo.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }

@@ -23,9 +23,10 @@ public unsafe partial class VideoFormatAV1QuantizationMapPropertiesKHR : IMarsha
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoFormatAv1QuantizationMapPropertiesKhr;
     public object PNext { get; set; }
-    public VkVideoEncodeAV1SuperblockSizeFlagsKHR CompatibleSuperblockSizes { get; set; }
+    public VideoEncodeAV1SuperblockSizeFlagBitsKHR CompatibleSuperblockSizes { get; set; }
+
 
     public static implicit operator VideoFormatAV1QuantizationMapPropertiesKHR(AdamantiumVulkan.Core.Interop.VkVideoFormatAV1QuantizationMapPropertiesKHR v)
     {
@@ -49,19 +50,18 @@ public unsafe partial class VideoFormatAV1QuantizationMapPropertiesKHR : IMarsha
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoFormatAV1QuantizationMapPropertiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         CompatibleSuperblockSizes = native.compatibleSuperblockSizes;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoFormatAV1QuantizationMapPropertiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoFormatAV1QuantizationMapPropertiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoFormatAV1QuantizationMapPropertiesKHRMarshaller
     {
@@ -75,17 +75,14 @@ public unsafe partial class VideoFormatAV1QuantizationMapPropertiesKHR : IMarsha
             }
             else if (videoFormatAV1QuantizationMapPropertiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoFormatAV1QuantizationMapPropertiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (videoFormatAV1QuantizationMapPropertiesKHR.CompatibleSuperblockSizes != (uint)default)
-            {
-                context.Destination[0].compatibleSuperblockSizes = videoFormatAV1QuantizationMapPropertiesKHR.CompatibleSuperblockSizes;
-            }
+            context.Destination[0].compatibleSuperblockSizes = videoFormatAV1QuantizationMapPropertiesKHR.CompatibleSuperblockSizes;
 
         }
     }

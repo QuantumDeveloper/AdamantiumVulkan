@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12236 Column: 30
+// File: video.xml Line: 18544 Column: 10
 public unsafe struct PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR
 {
     public PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR
     public PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR* pProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR* pProperties)
     {
         return InvokeFunc(physicalDevice, ref pPropertyCount, pProperties);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR* pProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR* pProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR*, Result>)ptr)(physicalDevice, ref pPropertyCount, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR*, Result>)ptr)(physicalDevice, ref pPropertyCount, pProperties);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint* pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR* pProperties)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T physicalDevice, ref uint pPropertyCount, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR* pProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint*, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR*, Result>)(void*)ptr)(physicalDevice, ref pPropertyCount, pProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T, ref uint, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR*, Result>)(void*)ptr)(physicalDevice, ref pPropertyCount, pProperties);
     }
 
     public static explicit operator PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(void* ptr) => new(ptr);

@@ -28,6 +28,7 @@ public unsafe partial class PipelineRasterizationDepthClipStateCreateInfoEXT : I
     public VkPipelineRasterizationDepthClipStateCreateFlagsEXT Flags { get; set; }
     public VkBool32 DepthClipEnable { get; set; }
 
+
     public static implicit operator PipelineRasterizationDepthClipStateCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT p)
     {
         return new PipelineRasterizationDepthClipStateCreateInfoEXT(in p);
@@ -55,14 +56,14 @@ public unsafe partial class PipelineRasterizationDepthClipStateCreateInfoEXT : I
         DepthClipEnable = native.depthClipEnable;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineRasterizationDepthClipStateCreateInfoEXTMarshaller
     {
@@ -76,11 +77,11 @@ public unsafe partial class PipelineRasterizationDepthClipStateCreateInfoEXT : I
             }
             else if (pipelineRasterizationDepthClipStateCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineRasterizationDepthClipStateCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineRasterizationDepthClipStateCreateInfoEXT.Flags != (uint)default)

@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesNV : 
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceDeviceGeneratedCommandsPropertiesNv;
     public object PNext { get; set; }
     public uint MaxGraphicsShaderGroupCount { get; set; }
     public uint MaxIndirectSequenceCount { get; set; }
@@ -34,6 +34,7 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesNV : 
     public uint MinSequencesCountBufferOffsetAlignment { get; set; }
     public uint MinSequencesIndexBufferOffsetAlignment { get; set; }
     public uint MinIndirectCommandsBufferOffsetAlignment { get; set; }
+
 
     public static implicit operator PhysicalDeviceDeviceGeneratedCommandsPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV p)
     {
@@ -57,7 +58,6 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesNV : 
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MaxGraphicsShaderGroupCount = native.maxGraphicsShaderGroupCount;
         MaxIndirectSequenceCount = native.maxIndirectSequenceCount;
@@ -70,14 +70,14 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesNV : 
         MinIndirectCommandsBufferOffsetAlignment = native.minIndirectCommandsBufferOffsetAlignment;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNVMarshaller
     {
@@ -91,11 +91,11 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesNV : 
             }
             else if (physicalDeviceDeviceGeneratedCommandsPropertiesNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceDeviceGeneratedCommandsPropertiesNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].maxGraphicsShaderGroupCount = physicalDeviceDeviceGeneratedCommandsPropertiesNV.MaxGraphicsShaderGroupCount;

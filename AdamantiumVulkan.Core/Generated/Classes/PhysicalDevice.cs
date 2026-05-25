@@ -13,10 +13,11 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 106 Column: 1
+// File: vk.xml Line: 599 Column: 10
 public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T>
 {
     internal VkPhysicalDevice_T __Instance;
+    internal AdamantiumVulkan.Core.InstanceDispatchTable Commands;
     public PhysicalDevice()
     {
     }
@@ -27,12 +28,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
     }
 
     public AdamantiumVulkan.Core.Interop.VkPhysicalDevice_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public Result AcquireDrmDisplayEXT(int drmFd, AdamantiumVulkan.Core.DisplayKHR display)
     {
         var arg2 = display == null ? new VkDisplayKHR_T() : (VkDisplayKHR_T)display;
-        return AdamantiumVulkan.Core.Interop.VulkanInterop.vkAcquireDrmDisplayEXT(this, drmFd, arg2);
+        return Commands.vkAcquireDrmDisplayEXT(this, drmFd, arg2);
     }
 
     public Result CreateDevice(in DeviceCreateInfo pCreateInfo, in AllocationCallbacks pAllocator, out AdamantiumVulkan.Core.Device pDevice)
@@ -55,8 +56,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DeviceCreateInfo, AdamantiumVulkan.Core.Interop.VkDeviceCreateInfo>(pCreateInfo, ref currentCursor);
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.AllocationCallbacks, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
-            VkDevice_T arg3;
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateDevice(this, arg1, arg2, out arg3);
+            VkDevice_T arg3 = default;
+            var result = Commands.vkCreateDevice(this, arg1, arg2, &arg3);
             pDevice = new Device(arg3);
             return result;
         }
@@ -88,8 +89,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
             var arg1 = display == null ? new VkDisplayKHR_T() : (VkDisplayKHR_T)display;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayModeCreateInfoKHR, AdamantiumVulkan.Core.Interop.VkDisplayModeCreateInfoKHR>(pCreateInfo, ref currentCursor);
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.AllocationCallbacks, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
-            VkDisplayModeKHR_T arg4;
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkCreateDisplayModeKHR(this, arg1, arg2, arg3, out arg4);
+            VkDisplayModeKHR_T arg4 = default;
+            var result = Commands.vkCreateDisplayModeKHR(this, arg1, arg2, arg3, &arg4);
             pMode = new DisplayModeKHR(arg4);
             return result;
         }
@@ -100,7 +101,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result EnumerateDeviceExtensionProperties(string pLayerName, ref uint pPropertyCount, System.Span<ExtensionProperties> pProperties)
+    public Result EnumerateDeviceExtensionProperties(in string pLayerName, ref uint pPropertyCount, System.Span<ExtensionProperties> pProperties)
     {
         int CalculateSize(string pLayerName, System.Span<ExtensionProperties> pProperties)
         {
@@ -124,11 +125,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(pLayerName, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPropertyCount;
             var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkExtensionProperties[(int)pProperties.Length];
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateDeviceExtensionProperties(this, arg1, arg2, arg3);
-            pPropertyCount = *arg2;
+            var result = Commands.vkEnumerateDeviceExtensionProperties(this, arg1, ref pPropertyCount, arg3);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new ExtensionProperties(arg3[i]);
@@ -163,11 +161,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkLayerProperties[(int)pProperties.Length];
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateDeviceLayerProperties(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkEnumerateDeviceLayerProperties(this, ref pPropertyCount, arg2);
             for (var i = 0; i < pProperties.Length; ++i)
             {
                 pProperties[i] = new LayerProperties(arg2[i]);
@@ -197,11 +192,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.LayerProperties, AdamantiumVulkan.Core.Interop.VkLayerProperties>(pProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumerateDeviceLayerProperties(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkEnumerateDeviceLayerProperties(this, ref pPropertyCount, arg2);
             if (arg2 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.LayerProperties(*arg2);
@@ -215,7 +207,313 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result EnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(uint queueFamilyIndex, ref uint pCounterCount, PerformanceCounterKHR pCounters, PerformanceCounterDescriptionKHR pCounterDescriptions)
+    public Result EnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM(uint queueFamilyIndex, ref uint pCounterCount, System.Span<PerformanceCounterARM> pCounters, System.Span<PerformanceCounterDescriptionARM> pCounterDescriptions)
+    {
+        int CalculateSize(System.Span<PerformanceCounterARM> pCounters, System.Span<PerformanceCounterDescriptionARM> pCounterDescriptions)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pCounters.Length; i++)
+            {
+                if(pCounters[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPerformanceCounterARM>();
+                else
+                    totalSize += pCounters[(int)i].GetSize();
+            }
+            for (var i = 0U; i < pCounterDescriptions.Length; i++)
+            {
+                if(pCounterDescriptions[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionARM>();
+                else
+                    totalSize += pCounterDescriptions[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCounters, pCounterDescriptions);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkPerformanceCounterARM[(int)pCounters.Length];
+            var arg4 = stackalloc AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionARM[(int)pCounterDescriptions.Length];
+            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
+            for (var i = 0; i < pCounters.Length; ++i)
+            {
+                pCounters[i] = new PerformanceCounterARM(arg3[i]);
+            }
+            for (var i = 0; i < pCounterDescriptions.Length; ++i)
+            {
+                pCounterDescriptions[i] = new PerformanceCounterDescriptionARM(arg4[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result EnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM(uint queueFamilyIndex, ref uint pCounterCount, ref PerformanceCounterARM pCounters, System.Span<PerformanceCounterDescriptionARM> pCounterDescriptions)
+    {
+        int CalculateSize(PerformanceCounterARM pCounters, System.Span<PerformanceCounterDescriptionARM> pCounterDescriptions)
+        {
+            int totalSize = 0;
+            if (pCounters != null)
+                totalSize += pCounters.GetSize();
+            for (var i = 0U; i < pCounterDescriptions.Length; i++)
+            {
+                if(pCounterDescriptions[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionARM>();
+                else
+                    totalSize += pCounterDescriptions[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCounters, pCounterDescriptions);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerformanceCounterARM, AdamantiumVulkan.Core.Interop.VkPerformanceCounterARM>(pCounters, ref currentCursor);
+            var arg4 = stackalloc AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionARM[(int)pCounterDescriptions.Length];
+            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
+            if (arg3 is not null)
+            {
+                pCounters = new AdamantiumVulkan.Core.PerformanceCounterARM(*arg3);
+            }
+            for (var i = 0; i < pCounterDescriptions.Length; ++i)
+            {
+                pCounterDescriptions[i] = new PerformanceCounterDescriptionARM(arg4[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result EnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM(uint queueFamilyIndex, ref uint pCounterCount, System.Span<PerformanceCounterARM> pCounters, ref PerformanceCounterDescriptionARM pCounterDescriptions)
+    {
+        int CalculateSize(System.Span<PerformanceCounterARM> pCounters, PerformanceCounterDescriptionARM pCounterDescriptions)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pCounters.Length; i++)
+            {
+                if(pCounters[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPerformanceCounterARM>();
+                else
+                    totalSize += pCounters[(int)i].GetSize();
+            }
+            if (pCounterDescriptions != null)
+                totalSize += pCounterDescriptions.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCounters, pCounterDescriptions);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkPerformanceCounterARM[(int)pCounters.Length];
+            var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerformanceCounterDescriptionARM, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionARM>(pCounterDescriptions, ref currentCursor);
+            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
+            for (var i = 0; i < pCounters.Length; ++i)
+            {
+                pCounters[i] = new PerformanceCounterARM(arg3[i]);
+            }
+            if (arg4 is not null)
+            {
+                pCounterDescriptions = new AdamantiumVulkan.Core.PerformanceCounterDescriptionARM(*arg4);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result EnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM(uint queueFamilyIndex, ref uint pCounterCount, ref PerformanceCounterARM pCounters, ref PerformanceCounterDescriptionARM pCounterDescriptions)
+    {
+        int CalculateSize(PerformanceCounterARM pCounters, PerformanceCounterDescriptionARM pCounterDescriptions)
+        {
+            int totalSize = 0;
+            if (pCounters != null)
+                totalSize += pCounters.GetSize();
+            if (pCounterDescriptions != null)
+                totalSize += pCounterDescriptions.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCounters, pCounterDescriptions);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerformanceCounterARM, AdamantiumVulkan.Core.Interop.VkPerformanceCounterARM>(pCounters, ref currentCursor);
+            var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerformanceCounterDescriptionARM, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionARM>(pCounterDescriptions, ref currentCursor);
+            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
+            if (arg3 is not null)
+            {
+                pCounters = new AdamantiumVulkan.Core.PerformanceCounterARM(*arg3);
+            }
+            if (arg4 is not null)
+            {
+                pCounterDescriptions = new AdamantiumVulkan.Core.PerformanceCounterDescriptionARM(*arg4);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result EnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(uint queueFamilyIndex, ref uint pCounterCount, System.Span<PerformanceCounterKHR> pCounters, System.Span<PerformanceCounterDescriptionKHR> pCounterDescriptions)
+    {
+        int CalculateSize(System.Span<PerformanceCounterKHR> pCounters, System.Span<PerformanceCounterDescriptionKHR> pCounterDescriptions)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pCounters.Length; i++)
+            {
+                if(pCounters[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR>();
+                else
+                    totalSize += pCounters[(int)i].GetSize();
+            }
+            for (var i = 0U; i < pCounterDescriptions.Length; i++)
+            {
+                if(pCounterDescriptions[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR>();
+                else
+                    totalSize += pCounterDescriptions[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCounters, pCounterDescriptions);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR[(int)pCounters.Length];
+            var arg4 = stackalloc AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR[(int)pCounterDescriptions.Length];
+            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
+            for (var i = 0; i < pCounters.Length; ++i)
+            {
+                pCounters[i] = new PerformanceCounterKHR(arg3[i]);
+            }
+            for (var i = 0; i < pCounterDescriptions.Length; ++i)
+            {
+                pCounterDescriptions[i] = new PerformanceCounterDescriptionKHR(arg4[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result EnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(uint queueFamilyIndex, ref uint pCounterCount, ref PerformanceCounterKHR pCounters, System.Span<PerformanceCounterDescriptionKHR> pCounterDescriptions)
+    {
+        int CalculateSize(PerformanceCounterKHR pCounters, System.Span<PerformanceCounterDescriptionKHR> pCounterDescriptions)
+        {
+            int totalSize = 0;
+            if (pCounters != null)
+                totalSize += pCounters.GetSize();
+            for (var i = 0U; i < pCounterDescriptions.Length; i++)
+            {
+                if(pCounterDescriptions[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR>();
+                else
+                    totalSize += pCounterDescriptions[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCounters, pCounterDescriptions);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerformanceCounterKHR, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR>(pCounters, ref currentCursor);
+            var arg4 = stackalloc AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR[(int)pCounterDescriptions.Length];
+            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
+            if (arg3 is not null)
+            {
+                pCounters = new AdamantiumVulkan.Core.PerformanceCounterKHR(*arg3);
+            }
+            for (var i = 0; i < pCounterDescriptions.Length; ++i)
+            {
+                pCounterDescriptions[i] = new PerformanceCounterDescriptionKHR(arg4[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result EnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(uint queueFamilyIndex, ref uint pCounterCount, System.Span<PerformanceCounterKHR> pCounters, ref PerformanceCounterDescriptionKHR pCounterDescriptions)
+    {
+        int CalculateSize(System.Span<PerformanceCounterKHR> pCounters, PerformanceCounterDescriptionKHR pCounterDescriptions)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pCounters.Length; i++)
+            {
+                if(pCounters[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR>();
+                else
+                    totalSize += pCounters[(int)i].GetSize();
+            }
+            if (pCounterDescriptions != null)
+                totalSize += pCounterDescriptions.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCounters, pCounterDescriptions);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR[(int)pCounters.Length];
+            var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerformanceCounterDescriptionKHR, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR>(pCounterDescriptions, ref currentCursor);
+            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
+            for (var i = 0; i < pCounters.Length; ++i)
+            {
+                pCounters[i] = new PerformanceCounterKHR(arg3[i]);
+            }
+            if (arg4 is not null)
+            {
+                pCounterDescriptions = new AdamantiumVulkan.Core.PerformanceCounterDescriptionKHR(*arg4);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result EnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(uint queueFamilyIndex, ref uint pCounterCount, ref PerformanceCounterKHR pCounters, ref PerformanceCounterDescriptionKHR pCounterDescriptions)
     {
         int CalculateSize(PerformanceCounterKHR pCounters, PerformanceCounterDescriptionKHR pCounterDescriptions)
         {
@@ -233,12 +531,17 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pCounterCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerformanceCounterKHR, AdamantiumVulkan.Core.Interop.VkPerformanceCounterKHR>(pCounters, ref currentCursor);
             var arg4 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PerformanceCounterDescriptionKHR, AdamantiumVulkan.Core.Interop.VkPerformanceCounterDescriptionKHR>(pCounterDescriptions, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, arg2, arg3, arg4);
-            pCounterCount = *arg2;
+            var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
+            if (arg3 is not null)
+            {
+                pCounters = new AdamantiumVulkan.Core.PerformanceCounterKHR(*arg3);
+            }
+            if (arg4 is not null)
+            {
+                pCounterDescriptions = new AdamantiumVulkan.Core.PerformanceCounterDescriptionKHR(*arg4);
+            }
             return result;
         }
         finally
@@ -248,7 +551,111 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetDisplayModeProperties2KHR(AdamantiumVulkan.Core.DisplayKHR display, ref uint pPropertyCount, DisplayModeProperties2KHR pProperties)
+    public Result EnumeratePhysicalDeviceShaderInstrumentationMetricsARM(ref uint pDescriptionCount, System.Span<ShaderInstrumentationMetricDescriptionARM> pDescriptions)
+    {
+        int CalculateSize(System.Span<ShaderInstrumentationMetricDescriptionARM> pDescriptions)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pDescriptions.Length; i++)
+            {
+                if(pDescriptions[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkShaderInstrumentationMetricDescriptionARM>();
+                else
+                    totalSize += pDescriptions[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pDescriptions);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkShaderInstrumentationMetricDescriptionARM[(int)pDescriptions.Length];
+            var result = Commands.vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM(this, ref pDescriptionCount, arg2);
+            for (var i = 0; i < pDescriptions.Length; ++i)
+            {
+                pDescriptions[i] = new ShaderInstrumentationMetricDescriptionARM(arg2[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result EnumeratePhysicalDeviceShaderInstrumentationMetricsARM(ref uint pDescriptionCount, ref ShaderInstrumentationMetricDescriptionARM pDescriptions)
+    {
+        int CalculateSize(ShaderInstrumentationMetricDescriptionARM pDescriptions)
+        {
+            int totalSize = 0;
+            if (pDescriptions != null)
+                totalSize += pDescriptions.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pDescriptions);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ShaderInstrumentationMetricDescriptionARM, AdamantiumVulkan.Core.Interop.VkShaderInstrumentationMetricDescriptionARM>(pDescriptions, ref currentCursor);
+            var result = Commands.vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM(this, ref pDescriptionCount, arg2);
+            if (arg2 is not null)
+            {
+                pDescriptions = new AdamantiumVulkan.Core.ShaderInstrumentationMetricDescriptionARM(*arg2);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetDisplayModeProperties2KHR(AdamantiumVulkan.Core.DisplayKHR display, ref uint pPropertyCount, System.Span<DisplayModeProperties2KHR> pProperties)
+    {
+        int CalculateSize(System.Span<DisplayModeProperties2KHR> pProperties)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pProperties.Length; i++)
+            {
+                if(pProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR>();
+                else
+                    totalSize += pProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = display == null ? new VkDisplayKHR_T() : (VkDisplayKHR_T)display;
+            var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR[(int)pProperties.Length];
+            var result = Commands.vkGetDisplayModeProperties2KHR(this, arg1, ref pPropertyCount, arg3);
+            for (var i = 0; i < pProperties.Length; ++i)
+            {
+                pProperties[i] = new DisplayModeProperties2KHR(arg3[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetDisplayModeProperties2KHR(AdamantiumVulkan.Core.DisplayKHR display, ref uint pPropertyCount, ref DisplayModeProperties2KHR pProperties)
     {
         int CalculateSize(DisplayModeProperties2KHR pProperties)
         {
@@ -265,11 +672,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = display == null ? new VkDisplayKHR_T() : (VkDisplayKHR_T)display;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPropertyCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayModeProperties2KHR, AdamantiumVulkan.Core.Interop.VkDisplayModeProperties2KHR>(pProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDisplayModeProperties2KHR(this, arg1, arg2, arg3);
-            pPropertyCount = *arg2;
+            var result = Commands.vkGetDisplayModeProperties2KHR(this, arg1, ref pPropertyCount, arg3);
+            if (arg3 is not null)
+            {
+                pProperties = new AdamantiumVulkan.Core.DisplayModeProperties2KHR(*arg3);
+            }
             return result;
         }
         finally
@@ -279,7 +687,44 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetDisplayModePropertiesKHR(AdamantiumVulkan.Core.DisplayKHR display, ref uint pPropertyCount, DisplayModePropertiesKHR pProperties)
+    public Result GetDisplayModePropertiesKHR(AdamantiumVulkan.Core.DisplayKHR display, ref uint pPropertyCount, System.Span<DisplayModePropertiesKHR> pProperties)
+    {
+        int CalculateSize(System.Span<DisplayModePropertiesKHR> pProperties)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pProperties.Length; i++)
+            {
+                if(pProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR>();
+                else
+                    totalSize += pProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = display == null ? new VkDisplayKHR_T() : (VkDisplayKHR_T)display;
+            var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR[(int)pProperties.Length];
+            var result = Commands.vkGetDisplayModePropertiesKHR(this, arg1, ref pPropertyCount, arg3);
+            for (var i = 0; i < pProperties.Length; ++i)
+            {
+                pProperties[i] = new DisplayModePropertiesKHR(arg3[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetDisplayModePropertiesKHR(AdamantiumVulkan.Core.DisplayKHR display, ref uint pPropertyCount, ref DisplayModePropertiesKHR pProperties)
     {
         int CalculateSize(DisplayModePropertiesKHR pProperties)
         {
@@ -296,11 +741,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = display == null ? new VkDisplayKHR_T() : (VkDisplayKHR_T)display;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPropertyCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayModePropertiesKHR, AdamantiumVulkan.Core.Interop.VkDisplayModePropertiesKHR>(pProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDisplayModePropertiesKHR(this, arg1, arg2, arg3);
-            pPropertyCount = *arg2;
+            var result = Commands.vkGetDisplayModePropertiesKHR(this, arg1, ref pPropertyCount, arg3);
+            if (arg3 is not null)
+            {
+                pProperties = new AdamantiumVulkan.Core.DisplayModePropertiesKHR(*arg3);
+            }
             return result;
         }
         finally
@@ -310,27 +756,27 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetDisplayPlaneCapabilities2KHR(in DisplayPlaneInfo2KHR pDisplayPlaneInfo, DisplayPlaneCapabilities2KHR pCapabilities)
+    public Result GetDisplayPlaneCapabilities2KHR(in DisplayPlaneInfo2KHR pDisplayPlaneInfo, out DisplayPlaneCapabilities2KHR pCapabilities)
     {
-        int CalculateSize(DisplayPlaneInfo2KHR pDisplayPlaneInfo, DisplayPlaneCapabilities2KHR pCapabilities)
+        int CalculateSize(DisplayPlaneInfo2KHR pDisplayPlaneInfo)
         {
             int totalSize = 0;
             if (pDisplayPlaneInfo != null)
                 totalSize += pDisplayPlaneInfo.GetSize();
-            if (pCapabilities != null)
-                totalSize += pCapabilities.GetSize();
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pDisplayPlaneInfo, pCapabilities);
+        var totalSize = CalculateSize(pDisplayPlaneInfo);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayPlaneInfo2KHR, AdamantiumVulkan.Core.Interop.VkDisplayPlaneInfo2KHR>(pDisplayPlaneInfo, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayPlaneCapabilities2KHR, AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR>(pCapabilities, ref currentCursor);
-            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDisplayPlaneCapabilities2KHR(this, arg1, arg2);
+            AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilities2KHR arg2 = default;
+            var result = Commands.vkGetDisplayPlaneCapabilities2KHR(this, arg1, &arg2);
+            pCapabilities = new DisplayPlaneCapabilities2KHR(arg2);
+            return result;
         }
         finally
         {
@@ -339,40 +785,19 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetDisplayPlaneCapabilitiesKHR(AdamantiumVulkan.Core.DisplayModeKHR mode, uint planeIndex, DisplayPlaneCapabilitiesKHR pCapabilities)
+    public Result GetDisplayPlaneCapabilitiesKHR(AdamantiumVulkan.Core.DisplayModeKHR mode, uint planeIndex, out DisplayPlaneCapabilitiesKHR pCapabilities)
     {
-        int CalculateSize(DisplayPlaneCapabilitiesKHR pCapabilities)
-        {
-            int totalSize = 0;
-            if (pCapabilities != null)
-                totalSize += pCapabilities.GetSize();
-            return totalSize;
-        }
-
-        var totalSize = CalculateSize(pCapabilities);
-        byte[] rentedArray = null;
-        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
-        {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = mode == null ? new VkDisplayModeKHR_T() : (VkDisplayModeKHR_T)mode;
-            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayPlaneCapabilitiesKHR, AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilitiesKHR>(pCapabilities, ref currentCursor);
-            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDisplayPlaneCapabilitiesKHR(this, arg1, planeIndex, arg3);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
-        }
+        var arg1 = mode == null ? new VkDisplayModeKHR_T() : (VkDisplayModeKHR_T)mode;
+        AdamantiumVulkan.Core.Interop.VkDisplayPlaneCapabilitiesKHR arg3 = default;
+        var result = Commands.vkGetDisplayPlaneCapabilitiesKHR(this, arg1, planeIndex, &arg3);
+        pCapabilities = new DisplayPlaneCapabilitiesKHR(arg3);
+        return result;
     }
 
     public Result GetDisplayPlaneSupportedDisplaysKHR(uint planeIndex, ref uint pDisplayCount, out AdamantiumVulkan.Core.DisplayKHR[] pDisplays)
     {
-        var arg2 = stackalloc uint[1];
-        *arg2 = pDisplayCount;
-        AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* arg3 = null;
-        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDisplayPlaneSupportedDisplaysKHR(this, planeIndex, arg2, arg3);
-        pDisplayCount = *arg2;
+        AdamantiumVulkan.Core.Interop.VkDisplayKHR_T* arg3 = default;
+        var result = Commands.vkGetDisplayPlaneSupportedDisplaysKHR(this, planeIndex, ref pDisplayCount, arg3);
         pDisplays = new AdamantiumVulkan.Core.DisplayKHR[pDisplayCount];
         for (var i = 0; i < (int)pDisplayCount; ++i)
         {
@@ -383,35 +808,46 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
 
     public Result GetDrmDisplayEXT(int drmFd, uint connectorId, out AdamantiumVulkan.Core.DisplayKHR display)
     {
-        VkDisplayKHR_T arg3;
-        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetDrmDisplayEXT(this, drmFd, connectorId, out arg3);
+        VkDisplayKHR_T arg3 = default;
+        var result = Commands.vkGetDrmDisplayEXT(this, drmFd, connectorId, &arg3);
         display = new DisplayKHR(arg3);
         return result;
     }
 
-    public Result GetPhysicalDeviceCalibrateableTimeDomainsEXT(ref uint pTimeDomainCount, ref TimeDomainKHR pTimeDomains)
+    public Result GetPhysicalDeviceCalibrateableTimeDomainsKHR(ref uint pTimeDomainCount, System.Span<TimeDomainKHR> pTimeDomains)
     {
-        var arg1 = stackalloc uint[1];
-        *arg1 = pTimeDomainCount;
-        var arg2 = stackalloc AdamantiumVulkan.Core.TimeDomainKHR[1];
-        *arg2 = pTimeDomains;
-        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceCalibrateableTimeDomainsEXT(this, arg1, arg2);
-        pTimeDomainCount = *arg1;
-        if (arg2 is not null)
+        int CalculateSize(System.Span<TimeDomainKHR> pTimeDomains)
         {
-            pTimeDomains = *arg2;
+            int totalSize = 0;
+            totalSize += pTimeDomains.Length * sizeof(int);
+            return totalSize;
         }
-        return result;
+
+        var totalSize = CalculateSize(pTimeDomains);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalBlittableArray<AdamantiumVulkan.Core.TimeDomainKHR>(pTimeDomains, ref currentCursor);
+            var result = Commands.vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(this, ref pTimeDomainCount, arg2);
+            var arg2SourceSpan = new System.ReadOnlySpan<AdamantiumVulkan.Core.TimeDomainKHR>(arg2, (int)pTimeDomainCount);
+            if(!pTimeDomains.IsEmpty)
+                arg2SourceSpan.CopyTo(pTimeDomains);
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
     }
 
     public Result GetPhysicalDeviceCalibrateableTimeDomainsKHR(ref uint pTimeDomainCount, ref TimeDomainKHR pTimeDomains)
     {
-        var arg1 = stackalloc uint[1];
-        *arg1 = pTimeDomainCount;
         var arg2 = stackalloc AdamantiumVulkan.Core.TimeDomainKHR[1];
         *arg2 = pTimeDomains;
-        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(this, arg1, arg2);
-        pTimeDomainCount = *arg1;
+        var result = Commands.vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(this, ref pTimeDomainCount, arg2);
         if (arg2 is not null)
         {
             pTimeDomains = *arg2;
@@ -419,7 +855,43 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         return result;
     }
 
-    public Result GetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(ref uint pPropertyCount, CooperativeMatrixFlexibleDimensionsPropertiesNV pProperties)
+    public Result GetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(ref uint pPropertyCount, System.Span<CooperativeMatrixFlexibleDimensionsPropertiesNV> pProperties)
+    {
+        int CalculateSize(System.Span<CooperativeMatrixFlexibleDimensionsPropertiesNV> pProperties)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pProperties.Length; i++)
+            {
+                if(pProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV>();
+                else
+                    totalSize += pProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV[(int)pProperties.Length];
+            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(this, ref pPropertyCount, arg2);
+            for (var i = 0; i < pProperties.Length; ++i)
+            {
+                pProperties[i] = new CooperativeMatrixFlexibleDimensionsPropertiesNV(arg2[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(ref uint pPropertyCount, ref CooperativeMatrixFlexibleDimensionsPropertiesNV pProperties)
     {
         int CalculateSize(CooperativeMatrixFlexibleDimensionsPropertiesNV pProperties)
         {
@@ -435,11 +907,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CooperativeMatrixFlexibleDimensionsPropertiesNV, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV>(pProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(this, ref pPropertyCount, arg2);
+            if (arg2 is not null)
+            {
+                pProperties = new AdamantiumVulkan.Core.CooperativeMatrixFlexibleDimensionsPropertiesNV(*arg2);
+            }
             return result;
         }
         finally
@@ -449,7 +922,43 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetPhysicalDeviceCooperativeMatrixPropertiesKHR(ref uint pPropertyCount, CooperativeMatrixPropertiesKHR pProperties)
+    public Result GetPhysicalDeviceCooperativeMatrixPropertiesKHR(ref uint pPropertyCount, System.Span<CooperativeMatrixPropertiesKHR> pProperties)
+    {
+        int CalculateSize(System.Span<CooperativeMatrixPropertiesKHR> pProperties)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pProperties.Length; i++)
+            {
+                if(pProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR>();
+                else
+                    totalSize += pProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR[(int)pProperties.Length];
+            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(this, ref pPropertyCount, arg2);
+            for (var i = 0; i < pProperties.Length; ++i)
+            {
+                pProperties[i] = new CooperativeMatrixPropertiesKHR(arg2[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDeviceCooperativeMatrixPropertiesKHR(ref uint pPropertyCount, ref CooperativeMatrixPropertiesKHR pProperties)
     {
         int CalculateSize(CooperativeMatrixPropertiesKHR pProperties)
         {
@@ -465,11 +974,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CooperativeMatrixPropertiesKHR, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR>(pProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(this, ref pPropertyCount, arg2);
+            if (arg2 is not null)
+            {
+                pProperties = new AdamantiumVulkan.Core.CooperativeMatrixPropertiesKHR(*arg2);
+            }
             return result;
         }
         finally
@@ -479,7 +989,43 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetPhysicalDeviceCooperativeMatrixPropertiesNV(ref uint pPropertyCount, CooperativeMatrixPropertiesNV pProperties)
+    public Result GetPhysicalDeviceCooperativeMatrixPropertiesNV(ref uint pPropertyCount, System.Span<CooperativeMatrixPropertiesNV> pProperties)
+    {
+        int CalculateSize(System.Span<CooperativeMatrixPropertiesNV> pProperties)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pProperties.Length; i++)
+            {
+                if(pProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV>();
+                else
+                    totalSize += pProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV[(int)pProperties.Length];
+            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(this, ref pPropertyCount, arg2);
+            for (var i = 0; i < pProperties.Length; ++i)
+            {
+                pProperties[i] = new CooperativeMatrixPropertiesNV(arg2[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDeviceCooperativeMatrixPropertiesNV(ref uint pPropertyCount, ref CooperativeMatrixPropertiesNV pProperties)
     {
         int CalculateSize(CooperativeMatrixPropertiesNV pProperties)
         {
@@ -495,11 +1041,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CooperativeMatrixPropertiesNV, AdamantiumVulkan.Core.Interop.VkCooperativeMatrixPropertiesNV>(pProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(this, ref pPropertyCount, arg2);
+            if (arg2 is not null)
+            {
+                pProperties = new AdamantiumVulkan.Core.CooperativeMatrixPropertiesNV(*arg2);
+            }
             return result;
         }
         finally
@@ -509,7 +1056,43 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetPhysicalDeviceCooperativeVectorPropertiesNV(ref uint pPropertyCount, CooperativeVectorPropertiesNV pProperties)
+    public Result GetPhysicalDeviceCooperativeVectorPropertiesNV(ref uint pPropertyCount, System.Span<CooperativeVectorPropertiesNV> pProperties)
+    {
+        int CalculateSize(System.Span<CooperativeVectorPropertiesNV> pProperties)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pProperties.Length; i++)
+            {
+                if(pProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkCooperativeVectorPropertiesNV>();
+                else
+                    totalSize += pProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkCooperativeVectorPropertiesNV[(int)pProperties.Length];
+            var result = Commands.vkGetPhysicalDeviceCooperativeVectorPropertiesNV(this, ref pPropertyCount, arg2);
+            for (var i = 0; i < pProperties.Length; ++i)
+            {
+                pProperties[i] = new CooperativeVectorPropertiesNV(arg2[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDeviceCooperativeVectorPropertiesNV(ref uint pPropertyCount, ref CooperativeVectorPropertiesNV pProperties)
     {
         int CalculateSize(CooperativeVectorPropertiesNV pProperties)
         {
@@ -525,11 +1108,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.CooperativeVectorPropertiesNV, AdamantiumVulkan.Core.Interop.VkCooperativeVectorPropertiesNV>(pProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceCooperativeVectorPropertiesNV(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceCooperativeVectorPropertiesNV(this, ref pPropertyCount, arg2);
+            if (arg2 is not null)
+            {
+                pProperties = new AdamantiumVulkan.Core.CooperativeVectorPropertiesNV(*arg2);
+            }
             return result;
         }
         finally
@@ -539,7 +1123,48 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetPhysicalDeviceDisplayPlaneProperties2KHR(ref uint pPropertyCount, DisplayPlaneProperties2KHR pProperties)
+    public VkDeviceSize GetPhysicalDeviceDescriptorSizeEXT(DescriptorType descriptorType)
+    {
+        return Commands.vkGetPhysicalDeviceDescriptorSizeEXT(this, descriptorType);
+    }
+
+    public Result GetPhysicalDeviceDisplayPlaneProperties2KHR(ref uint pPropertyCount, System.Span<DisplayPlaneProperties2KHR> pProperties)
+    {
+        int CalculateSize(System.Span<DisplayPlaneProperties2KHR> pProperties)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pProperties.Length; i++)
+            {
+                if(pProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR>();
+                else
+                    totalSize += pProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR[(int)pProperties.Length];
+            var result = Commands.vkGetPhysicalDeviceDisplayPlaneProperties2KHR(this, ref pPropertyCount, arg2);
+            for (var i = 0; i < pProperties.Length; ++i)
+            {
+                pProperties[i] = new DisplayPlaneProperties2KHR(arg2[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDeviceDisplayPlaneProperties2KHR(ref uint pPropertyCount, ref DisplayPlaneProperties2KHR pProperties)
     {
         int CalculateSize(DisplayPlaneProperties2KHR pProperties)
         {
@@ -555,11 +1180,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayPlaneProperties2KHR, AdamantiumVulkan.Core.Interop.VkDisplayPlaneProperties2KHR>(pProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceDisplayPlaneProperties2KHR(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceDisplayPlaneProperties2KHR(this, ref pPropertyCount, arg2);
+            if (arg2 is not null)
+            {
+                pProperties = new AdamantiumVulkan.Core.DisplayPlaneProperties2KHR(*arg2);
+            }
             return result;
         }
         finally
@@ -571,11 +1197,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
 
     public Result GetPhysicalDeviceDisplayPlanePropertiesKHR(ref uint pPropertyCount, out DisplayPlanePropertiesKHR[] pProperties)
     {
-        var arg1 = stackalloc uint[1];
-        *arg1 = pPropertyCount;
-        AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR* arg2 = null;
-        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceDisplayPlanePropertiesKHR(this, arg1, arg2);
-        pPropertyCount = *arg1;
+        AdamantiumVulkan.Core.Interop.VkDisplayPlanePropertiesKHR* arg2 = default;
+        var result = Commands.vkGetPhysicalDeviceDisplayPlanePropertiesKHR(this, ref pPropertyCount, arg2);
         pProperties = new AdamantiumVulkan.Core.DisplayPlanePropertiesKHR[pPropertyCount];
         for (var i = 0U; i < pPropertyCount; ++i)
         {
@@ -584,7 +1207,43 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         return result;
     }
 
-    public Result GetPhysicalDeviceDisplayProperties2KHR(ref uint pPropertyCount, DisplayProperties2KHR pProperties)
+    public Result GetPhysicalDeviceDisplayProperties2KHR(ref uint pPropertyCount, System.Span<DisplayProperties2KHR> pProperties)
+    {
+        int CalculateSize(System.Span<DisplayProperties2KHR> pProperties)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pProperties.Length; i++)
+            {
+                if(pProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR>();
+                else
+                    totalSize += pProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR[(int)pProperties.Length];
+            var result = Commands.vkGetPhysicalDeviceDisplayProperties2KHR(this, ref pPropertyCount, arg2);
+            for (var i = 0; i < pProperties.Length; ++i)
+            {
+                pProperties[i] = new DisplayProperties2KHR(arg2[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDeviceDisplayProperties2KHR(ref uint pPropertyCount, ref DisplayProperties2KHR pProperties)
     {
         int CalculateSize(DisplayProperties2KHR pProperties)
         {
@@ -600,11 +1259,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayProperties2KHR, AdamantiumVulkan.Core.Interop.VkDisplayProperties2KHR>(pProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceDisplayProperties2KHR(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceDisplayProperties2KHR(this, ref pPropertyCount, arg2);
+            if (arg2 is not null)
+            {
+                pProperties = new AdamantiumVulkan.Core.DisplayProperties2KHR(*arg2);
+            }
             return result;
         }
         finally
@@ -614,7 +1274,43 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetPhysicalDeviceDisplayPropertiesKHR(ref uint pPropertyCount, DisplayPropertiesKHR pProperties)
+    public Result GetPhysicalDeviceDisplayPropertiesKHR(ref uint pPropertyCount, System.Span<DisplayPropertiesKHR> pProperties)
+    {
+        int CalculateSize(System.Span<DisplayPropertiesKHR> pProperties)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pProperties.Length; i++)
+            {
+                if(pProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR>();
+                else
+                    totalSize += pProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR[(int)pProperties.Length];
+            var result = Commands.vkGetPhysicalDeviceDisplayPropertiesKHR(this, ref pPropertyCount, arg2);
+            for (var i = 0; i < pProperties.Length; ++i)
+            {
+                pProperties[i] = new DisplayPropertiesKHR(arg2[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDeviceDisplayPropertiesKHR(ref uint pPropertyCount, ref DisplayPropertiesKHR pProperties)
     {
         int CalculateSize(DisplayPropertiesKHR pProperties)
         {
@@ -630,11 +1326,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DisplayPropertiesKHR, AdamantiumVulkan.Core.Interop.VkDisplayPropertiesKHR>(pProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceDisplayPropertiesKHR(this, arg1, arg2);
-            pPropertyCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceDisplayPropertiesKHR(this, ref pPropertyCount, arg2);
+            if (arg2 is not null)
+            {
+                pProperties = new AdamantiumVulkan.Core.DisplayPropertiesKHR(*arg2);
+            }
             return result;
         }
         finally
@@ -644,27 +1341,26 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public void GetPhysicalDeviceExternalBufferProperties(in PhysicalDeviceExternalBufferInfo pExternalBufferInfo, ExternalBufferProperties pExternalBufferProperties)
+    public void GetPhysicalDeviceExternalBufferProperties(in PhysicalDeviceExternalBufferInfo pExternalBufferInfo, out ExternalBufferProperties pExternalBufferProperties)
     {
-        int CalculateSize(PhysicalDeviceExternalBufferInfo pExternalBufferInfo, ExternalBufferProperties pExternalBufferProperties)
+        int CalculateSize(PhysicalDeviceExternalBufferInfo pExternalBufferInfo)
         {
             int totalSize = 0;
             if (pExternalBufferInfo != null)
                 totalSize += pExternalBufferInfo.GetSize();
-            if (pExternalBufferProperties != null)
-                totalSize += pExternalBufferProperties.GetSize();
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pExternalBufferInfo, pExternalBufferProperties);
+        var totalSize = CalculateSize(pExternalBufferInfo);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceExternalBufferInfo, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo>(pExternalBufferInfo, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ExternalBufferProperties, AdamantiumVulkan.Core.Interop.VkExternalBufferProperties>(pExternalBufferProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceExternalBufferProperties(this, arg1, arg2);
+            AdamantiumVulkan.Core.Interop.VkExternalBufferProperties arg2 = default;
+            Commands.vkGetPhysicalDeviceExternalBufferProperties(this, arg1, &arg2);
+            pExternalBufferProperties = new ExternalBufferProperties(arg2);
         }
         finally
         {
@@ -673,56 +1369,26 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public void GetPhysicalDeviceExternalBufferPropertiesKHR(in PhysicalDeviceExternalBufferInfo pExternalBufferInfo, ExternalBufferProperties pExternalBufferProperties)
+    public void GetPhysicalDeviceExternalFenceProperties(in PhysicalDeviceExternalFenceInfo pExternalFenceInfo, out ExternalFenceProperties pExternalFenceProperties)
     {
-        int CalculateSize(PhysicalDeviceExternalBufferInfo pExternalBufferInfo, ExternalBufferProperties pExternalBufferProperties)
-        {
-            int totalSize = 0;
-            if (pExternalBufferInfo != null)
-                totalSize += pExternalBufferInfo.GetSize();
-            if (pExternalBufferProperties != null)
-                totalSize += pExternalBufferProperties.GetSize();
-            return totalSize;
-        }
-
-        var totalSize = CalculateSize(pExternalBufferInfo, pExternalBufferProperties);
-        byte[] rentedArray = null;
-        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
-        {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceExternalBufferInfo, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalBufferInfo>(pExternalBufferInfo, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ExternalBufferProperties, AdamantiumVulkan.Core.Interop.VkExternalBufferProperties>(pExternalBufferProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceExternalBufferPropertiesKHR(this, arg1, arg2);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
-        }
-    }
-
-    public void GetPhysicalDeviceExternalFenceProperties(in PhysicalDeviceExternalFenceInfo pExternalFenceInfo, ExternalFenceProperties pExternalFenceProperties)
-    {
-        int CalculateSize(PhysicalDeviceExternalFenceInfo pExternalFenceInfo, ExternalFenceProperties pExternalFenceProperties)
+        int CalculateSize(PhysicalDeviceExternalFenceInfo pExternalFenceInfo)
         {
             int totalSize = 0;
             if (pExternalFenceInfo != null)
                 totalSize += pExternalFenceInfo.GetSize();
-            if (pExternalFenceProperties != null)
-                totalSize += pExternalFenceProperties.GetSize();
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pExternalFenceInfo, pExternalFenceProperties);
+        var totalSize = CalculateSize(pExternalFenceInfo);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceExternalFenceInfo, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo>(pExternalFenceInfo, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ExternalFenceProperties, AdamantiumVulkan.Core.Interop.VkExternalFenceProperties>(pExternalFenceProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceExternalFenceProperties(this, arg1, arg2);
+            AdamantiumVulkan.Core.Interop.VkExternalFenceProperties arg2 = default;
+            Commands.vkGetPhysicalDeviceExternalFenceProperties(this, arg1, &arg2);
+            pExternalFenceProperties = new ExternalFenceProperties(arg2);
         }
         finally
         {
@@ -731,82 +1397,34 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public void GetPhysicalDeviceExternalFencePropertiesKHR(in PhysicalDeviceExternalFenceInfo pExternalFenceInfo, ExternalFenceProperties pExternalFenceProperties)
+    public Result GetPhysicalDeviceExternalImageFormatPropertiesNV(Format format, ImageType type, ImageTiling tiling, ImageUsageFlagBits usage, ImageCreateFlagBits flags, ExternalMemoryHandleTypeFlagBitsNV externalHandleType, out ExternalImageFormatPropertiesNV pExternalImageFormatProperties)
     {
-        int CalculateSize(PhysicalDeviceExternalFenceInfo pExternalFenceInfo, ExternalFenceProperties pExternalFenceProperties)
-        {
-            int totalSize = 0;
-            if (pExternalFenceInfo != null)
-                totalSize += pExternalFenceInfo.GetSize();
-            if (pExternalFenceProperties != null)
-                totalSize += pExternalFenceProperties.GetSize();
-            return totalSize;
-        }
-
-        var totalSize = CalculateSize(pExternalFenceInfo, pExternalFenceProperties);
-        byte[] rentedArray = null;
-        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
-        {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceExternalFenceInfo, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalFenceInfo>(pExternalFenceInfo, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ExternalFenceProperties, AdamantiumVulkan.Core.Interop.VkExternalFenceProperties>(pExternalFenceProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceExternalFencePropertiesKHR(this, arg1, arg2);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
-        }
+        AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV arg7 = default;
+        var result = Commands.vkGetPhysicalDeviceExternalImageFormatPropertiesNV(this, format, type, tiling, usage, flags, externalHandleType, &arg7);
+        pExternalImageFormatProperties = new ExternalImageFormatPropertiesNV(arg7);
+        return result;
     }
 
-    public Result GetPhysicalDeviceExternalImageFormatPropertiesNV(Format format, ImageType type, ImageTiling tiling, VkImageUsageFlags usage, VkImageCreateFlags flags, VkExternalMemoryHandleTypeFlagsNV externalHandleType, ExternalImageFormatPropertiesNV pExternalImageFormatProperties)
+    public void GetPhysicalDeviceExternalSemaphoreProperties(in PhysicalDeviceExternalSemaphoreInfo pExternalSemaphoreInfo, out ExternalSemaphoreProperties pExternalSemaphoreProperties)
     {
-        int CalculateSize(ExternalImageFormatPropertiesNV pExternalImageFormatProperties)
-        {
-            int totalSize = 0;
-            if (pExternalImageFormatProperties != null)
-                totalSize += pExternalImageFormatProperties.GetSize();
-            return totalSize;
-        }
-
-        var totalSize = CalculateSize(pExternalImageFormatProperties);
-        byte[] rentedArray = null;
-        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
-        {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg7 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ExternalImageFormatPropertiesNV, AdamantiumVulkan.Core.Interop.VkExternalImageFormatPropertiesNV>(pExternalImageFormatProperties, ref currentCursor);
-            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceExternalImageFormatPropertiesNV(this, format, type, tiling, usage, flags, externalHandleType, arg7);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
-        }
-    }
-
-    public void GetPhysicalDeviceExternalSemaphoreProperties(in PhysicalDeviceExternalSemaphoreInfo pExternalSemaphoreInfo, ExternalSemaphoreProperties pExternalSemaphoreProperties)
-    {
-        int CalculateSize(PhysicalDeviceExternalSemaphoreInfo pExternalSemaphoreInfo, ExternalSemaphoreProperties pExternalSemaphoreProperties)
+        int CalculateSize(PhysicalDeviceExternalSemaphoreInfo pExternalSemaphoreInfo)
         {
             int totalSize = 0;
             if (pExternalSemaphoreInfo != null)
                 totalSize += pExternalSemaphoreInfo.GetSize();
-            if (pExternalSemaphoreProperties != null)
-                totalSize += pExternalSemaphoreProperties.GetSize();
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pExternalSemaphoreInfo, pExternalSemaphoreProperties);
+        var totalSize = CalculateSize(pExternalSemaphoreInfo);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceExternalSemaphoreInfo, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo>(pExternalSemaphoreInfo, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ExternalSemaphoreProperties, AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties>(pExternalSemaphoreProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceExternalSemaphoreProperties(this, arg1, arg2);
+            AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties arg2 = default;
+            Commands.vkGetPhysicalDeviceExternalSemaphoreProperties(this, arg1, &arg2);
+            pExternalSemaphoreProperties = new ExternalSemaphoreProperties(arg2);
         }
         finally
         {
@@ -815,27 +1433,26 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public void GetPhysicalDeviceExternalSemaphorePropertiesKHR(in PhysicalDeviceExternalSemaphoreInfo pExternalSemaphoreInfo, ExternalSemaphoreProperties pExternalSemaphoreProperties)
+    public void GetPhysicalDeviceExternalTensorPropertiesARM(in PhysicalDeviceExternalTensorInfoARM pExternalTensorInfo, out ExternalTensorPropertiesARM pExternalTensorProperties)
     {
-        int CalculateSize(PhysicalDeviceExternalSemaphoreInfo pExternalSemaphoreInfo, ExternalSemaphoreProperties pExternalSemaphoreProperties)
+        int CalculateSize(PhysicalDeviceExternalTensorInfoARM pExternalTensorInfo)
         {
             int totalSize = 0;
-            if (pExternalSemaphoreInfo != null)
-                totalSize += pExternalSemaphoreInfo.GetSize();
-            if (pExternalSemaphoreProperties != null)
-                totalSize += pExternalSemaphoreProperties.GetSize();
+            if (pExternalTensorInfo != null)
+                totalSize += pExternalTensorInfo.GetSize();
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pExternalSemaphoreInfo, pExternalSemaphoreProperties);
+        var totalSize = CalculateSize(pExternalTensorInfo);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceExternalSemaphoreInfo, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo>(pExternalSemaphoreInfo, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ExternalSemaphoreProperties, AdamantiumVulkan.Core.Interop.VkExternalSemaphoreProperties>(pExternalSemaphoreProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceExternalSemaphorePropertiesKHR(this, arg1, arg2);
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceExternalTensorInfoARM, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceExternalTensorInfoARM>(pExternalTensorInfo, ref currentCursor);
+            AdamantiumVulkan.Core.Interop.VkExternalTensorPropertiesARM arg2 = default;
+            Commands.vkGetPhysicalDeviceExternalTensorPropertiesARM(this, arg1, &arg2);
+            pExternalTensorProperties = new ExternalTensorPropertiesARM(arg2);
         }
         finally
         {
@@ -846,8 +1463,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
 
     public void GetPhysicalDeviceFeatures(out PhysicalDeviceFeatures pFeatures)
     {
-        AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures arg1;
-        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceFeatures(this, out arg1);
+        AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures arg1 = default;
+        Commands.vkGetPhysicalDeviceFeatures(this, &arg1);
         pFeatures = new PhysicalDeviceFeatures(arg1);
     }
 
@@ -868,7 +1485,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceFeatures2, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2>(pFeatures, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceFeatures2(this, arg1);
+            Commands.vkGetPhysicalDeviceFeatures2(this, arg1);
             if (arg1 is not null)
             {
                 pFeatures = new AdamantiumVulkan.Core.PhysicalDeviceFeatures2(*arg1);
@@ -881,54 +1498,48 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public void GetPhysicalDeviceFeatures2KHR(ref PhysicalDeviceFeatures2 pFeatures)
+    public void GetPhysicalDeviceFormatProperties(Format format, out FormatProperties pFormatProperties)
     {
-        int CalculateSize(PhysicalDeviceFeatures2 pFeatures)
+        AdamantiumVulkan.Core.Interop.VkFormatProperties arg2 = default;
+        Commands.vkGetPhysicalDeviceFormatProperties(this, format, &arg2);
+        pFormatProperties = new FormatProperties(arg2);
+    }
+
+    public void GetPhysicalDeviceFormatProperties2(Format format, out FormatProperties2 pFormatProperties)
+    {
+        AdamantiumVulkan.Core.Interop.VkFormatProperties2 arg2 = default;
+        Commands.vkGetPhysicalDeviceFormatProperties2(this, format, &arg2);
+        pFormatProperties = new FormatProperties2(arg2);
+    }
+
+    public Result GetPhysicalDeviceFragmentShadingRatesKHR(ref uint pFragmentShadingRateCount, System.Span<PhysicalDeviceFragmentShadingRateKHR> pFragmentShadingRates)
+    {
+        int CalculateSize(System.Span<PhysicalDeviceFragmentShadingRateKHR> pFragmentShadingRates)
         {
             int totalSize = 0;
-            if (pFeatures != null)
-                totalSize += pFeatures.GetSize();
-            return totalSize;
-        }
-
-        var totalSize = CalculateSize(pFeatures);
-        byte[] rentedArray = null;
-        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
-        {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceFeatures2, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFeatures2>(pFeatures, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceFeatures2KHR(this, arg1);
-            if (arg1 is not null)
+            for (var i = 0U; i < pFragmentShadingRates.Length; i++)
             {
-                pFeatures = new AdamantiumVulkan.Core.PhysicalDeviceFeatures2(*arg1);
+                if(pFragmentShadingRates[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR>();
+                else
+                    totalSize += pFragmentShadingRates[(int)i].GetSize();
             }
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
-        }
-    }
-
-    public void GetPhysicalDeviceFormatProperties(Format format, FormatProperties pFormatProperties)
-    {
-        int CalculateSize(FormatProperties pFormatProperties)
-        {
-            int totalSize = 0;
-            if (pFormatProperties != null)
-                totalSize += pFormatProperties.GetSize();
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pFormatProperties);
+        var totalSize = CalculateSize(pFragmentShadingRates);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.FormatProperties, AdamantiumVulkan.Core.Interop.VkFormatProperties>(pFormatProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceFormatProperties(this, format, arg2);
+            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR[(int)pFragmentShadingRates.Length];
+            var result = Commands.vkGetPhysicalDeviceFragmentShadingRatesKHR(this, ref pFragmentShadingRateCount, arg2);
+            for (var i = 0; i < pFragmentShadingRates.Length; ++i)
+            {
+                pFragmentShadingRates[i] = new PhysicalDeviceFragmentShadingRateKHR(arg2[i]);
+            }
+            return result;
         }
         finally
         {
@@ -937,59 +1548,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public void GetPhysicalDeviceFormatProperties2(Format format, FormatProperties2 pFormatProperties)
-    {
-        int CalculateSize(FormatProperties2 pFormatProperties)
-        {
-            int totalSize = 0;
-            if (pFormatProperties != null)
-                totalSize += pFormatProperties.GetSize();
-            return totalSize;
-        }
-
-        var totalSize = CalculateSize(pFormatProperties);
-        byte[] rentedArray = null;
-        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
-        {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.FormatProperties2, AdamantiumVulkan.Core.Interop.VkFormatProperties2>(pFormatProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceFormatProperties2(this, format, arg2);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
-        }
-    }
-
-    public void GetPhysicalDeviceFormatProperties2KHR(Format format, FormatProperties2 pFormatProperties)
-    {
-        int CalculateSize(FormatProperties2 pFormatProperties)
-        {
-            int totalSize = 0;
-            if (pFormatProperties != null)
-                totalSize += pFormatProperties.GetSize();
-            return totalSize;
-        }
-
-        var totalSize = CalculateSize(pFormatProperties);
-        byte[] rentedArray = null;
-        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
-        {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.FormatProperties2, AdamantiumVulkan.Core.Interop.VkFormatProperties2>(pFormatProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceFormatProperties2KHR(this, format, arg2);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
-        }
-    }
-
-    public Result GetPhysicalDeviceFragmentShadingRatesKHR(ref uint pFragmentShadingRateCount, PhysicalDeviceFragmentShadingRateKHR pFragmentShadingRates)
+    public Result GetPhysicalDeviceFragmentShadingRatesKHR(ref uint pFragmentShadingRateCount, ref PhysicalDeviceFragmentShadingRateKHR pFragmentShadingRates)
     {
         int CalculateSize(PhysicalDeviceFragmentShadingRateKHR pFragmentShadingRates)
         {
@@ -1005,11 +1564,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pFragmentShadingRateCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceFragmentShadingRateKHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR>(pFragmentShadingRates, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceFragmentShadingRatesKHR(this, arg1, arg2);
-            pFragmentShadingRateCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceFragmentShadingRatesKHR(this, ref pFragmentShadingRateCount, arg2);
+            if (arg2 is not null)
+            {
+                pFragmentShadingRates = new AdamantiumVulkan.Core.PhysicalDeviceFragmentShadingRateKHR(*arg2);
+            }
             return result;
         }
         finally
@@ -1019,82 +1579,35 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetPhysicalDeviceImageFormatProperties(Format format, ImageType type, ImageTiling tiling, VkImageUsageFlags usage, VkImageCreateFlags flags, ImageFormatProperties pImageFormatProperties)
+    public Result GetPhysicalDeviceImageFormatProperties(Format format, ImageType type, ImageTiling tiling, ImageUsageFlagBits usage, ImageCreateFlagBits flags, out ImageFormatProperties pImageFormatProperties)
     {
-        int CalculateSize(ImageFormatProperties pImageFormatProperties)
-        {
-            int totalSize = 0;
-            if (pImageFormatProperties != null)
-                totalSize += pImageFormatProperties.GetSize();
-            return totalSize;
-        }
-
-        var totalSize = CalculateSize(pImageFormatProperties);
-        byte[] rentedArray = null;
-        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
-        {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg6 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ImageFormatProperties, AdamantiumVulkan.Core.Interop.VkImageFormatProperties>(pImageFormatProperties, ref currentCursor);
-            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceImageFormatProperties(this, format, type, tiling, usage, flags, arg6);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
-        }
+        AdamantiumVulkan.Core.Interop.VkImageFormatProperties arg6 = default;
+        var result = Commands.vkGetPhysicalDeviceImageFormatProperties(this, format, type, tiling, usage, flags, &arg6);
+        pImageFormatProperties = new ImageFormatProperties(arg6);
+        return result;
     }
 
-    public Result GetPhysicalDeviceImageFormatProperties2(in PhysicalDeviceImageFormatInfo2 pImageFormatInfo, ImageFormatProperties2 pImageFormatProperties)
+    public Result GetPhysicalDeviceImageFormatProperties2(in PhysicalDeviceImageFormatInfo2 pImageFormatInfo, out ImageFormatProperties2 pImageFormatProperties)
     {
-        int CalculateSize(PhysicalDeviceImageFormatInfo2 pImageFormatInfo, ImageFormatProperties2 pImageFormatProperties)
+        int CalculateSize(PhysicalDeviceImageFormatInfo2 pImageFormatInfo)
         {
             int totalSize = 0;
             if (pImageFormatInfo != null)
                 totalSize += pImageFormatInfo.GetSize();
-            if (pImageFormatProperties != null)
-                totalSize += pImageFormatProperties.GetSize();
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pImageFormatInfo, pImageFormatProperties);
+        var totalSize = CalculateSize(pImageFormatInfo);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceImageFormatInfo2, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2>(pImageFormatInfo, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ImageFormatProperties2, AdamantiumVulkan.Core.Interop.VkImageFormatProperties2>(pImageFormatProperties, ref currentCursor);
-            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceImageFormatProperties2(this, arg1, arg2);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
-        }
-    }
-
-    public Result GetPhysicalDeviceImageFormatProperties2KHR(in PhysicalDeviceImageFormatInfo2 pImageFormatInfo, ImageFormatProperties2 pImageFormatProperties)
-    {
-        int CalculateSize(PhysicalDeviceImageFormatInfo2 pImageFormatInfo, ImageFormatProperties2 pImageFormatProperties)
-        {
-            int totalSize = 0;
-            if (pImageFormatInfo != null)
-                totalSize += pImageFormatInfo.GetSize();
-            if (pImageFormatProperties != null)
-                totalSize += pImageFormatProperties.GetSize();
-            return totalSize;
-        }
-
-        var totalSize = CalculateSize(pImageFormatInfo, pImageFormatProperties);
-        byte[] rentedArray = null;
-        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
-        {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceImageFormatInfo2, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageFormatInfo2>(pImageFormatInfo, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.ImageFormatProperties2, AdamantiumVulkan.Core.Interop.VkImageFormatProperties2>(pImageFormatProperties, ref currentCursor);
-            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceImageFormatProperties2KHR(this, arg1, arg2);
+            AdamantiumVulkan.Core.Interop.VkImageFormatProperties2 arg2 = default;
+            var result = Commands.vkGetPhysicalDeviceImageFormatProperties2(this, arg1, &arg2);
+            pImageFormatProperties = new ImageFormatProperties2(arg2);
+            return result;
         }
         finally
         {
@@ -1105,43 +1618,56 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
 
     public void GetPhysicalDeviceMemoryProperties(out PhysicalDeviceMemoryProperties pMemoryProperties)
     {
-        AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties arg1;
-        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceMemoryProperties(this, out arg1);
+        AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties arg1 = default;
+        Commands.vkGetPhysicalDeviceMemoryProperties(this, &arg1);
         pMemoryProperties = new PhysicalDeviceMemoryProperties(arg1);
     }
 
     public void GetPhysicalDeviceMemoryProperties2(out PhysicalDeviceMemoryProperties2 pMemoryProperties)
     {
-        AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2 arg1;
-        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceMemoryProperties2(this, out arg1);
+        AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2 arg1 = default;
+        Commands.vkGetPhysicalDeviceMemoryProperties2(this, &arg1);
         pMemoryProperties = new PhysicalDeviceMemoryProperties2(arg1);
     }
 
-    public void GetPhysicalDeviceMemoryProperties2KHR(out PhysicalDeviceMemoryProperties2 pMemoryProperties)
+    public void GetPhysicalDeviceMultisamplePropertiesEXT(SampleCountFlagBits samples, out MultisamplePropertiesEXT pMultisampleProperties)
     {
-        AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMemoryProperties2 arg1;
-        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceMemoryProperties2KHR(this, out arg1);
-        pMemoryProperties = new PhysicalDeviceMemoryProperties2(arg1);
+        AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT arg2 = default;
+        Commands.vkGetPhysicalDeviceMultisamplePropertiesEXT(this, samples, &arg2);
+        pMultisampleProperties = new MultisamplePropertiesEXT(arg2);
     }
 
-    public void GetPhysicalDeviceMultisamplePropertiesEXT(SampleCountFlagBits samples, MultisamplePropertiesEXT pMultisampleProperties)
+    public Result GetPhysicalDeviceOpticalFlowImageFormatsNV(in OpticalFlowImageFormatInfoNV pOpticalFlowImageFormatInfo, ref uint pFormatCount, System.Span<OpticalFlowImageFormatPropertiesNV> pImageFormatProperties)
     {
-        int CalculateSize(MultisamplePropertiesEXT pMultisampleProperties)
+        int CalculateSize(OpticalFlowImageFormatInfoNV pOpticalFlowImageFormatInfo, System.Span<OpticalFlowImageFormatPropertiesNV> pImageFormatProperties)
         {
             int totalSize = 0;
-            if (pMultisampleProperties != null)
-                totalSize += pMultisampleProperties.GetSize();
+            if (pOpticalFlowImageFormatInfo != null)
+                totalSize += pOpticalFlowImageFormatInfo.GetSize();
+            for (var i = 0U; i < pImageFormatProperties.Length; i++)
+            {
+                if(pImageFormatProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV>();
+                else
+                    totalSize += pImageFormatProperties[(int)i].GetSize();
+            }
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pMultisampleProperties);
+        var totalSize = CalculateSize(pOpticalFlowImageFormatInfo, pImageFormatProperties);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.MultisamplePropertiesEXT, AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT>(pMultisampleProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceMultisamplePropertiesEXT(this, samples, arg2);
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.OpticalFlowImageFormatInfoNV, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV>(pOpticalFlowImageFormatInfo, ref currentCursor);
+            var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV[(int)pImageFormatProperties.Length];
+            var result = Commands.vkGetPhysicalDeviceOpticalFlowImageFormatsNV(this, arg1, ref pFormatCount, arg3);
+            for (var i = 0; i < pImageFormatProperties.Length; ++i)
+            {
+                pImageFormatProperties[i] = new OpticalFlowImageFormatPropertiesNV(arg3[i]);
+            }
+            return result;
         }
         finally
         {
@@ -1150,7 +1676,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetPhysicalDeviceOpticalFlowImageFormatsNV(in OpticalFlowImageFormatInfoNV pOpticalFlowImageFormatInfo, ref uint pFormatCount, OpticalFlowImageFormatPropertiesNV pImageFormatProperties)
+    public Result GetPhysicalDeviceOpticalFlowImageFormatsNV(in OpticalFlowImageFormatInfoNV pOpticalFlowImageFormatInfo, ref uint pFormatCount, ref OpticalFlowImageFormatPropertiesNV pImageFormatProperties)
     {
         int CalculateSize(OpticalFlowImageFormatInfoNV pOpticalFlowImageFormatInfo, OpticalFlowImageFormatPropertiesNV pImageFormatProperties)
         {
@@ -1169,11 +1695,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.OpticalFlowImageFormatInfoNV, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatInfoNV>(pOpticalFlowImageFormatInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pFormatCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.OpticalFlowImageFormatPropertiesNV, AdamantiumVulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV>(pImageFormatProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceOpticalFlowImageFormatsNV(this, arg1, arg2, arg3);
-            pFormatCount = *arg2;
+            var result = Commands.vkGetPhysicalDeviceOpticalFlowImageFormatsNV(this, arg1, ref pFormatCount, arg3);
+            if (arg3 is not null)
+            {
+                pImageFormatProperties = new AdamantiumVulkan.Core.OpticalFlowImageFormatPropertiesNV(*arg3);
+            }
             return result;
         }
         finally
@@ -1183,7 +1710,44 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetPhysicalDevicePresentRectanglesKHR(AdamantiumVulkan.Core.SurfaceKHR surface, ref uint pRectCount, Rect2D pRects)
+    public Result GetPhysicalDevicePresentRectanglesKHR(AdamantiumVulkan.Core.SurfaceKHR surface, ref uint pRectCount, System.Span<Rect2D> pRects)
+    {
+        int CalculateSize(System.Span<Rect2D> pRects)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pRects.Length; i++)
+            {
+                if(pRects[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkRect2D>();
+                else
+                    totalSize += pRects[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pRects);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = surface == null ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
+            var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkRect2D[(int)pRects.Length];
+            var result = Commands.vkGetPhysicalDevicePresentRectanglesKHR(this, arg1, ref pRectCount, arg3);
+            for (var i = 0; i < pRects.Length; ++i)
+            {
+                pRects[i] = new Rect2D(arg3[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDevicePresentRectanglesKHR(AdamantiumVulkan.Core.SurfaceKHR surface, ref uint pRectCount, ref Rect2D pRects)
     {
         int CalculateSize(Rect2D pRects)
         {
@@ -1200,11 +1764,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = surface == null ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pRectCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.Rect2D, AdamantiumVulkan.Core.Interop.VkRect2D>(pRects, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDevicePresentRectanglesKHR(this, arg1, arg2, arg3);
-            pRectCount = *arg2;
+            var result = Commands.vkGetPhysicalDevicePresentRectanglesKHR(this, arg1, ref pRectCount, arg3);
+            if (arg3 is not null)
+            {
+                pRects = new AdamantiumVulkan.Core.Rect2D(*arg3);
+            }
             return result;
         }
         finally
@@ -1216,8 +1781,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
 
     public void GetPhysicalDeviceProperties(out PhysicalDeviceProperties pProperties)
     {
-        AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties arg1;
-        AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceProperties(this, out arg1);
+        AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties arg1 = default;
+        Commands.vkGetPhysicalDeviceProperties(this, &arg1);
         pProperties = new PhysicalDeviceProperties(arg1);
     }
 
@@ -1238,7 +1803,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceProperties2, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2>(pProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.VkGetPhysicalDeviceProperties2(this, arg1);
+            Commands.vkGetPhysicalDeviceProperties2(this, arg1);
             if (arg1 is not null)
             {
                 pProperties = new AdamantiumVulkan.Core.PhysicalDeviceProperties2(*arg1);
@@ -1251,28 +1816,27 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public void GetPhysicalDeviceProperties2KHR(ref PhysicalDeviceProperties2 pProperties)
+    public Result GetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM(uint queueFamilyIndex, in QueueFamilyDataGraphPropertiesARM pQueueFamilyDataGraphProperties, out BaseOutStructure pProperties)
     {
-        int CalculateSize(PhysicalDeviceProperties2 pProperties)
+        int CalculateSize(QueueFamilyDataGraphPropertiesARM pQueueFamilyDataGraphProperties)
         {
             int totalSize = 0;
-            if (pProperties != null)
-                totalSize += pProperties.GetSize();
+            if (pQueueFamilyDataGraphProperties != null)
+                totalSize += pQueueFamilyDataGraphProperties.GetSize();
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pProperties);
+        var totalSize = CalculateSize(pQueueFamilyDataGraphProperties);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceProperties2, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2>(pProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.VkGetPhysicalDeviceProperties2KHR(this, arg1);
-            if (arg1 is not null)
-            {
-                pProperties = new AdamantiumVulkan.Core.PhysicalDeviceProperties2(*arg1);
-            }
+            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.QueueFamilyDataGraphPropertiesARM, AdamantiumVulkan.Core.Interop.VkQueueFamilyDataGraphPropertiesARM>(pQueueFamilyDataGraphProperties, ref currentCursor);
+            AdamantiumVulkan.Core.Interop.VkBaseOutStructure arg3 = default;
+            var result = Commands.vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM(this, queueFamilyIndex, arg2, &arg3);
+            pProperties = new BaseOutStructure(arg3);
+            return result;
         }
         finally
         {
@@ -1281,7 +1845,181 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public void GetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(in QueryPoolPerformanceCreateInfoKHR pPerformanceQueryCreateInfo, ref uint pNumPasses)
+    public Result GetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM(uint queueFamilyIndex, in QueueFamilyDataGraphPropertiesARM pQueueFamilyDataGraphProperties, in DataGraphOpticalFlowImageFormatInfoARM pOpticalFlowImageFormatInfo, ref uint pFormatCount, System.Span<DataGraphOpticalFlowImageFormatPropertiesARM> pImageFormatProperties)
+    {
+        int CalculateSize(QueueFamilyDataGraphPropertiesARM pQueueFamilyDataGraphProperties, DataGraphOpticalFlowImageFormatInfoARM pOpticalFlowImageFormatInfo, System.Span<DataGraphOpticalFlowImageFormatPropertiesARM> pImageFormatProperties)
+        {
+            int totalSize = 0;
+            if (pQueueFamilyDataGraphProperties != null)
+                totalSize += pQueueFamilyDataGraphProperties.GetSize();
+            if (pOpticalFlowImageFormatInfo != null)
+                totalSize += pOpticalFlowImageFormatInfo.GetSize();
+            for (var i = 0U; i < pImageFormatProperties.Length; i++)
+            {
+                if(pImageFormatProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDataGraphOpticalFlowImageFormatPropertiesARM>();
+                else
+                    totalSize += pImageFormatProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pQueueFamilyDataGraphProperties, pOpticalFlowImageFormatInfo, pImageFormatProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.QueueFamilyDataGraphPropertiesARM, AdamantiumVulkan.Core.Interop.VkQueueFamilyDataGraphPropertiesARM>(pQueueFamilyDataGraphProperties, ref currentCursor);
+            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DataGraphOpticalFlowImageFormatInfoARM, AdamantiumVulkan.Core.Interop.VkDataGraphOpticalFlowImageFormatInfoARM>(pOpticalFlowImageFormatInfo, ref currentCursor);
+            var arg5 = stackalloc AdamantiumVulkan.Core.Interop.VkDataGraphOpticalFlowImageFormatPropertiesARM[(int)pImageFormatProperties.Length];
+            var result = Commands.vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM(this, queueFamilyIndex, arg2, arg3, ref pFormatCount, arg5);
+            for (var i = 0; i < pImageFormatProperties.Length; ++i)
+            {
+                pImageFormatProperties[i] = new DataGraphOpticalFlowImageFormatPropertiesARM(arg5[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM(uint queueFamilyIndex, in QueueFamilyDataGraphPropertiesARM pQueueFamilyDataGraphProperties, in DataGraphOpticalFlowImageFormatInfoARM pOpticalFlowImageFormatInfo, ref uint pFormatCount, ref DataGraphOpticalFlowImageFormatPropertiesARM pImageFormatProperties)
+    {
+        int CalculateSize(QueueFamilyDataGraphPropertiesARM pQueueFamilyDataGraphProperties, DataGraphOpticalFlowImageFormatInfoARM pOpticalFlowImageFormatInfo, DataGraphOpticalFlowImageFormatPropertiesARM pImageFormatProperties)
+        {
+            int totalSize = 0;
+            if (pQueueFamilyDataGraphProperties != null)
+                totalSize += pQueueFamilyDataGraphProperties.GetSize();
+            if (pOpticalFlowImageFormatInfo != null)
+                totalSize += pOpticalFlowImageFormatInfo.GetSize();
+            if (pImageFormatProperties != null)
+                totalSize += pImageFormatProperties.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pQueueFamilyDataGraphProperties, pOpticalFlowImageFormatInfo, pImageFormatProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.QueueFamilyDataGraphPropertiesARM, AdamantiumVulkan.Core.Interop.VkQueueFamilyDataGraphPropertiesARM>(pQueueFamilyDataGraphProperties, ref currentCursor);
+            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DataGraphOpticalFlowImageFormatInfoARM, AdamantiumVulkan.Core.Interop.VkDataGraphOpticalFlowImageFormatInfoARM>(pOpticalFlowImageFormatInfo, ref currentCursor);
+            var arg5 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.DataGraphOpticalFlowImageFormatPropertiesARM, AdamantiumVulkan.Core.Interop.VkDataGraphOpticalFlowImageFormatPropertiesARM>(pImageFormatProperties, ref currentCursor);
+            var result = Commands.vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM(this, queueFamilyIndex, arg2, arg3, ref pFormatCount, arg5);
+            if (arg5 is not null)
+            {
+                pImageFormatProperties = new AdamantiumVulkan.Core.DataGraphOpticalFlowImageFormatPropertiesARM(*arg5);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void GetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM(in PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM pQueueFamilyDataGraphProcessingEngineInfo, out QueueFamilyDataGraphProcessingEnginePropertiesARM pQueueFamilyDataGraphProcessingEngineProperties)
+    {
+        int CalculateSize(PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM pQueueFamilyDataGraphProcessingEngineInfo)
+        {
+            int totalSize = 0;
+            if (pQueueFamilyDataGraphProcessingEngineInfo != null)
+                totalSize += pQueueFamilyDataGraphProcessingEngineInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pQueueFamilyDataGraphProcessingEngineInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM>(pQueueFamilyDataGraphProcessingEngineInfo, ref currentCursor);
+            AdamantiumVulkan.Core.Interop.VkQueueFamilyDataGraphProcessingEnginePropertiesARM arg2 = default;
+            Commands.vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM(this, arg1, &arg2);
+            pQueueFamilyDataGraphProcessingEngineProperties = new QueueFamilyDataGraphProcessingEnginePropertiesARM(arg2);
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDeviceQueueFamilyDataGraphPropertiesARM(uint queueFamilyIndex, ref uint pQueueFamilyDataGraphPropertyCount, System.Span<QueueFamilyDataGraphPropertiesARM> pQueueFamilyDataGraphProperties)
+    {
+        int CalculateSize(System.Span<QueueFamilyDataGraphPropertiesARM> pQueueFamilyDataGraphProperties)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pQueueFamilyDataGraphProperties.Length; i++)
+            {
+                if(pQueueFamilyDataGraphProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkQueueFamilyDataGraphPropertiesARM>();
+                else
+                    totalSize += pQueueFamilyDataGraphProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pQueueFamilyDataGraphProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkQueueFamilyDataGraphPropertiesARM[(int)pQueueFamilyDataGraphProperties.Length];
+            var result = Commands.vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM(this, queueFamilyIndex, ref pQueueFamilyDataGraphPropertyCount, arg3);
+            for (var i = 0; i < pQueueFamilyDataGraphProperties.Length; ++i)
+            {
+                pQueueFamilyDataGraphProperties[i] = new QueueFamilyDataGraphPropertiesARM(arg3[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDeviceQueueFamilyDataGraphPropertiesARM(uint queueFamilyIndex, ref uint pQueueFamilyDataGraphPropertyCount, ref QueueFamilyDataGraphPropertiesARM pQueueFamilyDataGraphProperties)
+    {
+        int CalculateSize(QueueFamilyDataGraphPropertiesARM pQueueFamilyDataGraphProperties)
+        {
+            int totalSize = 0;
+            if (pQueueFamilyDataGraphProperties != null)
+                totalSize += pQueueFamilyDataGraphProperties.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pQueueFamilyDataGraphProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.QueueFamilyDataGraphPropertiesARM, AdamantiumVulkan.Core.Interop.VkQueueFamilyDataGraphPropertiesARM>(pQueueFamilyDataGraphProperties, ref currentCursor);
+            var result = Commands.vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM(this, queueFamilyIndex, ref pQueueFamilyDataGraphPropertyCount, arg3);
+            if (arg3 is not null)
+            {
+                pQueueFamilyDataGraphProperties = new AdamantiumVulkan.Core.QueueFamilyDataGraphPropertiesARM(*arg3);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void GetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(in QueryPoolPerformanceCreateInfoKHR pPerformanceQueryCreateInfo, out uint pNumPasses)
     {
         int CalculateSize(QueryPoolPerformanceCreateInfoKHR pPerformanceQueryCreateInfo)
         {
@@ -1298,10 +2036,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.QueryPoolPerformanceCreateInfoKHR, AdamantiumVulkan.Core.Interop.VkQueryPoolPerformanceCreateInfoKHR>(pPerformanceQueryCreateInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pNumPasses;
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(this, arg1, arg2);
-            pNumPasses = *arg2;
+            Commands.vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(this, arg1, out pNumPasses);
         }
         finally
         {
@@ -1331,11 +2066,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pQueueFamilyPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties[(int)pQueueFamilyProperties.Length];
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceQueueFamilyProperties(this, arg1, arg2);
-            pQueueFamilyPropertyCount = *arg1;
+            Commands.vkGetPhysicalDeviceQueueFamilyProperties(this, ref pQueueFamilyPropertyCount, arg2);
             for (var i = 0; i < pQueueFamilyProperties.Length; ++i)
             {
                 pQueueFamilyProperties[i] = new QueueFamilyProperties(arg2[i]);
@@ -1369,11 +2101,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pQueueFamilyPropertyCount;
             var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2[(int)pQueueFamilyProperties.Length];
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceQueueFamilyProperties2(this, arg1, arg2);
-            pQueueFamilyPropertyCount = *arg1;
+            Commands.vkGetPhysicalDeviceQueueFamilyProperties2(this, ref pQueueFamilyPropertyCount, arg2);
             for (var i = 0; i < pQueueFamilyProperties.Length; ++i)
             {
                 pQueueFamilyProperties[i] = new QueueFamilyProperties2(arg2[i]);
@@ -1402,11 +2131,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pQueueFamilyPropertyCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.QueueFamilyProperties2, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2>(pQueueFamilyProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceQueueFamilyProperties2(this, arg1, arg2);
-            pQueueFamilyPropertyCount = *arg1;
+            Commands.vkGetPhysicalDeviceQueueFamilyProperties2(this, ref pQueueFamilyPropertyCount, arg2);
             if (arg2 is not null)
             {
                 pQueueFamilyProperties = new AdamantiumVulkan.Core.QueueFamilyProperties2(*arg2);
@@ -1419,27 +2145,33 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public void GetPhysicalDeviceQueueFamilyProperties2KHR(ref uint pQueueFamilyPropertyCount, QueueFamilyProperties2 pQueueFamilyProperties)
+    public void GetPhysicalDeviceSparseImageFormatProperties(Format format, ImageType type, SampleCountFlagBits samples, ImageUsageFlagBits usage, ImageTiling tiling, ref uint pPropertyCount, System.Span<SparseImageFormatProperties> pProperties)
     {
-        int CalculateSize(QueueFamilyProperties2 pQueueFamilyProperties)
+        int CalculateSize(System.Span<SparseImageFormatProperties> pProperties)
         {
             int totalSize = 0;
-            if (pQueueFamilyProperties != null)
-                totalSize += pQueueFamilyProperties.GetSize();
+            for (var i = 0U; i < pProperties.Length; i++)
+            {
+                if(pProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties>();
+                else
+                    totalSize += pProperties[(int)i].GetSize();
+            }
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pQueueFamilyProperties);
+        var totalSize = CalculateSize(pProperties);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pQueueFamilyPropertyCount;
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.QueueFamilyProperties2, AdamantiumVulkan.Core.Interop.VkQueueFamilyProperties2>(pQueueFamilyProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceQueueFamilyProperties2KHR(this, arg1, arg2);
-            pQueueFamilyPropertyCount = *arg1;
+            var arg7 = stackalloc AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties[(int)pProperties.Length];
+            Commands.vkGetPhysicalDeviceSparseImageFormatProperties(this, format, type, samples, usage, tiling, ref pPropertyCount, arg7);
+            for (var i = 0; i < pProperties.Length; ++i)
+            {
+                pProperties[i] = new SparseImageFormatProperties(arg7[i]);
+            }
         }
         finally
         {
@@ -1448,7 +2180,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public void GetPhysicalDeviceSparseImageFormatProperties(Format format, ImageType type, SampleCountFlagBits samples, VkImageUsageFlags usage, ImageTiling tiling, ref uint pPropertyCount, SparseImageFormatProperties pProperties)
+    public void GetPhysicalDeviceSparseImageFormatProperties(Format format, ImageType type, SampleCountFlagBits samples, ImageUsageFlagBits usage, ImageTiling tiling, ref uint pPropertyCount, ref SparseImageFormatProperties pProperties)
     {
         int CalculateSize(SparseImageFormatProperties pProperties)
         {
@@ -1464,11 +2196,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg6 = stackalloc uint[1];
-            *arg6 = pPropertyCount;
             var arg7 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.SparseImageFormatProperties, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties>(pProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSparseImageFormatProperties(this, format, type, samples, usage, tiling, arg6, arg7);
-            pPropertyCount = *arg6;
+            Commands.vkGetPhysicalDeviceSparseImageFormatProperties(this, format, type, samples, usage, tiling, ref pPropertyCount, arg7);
+            if (arg7 is not null)
+            {
+                pProperties = new AdamantiumVulkan.Core.SparseImageFormatProperties(*arg7);
+            }
         }
         finally
         {
@@ -1477,7 +2210,45 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public void GetPhysicalDeviceSparseImageFormatProperties2(in PhysicalDeviceSparseImageFormatInfo2 pFormatInfo, ref uint pPropertyCount, SparseImageFormatProperties2 pProperties)
+    public void GetPhysicalDeviceSparseImageFormatProperties2(in PhysicalDeviceSparseImageFormatInfo2 pFormatInfo, ref uint pPropertyCount, System.Span<SparseImageFormatProperties2> pProperties)
+    {
+        int CalculateSize(PhysicalDeviceSparseImageFormatInfo2 pFormatInfo, System.Span<SparseImageFormatProperties2> pProperties)
+        {
+            int totalSize = 0;
+            if (pFormatInfo != null)
+                totalSize += pFormatInfo.GetSize();
+            for (var i = 0U; i < pProperties.Length; i++)
+            {
+                if(pProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2>();
+                else
+                    totalSize += pProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pFormatInfo, pProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceSparseImageFormatInfo2, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2>(pFormatInfo, ref currentCursor);
+            var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2[(int)pProperties.Length];
+            Commands.vkGetPhysicalDeviceSparseImageFormatProperties2(this, arg1, ref pPropertyCount, arg3);
+            for (var i = 0; i < pProperties.Length; ++i)
+            {
+                pProperties[i] = new SparseImageFormatProperties2(arg3[i]);
+            }
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public void GetPhysicalDeviceSparseImageFormatProperties2(in PhysicalDeviceSparseImageFormatInfo2 pFormatInfo, ref uint pPropertyCount, ref SparseImageFormatProperties2 pProperties)
     {
         int CalculateSize(PhysicalDeviceSparseImageFormatInfo2 pFormatInfo, SparseImageFormatProperties2 pProperties)
         {
@@ -1496,11 +2267,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceSparseImageFormatInfo2, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2>(pFormatInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPropertyCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.SparseImageFormatProperties2, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2>(pProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSparseImageFormatProperties2(this, arg1, arg2, arg3);
-            pPropertyCount = *arg2;
+            Commands.vkGetPhysicalDeviceSparseImageFormatProperties2(this, arg1, ref pPropertyCount, arg3);
+            if (arg3 is not null)
+            {
+                pProperties = new AdamantiumVulkan.Core.SparseImageFormatProperties2(*arg3);
+            }
         }
         finally
         {
@@ -1509,30 +2281,34 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public void GetPhysicalDeviceSparseImageFormatProperties2KHR(in PhysicalDeviceSparseImageFormatInfo2 pFormatInfo, ref uint pPropertyCount, SparseImageFormatProperties2 pProperties)
+    public Result GetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(ref uint pCombinationCount, System.Span<FramebufferMixedSamplesCombinationNV> pCombinations)
     {
-        int CalculateSize(PhysicalDeviceSparseImageFormatInfo2 pFormatInfo, SparseImageFormatProperties2 pProperties)
+        int CalculateSize(System.Span<FramebufferMixedSamplesCombinationNV> pCombinations)
         {
             int totalSize = 0;
-            if (pFormatInfo != null)
-                totalSize += pFormatInfo.GetSize();
-            if (pProperties != null)
-                totalSize += pProperties.GetSize();
+            for (var i = 0U; i < pCombinations.Length; i++)
+            {
+                if(pCombinations[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV>();
+                else
+                    totalSize += pCombinations[(int)i].GetSize();
+            }
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pFormatInfo, pProperties);
+        var totalSize = CalculateSize(pCombinations);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceSparseImageFormatInfo2, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2>(pFormatInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPropertyCount;
-            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.SparseImageFormatProperties2, AdamantiumVulkan.Core.Interop.VkSparseImageFormatProperties2>(pProperties, ref currentCursor);
-            AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSparseImageFormatProperties2KHR(this, arg1, arg2, arg3);
-            pPropertyCount = *arg2;
+            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV[(int)pCombinations.Length];
+            var result = Commands.vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(this, ref pCombinationCount, arg2);
+            for (var i = 0; i < pCombinations.Length; ++i)
+            {
+                pCombinations[i] = new FramebufferMixedSamplesCombinationNV(arg2[i]);
+            }
+            return result;
         }
         finally
         {
@@ -1541,7 +2317,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(ref uint pCombinationCount, FramebufferMixedSamplesCombinationNV pCombinations)
+    public Result GetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(ref uint pCombinationCount, ref FramebufferMixedSamplesCombinationNV pCombinations)
     {
         int CalculateSize(FramebufferMixedSamplesCombinationNV pCombinations)
         {
@@ -1557,11 +2333,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pCombinationCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.FramebufferMixedSamplesCombinationNV, AdamantiumVulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV>(pCombinations, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(this, arg1, arg2);
-            pCombinationCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(this, ref pCombinationCount, arg2);
+            if (arg2 is not null)
+            {
+                pCombinations = new AdamantiumVulkan.Core.FramebufferMixedSamplesCombinationNV(*arg2);
+            }
             return result;
         }
         finally
@@ -1571,54 +2348,36 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetPhysicalDeviceSurfaceCapabilities2EXT(AdamantiumVulkan.Core.SurfaceKHR surface, SurfaceCapabilities2EXT pSurfaceCapabilities)
+    public Result GetPhysicalDeviceSurfaceCapabilities2EXT(AdamantiumVulkan.Core.SurfaceKHR surface, out SurfaceCapabilities2EXT pSurfaceCapabilities)
     {
-        int CalculateSize(SurfaceCapabilities2EXT pSurfaceCapabilities)
-        {
-            int totalSize = 0;
-            if (pSurfaceCapabilities != null)
-                totalSize += pSurfaceCapabilities.GetSize();
-            return totalSize;
-        }
-
-        var totalSize = CalculateSize(pSurfaceCapabilities);
-        byte[] rentedArray = null;
-        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
-        {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = surface == null ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.SurfaceCapabilities2EXT, AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT>(pSurfaceCapabilities, ref currentCursor);
-            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSurfaceCapabilities2EXT(this, arg1, arg2);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
-        }
+        var arg1 = surface == null ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
+        AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2EXT arg2 = default;
+        var result = Commands.vkGetPhysicalDeviceSurfaceCapabilities2EXT(this, arg1, &arg2);
+        pSurfaceCapabilities = new SurfaceCapabilities2EXT(arg2);
+        return result;
     }
 
-    public Result GetPhysicalDeviceSurfaceCapabilities2KHR(in PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, SurfaceCapabilities2KHR pSurfaceCapabilities)
+    public Result GetPhysicalDeviceSurfaceCapabilities2KHR(in PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, out SurfaceCapabilities2KHR pSurfaceCapabilities)
     {
-        int CalculateSize(PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, SurfaceCapabilities2KHR pSurfaceCapabilities)
+        int CalculateSize(PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo)
         {
             int totalSize = 0;
             if (pSurfaceInfo != null)
                 totalSize += pSurfaceInfo.GetSize();
-            if (pSurfaceCapabilities != null)
-                totalSize += pSurfaceCapabilities.GetSize();
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pSurfaceInfo, pSurfaceCapabilities);
+        var totalSize = CalculateSize(pSurfaceInfo);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceSurfaceInfo2KHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR>(pSurfaceInfo, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.SurfaceCapabilities2KHR, AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR>(pSurfaceCapabilities, ref currentCursor);
-            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSurfaceCapabilities2KHR(this, arg1, arg2);
+            AdamantiumVulkan.Core.Interop.VkSurfaceCapabilities2KHR arg2 = default;
+            var result = Commands.vkGetPhysicalDeviceSurfaceCapabilities2KHR(this, arg1, &arg2);
+            pSurfaceCapabilities = new SurfaceCapabilities2KHR(arg2);
+            return result;
         }
         finally
         {
@@ -1630,13 +2389,52 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
     public Result GetPhysicalDeviceSurfaceCapabilitiesKHR(AdamantiumVulkan.Core.SurfaceKHR surface, out SurfaceCapabilitiesKHR pSurfaceCapabilities)
     {
         var arg1 = surface == null ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
-        AdamantiumVulkan.Core.Interop.VkSurfaceCapabilitiesKHR arg2;
-        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSurfaceCapabilitiesKHR(this, arg1, out arg2);
+        AdamantiumVulkan.Core.Interop.VkSurfaceCapabilitiesKHR arg2 = default;
+        var result = Commands.vkGetPhysicalDeviceSurfaceCapabilitiesKHR(this, arg1, &arg2);
         pSurfaceCapabilities = new SurfaceCapabilitiesKHR(arg2);
         return result;
     }
 
-    public Result GetPhysicalDeviceSurfaceFormats2KHR(in PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, ref uint pSurfaceFormatCount, SurfaceFormat2KHR pSurfaceFormats)
+    public Result GetPhysicalDeviceSurfaceFormats2KHR(in PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, ref uint pSurfaceFormatCount, System.Span<SurfaceFormat2KHR> pSurfaceFormats)
+    {
+        int CalculateSize(PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, System.Span<SurfaceFormat2KHR> pSurfaceFormats)
+        {
+            int totalSize = 0;
+            if (pSurfaceInfo != null)
+                totalSize += pSurfaceInfo.GetSize();
+            for (var i = 0U; i < pSurfaceFormats.Length; i++)
+            {
+                if(pSurfaceFormats[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR>();
+                else
+                    totalSize += pSurfaceFormats[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pSurfaceInfo, pSurfaceFormats);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceSurfaceInfo2KHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR>(pSurfaceInfo, ref currentCursor);
+            var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR[(int)pSurfaceFormats.Length];
+            var result = Commands.vkGetPhysicalDeviceSurfaceFormats2KHR(this, arg1, ref pSurfaceFormatCount, arg3);
+            for (var i = 0; i < pSurfaceFormats.Length; ++i)
+            {
+                pSurfaceFormats[i] = new SurfaceFormat2KHR(arg3[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDeviceSurfaceFormats2KHR(in PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, ref uint pSurfaceFormatCount, ref SurfaceFormat2KHR pSurfaceFormats)
     {
         int CalculateSize(PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, SurfaceFormat2KHR pSurfaceFormats)
         {
@@ -1655,11 +2453,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceSurfaceInfo2KHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR>(pSurfaceInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pSurfaceFormatCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.SurfaceFormat2KHR, AdamantiumVulkan.Core.Interop.VkSurfaceFormat2KHR>(pSurfaceFormats, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSurfaceFormats2KHR(this, arg1, arg2, arg3);
-            pSurfaceFormatCount = *arg2;
+            var result = Commands.vkGetPhysicalDeviceSurfaceFormats2KHR(this, arg1, ref pSurfaceFormatCount, arg3);
+            if (arg3 is not null)
+            {
+                pSurfaceFormats = new AdamantiumVulkan.Core.SurfaceFormat2KHR(*arg3);
+            }
             return result;
         }
         finally
@@ -1691,11 +2490,8 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = surface == null ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pSurfaceFormatCount;
             var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkSurfaceFormatKHR[(int)pSurfaceFormats.Length];
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSurfaceFormatsKHR(this, arg1, arg2, arg3);
-            pSurfaceFormatCount = *arg2;
+            var result = Commands.vkGetPhysicalDeviceSurfaceFormatsKHR(this, arg1, ref pSurfaceFormatCount, arg3);
             for (var i = 0; i < pSurfaceFormats.Length; ++i)
             {
                 pSurfaceFormats[i] = new SurfaceFormatKHR(arg3[i]);
@@ -1714,7 +2510,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         int CalculateSize(System.Span<PresentModeKHR> pPresentModes)
         {
             int totalSize = 0;
-            totalSize += pPresentModes.Length * sizeof(uint);
+            totalSize += pPresentModes.Length * sizeof(int);
             return totalSize;
         }
 
@@ -1725,13 +2521,11 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = surface == null ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
-            var arg2 = stackalloc uint[1];
-            *arg2 = pPresentModeCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalBlittableArray<AdamantiumVulkan.Core.PresentModeKHR>(pPresentModes, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSurfacePresentModesKHR(this, arg1, arg2, arg3);
-            pPresentModeCount = *arg2;
-            var arg3SourceSpan = new System.ReadOnlySpan<AdamantiumVulkan.Core.PresentModeKHR>(arg3, (int)pPresentModes.Length);
-            arg3SourceSpan.CopyTo(pPresentModes);
+            var result = Commands.vkGetPhysicalDeviceSurfacePresentModesKHR(this, arg1, ref pPresentModeCount, arg3);
+            var arg3SourceSpan = new System.ReadOnlySpan<AdamantiumVulkan.Core.PresentModeKHR>(arg3, (int)pPresentModeCount);
+            if(!pPresentModes.IsEmpty)
+                arg3SourceSpan.CopyTo(pPresentModes);
             return result;
         }
         finally
@@ -1744,13 +2538,49 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
     public Result GetPhysicalDeviceSurfaceSupportKHR(uint queueFamilyIndex, AdamantiumVulkan.Core.SurfaceKHR surface, out VkBool32 pSupported)
     {
         var arg2 = surface == null ? new VkSurfaceKHR_T() : (VkSurfaceKHR_T)surface;
-        VkBool32 arg3;
-        var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceSurfaceSupportKHR(this, queueFamilyIndex, arg2, out arg3);
-        pSupported = new VkBool32(arg3);
+        VkBool32 arg3 = default;
+        var result = Commands.vkGetPhysicalDeviceSurfaceSupportKHR(this, queueFamilyIndex, arg2, &arg3);
+        pSupported = arg3;
         return result;
     }
 
-    public Result GetPhysicalDeviceToolProperties(ref uint pToolCount, PhysicalDeviceToolProperties pToolProperties)
+    public Result GetPhysicalDeviceToolProperties(ref uint pToolCount, System.Span<PhysicalDeviceToolProperties> pToolProperties)
+    {
+        int CalculateSize(System.Span<PhysicalDeviceToolProperties> pToolProperties)
+        {
+            int totalSize = 0;
+            for (var i = 0U; i < pToolProperties.Length; i++)
+            {
+                if(pToolProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties>();
+                else
+                    totalSize += pToolProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pToolProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg2 = stackalloc AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties[(int)pToolProperties.Length];
+            var result = Commands.vkGetPhysicalDeviceToolProperties(this, ref pToolCount, arg2);
+            for (var i = 0; i < pToolProperties.Length; ++i)
+            {
+                pToolProperties[i] = new PhysicalDeviceToolProperties(arg2[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDeviceToolProperties(ref uint pToolCount, ref PhysicalDeviceToolProperties pToolProperties)
     {
         int CalculateSize(PhysicalDeviceToolProperties pToolProperties)
         {
@@ -1766,11 +2596,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pToolCount;
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceToolProperties, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties>(pToolProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceToolProperties(this, arg1, arg2);
-            pToolCount = *arg1;
+            var result = Commands.vkGetPhysicalDeviceToolProperties(this, ref pToolCount, arg2);
+            if (arg2 is not null)
+            {
+                pToolProperties = new AdamantiumVulkan.Core.PhysicalDeviceToolProperties(*arg2);
+            }
             return result;
         }
         finally
@@ -1780,57 +2611,27 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetPhysicalDeviceToolPropertiesEXT(ref uint pToolCount, PhysicalDeviceToolProperties pToolProperties)
+    public Result GetPhysicalDeviceVideoCapabilitiesKHR(in VideoProfileInfoKHR pVideoProfile, out VideoCapabilitiesKHR pCapabilities)
     {
-        int CalculateSize(PhysicalDeviceToolProperties pToolProperties)
-        {
-            int totalSize = 0;
-            if (pToolProperties != null)
-                totalSize += pToolProperties.GetSize();
-            return totalSize;
-        }
-
-        var totalSize = CalculateSize(pToolProperties);
-        byte[] rentedArray = null;
-        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
-        {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = stackalloc uint[1];
-            *arg1 = pToolCount;
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceToolProperties, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceToolProperties>(pToolProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceToolPropertiesEXT(this, arg1, arg2);
-            pToolCount = *arg1;
-            return result;
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
-        }
-    }
-
-    public Result GetPhysicalDeviceVideoCapabilitiesKHR(in VideoProfileInfoKHR pVideoProfile, VideoCapabilitiesKHR pCapabilities)
-    {
-        int CalculateSize(VideoProfileInfoKHR pVideoProfile, VideoCapabilitiesKHR pCapabilities)
+        int CalculateSize(VideoProfileInfoKHR pVideoProfile)
         {
             int totalSize = 0;
             if (pVideoProfile != null)
                 totalSize += pVideoProfile.GetSize();
-            if (pCapabilities != null)
-                totalSize += pCapabilities.GetSize();
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pVideoProfile, pCapabilities);
+        var totalSize = CalculateSize(pVideoProfile);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.VideoProfileInfoKHR, AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR>(pVideoProfile, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.VideoCapabilitiesKHR, AdamantiumVulkan.Core.Interop.VkVideoCapabilitiesKHR>(pCapabilities, ref currentCursor);
-            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceVideoCapabilitiesKHR(this, arg1, arg2);
+            AdamantiumVulkan.Core.Interop.VkVideoCapabilitiesKHR arg2 = default;
+            var result = Commands.vkGetPhysicalDeviceVideoCapabilitiesKHR(this, arg1, &arg2);
+            pCapabilities = new VideoCapabilitiesKHR(arg2);
+            return result;
         }
         finally
         {
@@ -1839,27 +2640,27 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR(in PhysicalDeviceVideoEncodeQualityLevelInfoKHR pQualityLevelInfo, VideoEncodeQualityLevelPropertiesKHR pQualityLevelProperties)
+    public Result GetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR(in PhysicalDeviceVideoEncodeQualityLevelInfoKHR pQualityLevelInfo, out VideoEncodeQualityLevelPropertiesKHR pQualityLevelProperties)
     {
-        int CalculateSize(PhysicalDeviceVideoEncodeQualityLevelInfoKHR pQualityLevelInfo, VideoEncodeQualityLevelPropertiesKHR pQualityLevelProperties)
+        int CalculateSize(PhysicalDeviceVideoEncodeQualityLevelInfoKHR pQualityLevelInfo)
         {
             int totalSize = 0;
             if (pQualityLevelInfo != null)
                 totalSize += pQualityLevelInfo.GetSize();
-            if (pQualityLevelProperties != null)
-                totalSize += pQualityLevelProperties.GetSize();
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pQualityLevelInfo, pQualityLevelProperties);
+        var totalSize = CalculateSize(pQualityLevelInfo);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceVideoEncodeQualityLevelInfoKHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR>(pQualityLevelInfo, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.VideoEncodeQualityLevelPropertiesKHR, AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelPropertiesKHR>(pQualityLevelProperties, ref currentCursor);
-            return AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR(this, arg1, arg2);
+            AdamantiumVulkan.Core.Interop.VkVideoEncodeQualityLevelPropertiesKHR arg2 = default;
+            var result = Commands.vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR(this, arg1, &arg2);
+            pQualityLevelProperties = new VideoEncodeQualityLevelPropertiesKHR(arg2);
+            return result;
         }
         finally
         {
@@ -1868,7 +2669,46 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         }
     }
 
-    public Result GetPhysicalDeviceVideoFormatPropertiesKHR(in PhysicalDeviceVideoFormatInfoKHR pVideoFormatInfo, ref uint pVideoFormatPropertyCount, VideoFormatPropertiesKHR pVideoFormatProperties)
+    public Result GetPhysicalDeviceVideoFormatPropertiesKHR(in PhysicalDeviceVideoFormatInfoKHR pVideoFormatInfo, ref uint pVideoFormatPropertyCount, System.Span<VideoFormatPropertiesKHR> pVideoFormatProperties)
+    {
+        int CalculateSize(PhysicalDeviceVideoFormatInfoKHR pVideoFormatInfo, System.Span<VideoFormatPropertiesKHR> pVideoFormatProperties)
+        {
+            int totalSize = 0;
+            if (pVideoFormatInfo != null)
+                totalSize += pVideoFormatInfo.GetSize();
+            for (var i = 0U; i < pVideoFormatProperties.Length; i++)
+            {
+                if(pVideoFormatProperties[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR>();
+                else
+                    totalSize += pVideoFormatProperties[(int)i].GetSize();
+            }
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pVideoFormatInfo, pVideoFormatProperties);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        try
+        {
+            ref System.Span<byte> currentCursor = ref mainBuffer;
+            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceVideoFormatInfoKHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR>(pVideoFormatInfo, ref currentCursor);
+            var arg3 = stackalloc AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR[(int)pVideoFormatProperties.Length];
+            var result = Commands.vkGetPhysicalDeviceVideoFormatPropertiesKHR(this, arg1, ref pVideoFormatPropertyCount, arg3);
+            for (var i = 0; i < pVideoFormatProperties.Length; ++i)
+            {
+                pVideoFormatProperties[i] = new VideoFormatPropertiesKHR(arg3[i]);
+            }
+            return result;
+        }
+        finally
+        {
+            if (rentedArray != null)
+                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+        }
+    }
+
+    public Result GetPhysicalDeviceVideoFormatPropertiesKHR(in PhysicalDeviceVideoFormatInfoKHR pVideoFormatInfo, ref uint pVideoFormatPropertyCount, ref VideoFormatPropertiesKHR pVideoFormatProperties)
     {
         int CalculateSize(PhysicalDeviceVideoFormatInfoKHR pVideoFormatInfo, VideoFormatPropertiesKHR pVideoFormatProperties)
         {
@@ -1887,11 +2727,12 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
         {
             ref System.Span<byte> currentCursor = ref mainBuffer;
             var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.PhysicalDeviceVideoFormatInfoKHR, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVideoFormatInfoKHR>(pVideoFormatInfo, ref currentCursor);
-            var arg2 = stackalloc uint[1];
-            *arg2 = pVideoFormatPropertyCount;
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Core.VideoFormatPropertiesKHR, AdamantiumVulkan.Core.Interop.VkVideoFormatPropertiesKHR>(pVideoFormatProperties, ref currentCursor);
-            var result = AdamantiumVulkan.Core.Interop.VulkanInterop.vkGetPhysicalDeviceVideoFormatPropertiesKHR(this, arg1, arg2, arg3);
-            pVideoFormatPropertyCount = *arg2;
+            var result = Commands.vkGetPhysicalDeviceVideoFormatPropertiesKHR(this, arg1, ref pVideoFormatPropertyCount, arg3);
+            if (arg3 is not null)
+            {
+                pVideoFormatProperties = new AdamantiumVulkan.Core.VideoFormatPropertiesKHR(*arg3);
+            }
             return result;
         }
         finally
@@ -1904,7 +2745,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<AdamantiumVulkan.
     public Result ReleaseDisplayEXT(AdamantiumVulkan.Core.DisplayKHR display)
     {
         var arg1 = display == null ? new VkDisplayKHR_T() : (VkDisplayKHR_T)display;
-        return AdamantiumVulkan.Core.Interop.VulkanInterop.vkReleaseDisplayEXT(this, arg1);
+        return Commands.vkReleaseDisplayEXT(this, arg1);
     }
 
     public ref readonly VkPhysicalDevice_T GetPinnableReference() => ref __Instance;

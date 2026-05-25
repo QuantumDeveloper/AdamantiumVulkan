@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoEncodeH264PictureInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoEncodeH264PictureInfoFlags>
+public unsafe partial class StdVideoEncodeH264PictureInfoFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264PictureInfoFlags>
 {
     public StdVideoEncodeH264PictureInfoFlags()
     {
     }
 
-    public StdVideoEncodeH264PictureInfoFlags(in AdamantiumVulkan.Interop.StdVideoEncodeH264PictureInfoFlags native)
+    public StdVideoEncodeH264PictureInfoFlags(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH264PictureInfoFlags native)
     {
         MarshalFrom(in native);
     }
@@ -30,23 +30,24 @@ public unsafe partial class StdVideoEncodeH264PictureInfoFlags : IMarshallableOb
     public uint Adaptive_ref_pic_marking_mode_flag { get; set; }
     public uint Reserved { get; set; }
 
-    public static implicit operator StdVideoEncodeH264PictureInfoFlags(AdamantiumVulkan.Interop.StdVideoEncodeH264PictureInfoFlags s)
+
+    public static implicit operator StdVideoEncodeH264PictureInfoFlags(AdamantiumVulkan.Core.Interop.StdVideoEncodeH264PictureInfoFlags s)
     {
         return new StdVideoEncodeH264PictureInfoFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoEncodeH264PictureInfoFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264PictureInfoFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264PictureInfoFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264PictureInfoFlags> context)
     {
         new StdVideoEncodeH264PictureInfoFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoEncodeH264PictureInfoFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoEncodeH264PictureInfoFlags native)
     {
         IdrPicFlag = native.IdrPicFlag;
         Is_reference = native.is_reference;
@@ -56,18 +57,18 @@ public unsafe partial class StdVideoEncodeH264PictureInfoFlags : IMarshallableOb
         Reserved = native.reserved;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoEncodeH264PictureInfoFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264PictureInfoFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264PictureInfoFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264PictureInfoFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoEncodeH264PictureInfoFlagsMarshaller
     {
-        public StdVideoEncodeH264PictureInfoFlagsMarshaller(AdamantiumVulkan.StdVideoEncodeH264PictureInfoFlags stdVideoEncodeH264PictureInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH264PictureInfoFlags> context)
+        public StdVideoEncodeH264PictureInfoFlagsMarshaller(AdamantiumVulkan.Core.StdVideoEncodeH264PictureInfoFlags stdVideoEncodeH264PictureInfoFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH264PictureInfoFlags> context)
         {
             context.Destination[0].IdrPicFlag = stdVideoEncodeH264PictureInfoFlags.IdrPicFlag;
 

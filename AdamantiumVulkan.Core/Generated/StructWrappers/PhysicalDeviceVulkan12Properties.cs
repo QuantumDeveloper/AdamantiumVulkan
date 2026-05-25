@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceVulkan12Properties : IMarshallableObje
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceVulkan12Properties;
     public object PNext { get; set; }
     public DriverId DriverID { get; set; }
     public string DriverName { get; set; }
@@ -69,14 +69,15 @@ public unsafe partial class PhysicalDeviceVulkan12Properties : IMarshallableObje
     public uint MaxDescriptorSetUpdateAfterBindSampledImages { get; set; }
     public uint MaxDescriptorSetUpdateAfterBindStorageImages { get; set; }
     public uint MaxDescriptorSetUpdateAfterBindInputAttachments { get; set; }
-    public VkResolveModeFlags SupportedDepthResolveModes { get; set; }
-    public VkResolveModeFlags SupportedStencilResolveModes { get; set; }
+    public ResolveModeFlagBits SupportedDepthResolveModes { get; set; }
+    public ResolveModeFlagBits SupportedStencilResolveModes { get; set; }
     public VkBool32 IndependentResolveNone { get; set; }
     public VkBool32 IndependentResolve { get; set; }
     public VkBool32 FilterMinmaxSingleComponentFormats { get; set; }
     public VkBool32 FilterMinmaxImageComponentMapping { get; set; }
     public ulong MaxTimelineSemaphoreValueDifference { get; set; }
-    public VkSampleCountFlags FramebufferIntegerColorSampleCounts { get; set; }
+    public SampleCountFlagBits FramebufferIntegerColorSampleCounts { get; set; }
+
 
     public static implicit operator PhysicalDeviceVulkan12Properties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan12Properties p)
     {
@@ -100,7 +101,6 @@ public unsafe partial class PhysicalDeviceVulkan12Properties : IMarshallableObje
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan12Properties native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         DriverID = native.driverID;
         fixed(sbyte* pSource = native.driverName)
@@ -162,14 +162,14 @@ public unsafe partial class PhysicalDeviceVulkan12Properties : IMarshallableObje
         FramebufferIntegerColorSampleCounts = native.framebufferIntegerColorSampleCounts;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan12Properties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan12Properties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceVulkan12PropertiesMarshaller
     {
@@ -183,11 +183,11 @@ public unsafe partial class PhysicalDeviceVulkan12Properties : IMarshallableObje
             }
             else if (physicalDeviceVulkan12Properties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceVulkan12Properties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].driverID = physicalDeviceVulkan12Properties.DriverID;
@@ -363,15 +363,9 @@ public unsafe partial class PhysicalDeviceVulkan12Properties : IMarshallableObje
 
             context.Destination[0].maxDescriptorSetUpdateAfterBindInputAttachments = physicalDeviceVulkan12Properties.MaxDescriptorSetUpdateAfterBindInputAttachments;
 
-            if (physicalDeviceVulkan12Properties.SupportedDepthResolveModes != (uint)default)
-            {
-                context.Destination[0].supportedDepthResolveModes = physicalDeviceVulkan12Properties.SupportedDepthResolveModes;
-            }
+            context.Destination[0].supportedDepthResolveModes = physicalDeviceVulkan12Properties.SupportedDepthResolveModes;
 
-            if (physicalDeviceVulkan12Properties.SupportedStencilResolveModes != (uint)default)
-            {
-                context.Destination[0].supportedStencilResolveModes = physicalDeviceVulkan12Properties.SupportedStencilResolveModes;
-            }
+            context.Destination[0].supportedStencilResolveModes = physicalDeviceVulkan12Properties.SupportedStencilResolveModes;
 
             if (physicalDeviceVulkan12Properties.IndependentResolveNone != (uint)default)
             {
@@ -395,10 +389,7 @@ public unsafe partial class PhysicalDeviceVulkan12Properties : IMarshallableObje
 
             context.Destination[0].maxTimelineSemaphoreValueDifference = physicalDeviceVulkan12Properties.MaxTimelineSemaphoreValueDifference;
 
-            if (physicalDeviceVulkan12Properties.FramebufferIntegerColorSampleCounts != (uint)default)
-            {
-                context.Destination[0].framebufferIntegerColorSampleCounts = physicalDeviceVulkan12Properties.FramebufferIntegerColorSampleCounts;
-            }
+            context.Destination[0].framebufferIntegerColorSampleCounts = physicalDeviceVulkan12Properties.FramebufferIntegerColorSampleCounts;
 
         }
     }

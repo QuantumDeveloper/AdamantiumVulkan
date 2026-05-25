@@ -23,9 +23,10 @@ public unsafe partial class OpaqueCaptureDescriptorDataCreateInfoEXT : IMarshall
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.OpaqueCaptureDescriptorDataCreateInfoExt;
     public object PNext { get; set; }
     public nuint OpaqueCaptureDescriptorData { get; set; }
+
 
     public static implicit operator OpaqueCaptureDescriptorDataCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkOpaqueCaptureDescriptorDataCreateInfoEXT o)
     {
@@ -49,19 +50,18 @@ public unsafe partial class OpaqueCaptureDescriptorDataCreateInfoEXT : IMarshall
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkOpaqueCaptureDescriptorDataCreateInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
-        OpaqueCaptureDescriptorData = native.opaqueCaptureDescriptorData;
+        OpaqueCaptureDescriptorData = (nuint)native.opaqueCaptureDescriptorData;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkOpaqueCaptureDescriptorDataCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkOpaqueCaptureDescriptorDataCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkOpaqueCaptureDescriptorDataCreateInfoEXTMarshaller
     {
@@ -75,14 +75,17 @@ public unsafe partial class OpaqueCaptureDescriptorDataCreateInfoEXT : IMarshall
             }
             else if (opaqueCaptureDescriptorDataCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (opaqueCaptureDescriptorDataCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            context.Destination[0].opaqueCaptureDescriptorData = opaqueCaptureDescriptorDataCreateInfoEXT.OpaqueCaptureDescriptorData;
+            if (opaqueCaptureDescriptorDataCreateInfoEXT.OpaqueCaptureDescriptorData != default)
+            {
+                context.Destination[0].opaqueCaptureDescriptorData = (void*)opaqueCaptureDescriptorDataCreateInfoEXT.OpaqueCaptureDescriptorData;
+            }
 
         }
     }

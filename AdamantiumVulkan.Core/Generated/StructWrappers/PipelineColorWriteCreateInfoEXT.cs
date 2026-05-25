@@ -23,10 +23,11 @@ public unsafe partial class PipelineColorWriteCreateInfoEXT : IMarshallableObjec
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PipelineColorWriteCreateInfoExt;
     public object PNext { get; set; }
     public uint AttachmentCount { get; set; }
     public System.ReadOnlyMemory<VkBool32> PColorWriteEnables { get; set; }
+
 
     public static implicit operator PipelineColorWriteCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineColorWriteCreateInfoEXT p)
     {
@@ -50,21 +51,22 @@ public unsafe partial class PipelineColorWriteCreateInfoEXT : IMarshallableObjec
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineColorWriteCreateInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         AttachmentCount = native.attachmentCount;
-        var tmpPColorWriteEnables = new VkBool32[native.attachmentCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pColorWriteEnables, native.attachmentCount, tmpPColorWriteEnables);
+        var arrayLengthPColorWriteEnables = native.attachmentCount;
+        var tmpPColorWriteEnables = new VkBool32[arrayLengthPColorWriteEnables];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pColorWriteEnables, arrayLengthPColorWriteEnables, tmpPColorWriteEnables);
+        PColorWriteEnables = tmpPColorWriteEnables;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineColorWriteCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineColorWriteCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineColorWriteCreateInfoEXTMarshaller
     {
@@ -78,11 +80,11 @@ public unsafe partial class PipelineColorWriteCreateInfoEXT : IMarshallableObjec
             }
             else if (pipelineColorWriteCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineColorWriteCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].attachmentCount = pipelineColorWriteCreateInfoEXT.AttachmentCount;

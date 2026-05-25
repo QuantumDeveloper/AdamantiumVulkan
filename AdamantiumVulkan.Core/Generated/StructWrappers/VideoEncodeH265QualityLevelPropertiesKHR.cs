@@ -23,9 +23,9 @@ public unsafe partial class VideoEncodeH265QualityLevelPropertiesKHR : IMarshall
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeH265QualityLevelPropertiesKhr;
     public object PNext { get; set; }
-    public VkVideoEncodeH265RateControlFlagsKHR PreferredRateControlFlags { get; set; }
+    public VideoEncodeH265RateControlFlagBitsKHR PreferredRateControlFlags { get; set; }
     public uint PreferredGopFrameCount { get; set; }
     public uint PreferredIdrPeriod { get; set; }
     public uint PreferredConsecutiveBFrameCount { get; set; }
@@ -33,6 +33,7 @@ public unsafe partial class VideoEncodeH265QualityLevelPropertiesKHR : IMarshall
     public VideoEncodeH265QpKHR PreferredConstantQp { get; set; }
     public uint PreferredMaxL0ReferenceCount { get; set; }
     public uint PreferredMaxL1ReferenceCount { get; set; }
+
 
     public static implicit operator VideoEncodeH265QualityLevelPropertiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH265QualityLevelPropertiesKHR v)
     {
@@ -56,7 +57,6 @@ public unsafe partial class VideoEncodeH265QualityLevelPropertiesKHR : IMarshall
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeH265QualityLevelPropertiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PreferredRateControlFlags = native.preferredRateControlFlags;
         PreferredGopFrameCount = native.preferredGopFrameCount;
@@ -68,14 +68,14 @@ public unsafe partial class VideoEncodeH265QualityLevelPropertiesKHR : IMarshall
         PreferredMaxL1ReferenceCount = native.preferredMaxL1ReferenceCount;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeH265QualityLevelPropertiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeH265QualityLevelPropertiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeH265QualityLevelPropertiesKHRMarshaller
     {
@@ -89,17 +89,14 @@ public unsafe partial class VideoEncodeH265QualityLevelPropertiesKHR : IMarshall
             }
             else if (videoEncodeH265QualityLevelPropertiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeH265QualityLevelPropertiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (videoEncodeH265QualityLevelPropertiesKHR.PreferredRateControlFlags != (uint)default)
-            {
-                context.Destination[0].preferredRateControlFlags = videoEncodeH265QualityLevelPropertiesKHR.PreferredRateControlFlags;
-            }
+            context.Destination[0].preferredRateControlFlags = videoEncodeH265QualityLevelPropertiesKHR.PreferredRateControlFlags;
 
             context.Destination[0].preferredGopFrameCount = videoEncodeH265QualityLevelPropertiesKHR.PreferredGopFrameCount;
 

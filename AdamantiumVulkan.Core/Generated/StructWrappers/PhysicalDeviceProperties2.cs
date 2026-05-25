@@ -27,6 +27,7 @@ public unsafe partial class PhysicalDeviceProperties2 : IMarshallableObject, IMa
     public object PNext { get; set; }
     public PhysicalDeviceProperties Properties { get; set; }
 
+
     public static implicit operator PhysicalDeviceProperties2(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2 p)
     {
         return new PhysicalDeviceProperties2(in p);
@@ -53,14 +54,14 @@ public unsafe partial class PhysicalDeviceProperties2 : IMarshallableObject, IMa
         Properties = new PhysicalDeviceProperties(native.properties);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceProperties2>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceProperties2Marshaller
     {
@@ -74,11 +75,11 @@ public unsafe partial class PhysicalDeviceProperties2 : IMarshallableObject, IMa
             }
             else if (physicalDeviceProperties2.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceProperties2.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceProperties2.Properties != default)

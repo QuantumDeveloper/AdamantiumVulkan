@@ -23,12 +23,13 @@ public unsafe partial class PhysicalDeviceDescriptorBufferFeaturesEXT : IMarshal
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceDescriptorBufferFeaturesExt;
     public object PNext { get; set; }
     public VkBool32 DescriptorBuffer { get; set; }
     public VkBool32 DescriptorBufferCaptureReplay { get; set; }
     public VkBool32 DescriptorBufferImageLayoutIgnored { get; set; }
     public VkBool32 DescriptorBufferPushDescriptors { get; set; }
+
 
     public static implicit operator PhysicalDeviceDescriptorBufferFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferFeaturesEXT p)
     {
@@ -52,7 +53,6 @@ public unsafe partial class PhysicalDeviceDescriptorBufferFeaturesEXT : IMarshal
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferFeaturesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         DescriptorBuffer = native.descriptorBuffer;
         DescriptorBufferCaptureReplay = native.descriptorBufferCaptureReplay;
@@ -60,14 +60,14 @@ public unsafe partial class PhysicalDeviceDescriptorBufferFeaturesEXT : IMarshal
         DescriptorBufferPushDescriptors = native.descriptorBufferPushDescriptors;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferFeaturesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferFeaturesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceDescriptorBufferFeaturesEXTMarshaller
     {
@@ -81,11 +81,11 @@ public unsafe partial class PhysicalDeviceDescriptorBufferFeaturesEXT : IMarshal
             }
             else if (physicalDeviceDescriptorBufferFeaturesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceDescriptorBufferFeaturesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceDescriptorBufferFeaturesEXT.DescriptorBuffer != (uint)default)

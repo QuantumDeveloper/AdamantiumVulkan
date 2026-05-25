@@ -23,9 +23,10 @@ public unsafe partial class PipelineCompilerControlCreateInfoAMD : IMarshallable
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PipelineCompilerControlCreateInfoAmd;
     public object PNext { get; set; }
-    public VkPipelineCompilerControlFlagsAMD CompilerControlFlags { get; set; }
+    public PipelineCompilerControlFlagBitsAMD CompilerControlFlags { get; set; }
+
 
     public static implicit operator PipelineCompilerControlCreateInfoAMD(AdamantiumVulkan.Core.Interop.VkPipelineCompilerControlCreateInfoAMD p)
     {
@@ -49,19 +50,18 @@ public unsafe partial class PipelineCompilerControlCreateInfoAMD : IMarshallable
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineCompilerControlCreateInfoAMD native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         CompilerControlFlags = native.compilerControlFlags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineCompilerControlCreateInfoAMD>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineCompilerControlCreateInfoAMD>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineCompilerControlCreateInfoAMDMarshaller
     {
@@ -75,17 +75,14 @@ public unsafe partial class PipelineCompilerControlCreateInfoAMD : IMarshallable
             }
             else if (pipelineCompilerControlCreateInfoAMD.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineCompilerControlCreateInfoAMD.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (pipelineCompilerControlCreateInfoAMD.CompilerControlFlags != (uint)default)
-            {
-                context.Destination[0].compilerControlFlags = pipelineCompilerControlCreateInfoAMD.CompilerControlFlags;
-            }
+            context.Destination[0].compilerControlFlags = pipelineCompilerControlCreateInfoAMD.CompilerControlFlags;
 
         }
     }

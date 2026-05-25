@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 20295 Column: 30
+// File: video.xml Line: 18640 Column: 10
 public unsafe struct PFN_vkLatencySleepNV
 {
     public PFN_vkLatencySleepNV(nuint ptr) : this((void*) ptr) { }

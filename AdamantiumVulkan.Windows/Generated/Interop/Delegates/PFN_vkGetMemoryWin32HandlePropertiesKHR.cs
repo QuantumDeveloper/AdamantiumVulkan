@@ -15,7 +15,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Windows.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_win32.h Line: 85 Column: 30
+// File: video.xml Line: 15927 Column: 10
 public unsafe struct PFN_vkGetMemoryWin32HandlePropertiesKHR
 {
     public PFN_vkGetMemoryWin32HandlePropertiesKHR(nuint ptr) : this((void*) ptr) { }
@@ -23,24 +23,24 @@ public unsafe struct PFN_vkGetMemoryWin32HandlePropertiesKHR
     public PFN_vkGetMemoryWin32HandlePropertiesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, System.IntPtr, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, nuint, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, System.IntPtr, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, nuint, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, System.IntPtr handle, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR* pMemoryWin32HandleProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, nuint handle, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR* pMemoryWin32HandleProperties)
     {
         return InvokeFunc(device, handleType, handle, pMemoryWin32HandleProperties);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, System.IntPtr handle, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR* pMemoryWin32HandleProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, nuint handle, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR* pMemoryWin32HandleProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, System.IntPtr, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR*, Result>)ptr)(device, handleType, handle, pMemoryWin32HandleProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, nuint, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR*, Result>)ptr)(device, handleType, handle, pMemoryWin32HandleProperties);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, System.IntPtr handle, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR* pMemoryWin32HandleProperties)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, ExternalMemoryHandleTypeFlagBits handleType, nuint handle, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR* pMemoryWin32HandleProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, System.IntPtr, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR*, Result>)(void*)ptr)(device, handleType, handle, pMemoryWin32HandleProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, ExternalMemoryHandleTypeFlagBits, nuint, AdamantiumVulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR*, Result>)(void*)ptr)(device, handleType, handle, pMemoryWin32HandleProperties);
     }
 
     public static explicit operator PFN_vkGetMemoryWin32HandlePropertiesKHR(void* ptr) => new(ptr);

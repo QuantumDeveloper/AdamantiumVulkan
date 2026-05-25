@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18386 Column: 14
+// File: vk.xml Line: 13249 Column: 6
 [Flags]
-public enum AccelerationStructureCompatibilityKHR : uint
+public enum AccelerationStructureCompatibilityKHR : int
 {
     CompatibleKhr = 0,
 
     IncompatibleKhr = 1,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

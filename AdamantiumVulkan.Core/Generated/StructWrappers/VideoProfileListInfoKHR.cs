@@ -23,10 +23,11 @@ public unsafe partial class VideoProfileListInfoKHR : IMarshallableObject, IMars
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoProfileListInfoKhr;
     public object PNext { get; set; }
     public uint ProfileCount { get; set; }
-    public VideoProfileInfoKHR Profiles { get; set; }
+    public System.ReadOnlyMemory<VideoProfileInfoKHR> Profiles { get; set; }
+
 
     public static implicit operator VideoProfileListInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoProfileListInfoKHR v)
     {
@@ -40,9 +41,15 @@ public unsafe partial class VideoProfileListInfoKHR : IMarshallableObject, IMars
         {
             size += marshallable.GetSize();
         }
-        if (Profiles != default)
+        if (!Profiles.IsEmpty)
         {
-            size += Profiles.GetSize();
+            for (int i = 0; i < Profiles.Length; i++)
+            {
+                if (Profiles.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR>();
+                else
+                    size += Profiles.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -54,21 +61,27 @@ public unsafe partial class VideoProfileListInfoKHR : IMarshallableObject, IMars
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoProfileListInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ProfileCount = native.profileCount;
-        Profiles = new VideoProfileInfoKHR(in *native.pProfiles);
-        NativeUtils.Free(native.pProfiles);
+        var arrayLengthProfiles = native.profileCount;
+        var tmpProfiles = new VideoProfileInfoKHR[arrayLengthProfiles];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR[arrayLengthProfiles];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pProfiles, arrayLengthProfiles, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpProfiles[i] = new VideoProfileInfoKHR(in nativeTmpArray0[i]);
+        }
+        Profiles = tmpProfiles;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoProfileListInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoProfileListInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoProfileListInfoKHRMarshaller
     {
@@ -82,23 +95,18 @@ public unsafe partial class VideoProfileListInfoKHR : IMarshallableObject, IMars
             }
             else if (videoProfileListInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoProfileListInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].profileCount = videoProfileListInfoKHR.ProfileCount;
 
-            if (videoProfileListInfoKHR.Profiles != default)
+            if (!videoProfileListInfoKHR.Profiles.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR>(structSlice0).Slice(0, 1);
-                context.Destination[0].pProfiles = (AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR>(structDestination0, context.DataCursor);
-                videoProfileListInfoKHR.Profiles.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pProfiles = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.VideoProfileInfoKHR, AdamantiumVulkan.Core.Interop.VkVideoProfileInfoKHR, AdamantiumVulkan.Core.Interop.VkVideoProfileListInfoKHR>(videoProfileListInfoKHR.Profiles, ref context);
             }
 
         }

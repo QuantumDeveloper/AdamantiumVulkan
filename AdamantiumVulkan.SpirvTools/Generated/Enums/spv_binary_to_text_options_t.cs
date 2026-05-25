@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 386 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 410 Column: 14
 [Flags]
 public enum spv_binary_to_text_options_t : uint
 {
@@ -50,6 +50,14 @@ public enum spv_binary_to_text_options_t : uint
     ///</summary>
     BinaryToTextOptionReorderBlocks = 512,
 
+    ///<summary>
+    /// Handle unknown opcodes and unknown extended instruction numbers by emitting them as OpUnknown instructions with raw integer operands.
+    ///</summary>
+    BinaryToTextOptionHandleUnknownOpcodes = 1024,
+
+    ///<summary>
+    /// Handle unknown opcodes and unknown extended instruction numbers by emitting them as OpUnknown instructions with raw integer operands.
+    ///</summary>
     Force32bitSpvBinaryToTextOptionsT = 2147483647,
 
 }

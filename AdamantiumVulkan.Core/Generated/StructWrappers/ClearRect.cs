@@ -27,6 +27,7 @@ public unsafe partial class ClearRect : IMarshallableObject, IMarshallable<Adama
     public uint BaseArrayLayer { get; set; }
     public uint LayerCount { get; set; }
 
+
     public static implicit operator ClearRect(AdamantiumVulkan.Core.Interop.VkClearRect c)
     {
         return new ClearRect(in c);
@@ -50,14 +51,14 @@ public unsafe partial class ClearRect : IMarshallableObject, IMarshallable<Adama
         LayerCount = native.layerCount;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkClearRect>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkClearRect>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkClearRectMarshaller
     {

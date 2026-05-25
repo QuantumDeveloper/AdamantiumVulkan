@@ -23,7 +23,7 @@ public unsafe partial class IndirectCommandsLayoutTokenNV : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.IndirectCommandsLayoutTokenNv;
     public object PNext { get; set; }
     public IndirectCommandsTokenTypeNV TokenType { get; set; }
     public uint Stream { get; set; }
@@ -31,13 +31,14 @@ public unsafe partial class IndirectCommandsLayoutTokenNV : IMarshallableObject,
     public uint VertexBindingUnit { get; set; }
     public VkBool32 VertexDynamicStride { get; set; }
     public PipelineLayout PushconstantPipelineLayout { get; set; }
-    public VkShaderStageFlags PushconstantShaderStageFlags { get; set; }
+    public ShaderStageFlagBits PushconstantShaderStageFlags { get; set; }
     public uint PushconstantOffset { get; set; }
     public uint PushconstantSize { get; set; }
-    public VkIndirectStateFlagsNV IndirectStateFlags { get; set; }
+    public IndirectStateFlagBitsNV IndirectStateFlags { get; set; }
     public uint IndexTypeCount { get; set; }
     public System.ReadOnlyMemory<IndexType> PIndexTypes { get; set; }
     public System.ReadOnlyMemory<uint> PIndexTypeValues { get; set; }
+
 
     public static implicit operator IndirectCommandsLayoutTokenNV(AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV i)
     {
@@ -52,7 +53,7 @@ public unsafe partial class IndirectCommandsLayoutTokenNV : IMarshallableObject,
             size += marshallable.GetSize();
         }
         if (!PIndexTypes.IsEmpty)
-            size += PIndexTypes.Span.Length * sizeof(uint);
+            size += PIndexTypes.Span.Length * sizeof(int);
         if (!PIndexTypeValues.IsEmpty)
             size += PIndexTypeValues.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
@@ -65,7 +66,6 @@ public unsafe partial class IndirectCommandsLayoutTokenNV : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         TokenType = native.tokenType;
         Stream = native.stream;
@@ -78,20 +78,24 @@ public unsafe partial class IndirectCommandsLayoutTokenNV : IMarshallableObject,
         PushconstantSize = native.pushconstantSize;
         IndirectStateFlags = native.indirectStateFlags;
         IndexTypeCount = native.indexTypeCount;
-        var tmpPIndexTypes = new IndexType[native.indexTypeCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pIndexTypes, native.indexTypeCount, tmpPIndexTypes);
-        var tmpPIndexTypeValues = new uint[native.indexTypeCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pIndexTypeValues, native.indexTypeCount, tmpPIndexTypeValues);
+        var arrayLengthPIndexTypes = native.indexTypeCount;
+        var tmpPIndexTypes = new IndexType[arrayLengthPIndexTypes];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pIndexTypes, arrayLengthPIndexTypes, tmpPIndexTypes);
+        PIndexTypes = tmpPIndexTypes;
+        var arrayLengthPIndexTypeValues = native.indexTypeCount;
+        var tmpPIndexTypeValues = new uint[arrayLengthPIndexTypeValues];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pIndexTypeValues, arrayLengthPIndexTypeValues, tmpPIndexTypeValues);
+        PIndexTypeValues = tmpPIndexTypeValues;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkIndirectCommandsLayoutTokenNVMarshaller
     {
@@ -105,11 +109,11 @@ public unsafe partial class IndirectCommandsLayoutTokenNV : IMarshallableObject,
             }
             else if (indirectCommandsLayoutTokenNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (indirectCommandsLayoutTokenNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].tokenType = indirectCommandsLayoutTokenNV.TokenType;
@@ -130,31 +134,25 @@ public unsafe partial class IndirectCommandsLayoutTokenNV : IMarshallableObject,
                 context.Destination[0].pushconstantPipelineLayout = indirectCommandsLayoutTokenNV.PushconstantPipelineLayout;
             }
 
-            if (indirectCommandsLayoutTokenNV.PushconstantShaderStageFlags != (uint)default)
-            {
-                context.Destination[0].pushconstantShaderStageFlags = indirectCommandsLayoutTokenNV.PushconstantShaderStageFlags;
-            }
+            context.Destination[0].pushconstantShaderStageFlags = indirectCommandsLayoutTokenNV.PushconstantShaderStageFlags;
 
             context.Destination[0].pushconstantOffset = indirectCommandsLayoutTokenNV.PushconstantOffset;
 
             context.Destination[0].pushconstantSize = indirectCommandsLayoutTokenNV.PushconstantSize;
 
-            if (indirectCommandsLayoutTokenNV.IndirectStateFlags != (uint)default)
-            {
-                context.Destination[0].indirectStateFlags = indirectCommandsLayoutTokenNV.IndirectStateFlags;
-            }
+            context.Destination[0].indirectStateFlags = indirectCommandsLayoutTokenNV.IndirectStateFlags;
 
             context.Destination[0].indexTypeCount = indirectCommandsLayoutTokenNV.IndexTypeCount;
 
             if (!indirectCommandsLayoutTokenNV.PIndexTypes.IsEmpty)
             {
-                var sizeInBytes = sizeof(uint) * indirectCommandsLayoutTokenNV.PIndexTypes.Length;
+                var sizeInBytes = sizeof(int) * indirectCommandsLayoutTokenNV.PIndexTypes.Length;
                 var byteSpan = context.AllocateData(sizeInBytes);
-                var enumSpanPIndexTypes = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, uint>(byteSpan);
+                var enumSpanPIndexTypes = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, int>(byteSpan);
                 context.Destination[0].pIndexTypes = (AdamantiumVulkan.Core.IndexType*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPIndexTypes));
                 for (int i = 0; i < enumSpanPIndexTypes.Length; i++)
                 {
-                    enumSpanPIndexTypes[i] = (uint)indirectCommandsLayoutTokenNV.PIndexTypes.Span[i];
+                    enumSpanPIndexTypes[i] = (int)indirectCommandsLayoutTokenNV.PIndexTypes.Span[i];
                 }
             }
 

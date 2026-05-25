@@ -23,10 +23,11 @@ public unsafe partial class PipelineViewportDepthClampControlCreateInfoEXT : IMa
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PipelineViewportDepthClampControlCreateInfoExt;
     public object PNext { get; set; }
     public DepthClampModeEXT DepthClampMode { get; set; }
     public DepthClampRangeEXT PDepthClampRange { get; set; }
+
 
     public static implicit operator PipelineViewportDepthClampControlCreateInfoEXT(AdamantiumVulkan.Core.Interop.VkPipelineViewportDepthClampControlCreateInfoEXT p)
     {
@@ -54,21 +55,20 @@ public unsafe partial class PipelineViewportDepthClampControlCreateInfoEXT : IMa
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineViewportDepthClampControlCreateInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         DepthClampMode = native.depthClampMode;
         PDepthClampRange = new DepthClampRangeEXT(in *native.pDepthClampRange);
         NativeUtils.Free(native.pDepthClampRange);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineViewportDepthClampControlCreateInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineViewportDepthClampControlCreateInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineViewportDepthClampControlCreateInfoEXTMarshaller
     {
@@ -82,11 +82,11 @@ public unsafe partial class PipelineViewportDepthClampControlCreateInfoEXT : IMa
             }
             else if (pipelineViewportDepthClampControlCreateInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineViewportDepthClampControlCreateInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].depthClampMode = pipelineViewportDepthClampControlCreateInfoEXT.DepthClampMode;

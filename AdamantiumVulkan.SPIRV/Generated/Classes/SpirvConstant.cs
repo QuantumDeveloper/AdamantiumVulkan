@@ -13,7 +13,7 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv_cross\spirv_cross_c.h Line: 79 Column: 33
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 79 Column: 33
 public unsafe partial class SpirvConstant : IUnmanagedWrapper<AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantS>
 {
     internal SpvcConstantS __Instance;
@@ -92,16 +92,13 @@ public unsafe partial class SpirvConstant : IUnmanagedWrapper<AdamantiumVulkan.S
 
     public void GetSubconstants(out SpvcConstantId[] constituents, ref ulong count)
     {
-        AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantId* arg1 = null;
-        var arg2 = stackalloc ulong[1];
-        *arg2 = count;
-        AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_get_subconstants(this, out arg1, arg2);
+        AdamantiumVulkan.Spirv.Cross.Interop.SpvcConstantId* arg1 = default;
+        AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_get_subconstants(this, out arg1, ref count);
         constituents = new SpvcConstantId[count];
         for (var i = 0; i < (int)count; ++i)
         {
             constituents[i] = arg1[i];
         }
-        count = *arg2;
     }
 
     ///<summary>

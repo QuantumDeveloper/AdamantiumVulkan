@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8718 Column: 30
+// File: video.xml Line: 15555 Column: 10
 public unsafe struct PFN_vkGetSwapchainImagesKHR
 {
     public PFN_vkGetSwapchainImagesKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetSwapchainImagesKHR
     public PFN_vkGetSwapchainImagesKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkImage_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkImage_T*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkImage_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkImage_T*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint* pSwapchainImageCount, out AdamantiumVulkan.Core.Interop.VkImage_T pSwapchainImages)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint pSwapchainImageCount, AdamantiumVulkan.Core.Interop.VkImage_T* pSwapchainImages)
     {
-        return InvokeFunc(device, swapchain, ref pSwapchainImageCount, out pSwapchainImages);
+        return InvokeFunc(device, swapchain, ref pSwapchainImageCount, pSwapchainImages);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint* pSwapchainImageCount, out AdamantiumVulkan.Core.Interop.VkImage_T pSwapchainImages)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint pSwapchainImageCount, AdamantiumVulkan.Core.Interop.VkImage_T* pSwapchainImages)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkImage_T, Result>)ptr)(device, swapchain, ref pSwapchainImageCount, out pSwapchainImages);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkImage_T*, Result>)ptr)(device, swapchain, ref pSwapchainImageCount, pSwapchainImages);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint* pSwapchainImageCount, out AdamantiumVulkan.Core.Interop.VkImage_T pSwapchainImages)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, ref uint pSwapchainImageCount, AdamantiumVulkan.Core.Interop.VkImage_T* pSwapchainImages)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint*, out AdamantiumVulkan.Core.Interop.VkImage_T, Result>)(void*)ptr)(device, swapchain, ref pSwapchainImageCount, out pSwapchainImages);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, ref uint, AdamantiumVulkan.Core.Interop.VkImage_T*, Result>)(void*)ptr)(device, swapchain, ref pSwapchainImageCount, pSwapchainImages);
     }
 
     public static explicit operator PFN_vkGetSwapchainImagesKHR(void* ptr) => new(ptr);

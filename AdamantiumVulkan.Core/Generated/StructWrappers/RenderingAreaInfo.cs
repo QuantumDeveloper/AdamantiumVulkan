@@ -23,13 +23,14 @@ public unsafe partial class RenderingAreaInfo : IMarshallableObject, IMarshallab
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.RenderingAreaInfo;
     public object PNext { get; set; }
     public uint ViewMask { get; set; }
     public uint ColorAttachmentCount { get; set; }
-    public Format? PColorAttachmentFormats { get; set; }
+    public System.ReadOnlyMemory<Format> PColorAttachmentFormats { get; set; }
     public Format DepthAttachmentFormat { get; set; }
     public Format StencilAttachmentFormat { get; set; }
+
 
     public static implicit operator RenderingAreaInfo(AdamantiumVulkan.Core.Interop.VkRenderingAreaInfo r)
     {
@@ -43,6 +44,8 @@ public unsafe partial class RenderingAreaInfo : IMarshallableObject, IMarshallab
         {
             size += marshallable.GetSize();
         }
+        if (!PColorAttachmentFormats.IsEmpty)
+            size += PColorAttachmentFormats.Span.Length * sizeof(int);
         return size;
     }
 
@@ -53,23 +56,25 @@ public unsafe partial class RenderingAreaInfo : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkRenderingAreaInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ViewMask = native.viewMask;
         ColorAttachmentCount = native.colorAttachmentCount;
-        PColorAttachmentFormats = *native.pColorAttachmentFormats;
+        var arrayLengthPColorAttachmentFormats = native.colorAttachmentCount;
+        var tmpPColorAttachmentFormats = new Format[arrayLengthPColorAttachmentFormats];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pColorAttachmentFormats, arrayLengthPColorAttachmentFormats, tmpPColorAttachmentFormats);
+        PColorAttachmentFormats = tmpPColorAttachmentFormats;
         DepthAttachmentFormat = native.depthAttachmentFormat;
         StencilAttachmentFormat = native.stencilAttachmentFormat;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkRenderingAreaInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkRenderingAreaInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkRenderingAreaInfoMarshaller
     {
@@ -83,21 +88,28 @@ public unsafe partial class RenderingAreaInfo : IMarshallableObject, IMarshallab
             }
             else if (renderingAreaInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (renderingAreaInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].viewMask = renderingAreaInfo.ViewMask;
 
             context.Destination[0].colorAttachmentCount = renderingAreaInfo.ColorAttachmentCount;
 
-            var enumSpanPColorAttachmentFormats = context.AllocateData(sizeof(uint));
-            ref uint enumValuePColorAttachmentFormats = ref System.Runtime.InteropServices.MemoryMarshal.AsRef<uint>(enumSpanPColorAttachmentFormats);
-            enumValuePColorAttachmentFormats = (uint)renderingAreaInfo.PColorAttachmentFormats;
-            context.Destination[0].pColorAttachmentFormats = (AdamantiumVulkan.Core.Format*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPColorAttachmentFormats));
+            if (!renderingAreaInfo.PColorAttachmentFormats.IsEmpty)
+            {
+                var sizeInBytes = sizeof(int) * renderingAreaInfo.PColorAttachmentFormats.Length;
+                var byteSpan = context.AllocateData(sizeInBytes);
+                var enumSpanPColorAttachmentFormats = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, int>(byteSpan);
+                context.Destination[0].pColorAttachmentFormats = (AdamantiumVulkan.Core.Format*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPColorAttachmentFormats));
+                for (int i = 0; i < enumSpanPColorAttachmentFormats.Length; i++)
+                {
+                    enumSpanPColorAttachmentFormats[i] = (int)renderingAreaInfo.PColorAttachmentFormats.Span[i];
+                }
+            }
 
             context.Destination[0].depthAttachmentFormat = renderingAreaInfo.DepthAttachmentFormat;
 

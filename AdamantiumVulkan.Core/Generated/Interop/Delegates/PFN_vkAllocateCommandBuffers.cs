@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4241 Column: 30
+// File: video.xml Line: 14969 Column: 10
 public unsafe struct PFN_vkAllocateCommandBuffers
 {
     public PFN_vkAllocateCommandBuffers(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkAllocateCommandBuffers
     public PFN_vkAllocateCommandBuffers(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo*, out AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo*, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo*, out AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo*, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo* pAllocateInfo, out AdamantiumVulkan.Core.Interop.VkCommandBuffer_T pCommandBuffers)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo* pAllocateInfo, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T* pCommandBuffers)
     {
-        return InvokeFunc(device, pAllocateInfo, out pCommandBuffers);
+        return InvokeFunc(device, pAllocateInfo, pCommandBuffers);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo* pAllocateInfo, out AdamantiumVulkan.Core.Interop.VkCommandBuffer_T pCommandBuffers)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo* pAllocateInfo, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T* pCommandBuffers)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo*, out AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, Result>)ptr)(device, pAllocateInfo, out pCommandBuffers);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo*, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T*, Result>)ptr)(device, pAllocateInfo, pCommandBuffers);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo* pAllocateInfo, out AdamantiumVulkan.Core.Interop.VkCommandBuffer_T pCommandBuffers)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo* pAllocateInfo, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T* pCommandBuffers)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo*, out AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, Result>)(void*)ptr)(device, pAllocateInfo, out pCommandBuffers);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkCommandBufferAllocateInfo*, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T*, Result>)(void*)ptr)(device, pAllocateInfo, pCommandBuffers);
     }
 
     public static explicit operator PFN_vkAllocateCommandBuffers(void* ptr) => new(ptr);

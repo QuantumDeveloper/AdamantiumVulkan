@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2503 Column: 14
+// File: vk.xml Line: 12696 Column: 6
 [Flags]
 public enum SampleCountFlagBits : uint
 {
@@ -28,8 +28,6 @@ public enum SampleCountFlagBits : uint
     _32Bit = 32,
 
     _64Bit = 64,
-
-    FlagBitsMaxEnum = 2147483647,
 
 }
 

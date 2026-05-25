@@ -8,11 +8,11 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using AdamantiumVulkan;
+using AdamantiumVulkan.Core;
 
-namespace AdamantiumVulkan.Interop;
+namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_h265std.h Line: 326 Column: 16
+// File: video.xml Line: 571 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoH265SequenceParameterSet
 {
@@ -48,13 +48,13 @@ public unsafe partial struct StdVideoH265SequenceParameterSet
     public uint conf_win_right_offset;
     public uint conf_win_top_offset;
     public uint conf_win_bottom_offset;
-    public AdamantiumVulkan.Interop.StdVideoH265ProfileTierLevel* pProfileTierLevel;
-    public AdamantiumVulkan.Interop.StdVideoH265DecPicBufMgr* pDecPicBufMgr;
-    public AdamantiumVulkan.Interop.StdVideoH265ScalingLists* pScalingLists;
-    public AdamantiumVulkan.Interop.StdVideoH265ShortTermRefPicSet* pShortTermRefPicSet;
-    public AdamantiumVulkan.Interop.StdVideoH265LongTermRefPicsSps* pLongTermRefPicsSps;
-    public AdamantiumVulkan.Interop.StdVideoH265SequenceParameterSetVui* pSequenceParameterSetVui;
-    public AdamantiumVulkan.Interop.StdVideoH265PredictorPaletteEntries* pPredictorPaletteEntries;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265ProfileTierLevel* pProfileTierLevel;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265DecPicBufMgr* pDecPicBufMgr;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265ScalingLists* pScalingLists;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265ShortTermRefPicSet* pShortTermRefPicSet;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265LongTermRefPicsSps* pLongTermRefPicsSps;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265SequenceParameterSetVui* pSequenceParameterSetVui;
+    public AdamantiumVulkan.Core.Interop.StdVideoH265PredictorPaletteEntries* pPredictorPaletteEntries;
 }
 
 

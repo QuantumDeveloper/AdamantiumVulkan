@@ -23,18 +23,19 @@ public unsafe partial class MicromapBuildInfoEXT : IMarshallableObject, IMarshal
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.MicromapBuildInfoExt;
     public object PNext { get; set; }
     public MicromapTypeEXT Type { get; set; }
-    public VkBuildMicromapFlagsEXT Flags { get; set; }
+    public BuildMicromapFlagBitsEXT Flags { get; set; }
     public BuildMicromapModeEXT Mode { get; set; }
     public MicromapEXT DstMicromap { get; set; }
     public uint UsageCountsCount { get; set; }
-    public MicromapUsageEXT PUsageCounts { get; set; }
+    public System.ReadOnlyMemory<MicromapUsageEXT> PUsageCounts { get; set; }
     public DeviceOrHostAddressConstKHR Data { get; set; }
     public DeviceOrHostAddressKHR ScratchData { get; set; }
     public DeviceOrHostAddressConstKHR TriangleArray { get; set; }
     public VkDeviceSize TriangleArrayStride { get; set; }
+
 
     public static implicit operator MicromapBuildInfoEXT(AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT m)
     {
@@ -48,10 +49,22 @@ public unsafe partial class MicromapBuildInfoEXT : IMarshallableObject, IMarshal
         {
             size += marshallable.GetSize();
         }
-        if (PUsageCounts != default)
+        if (!PUsageCounts.IsEmpty)
         {
-            size += PUsageCounts.GetSize();
+            for (int i = 0; i < PUsageCounts.Length; i++)
+            {
+                if (PUsageCounts.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT>();
+                else
+                    size += PUsageCounts.Span[i].GetSize();
+            }
         }
+        if (Data != default)
+            size += Data.GetSize();
+        if (ScratchData != default)
+            size += ScratchData.GetSize();
+        if (TriangleArray != default)
+            size += TriangleArray.GetSize();
         return size;
     }
 
@@ -62,29 +75,35 @@ public unsafe partial class MicromapBuildInfoEXT : IMarshallableObject, IMarshal
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Type = native.type;
         Flags = native.flags;
         Mode = native.mode;
         DstMicromap = new MicromapEXT(native.dstMicromap);
         UsageCountsCount = native.usageCountsCount;
-        PUsageCounts = new MicromapUsageEXT(in *native.pUsageCounts);
-        NativeUtils.Free(native.pUsageCounts);
+        var arrayLengthPUsageCounts = native.usageCountsCount;
+        var tmpPUsageCounts = new MicromapUsageEXT[arrayLengthPUsageCounts];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT[arrayLengthPUsageCounts];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pUsageCounts, arrayLengthPUsageCounts, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPUsageCounts[i] = new MicromapUsageEXT(in nativeTmpArray0[i]);
+        }
+        PUsageCounts = tmpPUsageCounts;
         Data = new DeviceOrHostAddressConstKHR(native.data);
         ScratchData = new DeviceOrHostAddressKHR(native.scratchData);
         TriangleArray = new DeviceOrHostAddressConstKHR(native.triangleArray);
         TriangleArrayStride = native.triangleArrayStride;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkMicromapBuildInfoEXTMarshaller
     {
@@ -98,19 +117,16 @@ public unsafe partial class MicromapBuildInfoEXT : IMarshallableObject, IMarshal
             }
             else if (micromapBuildInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (micromapBuildInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].type = micromapBuildInfoEXT.Type;
 
-            if (micromapBuildInfoEXT.Flags != (uint)default)
-            {
-                context.Destination[0].flags = micromapBuildInfoEXT.Flags;
-            }
+            context.Destination[0].flags = micromapBuildInfoEXT.Flags;
 
             context.Destination[0].mode = micromapBuildInfoEXT.Mode;
 
@@ -121,14 +137,9 @@ public unsafe partial class MicromapBuildInfoEXT : IMarshallableObject, IMarshal
 
             context.Destination[0].usageCountsCount = micromapBuildInfoEXT.UsageCountsCount;
 
-            if (micromapBuildInfoEXT.PUsageCounts != default)
+            if (!micromapBuildInfoEXT.PUsageCounts.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT>(structSlice0).Slice(0, 1);
-                context.Destination[0].pUsageCounts = (AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT>(structDestination0, context.DataCursor);
-                micromapBuildInfoEXT.PUsageCounts.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pUsageCounts = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.MicromapUsageEXT, AdamantiumVulkan.Core.Interop.VkMicromapUsageEXT, AdamantiumVulkan.Core.Interop.VkMicromapBuildInfoEXT>(micromapBuildInfoEXT.PUsageCounts, ref context);
             }
 
             if (micromapBuildInfoEXT.Data != default)

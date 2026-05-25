@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2179 Column: 14
+// File: vk.xml Line: 12061 Column: 6
 [Flags]
-public enum FrontFace : uint
+public enum FrontFace : int
 {
     CounterClockwise = 0,
 
     Clockwise = 1,
-
-    MaxEnum = 2147483647,
 
 }
 

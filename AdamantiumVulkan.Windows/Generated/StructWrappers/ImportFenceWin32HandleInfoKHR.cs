@@ -25,13 +25,14 @@ public unsafe partial class ImportFenceWin32HandleInfoKHR : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ImportFenceWin32HandleInfoKhr;
     public object PNext { get; set; }
     public Fence Fence { get; set; }
-    public VkFenceImportFlags Flags { get; set; }
+    public FenceImportFlagBits Flags { get; set; }
     public ExternalFenceHandleTypeFlagBits HandleType { get; set; }
-    public System.IntPtr Handle { get; set; }
-    public char Name { get; set; }
+    public nuint Handle { get; set; }
+    public nuint Name { get; set; }
+
 
     public static implicit operator ImportFenceWin32HandleInfoKHR(AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR i)
     {
@@ -55,7 +56,6 @@ public unsafe partial class ImportFenceWin32HandleInfoKHR : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Fence = new Fence(native.fence);
         Flags = native.flags;
@@ -64,14 +64,14 @@ public unsafe partial class ImportFenceWin32HandleInfoKHR : IMarshallableObject,
         Name = native.name;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Windows.Interop.VkImportFenceWin32HandleInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImportFenceWin32HandleInfoKHRMarshaller
     {
@@ -85,11 +85,11 @@ public unsafe partial class ImportFenceWin32HandleInfoKHR : IMarshallableObject,
             }
             else if (importFenceWin32HandleInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (importFenceWin32HandleInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (importFenceWin32HandleInfoKHR.Fence != default)
@@ -97,10 +97,7 @@ public unsafe partial class ImportFenceWin32HandleInfoKHR : IMarshallableObject,
                 context.Destination[0].fence = importFenceWin32HandleInfoKHR.Fence;
             }
 
-            if (importFenceWin32HandleInfoKHR.Flags != (uint)default)
-            {
-                context.Destination[0].flags = importFenceWin32HandleInfoKHR.Flags;
-            }
+            context.Destination[0].flags = importFenceWin32HandleInfoKHR.Flags;
 
             context.Destination[0].handleType = importFenceWin32HandleInfoKHR.HandleType;
 

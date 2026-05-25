@@ -23,11 +23,12 @@ public unsafe partial class PhysicalDeviceShaderCorePropertiesARM : IMarshallabl
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceShaderCorePropertiesArm;
     public object PNext { get; set; }
     public uint PixelRate { get; set; }
     public uint TexelRate { get; set; }
     public uint FmaRate { get; set; }
+
 
     public static implicit operator PhysicalDeviceShaderCorePropertiesARM(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesARM p)
     {
@@ -51,21 +52,20 @@ public unsafe partial class PhysicalDeviceShaderCorePropertiesARM : IMarshallabl
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesARM native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PixelRate = native.pixelRate;
         TexelRate = native.texelRate;
         FmaRate = native.fmaRate;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesARM>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceShaderCorePropertiesARM>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceShaderCorePropertiesARMMarshaller
     {
@@ -79,11 +79,11 @@ public unsafe partial class PhysicalDeviceShaderCorePropertiesARM : IMarshallabl
             }
             else if (physicalDeviceShaderCorePropertiesARM.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceShaderCorePropertiesARM.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].pixelRate = physicalDeviceShaderCorePropertiesARM.PixelRate;

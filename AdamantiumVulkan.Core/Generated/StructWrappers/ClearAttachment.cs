@@ -23,9 +23,10 @@ public unsafe partial class ClearAttachment : IMarshallableObject, IMarshallable
         MarshalFrom(in native);
     }
 
-    public VkImageAspectFlags AspectMask { get; set; }
+    public ImageAspectFlagBits AspectMask { get; set; }
     public uint ColorAttachment { get; set; }
     public ClearValue ClearValue { get; set; }
+
 
     public static implicit operator ClearAttachment(AdamantiumVulkan.Core.Interop.VkClearAttachment c)
     {
@@ -35,6 +36,8 @@ public unsafe partial class ClearAttachment : IMarshallableObject, IMarshallable
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkClearAttachment>();
+        if (ClearValue != default)
+            size += ClearValue.GetSize();
         return size;
     }
 
@@ -50,23 +53,20 @@ public unsafe partial class ClearAttachment : IMarshallableObject, IMarshallable
         ClearValue = new ClearValue(native.clearValue);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkClearAttachment>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkClearAttachment>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkClearAttachmentMarshaller
     {
         public VkClearAttachmentMarshaller(AdamantiumVulkan.Core.ClearAttachment clearAttachment, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkClearAttachment> context)
         {
-            if (clearAttachment.AspectMask != (uint)default)
-            {
-                context.Destination[0].aspectMask = clearAttachment.AspectMask;
-            }
+            context.Destination[0].aspectMask = clearAttachment.AspectMask;
 
             context.Destination[0].colorAttachment = clearAttachment.ColorAttachment;
 

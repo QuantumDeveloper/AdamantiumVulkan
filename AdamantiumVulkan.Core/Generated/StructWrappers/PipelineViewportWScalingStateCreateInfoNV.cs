@@ -27,7 +27,8 @@ public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : IMarshal
     public object PNext { get; set; }
     public VkBool32 ViewportWScalingEnable { get; set; }
     public uint ViewportCount { get; set; }
-    public ViewportWScalingNV PViewportWScalings { get; set; }
+    public System.ReadOnlyMemory<ViewportWScalingNV> PViewportWScalings { get; set; }
+
 
     public static implicit operator PipelineViewportWScalingStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV p)
     {
@@ -41,9 +42,15 @@ public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : IMarshal
         {
             size += marshallable.GetSize();
         }
-        if (PViewportWScalings != default)
+        if (!PViewportWScalings.IsEmpty)
         {
-            size += PViewportWScalings.GetSize();
+            for (int i = 0; i < PViewportWScalings.Length; i++)
+            {
+                if (PViewportWScalings.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkViewportWScalingNV>();
+                else
+                    size += PViewportWScalings.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -58,18 +65,25 @@ public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : IMarshal
         PNext = (System.IntPtr)native.pNext;
         ViewportWScalingEnable = native.viewportWScalingEnable;
         ViewportCount = native.viewportCount;
-        PViewportWScalings = new ViewportWScalingNV(in *native.pViewportWScalings);
-        NativeUtils.Free(native.pViewportWScalings);
+        var arrayLengthPViewportWScalings = native.viewportCount;
+        var tmpPViewportWScalings = new ViewportWScalingNV[arrayLengthPViewportWScalings];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkViewportWScalingNV[arrayLengthPViewportWScalings];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pViewportWScalings, arrayLengthPViewportWScalings, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPViewportWScalings[i] = new ViewportWScalingNV(in nativeTmpArray0[i]);
+        }
+        PViewportWScalings = tmpPViewportWScalings;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineViewportWScalingStateCreateInfoNVMarshaller
     {
@@ -83,11 +97,11 @@ public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : IMarshal
             }
             else if (pipelineViewportWScalingStateCreateInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineViewportWScalingStateCreateInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineViewportWScalingStateCreateInfoNV.ViewportWScalingEnable != (uint)default)
@@ -97,14 +111,9 @@ public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : IMarshal
 
             context.Destination[0].viewportCount = pipelineViewportWScalingStateCreateInfoNV.ViewportCount;
 
-            if (pipelineViewportWScalingStateCreateInfoNV.PViewportWScalings != default)
+            if (!pipelineViewportWScalingStateCreateInfoNV.PViewportWScalings.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkViewportWScalingNV));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkViewportWScalingNV>(structSlice0).Slice(0, 1);
-                context.Destination[0].pViewportWScalings = (AdamantiumVulkan.Core.Interop.VkViewportWScalingNV*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkViewportWScalingNV>(structDestination0, context.DataCursor);
-                pipelineViewportWScalingStateCreateInfoNV.PViewportWScalings.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pViewportWScalings = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.ViewportWScalingNV, AdamantiumVulkan.Core.Interop.VkViewportWScalingNV, AdamantiumVulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV>(pipelineViewportWScalingStateCreateInfoNV.PViewportWScalings, ref context);
             }
 
         }

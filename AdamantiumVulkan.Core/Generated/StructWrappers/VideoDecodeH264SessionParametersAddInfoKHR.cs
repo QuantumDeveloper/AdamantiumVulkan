@@ -9,8 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core;
 
@@ -25,12 +23,13 @@ public unsafe partial class VideoDecodeH264SessionParametersAddInfoKHR : IMarsha
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoDecodeH264SessionParametersAddInfoKhr;
     public object PNext { get; set; }
     public uint StdSPSCount { get; set; }
-    public StdVideoH264SequenceParameterSet PStdSPSs { get; set; }
+    public System.ReadOnlyMemory<StdVideoH264SequenceParameterSet> PStdSPSs { get; set; }
     public uint StdPPSCount { get; set; }
-    public StdVideoH264PictureParameterSet PStdPPSs { get; set; }
+    public System.ReadOnlyMemory<StdVideoH264PictureParameterSet> PStdPPSs { get; set; }
+
 
     public static implicit operator VideoDecodeH264SessionParametersAddInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoDecodeH264SessionParametersAddInfoKHR v)
     {
@@ -44,13 +43,25 @@ public unsafe partial class VideoDecodeH264SessionParametersAddInfoKHR : IMarsha
         {
             size += marshallable.GetSize();
         }
-        if (PStdSPSs != default)
+        if (!PStdSPSs.IsEmpty)
         {
-            size += PStdSPSs.GetSize();
+            for (int i = 0; i < PStdSPSs.Length; i++)
+            {
+                if (PStdSPSs.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSet>();
+                else
+                    size += PStdSPSs.Span[i].GetSize();
+            }
         }
-        if (PStdPPSs != default)
+        if (!PStdPPSs.IsEmpty)
         {
-            size += PStdPPSs.GetSize();
+            for (int i = 0; i < PStdPPSs.Length; i++)
+            {
+                if (PStdPPSs.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH264PictureParameterSet>();
+                else
+                    size += PStdPPSs.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -62,24 +73,37 @@ public unsafe partial class VideoDecodeH264SessionParametersAddInfoKHR : IMarsha
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoDecodeH264SessionParametersAddInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         StdSPSCount = native.stdSPSCount;
-        PStdSPSs = new StdVideoH264SequenceParameterSet(in *native.pStdSPSs);
-        NativeUtils.Free(native.pStdSPSs);
+        var arrayLengthPStdSPSs = native.stdSPSCount;
+        var tmpPStdSPSs = new StdVideoH264SequenceParameterSet[arrayLengthPStdSPSs];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSet[arrayLengthPStdSPSs];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pStdSPSs, arrayLengthPStdSPSs, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPStdSPSs[i] = new StdVideoH264SequenceParameterSet(in nativeTmpArray0[i]);
+        }
+        PStdSPSs = tmpPStdSPSs;
         StdPPSCount = native.stdPPSCount;
-        PStdPPSs = new StdVideoH264PictureParameterSet(in *native.pStdPPSs);
-        NativeUtils.Free(native.pStdPPSs);
+        var arrayLengthPStdPPSs = native.stdPPSCount;
+        var tmpPStdPPSs = new StdVideoH264PictureParameterSet[arrayLengthPStdPPSs];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.StdVideoH264PictureParameterSet[arrayLengthPStdPPSs];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pStdPPSs, arrayLengthPStdPPSs, nativeTmpArray1);
+        for (int i = 0; i < nativeTmpArray1.Length; ++i)
+        {
+            tmpPStdPPSs[i] = new StdVideoH264PictureParameterSet(in nativeTmpArray1[i]);
+        }
+        PStdPPSs = tmpPStdPPSs;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoDecodeH264SessionParametersAddInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoDecodeH264SessionParametersAddInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoDecodeH264SessionParametersAddInfoKHRMarshaller
     {
@@ -93,35 +117,25 @@ public unsafe partial class VideoDecodeH264SessionParametersAddInfoKHR : IMarsha
             }
             else if (videoDecodeH264SessionParametersAddInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoDecodeH264SessionParametersAddInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].stdSPSCount = videoDecodeH264SessionParametersAddInfoKHR.StdSPSCount;
 
-            if (videoDecodeH264SessionParametersAddInfoKHR.PStdSPSs != default)
+            if (!videoDecodeH264SessionParametersAddInfoKHR.PStdSPSs.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSet));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSet>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStdSPSs = (AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSet*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH264SequenceParameterSet>(structDestination0, context.DataCursor);
-                videoDecodeH264SessionParametersAddInfoKHR.PStdSPSs.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pStdSPSs = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.StdVideoH264SequenceParameterSet, AdamantiumVulkan.Core.Interop.StdVideoH264SequenceParameterSet, AdamantiumVulkan.Core.Interop.VkVideoDecodeH264SessionParametersAddInfoKHR>(videoDecodeH264SessionParametersAddInfoKHR.PStdSPSs, ref context);
             }
 
             context.Destination[0].stdPPSCount = videoDecodeH264SessionParametersAddInfoKHR.StdPPSCount;
 
-            if (videoDecodeH264SessionParametersAddInfoKHR.PStdPPSs != default)
+            if (!videoDecodeH264SessionParametersAddInfoKHR.PStdPPSs.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoH264PictureParameterSet));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoH264PictureParameterSet>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStdPPSs = (AdamantiumVulkan.Interop.StdVideoH264PictureParameterSet*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH264PictureParameterSet>(structDestination0, context.DataCursor);
-                videoDecodeH264SessionParametersAddInfoKHR.PStdPPSs.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pStdPPSs = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.StdVideoH264PictureParameterSet, AdamantiumVulkan.Core.Interop.StdVideoH264PictureParameterSet, AdamantiumVulkan.Core.Interop.VkVideoDecodeH264SessionParametersAddInfoKHR>(videoDecodeH264SessionParametersAddInfoKHR.PStdPPSs, ref context);
             }
 
         }

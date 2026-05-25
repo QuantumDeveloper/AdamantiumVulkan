@@ -11,11 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Shaders.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\shaderc\shaderc.h Line: 257 Column: 16
+// File: C:\VulkanSDK\1.4.350.0\Include\shaderc\shaderc.h Line: 257 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct ShadercCompiler
 {
-    public nuint pointer;
+    public void* pointer;
 }
 
 

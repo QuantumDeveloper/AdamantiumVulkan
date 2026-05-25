@@ -25,13 +25,14 @@ public unsafe partial class FramebufferCreateInfo : IMarshallableObject, IMarsha
 
     public StructureType SType => StructureType.FramebufferCreateInfo;
     public object PNext { get; set; }
-    public VkFramebufferCreateFlags Flags { get; set; }
+    public FramebufferCreateFlagBits Flags { get; set; }
     public RenderPass RenderPass { get; set; }
     public uint AttachmentCount { get; set; }
     public System.ReadOnlyMemory<ImageView> PAttachments { get; set; }
     public uint Width { get; set; }
     public uint Height { get; set; }
     public uint Layers { get; set; }
+
 
     public static implicit operator FramebufferCreateInfo(AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo f)
     {
@@ -61,9 +62,10 @@ public unsafe partial class FramebufferCreateInfo : IMarshallableObject, IMarsha
         Flags = native.flags;
         RenderPass = new RenderPass(native.renderPass);
         AttachmentCount = native.attachmentCount;
-        var tmpPAttachments = new ImageView[native.attachmentCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkImageView_T[native.attachmentCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAttachments, native.attachmentCount, nativeTmpArray0);
+        var arrayLengthPAttachments = native.attachmentCount;
+        var tmpPAttachments = new ImageView[arrayLengthPAttachments];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkImageView_T[arrayLengthPAttachments];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pAttachments, arrayLengthPAttachments, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPAttachments[i] = new ImageView(in nativeTmpArray0[i]);
@@ -74,14 +76,14 @@ public unsafe partial class FramebufferCreateInfo : IMarshallableObject, IMarsha
         Layers = native.layers;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkFramebufferCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkFramebufferCreateInfoMarshaller
     {
@@ -95,17 +97,14 @@ public unsafe partial class FramebufferCreateInfo : IMarshallableObject, IMarsha
             }
             else if (framebufferCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (framebufferCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (framebufferCreateInfo.Flags != (uint)default)
-            {
-                context.Destination[0].flags = framebufferCreateInfo.Flags;
-            }
+            context.Destination[0].flags = framebufferCreateInfo.Flags;
 
             if (framebufferCreateInfo.RenderPass != default)
             {

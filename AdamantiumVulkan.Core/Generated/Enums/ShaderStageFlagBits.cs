@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2831 Column: 14
+// File: vk.xml Line: 12549 Column: 6
 [Flags]
 public enum ShaderStageFlagBits : uint
 {
@@ -27,9 +27,7 @@ public enum ShaderStageFlagBits : uint
 
     ComputeBit = 32,
 
-    AllGraphics = 31,
-
-    All = 2147483647,
+    All = 7,
 
     RaygenBitKhr = 256,
 
@@ -50,6 +48,10 @@ public enum ShaderStageFlagBits : uint
     SubpassShadingBitHuawei = 16384,
 
     ClusterCullingBitHuawei = 524288,
+
+    Reserved15BitNv = 32768,
+
+    Reserved16BitHuawei = 65536,
 
 }
 

@@ -11,11 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 499 Column: 16
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 528 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct spv_optimizer_options_t
 {
-    public nuint pointer;
+    public void* pointer;
 }
 
 

@@ -24,7 +24,7 @@ public unsafe partial class ClusterAccelerationStructureBuildTriangleClusterTemp
     }
 
     public uint ClusterID { get; set; }
-    public VkClusterAccelerationStructureClusterFlagsNV ClusterFlags { get; set; }
+    public ClusterAccelerationStructureClusterFlagBitsNV ClusterFlags { get; set; }
     public uint TriangleCount { get; set; }
     public uint VertexCount { get; set; }
     public uint PositionTruncateBitCount { get; set; }
@@ -41,6 +41,7 @@ public unsafe partial class ClusterAccelerationStructureBuildTriangleClusterTemp
     public VkDeviceAddress OpacityMicromapArray { get; set; }
     public VkDeviceAddress OpacityMicromapIndexBuffer { get; set; }
     public VkDeviceAddress InstantiationBoundingBoxLimit { get; set; }
+
 
     public static implicit operator ClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV c)
     {
@@ -80,14 +81,14 @@ public unsafe partial class ClusterAccelerationStructureBuildTriangleClusterTemp
         InstantiationBoundingBoxLimit = native.instantiationBoundingBoxLimit;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkClusterAccelerationStructureBuildTriangleClusterTemplateInfoNVMarshaller
     {
@@ -95,10 +96,7 @@ public unsafe partial class ClusterAccelerationStructureBuildTriangleClusterTemp
         {
             context.Destination[0].clusterID = clusterAccelerationStructureBuildTriangleClusterTemplateInfoNV.ClusterID;
 
-            if (clusterAccelerationStructureBuildTriangleClusterTemplateInfoNV.ClusterFlags != (uint)default)
-            {
-                context.Destination[0].clusterFlags = clusterAccelerationStructureBuildTriangleClusterTemplateInfoNV.ClusterFlags;
-            }
+            context.Destination[0].clusterFlags = clusterAccelerationStructureBuildTriangleClusterTemplateInfoNV.ClusterFlags;
 
             context.Destination[0].triangleCount = clusterAccelerationStructureBuildTriangleClusterTemplateInfoNV.TriangleCount;
 

@@ -23,11 +23,12 @@ public unsafe partial class PipelineCreationFeedbackCreateInfo : IMarshallableOb
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PipelineCreationFeedbackCreateInfo;
     public object PNext { get; set; }
     public PipelineCreationFeedback PipelineCreationFeedback { get; set; }
     public uint PipelineStageCreationFeedbackCount { get; set; }
-    public PipelineCreationFeedback PipelineStageCreationFeedbacks { get; set; }
+    public System.ReadOnlyMemory<PipelineCreationFeedback> PipelineStageCreationFeedbacks { get; set; }
+
 
     public static implicit operator PipelineCreationFeedbackCreateInfo(AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedbackCreateInfo p)
     {
@@ -45,9 +46,15 @@ public unsafe partial class PipelineCreationFeedbackCreateInfo : IMarshallableOb
         {
             size += PipelineCreationFeedback.GetSize();
         }
-        if (PipelineStageCreationFeedbacks != default)
+        if (!PipelineStageCreationFeedbacks.IsEmpty)
         {
-            size += PipelineStageCreationFeedbacks.GetSize();
+            for (int i = 0; i < PipelineStageCreationFeedbacks.Length; i++)
+            {
+                if (PipelineStageCreationFeedbacks.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback>();
+                else
+                    size += PipelineStageCreationFeedbacks.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -59,23 +66,29 @@ public unsafe partial class PipelineCreationFeedbackCreateInfo : IMarshallableOb
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedbackCreateInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         PipelineCreationFeedback = new PipelineCreationFeedback(in *native.pPipelineCreationFeedback);
         NativeUtils.Free(native.pPipelineCreationFeedback);
         PipelineStageCreationFeedbackCount = native.pipelineStageCreationFeedbackCount;
-        PipelineStageCreationFeedbacks = new PipelineCreationFeedback(in *native.pPipelineStageCreationFeedbacks);
-        NativeUtils.Free(native.pPipelineStageCreationFeedbacks);
+        var arrayLengthPipelineStageCreationFeedbacks = native.pipelineStageCreationFeedbackCount;
+        var tmpPipelineStageCreationFeedbacks = new PipelineCreationFeedback[arrayLengthPipelineStageCreationFeedbacks];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback[arrayLengthPipelineStageCreationFeedbacks];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPipelineStageCreationFeedbacks, arrayLengthPipelineStageCreationFeedbacks, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPipelineStageCreationFeedbacks[i] = new PipelineCreationFeedback(in nativeTmpArray0[i]);
+        }
+        PipelineStageCreationFeedbacks = tmpPipelineStageCreationFeedbacks;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedbackCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedbackCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineCreationFeedbackCreateInfoMarshaller
     {
@@ -89,11 +102,11 @@ public unsafe partial class PipelineCreationFeedbackCreateInfo : IMarshallableOb
             }
             else if (pipelineCreationFeedbackCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineCreationFeedbackCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineCreationFeedbackCreateInfo.PipelineCreationFeedback != default)
@@ -108,14 +121,9 @@ public unsafe partial class PipelineCreationFeedbackCreateInfo : IMarshallableOb
 
             context.Destination[0].pipelineStageCreationFeedbackCount = pipelineCreationFeedbackCreateInfo.PipelineStageCreationFeedbackCount;
 
-            if (pipelineCreationFeedbackCreateInfo.PipelineStageCreationFeedbacks != default)
+            if (!pipelineCreationFeedbackCreateInfo.PipelineStageCreationFeedbacks.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback>(structSlice0).Slice(0, 1);
-                context.Destination[0].pPipelineStageCreationFeedbacks = (AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback>(structDestination0, context.DataCursor);
-                pipelineCreationFeedbackCreateInfo.PipelineStageCreationFeedbacks.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pPipelineStageCreationFeedbacks = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.PipelineCreationFeedback, AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedback, AdamantiumVulkan.Core.Interop.VkPipelineCreationFeedbackCreateInfo>(pipelineCreationFeedbackCreateInfo.PipelineStageCreationFeedbacks, ref context);
             }
 
         }

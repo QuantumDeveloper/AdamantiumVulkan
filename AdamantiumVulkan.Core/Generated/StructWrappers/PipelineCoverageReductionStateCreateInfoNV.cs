@@ -23,10 +23,11 @@ public unsafe partial class PipelineCoverageReductionStateCreateInfoNV : IMarsha
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PipelineCoverageReductionStateCreateInfoNv;
     public object PNext { get; set; }
     public VkPipelineCoverageReductionStateCreateFlagsNV Flags { get; set; }
     public CoverageReductionModeNV CoverageReductionMode { get; set; }
+
 
     public static implicit operator PipelineCoverageReductionStateCreateInfoNV(AdamantiumVulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV p)
     {
@@ -50,20 +51,19 @@ public unsafe partial class PipelineCoverageReductionStateCreateInfoNV : IMarsha
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         CoverageReductionMode = native.coverageReductionMode;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineCoverageReductionStateCreateInfoNVMarshaller
     {
@@ -77,11 +77,11 @@ public unsafe partial class PipelineCoverageReductionStateCreateInfoNV : IMarsha
             }
             else if (pipelineCoverageReductionStateCreateInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (pipelineCoverageReductionStateCreateInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (pipelineCoverageReductionStateCreateInfoNV.Flags != (uint)default)

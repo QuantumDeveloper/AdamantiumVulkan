@@ -27,6 +27,7 @@ public unsafe partial class MultisamplePropertiesEXT : IMarshallableObject, IMar
     public object PNext { get; set; }
     public Extent2D MaxSampleLocationGridSize { get; set; }
 
+
     public static implicit operator MultisamplePropertiesEXT(AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT m)
     {
         return new MultisamplePropertiesEXT(in m);
@@ -53,14 +54,14 @@ public unsafe partial class MultisamplePropertiesEXT : IMarshallableObject, IMar
         MaxSampleLocationGridSize = new Extent2D(native.maxSampleLocationGridSize);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkMultisamplePropertiesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkMultisamplePropertiesEXTMarshaller
     {
@@ -74,11 +75,11 @@ public unsafe partial class MultisamplePropertiesEXT : IMarshallableObject, IMar
             }
             else if (multisamplePropertiesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (multisamplePropertiesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (multisamplePropertiesEXT.MaxSampleLocationGridSize != default)

@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5326 Column: 16
+// File: vk.xml Line: 3925 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDevice16BitStorageFeatures
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkBool32 storageBuffer16BitAccess;
     public VkBool32 uniformAndStorageBuffer16BitAccess;
     public VkBool32 storagePushConstant16;

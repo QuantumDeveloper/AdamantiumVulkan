@@ -23,8 +23,9 @@ public unsafe partial class PipelineBinaryDataKHR : IMarshallableObject, IMarsha
         MarshalFrom(in native);
     }
 
-    public ulong DataSize { get; set; }
-    public nuint PData { get; set; }
+    public nuint DataSize { get; set; }
+    public System.ReadOnlyMemory<byte> PData { get; set; }
+
 
     public static implicit operator PipelineBinaryDataKHR(AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR p)
     {
@@ -34,6 +35,8 @@ public unsafe partial class PipelineBinaryDataKHR : IMarshallableObject, IMarsha
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR>();
+        if (!PData.IsEmpty)
+            size += PData.Span.Length * Marshal.SizeOf<System.Byte>();
         return size;
     }
 
@@ -45,17 +48,20 @@ public unsafe partial class PipelineBinaryDataKHR : IMarshallableObject, IMarsha
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR native)
     {
         DataSize = native.dataSize;
-        PData = native.pData;
+        var arrayLengthPData = native.dataSize;
+        var tmpPData = new byte[arrayLengthPData];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pData, arrayLengthPData, tmpPData);
+        PData = tmpPData;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineBinaryDataKHRMarshaller
     {
@@ -63,7 +69,10 @@ public unsafe partial class PipelineBinaryDataKHR : IMarshallableObject, IMarsha
         {
             context.Destination[0].dataSize = pipelineBinaryDataKHR.DataSize;
 
-            context.Destination[0].pData = pipelineBinaryDataKHR.PData;
+            if (!pipelineBinaryDataKHR.PData.IsEmpty)
+            {
+                context.Destination[0].pData = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<byte, AdamantiumVulkan.Core.Interop.VkPipelineBinaryDataKHR>(pipelineBinaryDataKHR.PData.Span, ref context);
+            }
 
         }
     }

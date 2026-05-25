@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 114 Column: 1
+// File: vk.xml Line: 619 Column: 10
 public unsafe partial class QueryPool : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkQueryPool_T>
 {
     internal VkQueryPool_T __Instance;
@@ -27,7 +27,7 @@ public unsafe partial class QueryPool : IUnmanagedWrapper<AdamantiumVulkan.Core.
     }
 
     public AdamantiumVulkan.Core.Interop.VkQueryPool_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public ref readonly VkQueryPool_T GetPinnableReference() => ref __Instance;
 

@@ -13,6 +13,9 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+///<summary>
+/// Maps to C++ API. Deprecated; use spvc_msl_shader_interface_var.
+///</summary>
 public unsafe partial class SpvcMslVertexAttribute : IMarshallable<AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslVertexAttribute>
 {
     public SpvcMslVertexAttribute()
@@ -30,11 +33,12 @@ public unsafe partial class SpvcMslVertexAttribute : IMarshallable<AdamantiumVul
     public uint Msl_stride { get; set; }
     public SpvcBool Per_instance { get; set; }
     public MslShaderVariableFormat Format { get; set; }
-    public SpvBuiltIn Builtin { get; set; }
+    public BuiltIn Builtin { get; set; }
+
     ///<summary>
     /// Initializes the vertex attribute struct.
     ///</summary>
-    public void MslVertexAttributeInit()
+    public void CMslVertexAttributeInit()
     {
         System.Span<byte> arg0Span = stackalloc byte[GetSize()];
         var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslVertexAttribute, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslVertexAttribute>(this, ref arg0Span);

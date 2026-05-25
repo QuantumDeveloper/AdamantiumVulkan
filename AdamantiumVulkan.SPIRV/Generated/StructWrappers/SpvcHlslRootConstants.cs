@@ -12,6 +12,9 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+///<summary>
+/// See C++ API.
+///</summary>
 public unsafe partial class SpvcHlslRootConstants : IMarshallable<AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslRootConstants>
 {
     public SpvcHlslRootConstants()
@@ -27,6 +30,7 @@ public unsafe partial class SpvcHlslRootConstants : IMarshallable<AdamantiumVulk
     public uint End { get; set; }
     public uint Binding { get; set; }
     public uint Space { get; set; }
+
 
     public static implicit operator SpvcHlslRootConstants(AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslRootConstants s)
     {

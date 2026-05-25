@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceDescriptorIndexingProperties : IMarsha
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceDescriptorIndexingProperties;
     public object PNext { get; set; }
     public uint MaxUpdateAfterBindDescriptorsInAllPools { get; set; }
     public VkBool32 ShaderUniformBufferArrayNonUniformIndexingNative { get; set; }
@@ -49,6 +49,7 @@ public unsafe partial class PhysicalDeviceDescriptorIndexingProperties : IMarsha
     public uint MaxDescriptorSetUpdateAfterBindStorageImages { get; set; }
     public uint MaxDescriptorSetUpdateAfterBindInputAttachments { get; set; }
 
+
     public static implicit operator PhysicalDeviceDescriptorIndexingProperties(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingProperties p)
     {
         return new PhysicalDeviceDescriptorIndexingProperties(in p);
@@ -71,7 +72,6 @@ public unsafe partial class PhysicalDeviceDescriptorIndexingProperties : IMarsha
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingProperties native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MaxUpdateAfterBindDescriptorsInAllPools = native.maxUpdateAfterBindDescriptorsInAllPools;
         ShaderUniformBufferArrayNonUniformIndexingNative = native.shaderUniformBufferArrayNonUniformIndexingNative;
@@ -98,14 +98,14 @@ public unsafe partial class PhysicalDeviceDescriptorIndexingProperties : IMarsha
         MaxDescriptorSetUpdateAfterBindInputAttachments = native.maxDescriptorSetUpdateAfterBindInputAttachments;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceDescriptorIndexingPropertiesMarshaller
     {
@@ -119,11 +119,11 @@ public unsafe partial class PhysicalDeviceDescriptorIndexingProperties : IMarsha
             }
             else if (physicalDeviceDescriptorIndexingProperties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceDescriptorIndexingProperties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].maxUpdateAfterBindDescriptorsInAllPools = physicalDeviceDescriptorIndexingProperties.MaxUpdateAfterBindDescriptorsInAllPools;

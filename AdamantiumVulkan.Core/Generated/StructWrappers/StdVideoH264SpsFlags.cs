@@ -8,17 +8,17 @@
 using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
-using AdamantiumVulkan.Interop;
+using AdamantiumVulkan.Core.Interop;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-public unsafe partial class StdVideoH264SpsFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Interop.StdVideoH264SpsFlags>
+public unsafe partial class StdVideoH264SpsFlags : IMarshallableObject, IMarshallable<AdamantiumVulkan.Core.Interop.StdVideoH264SpsFlags>
 {
     public StdVideoH264SpsFlags()
     {
     }
 
-    public StdVideoH264SpsFlags(in AdamantiumVulkan.Interop.StdVideoH264SpsFlags native)
+    public StdVideoH264SpsFlags(in AdamantiumVulkan.Core.Interop.StdVideoH264SpsFlags native)
     {
         MarshalFrom(in native);
     }
@@ -40,23 +40,24 @@ public unsafe partial class StdVideoH264SpsFlags : IMarshallableObject, IMarshal
     public uint Seq_scaling_matrix_present_flag { get; set; }
     public uint Vui_parameters_present_flag { get; set; }
 
-    public static implicit operator StdVideoH264SpsFlags(AdamantiumVulkan.Interop.StdVideoH264SpsFlags s)
+
+    public static implicit operator StdVideoH264SpsFlags(AdamantiumVulkan.Core.Interop.StdVideoH264SpsFlags s)
     {
         return new StdVideoH264SpsFlags(in s);
     }
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<AdamantiumVulkan.Interop.StdVideoH264SpsFlags>();
+        var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.StdVideoH264SpsFlags>();
         return size;
     }
 
-    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Interop.StdVideoH264SpsFlags> context)
+    public void MarshalTo(ref MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH264SpsFlags> context)
     {
         new StdVideoH264SpsFlagsMarshaller(this, ref context);
     }
 
-    public void MarshalFrom(in AdamantiumVulkan.Interop.StdVideoH264SpsFlags native)
+    public void MarshalFrom(in AdamantiumVulkan.Core.Interop.StdVideoH264SpsFlags native)
     {
         Constraint_set0_flag = native.constraint_set0_flag;
         Constraint_set1_flag = native.constraint_set1_flag;
@@ -76,18 +77,18 @@ public unsafe partial class StdVideoH264SpsFlags : IMarshallableObject, IMarshal
         Vui_parameters_present_flag = native.vui_parameters_present_flag;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
-        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Interop.StdVideoH264SpsFlags>(1);
+        var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.StdVideoH264SpsFlags>(1);
         var dataCursor = context.GetDataCursor();
-        var internalContext = new MarshallingContext<AdamantiumVulkan.Interop.StdVideoH264SpsFlags>(nativeSpan, dataCursor);
+        var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH264SpsFlags>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct StdVideoH264SpsFlagsMarshaller
     {
-        public StdVideoH264SpsFlagsMarshaller(AdamantiumVulkan.StdVideoH264SpsFlags stdVideoH264SpsFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoH264SpsFlags> context)
+        public StdVideoH264SpsFlagsMarshaller(AdamantiumVulkan.Core.StdVideoH264SpsFlags stdVideoH264SpsFlags, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoH264SpsFlags> context)
         {
             context.Destination[0].constraint_set0_flag = stdVideoH264SpsFlags.Constraint_set0_flag;
 

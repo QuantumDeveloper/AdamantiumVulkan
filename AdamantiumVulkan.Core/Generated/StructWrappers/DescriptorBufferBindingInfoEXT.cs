@@ -23,10 +23,11 @@ public unsafe partial class DescriptorBufferBindingInfoEXT : IMarshallableObject
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.DescriptorBufferBindingInfoExt;
     public object PNext { get; set; }
     public VkDeviceAddress Address { get; set; }
     public BufferUsageFlagBits Usage { get; set; }
+
 
     public static implicit operator DescriptorBufferBindingInfoEXT(AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT d)
     {
@@ -50,20 +51,19 @@ public unsafe partial class DescriptorBufferBindingInfoEXT : IMarshallableObject
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Address = native.address;
         Usage = native.usage;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDescriptorBufferBindingInfoEXTMarshaller
     {
@@ -77,11 +77,11 @@ public unsafe partial class DescriptorBufferBindingInfoEXT : IMarshallableObject
             }
             else if (descriptorBufferBindingInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (descriptorBufferBindingInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (descriptorBufferBindingInfoEXT.Address != (ulong)default)

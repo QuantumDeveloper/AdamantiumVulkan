@@ -27,6 +27,7 @@ public unsafe partial class BufferCopy : IMarshallableObject, IMarshallable<Adam
     public VkDeviceSize DstOffset { get; set; }
     public VkDeviceSize Size { get; set; }
 
+
     public static implicit operator BufferCopy(AdamantiumVulkan.Core.Interop.VkBufferCopy b)
     {
         return new BufferCopy(in b);
@@ -50,14 +51,14 @@ public unsafe partial class BufferCopy : IMarshallableObject, IMarshallable<Adam
         Size = native.size;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkBufferCopy>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkBufferCopy>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkBufferCopyMarshaller
     {

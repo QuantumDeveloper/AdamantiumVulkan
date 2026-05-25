@@ -12,19 +12,19 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6279 Column: 16
+// File: vk.xml Line: 4752 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkSubpassDependency2
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public uint srcSubpass;
     public uint dstSubpass;
-    public VkPipelineStageFlags srcStageMask;
-    public VkPipelineStageFlags dstStageMask;
-    public VkAccessFlags srcAccessMask;
-    public VkAccessFlags dstAccessMask;
-    public VkDependencyFlags dependencyFlags;
+    public PipelineStageFlagBits srcStageMask;
+    public PipelineStageFlagBits dstStageMask;
+    public AccessFlagBits srcAccessMask;
+    public AccessFlagBits dstAccessMask;
+    public DependencyFlagBits dependencyFlags;
     public int viewOffset;
 }
 

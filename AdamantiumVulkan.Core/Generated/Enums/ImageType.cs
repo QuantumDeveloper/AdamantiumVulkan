@@ -11,17 +11,15 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 1930 Column: 14
+// File: vk.xml Line: 11940 Column: 6
 [Flags]
-public enum ImageType : uint
+public enum ImageType : int
 {
     _1d = 0,
 
     _2d = 1,
 
     _3d = 2,
-
-    MaxEnum = 2147483647,
 
 }
 

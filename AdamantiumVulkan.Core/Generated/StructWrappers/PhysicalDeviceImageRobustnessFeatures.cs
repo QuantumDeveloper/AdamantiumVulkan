@@ -23,9 +23,10 @@ public unsafe partial class PhysicalDeviceImageRobustnessFeatures : IMarshallabl
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceImageRobustnessFeatures;
     public object PNext { get; set; }
     public VkBool32 RobustImageAccess { get; set; }
+
 
     public static implicit operator PhysicalDeviceImageRobustnessFeatures(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageRobustnessFeatures p)
     {
@@ -49,19 +50,18 @@ public unsafe partial class PhysicalDeviceImageRobustnessFeatures : IMarshallabl
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageRobustnessFeatures native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         RobustImageAccess = native.robustImageAccess;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageRobustnessFeatures>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceImageRobustnessFeatures>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceImageRobustnessFeaturesMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class PhysicalDeviceImageRobustnessFeatures : IMarshallabl
             }
             else if (physicalDeviceImageRobustnessFeatures.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceImageRobustnessFeatures.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceImageRobustnessFeatures.RobustImageAccess != (uint)default)

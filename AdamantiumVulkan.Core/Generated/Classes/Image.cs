@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 104 Column: 1
+// File: vk.xml Line: 607 Column: 10
 public unsafe partial class Image : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkImage_T>
 {
     internal VkImage_T __Instance;
@@ -27,7 +27,7 @@ public unsafe partial class Image : IUnmanagedWrapper<AdamantiumVulkan.Core.Inte
     }
 
     public AdamantiumVulkan.Core.Interop.VkImage_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public ref readonly VkImage_T GetPinnableReference() => ref __Instance;
 

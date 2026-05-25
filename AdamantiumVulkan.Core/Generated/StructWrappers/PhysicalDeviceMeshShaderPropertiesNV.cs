@@ -39,6 +39,7 @@ public unsafe partial class PhysicalDeviceMeshShaderPropertiesNV : IMarshallable
     public uint MeshOutputPerVertexGranularity { get; set; }
     public uint MeshOutputPerPrimitiveGranularity { get; set; }
 
+
     public static implicit operator PhysicalDeviceMeshShaderPropertiesNV(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesNV p)
     {
         return new PhysicalDeviceMeshShaderPropertiesNV(in p);
@@ -65,14 +66,16 @@ public unsafe partial class PhysicalDeviceMeshShaderPropertiesNV : IMarshallable
         MaxDrawMeshTasksCount = native.maxDrawMeshTasksCount;
         MaxTaskWorkGroupInvocations = native.maxTaskWorkGroupInvocations;
         var tmpMaxTaskWorkGroupSize = new uint[3];
-        var pMaxTaskWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.maxTaskWorkGroupSize[0]));
+        var maxTaskWorkGroupSizep = native.maxTaskWorkGroupSize[0];
+        var pMaxTaskWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in maxTaskWorkGroupSizep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMaxTaskWorkGroupSize, 3, tmpMaxTaskWorkGroupSize);
         MaxTaskWorkGroupSize = tmpMaxTaskWorkGroupSize;
         MaxTaskTotalMemorySize = native.maxTaskTotalMemorySize;
         MaxTaskOutputCount = native.maxTaskOutputCount;
         MaxMeshWorkGroupInvocations = native.maxMeshWorkGroupInvocations;
         var tmpMaxMeshWorkGroupSize = new uint[3];
-        var pMaxMeshWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.maxMeshWorkGroupSize[0]));
+        var maxMeshWorkGroupSizep = native.maxMeshWorkGroupSize[0];
+        var pMaxMeshWorkGroupSize = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in maxMeshWorkGroupSizep ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pMaxMeshWorkGroupSize, 3, tmpMaxMeshWorkGroupSize);
         MaxMeshWorkGroupSize = tmpMaxMeshWorkGroupSize;
         MaxMeshTotalMemorySize = native.maxMeshTotalMemorySize;
@@ -83,14 +86,14 @@ public unsafe partial class PhysicalDeviceMeshShaderPropertiesNV : IMarshallable
         MeshOutputPerPrimitiveGranularity = native.meshOutputPerPrimitiveGranularity;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceMeshShaderPropertiesNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceMeshShaderPropertiesNVMarshaller
     {
@@ -104,11 +107,11 @@ public unsafe partial class PhysicalDeviceMeshShaderPropertiesNV : IMarshallable
             }
             else if (physicalDeviceMeshShaderPropertiesNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceMeshShaderPropertiesNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].maxDrawMeshTasksCount = physicalDeviceMeshShaderPropertiesNV.MaxDrawMeshTasksCount;

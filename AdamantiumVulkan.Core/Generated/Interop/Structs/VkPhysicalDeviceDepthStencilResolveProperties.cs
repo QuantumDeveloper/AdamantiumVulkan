@@ -12,14 +12,14 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 6451 Column: 16
+// File: vk.xml Line: 4991 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceDepthStencilResolveProperties
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkResolveModeFlags supportedDepthResolveModes;
-    public VkResolveModeFlags supportedStencilResolveModes;
+    public void* pNext;
+    public ResolveModeFlagBits supportedDepthResolveModes;
+    public ResolveModeFlagBits supportedStencilResolveModes;
     public VkBool32 independentResolveNone;
     public VkBool32 independentResolve;
 }

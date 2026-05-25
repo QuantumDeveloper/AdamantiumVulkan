@@ -13,7 +13,7 @@ using AdamantiumVulkan.Core.Interop;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14109 Column: 1
+// File: vk.xml Line: 655 Column: 10
 public unsafe partial class DebugUtilsMessengerEXT : IUnmanagedWrapper<AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T>
 {
     internal VkDebugUtilsMessengerEXT_T __Instance;
@@ -27,7 +27,7 @@ public unsafe partial class DebugUtilsMessengerEXT : IUnmanagedWrapper<Adamantiu
     }
 
     public AdamantiumVulkan.Core.Interop.VkDebugUtilsMessengerEXT_T GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     public ref readonly VkDebugUtilsMessengerEXT_T GetPinnableReference() => ref __Instance;
 

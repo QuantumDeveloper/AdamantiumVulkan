@@ -25,7 +25,8 @@ public unsafe partial class SparseImageOpaqueMemoryBindInfo : IMarshallableObjec
 
     public Image Image { get; set; }
     public uint BindCount { get; set; }
-    public SparseMemoryBind PBinds { get; set; }
+    public System.ReadOnlyMemory<SparseMemoryBind> PBinds { get; set; }
+
 
     public static implicit operator SparseImageOpaqueMemoryBindInfo(AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo s)
     {
@@ -35,9 +36,15 @@ public unsafe partial class SparseImageOpaqueMemoryBindInfo : IMarshallableObjec
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo>();
-        if (PBinds != default)
+        if (!PBinds.IsEmpty)
         {
-            size += PBinds.GetSize();
+            for (int i = 0; i < PBinds.Length; i++)
+            {
+                if (PBinds.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSparseMemoryBind>();
+                else
+                    size += PBinds.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -51,18 +58,25 @@ public unsafe partial class SparseImageOpaqueMemoryBindInfo : IMarshallableObjec
     {
         Image = new Image(native.image);
         BindCount = native.bindCount;
-        PBinds = new SparseMemoryBind(in *native.pBinds);
-        NativeUtils.Free(native.pBinds);
+        var arrayLengthPBinds = native.bindCount;
+        var tmpPBinds = new SparseMemoryBind[arrayLengthPBinds];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkSparseMemoryBind[arrayLengthPBinds];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pBinds, arrayLengthPBinds, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPBinds[i] = new SparseMemoryBind(in nativeTmpArray0[i]);
+        }
+        PBinds = tmpPBinds;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSparseImageOpaqueMemoryBindInfoMarshaller
     {
@@ -75,14 +89,9 @@ public unsafe partial class SparseImageOpaqueMemoryBindInfo : IMarshallableObjec
 
             context.Destination[0].bindCount = sparseImageOpaqueMemoryBindInfo.BindCount;
 
-            if (sparseImageOpaqueMemoryBindInfo.PBinds != default)
+            if (!sparseImageOpaqueMemoryBindInfo.PBinds.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkSparseMemoryBind));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSparseMemoryBind>(structSlice0).Slice(0, 1);
-                context.Destination[0].pBinds = (AdamantiumVulkan.Core.Interop.VkSparseMemoryBind*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSparseMemoryBind>(structDestination0, context.DataCursor);
-                sparseImageOpaqueMemoryBindInfo.PBinds.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pBinds = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.SparseMemoryBind, AdamantiumVulkan.Core.Interop.VkSparseMemoryBind, AdamantiumVulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo>(sparseImageOpaqueMemoryBindInfo.PBinds, ref context);
             }
 
         }

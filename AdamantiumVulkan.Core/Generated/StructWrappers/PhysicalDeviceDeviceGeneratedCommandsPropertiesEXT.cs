@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT :
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceDeviceGeneratedCommandsPropertiesExt;
     public object PNext { get; set; }
     public uint MaxIndirectPipelineCount { get; set; }
     public uint MaxIndirectShaderObjectCount { get; set; }
@@ -31,12 +31,13 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT :
     public uint MaxIndirectCommandsTokenCount { get; set; }
     public uint MaxIndirectCommandsTokenOffset { get; set; }
     public uint MaxIndirectCommandsIndirectStride { get; set; }
-    public VkIndirectCommandsInputModeFlagsEXT SupportedIndirectCommandsInputModes { get; set; }
-    public VkShaderStageFlags SupportedIndirectCommandsShaderStages { get; set; }
-    public VkShaderStageFlags SupportedIndirectCommandsShaderStagesPipelineBinding { get; set; }
-    public VkShaderStageFlags SupportedIndirectCommandsShaderStagesShaderBinding { get; set; }
+    public IndirectCommandsInputModeFlagBitsEXT SupportedIndirectCommandsInputModes { get; set; }
+    public ShaderStageFlagBits SupportedIndirectCommandsShaderStages { get; set; }
+    public ShaderStageFlagBits SupportedIndirectCommandsShaderStagesPipelineBinding { get; set; }
+    public ShaderStageFlagBits SupportedIndirectCommandsShaderStagesShaderBinding { get; set; }
     public VkBool32 DeviceGeneratedCommandsTransformFeedback { get; set; }
     public VkBool32 DeviceGeneratedCommandsMultiDrawIndirectCount { get; set; }
+
 
     public static implicit operator PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT p)
     {
@@ -60,7 +61,6 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT :
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         MaxIndirectPipelineCount = native.maxIndirectPipelineCount;
         MaxIndirectShaderObjectCount = native.maxIndirectShaderObjectCount;
@@ -76,14 +76,14 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT :
         DeviceGeneratedCommandsMultiDrawIndirectCount = native.deviceGeneratedCommandsMultiDrawIndirectCount;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXTMarshaller
     {
@@ -97,11 +97,11 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT :
             }
             else if (physicalDeviceDeviceGeneratedCommandsPropertiesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceDeviceGeneratedCommandsPropertiesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].maxIndirectPipelineCount = physicalDeviceDeviceGeneratedCommandsPropertiesEXT.MaxIndirectPipelineCount;
@@ -116,25 +116,13 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesEXT :
 
             context.Destination[0].maxIndirectCommandsIndirectStride = physicalDeviceDeviceGeneratedCommandsPropertiesEXT.MaxIndirectCommandsIndirectStride;
 
-            if (physicalDeviceDeviceGeneratedCommandsPropertiesEXT.SupportedIndirectCommandsInputModes != (uint)default)
-            {
-                context.Destination[0].supportedIndirectCommandsInputModes = physicalDeviceDeviceGeneratedCommandsPropertiesEXT.SupportedIndirectCommandsInputModes;
-            }
+            context.Destination[0].supportedIndirectCommandsInputModes = physicalDeviceDeviceGeneratedCommandsPropertiesEXT.SupportedIndirectCommandsInputModes;
 
-            if (physicalDeviceDeviceGeneratedCommandsPropertiesEXT.SupportedIndirectCommandsShaderStages != (uint)default)
-            {
-                context.Destination[0].supportedIndirectCommandsShaderStages = physicalDeviceDeviceGeneratedCommandsPropertiesEXT.SupportedIndirectCommandsShaderStages;
-            }
+            context.Destination[0].supportedIndirectCommandsShaderStages = physicalDeviceDeviceGeneratedCommandsPropertiesEXT.SupportedIndirectCommandsShaderStages;
 
-            if (physicalDeviceDeviceGeneratedCommandsPropertiesEXT.SupportedIndirectCommandsShaderStagesPipelineBinding != (uint)default)
-            {
-                context.Destination[0].supportedIndirectCommandsShaderStagesPipelineBinding = physicalDeviceDeviceGeneratedCommandsPropertiesEXT.SupportedIndirectCommandsShaderStagesPipelineBinding;
-            }
+            context.Destination[0].supportedIndirectCommandsShaderStagesPipelineBinding = physicalDeviceDeviceGeneratedCommandsPropertiesEXT.SupportedIndirectCommandsShaderStagesPipelineBinding;
 
-            if (physicalDeviceDeviceGeneratedCommandsPropertiesEXT.SupportedIndirectCommandsShaderStagesShaderBinding != (uint)default)
-            {
-                context.Destination[0].supportedIndirectCommandsShaderStagesShaderBinding = physicalDeviceDeviceGeneratedCommandsPropertiesEXT.SupportedIndirectCommandsShaderStagesShaderBinding;
-            }
+            context.Destination[0].supportedIndirectCommandsShaderStagesShaderBinding = physicalDeviceDeviceGeneratedCommandsPropertiesEXT.SupportedIndirectCommandsShaderStagesShaderBinding;
 
             if (physicalDeviceDeviceGeneratedCommandsPropertiesEXT.DeviceGeneratedCommandsTransformFeedback != (uint)default)
             {

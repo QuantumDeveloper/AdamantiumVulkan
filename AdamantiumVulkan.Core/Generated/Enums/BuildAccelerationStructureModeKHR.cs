@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 21380 Column: 14
+// File: vk.xml Line: 13220 Column: 6
 [Flags]
-public enum BuildAccelerationStructureModeKHR : uint
+public enum BuildAccelerationStructureModeKHR : int
 {
     BuildKhr = 0,
 
     UpdateKhr = 1,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

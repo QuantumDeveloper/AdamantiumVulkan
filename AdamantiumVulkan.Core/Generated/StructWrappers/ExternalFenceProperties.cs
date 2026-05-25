@@ -25,9 +25,10 @@ public unsafe partial class ExternalFenceProperties : IMarshallableObject, IMars
 
     public StructureType SType => StructureType.ExternalFenceProperties;
     public object PNext { get; set; }
-    public VkExternalFenceHandleTypeFlags ExportFromImportedHandleTypes { get; set; }
-    public VkExternalFenceHandleTypeFlags CompatibleHandleTypes { get; set; }
-    public VkExternalFenceFeatureFlags ExternalFenceFeatures { get; set; }
+    public ExternalFenceHandleTypeFlagBits ExportFromImportedHandleTypes { get; set; }
+    public ExternalFenceHandleTypeFlagBits CompatibleHandleTypes { get; set; }
+    public ExternalFenceFeatureFlagBits ExternalFenceFeatures { get; set; }
+
 
     public static implicit operator ExternalFenceProperties(AdamantiumVulkan.Core.Interop.VkExternalFenceProperties e)
     {
@@ -57,14 +58,14 @@ public unsafe partial class ExternalFenceProperties : IMarshallableObject, IMars
         ExternalFenceFeatures = native.externalFenceFeatures;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkExternalFenceProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkExternalFenceProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkExternalFencePropertiesMarshaller
     {
@@ -78,27 +79,18 @@ public unsafe partial class ExternalFenceProperties : IMarshallableObject, IMars
             }
             else if (externalFenceProperties.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (externalFenceProperties.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (externalFenceProperties.ExportFromImportedHandleTypes != (uint)default)
-            {
-                context.Destination[0].exportFromImportedHandleTypes = externalFenceProperties.ExportFromImportedHandleTypes;
-            }
+            context.Destination[0].exportFromImportedHandleTypes = externalFenceProperties.ExportFromImportedHandleTypes;
 
-            if (externalFenceProperties.CompatibleHandleTypes != (uint)default)
-            {
-                context.Destination[0].compatibleHandleTypes = externalFenceProperties.CompatibleHandleTypes;
-            }
+            context.Destination[0].compatibleHandleTypes = externalFenceProperties.CompatibleHandleTypes;
 
-            if (externalFenceProperties.ExternalFenceFeatures != (uint)default)
-            {
-                context.Destination[0].externalFenceFeatures = externalFenceProperties.ExternalFenceFeatures;
-            }
+            context.Destination[0].externalFenceFeatures = externalFenceProperties.ExternalFenceFeatures;
 
         }
     }

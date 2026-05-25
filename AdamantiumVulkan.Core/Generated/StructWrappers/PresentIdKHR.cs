@@ -23,10 +23,11 @@ public unsafe partial class PresentIdKHR : IMarshallableObject, IMarshallable<Ad
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PresentIdKhr;
     public object PNext { get; set; }
     public uint SwapchainCount { get; set; }
-    public ulong? PresentIds { get; set; }
+    public System.ReadOnlyMemory<ulong> PresentIds { get; set; }
+
 
     public static implicit operator PresentIdKHR(AdamantiumVulkan.Core.Interop.VkPresentIdKHR p)
     {
@@ -40,6 +41,8 @@ public unsafe partial class PresentIdKHR : IMarshallableObject, IMarshallable<Ad
         {
             size += marshallable.GetSize();
         }
+        if (!PresentIds.IsEmpty)
+            size += PresentIds.Span.Length * Marshal.SizeOf<System.UInt64>();
         return size;
     }
 
@@ -50,24 +53,22 @@ public unsafe partial class PresentIdKHR : IMarshallableObject, IMarshallable<Ad
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPresentIdKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         SwapchainCount = native.swapchainCount;
-        if (native.pPresentIds != null)
-        {
-            PresentIds = *native.pPresentIds;
-            NativeUtils.Free(native.pPresentIds);
-        }
+        var arrayLengthPresentIds = native.swapchainCount;
+        var tmpPresentIds = new ulong[arrayLengthPresentIds];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pPresentIds, arrayLengthPresentIds, tmpPresentIds);
+        PresentIds = tmpPresentIds;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPresentIdKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPresentIdKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPresentIdKHRMarshaller
     {
@@ -81,18 +82,18 @@ public unsafe partial class PresentIdKHR : IMarshallableObject, IMarshallable<Ad
             }
             else if (presentIdKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (presentIdKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].swapchainCount = presentIdKHR.SwapchainCount;
 
-            if (presentIdKHR.PresentIds.HasValue)
+            if (!presentIdKHR.PresentIds.IsEmpty)
             {
-                context.Destination[0].pPresentIds = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(presentIdKHR.PresentIds.Value, ref context);
+                context.Destination[0].pPresentIds = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<ulong, AdamantiumVulkan.Core.Interop.VkPresentIdKHR>(presentIdKHR.PresentIds.Span, ref context);
             }
 
         }

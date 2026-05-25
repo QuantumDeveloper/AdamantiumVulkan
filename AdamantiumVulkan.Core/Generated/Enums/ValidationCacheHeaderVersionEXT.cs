@@ -11,13 +11,11 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 14570 Column: 14
+// File: vk.xml Line: 13082 Column: 6
 [Flags]
-public enum ValidationCacheHeaderVersionEXT : uint
+public enum ValidationCacheHeaderVersionEXT : int
 {
     OneExt = 1,
-
-    MaxEnumExt = 2147483647,
 
 }
 

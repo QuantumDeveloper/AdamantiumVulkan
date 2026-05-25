@@ -27,7 +27,7 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
     }
 
     public AdamantiumVulkan.SpirvTools.Interop.spv_optimizer_t GetNativeValue() => __Instance;
-    public nuint NativePointer => __Instance.pointer;
+    public void* NativePointer => __Instance.pointer;
 
     ///<summary>
     /// Destroys the given optimizer object.
@@ -161,9 +161,9 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
         var nativeInstance = GetNativeValue();
         var arg1 = stackalloc uint[1];
         *arg1 = binary;
-        spv_binary_t arg3;
+        spv_binary_t arg3 = default;
         var arg4 = options == null ? new spv_optimizer_options_t() : (spv_optimizer_options_t)options;
-        var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerRun(&nativeInstance, arg1, word_count, out arg3, arg4);
+        var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerRun(&nativeInstance, arg1, word_count, &arg3, arg4);
         optimized_binary = new spv_binary(arg3);
         return result;
     }

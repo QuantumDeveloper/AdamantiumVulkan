@@ -11,15 +11,13 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 2339 Column: 14
+// File: vk.xml Line: 11958 Column: 6
 [Flags]
-public enum CommandBufferLevel : uint
+public enum CommandBufferLevel : int
 {
     Primary = 0,
 
     Secondary = 1,
-
-    MaxEnum = 2147483647,
 
 }
 

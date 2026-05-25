@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5795 Column: 30
+// File: video.xml Line: 16168 Column: 10
 public unsafe struct PFN_vkEnumeratePhysicalDeviceGroups
 {
     public PFN_vkEnumeratePhysicalDeviceGroups(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkEnumeratePhysicalDeviceGroups
     public PFN_vkEnumeratePhysicalDeviceGroups(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint* pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties)
     {
         return InvokeFunc(instance, ref pPhysicalDeviceGroupCount, pPhysicalDeviceGroupProperties);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint* pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties*, Result>)ptr)(instance, ref pPhysicalDeviceGroupCount, pPhysicalDeviceGroupProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties*, Result>)ptr)(instance, ref pPhysicalDeviceGroupCount, pPhysicalDeviceGroupProperties);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint* pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstance_T instance, ref uint pPhysicalDeviceGroupCount, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint*, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties*, Result>)(void*)ptr)(instance, ref pPhysicalDeviceGroupCount, pPhysicalDeviceGroupProperties);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstance_T, ref uint, AdamantiumVulkan.Core.Interop.VkPhysicalDeviceGroupProperties*, Result>)(void*)ptr)(instance, ref pPhysicalDeviceGroupCount, pPhysicalDeviceGroupProperties);
     }
 
     public static explicit operator PFN_vkEnumeratePhysicalDeviceGroups(void* ptr) => new(ptr);

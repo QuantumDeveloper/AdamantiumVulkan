@@ -23,10 +23,11 @@ public unsafe partial class ImageFormatListCreateInfo : IMarshallableObject, IMa
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.ImageFormatListCreateInfo;
     public object PNext { get; set; }
     public uint ViewFormatCount { get; set; }
     public System.ReadOnlyMemory<Format> PViewFormats { get; set; }
+
 
     public static implicit operator ImageFormatListCreateInfo(AdamantiumVulkan.Core.Interop.VkImageFormatListCreateInfo i)
     {
@@ -41,7 +42,7 @@ public unsafe partial class ImageFormatListCreateInfo : IMarshallableObject, IMa
             size += marshallable.GetSize();
         }
         if (!PViewFormats.IsEmpty)
-            size += PViewFormats.Span.Length * sizeof(uint);
+            size += PViewFormats.Span.Length * sizeof(int);
         return size;
     }
 
@@ -52,21 +53,22 @@ public unsafe partial class ImageFormatListCreateInfo : IMarshallableObject, IMa
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkImageFormatListCreateInfo native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ViewFormatCount = native.viewFormatCount;
-        var tmpPViewFormats = new Format[native.viewFormatCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pViewFormats, native.viewFormatCount, tmpPViewFormats);
+        var arrayLengthPViewFormats = native.viewFormatCount;
+        var tmpPViewFormats = new Format[arrayLengthPViewFormats];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pViewFormats, arrayLengthPViewFormats, tmpPViewFormats);
+        PViewFormats = tmpPViewFormats;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkImageFormatListCreateInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageFormatListCreateInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkImageFormatListCreateInfoMarshaller
     {
@@ -80,24 +82,24 @@ public unsafe partial class ImageFormatListCreateInfo : IMarshallableObject, IMa
             }
             else if (imageFormatListCreateInfo.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (imageFormatListCreateInfo.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].viewFormatCount = imageFormatListCreateInfo.ViewFormatCount;
 
             if (!imageFormatListCreateInfo.PViewFormats.IsEmpty)
             {
-                var sizeInBytes = sizeof(uint) * imageFormatListCreateInfo.PViewFormats.Length;
+                var sizeInBytes = sizeof(int) * imageFormatListCreateInfo.PViewFormats.Length;
                 var byteSpan = context.AllocateData(sizeInBytes);
-                var enumSpanPViewFormats = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, uint>(byteSpan);
+                var enumSpanPViewFormats = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, int>(byteSpan);
                 context.Destination[0].pViewFormats = (AdamantiumVulkan.Core.Format*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPViewFormats));
                 for (int i = 0; i < enumSpanPViewFormats.Length; i++)
                 {
-                    enumSpanPViewFormats[i] = (uint)imageFormatListCreateInfo.PViewFormats.Span[i];
+                    enumSpanPViewFormats[i] = (int)imageFormatListCreateInfo.PViewFormats.Span[i];
                 }
             }
 

@@ -23,9 +23,10 @@ public unsafe partial class PhysicalDeviceVertexAttributeRobustnessFeaturesEXT :
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceVertexAttributeRobustnessFeaturesExt;
     public object PNext { get; set; }
     public VkBool32 VertexAttributeRobustness { get; set; }
+
 
     public static implicit operator PhysicalDeviceVertexAttributeRobustnessFeaturesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT p)
     {
@@ -49,19 +50,18 @@ public unsafe partial class PhysicalDeviceVertexAttributeRobustnessFeaturesEXT :
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         VertexAttributeRobustness = native.vertexAttributeRobustness;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXTMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class PhysicalDeviceVertexAttributeRobustnessFeaturesEXT :
             }
             else if (physicalDeviceVertexAttributeRobustnessFeaturesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceVertexAttributeRobustnessFeaturesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceVertexAttributeRobustnessFeaturesEXT.VertexAttributeRobustness != (uint)default)

@@ -26,7 +26,8 @@ public unsafe partial class PresentTimesInfoGOOGLE : IMarshallableObject, IMarsh
     public StructureType SType => StructureType.PresentTimesInfoGoogle;
     public object PNext { get; set; }
     public uint SwapchainCount { get; set; }
-    public PresentTimeGOOGLE PTimes { get; set; }
+    public System.ReadOnlyMemory<PresentTimeGOOGLE> PTimes { get; set; }
+
 
     public static implicit operator PresentTimesInfoGOOGLE(AdamantiumVulkan.Core.Interop.VkPresentTimesInfoGOOGLE p)
     {
@@ -40,9 +41,15 @@ public unsafe partial class PresentTimesInfoGOOGLE : IMarshallableObject, IMarsh
         {
             size += marshallable.GetSize();
         }
-        if (PTimes != default)
+        if (!PTimes.IsEmpty)
         {
-            size += PTimes.GetSize();
+            for (int i = 0; i < PTimes.Length; i++)
+            {
+                if (PTimes.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE>();
+                else
+                    size += PTimes.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -56,18 +63,25 @@ public unsafe partial class PresentTimesInfoGOOGLE : IMarshallableObject, IMarsh
     {
         PNext = (System.IntPtr)native.pNext;
         SwapchainCount = native.swapchainCount;
-        PTimes = new PresentTimeGOOGLE(in *native.pTimes);
-        NativeUtils.Free(native.pTimes);
+        var arrayLengthPTimes = native.swapchainCount;
+        var tmpPTimes = new PresentTimeGOOGLE[arrayLengthPTimes];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE[arrayLengthPTimes];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pTimes, arrayLengthPTimes, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPTimes[i] = new PresentTimeGOOGLE(in nativeTmpArray0[i]);
+        }
+        PTimes = tmpPTimes;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPresentTimesInfoGOOGLE>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPresentTimesInfoGOOGLE>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPresentTimesInfoGOOGLEMarshaller
     {
@@ -81,23 +95,18 @@ public unsafe partial class PresentTimesInfoGOOGLE : IMarshallableObject, IMarsh
             }
             else if (presentTimesInfoGOOGLE.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (presentTimesInfoGOOGLE.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].swapchainCount = presentTimesInfoGOOGLE.SwapchainCount;
 
-            if (presentTimesInfoGOOGLE.PTimes != default)
+            if (!presentTimesInfoGOOGLE.PTimes.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE>(structSlice0).Slice(0, 1);
-                context.Destination[0].pTimes = (AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE>(structDestination0, context.DataCursor);
-                presentTimesInfoGOOGLE.PTimes.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pTimes = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.PresentTimeGOOGLE, AdamantiumVulkan.Core.Interop.VkPresentTimeGOOGLE, AdamantiumVulkan.Core.Interop.VkPresentTimesInfoGOOGLE>(presentTimesInfoGOOGLE.PTimes, ref context);
             }
 
         }

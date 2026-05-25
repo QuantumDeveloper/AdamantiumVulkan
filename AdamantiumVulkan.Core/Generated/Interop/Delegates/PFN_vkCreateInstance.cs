@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4153 Column: 30
+// File: video.xml Line: 14288 Column: 10
 public unsafe struct PFN_vkCreateInstance
 {
     public PFN_vkCreateInstance(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkCreateInstance
     public PFN_vkCreateInstance(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkInstance_T, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkInstance_T*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkInstance_T, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkInstance_T*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkInstance_T pInstance)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkInstance_T* pInstance)
     {
-        return InvokeFunc(pCreateInfo, pAllocator, out pInstance);
+        return InvokeFunc(pCreateInfo, pAllocator, pInstance);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkInstance_T pInstance)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkInstance_T* pInstance)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkInstance_T, Result>)ptr)(pCreateInfo, pAllocator, out pInstance);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkInstance_T*, Result>)ptr)(pCreateInfo, pAllocator, pInstance);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, out AdamantiumVulkan.Core.Interop.VkInstance_T pInstance)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo* pCreateInfo, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks* pAllocator, AdamantiumVulkan.Core.Interop.VkInstance_T* pInstance)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, out AdamantiumVulkan.Core.Interop.VkInstance_T, Result>)(void*)ptr)(pCreateInfo, pAllocator, out pInstance);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkInstanceCreateInfo*, AdamantiumVulkan.Core.Interop.VkAllocationCallbacks*, AdamantiumVulkan.Core.Interop.VkInstance_T*, Result>)(void*)ptr)(pCreateInfo, pAllocator, pInstance);
     }
 
     public static explicit operator PFN_vkCreateInstance(void* ptr) => new(ptr);

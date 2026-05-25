@@ -28,6 +28,7 @@ public unsafe partial class ComponentMapping : IMarshallableObject, IMarshallabl
     public ComponentSwizzle B { get; set; }
     public ComponentSwizzle A { get; set; }
 
+
     public static implicit operator ComponentMapping(AdamantiumVulkan.Core.Interop.VkComponentMapping c)
     {
         return new ComponentMapping(in c);
@@ -52,14 +53,14 @@ public unsafe partial class ComponentMapping : IMarshallableObject, IMarshallabl
         A = native.a;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkComponentMapping>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkComponentMapping>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkComponentMappingMarshaller
     {

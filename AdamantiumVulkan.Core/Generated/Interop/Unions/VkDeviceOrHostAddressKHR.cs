@@ -11,14 +11,14 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18418 Column: 15
+// File: vk.xml Line: 6448 Column: 10
 [StructLayout(LayoutKind.Explicit)]
 public unsafe partial struct VkDeviceOrHostAddressKHR
 {
     [FieldOffset(0)]
     public VkDeviceAddress deviceAddress;
     [FieldOffset(0)]
-    public nuint hostAddress;
+    public void* hostAddress;
 }
 
 

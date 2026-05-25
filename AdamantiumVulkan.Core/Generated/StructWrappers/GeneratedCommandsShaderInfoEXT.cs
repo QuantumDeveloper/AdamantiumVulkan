@@ -23,10 +23,11 @@ public unsafe partial class GeneratedCommandsShaderInfoEXT : IMarshallableObject
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.GeneratedCommandsShaderInfoExt;
     public object PNext { get; set; }
     public uint ShaderCount { get; set; }
-    public ShaderEXT PShaders { get; set; }
+    public System.ReadOnlyMemory<ShaderEXT> PShaders { get; set; }
+
 
     public static implicit operator GeneratedCommandsShaderInfoEXT(AdamantiumVulkan.Core.Interop.VkGeneratedCommandsShaderInfoEXT g)
     {
@@ -40,6 +41,8 @@ public unsafe partial class GeneratedCommandsShaderInfoEXT : IMarshallableObject
         {
             size += marshallable.GetSize();
         }
+        if (!PShaders.IsEmpty)
+            size += PShaders.Span.Length * Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkShaderEXT_T>();
         return size;
     }
 
@@ -50,21 +53,27 @@ public unsafe partial class GeneratedCommandsShaderInfoEXT : IMarshallableObject
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkGeneratedCommandsShaderInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ShaderCount = native.shaderCount;
-        PShaders = new ShaderEXT(in *native.pShaders);
-        NativeUtils.Free(native.pShaders);
+        var arrayLengthPShaders = native.shaderCount;
+        var tmpPShaders = new ShaderEXT[arrayLengthPShaders];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkShaderEXT_T[arrayLengthPShaders];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pShaders, arrayLengthPShaders, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPShaders[i] = new ShaderEXT(in nativeTmpArray0[i]);
+        }
+        PShaders = tmpPShaders;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkGeneratedCommandsShaderInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkGeneratedCommandsShaderInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkGeneratedCommandsShaderInfoEXTMarshaller
     {
@@ -78,19 +87,26 @@ public unsafe partial class GeneratedCommandsShaderInfoEXT : IMarshallableObject
             }
             else if (generatedCommandsShaderInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (generatedCommandsShaderInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].shaderCount = generatedCommandsShaderInfoEXT.ShaderCount;
 
-            if (generatedCommandsShaderInfoEXT.PShaders != default)
+            if (!generatedCommandsShaderInfoEXT.PShaders.IsEmpty)
             {
-                AdamantiumVulkan.Core.Interop.VkShaderEXT_T struct0 = generatedCommandsShaderInfoEXT.PShaders;
-                context.Destination[0].pShaders = (AdamantiumVulkan.Core.Interop.VkShaderEXT_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                System.ReadOnlySpan<AdamantiumVulkan.Core.ShaderEXT> sourceSpan = generatedCommandsShaderInfoEXT.PShaders.Span;
+                var byteSpan = context.AllocateData(sourceSpan.Length * sizeof(AdamantiumVulkan.Core.Interop.VkShaderEXT_T));
+                var destinationSpan = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkShaderEXT_T>(byteSpan);
+                for (int i = 0; i < sourceSpan.Length; i++)
+                {
+                    destinationSpan[i] = sourceSpan[i];
+                }
+                var pDestination = (AdamantiumVulkan.Core.Interop.VkShaderEXT_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(destinationSpan));
+                context.Destination[0].pShaders = pDestination;
             }
 
         }

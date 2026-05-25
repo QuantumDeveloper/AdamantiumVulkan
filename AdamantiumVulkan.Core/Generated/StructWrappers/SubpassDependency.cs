@@ -25,11 +25,12 @@ public unsafe partial class SubpassDependency : IMarshallableObject, IMarshallab
 
     public uint SrcSubpass { get; set; }
     public uint DstSubpass { get; set; }
-    public VkPipelineStageFlags SrcStageMask { get; set; }
-    public VkPipelineStageFlags DstStageMask { get; set; }
-    public VkAccessFlags SrcAccessMask { get; set; }
-    public VkAccessFlags DstAccessMask { get; set; }
-    public VkDependencyFlags DependencyFlags { get; set; }
+    public PipelineStageFlagBits SrcStageMask { get; set; }
+    public PipelineStageFlagBits DstStageMask { get; set; }
+    public AccessFlagBits SrcAccessMask { get; set; }
+    public AccessFlagBits DstAccessMask { get; set; }
+    public DependencyFlagBits DependencyFlags { get; set; }
+
 
     public static implicit operator SubpassDependency(AdamantiumVulkan.Core.Interop.VkSubpassDependency s)
     {
@@ -58,14 +59,14 @@ public unsafe partial class SubpassDependency : IMarshallableObject, IMarshallab
         DependencyFlags = native.dependencyFlags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSubpassDependency>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSubpassDependency>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSubpassDependencyMarshaller
     {
@@ -75,30 +76,15 @@ public unsafe partial class SubpassDependency : IMarshallableObject, IMarshallab
 
             context.Destination[0].dstSubpass = subpassDependency.DstSubpass;
 
-            if (subpassDependency.SrcStageMask != (uint)default)
-            {
-                context.Destination[0].srcStageMask = subpassDependency.SrcStageMask;
-            }
+            context.Destination[0].srcStageMask = subpassDependency.SrcStageMask;
 
-            if (subpassDependency.DstStageMask != (uint)default)
-            {
-                context.Destination[0].dstStageMask = subpassDependency.DstStageMask;
-            }
+            context.Destination[0].dstStageMask = subpassDependency.DstStageMask;
 
-            if (subpassDependency.SrcAccessMask != (uint)default)
-            {
-                context.Destination[0].srcAccessMask = subpassDependency.SrcAccessMask;
-            }
+            context.Destination[0].srcAccessMask = subpassDependency.SrcAccessMask;
 
-            if (subpassDependency.DstAccessMask != (uint)default)
-            {
-                context.Destination[0].dstAccessMask = subpassDependency.DstAccessMask;
-            }
+            context.Destination[0].dstAccessMask = subpassDependency.DstAccessMask;
 
-            if (subpassDependency.DependencyFlags != (uint)default)
-            {
-                context.Destination[0].dependencyFlags = subpassDependency.DependencyFlags;
-            }
+            context.Destination[0].dependencyFlags = subpassDependency.DependencyFlags;
 
         }
     }

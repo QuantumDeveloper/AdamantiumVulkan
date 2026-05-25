@@ -12,15 +12,15 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 16855 Column: 16
+// File: vk.xml Line: 4557 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDeviceDeviceMemoryReportCreateInfoEXT
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkDeviceMemoryReportFlagsEXT flags;
-    public delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT*, nuint, void> pfnUserCallback;
-    public nuint pUserData;
+    public delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDeviceMemoryReportCallbackDataEXT*, void*, void> pfnUserCallback;
+    public void* pUserData;
 }
 
 

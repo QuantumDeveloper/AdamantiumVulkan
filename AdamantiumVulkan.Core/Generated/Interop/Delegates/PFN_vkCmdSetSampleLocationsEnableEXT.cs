@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 19272 Column: 26
+// File: video.xml Line: 17595 Column: 10
 public unsafe struct PFN_vkCmdSetSampleLocationsEnableEXT
 {
     public PFN_vkCmdSetSampleLocationsEnableEXT(nuint ptr) : this((void*) ptr) { }

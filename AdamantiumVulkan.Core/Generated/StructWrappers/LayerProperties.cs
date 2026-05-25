@@ -28,6 +28,7 @@ public unsafe partial class LayerProperties : IMarshallableObject, IMarshallable
     public uint ImplementationVersion { get; set; }
     public string Description { get; set; }
 
+
     public static implicit operator LayerProperties(AdamantiumVulkan.Core.Interop.VkLayerProperties l)
     {
         return new LayerProperties(in l);
@@ -58,14 +59,14 @@ public unsafe partial class LayerProperties : IMarshallableObject, IMarshallable
         }
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkLayerProperties>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkLayerProperties>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkLayerPropertiesMarshaller
     {

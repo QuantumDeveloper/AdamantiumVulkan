@@ -9,7 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
 
 namespace AdamantiumVulkan.Core;
 
@@ -24,15 +23,15 @@ public unsafe partial class VideoEncodeAV1CapabilitiesKHR : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeAv1CapabilitiesKhr;
     public object PNext { get; set; }
-    public VkVideoEncodeAV1CapabilityFlagsKHR Flags { get; set; }
+    public VideoEncodeAV1CapabilityFlagBitsKHR Flags { get; set; }
     public StdVideoAV1Level MaxLevel { get; set; }
     public Extent2D CodedPictureAlignment { get; set; }
     public Extent2D MaxTiles { get; set; }
     public Extent2D MinTileSize { get; set; }
     public Extent2D MaxTileSize { get; set; }
-    public VkVideoEncodeAV1SuperblockSizeFlagsKHR SuperblockSizes { get; set; }
+    public VideoEncodeAV1SuperblockSizeFlagBitsKHR SuperblockSizes { get; set; }
     public uint MaxSingleReferenceCount { get; set; }
     public uint SingleReferenceNameMask { get; set; }
     public uint MaxUnidirectionalCompoundReferenceCount { get; set; }
@@ -49,7 +48,8 @@ public unsafe partial class VideoEncodeAV1CapabilitiesKHR : IMarshallableObject,
     public uint MaxQIndex { get; set; }
     public VkBool32 PrefersGopRemainingFrames { get; set; }
     public VkBool32 RequiresGopRemainingFrames { get; set; }
-    public VkVideoEncodeAV1StdFlagsKHR StdSyntaxFlags { get; set; }
+    public VideoEncodeAV1StdFlagBitsKHR StdSyntaxFlags { get; set; }
+
 
     public static implicit operator VideoEncodeAV1CapabilitiesKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1CapabilitiesKHR v)
     {
@@ -73,7 +73,6 @@ public unsafe partial class VideoEncodeAV1CapabilitiesKHR : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1CapabilitiesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         MaxLevel = native.maxLevel;
@@ -101,14 +100,14 @@ public unsafe partial class VideoEncodeAV1CapabilitiesKHR : IMarshallableObject,
         StdSyntaxFlags = native.stdSyntaxFlags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1CapabilitiesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeAV1CapabilitiesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeAV1CapabilitiesKHRMarshaller
     {
@@ -122,17 +121,14 @@ public unsafe partial class VideoEncodeAV1CapabilitiesKHR : IMarshallableObject,
             }
             else if (videoEncodeAV1CapabilitiesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeAV1CapabilitiesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (videoEncodeAV1CapabilitiesKHR.Flags != (uint)default)
-            {
-                context.Destination[0].flags = videoEncodeAV1CapabilitiesKHR.Flags;
-            }
+            context.Destination[0].flags = videoEncodeAV1CapabilitiesKHR.Flags;
 
             context.Destination[0].maxLevel = videoEncodeAV1CapabilitiesKHR.MaxLevel;
 
@@ -180,10 +176,7 @@ public unsafe partial class VideoEncodeAV1CapabilitiesKHR : IMarshallableObject,
                 }
             }
 
-            if (videoEncodeAV1CapabilitiesKHR.SuperblockSizes != (uint)default)
-            {
-                context.Destination[0].superblockSizes = videoEncodeAV1CapabilitiesKHR.SuperblockSizes;
-            }
+            context.Destination[0].superblockSizes = videoEncodeAV1CapabilitiesKHR.SuperblockSizes;
 
             context.Destination[0].maxSingleReferenceCount = videoEncodeAV1CapabilitiesKHR.MaxSingleReferenceCount;
 
@@ -223,10 +216,7 @@ public unsafe partial class VideoEncodeAV1CapabilitiesKHR : IMarshallableObject,
                 context.Destination[0].requiresGopRemainingFrames = videoEncodeAV1CapabilitiesKHR.RequiresGopRemainingFrames;
             }
 
-            if (videoEncodeAV1CapabilitiesKHR.StdSyntaxFlags != (uint)default)
-            {
-                context.Destination[0].stdSyntaxFlags = videoEncodeAV1CapabilitiesKHR.StdSyntaxFlags;
-            }
+            context.Destination[0].stdSyntaxFlags = videoEncodeAV1CapabilitiesKHR.StdSyntaxFlags;
 
         }
     }

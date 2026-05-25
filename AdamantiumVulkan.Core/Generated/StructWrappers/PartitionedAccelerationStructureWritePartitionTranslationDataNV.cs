@@ -26,6 +26,7 @@ public unsafe partial class PartitionedAccelerationStructureWritePartitionTransl
     public uint PartitionIndex { get; set; }
     public System.ReadOnlyMemory<float> PartitionTranslation { get; set; }
 
+
     public static implicit operator PartitionedAccelerationStructureWritePartitionTranslationDataNV(AdamantiumVulkan.Core.Interop.VkPartitionedAccelerationStructureWritePartitionTranslationDataNV p)
     {
         return new PartitionedAccelerationStructureWritePartitionTranslationDataNV(in p);
@@ -46,19 +47,20 @@ public unsafe partial class PartitionedAccelerationStructureWritePartitionTransl
     {
         PartitionIndex = native.partitionIndex;
         var tmpPartitionTranslation = new float[3];
-        var pPartitionTranslation = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.partitionTranslation[0]));
+        var partitionTranslationp = native.partitionTranslation[0];
+        var pPartitionTranslation = (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in partitionTranslationp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pPartitionTranslation, 3, tmpPartitionTranslation);
         PartitionTranslation = tmpPartitionTranslation;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPartitionedAccelerationStructureWritePartitionTranslationDataNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPartitionedAccelerationStructureWritePartitionTranslationDataNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPartitionedAccelerationStructureWritePartitionTranslationDataNVMarshaller
     {

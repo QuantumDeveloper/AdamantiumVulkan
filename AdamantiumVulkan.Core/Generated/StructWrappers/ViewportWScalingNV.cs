@@ -26,6 +26,7 @@ public unsafe partial class ViewportWScalingNV : IMarshallableObject, IMarshalla
     public float Xcoeff { get; set; }
     public float Ycoeff { get; set; }
 
+
     public static implicit operator ViewportWScalingNV(AdamantiumVulkan.Core.Interop.VkViewportWScalingNV v)
     {
         return new ViewportWScalingNV(in v);
@@ -48,14 +49,14 @@ public unsafe partial class ViewportWScalingNV : IMarshallableObject, IMarshalla
         Ycoeff = native.ycoeff;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkViewportWScalingNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkViewportWScalingNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkViewportWScalingNVMarshaller
     {

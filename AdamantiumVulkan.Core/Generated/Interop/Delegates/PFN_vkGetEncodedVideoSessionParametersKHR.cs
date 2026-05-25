@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11651 Column: 30
+// File: video.xml Line: 17935 Column: 10
 public unsafe struct PFN_vkGetEncodedVideoSessionParametersKHR
 {
     public PFN_vkGetEncodedVideoSessionParametersKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetEncodedVideoSessionParametersKHR
     public PFN_vkGetEncodedVideoSessionParametersKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR*, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR*, ref ulong*, nuint, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR*, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR*, void*, byte*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR*, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR*, ref ulong*, nuint, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR*, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR*, void*, byte*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, ref ulong* pDataSize, nuint pData)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, void* pDataSize, byte* pData)
     {
-        return InvokeFunc(device, pVideoSessionParametersInfo, pFeedbackInfo, ref pDataSize, pData);
+        return InvokeFunc(device, pVideoSessionParametersInfo, pFeedbackInfo, pDataSize, pData);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, ref ulong* pDataSize, nuint pData)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, void* pDataSize, byte* pData)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR*, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR*, ref ulong*, nuint, Result>)ptr)(device, pVideoSessionParametersInfo, pFeedbackInfo, ref pDataSize, pData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR*, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR*, void*, byte*, Result>)ptr)(device, pVideoSessionParametersInfo, pFeedbackInfo, pDataSize, pData);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, ref ulong* pDataSize, nuint pData)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR* pVideoSessionParametersInfo, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR* pFeedbackInfo, void* pDataSize, byte* pData)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR*, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR*, ref ulong*, nuint, Result>)(void*)ptr)(device, pVideoSessionParametersInfo, pFeedbackInfo, ref pDataSize, pData);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersGetInfoKHR*, AdamantiumVulkan.Core.Interop.VkVideoEncodeSessionParametersFeedbackInfoKHR*, void*, byte*, Result>)(void*)ptr)(device, pVideoSessionParametersInfo, pFeedbackInfo, pDataSize, pData);
     }
 
     public static explicit operator PFN_vkGetEncodedVideoSessionParametersKHR(void* ptr) => new(ptr);

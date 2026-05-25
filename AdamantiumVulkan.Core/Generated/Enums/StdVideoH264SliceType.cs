@@ -9,11 +9,10 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace AdamantiumVulkan;
+namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vk_video/vulkan_video_codec_h264std.h Line: 152 Column: 14
-[Flags]
-public enum StdVideoH264SliceType : uint
+// File: video.xml Line: 1415 Column: 6
+public enum StdVideoH264SliceType : int
 {
     P = 0,
 
@@ -21,7 +20,7 @@ public enum StdVideoH264SliceType : uint
 
     I = 2,
 
-    Invalid = 2147483647,
+    Invalid = 7,
 
 }
 

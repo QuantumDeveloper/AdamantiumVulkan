@@ -12,14 +12,14 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 18423 Column: 16
+// File: vk.xml Line: 9352 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkMicromapBuildInfoEXT
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public MicromapTypeEXT type;
-    public VkBuildMicromapFlagsEXT flags;
+    public BuildMicromapFlagBitsEXT flags;
     public BuildMicromapModeEXT mode;
     public VkMicromapEXT_T dstMicromap;
     public uint usageCountsCount;

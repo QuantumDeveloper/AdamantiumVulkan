@@ -12,14 +12,41 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 15850 Column: 16
+// File: vk.xml Line: 5585 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkPhysicalDeviceMemoryBudgetPropertiesEXT
 {
     public StructureType sType;
-    public nuint pNext;
-    public unsafe fixed ulong heapBudget[16];
-    public unsafe fixed ulong heapUsage[16];
+    public void* pNext;
+    public UInt640__FixedBuffer heapBudget;
+    public UInt640__FixedBuffer heapUsage;
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct UInt640__FixedBuffer
+    {
+        public UInt64 item0;
+        public UInt64 item1;
+        public UInt64 item2;
+        public UInt64 item3;
+        public UInt64 item4;
+        public UInt64 item5;
+        public UInt64 item6;
+        public UInt64 item7;
+        public UInt64 item8;
+        public UInt64 item9;
+        public UInt64 item10;
+        public UInt64 item11;
+        public UInt64 item12;
+        public UInt64 item13;
+        public UInt64 item14;
+        public UInt64 item15;
+
+        public UInt64 this[int index]
+        {
+            get => Unsafe.Add(ref item0, index);
+            set => Unsafe.Add(ref item0, index) = value;
+        }
+    }
 }
 
 

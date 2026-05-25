@@ -23,11 +23,12 @@ public unsafe partial class OpticalFlowExecuteInfoNV : IMarshallableObject, IMar
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.OpticalFlowExecuteInfoNv;
     public object PNext { get; set; }
-    public VkOpticalFlowExecuteFlagsNV Flags { get; set; }
+    public OpticalFlowExecuteFlagBitsNV Flags { get; set; }
     public uint RegionCount { get; set; }
-    public Rect2D PRegions { get; set; }
+    public System.ReadOnlyMemory<Rect2D> PRegions { get; set; }
+
 
     public static implicit operator OpticalFlowExecuteInfoNV(AdamantiumVulkan.Core.Interop.VkOpticalFlowExecuteInfoNV o)
     {
@@ -41,9 +42,15 @@ public unsafe partial class OpticalFlowExecuteInfoNV : IMarshallableObject, IMar
         {
             size += marshallable.GetSize();
         }
-        if (PRegions != default)
+        if (!PRegions.IsEmpty)
         {
-            size += PRegions.GetSize();
+            for (int i = 0; i < PRegions.Length; i++)
+            {
+                if (PRegions.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkRect2D>();
+                else
+                    size += PRegions.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -55,22 +62,28 @@ public unsafe partial class OpticalFlowExecuteInfoNV : IMarshallableObject, IMar
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkOpticalFlowExecuteInfoNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Flags = native.flags;
         RegionCount = native.regionCount;
-        PRegions = new Rect2D(in *native.pRegions);
-        NativeUtils.Free(native.pRegions);
+        var arrayLengthPRegions = native.regionCount;
+        var tmpPRegions = new Rect2D[arrayLengthPRegions];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkRect2D[arrayLengthPRegions];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pRegions, arrayLengthPRegions, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPRegions[i] = new Rect2D(in nativeTmpArray0[i]);
+        }
+        PRegions = tmpPRegions;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkOpticalFlowExecuteInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkOpticalFlowExecuteInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkOpticalFlowExecuteInfoNVMarshaller
     {
@@ -84,28 +97,20 @@ public unsafe partial class OpticalFlowExecuteInfoNV : IMarshallableObject, IMar
             }
             else if (opticalFlowExecuteInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (opticalFlowExecuteInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
-            if (opticalFlowExecuteInfoNV.Flags != (uint)default)
-            {
-                context.Destination[0].flags = opticalFlowExecuteInfoNV.Flags;
-            }
+            context.Destination[0].flags = opticalFlowExecuteInfoNV.Flags;
 
             context.Destination[0].regionCount = opticalFlowExecuteInfoNV.RegionCount;
 
-            if (opticalFlowExecuteInfoNV.PRegions != default)
+            if (!opticalFlowExecuteInfoNV.PRegions.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkRect2D));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkRect2D>(structSlice0).Slice(0, 1);
-                context.Destination[0].pRegions = (AdamantiumVulkan.Core.Interop.VkRect2D*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkRect2D>(structDestination0, context.DataCursor);
-                opticalFlowExecuteInfoNV.PRegions.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pRegions = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.Rect2D, AdamantiumVulkan.Core.Interop.VkRect2D, AdamantiumVulkan.Core.Interop.VkOpticalFlowExecuteInfoNV>(opticalFlowExecuteInfoNV.PRegions, ref context);
             }
 
         }

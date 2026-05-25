@@ -23,10 +23,11 @@ public unsafe partial class IndirectExecutionSetPipelineInfoEXT : IMarshallableO
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.IndirectExecutionSetPipelineInfoExt;
     public object PNext { get; set; }
     public Pipeline InitialPipeline { get; set; }
     public uint MaxPipelineCount { get; set; }
+
 
     public static implicit operator IndirectExecutionSetPipelineInfoEXT(AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetPipelineInfoEXT i)
     {
@@ -50,20 +51,19 @@ public unsafe partial class IndirectExecutionSetPipelineInfoEXT : IMarshallableO
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetPipelineInfoEXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         InitialPipeline = new Pipeline(native.initialPipeline);
         MaxPipelineCount = native.maxPipelineCount;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetPipelineInfoEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetPipelineInfoEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkIndirectExecutionSetPipelineInfoEXTMarshaller
     {
@@ -77,11 +77,11 @@ public unsafe partial class IndirectExecutionSetPipelineInfoEXT : IMarshallableO
             }
             else if (indirectExecutionSetPipelineInfoEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (indirectExecutionSetPipelineInfoEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (indirectExecutionSetPipelineInfoEXT.InitialPipeline != default)

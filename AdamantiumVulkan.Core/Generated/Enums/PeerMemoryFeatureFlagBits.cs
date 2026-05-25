@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 5174 Column: 14
+// File: vk.xml Line: 13006 Column: 6
 [Flags]
 public enum PeerMemoryFeatureFlagBits : uint
 {
@@ -22,8 +22,6 @@ public enum PeerMemoryFeatureFlagBits : uint
     GenericSrcBit = 4,
 
     GenericDstBit = 8,
-
-    FlagBitsMaxEnum = 2147483647,
 
 }
 

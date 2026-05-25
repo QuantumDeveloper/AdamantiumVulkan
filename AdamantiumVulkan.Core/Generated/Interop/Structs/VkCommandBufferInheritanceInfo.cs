@@ -12,18 +12,18 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 4052 Column: 16
+// File: vk.xml Line: 1975 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkCommandBufferInheritanceInfo
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkRenderPass_T renderPass;
     public uint subpass;
     public VkFramebuffer_T framebuffer;
     public VkBool32 occlusionQueryEnable;
-    public VkQueryControlFlags queryFlags;
-    public VkQueryPipelineStatisticFlags pipelineStatistics;
+    public QueryControlFlagBits queryFlags;
+    public QueryPipelineStatisticFlagBits pipelineStatistics;
 }
 
 

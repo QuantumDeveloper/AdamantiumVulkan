@@ -23,12 +23,13 @@ public unsafe partial class PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesK
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKhr;
     public object PNext { get; set; }
     public VkBool32 WorkgroupMemoryExplicitLayout { get; set; }
     public VkBool32 WorkgroupMemoryExplicitLayoutScalarBlockLayout { get; set; }
     public VkBool32 WorkgroupMemoryExplicitLayout8BitAccess { get; set; }
     public VkBool32 WorkgroupMemoryExplicitLayout16BitAccess { get; set; }
+
 
     public static implicit operator PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR p)
     {
@@ -52,7 +53,6 @@ public unsafe partial class PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesK
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         WorkgroupMemoryExplicitLayout = native.workgroupMemoryExplicitLayout;
         WorkgroupMemoryExplicitLayoutScalarBlockLayout = native.workgroupMemoryExplicitLayoutScalarBlockLayout;
@@ -60,14 +60,14 @@ public unsafe partial class PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesK
         WorkgroupMemoryExplicitLayout16BitAccess = native.workgroupMemoryExplicitLayout16BitAccess;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHRMarshaller
     {
@@ -81,11 +81,11 @@ public unsafe partial class PhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesK
             }
             else if (physicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR.WorkgroupMemoryExplicitLayout != (uint)default)

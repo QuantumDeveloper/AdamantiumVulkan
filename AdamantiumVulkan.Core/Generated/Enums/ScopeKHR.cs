@@ -11,8 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 12198 Column: 14
-public enum ScopeKHR : uint
+// File: vk.xml Line: 14047 Column: 6
+public enum ScopeKHR : int
 {
     DeviceKhr = 1,
 
@@ -21,8 +21,6 @@ public enum ScopeKHR : uint
     SubgroupKhr = 3,
 
     QueueFamilyKhr = 5,
-
-    MaxEnumKhr = 2147483647,
 
 }
 

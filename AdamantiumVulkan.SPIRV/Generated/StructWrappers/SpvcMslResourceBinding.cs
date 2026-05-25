@@ -13,6 +13,9 @@ using AdamantiumVulkan.Spirv;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+///<summary>
+/// Maps to C++ API. Deprecated. Use spvc_msl_resource_binding_2.
+///</summary>
 public unsafe partial class SpvcMslResourceBinding : IMarshallable<AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslResourceBinding>
 {
     public SpvcMslResourceBinding()
@@ -24,16 +27,17 @@ public unsafe partial class SpvcMslResourceBinding : IMarshallable<AdamantiumVul
         MarshalFrom(in native);
     }
 
-    public SpvExecutionModel Stage { get; set; }
+    public ExecutionModel Stage { get; set; }
     public uint Desc_set { get; set; }
     public uint Binding { get; set; }
     public uint Msl_buffer { get; set; }
     public uint Msl_texture { get; set; }
     public uint Msl_sampler { get; set; }
+
     ///<summary>
     /// Initializes the resource binding struct. The defaults are non-zero. Deprecated: Use spvc_msl_resource_binding_init_2.
     ///</summary>
-    public void MslResourceBindingInit()
+    public void CMslResourceBindingInit()
     {
         System.Span<byte> arg0Span = stackalloc byte[GetSize()];
         var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<AdamantiumVulkan.Spirv.Cross.SpvcMslResourceBinding, AdamantiumVulkan.Spirv.Cross.Interop.SpvcMslResourceBinding>(this, ref arg0Span);

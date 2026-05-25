@@ -24,9 +24,10 @@ public unsafe partial class SpecializationInfo : IMarshallableObject, IMarshalla
     }
 
     public uint MapEntryCount { get; set; }
-    public SpecializationMapEntry PMapEntries { get; set; }
-    public ulong DataSize { get; set; }
-    public nuint PData { get; set; }
+    public System.ReadOnlyMemory<SpecializationMapEntry> PMapEntries { get; set; }
+    public nuint DataSize { get; set; }
+    public System.ReadOnlyMemory<byte> PData { get; set; }
+
 
     public static implicit operator SpecializationInfo(AdamantiumVulkan.Core.Interop.VkSpecializationInfo s)
     {
@@ -36,10 +37,18 @@ public unsafe partial class SpecializationInfo : IMarshallableObject, IMarshalla
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSpecializationInfo>();
-        if (PMapEntries != default)
+        if (!PMapEntries.IsEmpty)
         {
-            size += PMapEntries.GetSize();
+            for (int i = 0; i < PMapEntries.Length; i++)
+            {
+                if (PMapEntries.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry>();
+                else
+                    size += PMapEntries.Span[i].GetSize();
+            }
         }
+        if (!PData.IsEmpty)
+            size += PData.Span.Length * Marshal.SizeOf<System.Byte>();
         return size;
     }
 
@@ -51,20 +60,30 @@ public unsafe partial class SpecializationInfo : IMarshallableObject, IMarshalla
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkSpecializationInfo native)
     {
         MapEntryCount = native.mapEntryCount;
-        PMapEntries = new SpecializationMapEntry(in *native.pMapEntries);
-        NativeUtils.Free(native.pMapEntries);
+        var arrayLengthPMapEntries = native.mapEntryCount;
+        var tmpPMapEntries = new SpecializationMapEntry[arrayLengthPMapEntries];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry[arrayLengthPMapEntries];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pMapEntries, arrayLengthPMapEntries, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPMapEntries[i] = new SpecializationMapEntry(in nativeTmpArray0[i]);
+        }
+        PMapEntries = tmpPMapEntries;
         DataSize = native.dataSize;
-        PData = native.pData;
+        var arrayLengthPData = native.dataSize;
+        var tmpPData = new byte[arrayLengthPData];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pData, arrayLengthPData, tmpPData);
+        PData = tmpPData;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSpecializationInfo>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSpecializationInfo>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSpecializationInfoMarshaller
     {
@@ -72,19 +91,17 @@ public unsafe partial class SpecializationInfo : IMarshallableObject, IMarshalla
         {
             context.Destination[0].mapEntryCount = specializationInfo.MapEntryCount;
 
-            if (specializationInfo.PMapEntries != default)
+            if (!specializationInfo.PMapEntries.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry>(structSlice0).Slice(0, 1);
-                context.Destination[0].pMapEntries = (AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry>(structDestination0, context.DataCursor);
-                specializationInfo.PMapEntries.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pMapEntries = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.SpecializationMapEntry, AdamantiumVulkan.Core.Interop.VkSpecializationMapEntry, AdamantiumVulkan.Core.Interop.VkSpecializationInfo>(specializationInfo.PMapEntries, ref context);
             }
 
             context.Destination[0].dataSize = specializationInfo.DataSize;
 
-            context.Destination[0].pData = specializationInfo.PData;
+            if (!specializationInfo.PData.IsEmpty)
+            {
+                context.Destination[0].pData = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<byte, AdamantiumVulkan.Core.Interop.VkSpecializationInfo>(specializationInfo.PData.Span, ref context);
+            }
 
         }
     }

@@ -36,6 +36,7 @@ public unsafe partial class PhysicalDeviceTransformFeedbackPropertiesEXT : IMars
     public VkBool32 TransformFeedbackRasterizationStreamSelect { get; set; }
     public VkBool32 TransformFeedbackDraw { get; set; }
 
+
     public static implicit operator PhysicalDeviceTransformFeedbackPropertiesEXT(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackPropertiesEXT p)
     {
         return new PhysicalDeviceTransformFeedbackPropertiesEXT(in p);
@@ -71,14 +72,14 @@ public unsafe partial class PhysicalDeviceTransformFeedbackPropertiesEXT : IMars
         TransformFeedbackDraw = native.transformFeedbackDraw;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackPropertiesEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceTransformFeedbackPropertiesEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceTransformFeedbackPropertiesEXTMarshaller
     {
@@ -92,11 +93,11 @@ public unsafe partial class PhysicalDeviceTransformFeedbackPropertiesEXT : IMars
             }
             else if (physicalDeviceTransformFeedbackPropertiesEXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceTransformFeedbackPropertiesEXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].maxTransformFeedbackStreams = physicalDeviceTransformFeedbackPropertiesEXT.MaxTransformFeedbackStreams;

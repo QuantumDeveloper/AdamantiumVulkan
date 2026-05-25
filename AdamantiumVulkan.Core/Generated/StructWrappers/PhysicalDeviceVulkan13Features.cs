@@ -23,7 +23,7 @@ public unsafe partial class PhysicalDeviceVulkan13Features : IMarshallableObject
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.PhysicalDeviceVulkan13Features;
     public object PNext { get; set; }
     public VkBool32 RobustImageAccess { get; set; }
     public VkBool32 InlineUniformBlock { get; set; }
@@ -40,6 +40,7 @@ public unsafe partial class PhysicalDeviceVulkan13Features : IMarshallableObject
     public VkBool32 DynamicRendering { get; set; }
     public VkBool32 ShaderIntegerDotProduct { get; set; }
     public VkBool32 Maintenance4 { get; set; }
+
 
     public static implicit operator PhysicalDeviceVulkan13Features(AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Features p)
     {
@@ -63,7 +64,6 @@ public unsafe partial class PhysicalDeviceVulkan13Features : IMarshallableObject
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Features native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         RobustImageAccess = native.robustImageAccess;
         InlineUniformBlock = native.inlineUniformBlock;
@@ -82,14 +82,14 @@ public unsafe partial class PhysicalDeviceVulkan13Features : IMarshallableObject
         Maintenance4 = native.maintenance4;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Features>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPhysicalDeviceVulkan13Features>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPhysicalDeviceVulkan13FeaturesMarshaller
     {
@@ -103,11 +103,11 @@ public unsafe partial class PhysicalDeviceVulkan13Features : IMarshallableObject
             }
             else if (physicalDeviceVulkan13Features.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (physicalDeviceVulkan13Features.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (physicalDeviceVulkan13Features.RobustImageAccess != (uint)default)

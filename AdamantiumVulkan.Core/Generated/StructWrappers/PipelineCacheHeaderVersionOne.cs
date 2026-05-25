@@ -29,6 +29,7 @@ public unsafe partial class PipelineCacheHeaderVersionOne : IMarshallableObject,
     public uint DeviceID { get; set; }
     public System.ReadOnlyMemory<byte> PipelineCacheUUID { get; set; }
 
+
     public static implicit operator PipelineCacheHeaderVersionOne(AdamantiumVulkan.Core.Interop.VkPipelineCacheHeaderVersionOne p)
     {
         return new PipelineCacheHeaderVersionOne(in p);
@@ -52,19 +53,20 @@ public unsafe partial class PipelineCacheHeaderVersionOne : IMarshallableObject,
         VendorID = native.vendorID;
         DeviceID = native.deviceID;
         var tmpPipelineCacheUUID = new byte[16];
-        var pPipelineCacheUUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.pipelineCacheUUID[0]));
+        var pipelineCacheUUIDp = native.pipelineCacheUUID[0];
+        var pPipelineCacheUUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in pipelineCacheUUIDp ));
         QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(pPipelineCacheUUID, 16, tmpPipelineCacheUUID);
         PipelineCacheUUID = tmpPipelineCacheUUID;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkPipelineCacheHeaderVersionOne>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkPipelineCacheHeaderVersionOne>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkPipelineCacheHeaderVersionOneMarshaller
     {

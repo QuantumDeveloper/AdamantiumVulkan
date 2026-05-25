@@ -29,7 +29,8 @@ public unsafe partial class BindAccelerationStructureMemoryInfoNV : IMarshallabl
     public DeviceMemory Memory { get; set; }
     public VkDeviceSize MemoryOffset { get; set; }
     public uint DeviceIndexCount { get; set; }
-    public uint? PDeviceIndices { get; set; }
+    public System.ReadOnlyMemory<uint> PDeviceIndices { get; set; }
+
 
     public static implicit operator BindAccelerationStructureMemoryInfoNV(AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV b)
     {
@@ -43,6 +44,8 @@ public unsafe partial class BindAccelerationStructureMemoryInfoNV : IMarshallabl
         {
             size += marshallable.GetSize();
         }
+        if (!PDeviceIndices.IsEmpty)
+            size += PDeviceIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -58,21 +61,20 @@ public unsafe partial class BindAccelerationStructureMemoryInfoNV : IMarshallabl
         Memory = new DeviceMemory(native.memory);
         MemoryOffset = native.memoryOffset;
         DeviceIndexCount = native.deviceIndexCount;
-        if (native.pDeviceIndices != null)
-        {
-            PDeviceIndices = *native.pDeviceIndices;
-            NativeUtils.Free(native.pDeviceIndices);
-        }
+        var arrayLengthPDeviceIndices = native.deviceIndexCount;
+        var tmpPDeviceIndices = new uint[arrayLengthPDeviceIndices];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDeviceIndices, arrayLengthPDeviceIndices, tmpPDeviceIndices);
+        PDeviceIndices = tmpPDeviceIndices;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkBindAccelerationStructureMemoryInfoNVMarshaller
     {
@@ -86,11 +88,11 @@ public unsafe partial class BindAccelerationStructureMemoryInfoNV : IMarshallabl
             }
             else if (bindAccelerationStructureMemoryInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (bindAccelerationStructureMemoryInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (bindAccelerationStructureMemoryInfoNV.AccelerationStructure != default)
@@ -110,9 +112,9 @@ public unsafe partial class BindAccelerationStructureMemoryInfoNV : IMarshallabl
 
             context.Destination[0].deviceIndexCount = bindAccelerationStructureMemoryInfoNV.DeviceIndexCount;
 
-            if (bindAccelerationStructureMemoryInfoNV.PDeviceIndices.HasValue)
+            if (!bindAccelerationStructureMemoryInfoNV.PDeviceIndices.IsEmpty)
             {
-                context.Destination[0].pDeviceIndices = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(bindAccelerationStructureMemoryInfoNV.PDeviceIndices.Value, ref context);
+                context.Destination[0].pDeviceIndices = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV>(bindAccelerationStructureMemoryInfoNV.PDeviceIndices.Span, ref context);
             }
 
         }

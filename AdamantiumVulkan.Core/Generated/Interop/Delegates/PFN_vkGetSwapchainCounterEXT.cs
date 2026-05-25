@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 13791 Column: 30
+// File: video.xml Line: 16155 Column: 10
 public unsafe struct PFN_vkGetSwapchainCounterEXT
 {
     public PFN_vkGetSwapchainCounterEXT(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetSwapchainCounterEXT
     public PFN_vkGetSwapchainCounterEXT(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, ref ulong*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, out ulong, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, ref ulong*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, out ulong, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, ref ulong* pCounterValue)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, out ulong pCounterValue)
     {
-        return InvokeFunc(device, swapchain, counter, ref pCounterValue);
+        return InvokeFunc(device, swapchain, counter, out pCounterValue);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, ref ulong* pCounterValue)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, out ulong pCounterValue)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, ref ulong*, Result>)ptr)(device, swapchain, counter, ref pCounterValue);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, out ulong, Result>)ptr)(device, swapchain, counter, out pCounterValue);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, ref ulong* pCounterValue)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T swapchain, SurfaceCounterFlagBitsEXT counter, out ulong pCounterValue)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, ref ulong*, Result>)(void*)ptr)(device, swapchain, counter, ref pCounterValue);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkSwapchainKHR_T, SurfaceCounterFlagBitsEXT, out ulong, Result>)(void*)ptr)(device, swapchain, counter, out pCounterValue);
     }
 
     public static explicit operator PFN_vkGetSwapchainCounterEXT(void* ptr) => new(ptr);

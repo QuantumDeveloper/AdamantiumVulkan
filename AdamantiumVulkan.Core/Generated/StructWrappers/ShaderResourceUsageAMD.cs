@@ -26,8 +26,9 @@ public unsafe partial class ShaderResourceUsageAMD : IMarshallableObject, IMarsh
     public uint NumUsedVgprs { get; set; }
     public uint NumUsedSgprs { get; set; }
     public uint LdsSizePerLocalWorkGroup { get; set; }
-    public ulong LdsUsageSizeInBytes { get; set; }
-    public ulong ScratchMemUsageInBytes { get; set; }
+    public nuint LdsUsageSizeInBytes { get; set; }
+    public nuint ScratchMemUsageInBytes { get; set; }
+
 
     public static implicit operator ShaderResourceUsageAMD(AdamantiumVulkan.Core.Interop.VkShaderResourceUsageAMD s)
     {
@@ -54,14 +55,14 @@ public unsafe partial class ShaderResourceUsageAMD : IMarshallableObject, IMarsh
         ScratchMemUsageInBytes = native.scratchMemUsageInBytes;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkShaderResourceUsageAMD>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkShaderResourceUsageAMD>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkShaderResourceUsageAMDMarshaller
     {

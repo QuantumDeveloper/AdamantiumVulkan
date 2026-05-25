@@ -9,8 +9,6 @@ using System;
 using System.Runtime.InteropServices;
 using QuantumBinding.Utils;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core;
 
@@ -25,10 +23,11 @@ public unsafe partial class VideoEncodeH265NaluSliceSegmentInfoKHR : IMarshallab
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.VideoEncodeH265NaluSliceSegmentInfoKhr;
     public object PNext { get; set; }
     public int ConstantQp { get; set; }
     public StdVideoEncodeH265SliceSegmentHeader PStdSliceSegmentHeader { get; set; }
+
 
     public static implicit operator VideoEncodeH265NaluSliceSegmentInfoKHR(AdamantiumVulkan.Core.Interop.VkVideoEncodeH265NaluSliceSegmentInfoKHR v)
     {
@@ -56,21 +55,20 @@ public unsafe partial class VideoEncodeH265NaluSliceSegmentInfoKHR : IMarshallab
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkVideoEncodeH265NaluSliceSegmentInfoKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         ConstantQp = native.constantQp;
         PStdSliceSegmentHeader = new StdVideoEncodeH265SliceSegmentHeader(in *native.pStdSliceSegmentHeader);
         NativeUtils.Free(native.pStdSliceSegmentHeader);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkVideoEncodeH265NaluSliceSegmentInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkVideoEncodeH265NaluSliceSegmentInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkVideoEncodeH265NaluSliceSegmentInfoKHRMarshaller
     {
@@ -84,21 +82,21 @@ public unsafe partial class VideoEncodeH265NaluSliceSegmentInfoKHR : IMarshallab
             }
             else if (videoEncodeH265NaluSliceSegmentInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (videoEncodeH265NaluSliceSegmentInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].constantQp = videoEncodeH265NaluSliceSegmentInfoKHR.ConstantQp;
 
             if (videoEncodeH265NaluSliceSegmentInfoKHR.PStdSliceSegmentHeader != default)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeader));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeader>(structSlice0).Slice(0, 1);
-                context.Destination[0].pStdSliceSegmentHeader = (AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeader*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Interop.StdVideoEncodeH265SliceSegmentHeader>(structDestination0, context.DataCursor);
+                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeader));
+                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeader>(structSlice0).Slice(0, 1);
+                context.Destination[0].pStdSliceSegmentHeader = (AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeader*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
+                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeader>(structDestination0, context.DataCursor);
                 videoEncodeH265NaluSliceSegmentInfoKHR.PStdSliceSegmentHeader.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
             }

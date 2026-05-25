@@ -26,6 +26,7 @@ public unsafe partial class MemoryHeap : IMarshallableObject, IMarshallable<Adam
     public VkDeviceSize Size { get; set; }
     public MemoryHeapFlagBits Flags { get; set; }
 
+
     public static implicit operator MemoryHeap(AdamantiumVulkan.Core.Interop.VkMemoryHeap m)
     {
         return new MemoryHeap(in m);
@@ -48,14 +49,14 @@ public unsafe partial class MemoryHeap : IMarshallableObject, IMarshallable<Adam
         Flags = native.flags;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkMemoryHeap>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkMemoryHeap>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkMemoryHeapMarshaller
     {

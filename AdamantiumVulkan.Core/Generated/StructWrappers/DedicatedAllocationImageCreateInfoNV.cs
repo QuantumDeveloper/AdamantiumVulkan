@@ -27,6 +27,7 @@ public unsafe partial class DedicatedAllocationImageCreateInfoNV : IMarshallable
     public object PNext { get; set; }
     public VkBool32 DedicatedAllocation { get; set; }
 
+
     public static implicit operator DedicatedAllocationImageCreateInfoNV(AdamantiumVulkan.Core.Interop.VkDedicatedAllocationImageCreateInfoNV d)
     {
         return new DedicatedAllocationImageCreateInfoNV(in d);
@@ -53,14 +54,14 @@ public unsafe partial class DedicatedAllocationImageCreateInfoNV : IMarshallable
         DedicatedAllocation = native.dedicatedAllocation;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDedicatedAllocationImageCreateInfoNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDedicatedAllocationImageCreateInfoNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDedicatedAllocationImageCreateInfoNVMarshaller
     {
@@ -74,11 +75,11 @@ public unsafe partial class DedicatedAllocationImageCreateInfoNV : IMarshallable
             }
             else if (dedicatedAllocationImageCreateInfoNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (dedicatedAllocationImageCreateInfoNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (dedicatedAllocationImageCreateInfoNV.DedicatedAllocation != (uint)default)

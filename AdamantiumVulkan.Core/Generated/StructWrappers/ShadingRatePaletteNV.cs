@@ -26,6 +26,7 @@ public unsafe partial class ShadingRatePaletteNV : IMarshallableObject, IMarshal
     public uint ShadingRatePaletteEntryCount { get; set; }
     public System.ReadOnlyMemory<ShadingRatePaletteEntryNV> PShadingRatePaletteEntries { get; set; }
 
+
     public static implicit operator ShadingRatePaletteNV(AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV s)
     {
         return new ShadingRatePaletteNV(in s);
@@ -35,7 +36,7 @@ public unsafe partial class ShadingRatePaletteNV : IMarshallableObject, IMarshal
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV>();
         if (!PShadingRatePaletteEntries.IsEmpty)
-            size += PShadingRatePaletteEntries.Span.Length * sizeof(uint);
+            size += PShadingRatePaletteEntries.Span.Length * sizeof(int);
         return size;
     }
 
@@ -47,18 +48,20 @@ public unsafe partial class ShadingRatePaletteNV : IMarshallableObject, IMarshal
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV native)
     {
         ShadingRatePaletteEntryCount = native.shadingRatePaletteEntryCount;
-        var tmpPShadingRatePaletteEntries = new ShadingRatePaletteEntryNV[native.shadingRatePaletteEntryCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pShadingRatePaletteEntries, native.shadingRatePaletteEntryCount, tmpPShadingRatePaletteEntries);
+        var arrayLengthPShadingRatePaletteEntries = native.shadingRatePaletteEntryCount;
+        var tmpPShadingRatePaletteEntries = new ShadingRatePaletteEntryNV[arrayLengthPShadingRatePaletteEntries];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pShadingRatePaletteEntries, arrayLengthPShadingRatePaletteEntries, tmpPShadingRatePaletteEntries);
+        PShadingRatePaletteEntries = tmpPShadingRatePaletteEntries;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkShadingRatePaletteNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkShadingRatePaletteNVMarshaller
     {
@@ -68,13 +71,13 @@ public unsafe partial class ShadingRatePaletteNV : IMarshallableObject, IMarshal
 
             if (!shadingRatePaletteNV.PShadingRatePaletteEntries.IsEmpty)
             {
-                var sizeInBytes = sizeof(uint) * shadingRatePaletteNV.PShadingRatePaletteEntries.Length;
+                var sizeInBytes = sizeof(int) * shadingRatePaletteNV.PShadingRatePaletteEntries.Length;
                 var byteSpan = context.AllocateData(sizeInBytes);
-                var enumSpanPShadingRatePaletteEntries = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, uint>(byteSpan);
+                var enumSpanPShadingRatePaletteEntries = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, int>(byteSpan);
                 context.Destination[0].pShadingRatePaletteEntries = (AdamantiumVulkan.Core.ShadingRatePaletteEntryNV*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(enumSpanPShadingRatePaletteEntries));
                 for (int i = 0; i < enumSpanPShadingRatePaletteEntries.Length; i++)
                 {
-                    enumSpanPShadingRatePaletteEntries[i] = (uint)shadingRatePaletteNV.PShadingRatePaletteEntries.Span[i];
+                    enumSpanPShadingRatePaletteEntries[i] = (int)shadingRatePaletteNV.PShadingRatePaletteEntries.Span[i];
                 }
             }
 

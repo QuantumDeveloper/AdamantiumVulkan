@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 17462 Column: 26
+// File: video.xml Line: 17772 Column: 10
 public unsafe struct PFN_vkCmdSetFragmentShadingRateEnumNV
 {
     public PFN_vkCmdSetFragmentShadingRateEnumNV(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkCmdSetFragmentShadingRateEnumNV
     public PFN_vkCmdSetFragmentShadingRateEnumNV(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, FragmentShadingRateNV, FragmentShadingRateCombinerOpKHR[], void>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, FragmentShadingRateNV, FragmentShadingRateCombinerOpKHR, void>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, FragmentShadingRateNV, FragmentShadingRateCombinerOpKHR[], void> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, FragmentShadingRateNV, FragmentShadingRateCombinerOpKHR, void> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FragmentShadingRateNV shadingRate, FragmentShadingRateCombinerOpKHR[] combinerOps)
+    public void Invoke(AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FragmentShadingRateNV shadingRate, FragmentShadingRateCombinerOpKHR combinerOps)
     {
          InvokeFunc(commandBuffer, shadingRate, combinerOps);
     }
-    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FragmentShadingRateNV shadingRate, FragmentShadingRateCombinerOpKHR[] combinerOps)
+    public static void Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FragmentShadingRateNV shadingRate, FragmentShadingRateCombinerOpKHR combinerOps)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, FragmentShadingRateNV, FragmentShadingRateCombinerOpKHR[], void>)ptr)(commandBuffer, shadingRate, combinerOps);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, FragmentShadingRateNV, FragmentShadingRateCombinerOpKHR, void>)ptr)(commandBuffer, shadingRate, combinerOps);
     }
-    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FragmentShadingRateNV shadingRate, FragmentShadingRateCombinerOpKHR[] combinerOps)
+    public static void Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkCommandBuffer_T commandBuffer, FragmentShadingRateNV shadingRate, FragmentShadingRateCombinerOpKHR combinerOps)
     {
-         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, FragmentShadingRateNV, FragmentShadingRateCombinerOpKHR[], void>)(void*)ptr)(commandBuffer, shadingRate, combinerOps);
+         ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkCommandBuffer_T, FragmentShadingRateNV, FragmentShadingRateCombinerOpKHR, void>)(void*)ptr)(commandBuffer, shadingRate, combinerOps);
     }
 
     public static explicit operator PFN_vkCmdSetFragmentShadingRateEnumNV(void* ptr) => new(ptr);

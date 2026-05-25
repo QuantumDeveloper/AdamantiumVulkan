@@ -23,9 +23,10 @@ public unsafe partial class DisplayModeStereoPropertiesNV : IMarshallableObject,
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.DisplayModeStereoPropertiesNv;
     public object PNext { get; set; }
     public VkBool32 Hdmi3DSupported { get; set; }
+
 
     public static implicit operator DisplayModeStereoPropertiesNV(AdamantiumVulkan.Core.Interop.VkDisplayModeStereoPropertiesNV d)
     {
@@ -49,19 +50,18 @@ public unsafe partial class DisplayModeStereoPropertiesNV : IMarshallableObject,
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkDisplayModeStereoPropertiesNV native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         Hdmi3DSupported = native.hdmi3DSupported;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDisplayModeStereoPropertiesNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDisplayModeStereoPropertiesNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDisplayModeStereoPropertiesNVMarshaller
     {
@@ -75,11 +75,11 @@ public unsafe partial class DisplayModeStereoPropertiesNV : IMarshallableObject,
             }
             else if (displayModeStereoPropertiesNV.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (displayModeStereoPropertiesNV.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (displayModeStereoPropertiesNV.Hdmi3DSupported != (uint)default)

@@ -27,6 +27,7 @@ public unsafe partial class DrawMeshTasksIndirectCommandEXT : IMarshallableObjec
     public uint GroupCountY { get; set; }
     public uint GroupCountZ { get; set; }
 
+
     public static implicit operator DrawMeshTasksIndirectCommandEXT(AdamantiumVulkan.Core.Interop.VkDrawMeshTasksIndirectCommandEXT d)
     {
         return new DrawMeshTasksIndirectCommandEXT(in d);
@@ -50,14 +51,14 @@ public unsafe partial class DrawMeshTasksIndirectCommandEXT : IMarshallableObjec
         GroupCountZ = native.groupCountZ;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDrawMeshTasksIndirectCommandEXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDrawMeshTasksIndirectCommandEXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDrawMeshTasksIndirectCommandEXTMarshaller
     {

@@ -23,10 +23,11 @@ public unsafe partial class DrmFormatModifierPropertiesList2EXT : IMarshallableO
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.DrmFormatModifierPropertiesList2Ext;
     public object PNext { get; set; }
     public uint DrmFormatModifierCount { get; set; }
-    public DrmFormatModifierProperties2EXT PDrmFormatModifierProperties { get; set; }
+    public System.ReadOnlyMemory<DrmFormatModifierProperties2EXT> PDrmFormatModifierProperties { get; set; }
+
 
     public static implicit operator DrmFormatModifierPropertiesList2EXT(AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesList2EXT d)
     {
@@ -40,9 +41,15 @@ public unsafe partial class DrmFormatModifierPropertiesList2EXT : IMarshallableO
         {
             size += marshallable.GetSize();
         }
-        if (PDrmFormatModifierProperties != default)
+        if (!PDrmFormatModifierProperties.IsEmpty)
         {
-            size += PDrmFormatModifierProperties.GetSize();
+            for (int i = 0; i < PDrmFormatModifierProperties.Length; i++)
+            {
+                if (PDrmFormatModifierProperties.Span[i] == null)
+                    size += Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkDrmFormatModifierProperties2EXT>();
+                else
+                    size += PDrmFormatModifierProperties.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -54,21 +61,27 @@ public unsafe partial class DrmFormatModifierPropertiesList2EXT : IMarshallableO
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesList2EXT native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         DrmFormatModifierCount = native.drmFormatModifierCount;
-        PDrmFormatModifierProperties = new DrmFormatModifierProperties2EXT(in *native.pDrmFormatModifierProperties);
-        NativeUtils.Free(native.pDrmFormatModifierProperties);
+        var arrayLengthPDrmFormatModifierProperties = native.drmFormatModifierCount;
+        var tmpPDrmFormatModifierProperties = new DrmFormatModifierProperties2EXT[arrayLengthPDrmFormatModifierProperties];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDrmFormatModifierProperties2EXT[arrayLengthPDrmFormatModifierProperties];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDrmFormatModifierProperties, arrayLengthPDrmFormatModifierProperties, nativeTmpArray0);
+        for (int i = 0; i < nativeTmpArray0.Length; ++i)
+        {
+            tmpPDrmFormatModifierProperties[i] = new DrmFormatModifierProperties2EXT(in nativeTmpArray0[i]);
+        }
+        PDrmFormatModifierProperties = tmpPDrmFormatModifierProperties;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesList2EXT>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesList2EXT>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDrmFormatModifierPropertiesList2EXTMarshaller
     {
@@ -82,23 +95,18 @@ public unsafe partial class DrmFormatModifierPropertiesList2EXT : IMarshallableO
             }
             else if (drmFormatModifierPropertiesList2EXT.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (drmFormatModifierPropertiesList2EXT.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].drmFormatModifierCount = drmFormatModifierPropertiesList2EXT.DrmFormatModifierCount;
 
-            if (drmFormatModifierPropertiesList2EXT.PDrmFormatModifierProperties != default)
+            if (!drmFormatModifierPropertiesList2EXT.PDrmFormatModifierProperties.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(AdamantiumVulkan.Core.Interop.VkDrmFormatModifierProperties2EXT));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, AdamantiumVulkan.Core.Interop.VkDrmFormatModifierProperties2EXT>(structSlice0).Slice(0, 1);
-                context.Destination[0].pDrmFormatModifierProperties = (AdamantiumVulkan.Core.Interop.VkDrmFormatModifierProperties2EXT*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDrmFormatModifierProperties2EXT>(structDestination0, context.DataCursor);
-                drmFormatModifierPropertiesList2EXT.PDrmFormatModifierProperties.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pDrmFormatModifierProperties = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<AdamantiumVulkan.Core.DrmFormatModifierProperties2EXT, AdamantiumVulkan.Core.Interop.VkDrmFormatModifierProperties2EXT, AdamantiumVulkan.Core.Interop.VkDrmFormatModifierPropertiesList2EXT>(drmFormatModifierPropertiesList2EXT.PDrmFormatModifierProperties, ref context);
             }
 
         }

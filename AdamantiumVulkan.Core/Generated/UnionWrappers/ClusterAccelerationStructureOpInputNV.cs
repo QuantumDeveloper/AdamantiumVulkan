@@ -27,6 +27,7 @@ public unsafe partial class ClusterAccelerationStructureOpInputNV : IMarshallabl
     public ClusterAccelerationStructureTriangleClusterInputNV PTriangleClusters { get; set; }
     public ClusterAccelerationStructureMoveObjectsInputNV PMoveObjects { get; set; }
 
+
     public static implicit operator ClusterAccelerationStructureOpInputNV(AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureOpInputNV c)
     {
         return new ClusterAccelerationStructureOpInputNV(in c);
@@ -37,15 +38,15 @@ public unsafe partial class ClusterAccelerationStructureOpInputNV : IMarshallabl
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureOpInputNV>();
         if (PClustersBottomLevel != default)
         {
-            size += PClustersBottomLevel.GetSize();
+            size = Math.Max(size, PClustersBottomLevel.GetSize());
         }
         if (PTriangleClusters != default)
         {
-            size += PTriangleClusters.GetSize();
+            size = Math.Max(size, PTriangleClusters.GetSize());
         }
         if (PMoveObjects != default)
         {
-            size += PMoveObjects.GetSize();
+            size = Math.Max(size, PMoveObjects.GetSize());
         }
         return size;
     }
@@ -65,14 +66,14 @@ public unsafe partial class ClusterAccelerationStructureOpInputNV : IMarshallabl
         NativeUtils.Free(native.pMoveObjects);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureOpInputNV>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureOpInputNV>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkClusterAccelerationStructureOpInputNVMarshaller
     {

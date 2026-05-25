@@ -23,10 +23,11 @@ public unsafe partial class SamplerBlockMatchWindowCreateInfoQCOM : IMarshallabl
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.SamplerBlockMatchWindowCreateInfoQcom;
     public object PNext { get; set; }
     public Extent2D WindowExtent { get; set; }
     public BlockMatchWindowCompareModeQCOM WindowCompareMode { get; set; }
+
 
     public static implicit operator SamplerBlockMatchWindowCreateInfoQCOM(AdamantiumVulkan.Core.Interop.VkSamplerBlockMatchWindowCreateInfoQCOM s)
     {
@@ -50,20 +51,19 @@ public unsafe partial class SamplerBlockMatchWindowCreateInfoQCOM : IMarshallabl
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkSamplerBlockMatchWindowCreateInfoQCOM native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         WindowExtent = new Extent2D(native.windowExtent);
         WindowCompareMode = native.windowCompareMode;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkSamplerBlockMatchWindowCreateInfoQCOM>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkSamplerBlockMatchWindowCreateInfoQCOM>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkSamplerBlockMatchWindowCreateInfoQCOMMarshaller
     {
@@ -77,11 +77,11 @@ public unsafe partial class SamplerBlockMatchWindowCreateInfoQCOM : IMarshallabl
             }
             else if (samplerBlockMatchWindowCreateInfoQCOM.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (samplerBlockMatchWindowCreateInfoQCOM.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (samplerBlockMatchWindowCreateInfoQCOM.WindowExtent != default)

@@ -9,17 +9,16 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using AdamantiumVulkan.Core;
-using AdamantiumVulkan.Interop;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 9663 Column: 16
+// File: vk.xml Line: 8432 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkVideoEncodeH265DpbSlotInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
-    public AdamantiumVulkan.Interop.StdVideoEncodeH265ReferenceInfo* pStdReferenceInfo;
+    public void* pNext;
+    public AdamantiumVulkan.Core.Interop.StdVideoEncodeH265ReferenceInfo* pStdReferenceInfo;
 }
 
 

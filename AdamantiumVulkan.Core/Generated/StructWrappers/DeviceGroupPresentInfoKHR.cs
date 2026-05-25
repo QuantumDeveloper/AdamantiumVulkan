@@ -26,8 +26,9 @@ public unsafe partial class DeviceGroupPresentInfoKHR : IMarshallableObject, IMa
     public StructureType SType => StructureType.DeviceGroupPresentInfoKhr;
     public object PNext { get; set; }
     public uint SwapchainCount { get; set; }
-    public uint? PDeviceMasks { get; set; }
+    public System.ReadOnlyMemory<uint> PDeviceMasks { get; set; }
     public DeviceGroupPresentModeFlagBitsKHR Mode { get; set; }
+
 
     public static implicit operator DeviceGroupPresentInfoKHR(AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentInfoKHR d)
     {
@@ -41,6 +42,8 @@ public unsafe partial class DeviceGroupPresentInfoKHR : IMarshallableObject, IMa
         {
             size += marshallable.GetSize();
         }
+        if (!PDeviceMasks.IsEmpty)
+            size += PDeviceMasks.Span.Length * Marshal.SizeOf<System.UInt32>();
         return size;
     }
 
@@ -53,22 +56,21 @@ public unsafe partial class DeviceGroupPresentInfoKHR : IMarshallableObject, IMa
     {
         PNext = (System.IntPtr)native.pNext;
         SwapchainCount = native.swapchainCount;
-        if (native.pDeviceMasks != null)
-        {
-            PDeviceMasks = *native.pDeviceMasks;
-            NativeUtils.Free(native.pDeviceMasks);
-        }
+        var arrayLengthPDeviceMasks = native.swapchainCount;
+        var tmpPDeviceMasks = new uint[arrayLengthPDeviceMasks];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pDeviceMasks, arrayLengthPDeviceMasks, tmpPDeviceMasks);
+        PDeviceMasks = tmpPDeviceMasks;
         Mode = native.mode;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentInfoKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentInfoKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkDeviceGroupPresentInfoKHRMarshaller
     {
@@ -82,18 +84,18 @@ public unsafe partial class DeviceGroupPresentInfoKHR : IMarshallableObject, IMa
             }
             else if (deviceGroupPresentInfoKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (deviceGroupPresentInfoKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].swapchainCount = deviceGroupPresentInfoKHR.SwapchainCount;
 
-            if (deviceGroupPresentInfoKHR.PDeviceMasks.HasValue)
+            if (!deviceGroupPresentInfoKHR.PDeviceMasks.IsEmpty)
             {
-                context.Destination[0].pDeviceMasks = QuantumBinding.Utils.MarshalingUtils.MarshalStructToPointer(deviceGroupPresentInfoKHR.PDeviceMasks.Value, ref context);
+                context.Destination[0].pDeviceMasks = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<uint, AdamantiumVulkan.Core.Interop.VkDeviceGroupPresentInfoKHR>(deviceGroupPresentInfoKHR.PDeviceMasks.Span, ref context);
             }
 
             context.Destination[0].mode = deviceGroupPresentInfoKHR.Mode;

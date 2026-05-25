@@ -34,6 +34,7 @@ public unsafe partial class WriteDescriptorSet : IMarshallableObject, IMarshalla
     public System.ReadOnlyMemory<DescriptorBufferInfo> PBufferInfo { get; set; }
     public System.ReadOnlyMemory<BufferView> PTexelBufferView { get; set; }
 
+
     public static implicit operator WriteDescriptorSet(AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet w)
     {
         return new WriteDescriptorSet(in w);
@@ -84,25 +85,28 @@ public unsafe partial class WriteDescriptorSet : IMarshallableObject, IMarshalla
         DstArrayElement = native.dstArrayElement;
         DescriptorCount = native.descriptorCount;
         DescriptorType = native.descriptorType;
-        var tmpPImageInfo = new DescriptorImageInfo[native.descriptorCount];
-        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo[native.descriptorCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pImageInfo, native.descriptorCount, nativeTmpArray0);
+        var arrayLengthPImageInfo = native.descriptorCount;
+        var tmpPImageInfo = new DescriptorImageInfo[arrayLengthPImageInfo];
+        var nativeTmpArray0 = new AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo[arrayLengthPImageInfo];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pImageInfo, arrayLengthPImageInfo, nativeTmpArray0);
         for (int i = 0; i < nativeTmpArray0.Length; ++i)
         {
             tmpPImageInfo[i] = new DescriptorImageInfo(in nativeTmpArray0[i]);
         }
         PImageInfo = tmpPImageInfo;
-        var tmpPBufferInfo = new DescriptorBufferInfo[native.descriptorCount];
-        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo[native.descriptorCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pBufferInfo, native.descriptorCount, nativeTmpArray1);
+        var arrayLengthPBufferInfo = native.descriptorCount;
+        var tmpPBufferInfo = new DescriptorBufferInfo[arrayLengthPBufferInfo];
+        var nativeTmpArray1 = new AdamantiumVulkan.Core.Interop.VkDescriptorBufferInfo[arrayLengthPBufferInfo];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pBufferInfo, arrayLengthPBufferInfo, nativeTmpArray1);
         for (int i = 0; i < nativeTmpArray1.Length; ++i)
         {
             tmpPBufferInfo[i] = new DescriptorBufferInfo(in nativeTmpArray1[i]);
         }
         PBufferInfo = tmpPBufferInfo;
-        var tmpPTexelBufferView = new BufferView[native.descriptorCount];
-        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkBufferView_T[native.descriptorCount];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pTexelBufferView, native.descriptorCount, nativeTmpArray2);
+        var arrayLengthPTexelBufferView = native.descriptorCount;
+        var tmpPTexelBufferView = new BufferView[arrayLengthPTexelBufferView];
+        var nativeTmpArray2 = new AdamantiumVulkan.Core.Interop.VkBufferView_T[arrayLengthPTexelBufferView];
+        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.pTexelBufferView, arrayLengthPTexelBufferView, nativeTmpArray2);
         for (int i = 0; i < nativeTmpArray2.Length; ++i)
         {
             tmpPTexelBufferView[i] = new BufferView(in nativeTmpArray2[i]);
@@ -110,14 +114,14 @@ public unsafe partial class WriteDescriptorSet : IMarshallableObject, IMarshalla
         PTexelBufferView = tmpPTexelBufferView;
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkWriteDescriptorSet>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkWriteDescriptorSetMarshaller
     {
@@ -131,11 +135,11 @@ public unsafe partial class WriteDescriptorSet : IMarshallableObject, IMarshalla
             }
             else if (writeDescriptorSet.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (writeDescriptorSet.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             if (writeDescriptorSet.DstSet != default)

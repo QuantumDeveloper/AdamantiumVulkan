@@ -12,12 +12,12 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 8678 Column: 16
+// File: vk.xml Line: 3573 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkBindImageMemorySwapchainInfoKHR
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkSwapchainKHR_T swapchain;
     public uint imageIndex;
 }

@@ -11,16 +11,16 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3164 Column: 16
+// File: vk.xml Line: 1255 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkAllocationCallbacks
 {
-    public nuint pUserData;
-    public delegate* unmanaged<nuint, ulong, ulong, SystemAllocationScope, nuint> pfnAllocation;
-    public delegate* unmanaged<nuint, nuint, ulong, ulong, SystemAllocationScope, nuint> pfnReallocation;
-    public delegate* unmanaged<nuint, nuint, void> pfnFree;
-    public delegate* unmanaged<nuint, ulong, InternalAllocationType, SystemAllocationScope, void> pfnInternalAllocation;
-    public delegate* unmanaged<nuint, ulong, InternalAllocationType, SystemAllocationScope, void> pfnInternalFree;
+    public void* pUserData;
+    public delegate* unmanaged<void*, nuint, nuint, SystemAllocationScope, void> pfnAllocation;
+    public delegate* unmanaged<void*, void*, nuint, nuint, SystemAllocationScope, void> pfnReallocation;
+    public delegate* unmanaged<void*, void*, void> pfnFree;
+    public delegate* unmanaged<void*, nuint, InternalAllocationType, SystemAllocationScope, void> pfnInternalAllocation;
+    public delegate* unmanaged<void*, nuint, InternalAllocationType, SystemAllocationScope, void> pfnInternalFree;
 }
 
 

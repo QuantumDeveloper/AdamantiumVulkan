@@ -12,6 +12,9 @@ using AdamantiumVulkan.Spirv.Cross.Interop;
 
 namespace AdamantiumVulkan.Spirv.Cross;
 
+///<summary>
+/// See C++ API.
+///</summary>
 public unsafe partial class SpvcHlslVertexAttributeRemap : IMarshallable<AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslVertexAttributeRemap>
 {
     public SpvcHlslVertexAttributeRemap()
@@ -25,6 +28,7 @@ public unsafe partial class SpvcHlslVertexAttributeRemap : IMarshallable<Adamant
 
     public uint Location { get; set; }
     public string Semantic { get; set; }
+
 
     public static implicit operator SpvcHlslVertexAttributeRemap(AdamantiumVulkan.Spirv.Cross.Interop.SpvcHlslVertexAttributeRemap s)
     {

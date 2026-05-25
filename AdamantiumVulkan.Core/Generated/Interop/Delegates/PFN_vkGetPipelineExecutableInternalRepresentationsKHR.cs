@@ -14,7 +14,7 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 11394 Column: 30
+// File: video.xml Line: 17284 Column: 10
 public unsafe struct PFN_vkGetPipelineExecutableInternalRepresentationsKHR
 {
     public PFN_vkGetPipelineExecutableInternalRepresentationsKHR(nuint ptr) : this((void*) ptr) { }
@@ -22,24 +22,24 @@ public unsafe struct PFN_vkGetPipelineExecutableInternalRepresentationsKHR
     public PFN_vkGetPipelineExecutableInternalRepresentationsKHR(void* ptr)
     {
         NativePointer = ptr;
-        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, ref uint*, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR*, Result>)ptr;
+        InvokeFunc = (delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, ref uint, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR*, Result>)ptr;
     }
 
-    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, ref uint*, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR*, Result> InvokeFunc;
+    private delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, ref uint, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR*, Result> InvokeFunc;
 
     public void* NativePointer { get; }
 
-    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint* pInternalRepresentationCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations)
+    public Result Invoke(AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint pInternalRepresentationCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations)
     {
         return InvokeFunc(device, pExecutableInfo, ref pInternalRepresentationCount, pInternalRepresentations);
     }
-    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint* pInternalRepresentationCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations)
+    public static Result Invoke(void* ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint pInternalRepresentationCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, ref uint*, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR*, Result>)ptr)(device, pExecutableInfo, ref pInternalRepresentationCount, pInternalRepresentations);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, ref uint, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR*, Result>)ptr)(device, pExecutableInfo, ref pInternalRepresentationCount, pInternalRepresentations);
     }
-    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint* pInternalRepresentationCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations)
+    public static Result Invoke(nuint ptr, AdamantiumVulkan.Core.Interop.VkDevice_T device, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR* pExecutableInfo, ref uint pInternalRepresentationCount, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations)
     {
-        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, ref uint*, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR*, Result>)(void*)ptr)(device, pExecutableInfo, ref pInternalRepresentationCount, pInternalRepresentations);
+        return ((delegate* unmanaged<AdamantiumVulkan.Core.Interop.VkDevice_T, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInfoKHR*, ref uint, AdamantiumVulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR*, Result>)(void*)ptr)(device, pExecutableInfo, ref pInternalRepresentationCount, pInternalRepresentations);
     }
 
     public static explicit operator PFN_vkGetPipelineExecutableInternalRepresentationsKHR(void* ptr) => new(ptr);

@@ -12,13 +12,13 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 7425 Column: 16
+// File: vk.xml Line: 9086 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkRenderingInfo
 {
     public StructureType sType;
-    public nuint pNext;
-    public VkRenderingFlags flags;
+    public void* pNext;
+    public RenderingFlagBits flags;
     public VkRect2D renderArea;
     public uint layerCount;
     public uint viewMask;

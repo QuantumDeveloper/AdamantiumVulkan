@@ -23,7 +23,7 @@ public unsafe partial class AccelerationStructureGeometryTrianglesDataKHR : IMar
         MarshalFrom(in native);
     }
 
-    public StructureType SType { get; set; }
+    public StructureType SType => StructureType.AccelerationStructureGeometryTrianglesDataKhr;
     public object PNext { get; set; }
     public Format VertexFormat { get; set; }
     public DeviceOrHostAddressConstKHR VertexData { get; set; }
@@ -32,6 +32,7 @@ public unsafe partial class AccelerationStructureGeometryTrianglesDataKHR : IMar
     public IndexType IndexType { get; set; }
     public DeviceOrHostAddressConstKHR IndexData { get; set; }
     public DeviceOrHostAddressConstKHR TransformData { get; set; }
+
 
     public static implicit operator AccelerationStructureGeometryTrianglesDataKHR(AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR a)
     {
@@ -45,6 +46,12 @@ public unsafe partial class AccelerationStructureGeometryTrianglesDataKHR : IMar
         {
             size += marshallable.GetSize();
         }
+        if (VertexData != default)
+            size += VertexData.GetSize();
+        if (IndexData != default)
+            size += IndexData.GetSize();
+        if (TransformData != default)
+            size += TransformData.GetSize();
         return size;
     }
 
@@ -55,7 +62,6 @@ public unsafe partial class AccelerationStructureGeometryTrianglesDataKHR : IMar
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR native)
     {
-        SType = native.sType;
         PNext = (System.IntPtr)native.pNext;
         VertexFormat = native.vertexFormat;
         VertexData = new DeviceOrHostAddressConstKHR(native.vertexData);
@@ -66,14 +72,14 @@ public unsafe partial class AccelerationStructureGeometryTrianglesDataKHR : IMar
         TransformData = new DeviceOrHostAddressConstKHR(native.transformData);
 
     }
-    public nuint GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
+    public void* GetNativePointer<TContext>(ref TContext context) where TContext : IMarshallingContext, allows ref struct
     {
         var nativeSpan = context.AllocateNative<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR>(1);
         var dataCursor = context.GetDataCursor();
         var internalContext = new MarshallingContext<AdamantiumVulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR>(nativeSpan, dataCursor);
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
-        return (nuint)System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+        return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
     }
     private ref struct VkAccelerationStructureGeometryTrianglesDataKHRMarshaller
     {
@@ -87,11 +93,11 @@ public unsafe partial class AccelerationStructureGeometryTrianglesDataKHR : IMar
             }
             else if (accelerationStructureGeometryTrianglesDataKHR.PNext is System.IntPtr ptr)
             {
-                context.Destination[0].pNext = (nuint)ptr;
+                context.Destination[0].pNext = (void*)ptr;
             }
             else if (accelerationStructureGeometryTrianglesDataKHR.PNext is nuint nPtr)
             {
-                context.Destination[0].pNext = (nuint)nPtr;
+                context.Destination[0].pNext = (void*)nPtr;
             }
 
             context.Destination[0].vertexFormat = accelerationStructureGeometryTrianglesDataKHR.VertexFormat;

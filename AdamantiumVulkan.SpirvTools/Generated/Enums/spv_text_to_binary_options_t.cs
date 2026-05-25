@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\spirv-tools\libspirv.h Line: 377 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 401 Column: 14
 [Flags]
 public enum spv_text_to_binary_options_t : uint
 {
@@ -22,6 +22,9 @@ public enum spv_text_to_binary_options_t : uint
     ///</summary>
     TextToBinaryOptionPreserveNumericIds = 2,
 
+    ///<summary>
+    /// Numeric IDs in the binary will have the same values as in the source. Non-numeric IDs are allocated by filling in the gaps, starting with 1 and going up.
+    ///</summary>
     Force32bitSpvTextToBinaryOptionsT = 2147483647,
 
 }

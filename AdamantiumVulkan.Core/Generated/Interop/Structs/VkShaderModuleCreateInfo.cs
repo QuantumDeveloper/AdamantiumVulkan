@@ -12,15 +12,15 @@ using AdamantiumVulkan.Core;
 
 namespace AdamantiumVulkan.Core.Interop;
 
-// File: C:\VulkanSDK\1.4.309.0\Include\vulkan/vulkan_core.h Line: 3650 Column: 16
+// File: vk.xml Line: 1609 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkShaderModuleCreateInfo
 {
     public StructureType sType;
-    public nuint pNext;
+    public void* pNext;
     public VkShaderModuleCreateFlags flags;
-    public ulong codeSize;
-    public byte* pCode;
+    public nuint codeSize;
+    public uint* pCode;
 }
 
 
