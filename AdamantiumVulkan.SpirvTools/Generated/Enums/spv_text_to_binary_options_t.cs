@@ -22,6 +22,9 @@ public enum spv_text_to_binary_options_t : uint
     ///</summary>
     TextToBinaryOptionPreserveNumericIds = 2,
 
+    ///<summary>
+    /// Numeric IDs in the binary will have the same values as in the source. Non-numeric IDs are allocated by filling in the gaps, starting with 1 and going up.
+    ///</summary>
     Force32bitSpvTextToBinaryOptionsT = 2147483647,
 
 }

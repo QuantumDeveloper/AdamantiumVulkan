@@ -557,6 +557,9 @@ public enum spv_operand_type_t : uint
     ///</summary>
     OperandTypeNumOperandTypes = 107,
 
+    ///<summary>
+    /// This is a sentinel value, and does not represent an operand type. It should come last.
+    ///</summary>
     Force32bitSpvOperandTypeT = 2147483647,
 
 }

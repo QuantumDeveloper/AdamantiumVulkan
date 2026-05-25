@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace AdamantiumVulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross/spirv.h Line: 1463 Column: 14
+// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv.h Line: 1463 Column: 14
 public enum FragmentShadingRateShift : uint
 {
     Vertical2PixelsShift = 0,

@@ -55,6 +55,9 @@ public enum spv_binary_to_text_options_t : uint
     ///</summary>
     BinaryToTextOptionHandleUnknownOpcodes = 1024,
 
+    ///<summary>
+    /// Handle unknown opcodes and unknown extended instruction numbers by emitting them as OpUnknown instructions with raw integer operands.
+    ///</summary>
     Force32bitSpvBinaryToTextOptionsT = 2147483647,
 
 }

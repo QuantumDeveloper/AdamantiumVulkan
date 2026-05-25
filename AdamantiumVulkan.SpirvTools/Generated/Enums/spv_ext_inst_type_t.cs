@@ -47,6 +47,9 @@ public enum spv_ext_inst_type_t : uint
     ///</summary>
     ExtInstTypeNonsemanticUnknown = 14,
 
+    ///<summary>
+    /// Multiple distinct extended instruction set types could return this value, if they are prefixed with NonSemantic. and are otherwise unrecognised
+    ///</summary>
     Force32bitSpvExtInstTypeT = 2147483647,
 
 }
