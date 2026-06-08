@@ -89,6 +89,7 @@ public unsafe partial class DescriptorMappingSourceDataEXT : IMarshallableObject
                     descriptorMappingSourceDataEXT.ConstantOffset.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
             if (descriptorMappingSourceDataEXT.PushIndex != default)
@@ -100,6 +101,7 @@ public unsafe partial class DescriptorMappingSourceDataEXT : IMarshallableObject
                     descriptorMappingSourceDataEXT.PushIndex.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
             if (descriptorMappingSourceDataEXT.IndirectIndex != default)
@@ -111,6 +113,7 @@ public unsafe partial class DescriptorMappingSourceDataEXT : IMarshallableObject
                     descriptorMappingSourceDataEXT.IndirectIndex.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
             if (descriptorMappingSourceDataEXT.IndirectIndexArray != default)
@@ -122,6 +125,7 @@ public unsafe partial class DescriptorMappingSourceDataEXT : IMarshallableObject
                     descriptorMappingSourceDataEXT.IndirectIndexArray.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
             if (descriptorMappingSourceDataEXT.HeapData != default)
@@ -133,11 +137,20 @@ public unsafe partial class DescriptorMappingSourceDataEXT : IMarshallableObject
                     descriptorMappingSourceDataEXT.HeapData.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
-            context.Destination[0].pushDataOffset = descriptorMappingSourceDataEXT.PushDataOffset;
+            if (descriptorMappingSourceDataEXT.PushDataOffset != default)
+            {
+                context.Destination[0].pushDataOffset = descriptorMappingSourceDataEXT.PushDataOffset;
+                return;
+            }
 
-            context.Destination[0].pushAddressOffset = descriptorMappingSourceDataEXT.PushAddressOffset;
+            if (descriptorMappingSourceDataEXT.PushAddressOffset != default)
+            {
+                context.Destination[0].pushAddressOffset = descriptorMappingSourceDataEXT.PushAddressOffset;
+                return;
+            }
 
             if (descriptorMappingSourceDataEXT.IndirectAddress != default)
             {
@@ -148,6 +161,7 @@ public unsafe partial class DescriptorMappingSourceDataEXT : IMarshallableObject
                     descriptorMappingSourceDataEXT.IndirectAddress.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
             if (descriptorMappingSourceDataEXT.ShaderRecordIndex != default)
@@ -159,11 +173,20 @@ public unsafe partial class DescriptorMappingSourceDataEXT : IMarshallableObject
                     descriptorMappingSourceDataEXT.ShaderRecordIndex.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
-            context.Destination[0].shaderRecordDataOffset = descriptorMappingSourceDataEXT.ShaderRecordDataOffset;
+            if (descriptorMappingSourceDataEXT.ShaderRecordDataOffset != default)
+            {
+                context.Destination[0].shaderRecordDataOffset = descriptorMappingSourceDataEXT.ShaderRecordDataOffset;
+                return;
+            }
 
-            context.Destination[0].shaderRecordAddressOffset = descriptorMappingSourceDataEXT.ShaderRecordAddressOffset;
+            if (descriptorMappingSourceDataEXT.ShaderRecordAddressOffset != default)
+            {
+                context.Destination[0].shaderRecordAddressOffset = descriptorMappingSourceDataEXT.ShaderRecordAddressOffset;
+                return;
+            }
 
         }
     }

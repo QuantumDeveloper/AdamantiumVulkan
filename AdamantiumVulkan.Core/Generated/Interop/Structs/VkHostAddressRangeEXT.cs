@@ -15,7 +15,7 @@ namespace AdamantiumVulkan.Core.Interop;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkHostAddressRangeEXT
 {
-    public byte* address;
+    public void* address;
     public nuint size;
 }
 

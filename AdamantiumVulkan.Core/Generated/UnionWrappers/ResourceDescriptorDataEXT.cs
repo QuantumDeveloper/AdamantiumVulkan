@@ -94,6 +94,7 @@ public unsafe partial class ResourceDescriptorDataEXT : IMarshallableObject, IMa
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkImageDescriptorInfoEXT>(structDestination0, context.DataCursor);
                 resourceDescriptorDataEXT.PImage.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (resourceDescriptorDataEXT.PTexelBuffer != default)
@@ -104,6 +105,7 @@ public unsafe partial class ResourceDescriptorDataEXT : IMarshallableObject, IMa
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkTexelBufferDescriptorInfoEXT>(structDestination0, context.DataCursor);
                 resourceDescriptorDataEXT.PTexelBuffer.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (resourceDescriptorDataEXT.PAddressRange != default)
@@ -114,6 +116,7 @@ public unsafe partial class ResourceDescriptorDataEXT : IMarshallableObject, IMa
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDeviceAddressRangeKHR>(structDestination0, context.DataCursor);
                 resourceDescriptorDataEXT.PAddressRange.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (resourceDescriptorDataEXT.PTensorARM != default)
@@ -124,6 +127,7 @@ public unsafe partial class ResourceDescriptorDataEXT : IMarshallableObject, IMa
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkTensorViewCreateInfoARM>(structDestination0, context.DataCursor);
                 resourceDescriptorDataEXT.PTensorARM.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
         }

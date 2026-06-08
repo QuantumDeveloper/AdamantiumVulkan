@@ -123,6 +123,7 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
             {
                 AdamantiumVulkan.Core.Interop.VkSampler_T struct0 = descriptorDataEXT.PSampler;
                 context.Destination[0].pSampler = (AdamantiumVulkan.Core.Interop.VkSampler_T*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref struct0);
+                return;
             }
 
             if (descriptorDataEXT.PCombinedImageSampler != default)
@@ -133,6 +134,7 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(structDestination0, context.DataCursor);
                 descriptorDataEXT.PCombinedImageSampler.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (descriptorDataEXT.PInputAttachmentImage != default)
@@ -143,6 +145,7 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(structDestination0, context.DataCursor);
                 descriptorDataEXT.PInputAttachmentImage.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (descriptorDataEXT.PSampledImage != default)
@@ -153,6 +156,7 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(structDestination0, context.DataCursor);
                 descriptorDataEXT.PSampledImage.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (descriptorDataEXT.PStorageImage != default)
@@ -163,6 +167,7 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorImageInfo>(structDestination0, context.DataCursor);
                 descriptorDataEXT.PStorageImage.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (descriptorDataEXT.PUniformTexelBuffer != default)
@@ -173,6 +178,7 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT>(structDestination0, context.DataCursor);
                 descriptorDataEXT.PUniformTexelBuffer.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (descriptorDataEXT.PStorageTexelBuffer != default)
@@ -183,6 +189,7 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT>(structDestination0, context.DataCursor);
                 descriptorDataEXT.PStorageTexelBuffer.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (descriptorDataEXT.PUniformBuffer != default)
@@ -193,6 +200,7 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT>(structDestination0, context.DataCursor);
                 descriptorDataEXT.PUniformBuffer.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (descriptorDataEXT.PStorageBuffer != default)
@@ -203,11 +211,13 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkDescriptorAddressInfoEXT>(structDestination0, context.DataCursor);
                 descriptorDataEXT.PStorageBuffer.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (descriptorDataEXT.AccelerationStructure != (ulong)default)
             {
                 context.Destination[0].accelerationStructure = descriptorDataEXT.AccelerationStructure;
+                return;
             }
 
         }
