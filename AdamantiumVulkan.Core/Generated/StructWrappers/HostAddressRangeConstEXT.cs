@@ -23,7 +23,7 @@ public unsafe partial class HostAddressRangeConstEXT : IMarshallableObject, IMar
         MarshalFrom(in native);
     }
 
-    public System.ReadOnlyMemory<byte> Address { get; set; }
+    public nuint Address { get; set; }
     public nuint Size { get; set; }
 
 
@@ -35,8 +35,6 @@ public unsafe partial class HostAddressRangeConstEXT : IMarshallableObject, IMar
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkHostAddressRangeConstEXT>();
-        if (!Address.IsEmpty)
-            size += Address.Span.Length * Marshal.SizeOf<System.Byte>();
         return size;
     }
 
@@ -47,10 +45,7 @@ public unsafe partial class HostAddressRangeConstEXT : IMarshallableObject, IMar
 
     public void MarshalFrom(in AdamantiumVulkan.Core.Interop.VkHostAddressRangeConstEXT native)
     {
-        var arrayLengthAddress = native.size;
-        var tmpAddress = new byte[arrayLengthAddress];
-        QuantumBinding.Utils.MarshalingUtils.MarshalFromPointerToArray(native.address, arrayLengthAddress, tmpAddress);
-        Address = tmpAddress;
+        Address = (nuint)native.address;
         Size = native.size;
 
     }
@@ -67,9 +62,9 @@ public unsafe partial class HostAddressRangeConstEXT : IMarshallableObject, IMar
     {
         public VkHostAddressRangeConstEXTMarshaller(AdamantiumVulkan.Core.HostAddressRangeConstEXT hostAddressRangeConstEXT, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkHostAddressRangeConstEXT> context)
         {
-            if (!hostAddressRangeConstEXT.Address.IsEmpty)
+            if (hostAddressRangeConstEXT.Address != default)
             {
-                context.Destination[0].address = QuantumBinding.Utils.MarshalingUtils.MarshalBlittableArrayToPointer<byte, AdamantiumVulkan.Core.Interop.VkHostAddressRangeConstEXT>(hostAddressRangeConstEXT.Address.Span, ref context);
+                context.Destination[0].address = (void*)hostAddressRangeConstEXT.Address;
             }
 
             context.Destination[0].size = hostAddressRangeConstEXT.Size;

@@ -87,6 +87,7 @@ public unsafe partial class ClusterAccelerationStructureOpInputNV : IMarshallabl
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureClustersBottomLevelInputNV>(structDestination0, context.DataCursor);
                 clusterAccelerationStructureOpInputNV.PClustersBottomLevel.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (clusterAccelerationStructureOpInputNV.PTriangleClusters != default)
@@ -97,6 +98,7 @@ public unsafe partial class ClusterAccelerationStructureOpInputNV : IMarshallabl
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureTriangleClusterInputNV>(structDestination0, context.DataCursor);
                 clusterAccelerationStructureOpInputNV.PTriangleClusters.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (clusterAccelerationStructureOpInputNV.PMoveObjects != default)
@@ -107,6 +109,7 @@ public unsafe partial class ClusterAccelerationStructureOpInputNV : IMarshallabl
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkClusterAccelerationStructureMoveObjectsInputNV>(structDestination0, context.DataCursor);
                 clusterAccelerationStructureOpInputNV.PMoveObjects.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
         }

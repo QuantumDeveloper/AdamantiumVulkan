@@ -386,6 +386,14 @@ public static partial class VulkanBindings
             .InterpretAsPointerToArray(new CustomType("StdVideoH265SubLayerHrdParameters"))
             .WithField("pSubLayerHrdParametersVcl")
             .InterpretAsPointerToArray(new CustomType("StdVideoH265SubLayerHrdParameters"));
+        
+        api.Class("VkHostAddressRangeEXT")
+            .WithField("address")
+            .InterpretAsPointerType(new BuiltinType(PrimitiveType.Void));
+
+        api.Class("VkHostAddressRangeConstEXT")
+            .WithField("address")
+            .InterpretAsPointerType(new BuiltinType(PrimitiveType.Void));
 
         api.Function("vkGetDescriptorEXT")
             .WithParameterName("pDescriptor")

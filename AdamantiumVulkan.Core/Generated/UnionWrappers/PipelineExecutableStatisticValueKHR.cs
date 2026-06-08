@@ -69,13 +69,26 @@ public unsafe partial class PipelineExecutableStatisticValueKHR : IMarshallableO
             if (pipelineExecutableStatisticValueKHR.B32 != (uint)default)
             {
                 context.Destination[0].b32 = pipelineExecutableStatisticValueKHR.B32;
+                return;
             }
 
-            context.Destination[0].i64 = pipelineExecutableStatisticValueKHR.I64;
+            if (pipelineExecutableStatisticValueKHR.I64 != default)
+            {
+                context.Destination[0].i64 = pipelineExecutableStatisticValueKHR.I64;
+                return;
+            }
 
-            context.Destination[0].u64 = pipelineExecutableStatisticValueKHR.U64;
+            if (pipelineExecutableStatisticValueKHR.U64 != default)
+            {
+                context.Destination[0].u64 = pipelineExecutableStatisticValueKHR.U64;
+                return;
+            }
 
-            context.Destination[0].f64 = pipelineExecutableStatisticValueKHR.F64;
+            if (pipelineExecutableStatisticValueKHR.F64 != default)
+            {
+                context.Destination[0].f64 = pipelineExecutableStatisticValueKHR.F64;
+                return;
+            }
 
         }
     }

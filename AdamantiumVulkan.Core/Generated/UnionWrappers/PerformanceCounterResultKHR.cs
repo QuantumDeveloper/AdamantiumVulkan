@@ -70,17 +70,41 @@ public unsafe partial class PerformanceCounterResultKHR : IMarshallableObject, I
     {
         public VkPerformanceCounterResultKHRMarshaller(AdamantiumVulkan.Core.PerformanceCounterResultKHR performanceCounterResultKHR, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkPerformanceCounterResultKHR> context)
         {
-            context.Destination[0].int32 = performanceCounterResultKHR.Int32;
+            if (performanceCounterResultKHR.Int32 != default)
+            {
+                context.Destination[0].int32 = performanceCounterResultKHR.Int32;
+                return;
+            }
 
-            context.Destination[0].int64 = performanceCounterResultKHR.Int64;
+            if (performanceCounterResultKHR.Int64 != default)
+            {
+                context.Destination[0].int64 = performanceCounterResultKHR.Int64;
+                return;
+            }
 
-            context.Destination[0].uint32 = performanceCounterResultKHR.Uint32;
+            if (performanceCounterResultKHR.Uint32 != default)
+            {
+                context.Destination[0].uint32 = performanceCounterResultKHR.Uint32;
+                return;
+            }
 
-            context.Destination[0].uint64 = performanceCounterResultKHR.Uint64;
+            if (performanceCounterResultKHR.Uint64 != default)
+            {
+                context.Destination[0].uint64 = performanceCounterResultKHR.Uint64;
+                return;
+            }
 
-            context.Destination[0].float32 = performanceCounterResultKHR.Float32;
+            if (performanceCounterResultKHR.Float32 != default)
+            {
+                context.Destination[0].float32 = performanceCounterResultKHR.Float32;
+                return;
+            }
 
-            context.Destination[0].float64 = performanceCounterResultKHR.Float64;
+            if (performanceCounterResultKHR.Float64 != default)
+            {
+                context.Destination[0].float64 = performanceCounterResultKHR.Float64;
+                return;
+            }
 
         }
     }

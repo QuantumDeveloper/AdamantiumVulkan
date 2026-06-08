@@ -94,6 +94,7 @@ public unsafe partial class IndirectCommandsTokenDataEXT : IMarshallableObject, 
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkIndirectCommandsPushConstantTokenEXT>(structDestination0, context.DataCursor);
                 indirectCommandsTokenDataEXT.PushConstant.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (indirectCommandsTokenDataEXT.PVertexBuffer != default)
@@ -104,6 +105,7 @@ public unsafe partial class IndirectCommandsTokenDataEXT : IMarshallableObject, 
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkIndirectCommandsVertexBufferTokenEXT>(structDestination0, context.DataCursor);
                 indirectCommandsTokenDataEXT.PVertexBuffer.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (indirectCommandsTokenDataEXT.PIndexBuffer != default)
@@ -114,6 +116,7 @@ public unsafe partial class IndirectCommandsTokenDataEXT : IMarshallableObject, 
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkIndirectCommandsIndexBufferTokenEXT>(structDestination0, context.DataCursor);
                 indirectCommandsTokenDataEXT.PIndexBuffer.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (indirectCommandsTokenDataEXT.PExecutionSet != default)
@@ -124,6 +127,7 @@ public unsafe partial class IndirectCommandsTokenDataEXT : IMarshallableObject, 
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkIndirectCommandsExecutionSetTokenEXT>(structDestination0, context.DataCursor);
                 indirectCommandsTokenDataEXT.PExecutionSet.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
         }

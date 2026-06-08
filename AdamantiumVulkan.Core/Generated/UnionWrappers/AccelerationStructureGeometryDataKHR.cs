@@ -73,6 +73,7 @@ public unsafe partial class AccelerationStructureGeometryDataKHR : IMarshallable
                     accelerationStructureGeometryDataKHR.Triangles.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
             if (accelerationStructureGeometryDataKHR.Aabbs != default)
@@ -84,6 +85,7 @@ public unsafe partial class AccelerationStructureGeometryDataKHR : IMarshallable
                     accelerationStructureGeometryDataKHR.Aabbs.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
             if (accelerationStructureGeometryDataKHR.Instances != default)
@@ -95,6 +97,7 @@ public unsafe partial class AccelerationStructureGeometryDataKHR : IMarshallable
                     accelerationStructureGeometryDataKHR.Instances.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
         }

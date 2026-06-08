@@ -35,6 +35,8 @@ public unsafe partial class ClearValue : IMarshallableObject, IMarshallable<Adam
     public int GetSize()
     {
         var size = Marshal.SizeOf<AdamantiumVulkan.Core.Interop.VkClearValue>();
+        if (Color != default)
+            size = Math.Max(size, Color.GetSize());
         return size;
     }
 
@@ -71,6 +73,7 @@ public unsafe partial class ClearValue : IMarshallableObject, IMarshallable<Adam
                     clearValue.Color.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
             if (clearValue.DepthStencil != default)
@@ -82,6 +85,7 @@ public unsafe partial class ClearValue : IMarshallableObject, IMarshallable<Adam
                     clearValue.DepthStencil.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
         }
