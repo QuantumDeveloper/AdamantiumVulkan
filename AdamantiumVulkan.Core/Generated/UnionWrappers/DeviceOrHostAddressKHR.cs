@@ -65,11 +65,13 @@ public unsafe partial class DeviceOrHostAddressKHR : IMarshallableObject, IMarsh
             if (deviceOrHostAddressKHR.DeviceAddress != (ulong)default)
             {
                 context.Destination[0].deviceAddress = deviceOrHostAddressKHR.DeviceAddress;
+                return;
             }
 
             if (deviceOrHostAddressKHR.HostAddress != default)
             {
                 context.Destination[0].hostAddress = (void*)deviceOrHostAddressKHR.HostAddress;
+                return;
             }
 
         }

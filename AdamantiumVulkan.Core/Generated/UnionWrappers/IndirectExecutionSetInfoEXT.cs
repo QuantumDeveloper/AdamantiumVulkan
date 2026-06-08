@@ -80,6 +80,7 @@ public unsafe partial class IndirectExecutionSetInfoEXT : IMarshallableObject, I
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetPipelineInfoEXT>(structDestination0, context.DataCursor);
                 indirectExecutionSetInfoEXT.PipelineInfo.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
             if (indirectExecutionSetInfoEXT.PShaderInfo != default)
@@ -90,6 +91,7 @@ public unsafe partial class IndirectExecutionSetInfoEXT : IMarshallableObject, I
                 var childContext = new QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkIndirectExecutionSetShaderInfoEXT>(structDestination0, context.DataCursor);
                 indirectExecutionSetInfoEXT.PShaderInfo.MarshalTo(ref childContext);
                 context.DataCursor = childContext.DataCursor;
+                return;
             }
 
         }

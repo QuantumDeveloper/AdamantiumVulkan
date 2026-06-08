@@ -70,15 +70,28 @@ public unsafe partial class PerformanceValueDataINTEL : IMarshallableObject, IMa
     {
         public VkPerformanceValueDataINTELMarshaller(AdamantiumVulkan.Core.PerformanceValueDataINTEL performanceValueDataINTEL, ref QuantumBinding.Utils.MarshallingContext<AdamantiumVulkan.Core.Interop.VkPerformanceValueDataINTEL> context)
         {
-            context.Destination[0].value32 = performanceValueDataINTEL.Value32;
+            if (performanceValueDataINTEL.Value32 != default)
+            {
+                context.Destination[0].value32 = performanceValueDataINTEL.Value32;
+                return;
+            }
 
-            context.Destination[0].value64 = performanceValueDataINTEL.Value64;
+            if (performanceValueDataINTEL.Value64 != default)
+            {
+                context.Destination[0].value64 = performanceValueDataINTEL.Value64;
+                return;
+            }
 
-            context.Destination[0].valueFloat = performanceValueDataINTEL.ValueFloat;
+            if (performanceValueDataINTEL.ValueFloat != default)
+            {
+                context.Destination[0].valueFloat = performanceValueDataINTEL.ValueFloat;
+                return;
+            }
 
             if (performanceValueDataINTEL.ValueBool != (uint)default)
             {
                 context.Destination[0].valueBool = performanceValueDataINTEL.ValueBool;
+                return;
             }
 
             if (performanceValueDataINTEL.ValueString != default)
@@ -87,6 +100,7 @@ public unsafe partial class PerformanceValueDataINTEL : IMarshallableObject, IMa
                 var stringSpan = context.AllocateData(byteCount+1);
                 QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(performanceValueDataINTEL.ValueString, stringSpan);
                 context.Destination[0].valueString = (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.InteropServices.MemoryMarshal.GetReference(stringSpan));
+                return;
             }
 
         }

@@ -73,6 +73,7 @@ public unsafe partial class AccelerationStructureMotionInstanceDataNV : IMarshal
                     accelerationStructureMotionInstanceDataNV.StaticInstance.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
             if (accelerationStructureMotionInstanceDataNV.MatrixMotionInstance != default)
@@ -84,6 +85,7 @@ public unsafe partial class AccelerationStructureMotionInstanceDataNV : IMarshal
                     accelerationStructureMotionInstanceDataNV.MatrixMotionInstance.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
             if (accelerationStructureMotionInstanceDataNV.SrtMotionInstance != default)
@@ -95,6 +97,7 @@ public unsafe partial class AccelerationStructureMotionInstanceDataNV : IMarshal
                     accelerationStructureMotionInstanceDataNV.SrtMotionInstance.MarshalTo(ref childContext);
                     context.DataCursor = childContext.DataCursor;
                 }
+                return;
             }
 
         }
