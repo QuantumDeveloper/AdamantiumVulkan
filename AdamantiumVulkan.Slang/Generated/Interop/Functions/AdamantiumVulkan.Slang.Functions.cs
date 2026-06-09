@@ -18,46 +18,46 @@ public static unsafe partial class SlangInterop
 {
     public const string LibraryPath = "slang-c-shared";
 
-    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 77 Column: 25
+    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 251 Column: 25
     ///<summary>
     /// Compiles one entry point of an in-memory source (HLSL or Slang) to SPIR-V. Never returns NULL: on failure the result reports !ok and carries the diagnostics text.
     ///</summary>
     [DllImport(LibraryPath, EntryPoint = "slangc_compile", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern SlangcResultT slangc_compile(AdamantiumVulkan.Slang.Interop.SlangcSessionT session, sbyte* moduleName, sbyte* source, sbyte* entryPoint, SlangcStage stage);
 
-    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 93 Column: 24
+    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 267 Column: 24
     ///<summary>
     /// Null-terminated diagnostics text (errors on failure, warnings on success). Owned by the result.
     ///</summary>
     [DllImport(LibraryPath, EntryPoint = "slangc_result_diagnostics", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern sbyte* slangc_result_diagnostics(AdamantiumVulkan.Slang.Interop.SlangcResultT result);
 
-    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 85 Column: 16
+    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 259 Column: 16
     ///<summary>
     /// 1 if compilation succeeded and SPIR-V is available, else 0.
     ///</summary>
     [DllImport(LibraryPath, EntryPoint = "slangc_result_ok", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern int slangc_result_ok(AdamantiumVulkan.Slang.Interop.SlangcResultT result);
 
-    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 95 Column: 17
+    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 269 Column: 17
     [DllImport(LibraryPath, EntryPoint = "slangc_result_release", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void slangc_result_release(AdamantiumVulkan.Slang.Interop.SlangcResultT result);
 
-    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 90 Column: 24
+    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 264 Column: 24
     ///<summary>
     /// Pointer to the SPIR-V bytes (owned by the result); writes the byte count to outSize. Returns void* (not unsigned char*) so QuantumBinding emits a real pointer instead of collapsing it to a single byte; the caller marshals outSize bytes from it.
     ///</summary>
     [DllImport(LibraryPath, EntryPoint = "slangc_result_spirv", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void* slangc_result_spirv(AdamantiumVulkan.Slang.Interop.SlangcResultT result, out ulong outSize);
 
-    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 67 Column: 26
+    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 240 Column: 26
     ///<summary>
-    /// Creates a session that targets SPIR-V. searchPaths : #include / import search directories (may be NULL if count==0) defineNames/Values : parallel arrays of preprocessor macros (Values may be NULL) profile : optional Slang profile name (e.g. "spirv_1_5", "sm_6_0"); NULL/"" = default loadFile/userData : optional VFS callback for resolving includes/imports; NULL = OS filesystem Returns NULL on failure.
+    /// Creates a session that targets SPIR-V. searchPaths : #include / import search directories (may be NULL if count==0) defineNames/Values : parallel arrays of preprocessor macros (Values may be NULL) profile : optional Slang profile name (e.g. "spirv_1_5", "sm_6_0"); NULL/"" = default options : compiler options applied to the SPIR-V target (may be NULL if count==0) loadFile/userData : optional VFS callback for resolving includes/imports; NULL = OS filesystem Returns NULL on failure.
     ///</summary>
     [DllImport(LibraryPath, EntryPoint = "slangc_session_create", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
-    internal static extern SlangcSessionT slangc_session_create(sbyte** searchPaths, int searchPathCount, sbyte** defineNames, sbyte** defineValues, int defineCount, sbyte* profile, nuint loadFile, void* userData);
+    internal static extern SlangcSessionT slangc_session_create(sbyte** searchPaths, int searchPathCount, sbyte** defineNames, sbyte** defineValues, int defineCount, sbyte* profile, AdamantiumVulkan.Slang.Interop.SlangcCompilerOption* options, int optionCount, nuint loadFile, void* userData);
 
-    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 96 Column: 17
+    // File: C:\AdamantiumEngine\AdamantiumVulkan\AdamantiumVulkan.Slang\native\slang_c.h Line: 270 Column: 17
     [DllImport(LibraryPath, EntryPoint = "slangc_session_release", ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
     internal static extern void slangc_session_release(AdamantiumVulkan.Slang.Interop.SlangcSessionT session);
 

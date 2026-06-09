@@ -16,11 +16,11 @@ namespace AdamantiumVulkan.Slang;
 public unsafe static class SlangNative
 {
     ///<summary>
-    /// Creates a session that targets SPIR-V. searchPaths : #include / import search directories (may be NULL if count==0) defineNames/Values : parallel arrays of preprocessor macros (Values may be NULL) profile : optional Slang profile name (e.g. "spirv_1_5", "sm_6_0"); NULL/"" = default loadFile/userData : optional VFS callback for resolving includes/imports; NULL = OS filesystem Returns NULL on failure.
+    /// Creates a session that targets SPIR-V. searchPaths : #include / import search directories (may be NULL if count==0) defineNames/Values : parallel arrays of preprocessor macros (Values may be NULL) profile : optional Slang profile name (e.g. "spirv_1_5", "sm_6_0"); NULL/"" = default options : compiler options applied to the SPIR-V target (may be NULL if count==0) loadFile/userData : optional VFS callback for resolving includes/imports; NULL = OS filesystem Returns NULL on failure.
     ///</summary>
-    public static SlangcSession SessionCreate(string[] searchPaths, int searchPathCount, string[] defineNames, string[] defineValues, int defineCount, string profile, nuint loadFile, ref nuint userData)
+    public static SlangcSession SessionCreate(string[] searchPaths, int searchPathCount, string[] defineNames, string[] defineValues, int defineCount, string profile, in System.ReadOnlySpan<SlangcCompilerOption> options, int optionCount, nuint loadFile, ref nuint userData)
     {
-        int CalculateSize(string[] searchPaths, string[] defineNames, string[] defineValues, string profile)
+        int CalculateSize(string[] searchPaths, string[] defineNames, string[] defineValues, string profile, System.ReadOnlySpan<SlangcCompilerOption> options)
         {
             int totalSize = 0;
             totalSize += QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(searchPaths);
@@ -28,10 +28,17 @@ public unsafe static class SlangNative
             totalSize += QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(defineValues);
             if (!string.IsNullOrEmpty(profile))
                 totalSize += profile.Length * sizeof(byte) + 1;
+            for (var i = 0U; i < options.Length; i++)
+            {
+                if(options[(int)i] == null)
+                    totalSize += Marshal.SizeOf<AdamantiumVulkan.Slang.Interop.SlangcCompilerOption>();
+                else
+                    totalSize += options[(int)i].GetSize();
+            }
             return totalSize;
         }
 
-        var totalSize = CalculateSize(searchPaths, defineNames, defineValues, profile);
+        var totalSize = CalculateSize(searchPaths, defineNames, defineValues, profile, options);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         try
@@ -41,9 +48,14 @@ public unsafe static class SlangNative
             var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(defineNames, ref currentCursor);
             var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(defineValues, ref currentCursor);
             var arg5 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(profile, ref currentCursor);
-            void* arg7 = (void*)userData;
-            var result = AdamantiumVulkan.Slang.Interop.SlangInterop.slangc_session_create(arg0, searchPathCount, arg2, arg3, defineCount, arg5, loadFile, arg7);
-            userData = (nuint)arg7;
+            AdamantiumVulkan.Slang.Interop.SlangcCompilerOption* arg6 = null;
+            if (!options.IsEmpty)
+            {
+                arg6 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<AdamantiumVulkan.Slang.SlangcCompilerOption, AdamantiumVulkan.Slang.Interop.SlangcCompilerOption>(options, ref currentCursor);
+            }
+            void* arg9 = (void*)userData;
+            var result = AdamantiumVulkan.Slang.Interop.SlangInterop.slangc_session_create(arg0, searchPathCount, arg2, arg3, defineCount, arg5, arg6, optionCount, loadFile, arg9);
+            userData = (nuint)arg9;
             return result;
         }
         finally

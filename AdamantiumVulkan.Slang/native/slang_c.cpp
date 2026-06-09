@@ -127,6 +127,7 @@ SLANGC_API SlangcSession slangc_session_create(
     const char* const* searchPaths, int searchPathCount,
     const char* const* defineNames, const char* const* defineValues, int defineCount,
     const char* profile,
+    const SlangcCompilerOption* options, int optionCount,
     SlangcLoadFileCallback loadFile, void* userData)
 {
     auto* s = new SlangcSession_T();
@@ -144,6 +145,28 @@ SLANGC_API SlangcSession slangc_session_create(
         SlangProfileID id = s->global->findProfile(profile);
         if (id != SLANG_PROFILE_UNKNOWN)
             target.profile = id;
+    }
+
+    // Compiler options come from C# (see SlangcCompilerOption). The default set includes
+    // VulkanUseEntryPointName=1 so the SPIR-V keeps the real entry-point name instead of "main".
+    std::vector<CompilerOptionEntry> targetOptions;
+    targetOptions.reserve(optionCount > 0 ? optionCount : 0);
+    for (int i = 0; i < optionCount; ++i)
+    {
+        CompilerOptionEntry e = {};
+        e.name = static_cast<CompilerOptionName>(options[i].name);
+        e.value.kind = (options[i].valueKind == 1) ? CompilerOptionValueKind::String
+                                                   : CompilerOptionValueKind::Int;
+        e.value.intValue0    = options[i].intValue0;
+        e.value.intValue1    = options[i].intValue1;
+        e.value.stringValue0 = options[i].stringValue0;
+        e.value.stringValue1 = options[i].stringValue1;
+        targetOptions.push_back(e);
+    }
+    if (!targetOptions.empty())
+    {
+        target.compilerOptionEntries    = targetOptions.data();
+        target.compilerOptionEntryCount = static_cast<uint32_t>(targetOptions.size());
     }
 
     std::vector<PreprocessorMacroDesc> macros;

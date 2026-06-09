@@ -503,6 +503,10 @@ public static partial class VulkanBindings
             .InterpretAsIs()
             .SetParameterKind(ParameterKind.Ref);
 
+        api.Function("slangc_session_create")
+            .WithParameterName("options")
+            .InterpretAsPointerToArray(new CustomType("SlangcCompilerOption"), pointerDepth: 1, arraySizeSource: "optionCount");
+
         // macros 
         api.Macro("VK_STD_VULKAN_VIDEO_CODEC_VP9_DECODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
         api.Macro("VK_STD_VULKAN_VIDEO_CODEC_AV1_DECODE_SPEC_VERSION").SetPrimitiveType(PrimitiveType.UInt32);
