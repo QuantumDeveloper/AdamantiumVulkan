@@ -18,6 +18,7 @@ namespace AdamantiumVulkan.Generator
         private Module shaderModule;
         private Module spivCrossModule;
         private Module spivToolsModule;
+        private Module slangModule;
 
         public override void OnSetup(BindingOptions options)
         {
@@ -33,6 +34,7 @@ namespace AdamantiumVulkan.Generator
             string shadercLibrary = "shaderc_shared";
             string spirvCrossLibrary = "spirv-cross-c-shared";
             string spirvToolsLibrary = "SPIRV-Tools-shared";
+            string slangLibrary = "slang-c-shared";
             string mainNamespace = "AdamantiumVulkan";
             string vulkanBasePath = @"C:\VulkanSDK\1.4.350.0\Include";
             string vulkanXmlPath = "vk.xml";
@@ -45,6 +47,8 @@ namespace AdamantiumVulkan.Generator
             string shadersPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Shaders", "Generated"));
             string spirvPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Spirv", "Generated"));
             var spirvToolsPath = (Path.Combine(appRoot, "..", "AdamantiumVulkan.SpirvTools", "Generated"));
+            var slangPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Slang", "Generated"));
+            var slangHeader = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Slang", "native", "slang_c.h"));
             
             options.GenerateSequentialLayout = true;
             options.PodTypesAsSimpleTypes = false;
@@ -162,11 +166,36 @@ namespace AdamantiumVulkan.Generator
             spivToolsModule.CharAsBoolForMethods = true;
             spivToolsModule.OutputPath = spirvToolsPath;
             spivToolsModule.TargetRuntime = TargetRuntime.NetStandard20;
-            
+
+            // Our own thin C facade over the Slang compiler (native: slang-c-shared.dll).
+            var slangSpecs = GeneratorSpecializationUtils.AllExcept(GeneratorSpecializations.Macros);
+            slangModule = Module.Create(slangLibrary);
+            slangModule.FileHeader = header;
+            slangModule.GeneratorMode = GeneratorMode.Compatible;
+            slangModule.EachTypeInSeparateFile = true;
+            slangModule.CleanPreviousGeneration = true;
+            slangModule.Name = "Slang";
+            slangModule.Files.Add(slangHeader);
+            slangModule.Defines.Add("_WIN32");   // makes SLANGC_API = __declspec(dllexport) so the funcs are seen as exported
+            slangModule.Defines.Add("_MSC_VER");
+            slangModule.ForceCallingConvention = true;
+            slangModule.CallingConvention = CallingConvention.Winapi;
+            slangModule.AllowConvertStructToClass = true;
+            slangModule.MethodClassName = "SlangNative";
+            slangModule.InteropClassName = "SlangInterop";
+            slangModule.GeneratorSpecializations = slangSpecs;
+            slangModule.OutputFileName = "AdamantiumVulkan.Slang";
+            slangModule.OutputNamespace = "AdamantiumVulkan.Slang";
+            slangModule.InteropSubNamespace = interopSubNamespace;
+            slangModule.WrapInteropObjects = true;
+            slangModule.OutputPath = slangPath;
+            slangModule.TargetRuntime = TargetRuntime.NetStandard20;
+
             options.AddModule(vkMainModule);
             options.AddModule(shaderModule);
             options.AddModule(spivCrossModule);
             options.AddModule(spivToolsModule);
+            options.AddModule(slangModule);
         }
 
         public override void OnBeforeSetupPasses(ProcessingContext context)
@@ -235,6 +264,13 @@ namespace AdamantiumVulkan.Generator
 
             context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, shaderModule);
             context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
+
+            var slangRenameItems = new List<RegexRenameRunItem>()
+            {
+                new RegexRenameRunItem("^slangc_", string.Empty, RenameTargets.Method, true),
+            };
+            context.AddPreGeneratorPass(new SequentialRegexRenamePass(slangRenameItems.ToArray()), ExecutionPassKind.PerTranslationUnit, slangModule);
+            context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, slangModule);
 
             //context.AddPreGeneratorPass(new PrepareStructsBeforeWrappingPass(VulkanBindings.PredefinedInput.GetPredefinedStructuresValues()), ExecutionPassKind.PerTranslationUnit);
 
