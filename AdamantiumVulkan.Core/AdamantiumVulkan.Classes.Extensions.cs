@@ -2,6 +2,10 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using AdamantiumVulkan.Core.Interop;
+using AdamantiumVulkan.MacOS;
+using AdamantiumVulkan.MacOS.Interop;
+using AdamantiumVulkan.Windows;
+using AdamantiumVulkan.Windows.Interop;
 using QuantumBinding.Utils;
 
 namespace AdamantiumVulkan.Core
@@ -72,6 +76,28 @@ namespace AdamantiumVulkan.Core
             ResultHelper.CheckResult(result, nameof(EnumeratePhysicalDevices));
 
             return pPhysicalDevices;
+        }
+        
+        public SurfaceKHR CreateWin32Surface(Win32SurfaceCreateInfoKHR surfaceInfo)
+        {
+            using var ctx = new NativeContext(surfaceInfo.GetSize(), stackalloc byte[(int)MarshalingUtils.StackAllocThreshold]);
+            var native = surfaceInfo.MarshalToNative(ctx);
+            var infoPtr = (VkWin32SurfaceCreateInfoKHR*)Unsafe.AsPointer(ref native);
+            VkSurfaceKHR_T surface = default;
+            var result = Commands.vkCreateWin32SurfaceKHR(this, infoPtr, null, &surface);
+            ResultHelper.CheckResult(result, nameof(CreateWin32Surface));
+            return new SurfaceKHR(surface);
+        }
+        
+        public SurfaceKHR CreateMacOSSurfaceMVK(MacOSSurfaceCreateInfoMVK surfaceInfo)
+        {
+            using var ctx = new NativeContext(surfaceInfo.GetSize(), stackalloc byte[(int)MarshalingUtils.StackAllocThreshold]);
+            var native = surfaceInfo.MarshalToNative(ctx);
+            var infoPtr = (VkMacOSSurfaceCreateInfoMVK*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref native);
+            VkSurfaceKHR_T surface = default;
+            var result = Commands.vkCreateMacOSSurfaceMVK(this, infoPtr, null, &surface);
+            ResultHelper.CheckResult(result, nameof(CreateMacOSSurfaceMVK));
+            return new SurfaceKHR(surface);
         }
     }
 

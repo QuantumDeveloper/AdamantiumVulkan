@@ -5,13 +5,10 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
-using Adamantium.DXC;
 using Adamantium.Mathematics;
 using AdamantiumVulkan.Core;
+using AdamantiumVulkan.Slang;
 using AdamantiumVulkan.Core.Interop;
-using AdamantiumVulkan.Spirv.Cross;
-using AdamantiumVulkan.Spirv.Reflection;
-using AdamantiumVulkan.SpirvTools;
 using AdamantiumVulkan.Windows;
 using QuantumBinding.Utils;
 using VulkanEngineTestCore;
@@ -20,7 +17,6 @@ using Image = AdamantiumVulkan.Core.Image;
 using Semaphore = AdamantiumVulkan.Core.Semaphore;
 using ImageLayout = AdamantiumVulkan.Core.ImageLayout;
 using Result = AdamantiumVulkan.Core.Result;
-using ShadercIncludeResult = AdamantiumVulkan.Shaders.ShadercIncludeResult;
 
 namespace AdamantiumVulkan.Demo;
 
@@ -29,7 +25,7 @@ public unsafe partial class Form1 : Form
     const int MAX_FRAMES_IN_FLIGHT = 3;
 
     private bool enableDynamicRendering = true;
-    private bool enableValidationLayers = false;
+    private bool enableValidationLayers = true;
 
     Instance instance;
     PhysicalDevice physicalDevice;
@@ -121,33 +117,6 @@ public unsafe partial class Form1 : Form
         ClientSize = new System.Drawing.Size(800, 600);
         _pauseEvent = new AutoResetEvent(false);
             
-        var compilerOptions = new CompilerOptions();
-        compilerOptions.Add(CompilerArguments.AllResourcesBound);
-        compilerOptions.Add(CompilerArguments.SpvUseDxLayout);
-        compilerOptions.Add(CompilerArguments.SpvTargetEnvVulkan1_1);
-        compilerOptions.Add(CompilerArguments.SpvcExtensionGoogleHlslFunctionality1);
-        compilerOptions.Add(CompilerArguments.SpvcExtensionGoogleUserType);
-        compilerOptions.Add(CompilerArguments.SpvReflect);
-
-        var dxcCompiler = DxcCompiler.Create();
-        var vertexText = File.ReadAllText("shaders\\UIEffect.fx");
-        var result = dxcCompiler.CompileIntoSpirvFromText(vertexText, "UIEffect.fx", "SolidColorPixelShader", "ps_5_1", compilerOptions);
-
-        var spvToolsContext = new spv_const_context(SpirvToolsNative.SpvContextCreate(spv_target_env.Vulkan11));
-        var res = spvToolsContext.SpvBinaryToText(
-            result.Bytecode, 
-            (uint)result.Bytecode.Length / 4, 
-            (uint)spv_binary_to_text_options_t.BinaryToTextOptionIndent, 
-            out var text, 
-            out var diagnostic);
-            
-        var reflection = new SpirvReflection(result.Bytecode, Backend.Hlsl);
-        var lst = new List<ResourceBindingKey>();
-        var reflectionResult = reflection.Disassemble(lst);
-        var buffer = reflectionResult.UniformBuffers[0];
-        var member = buffer.GetVariable(0);
-        var arraySize = member.GetArraySizeForDimension(0);
-
         InitVulkan();
         ClientSizeChanged += Form1_ClientSizeChanged;
         thread = new Thread(RenderThread);
@@ -203,27 +172,6 @@ public unsafe partial class Form1 : Form
         {
             return graphicsFamily.HasValue && presentFamily.HasValue;
         }
-    }
-
-    // [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvStdcall) })]
-    // private static AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult* ResolveInclude(void* user_data, sbyte* requested_source, int type, sbyte* requesting_source, ulong include_depth)
-    // {
-    //     var content = File.ReadAllText(Path.Combine("shaders\\TerrainGenShaders\\", new string(requested_source)));
-    //     var result = new ShadercIncludeResult();
-    //     result.Content = content;
-    //     result.Content_length = (uint)result.Content.Length;
-    //     result.User_data = user_data;
-    //     result.Source_name = new string(requesting_source);
-    //     result.Source_name_length = (uint)result.Source_name.Length;
-    //
-    //     var resPtr = NativeUtils.StructOrEnumToPointer(result.ToNative());
-    //     return resPtr;
-    // }
-
-    [UnmanagedCallersOnly]
-    private static void ReleaseInclude(System.IntPtr user_data, AdamantiumVulkan.Shaders.Interop.ShadercIncludeResult include_result)
-    {
-        ShadercIncludeResult result = new ShadercIncludeResult(include_result);
     }
 
     private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -319,9 +267,13 @@ public unsafe partial class Form1 : Form
         logicalDevice.DestroyBuffer(indexBuffer);
         logicalDevice.FreeMemory(indexBufferMemory);
 
-        for (int i = 0; i < MAX_FRAMES_IN_FLIGHT; i++)
+        for (int i = 0; i < renderFinishedSemaphores.Length; i++)
         {
             logicalDevice.DestroySemaphore(renderFinishedSemaphores[i]);
+        }
+
+        for (int i = 0; i < MAX_FRAMES_IN_FLIGHT; i++)
+        {
             logicalDevice.DestroySemaphore(imageAvailableSemaphores[i]);
             logicalDevice.DestroyFence(inFlightFences[i]);
         }
@@ -436,7 +388,7 @@ public unsafe partial class Form1 : Form
             depthAttachmentInfo.LoadOp = AttachmentLoadOp.Clear;
             depthAttachmentInfo.StoreOp = AttachmentStoreOp.DontCare;
             depthAttachmentInfo.ClearValue = new ClearValue()
-                { DepthStencil = new ClearDepthStencilValue() { Depth = 0.0f, Stencil = 0 } };
+                { DepthStencil = new ClearDepthStencilValue() { Depth = 1.0f, Stencil = 0 } };
 
             var renderingInfo = new RenderingInfo();
             renderingInfo.RenderArea = new Rect2D();
@@ -565,7 +517,7 @@ public unsafe partial class Form1 : Form
         submitInfo.CommandBufferCount = 1;
         submitInfo.PCommandBuffers = renderCommandBuffers;
 
-        Semaphore[] signalSemaphores = new[] { renderFinishedSemaphores[currentFrame] };
+        Semaphore[] signalSemaphores = [renderFinishedSemaphores[imageIndex]];
             
         submitInfo.SignalSemaphoreCount = 1;
         submitInfo.PSignalSemaphores = signalSemaphores;
@@ -632,27 +584,45 @@ public unsafe partial class Form1 : Form
         currentFrame = (currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
     }
 
+    private const uint PushConstantsSize = 68;   // float4x4 mvp (64 bytes) + int useTexture (4 bytes)
+
     private void RenderInternal(CommandBuffer commandBuffer, uint imageIndex)
     {
         commandBuffer.BindPipeline(PipelineBindPoint.Graphics, graphicsPipeline);
 
         ulong offset = 0;
 
+        var time = (float)timer.Elapsed.TotalSeconds;
+        var aspect = swapChainExtent.Height == 0 ? 1.0f : (float)swapChainExtent.Width / swapChainExtent.Height;
+        var view = Matrix4x4F.LookAtRH(new Vector3F(0, 0, 5), new Vector3F(0, 0, 0), new Vector3F(0, 1, 0));
+        var proj = Matrix4x4F.PerspectiveFovRH((float)(Math.PI / 3.0), aspect, 0.1f, 100.0f);
+        proj.M22 = -proj.M22;   // Vulkan clip space has Y pointing down (vs the D3D-style projection helper)
+
+        // Cube 1 - textured, on the left, spinning around Y.
+        var model1 = Matrix4x4F.RotationY(time) * Matrix4x4F.Translation(-1.5f, 0, 0);
+        PushCube(commandBuffer, model1 * view * proj, 1);
         commandBuffer.BindVertexBuffers(0, 1, vertexBuffer, offset);
-
         commandBuffer.BindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
-
         commandBuffer.BindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
-
         commandBuffer.DrawIndexed((uint)indices.Length, 1, 0, 0, 0);
 
+        // Cube 2 - vertex-coloured (no texture), on the right, tumbling.
+        var model2 = Matrix4x4F.RotationYawPitchRoll(time * 0.8f, time * 0.5f, 0) * Matrix4x4F.Translation(1.5f, 0, 0);
+        PushCube(commandBuffer, model2 * view * proj, 0);
         commandBuffer.BindVertexBuffers(0, 1, vertexBuffer2, offset);
-
         commandBuffer.BindIndexBuffer(indexBuffer, 0, IndexType.Uint32);
-
         commandBuffer.BindDescriptorSets(PipelineBindPoint.Graphics, pipelineLayout, 0, 1, descriptorSets[imageIndex], 0, 0);
-
         commandBuffer.DrawIndexed((uint)indices.Length, 1, 0, 0, 0);
+    }
+
+    private void PushCube(CommandBuffer commandBuffer, Matrix4x4F mvp, int useTexture)
+    {
+        Span<byte> data = stackalloc byte[(int)PushConstantsSize];
+        // Transpose before upload: Slang reads the push-constant matrix row-major, and the shader does
+        // mul(mvp, pos), so we upload transpose(mvp) to get pos * mvp (row-vector convention).
+        MemoryMarshal.AsBytes<float>(Matrix4x4F.Transpose(mvp).ToArray()).CopyTo(data);   // 64 bytes
+        BitConverter.TryWriteBytes(data.Slice(64), useTexture);
+        commandBuffer.PushConstants(pipelineLayout, ShaderStageFlagBits.VertexBit | ShaderStageFlagBits.FragmentBit, 0, PushConstantsSize, data);
     }
 
     private void InsertImageMemoryBarrier(CommandBuffer commandBuffer,
@@ -843,11 +813,9 @@ public unsafe partial class Form1 : Form
             createInfo.PNext = shaderObjectFeatures;
         }
             
-        if (enableValidationLayers)
-        {
-            createInfo.EnabledLayerCount = (uint)validationLayers.Length;
-            createInfo.PEnabledLayerNames = validationLayers;
-        }
+        // Device-level layers are deprecated and ignored since Vulkan 1.0 (validation is enabled on the instance
+        // instead), so enabledLayerCount must be 0 here - see VUID-VkDeviceCreateInfo-enabledLayerCount-12384.
+        createInfo.EnabledLayerCount = 0;
 
         logicalDevice = physicalDevice.CreateDevice(createInfo);
 
@@ -1056,24 +1024,24 @@ public unsafe partial class Form1 : Form
         layoutInfo.BindingCount = (uint)bindings.Count;
         layoutInfo.PBindings = bindings.ToArray();
 
-        descriptorSetLayout = logicalDevice.CreateDescriptorSetLayout(layoutInfo);
+        logicalDevice.CreateDescriptorSetLayout(layoutInfo, null, out descriptorSetLayout);
     }
 
     private void CreateGraphicsPipeline()
     {
-        var compilerOptions = new CompilerOptions();
-        compilerOptions.Add(CompilerArguments.AllResourcesBound);
-        compilerOptions.Add(CompilerArguments.SpvUseDxLayout);
-        compilerOptions.Add($"{CompilerArguments.SpvTargetEnv}vulkan1.1");
-        compilerOptions.Add($"{CompilerArguments.SpvExtension}SPV_GOOGLE_hlsl_functionality1");
-        compilerOptions.Add($"{CompilerArguments.SpvExtension}SPV_GOOGLE_user_type");
-        compilerOptions.Add(CompilerArguments.SpvReflect);
-        var compiler = DxcCompiler.Create();
-        var vertexContent = compiler.CompileIntoSpirvFromFile(@"shaders\BasicShader.hlsl", "VertexMain", "vs_6_0", compilerOptions);
-        var fragmentContent = compiler.CompileIntoSpirvFromFile(@"shaders\BasicShader.hlsl", "FragmentMain", "ps_6_0", compilerOptions);
+        var slangSource = File.ReadAllText(@"shaders\BasicShader.slang");
+        using var slang = new SlangCompiler("spirv_1_6",
+        [
+            // Keep the entry-point name in the SPIR-V so the pipeline can reference VertexMain/FragmentMain by name.
+            new SlangcCompilerOption { Name = (int)SlangcCompilerOptionName.VulkanUseEntryPointName, ValueKind = 0, IntValue0 = 1 },
+        ]);
+        var vertexResult = slang.Compile(slangSource, "VertexMain", SlangcStage.Vertex);
+        if (!vertexResult.Success) throw new Exception($"Vertex shader compile failed: {vertexResult.Diagnostics}");
+        var fragmentResult = slang.Compile(slangSource, "FragmentMain", SlangcStage.Fragment);
+        if (!fragmentResult.Success) throw new Exception($"Fragment shader compile failed: {fragmentResult.Diagnostics}");
+        var vertexContent = vertexResult.Spirv;
+        var fragmentContent = fragmentResult.Spirv;
             
-        compiler.Dispose();
-        
         //var vertexContent = File.ReadAllBytes(@"shaders\vert.spv");
         //var fragmentContent = File.ReadAllBytes(@"shaders\frag.spv");
 
@@ -1147,9 +1115,16 @@ public unsafe partial class Form1 : Form
         colorBlending.PAttachments = new PipelineColorBlendAttachmentState[] { colorBlendAttachment };
         colorBlending.BlendConstants = new float[] { 0.0f, 0.0f, 0.0f, 0.0f };
 
+        var pushConstantRange = new PushConstantRange();
+        pushConstantRange.StageFlags = ShaderStageFlagBits.VertexBit | ShaderStageFlagBits.FragmentBit;
+        pushConstantRange.Offset = 0;
+        pushConstantRange.Size = PushConstantsSize;
+
         var pipelineLayoutInfo = new PipelineLayoutCreateInfo();
         pipelineLayoutInfo.SetLayoutCount = 1;
         pipelineLayoutInfo.PSetLayouts = new DescriptorSetLayout[] { descriptorSetLayout };
+        pipelineLayoutInfo.PushConstantRangeCount = 1;
+        pipelineLayoutInfo.PushConstantRanges = new PushConstantRange[] { pushConstantRange };
 
         pipelineLayout = logicalDevice.CreatePipelineLayout(pipelineLayoutInfo);
 
@@ -1164,9 +1139,9 @@ public unsafe partial class Form1 : Form
         renderingCreateInfo.StencilAttachmentFormat = Format.D32_SFLOAT_S8_UINT;
 
         var depthStencilState = new PipelineDepthStencilStateCreateInfo();
-        depthStencilState.DepthWriteEnable = VkBool32.FALSE;
-        depthStencilState.DepthTestEnable = VkBool32.FALSE;
-        depthStencilState.DepthCompareOp = CompareOp.Greater;
+        depthStencilState.DepthWriteEnable = VkBool32.TRUE;
+        depthStencilState.DepthTestEnable = VkBool32.TRUE;
+        depthStencilState.DepthCompareOp = CompareOp.Less;
             
         var pipelineInfo = new GraphicsPipelineCreateInfo();
         pipelineInfo.PNext = renderingCreateInfo;
@@ -1727,7 +1702,10 @@ public unsafe partial class Form1 : Form
         fenceInfo.Flags = FenceCreateFlagBits.SignaledBit;
 
         imageAvailableSemaphores = logicalDevice.CreateSemaphores(semaphoreInfo, (uint)MAX_FRAMES_IN_FLIGHT);
-        renderFinishedSemaphores = logicalDevice.CreateSemaphores(semaphoreInfo, (uint)MAX_FRAMES_IN_FLIGHT);
+        // One render-finished semaphore PER SWAPCHAIN IMAGE, signalled/waited by the acquired image index, so a
+        // semaphore is never reused for a new submit while its previous present is still pending
+        // (per-frame reuse tripped VUID-vkQueueSubmit-pSignalSemaphores-00067).
+        renderFinishedSemaphores = logicalDevice.CreateSemaphores(semaphoreInfo, (uint)swapchainImages.Length);
         inFlightFences = logicalDevice.CreateFences(fenceInfo, MAX_FRAMES_IN_FLIGHT);
     }
 
@@ -1796,33 +1774,58 @@ public unsafe partial class Form1 : Form
 
     private Vertex[] GetVertexArray()
     {
+        // Unit cube centred at the origin: 6 faces x 4 vertices, each face a distinct colour with 0..1 texcoords.
         Vertex[] v =
         [
-            new (){Position = new Vector2F(-0.5f, -0.5f), Color = new Vector3F(0.0f, 0.0f, 1.0f), TexCoord = new Vector2F(0.0f, 0.0f)},
-            new (){Position = new Vector2F(0.5f, -0.5f), Color = new Vector3F(1.0f, 1.0f, 1.0f), TexCoord = new Vector2F(1.0f, 0.0f)},
-            new (){Position = new Vector2F(0.5f, 0.5f), Color = new Vector3F(0.0f, 1.0f, 0.0f), TexCoord = new Vector2F(1.0f, 1.0f)},
-            new (){Position = new Vector2F(-0.5f, 0.5f), Color = new Vector3F(1.0f, 0.0f, 1.0f), TexCoord = new Vector2F(0.0f, 1.0f)}
+            // Front (+Z) - blue
+            new (){Position = new Vector3F(-0.5f, -0.5f,  0.5f), Color = new Vector3F(0, 0, 1), TexCoord = new Vector2F(0, 0)},
+            new (){Position = new Vector3F( 0.5f, -0.5f,  0.5f), Color = new Vector3F(0, 0, 1), TexCoord = new Vector2F(1, 0)},
+            new (){Position = new Vector3F( 0.5f,  0.5f,  0.5f), Color = new Vector3F(0, 0, 1), TexCoord = new Vector2F(1, 1)},
+            new (){Position = new Vector3F(-0.5f,  0.5f,  0.5f), Color = new Vector3F(0, 0, 1), TexCoord = new Vector2F(0, 1)},
+            // Back (-Z) - green
+            new (){Position = new Vector3F( 0.5f, -0.5f, -0.5f), Color = new Vector3F(0, 1, 0), TexCoord = new Vector2F(0, 0)},
+            new (){Position = new Vector3F(-0.5f, -0.5f, -0.5f), Color = new Vector3F(0, 1, 0), TexCoord = new Vector2F(1, 0)},
+            new (){Position = new Vector3F(-0.5f,  0.5f, -0.5f), Color = new Vector3F(0, 1, 0), TexCoord = new Vector2F(1, 1)},
+            new (){Position = new Vector3F( 0.5f,  0.5f, -0.5f), Color = new Vector3F(0, 1, 0), TexCoord = new Vector2F(0, 1)},
+            // Right (+X) - red
+            new (){Position = new Vector3F( 0.5f, -0.5f,  0.5f), Color = new Vector3F(1, 0, 0), TexCoord = new Vector2F(0, 0)},
+            new (){Position = new Vector3F( 0.5f, -0.5f, -0.5f), Color = new Vector3F(1, 0, 0), TexCoord = new Vector2F(1, 0)},
+            new (){Position = new Vector3F( 0.5f,  0.5f, -0.5f), Color = new Vector3F(1, 0, 0), TexCoord = new Vector2F(1, 1)},
+            new (){Position = new Vector3F( 0.5f,  0.5f,  0.5f), Color = new Vector3F(1, 0, 0), TexCoord = new Vector2F(0, 1)},
+            // Left (-X) - yellow
+            new (){Position = new Vector3F(-0.5f, -0.5f, -0.5f), Color = new Vector3F(1, 1, 0), TexCoord = new Vector2F(0, 0)},
+            new (){Position = new Vector3F(-0.5f, -0.5f,  0.5f), Color = new Vector3F(1, 1, 0), TexCoord = new Vector2F(1, 0)},
+            new (){Position = new Vector3F(-0.5f,  0.5f,  0.5f), Color = new Vector3F(1, 1, 0), TexCoord = new Vector2F(1, 1)},
+            new (){Position = new Vector3F(-0.5f,  0.5f, -0.5f), Color = new Vector3F(1, 1, 0), TexCoord = new Vector2F(0, 1)},
+            // Top (+Y) - magenta
+            new (){Position = new Vector3F(-0.5f,  0.5f,  0.5f), Color = new Vector3F(1, 0, 1), TexCoord = new Vector2F(0, 0)},
+            new (){Position = new Vector3F( 0.5f,  0.5f,  0.5f), Color = new Vector3F(1, 0, 1), TexCoord = new Vector2F(1, 0)},
+            new (){Position = new Vector3F( 0.5f,  0.5f, -0.5f), Color = new Vector3F(1, 0, 1), TexCoord = new Vector2F(1, 1)},
+            new (){Position = new Vector3F(-0.5f,  0.5f, -0.5f), Color = new Vector3F(1, 0, 1), TexCoord = new Vector2F(0, 1)},
+            // Bottom (-Y) - cyan
+            new (){Position = new Vector3F(-0.5f, -0.5f, -0.5f), Color = new Vector3F(0, 1, 1), TexCoord = new Vector2F(0, 0)},
+            new (){Position = new Vector3F( 0.5f, -0.5f, -0.5f), Color = new Vector3F(0, 1, 1), TexCoord = new Vector2F(1, 0)},
+            new (){Position = new Vector3F( 0.5f, -0.5f,  0.5f), Color = new Vector3F(0, 1, 1), TexCoord = new Vector2F(1, 1)},
+            new (){Position = new Vector3F(-0.5f, -0.5f,  0.5f), Color = new Vector3F(0, 1, 1), TexCoord = new Vector2F(0, 1)},
         ];
 
         return v;
     }
 
-    private Vertex[] GetVertexArray2()
-    {
-        Vertex[] v =
-        [
-            new(){Position = new Vector2F(-1f, -0.25f), Color = new Vector3F(0.0f, 0.0f, 1.0f), TexCoord = new Vector2F(0.0f, 0.0f)},
-            new(){Position = new Vector2F(1f, -0.25f), Color = new Vector3F(1.0f, 1.0f, 1.0f), TexCoord = new Vector2F(1.0f, 0.0f)},
-            new(){Position = new Vector2F(1f, 0.25f), Color = new Vector3F(0.0f, 1.0f, 0.0f), TexCoord = new Vector2F(1.0f, 1.0f)},
-            new(){Position = new Vector2F(-1f, 0.25f), Color = new Vector3F(1.0f, 0.0f, 1.0f), TexCoord = new Vector2F(0.0f, 1.0f)}
-        ];
-
-        return v;
-    }
+    // Both cubes share the same mesh; they differ only by their model matrix + textured/coloured push-constant flag.
+    private Vertex[] GetVertexArray2() => GetVertexArray();
 
     private UInt32[] GetIndices()
     {
-        return [0, 1, 2, 0, 2, 3];
+        return
+        [
+            0, 1, 2, 0, 2, 3,         // front
+            4, 5, 6, 4, 6, 7,         // back
+            8, 9, 10, 8, 10, 11,      // right
+            12, 13, 14, 12, 14, 15,   // left
+            16, 17, 18, 16, 18, 19,   // top
+            20, 21, 22, 20, 22, 23,   // bottom
+        ];
     }
 
     private VertexInputBindingDescription GetBindingDescription<T>() where T : struct

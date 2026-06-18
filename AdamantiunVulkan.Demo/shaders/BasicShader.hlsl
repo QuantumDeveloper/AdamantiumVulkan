@@ -1,6 +1,6 @@
 struct VSInput
 {
-    [[vk::location(0)]] float2 position : POSITION0;
+    [[vk::location(0)]] float3 position : POSITION0;
     [[vk::location(1)]] float3 color: COLOR;
     [[vk::location(2)]] float2 texcoord: TEXCOORD;
 };
@@ -12,11 +12,18 @@ struct VSOutput
     [[vk::location(2)]] float2 texcoord: TEXCOORD;
 };
 
+struct PushConstants
+{
+    float4x4 mvp;
+    int useTexture;
+};
+[[vk::push_constant]] PushConstants pc;
+
 VSOutput VertexMain(VSInput input)
 {
     VSOutput output;
 
-    output.position = float4(input.position, 0, 1);
+    output.position = mul(pc.mvp, float4(input.position, 1.0));
     output.color = input.color;
     output.texcoord = input.texcoord;
 
@@ -28,6 +35,9 @@ Texture2D shaderTexture: register(t0);
 
 float4 FragmentMain(VSOutput input) : SV_TARGET
 {
-    float4 color = shaderTexture.Sample(sampleType, input.texcoord);
-    return color;
+    if (pc.useTexture != 0)
+    {
+        return shaderTexture.Sample(sampleType, input.texcoord);
+    }
+    return float4(input.color, 1.0);
 }

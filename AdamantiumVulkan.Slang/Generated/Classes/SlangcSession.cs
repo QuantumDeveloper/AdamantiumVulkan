@@ -50,18 +50,21 @@ public unsafe partial class SlangcSession : IUnmanagedWrapper<AdamantiumVulkan.S
         var totalSize = CalculateSize(moduleName, source, entryPoint);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
+        fixed (byte* bufferPtr = mainBuffer)
         {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(moduleName, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(source, ref currentCursor);
-            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(entryPoint, ref currentCursor);
-            return AdamantiumVulkan.Slang.Interop.SlangInterop.slangc_compile(this, arg1, arg2, arg3, stage);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            try
+            {
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(moduleName, ref currentCursor);
+                var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(source, ref currentCursor);
+                var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(entryPoint, ref currentCursor);
+                return AdamantiumVulkan.Slang.Interop.SlangInterop.slangc_compile(this, arg1, arg2, arg3, stage);
+            }
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
         }
     }
 

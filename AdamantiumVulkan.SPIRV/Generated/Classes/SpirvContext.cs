@@ -86,19 +86,22 @@ public unsafe partial class SpirvContext : IUnmanagedWrapper<AdamantiumVulkan.Sp
         var totalSize = CalculateSize(spirv);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
+        fixed (byte* bufferPtr = mainBuffer)
         {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalBlittableArray<byte>(spirv, ref currentCursor);
-            SpvcParsedIrS arg3 = default;
-            var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_parse_spirv(this, arg1, word_count, &arg3);
-            parsed_ir = new SpirvParsedIr(arg3);
-            return result;
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            try
+            {
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalBlittableArray<byte>(spirv, ref currentCursor);
+                SpvcParsedIrS arg3 = default;
+                var result = AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_context_parse_spirv(this, arg1, word_count, &arg3);
+                parsed_ir = new SpirvParsedIr(arg3);
+                return result;
+            }
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
         }
     }
 

@@ -12,7 +12,7 @@ namespace VulkanEngineTestCore
     [StructLayout(LayoutKind.Sequential)]
     public struct Vertex
     {
-        public Vector2F Position;
+        public Vector3F Position;
         public Vector3F Color;
         public Vector2F TexCoord;
     }

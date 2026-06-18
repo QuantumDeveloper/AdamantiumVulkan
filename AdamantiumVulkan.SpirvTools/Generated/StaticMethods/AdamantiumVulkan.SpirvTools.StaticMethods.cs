@@ -74,23 +74,26 @@ public unsafe static class SpirvToolsNative
         var totalSize = CalculateSize(s);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
+        fixed (byte* bufferPtr = mainBuffer)
         {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(s, ref currentCursor);
-            var arg1 = stackalloc AdamantiumVulkan.SpirvTools.spv_target_env[1];
-            *arg1 = env;
-            var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvParseTargetEnv(arg0, arg1);
-            if (arg1 is not null)
+            try
             {
-                env = *arg1;
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(s, ref currentCursor);
+                var arg1 = stackalloc AdamantiumVulkan.SpirvTools.spv_target_env[1];
+                *arg1 = env;
+                var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvParseTargetEnv(arg0, arg1);
+                if (arg1 is not null)
+                {
+                    env = *arg1;
+                }
+                return result;
             }
-            return result;
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
         }
     }
 

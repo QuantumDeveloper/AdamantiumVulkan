@@ -28,40 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            
-            //debugCallback = DebugCallback;
-
-            
-            // var compiler = ShaderCompiler.New();
-            // var opts = CompileOptions.New();
-            // opts.EnableHlslFunctionality = true;
-            // opts.UseHlslIoMapping = true;
-            // opts.UseHlslOffsets = true;
-            // opts.SourceLanguage = ShadercSourceLanguage.Hlsl;
-            // // AdamantiumVulkan.Shaders.Interop.ShadercIncludeResolveFn resolverDelegate = ResolveInclude;
-            // // AdamantiumVulkan.Shaders.Interop.ShadercIncludeResultReleaseFn releaserDelegate = ReleaseInclude;
-            //
-            // IntPtr userData = IntPtr.Zero;
-            // ShadercIncludeResolveFn includeResolveFn = new ShadercIncludeResolveFn();
-            // includeResolveFn.InvokeStdcall = &ResolveInclude;
-            //
-            // opts.SetIncludeCallbacks(resolver, releaser, ref userData);
-            // opts.SetAutoBindUniforms = true;
-            // opts.SetAutoMapLocations = true;
-            
-            
         }
-        
-        
-
-        
-
-        
-
-        
-
-        
-        
     }
 }
 

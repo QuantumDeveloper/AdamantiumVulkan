@@ -136,7 +136,7 @@ public static partial class VulkanBindings
         
         api.Function("vkGetMemoryWin32HandleKHR")
             .WithParameterName("pHandle")
-            .InterpretAsPointerType(new BuiltinType(PrimitiveType.IntPtr))
+            .InterpretAsPointerType(new BuiltinType(PrimitiveType.Void))
             .SetParameterKind(ParameterKind.Out);
         
         api.Function("vkGetPhysicalDeviceFeatures2KHR").
@@ -400,6 +400,21 @@ public static partial class VulkanBindings
             .InterpretAsPointerToVoid()
             .SetParameterKind(ParameterKind.In);
         
+        api.Function("vkGetMemoryWin32HandleNV")
+            .WithParameterName("pHandle")
+            .InterpretAsIs()
+            .SetParameterKind(ParameterKind.Out);
+        
+        api.Function("vkGetSemaphoreWin32HandleKHR")
+            .WithParameterName("pHandle")
+            .InterpretAsIs()
+            .SetParameterKind(ParameterKind.Out);
+        
+        api.Function("vkGetFenceWin32HandleKHR")
+            .WithParameterName("pHandle")
+            .InterpretAsIs()
+            .SetParameterKind(ParameterKind.Out);
+        
         // SPIRV tools, SPIRV reflection
         var spirvToolsStructsList = new List<string>
         {
@@ -503,6 +518,7 @@ public static partial class VulkanBindings
             .InterpretAsIs()
             .SetParameterKind(ParameterKind.Ref);
 
+        // SLANG API
         api.Function("slangc_session_create")
             .WithParameterName("options")
             .InterpretAsPointerToArray(new CustomType("SlangcCompilerOption"), pointerDepth: 1, arraySizeSource: "optionCount");

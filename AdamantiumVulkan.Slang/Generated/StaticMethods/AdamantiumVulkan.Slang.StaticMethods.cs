@@ -41,27 +41,30 @@ public unsafe static class SlangNative
         var totalSize = CalculateSize(searchPaths, defineNames, defineValues, profile, options);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
+        fixed (byte* bufferPtr = mainBuffer)
         {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(searchPaths, ref currentCursor);
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(defineNames, ref currentCursor);
-            var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(defineValues, ref currentCursor);
-            var arg5 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(profile, ref currentCursor);
-            AdamantiumVulkan.Slang.Interop.SlangcCompilerOption* arg6 = null;
-            if (!options.IsEmpty)
+            try
             {
-                arg6 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<AdamantiumVulkan.Slang.SlangcCompilerOption, AdamantiumVulkan.Slang.Interop.SlangcCompilerOption>(options, ref currentCursor);
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var arg0 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(searchPaths, ref currentCursor);
+                var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(defineNames, ref currentCursor);
+                var arg3 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(defineValues, ref currentCursor);
+                var arg5 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(profile, ref currentCursor);
+                AdamantiumVulkan.Slang.Interop.SlangcCompilerOption* arg6 = null;
+                if (!options.IsEmpty)
+                {
+                    arg6 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<AdamantiumVulkan.Slang.SlangcCompilerOption, AdamantiumVulkan.Slang.Interop.SlangcCompilerOption>(options, ref currentCursor);
+                }
+                void* arg9 = (void*)userData;
+                var result = AdamantiumVulkan.Slang.Interop.SlangInterop.slangc_session_create(arg0, searchPathCount, arg2, arg3, defineCount, arg5, arg6, optionCount, loadFile, &arg9);
+                userData = (nuint)arg9;
+                return result;
             }
-            void* arg9 = (void*)userData;
-            var result = AdamantiumVulkan.Slang.Interop.SlangInterop.slangc_session_create(arg0, searchPathCount, arg2, arg3, defineCount, arg5, arg6, optionCount, loadFile, arg9);
-            userData = (nuint)arg9;
-            return result;
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
         }
     }
 

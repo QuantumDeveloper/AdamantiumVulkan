@@ -56,35 +56,38 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulk
         var totalSize = CalculateSize(binary);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
+        fixed (byte* bufferPtr = mainBuffer)
         {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalBlittableArray<byte>(binary, ref currentCursor);
-            AdamantiumVulkan.SpirvTools.Interop.spv_text* arg4 = default;
-            AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic* arg5 = default;
-            var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvBinaryToText(this, arg1, word_count, options, out arg4, out arg5);
-            if (arg4 is not null)
+            try
             {
-                text = new Spv_text(*arg4);
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalBlittableArray<byte>(binary, ref currentCursor);
+                AdamantiumVulkan.SpirvTools.Interop.spv_text* arg4 = default;
+                AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic* arg5 = default;
+                var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvBinaryToText(this, arg1, word_count, options, out arg4, out arg5);
+                if (arg4 is not null)
+                {
+                    text = new Spv_text(*arg4);
+                }
+                else
+                {
+                    text = default;
+                }
+                if (arg5 is not null)
+                {
+                    diagnostic = new Spv_diagnostic(*arg5);
+                }
+                else
+                {
+                    diagnostic = default;
+                }
+                return result;
             }
-            else
+            finally
             {
-                text = default;
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
             }
-            if (arg5 is not null)
-            {
-                diagnostic = new Spv_diagnostic(*arg5);
-            }
-            else
-            {
-                diagnostic = default;
-            }
-            return result;
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
         }
     }
 
@@ -104,21 +107,24 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulk
         var totalSize = CalculateSize(text);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
+        fixed (byte* bufferPtr = mainBuffer)
         {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(text, ref currentCursor);
-            spv_binary_t arg3 = default;
-            AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg4 = default;
-            var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvTextToBinary(this, arg1, length, &arg3, &arg4);
-            binary = new spv_binary(arg3);
-            diagnostic = new Spv_diagnostic(arg4);
-            return result;
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            try
+            {
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(text, ref currentCursor);
+                spv_binary_t arg3 = default;
+                AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg4 = default;
+                var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvTextToBinary(this, arg1, length, &arg3, &arg4);
+                binary = new spv_binary(arg3);
+                diagnostic = new Spv_diagnostic(arg4);
+                return result;
+            }
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
         }
     }
 
@@ -138,21 +144,24 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<AdamantiumVulk
         var totalSize = CalculateSize(text);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
+        fixed (byte* bufferPtr = mainBuffer)
         {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(text, ref currentCursor);
-            spv_binary_t arg4 = default;
-            AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg5 = default;
-            var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvTextToBinaryWithOptions(this, arg1, length, options, &arg4, &arg5);
-            binary = new spv_binary(arg4);
-            diagnostic = new Spv_diagnostic(arg5);
-            return result;
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            try
+            {
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(text, ref currentCursor);
+                spv_binary_t arg4 = default;
+                AdamantiumVulkan.SpirvTools.Interop.spv_diagnostic arg5 = default;
+                var result = AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvTextToBinaryWithOptions(this, arg1, length, options, &arg4, &arg5);
+                binary = new spv_binary(arg4);
+                diagnostic = new Spv_diagnostic(arg5);
+                return result;
+            }
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
         }
     }
 

@@ -15,7 +15,6 @@ namespace AdamantiumVulkan.Generator
     public class VulkanBindingGenerator : QuantumBindingGenerator
     {
         private Module vkMainModule;
-        private Module shaderModule;
         private Module spivCrossModule;
         private Module spivToolsModule;
         private Module slangModule;
@@ -41,9 +40,9 @@ namespace AdamantiumVulkan.Generator
             string interopSubNamespace = "Interop";
 
             var appRoot = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.LastIndexOf("bin"));
-            string corePath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Core", "Generated"));
-            string windowsPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Windows", "Generated"));
-            string macOSPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.MacOS", "Generated"));
+            string corePath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Core", "Core" ,"Generated"));
+            string windowsPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Core", "Windows", "Generated"));
+            string macOSPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Core", "MacOS", "Generated"));
             string shadersPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Shaders", "Generated"));
             string spirvPath = Path.GetFullPath(Path.Combine(appRoot, "..", "AdamantiumVulkan.Spirv", "Generated"));
             var spirvToolsPath = (Path.Combine(appRoot, "..", "AdamantiumVulkan.SpirvTools", "Generated"));
@@ -90,32 +89,6 @@ namespace AdamantiumVulkan.Generator
             vkMainModule.GeneratorSpecializations = GeneratorSpecializations.All;
             vkMainModule.OutputPath = corePath;
             vkMainModule.TargetRuntime = TargetRuntime.Net8Plus;
-            
-            shaderModule = Module.Create(shadercLibrary);
-            shaderModule.FileHeader = header;
-            shaderModule.GeneratorMode = GeneratorMode.Compatible;
-            shaderModule.EachTypeInSeparateFile = true;
-            shaderModule.CleanPreviousGeneration = true;
-            shaderModule.Name = "Shaders";
-            shaderModule.IncludeDirs.Add(vulkanBasePath);
-            shaderModule.IncludeDirs.Add(Path.Combine(vulkanBasePath, "shaderc"));
-            shaderModule.Files.Add(Path.Combine(vulkanBasePath, "shaderc", "shaderc.h"));
-            shaderModule.Defines.Add("SHADERC_SHAREDLIB");
-            shaderModule.Defines.Add("_WIN32");
-            shaderModule.Defines.Add("SHADERC_IMPLEMENTATION");
-            shaderModule.ForceCallingConvention = false;
-            shaderModule.CallingConvention = CallingConvention.Winapi;
-            shaderModule.AllowConvertStructToClass = true;
-            shaderModule.MethodClassName = "VulkanShadersNative";
-            shaderModule.InteropClassName = "VulkanShadersInterop";
-            shaderModule.GeneratorSpecializations = GeneratorSpecializations.All;
-            shaderModule.OutputFileName = "AdamantiumVulkan.Shaders";
-            shaderModule.OutputNamespace = "AdamantiumVulkan.Shaders";
-            shaderModule.InteropSubNamespace = interopSubNamespace;
-            shaderModule.WrapInteropObjects = true;
-            shaderModule.GenerateOverloadsForArrayParams = true;
-            shaderModule.OutputPath = shadersPath;
-            shaderModule.TargetRuntime = TargetRuntime.NetStandard20;
             
             var spirvCrossSpecs = GeneratorSpecializationUtils.AllExcept(GeneratorSpecializations.Macros);
             spivCrossModule = Module.Create(spirvCrossLibrary);
@@ -192,7 +165,6 @@ namespace AdamantiumVulkan.Generator
             slangModule.TargetRuntime = TargetRuntime.NetStandard20;
 
             options.AddModule(vkMainModule);
-            options.AddModule(shaderModule);
             options.AddModule(spivCrossModule);
             options.AddModule(spivToolsModule);
             options.AddModule(slangModule);
@@ -235,14 +207,6 @@ namespace AdamantiumVulkan.Generator
 
             renameTargets = RenameTargetsUtils.AnyExcept(RenameTargets.Function | RenameTargets.Struct);
 
-            var shadercRenameItems = new List<RegexRenameRunItem>()
-            {
-                new RegexRenameRunItem("^shaderc_compile_options", string.Empty, RenameTargets.Method, true),
-                new RegexRenameRunItem("^shaderc_result", string.Empty, RenameTargets.Method, true),
-                new RegexRenameRunItem("^shaderc", string.Empty, RenameTargets.Method, true),
-            };
-            context.AddPreGeneratorPass(new SequentialRegexRenamePass(shadercRenameItems.ToArray()), ExecutionPassKind.PerTranslationUnit, shaderModule);
-
             var spirvRenameTargets = RenameTargetsUtils.AnyExcept(RenameTargets.Function).
                 Except(RenameTargets.Struct).
                 Except(RenameTargets.Union);
@@ -261,8 +225,6 @@ namespace AdamantiumVulkan.Generator
             };
 
             context.AddPreGeneratorPass(new SequentialRegexRenamePass(spvcRenameItems.ToArray()), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
-
-            context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, shaderModule);
             context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, spivCrossModule);
 
             var slangRenameItems = new List<RegexRenameRunItem>()
@@ -271,8 +233,6 @@ namespace AdamantiumVulkan.Generator
             };
             context.AddPreGeneratorPass(new SequentialRegexRenamePass(slangRenameItems.ToArray()), ExecutionPassKind.PerTranslationUnit, slangModule);
             context.AddPreGeneratorPass(new CaseRenamePass(renameTargets, CasePattern.PascalCase), ExecutionPassKind.PerTranslationUnit, slangModule);
-
-            //context.AddPreGeneratorPass(new PrepareStructsBeforeWrappingPass(VulkanBindings.PredefinedInput.GetPredefinedStructuresValues()), ExecutionPassKind.PerTranslationUnit);
 
             var disposableList = new List<DisposableExtension>();
             disposableList.Add(new DisposableExtension() { Name = "Instance", DisposableContent = "DestroyInstance();" });

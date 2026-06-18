@@ -62,17 +62,20 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
         var totalSize = CalculateSize(flags);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
+        fixed (byte* bufferPtr = mainBuffer)
         {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var nativeInstance = GetNativeValue();
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(flags, ref currentCursor);
-            return AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerRegisterPassesFromFlags(&nativeInstance, arg1, flag_count);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            try
+            {
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var nativeInstance = GetNativeValue();
+                var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(flags, ref currentCursor);
+                return AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerRegisterPassesFromFlags(&nativeInstance, arg1, flag_count);
+            }
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
         }
     }
 
@@ -91,17 +94,20 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
         var totalSize = CalculateSize(flags);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
+        fixed (byte* bufferPtr = mainBuffer)
         {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var nativeInstance = GetNativeValue();
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(flags, ref currentCursor);
-            return AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerRegisterPassesFromFlagsWhilePreservingTheInterface(&nativeInstance, arg1, flag_count);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            try
+            {
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var nativeInstance = GetNativeValue();
+                var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStringArray(flags, ref currentCursor);
+                return AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerRegisterPassesFromFlagsWhilePreservingTheInterface(&nativeInstance, arg1, flag_count);
+            }
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
         }
     }
 
@@ -121,17 +127,20 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<AdamantiumVulkan.S
         var totalSize = CalculateSize(flag);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
+        fixed (byte* bufferPtr = mainBuffer)
         {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var nativeInstance = GetNativeValue();
-            var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(flag, ref currentCursor);
-            return AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerRegisterPassFromFlag(&nativeInstance, arg1);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            try
+            {
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var nativeInstance = GetNativeValue();
+                var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalString(flag, ref currentCursor);
+                return AdamantiumVulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerRegisterPassFromFlag(&nativeInstance, arg1);
+            }
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
         }
     }
 

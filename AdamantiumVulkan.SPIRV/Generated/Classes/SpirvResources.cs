@@ -40,16 +40,19 @@ public unsafe partial class SpirvResources : IUnmanagedWrapper<AdamantiumVulkan.
         var totalSize = CalculateSize(resource_list);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
+        fixed (byte* bufferPtr = mainBuffer)
         {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointerArray<AdamantiumVulkan.Spirv.Cross.SpvcReflectedBuiltinResource, AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource>(resource_list, ref currentCursor);
-            return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_resources_get_builtin_resource_list_for_type(this, type, arg2, ref resource_size);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            try
+            {
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointerArray<AdamantiumVulkan.Spirv.Cross.SpvcReflectedBuiltinResource, AdamantiumVulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource>(resource_list, ref currentCursor);
+                return AdamantiumVulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_resources_get_builtin_resource_list_for_type(this, type, arg2, ref resource_size);
+            }
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
         }
     }
 
