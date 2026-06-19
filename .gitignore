@@ -333,3 +333,6 @@ Output/
 # CMake build tree for the slang-c-shared native shim (intermediates; the built .dll is staged
 # next to the project and committed separately).
 AdamantiumVulkan.Slang/native/build/
+
+# native CMake build output
+native/build/

@@ -1,0 +1,3 @@
+C:/AdamantiumEngine/AdamantiumVulkan/AdamantiumVulkan.Slang/native/build/CMakeFiles/slang-c-shared.dir
+C:/AdamantiumEngine/AdamantiumVulkan/AdamantiumVulkan.Slang/native/build/CMakeFiles/ALL_BUILD.dir
+C:/AdamantiumEngine/AdamantiumVulkan/AdamantiumVulkan.Slang/native/build/CMakeFiles/ZERO_CHECK.dir
