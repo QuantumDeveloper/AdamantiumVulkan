@@ -164,11 +164,15 @@ namespace Adamantium.Vulkan.Spirv.Reflection
                         }
                         else
                         {
-                            if (compiler.HasMemberDecoration(shaderResources[i].Base_type_id, offset, Decoration.RowMajor))
+                            // HasMemberDecoration takes the member INDEX (k), not the byte offset. Passing the offset
+                            // only happened to work while a matrix was the first member (offset 0 == index 0); once a
+                            // member precedes it (e.g. a uint64 BDA address), offset != index, the row/col-major lookup
+                            // failed and VariableType defaulted to Scalar -> CopyMatrix was never wired -> NRE on SetValue.
+                            if (compiler.HasMemberDecoration(shaderResources[i].Base_type_id, k, Decoration.RowMajor))
                             {
                                 member.VariableType = ShaderVariableClass.MatrixRows;
                             }
-                            else if (compiler.HasMemberDecoration(shaderResources[i].Base_type_id, offset, Decoration.ColMajor))
+                            else if (compiler.HasMemberDecoration(shaderResources[i].Base_type_id, k, Decoration.ColMajor))
                             {
                                 member.VariableType = ShaderVariableClass.MatrixColumns;
                             }
