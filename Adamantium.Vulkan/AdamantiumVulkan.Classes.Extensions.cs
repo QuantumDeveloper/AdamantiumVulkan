@@ -503,6 +503,60 @@ namespace Adamantium.Vulkan.Core
             return (uint)offsetSize;
         }
 
+        /// <summary>
+        /// After a device-lost (<see cref="Result.ErrorDeviceLost"/>), retrieves the VK_EXT_device_fault report - the
+        /// driver's human-readable <see cref="DeviceFaultInfoEXT.Description"/> plus every faulting GPU address region
+        /// (read/write/execute-invalid + the reported address) and any vendor records. Runs the two-phase
+        /// count -> fill protocol itself: this is the one Vulkan query whose array lengths come back in a SEPARATE
+        /// counts struct (not inside the info struct, nor as a sibling count param), so it can't be auto-generated.
+        /// </summary>
+        public Result GetDeviceFaultInfoEXT(out DeviceFaultInfoEXT faultInfo)
+        {
+            faultInfo = null;
+
+            // Phase 1: a null pFaultInfo makes the driver report ONLY the counts (the array lengths live here).
+            VkDeviceFaultCountsEXT counts = new() { sType = StructureType.DeviceFaultCountsExt };
+            var result = Commands.vkGetDeviceFaultInfoEXT(this, &counts, null);
+            if (result != Result.Success) return result;
+
+            int addressCount = (int)counts.addressInfoCount;
+            int vendorCount = (int)counts.vendorInfoCount;
+
+            var nativeAddresses = new VkDeviceFaultAddressInfoKHR[addressCount];
+            var nativeVendors = new VkDeviceFaultVendorInfoKHR[vendorCount];
+
+            // Phase 2: hand the driver the count-sized arrays; it fills them + the description in-place.
+            fixed (VkDeviceFaultAddressInfoKHR* pAddresses = nativeAddresses)
+            fixed (VkDeviceFaultVendorInfoKHR* pVendors = nativeVendors)
+            {
+                VkDeviceFaultInfoEXT nativeInfo = new()
+                {
+                    sType = StructureType.DeviceFaultInfoExt,
+                    pAddressInfos = addressCount > 0 ? pAddresses : null,
+                    pVendorInfos = vendorCount > 0 ? pVendors : null,
+                };
+                result = Commands.vkGetDeviceFaultInfoEXT(this, &counts, &nativeInfo);
+                if (result != Result.Success) return result;
+                faultInfo = new DeviceFaultInfoEXT(in nativeInfo);   // keeps InteropSource + marshals the description
+            }
+
+            // The arrays are filled now - wrap each element here, the only place that knows the counts.
+            if (addressCount > 0)
+            {
+                var addresses = new DeviceFaultAddressInfoKHR[addressCount];
+                for (int i = 0; i < addressCount; i++) addresses[i] = new DeviceFaultAddressInfoKHR(in nativeAddresses[i]);
+                faultInfo.PAddressInfos = addresses;
+            }
+            if (vendorCount > 0)
+            {
+                var vendors = new DeviceFaultVendorInfoKHR[vendorCount];
+                for (int i = 0; i < vendorCount; i++) vendors[i] = new DeviceFaultVendorInfoKHR(in nativeVendors[i]);
+                faultInfo.PVendorInfos = vendors;
+            }
+
+            return result;
+        }
+
     }
 
     public unsafe partial class ShaderModuleCreateInfo
