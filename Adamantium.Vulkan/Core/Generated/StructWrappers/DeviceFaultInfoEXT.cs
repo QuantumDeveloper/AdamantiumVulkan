@@ -26,11 +26,11 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
     public StructureType SType => StructureType.DeviceFaultInfoExt;
     public object PNext { get; set; }
     public string Description { get; set; }
-    public DeviceFaultAddressInfoKHR PAddressInfos { get; set; }
-    public DeviceFaultVendorInfoKHR PVendorInfos { get; set; }
+    public System.ReadOnlyMemory<DeviceFaultAddressInfoKHR> PAddressInfos { get; set; }
+    public System.ReadOnlyMemory<DeviceFaultVendorInfoKHR> PVendorInfos { get; set; }
     public nuint PVendorBinaryData { get; set; }
 
-
+    public Adamantium.Vulkan.Core.Interop.VkDeviceFaultInfoEXT InteropSource {get; set;}
     public static implicit operator DeviceFaultInfoEXT(Adamantium.Vulkan.Core.Interop.VkDeviceFaultInfoEXT d)
     {
         return new DeviceFaultInfoEXT(in d);
@@ -43,13 +43,25 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
         {
             size += marshallable.GetSize();
         }
-        if (PAddressInfos != default)
+        if (!PAddressInfos.IsEmpty)
         {
-            size += PAddressInfos.GetSize();
+            for (int i = 0; i < PAddressInfos.Length; i++)
+            {
+                if (PAddressInfos.Span[i] == null)
+                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceFaultAddressInfoKHR>();
+                else
+                    size += PAddressInfos.Span[i].GetSize();
+            }
         }
-        if (PVendorInfos != default)
+        if (!PVendorInfos.IsEmpty)
         {
-            size += PVendorInfos.GetSize();
+            for (int i = 0; i < PVendorInfos.Length; i++)
+            {
+                if (PVendorInfos.Span[i] == null)
+                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR>();
+                else
+                    size += PVendorInfos.Span[i].GetSize();
+            }
         }
         return size;
     }
@@ -61,15 +73,12 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDeviceFaultInfoEXT native)
     {
+        InteropSource = native;
         PNext = (System.IntPtr)native.pNext;
         fixed(sbyte* pSource = native.description)
         {
             Description = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 256);
         }
-        PAddressInfos = new DeviceFaultAddressInfoKHR(in *native.pAddressInfos);
-        NativeUtils.Free(native.pAddressInfos);
-        PVendorInfos = new DeviceFaultVendorInfoKHR(in *native.pVendorInfos);
-        NativeUtils.Free(native.pVendorInfos);
         PVendorBinaryData = (nuint)native.pVendorBinaryData;
 
     }
@@ -108,24 +117,14 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
                 QuantumBinding.Utils.MarshalingUtils.MarshalStringToFixedUtf8Buffer(deviceFaultInfoEXT.Description, destinationSpan);
             }
 
-            if (deviceFaultInfoEXT.PAddressInfos != default)
+            if (!deviceFaultInfoEXT.PAddressInfos.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(Adamantium.Vulkan.Core.Interop.VkDeviceFaultAddressInfoKHR));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, Adamantium.Vulkan.Core.Interop.VkDeviceFaultAddressInfoKHR>(structSlice0).Slice(0, 1);
-                context.Destination[0].pAddressInfos = (Adamantium.Vulkan.Core.Interop.VkDeviceFaultAddressInfoKHR*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<Adamantium.Vulkan.Core.Interop.VkDeviceFaultAddressInfoKHR>(structDestination0, context.DataCursor);
-                deviceFaultInfoEXT.PAddressInfos.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pAddressInfos = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<Adamantium.Vulkan.Core.DeviceFaultAddressInfoKHR, Adamantium.Vulkan.Core.Interop.VkDeviceFaultAddressInfoKHR, Adamantium.Vulkan.Core.Interop.VkDeviceFaultInfoEXT>(deviceFaultInfoEXT.PAddressInfos, ref context);
             }
 
-            if (deviceFaultInfoEXT.PVendorInfos != default)
+            if (!deviceFaultInfoEXT.PVendorInfos.IsEmpty)
             {
-                var structSlice0 = context.AllocateData(sizeof(Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR));
-                var structDestination0 = System.Runtime.InteropServices.MemoryMarshal.Cast<byte, Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR>(structSlice0).Slice(0, 1);
-                context.Destination[0].pVendorInfos = (Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref structDestination0[0]);
-                var childContext = new QuantumBinding.Utils.MarshallingContext<Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR>(structDestination0, context.DataCursor);
-                deviceFaultInfoEXT.PVendorInfos.MarshalTo(ref childContext);
-                context.DataCursor = childContext.DataCursor;
+                context.Destination[0].pVendorInfos = QuantumBinding.Utils.MarshalingUtils.MarshalArrayToPointer<Adamantium.Vulkan.Core.DeviceFaultVendorInfoKHR, Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR, Adamantium.Vulkan.Core.Interop.VkDeviceFaultInfoEXT>(deviceFaultInfoEXT.PVendorInfos, ref context);
             }
 
             if (deviceFaultInfoEXT.PVendorBinaryData != default)

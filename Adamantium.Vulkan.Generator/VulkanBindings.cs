@@ -414,6 +414,13 @@ public static partial class VulkanBindings
             .WithParameterName("pHandle")
             .InterpretAsIs()
             .SetParameterKind(ParameterKind.Out);
+
+        api.Class("VkDeviceFaultInfoEXT")
+            .SaveInteropSource(true)
+            .WithField("pAddressInfos")
+            .InterpretAsPointerToArray(new CustomType("VkDeviceFaultAddressInfoKHR"))
+            .WithField("pVendorInfos")
+            .InterpretAsPointerToArray(new CustomType("VkDeviceFaultVendorInfoKHR"));
         
         // SPIRV tools, SPIRV reflection
         var spirvToolsStructsList = new List<string>
