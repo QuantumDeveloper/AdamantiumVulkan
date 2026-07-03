@@ -77,6 +77,20 @@ namespace Adamantium.Vulkan.Spirv.Reflection
                     shaderResource.Description = resourceDescription;
                     
                     resourceDescription.Name = shaderResources[i].Name;
+                    // SPIRV-Cross quirk: for buffer BLOCKS, SpvcReflectedResource.Name is the externally-visible BLOCK
+                    // (type) name, not the shader VARIABLE name. For a UniformBuffer (cbuffer Foo) the block name IS the
+                    // wanted name, but for a StorageBuffer (StructuredBuffer<T> Instances) the block name is the generated
+                    // type wrapper ("type.StructuredBuffer"/"StructuredBuffer") - the real variable name ("Instances") is
+                    // only reachable via get_name(id). Prefer the instance name for storage buffers (fall back to the
+                    // block name if the variable is anonymous).
+                    if (resourceType == ResourceType.StorageBuffer)
+                    {
+                        var instanceName = compiler.GetName(shaderResources[i].Id);
+                        if (!string.IsNullOrEmpty(instanceName))
+                        {
+                            resourceDescription.Name = instanceName;
+                        }
+                    }
                     resourceDescription.TypeId = shaderResources[i].Id;
                     var spvcType = compiler.GetTypeHandle(shaderResources[i].Base_type_id);
                     resourceDescription.Type = spvcType.GetBasetype();
