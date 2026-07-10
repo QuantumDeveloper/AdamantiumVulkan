@@ -563,11 +563,82 @@ namespace Adamantium.Vulkan.Core
     {
         public ReadOnlySpan<byte> PCodeBytes
         {
-            set 
+            set
             {
                 if (value.Length % 4 != 0) throw new ArgumentException("SPIR-V size must be % 4");
                 PCode = MemoryMarshal.Cast<byte, uint>(value).ToArray();
                 CodeSize = (nuint)value.Length;
+            }
+        }
+    }
+
+    public unsafe partial class Device
+    {
+        /// <summary>
+        /// Creates a shader object from a driver BINARY (VK_SHADER_CODE_TYPE_BINARY_EXT) with the 16-byte
+        /// <c>pCode</c> alignment the spec mandates (VUID-VkShaderCreateInfoEXT-pCode-08878). The generated struct
+        /// marshaller packs <c>pCode</c> at an 8-byte-aligned cursor offset - fine for SPIR-V (needs 4) but a binary
+        /// needs 16, and NVIDIA rejects an under-aligned binary with <c>VK_INCOMPATIBLE_SHADER_BINARY_EXT</c> even for
+        /// a binary it just produced. This path allocates <c>pCode</c> on a 16-byte boundary so cached binaries load.
+        /// Only the fields the engine sets for shader objects are marshalled (no pNext, no push-constant ranges,
+        /// no specialization info).
+        /// </summary>
+        public Result CreateShaderFromBinary(ShaderCreateInfoEXT info, out ShaderEXT shader)
+        {
+            shader = null;
+            var code = info.PCode.Span;
+            void* alignedCode = NativeMemory.AlignedAlloc((nuint)code.Length, 16);
+            sbyte* namePtr = null;
+            VkDescriptorSetLayout_T* setLayouts = null;
+            try
+            {
+                code.CopyTo(new Span<byte>(alignedCode, code.Length));
+
+                if (!string.IsNullOrEmpty(info.PName))
+                {
+                    var byteCount = System.Text.Encoding.UTF8.GetByteCount(info.PName);
+                    namePtr = (sbyte*)NativeMemory.Alloc((nuint)(byteCount + 1));
+                    var nameSpan = new Span<byte>(namePtr, byteCount + 1);
+                    System.Text.Encoding.UTF8.GetBytes(info.PName, nameSpan);
+                    nameSpan[byteCount] = 0;
+                }
+
+                var setLayoutCount = info.SetLayoutCount;
+                if (setLayoutCount > 0 && !info.PSetLayouts.IsEmpty)
+                {
+                    setLayouts = (VkDescriptorSetLayout_T*)NativeMemory.Alloc((nuint)((int)setLayoutCount * sizeof(VkDescriptorSetLayout_T)));
+                    var src = info.PSetLayouts.Span;
+                    for (int i = 0; i < (int)setLayoutCount; i++) setLayouts[i] = src[i];
+                }
+
+                var native = new VkShaderCreateInfoEXT
+                {
+                    sType = StructureType.ShaderCreateInfoExt,
+                    pNext = null,
+                    flags = info.Flags,
+                    stage = info.Stage,
+                    nextStage = info.NextStage,
+                    codeType = info.CodeType,
+                    codeSize = (nuint)code.Length,
+                    pCode = (byte*)alignedCode,
+                    pName = namePtr,
+                    setLayoutCount = setLayoutCount,
+                    pSetLayouts = setLayouts,
+                    pushConstantRangeCount = 0,
+                    pPushConstantRanges = null,
+                    pSpecializationInfo = null
+                };
+
+                var outShader = stackalloc VkShaderEXT_T[1];
+                var result = Commands.vkCreateShadersEXT(this, 1, &native, null, outShader);
+                if (result == Result.Success) shader = outShader[0];
+                return result;
+            }
+            finally
+            {
+                NativeMemory.AlignedFree(alignedCode);
+                if (namePtr != null) NativeMemory.Free(namePtr);
+                if (setLayouts != null) NativeMemory.Free(setLayouts);
             }
         }
     }
