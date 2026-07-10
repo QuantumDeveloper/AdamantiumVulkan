@@ -6133,7 +6133,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                     pFeedbackInfo = new Adamantium.Vulkan.Core.VideoEncodeSessionParametersFeedbackInfoKHR(*arg2);
                 }
                 pDataSize = (nuint)arg3;
-                pData = QuantumBinding.Utils.MarshalContextUtils.UnmarshalBlittableArray(arg4, (long)pDataSize);
+                QuantumBinding.Utils.MarshalContextUtils.CopyNativeToSpan(arg4, (long)pDataSize, pData);
                 return result;
             }
             finally
@@ -7081,7 +7081,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var result = Commands.vkGetPipelineBinaryDataKHR(this, arg1, &arg2, &arg3, arg4);
                 pPipelineBinaryKey = new PipelineBinaryKeyKHR(arg2);
                 pPipelineBinaryDataSize = (nuint)arg3;
-                pPipelineBinaryData = QuantumBinding.Utils.MarshalContextUtils.UnmarshalBlittableArray(arg4, (long)pPipelineBinaryDataSize);
+                QuantumBinding.Utils.MarshalContextUtils.CopyNativeToSpan(arg4, (long)pPipelineBinaryDataSize, pPipelineBinaryData);
                 return result;
             }
             finally
@@ -7151,7 +7151,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var arg3 = stackalloc byte[(int)pDataSize];
                 var result = Commands.vkGetPipelineCacheData(this, arg1, &arg2, arg3);
                 pDataSize = (nuint)arg2;
-                pData = QuantumBinding.Utils.MarshalContextUtils.UnmarshalBlittableArray(arg3, (long)pDataSize);
+                QuantumBinding.Utils.MarshalContextUtils.CopyNativeToSpan(arg3, (long)pDataSize, pData);
                 return result;
             }
             finally
@@ -7747,7 +7747,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var arg3 = stackalloc byte[(int)pDataSize];
                 var result = Commands.vkGetShaderBinaryDataEXT(this, arg1, &arg2, arg3);
                 pDataSize = (nuint)arg2;
-                pData = QuantumBinding.Utils.MarshalContextUtils.UnmarshalBlittableArray(arg3, (long)pDataSize);
+                QuantumBinding.Utils.MarshalContextUtils.CopyNativeToSpan(arg3, (long)pDataSize, pData);
                 return result;
             }
             finally
@@ -7792,7 +7792,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var arg5 = stackalloc byte[(int)pInfoSize];
                 var result = Commands.vkGetShaderInfoAMD(this, arg1, shaderStage, infoType, &arg4, arg5);
                 pInfoSize = (nuint)arg4;
-                pInfo = QuantumBinding.Utils.MarshalContextUtils.UnmarshalBlittableArray(arg5, (long)pInfoSize);
+                QuantumBinding.Utils.MarshalContextUtils.CopyNativeToSpan(arg5, (long)pInfoSize, pInfo);
                 return result;
             }
             finally
@@ -8071,7 +8071,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var arg3 = stackalloc byte[(int)pDataSize];
                 var result = Commands.vkGetValidationCacheDataEXT(this, arg1, &arg2, arg3);
                 pDataSize = (nuint)arg2;
-                pData = QuantumBinding.Utils.MarshalContextUtils.UnmarshalBlittableArray(arg3, (long)pDataSize);
+                QuantumBinding.Utils.MarshalContextUtils.CopyNativeToSpan(arg3, (long)pDataSize, pData);
                 return result;
             }
             finally
