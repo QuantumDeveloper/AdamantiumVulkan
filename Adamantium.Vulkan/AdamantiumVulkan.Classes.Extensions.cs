@@ -525,6 +525,12 @@ namespace Adamantium.Vulkan.Core
             var nativeAddresses = new VkDeviceFaultAddressInfoKHR[addressCount];
             var nativeVendors = new VkDeviceFaultVendorInfoKHR[vendorCount];
 
+            // We do NOT retrieve the vendor binary blob (pVendorBinaryData stays null), so its capacity MUST read 0 for
+            // phase 2. Phase 1 left counts.vendorBinarySize = the driver's required size (often large); reusing that with
+            // a null buffer tells the driver "here is an N-byte buffer" at address null -> it writes into null -> the AV
+            // in vkGetDeviceFaultInfoEXT. Zeroing it opts out of the blob per spec.
+            counts.vendorBinarySize = 0;
+
             // Phase 2: hand the driver the count-sized arrays; it fills them + the description in-place.
             fixed (VkDeviceFaultAddressInfoKHR* pAddresses = nativeAddresses)
             fixed (VkDeviceFaultVendorInfoKHR* pVendors = nativeVendors)
