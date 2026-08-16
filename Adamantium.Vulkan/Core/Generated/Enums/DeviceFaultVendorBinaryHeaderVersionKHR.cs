@@ -15,9 +15,7 @@ namespace Adamantium.Vulkan.Core;
 [Flags]
 public enum DeviceFaultVendorBinaryHeaderVersionKHR : int
 {
-    Khr = 1,
-
-    Ext = 0,
+    OneKhr = 1,
 
 }
 

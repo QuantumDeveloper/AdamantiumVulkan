@@ -15,9 +15,7 @@ namespace Adamantium.Vulkan.Core;
 [Flags]
 public enum SurfaceCounterFlagBitsEXT : uint
 {
-    BitExt = 1,
-
-    Ext = 0,
+    VblankBitExt = 1,
 
 }
 

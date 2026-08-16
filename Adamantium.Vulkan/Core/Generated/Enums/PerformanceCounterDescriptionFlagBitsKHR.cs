@@ -17,8 +17,6 @@ public enum PerformanceCounterDescriptionFlagBitsKHR : uint
 {
     PerformanceImpactingBitKhr = 1,
 
-    PerformanceImpactingKhr = 0,
-
     ConcurrentlyImpactedBitKhr = 2,
 
 }

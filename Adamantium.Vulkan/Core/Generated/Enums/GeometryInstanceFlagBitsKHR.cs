@@ -23,8 +23,6 @@ public enum GeometryInstanceFlagBitsKHR : uint
 
     ForceNoOpaqueBitKhr = 8,
 
-    TriangleFrontCounterclockwiseBitKhr = 0,
-
     ForceOpacityMicromap2StateBitExt = 16,
 
     DisableOpacityMicromapsBitExt = 32,
