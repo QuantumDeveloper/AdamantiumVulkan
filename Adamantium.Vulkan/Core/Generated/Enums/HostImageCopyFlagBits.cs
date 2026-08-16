@@ -17,8 +17,6 @@ public enum HostImageCopyFlagBits : uint
 {
     MemcpyBit = 1,
 
-    Memcpy = 0,
-
 }
 
 

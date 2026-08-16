@@ -548,6 +548,29 @@ public class VulkanXmlParser : IMetadataProvider
                     continue;
 
                 var lineInfo = (IXmlLineInfo)val;
+
+                // An ALIAS carries no value of its own - vk.xml writes it as name + alias only (e.g.
+                // VK_STENCIL_FRONT_AND_BACK -> VK_STENCIL_FACE_FRONT_AND_BACK, deprecated="aliased"). Reading just
+                // value/bitpos left it empty, and an empty value renders as 0: a member that looks like a legal flag,
+                // compiles, and then makes every command that takes it fail on an empty mask. Take the target's value;
+                // if the target is not in this enum, emit nothing at all rather than a zero that lies.
+                var aliasOf = val.Attribute("alias")?.Value;
+                if (aliasOf != null)
+                {
+                    var target = en.Values.FirstOrDefault(v => v.Name == aliasOf);
+                    if (target == null) continue;
+
+                    en.Values.Add(new VkEnumValue
+                    {
+                        Name = val.Attribute("name").Value,
+                        Value = target.Value,
+                        BitPos = target.BitPos,
+                        Comment = val.Attribute("comment")?.Value,
+                        LineInfo = lineInfo
+                    });
+                    continue;
+                }
+
                 var enumItem = new VkEnumValue
                 {
                     Name = val.Attribute("name").Value,
