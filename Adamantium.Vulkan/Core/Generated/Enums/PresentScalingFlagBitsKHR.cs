@@ -17,8 +17,6 @@ public enum PresentScalingFlagBitsKHR : uint
 {
     OneToOneBitKhr = 1,
 
-    OneToOneBitExt = 0,
-
     AspectRatioStretchBitKhr = 2,
 
     StretchBitKhr = 4,

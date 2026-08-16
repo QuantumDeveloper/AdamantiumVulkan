@@ -18,8 +18,6 @@ public enum StdVideoAV1ColorPrimaries : int
 
     Unspecified = 2,
 
-    BtUnspecified = 0,
-
     Bt470M = 4,
 
     Bt470BG = 5,

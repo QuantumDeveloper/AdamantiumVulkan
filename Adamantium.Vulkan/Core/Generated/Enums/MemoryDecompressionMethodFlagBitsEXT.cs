@@ -15,9 +15,7 @@ namespace Adamantium.Vulkan.Core;
 [Flags]
 public enum MemoryDecompressionMethodFlagBitsEXT : ulong
 {
-    Ext = 1,
-
-    Nv = 0,
+    Gdeflate10BitExt = 1,
 
 }
 

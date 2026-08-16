@@ -23,8 +23,6 @@ public enum ExternalSemaphoreHandleTypeFlagBits : uint
 
     D3d12FenceBit = 8,
 
-    D3d11FenceBit = 0,
-
     SyncFdBit = 16,
 
     ZirconEventBitFuchsia = 128,

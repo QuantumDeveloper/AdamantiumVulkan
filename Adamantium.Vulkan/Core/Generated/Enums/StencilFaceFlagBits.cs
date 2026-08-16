@@ -15,13 +15,11 @@ namespace Adamantium.Vulkan.Core;
 [Flags]
 public enum StencilFaceFlagBits : uint
 {
-    FaceFrontBit = 1,
+    FrontBit = 1,
 
-    FaceBackBit = 2,
+    BackBit = 2,
 
-    FaceFrontAndBack = 3,
-
-    FrontAndBack = 0,
+    FrontAndBack = 3,
 
 }
 

@@ -17,8 +17,6 @@ public enum PresentGravityFlagBitsKHR : uint
 {
     MinBitKhr = 1,
 
-    MinBitExt = 0,
-
     MaxBitKhr = 2,
 
     CenteredBitKhr = 4,
