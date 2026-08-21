@@ -36,7 +36,7 @@ public unsafe partial class ShaderInstrumentationMetricDataHeaderARM : IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderInstrumentationMetricDataHeaderARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderInstrumentationMetricDataHeaderARM>.Size;
         return size;
     }
 

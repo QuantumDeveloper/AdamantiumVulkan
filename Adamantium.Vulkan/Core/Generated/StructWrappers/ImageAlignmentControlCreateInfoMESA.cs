@@ -35,7 +35,7 @@ public unsafe partial class ImageAlignmentControlCreateInfoMESA : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageAlignmentControlCreateInfoMESA>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageAlignmentControlCreateInfoMESA>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

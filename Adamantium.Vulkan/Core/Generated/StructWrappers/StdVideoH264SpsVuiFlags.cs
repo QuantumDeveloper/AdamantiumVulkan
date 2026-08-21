@@ -44,7 +44,7 @@ public unsafe partial class StdVideoH264SpsVuiFlags : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH264SpsVuiFlags>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH264SpsVuiFlags>.Size;
         return size;
     }
 

@@ -40,7 +40,7 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoNV : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,13 +50,13 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoNV : IMarshallableOb
             for (int i = 0; i < PTokens.Length; i++)
             {
                 if (PTokens.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutTokenNV>.Size;
                 else
                     size += PTokens.Span[i].GetSize();
             }
         }
         if (!PStreamStrides.IsEmpty)
-            size += PStreamStrides.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PStreamStrides.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

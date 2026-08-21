@@ -40,13 +40,13 @@ public unsafe partial class SetDescriptorBufferOffsetsInfoEXT : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PBufferIndices.IsEmpty)
-            size += PBufferIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PBufferIndices.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

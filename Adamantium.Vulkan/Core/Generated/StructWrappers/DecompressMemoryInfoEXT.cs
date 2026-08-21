@@ -37,7 +37,7 @@ public unsafe partial class DecompressMemoryInfoEXT : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDecompressMemoryInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDecompressMemoryInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -47,7 +47,7 @@ public unsafe partial class DecompressMemoryInfoEXT : IMarshallableObject, IMars
             for (int i = 0; i < PRegions.Length; i++)
             {
                 if (PRegions.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDecompressMemoryRegionEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDecompressMemoryRegionEXT>.Size;
                 else
                     size += PRegions.Span[i].GetSize();
             }

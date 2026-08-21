@@ -48,7 +48,7 @@ public unsafe partial class LatencyTimingsFrameReportNV : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkLatencyTimingsFrameReportNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkLatencyTimingsFrameReportNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

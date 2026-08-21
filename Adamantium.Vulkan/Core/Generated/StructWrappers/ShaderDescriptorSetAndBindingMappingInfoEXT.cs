@@ -36,7 +36,7 @@ public unsafe partial class ShaderDescriptorSetAndBindingMappingInfoEXT : IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderDescriptorSetAndBindingMappingInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderDescriptorSetAndBindingMappingInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class ShaderDescriptorSetAndBindingMappingInfoEXT : IMarsh
             for (int i = 0; i < PMappings.Length; i++)
             {
                 if (PMappings.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetAndBindingMappingEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetAndBindingMappingEXT>.Size;
                 else
                     size += PMappings.Span[i].GetSize();
             }

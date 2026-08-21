@@ -35,7 +35,7 @@ public unsafe partial class ShaderModuleValidationCacheCreateInfoEXT : IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderModuleValidationCacheCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderModuleValidationCacheCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

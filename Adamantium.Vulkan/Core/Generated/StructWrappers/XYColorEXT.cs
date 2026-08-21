@@ -34,7 +34,7 @@ public unsafe partial class XYColorEXT : IMarshallableObject, IMarshallable<Adam
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkXYColorEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkXYColorEXT>.Size;
         return size;
     }
 

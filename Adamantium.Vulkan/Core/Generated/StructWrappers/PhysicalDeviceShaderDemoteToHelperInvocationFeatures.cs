@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceShaderDemoteToHelperInvocationFeatures
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

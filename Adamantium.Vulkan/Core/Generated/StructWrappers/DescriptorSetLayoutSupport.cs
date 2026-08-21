@@ -35,7 +35,7 @@ public unsafe partial class DescriptorSetLayoutSupport : IMarshallableObject, IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutSupport>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutSupport>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

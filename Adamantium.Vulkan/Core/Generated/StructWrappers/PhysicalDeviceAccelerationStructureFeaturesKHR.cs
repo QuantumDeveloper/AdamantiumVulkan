@@ -39,7 +39,7 @@ public unsafe partial class PhysicalDeviceAccelerationStructureFeaturesKHR : IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceAccelerationStructureFeaturesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceAccelerationStructureFeaturesKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

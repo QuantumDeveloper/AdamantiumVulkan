@@ -39,13 +39,13 @@ public unsafe partial class DebugUtilsObjectTagInfoEXT : IMarshallableObject, IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PTag.IsEmpty)
-            size += PTag.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PTag.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 

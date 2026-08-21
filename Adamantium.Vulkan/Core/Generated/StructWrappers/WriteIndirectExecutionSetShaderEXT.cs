@@ -36,7 +36,7 @@ public unsafe partial class WriteIndirectExecutionSetShaderEXT : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkWriteIndirectExecutionSetShaderEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkWriteIndirectExecutionSetShaderEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

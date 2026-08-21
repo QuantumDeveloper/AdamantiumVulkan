@@ -34,7 +34,7 @@ public unsafe partial class RenderingEndInfoKHR : IMarshallableObject, IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderingEndInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderingEndInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

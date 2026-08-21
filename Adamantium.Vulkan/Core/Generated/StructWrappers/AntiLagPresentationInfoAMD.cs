@@ -36,7 +36,7 @@ public unsafe partial class AntiLagPresentationInfoAMD : IMarshallableObject, IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAntiLagPresentationInfoAMD>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAntiLagPresentationInfoAMD>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

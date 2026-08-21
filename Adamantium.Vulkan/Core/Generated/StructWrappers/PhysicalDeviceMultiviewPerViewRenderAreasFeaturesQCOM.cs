@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

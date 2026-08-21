@@ -36,7 +36,7 @@ public unsafe partial class MemoryWin32HandlePropertiesKHR : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Windows.Interop.VkMemoryWin32HandlePropertiesKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

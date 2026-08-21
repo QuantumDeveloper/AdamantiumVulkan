@@ -36,7 +36,7 @@ public unsafe partial class PresentRegionsKHR : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentRegionsKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentRegionsKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class PresentRegionsKHR : IMarshallableObject, IMarshallab
             for (int i = 0; i < PRegions.Length; i++)
             {
                 if (PRegions.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentRegionKHR>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentRegionKHR>.Size;
                 else
                     size += PRegions.Span[i].GetSize();
             }

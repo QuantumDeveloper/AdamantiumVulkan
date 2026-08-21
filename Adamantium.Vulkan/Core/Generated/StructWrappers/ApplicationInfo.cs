@@ -39,7 +39,7 @@ public unsafe partial class ApplicationInfo : IMarshallableObject, IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkApplicationInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkApplicationInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

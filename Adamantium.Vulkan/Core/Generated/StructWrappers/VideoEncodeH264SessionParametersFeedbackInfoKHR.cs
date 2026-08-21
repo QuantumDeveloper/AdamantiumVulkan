@@ -36,7 +36,7 @@ public unsafe partial class VideoEncodeH264SessionParametersFeedbackInfoKHR : IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH264SessionParametersFeedbackInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH264SessionParametersFeedbackInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

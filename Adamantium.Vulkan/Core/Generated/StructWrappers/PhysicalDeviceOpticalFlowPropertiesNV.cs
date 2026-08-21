@@ -45,7 +45,7 @@ public unsafe partial class PhysicalDeviceOpticalFlowPropertiesNV : IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceOpticalFlowPropertiesNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceOpticalFlowPropertiesNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

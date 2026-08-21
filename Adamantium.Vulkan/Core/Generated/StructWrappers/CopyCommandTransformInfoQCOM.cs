@@ -35,7 +35,7 @@ public unsafe partial class CopyCommandTransformInfoQCOM : IMarshallableObject, 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCopyCommandTransformInfoQCOM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCopyCommandTransformInfoQCOM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

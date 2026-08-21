@@ -35,7 +35,7 @@ public unsafe partial class ImageDrmFormatModifierPropertiesEXT : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageDrmFormatModifierPropertiesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

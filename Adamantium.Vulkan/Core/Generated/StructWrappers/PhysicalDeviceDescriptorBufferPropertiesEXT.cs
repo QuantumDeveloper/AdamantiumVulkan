@@ -67,7 +67,7 @@ public unsafe partial class PhysicalDeviceDescriptorBufferPropertiesEXT : IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferPropertiesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferPropertiesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

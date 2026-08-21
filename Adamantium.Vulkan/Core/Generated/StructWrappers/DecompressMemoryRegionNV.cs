@@ -37,7 +37,7 @@ public unsafe partial class DecompressMemoryRegionNV : IMarshallableObject, IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDecompressMemoryRegionNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDecompressMemoryRegionNV>.Size;
         return size;
     }
 

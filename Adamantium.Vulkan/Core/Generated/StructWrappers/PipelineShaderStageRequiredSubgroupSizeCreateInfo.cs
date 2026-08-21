@@ -35,7 +35,7 @@ public unsafe partial class PipelineShaderStageRequiredSubgroupSizeCreateInfo : 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineShaderStageRequiredSubgroupSizeCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineShaderStageRequiredSubgroupSizeCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

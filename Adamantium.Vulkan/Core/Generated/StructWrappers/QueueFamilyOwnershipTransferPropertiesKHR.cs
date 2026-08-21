@@ -35,7 +35,7 @@ public unsafe partial class QueueFamilyOwnershipTransferPropertiesKHR : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkQueueFamilyOwnershipTransferPropertiesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkQueueFamilyOwnershipTransferPropertiesKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

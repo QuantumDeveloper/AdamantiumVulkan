@@ -35,7 +35,7 @@ public unsafe partial class DataGraphPipelineBuiltinModelCreateInfoQCOM : IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineBuiltinModelCreateInfoQCOM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineBuiltinModelCreateInfoQCOM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

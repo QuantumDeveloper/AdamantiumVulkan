@@ -43,7 +43,7 @@ public unsafe partial class PhysicalDeviceConservativeRasterizationPropertiesEXT
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceConservativeRasterizationPropertiesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceConservativeRasterizationPropertiesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

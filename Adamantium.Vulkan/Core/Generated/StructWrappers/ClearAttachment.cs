@@ -35,7 +35,7 @@ public unsafe partial class ClearAttachment : IMarshallableObject, IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkClearAttachment>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkClearAttachment>.Size;
         if (ClearValue != default)
             size += ClearValue.GetSize();
         return size;

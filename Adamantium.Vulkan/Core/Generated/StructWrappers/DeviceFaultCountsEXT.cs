@@ -37,7 +37,7 @@ public unsafe partial class DeviceFaultCountsEXT : IMarshallableObject, IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceFaultCountsEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceFaultCountsEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

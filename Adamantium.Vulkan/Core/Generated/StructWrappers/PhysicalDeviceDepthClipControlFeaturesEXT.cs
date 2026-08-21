@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceDepthClipControlFeaturesEXT : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDepthClipControlFeaturesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDepthClipControlFeaturesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

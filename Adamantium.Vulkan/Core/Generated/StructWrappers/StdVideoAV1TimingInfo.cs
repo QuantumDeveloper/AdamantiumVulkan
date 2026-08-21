@@ -36,7 +36,7 @@ public unsafe partial class StdVideoAV1TimingInfo : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoAV1TimingInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoAV1TimingInfo>.Size;
         return size;
     }
 

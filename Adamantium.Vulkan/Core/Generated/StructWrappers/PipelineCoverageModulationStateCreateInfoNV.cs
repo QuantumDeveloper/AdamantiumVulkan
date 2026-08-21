@@ -39,13 +39,13 @@ public unsafe partial class PipelineCoverageModulationStateCreateInfoNV : IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineCoverageModulationStateCreateInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PCoverageModulationTable.IsEmpty)
-            size += PCoverageModulationTable.Span.Length * Marshal.SizeOf<System.Single>();
+            size += PCoverageModulationTable.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Single>.Size;
         return size;
     }
 

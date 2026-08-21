@@ -36,13 +36,13 @@ public unsafe partial class FrameBoundaryTensorsARM : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkFrameBoundaryTensorsARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkFrameBoundaryTensorsARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PTensors.IsEmpty)
-            size += PTensors.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTensorARM_T>();
+            size += PTensors.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTensorARM_T>.Size;
         return size;
     }
 

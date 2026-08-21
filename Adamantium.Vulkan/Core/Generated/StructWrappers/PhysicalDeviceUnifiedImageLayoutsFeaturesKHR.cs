@@ -36,7 +36,7 @@ public unsafe partial class PhysicalDeviceUnifiedImageLayoutsFeaturesKHR : IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

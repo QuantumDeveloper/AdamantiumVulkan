@@ -39,7 +39,7 @@ public unsafe partial class DebugUtilsMessengerCreateInfoEXT : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDebugUtilsMessengerCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

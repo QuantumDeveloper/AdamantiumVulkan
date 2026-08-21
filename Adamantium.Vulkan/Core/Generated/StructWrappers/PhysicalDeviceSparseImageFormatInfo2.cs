@@ -39,7 +39,7 @@ public unsafe partial class PhysicalDeviceSparseImageFormatInfo2 : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSparseImageFormatInfo2>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

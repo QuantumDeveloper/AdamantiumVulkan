@@ -35,7 +35,7 @@ public unsafe partial class DeviceMemoryOpaqueCaptureAddressInfo : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceMemoryOpaqueCaptureAddressInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

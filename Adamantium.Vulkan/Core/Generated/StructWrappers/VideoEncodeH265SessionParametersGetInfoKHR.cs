@@ -40,7 +40,7 @@ public unsafe partial class VideoEncodeH265SessionParametersGetInfoKHR : IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersGetInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersGetInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

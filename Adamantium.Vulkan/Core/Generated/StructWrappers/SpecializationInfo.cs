@@ -36,19 +36,19 @@ public unsafe partial class SpecializationInfo : IMarshallableObject, IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSpecializationInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSpecializationInfo>.Size;
         if (!PMapEntries.IsEmpty)
         {
             for (int i = 0; i < PMapEntries.Length; i++)
             {
                 if (PMapEntries.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSpecializationMapEntry>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSpecializationMapEntry>.Size;
                 else
                     size += PMapEntries.Span[i].GetSize();
             }
         }
         if (!PData.IsEmpty)
-            size += PData.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PData.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 

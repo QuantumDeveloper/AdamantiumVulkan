@@ -38,7 +38,7 @@ public unsafe partial class GraphicsPipelineShaderGroupsCreateInfoNV : IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkGraphicsPipelineShaderGroupsCreateInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkGraphicsPipelineShaderGroupsCreateInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -48,13 +48,13 @@ public unsafe partial class GraphicsPipelineShaderGroupsCreateInfoNV : IMarshall
             for (int i = 0; i < PGroups.Length; i++)
             {
                 if (PGroups.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkGraphicsShaderGroupCreateInfoNV>.Size;
                 else
                     size += PGroups.Span[i].GetSize();
             }
         }
         if (!Pipelines.IsEmpty)
-            size += Pipelines.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipeline_T>();
+            size += Pipelines.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipeline_T>.Size;
         return size;
     }
 

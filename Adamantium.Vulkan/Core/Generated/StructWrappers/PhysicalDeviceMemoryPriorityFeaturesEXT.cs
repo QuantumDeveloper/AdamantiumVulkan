@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceMemoryPriorityFeaturesEXT : IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMemoryPriorityFeaturesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMemoryPriorityFeaturesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

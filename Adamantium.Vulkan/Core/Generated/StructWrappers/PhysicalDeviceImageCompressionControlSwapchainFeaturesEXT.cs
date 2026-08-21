@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceImageCompressionControlSwapchainFeatur
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

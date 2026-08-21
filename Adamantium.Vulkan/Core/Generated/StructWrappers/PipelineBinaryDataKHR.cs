@@ -34,9 +34,9 @@ public unsafe partial class PipelineBinaryDataKHR : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryDataKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryDataKHR>.Size;
         if (!PData.IsEmpty)
-            size += PData.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PData.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 

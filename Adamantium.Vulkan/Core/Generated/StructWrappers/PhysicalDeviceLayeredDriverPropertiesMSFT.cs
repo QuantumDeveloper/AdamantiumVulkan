@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceLayeredDriverPropertiesMSFT : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceLayeredDriverPropertiesMSFT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceLayeredDriverPropertiesMSFT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

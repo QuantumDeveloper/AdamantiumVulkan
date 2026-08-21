@@ -38,7 +38,7 @@ public unsafe partial class GeometryAABBNV : IMarshallableObject, IMarshallable<
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkGeometryAABBNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkGeometryAABBNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

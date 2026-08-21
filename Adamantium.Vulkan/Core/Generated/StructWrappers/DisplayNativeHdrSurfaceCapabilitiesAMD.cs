@@ -35,7 +35,7 @@ public unsafe partial class DisplayNativeHdrSurfaceCapabilitiesAMD : IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDisplayNativeHdrSurfaceCapabilitiesAMD>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDisplayNativeHdrSurfaceCapabilitiesAMD>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

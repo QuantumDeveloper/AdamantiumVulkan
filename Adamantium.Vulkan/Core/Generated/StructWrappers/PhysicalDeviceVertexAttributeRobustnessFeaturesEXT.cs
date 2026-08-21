@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceVertexAttributeRobustnessFeaturesEXT :
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

@@ -39,13 +39,13 @@ public unsafe partial class BindAccelerationStructureMemoryInfoNV : IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindAccelerationStructureMemoryInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PDeviceIndices.IsEmpty)
-            size += PDeviceIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PDeviceIndices.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

@@ -37,7 +37,7 @@ public unsafe partial class BindTensorMemoryInfoARM : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindTensorMemoryInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindTensorMemoryInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

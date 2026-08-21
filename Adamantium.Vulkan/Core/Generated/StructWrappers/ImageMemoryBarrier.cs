@@ -42,7 +42,7 @@ public unsafe partial class ImageMemoryBarrier : IMarshallableObject, IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

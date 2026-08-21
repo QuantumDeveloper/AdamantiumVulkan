@@ -35,7 +35,7 @@ public unsafe partial class DeviceFaultVendorInfoKHR : IMarshallableObject, IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR>.Size;
         return size;
     }
 

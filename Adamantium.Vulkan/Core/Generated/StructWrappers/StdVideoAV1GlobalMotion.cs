@@ -34,7 +34,7 @@ public unsafe partial class StdVideoAV1GlobalMotion : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoAV1GlobalMotion>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoAV1GlobalMotion>.Size;
         return size;
     }
 

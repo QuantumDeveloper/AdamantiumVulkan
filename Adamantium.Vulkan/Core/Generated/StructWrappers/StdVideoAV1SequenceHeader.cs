@@ -46,7 +46,7 @@ public unsafe partial class StdVideoAV1SequenceHeader : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoAV1SequenceHeader>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoAV1SequenceHeader>.Size;
         if (PColorConfig != default)
         {
             size += PColorConfig.GetSize();

@@ -41,7 +41,7 @@ public unsafe partial class VideoEncodeCapabilitiesKHR : IMarshallableObject, IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeCapabilitiesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeCapabilitiesKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

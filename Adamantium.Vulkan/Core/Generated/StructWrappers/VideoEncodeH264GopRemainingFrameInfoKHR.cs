@@ -38,7 +38,7 @@ public unsafe partial class VideoEncodeH264GopRemainingFrameInfoKHR : IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH264GopRemainingFrameInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH264GopRemainingFrameInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

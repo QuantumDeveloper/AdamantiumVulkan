@@ -36,7 +36,7 @@ public unsafe partial class CommandPoolCreateInfo : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCommandPoolCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCommandPoolCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

@@ -35,7 +35,7 @@ public unsafe partial class VideoEncodeH265FrameSizeKHR : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265FrameSizeKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265FrameSizeKHR>.Size;
         return size;
     }
 

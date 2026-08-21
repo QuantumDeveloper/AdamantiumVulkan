@@ -35,7 +35,7 @@ public unsafe partial class BufferDeviceAddressCreateInfoEXT : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferDeviceAddressCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferDeviceAddressCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

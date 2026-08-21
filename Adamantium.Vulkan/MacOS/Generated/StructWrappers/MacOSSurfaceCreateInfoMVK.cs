@@ -37,7 +37,7 @@ public unsafe partial class MacOSSurfaceCreateInfoMVK : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

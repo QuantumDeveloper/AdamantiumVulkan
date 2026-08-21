@@ -39,7 +39,7 @@ public unsafe partial class RayTracingShaderGroupCreateInfoNV : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

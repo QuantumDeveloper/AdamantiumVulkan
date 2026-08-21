@@ -40,7 +40,7 @@ public unsafe partial class AccelerationStructureCreateInfoKHR : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureCreateInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureCreateInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

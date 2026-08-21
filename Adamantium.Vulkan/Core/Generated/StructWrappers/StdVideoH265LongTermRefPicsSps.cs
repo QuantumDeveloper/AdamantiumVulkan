@@ -34,7 +34,7 @@ public unsafe partial class StdVideoH265LongTermRefPicsSps : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH265LongTermRefPicsSps>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH265LongTermRefPicsSps>.Size;
         return size;
     }
 

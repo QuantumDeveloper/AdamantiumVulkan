@@ -38,7 +38,7 @@ public unsafe partial class DescriptorUpdateTemplateEntry : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>.Size;
         return size;
     }
 

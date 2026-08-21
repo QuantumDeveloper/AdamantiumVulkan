@@ -39,7 +39,7 @@ public unsafe partial class AccelerationStructureInfoNV : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -49,7 +49,7 @@ public unsafe partial class AccelerationStructureInfoNV : IMarshallableObject, I
             for (int i = 0; i < PGeometries.Length; i++)
             {
                 if (PGeometries.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkGeometryNV>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkGeometryNV>.Size;
                 else
                     size += PGeometries.Span[i].GetSize();
             }

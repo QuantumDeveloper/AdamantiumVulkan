@@ -36,7 +36,7 @@ public unsafe partial class ImageBlit : IMarshallableObject, IMarshallable<Adama
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageBlit>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageBlit>.Size;
         return size;
     }
 

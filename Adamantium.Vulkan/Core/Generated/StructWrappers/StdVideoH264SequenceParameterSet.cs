@@ -57,9 +57,9 @@ public unsafe partial class StdVideoH264SequenceParameterSet : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH264SequenceParameterSet>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH264SequenceParameterSet>.Size;
         if (!POffsetForRefFrame.IsEmpty)
-            size += POffsetForRefFrame.Span.Length * Marshal.SizeOf<System.Int32>();
+            size += POffsetForRefFrame.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Int32>.Size;
         if (PScalingLists != default)
         {
             size += PScalingLists.GetSize();

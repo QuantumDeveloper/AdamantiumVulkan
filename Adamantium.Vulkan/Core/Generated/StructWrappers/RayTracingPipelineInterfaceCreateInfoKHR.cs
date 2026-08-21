@@ -36,7 +36,7 @@ public unsafe partial class RayTracingPipelineInterfaceCreateInfoKHR : IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRayTracingPipelineInterfaceCreateInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRayTracingPipelineInterfaceCreateInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

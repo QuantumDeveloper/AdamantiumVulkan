@@ -36,7 +36,7 @@ public unsafe partial class MemoryGetRemoteAddressInfoNV : IMarshallableObject, 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMemoryGetRemoteAddressInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMemoryGetRemoteAddressInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

@@ -35,7 +35,7 @@ public unsafe partial class PerformanceConfigurationAcquireInfoINTEL : IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPerformanceConfigurationAcquireInfoINTEL>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

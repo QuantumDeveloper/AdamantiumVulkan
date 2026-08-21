@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceShaderSubgroupExtendedTypesFeatures : 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

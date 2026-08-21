@@ -37,7 +37,7 @@ public unsafe partial class SubresourceLayout : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubresourceLayout>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubresourceLayout>.Size;
         return size;
     }
 

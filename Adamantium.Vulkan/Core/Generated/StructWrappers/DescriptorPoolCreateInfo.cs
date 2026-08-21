@@ -38,7 +38,7 @@ public unsafe partial class DescriptorPoolCreateInfo : IMarshallableObject, IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorPoolCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorPoolCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -48,7 +48,7 @@ public unsafe partial class DescriptorPoolCreateInfo : IMarshallableObject, IMar
             for (int i = 0; i < PoolSizes.Length; i++)
             {
                 if (PoolSizes.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorPoolSize>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorPoolSize>.Size;
                 else
                     size += PoolSizes.Span[i].GetSize();
             }

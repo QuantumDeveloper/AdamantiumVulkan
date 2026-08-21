@@ -37,7 +37,7 @@ public unsafe partial class DataGraphPipelineResourceInfoARM : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineResourceInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineResourceInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

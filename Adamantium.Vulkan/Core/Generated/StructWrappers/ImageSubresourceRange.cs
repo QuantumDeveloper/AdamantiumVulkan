@@ -37,7 +37,7 @@ public unsafe partial class ImageSubresourceRange : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageSubresourceRange>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageSubresourceRange>.Size;
         return size;
     }
 

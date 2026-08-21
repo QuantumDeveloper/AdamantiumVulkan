@@ -37,13 +37,13 @@ public unsafe partial class DeviceGroupPresentInfoKHR : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceGroupPresentInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceGroupPresentInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PDeviceMasks.IsEmpty)
-            size += PDeviceMasks.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PDeviceMasks.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

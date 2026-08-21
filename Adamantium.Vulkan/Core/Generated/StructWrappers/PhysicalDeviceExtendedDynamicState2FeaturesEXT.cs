@@ -37,7 +37,7 @@ public unsafe partial class PhysicalDeviceExtendedDynamicState2FeaturesEXT : IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState2FeaturesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState2FeaturesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

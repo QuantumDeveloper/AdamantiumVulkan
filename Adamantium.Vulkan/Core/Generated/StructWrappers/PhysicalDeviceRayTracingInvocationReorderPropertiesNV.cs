@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceRayTracingInvocationReorderPropertiesN
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

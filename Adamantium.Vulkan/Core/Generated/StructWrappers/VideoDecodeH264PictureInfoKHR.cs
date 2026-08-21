@@ -37,7 +37,7 @@ public unsafe partial class VideoDecodeH264PictureInfoKHR : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoDecodeH264PictureInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoDecodeH264PictureInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -47,7 +47,7 @@ public unsafe partial class VideoDecodeH264PictureInfoKHR : IMarshallableObject,
             size += PStdPictureInfo.GetSize();
         }
         if (!PSliceOffsets.IsEmpty)
-            size += PSliceOffsets.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PSliceOffsets.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

@@ -36,7 +36,7 @@ public unsafe partial class PhysicalDevicePrimitiveTopologyListRestartFeaturesEX
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

@@ -37,7 +37,7 @@ public unsafe partial class PipelineColorBlendAdvancedStateCreateInfoEXT : IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineColorBlendAdvancedStateCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineColorBlendAdvancedStateCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

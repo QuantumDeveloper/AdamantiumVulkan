@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceCoherentMemoryFeaturesAMD : IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCoherentMemoryFeaturesAMD>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCoherentMemoryFeaturesAMD>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

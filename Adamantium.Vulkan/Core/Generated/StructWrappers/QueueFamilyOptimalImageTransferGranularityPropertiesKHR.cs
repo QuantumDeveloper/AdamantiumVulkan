@@ -35,7 +35,7 @@ public unsafe partial class QueueFamilyOptimalImageTransferGranularityProperties
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkQueueFamilyOptimalImageTransferGranularityPropertiesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkQueueFamilyOptimalImageTransferGranularityPropertiesKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

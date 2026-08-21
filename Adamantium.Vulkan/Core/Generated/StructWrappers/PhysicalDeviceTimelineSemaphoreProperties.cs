@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceTimelineSemaphoreProperties : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphoreProperties>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTimelineSemaphoreProperties>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

@@ -41,7 +41,7 @@ public unsafe partial class PastPresentationTimingEXT : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPastPresentationTimingEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPastPresentationTimingEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -51,7 +51,7 @@ public unsafe partial class PastPresentationTimingEXT : IMarshallableObject, IMa
             for (int i = 0; i < PresentStages.Length; i++)
             {
                 if (PresentStages.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentStageTimeEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentStageTimeEXT>.Size;
                 else
                     size += PresentStages.Span[i].GetSize();
             }

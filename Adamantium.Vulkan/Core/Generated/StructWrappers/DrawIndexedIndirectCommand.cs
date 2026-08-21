@@ -37,7 +37,7 @@ public unsafe partial class DrawIndexedIndirectCommand : IMarshallableObject, IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDrawIndexedIndirectCommand>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDrawIndexedIndirectCommand>.Size;
         return size;
     }
 

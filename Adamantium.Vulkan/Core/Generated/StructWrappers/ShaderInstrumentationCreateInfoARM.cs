@@ -34,7 +34,7 @@ public unsafe partial class ShaderInstrumentationCreateInfoARM : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderInstrumentationCreateInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderInstrumentationCreateInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

@@ -37,7 +37,7 @@ public unsafe partial class ImageDrmFormatModifierExplicitCreateInfoEXT : IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageDrmFormatModifierExplicitCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -47,7 +47,7 @@ public unsafe partial class ImageDrmFormatModifierExplicitCreateInfoEXT : IMarsh
             for (int i = 0; i < PlaneLayouts.Length; i++)
             {
                 if (PlaneLayouts.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubresourceLayout>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubresourceLayout>.Size;
                 else
                     size += PlaneLayouts.Span[i].GetSize();
             }

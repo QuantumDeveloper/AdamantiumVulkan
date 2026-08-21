@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceUniformBufferStandardLayoutFeatures : 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceUniformBufferStandardLayoutFeatures>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceUniformBufferStandardLayoutFeatures>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

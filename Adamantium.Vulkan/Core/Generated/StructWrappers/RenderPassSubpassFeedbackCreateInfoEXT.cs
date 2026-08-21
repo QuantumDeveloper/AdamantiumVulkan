@@ -35,7 +35,7 @@ public unsafe partial class RenderPassSubpassFeedbackCreateInfoEXT : IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassSubpassFeedbackCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassSubpassFeedbackCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

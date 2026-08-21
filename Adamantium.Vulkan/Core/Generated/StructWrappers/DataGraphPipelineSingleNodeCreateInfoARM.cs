@@ -37,7 +37,7 @@ public unsafe partial class DataGraphPipelineSingleNodeCreateInfoARM : IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSingleNodeCreateInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSingleNodeCreateInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -47,7 +47,7 @@ public unsafe partial class DataGraphPipelineSingleNodeCreateInfoARM : IMarshall
             for (int i = 0; i < PConnections.Length; i++)
             {
                 if (PConnections.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSingleNodeConnectionARM>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSingleNodeConnectionARM>.Size;
                 else
                     size += PConnections.Span[i].GetSize();
             }

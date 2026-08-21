@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR : I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

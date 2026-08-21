@@ -41,7 +41,7 @@ public unsafe partial class ImportSemaphoreWin32HandleInfoKHR : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Windows.Interop.VkImportSemaphoreWin32HandleInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

@@ -35,7 +35,7 @@ public unsafe partial class DataGraphOpticalFlowImageFormatPropertiesARM : IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphOpticalFlowImageFormatPropertiesARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphOpticalFlowImageFormatPropertiesARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

@@ -35,7 +35,7 @@ public unsafe partial class StdVideoAV1LoopFilterFlags : IMarshallableObject, IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoAV1LoopFilterFlags>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoAV1LoopFilterFlags>.Size;
         return size;
     }
 

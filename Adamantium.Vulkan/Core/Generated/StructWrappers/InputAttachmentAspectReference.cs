@@ -35,7 +35,7 @@ public unsafe partial class InputAttachmentAspectReference : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkInputAttachmentAspectReference>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkInputAttachmentAspectReference>.Size;
         return size;
     }
 

@@ -37,7 +37,7 @@ public unsafe partial class StdVideoAV1ColorConfigFlags : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoAV1ColorConfigFlags>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoAV1ColorConfigFlags>.Size;
         return size;
     }
 

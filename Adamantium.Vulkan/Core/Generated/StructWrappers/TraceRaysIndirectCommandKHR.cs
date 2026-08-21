@@ -35,7 +35,7 @@ public unsafe partial class TraceRaysIndirectCommandKHR : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTraceRaysIndirectCommandKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTraceRaysIndirectCommandKHR>.Size;
         return size;
     }
 

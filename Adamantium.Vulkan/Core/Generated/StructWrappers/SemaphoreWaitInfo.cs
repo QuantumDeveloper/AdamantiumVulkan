@@ -38,15 +38,15 @@ public unsafe partial class SemaphoreWaitInfo : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphoreWaitInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphoreWaitInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PSemaphores.IsEmpty)
-            size += PSemaphores.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>();
+            size += PSemaphores.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>.Size;
         if (!PValues.IsEmpty)
-            size += PValues.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PValues.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         return size;
     }
 

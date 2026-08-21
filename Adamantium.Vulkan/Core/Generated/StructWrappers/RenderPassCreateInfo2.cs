@@ -43,7 +43,7 @@ public unsafe partial class RenderPassCreateInfo2 : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassCreateInfo2>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassCreateInfo2>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -53,7 +53,7 @@ public unsafe partial class RenderPassCreateInfo2 : IMarshallableObject, IMarsha
             for (int i = 0; i < PAttachments.Length; i++)
             {
                 if (PAttachments.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAttachmentDescription2>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAttachmentDescription2>.Size;
                 else
                     size += PAttachments.Span[i].GetSize();
             }
@@ -63,7 +63,7 @@ public unsafe partial class RenderPassCreateInfo2 : IMarshallableObject, IMarsha
             for (int i = 0; i < PSubpasses.Length; i++)
             {
                 if (PSubpasses.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubpassDescription2>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubpassDescription2>.Size;
                 else
                     size += PSubpasses.Span[i].GetSize();
             }
@@ -73,13 +73,13 @@ public unsafe partial class RenderPassCreateInfo2 : IMarshallableObject, IMarsha
             for (int i = 0; i < PDependencies.Length; i++)
             {
                 if (PDependencies.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubpassDependency2>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubpassDependency2>.Size;
                 else
                     size += PDependencies.Span[i].GetSize();
             }
         }
         if (!PCorrelatedViewMasks.IsEmpty)
-            size += PCorrelatedViewMasks.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PCorrelatedViewMasks.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

@@ -37,7 +37,7 @@ public unsafe partial class PipelineFragmentShadingRateEnumStateCreateInfoNV : I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineFragmentShadingRateEnumStateCreateInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineFragmentShadingRateEnumStateCreateInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

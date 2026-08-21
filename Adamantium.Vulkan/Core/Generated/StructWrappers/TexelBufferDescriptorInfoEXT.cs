@@ -36,7 +36,7 @@ public unsafe partial class TexelBufferDescriptorInfoEXT : IMarshallableObject, 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTexelBufferDescriptorInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTexelBufferDescriptorInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

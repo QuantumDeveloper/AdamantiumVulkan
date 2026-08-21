@@ -36,13 +36,13 @@ public unsafe partial class RenderPassAttachmentBeginInfo : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassAttachmentBeginInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassAttachmentBeginInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PAttachments.IsEmpty)
-            size += PAttachments.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageView_T>();
+            size += PAttachments.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageView_T>.Size;
         return size;
     }
 

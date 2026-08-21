@@ -35,7 +35,7 @@ public unsafe partial class MicromapUsageEXT : IMarshallableObject, IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMicromapUsageEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMicromapUsageEXT>.Size;
         return size;
     }
 

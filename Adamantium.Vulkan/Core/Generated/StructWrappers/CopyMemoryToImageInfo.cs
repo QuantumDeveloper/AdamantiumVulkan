@@ -39,7 +39,7 @@ public unsafe partial class CopyMemoryToImageInfo : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCopyMemoryToImageInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCopyMemoryToImageInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -49,7 +49,7 @@ public unsafe partial class CopyMemoryToImageInfo : IMarshallableObject, IMarsha
             for (int i = 0; i < PRegions.Length; i++)
             {
                 if (PRegions.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMemoryToImageCopy>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMemoryToImageCopy>.Size;
                 else
                     size += PRegions.Span[i].GetSize();
             }

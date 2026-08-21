@@ -41,7 +41,7 @@ public unsafe partial class AccelerationStructureGeometryTrianglesDataKHR : IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureGeometryTrianglesDataKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

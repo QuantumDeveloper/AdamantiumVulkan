@@ -37,7 +37,7 @@ public unsafe partial class DeviceGroupRenderPassBeginInfo : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -47,7 +47,7 @@ public unsafe partial class DeviceGroupRenderPassBeginInfo : IMarshallableObject
             for (int i = 0; i < PDeviceRenderAreas.Length; i++)
             {
                 if (PDeviceRenderAreas.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     size += PDeviceRenderAreas.Span[i].GetSize();
             }

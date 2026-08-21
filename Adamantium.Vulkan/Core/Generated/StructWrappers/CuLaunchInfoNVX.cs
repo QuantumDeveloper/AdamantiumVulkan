@@ -46,15 +46,15 @@ public unsafe partial class CuLaunchInfoNVX : IMarshallableObject, IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCuLaunchInfoNVX>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCuLaunchInfoNVX>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!Params.IsEmpty)
-            size += Marshal.SizeOf<nuint>();
+            size += QuantumBinding.Utils.SizeOfCache<nuint>.Size;
         if (!PExtras.IsEmpty)
-            size += Marshal.SizeOf<nuint>();
+            size += QuantumBinding.Utils.SizeOfCache<nuint>.Size;
         return size;
     }
 

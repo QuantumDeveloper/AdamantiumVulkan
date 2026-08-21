@@ -35,7 +35,7 @@ public unsafe partial class ExternalMemoryImageCreateInfoNV : IMarshallableObjec
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkExternalMemoryImageCreateInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkExternalMemoryImageCreateInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

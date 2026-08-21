@@ -37,7 +37,7 @@ public unsafe partial class PhysicalDeviceCooperativeMatrix2PropertiesNV : IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrix2PropertiesNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCooperativeMatrix2PropertiesNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

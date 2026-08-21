@@ -31,7 +31,7 @@ public unsafe static class SlangNative
             for (var i = 0U; i < options.Length; i++)
             {
                 if(options[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Slang.Interop.SlangcCompilerOption>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Slang.Interop.SlangcCompilerOption>.Size;
                 else
                     totalSize += options[(int)i].GetSize();
             }

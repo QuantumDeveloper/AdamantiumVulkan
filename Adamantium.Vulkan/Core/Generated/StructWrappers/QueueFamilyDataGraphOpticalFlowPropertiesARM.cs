@@ -42,7 +42,7 @@ public unsafe partial class QueueFamilyDataGraphOpticalFlowPropertiesARM : IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkQueueFamilyDataGraphOpticalFlowPropertiesARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkQueueFamilyDataGraphOpticalFlowPropertiesARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

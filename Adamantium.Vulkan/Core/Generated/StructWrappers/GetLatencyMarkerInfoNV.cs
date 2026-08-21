@@ -36,7 +36,7 @@ public unsafe partial class GetLatencyMarkerInfoNV : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkGetLatencyMarkerInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkGetLatencyMarkerInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class GetLatencyMarkerInfoNV : IMarshallableObject, IMarsh
             for (int i = 0; i < PTimings.Length; i++)
             {
                 if (PTimings.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkLatencyTimingsFrameReportNV>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkLatencyTimingsFrameReportNV>.Size;
                 else
                     size += PTimings.Span[i].GetSize();
             }

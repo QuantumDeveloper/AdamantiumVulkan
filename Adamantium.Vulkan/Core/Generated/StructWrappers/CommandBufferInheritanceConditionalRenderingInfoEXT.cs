@@ -35,7 +35,7 @@ public unsafe partial class CommandBufferInheritanceConditionalRenderingInfoEXT 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

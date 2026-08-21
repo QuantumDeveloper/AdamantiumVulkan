@@ -35,7 +35,7 @@ public unsafe partial class ImageSparseMemoryRequirementsInfo2 : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageSparseMemoryRequirementsInfo2>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

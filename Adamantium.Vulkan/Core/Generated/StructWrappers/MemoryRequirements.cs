@@ -35,7 +35,7 @@ public unsafe partial class MemoryRequirements : IMarshallableObject, IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMemoryRequirements>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMemoryRequirements>.Size;
         return size;
     }
 

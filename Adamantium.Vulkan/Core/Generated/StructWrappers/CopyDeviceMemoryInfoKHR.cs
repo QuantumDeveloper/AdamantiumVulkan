@@ -36,7 +36,7 @@ public unsafe partial class CopyDeviceMemoryInfoKHR : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCopyDeviceMemoryInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCopyDeviceMemoryInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class CopyDeviceMemoryInfoKHR : IMarshallableObject, IMars
             for (int i = 0; i < PRegions.Length; i++)
             {
                 if (PRegions.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceMemoryCopyKHR>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceMemoryCopyKHR>.Size;
                 else
                     size += PRegions.Span[i].GetSize();
             }

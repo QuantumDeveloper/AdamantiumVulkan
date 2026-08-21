@@ -34,7 +34,7 @@ public unsafe partial class MemoryType : IMarshallableObject, IMarshallable<Adam
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMemoryType>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMemoryType>.Size;
         return size;
     }
 

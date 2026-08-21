@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceSubpassShadingFeaturesHUAWEI : IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubpassShadingFeaturesHUAWEI>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubpassShadingFeaturesHUAWEI>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

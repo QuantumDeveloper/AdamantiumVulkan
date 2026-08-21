@@ -35,7 +35,7 @@ public unsafe partial class PushConstantRange : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPushConstantRange>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPushConstantRange>.Size;
         return size;
     }
 

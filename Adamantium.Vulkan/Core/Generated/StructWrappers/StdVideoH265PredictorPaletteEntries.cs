@@ -33,7 +33,7 @@ public unsafe partial class StdVideoH265PredictorPaletteEntries : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH265PredictorPaletteEntries>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH265PredictorPaletteEntries>.Size;
         return size;
     }
 

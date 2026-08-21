@@ -36,7 +36,7 @@ public unsafe partial class PhysicalDeviceClusterCullingShaderFeaturesHUAWEI : I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

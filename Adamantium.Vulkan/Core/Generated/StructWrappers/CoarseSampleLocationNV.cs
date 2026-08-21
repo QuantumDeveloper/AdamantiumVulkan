@@ -35,7 +35,7 @@ public unsafe partial class CoarseSampleLocationNV : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCoarseSampleLocationNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCoarseSampleLocationNV>.Size;
         return size;
     }
 

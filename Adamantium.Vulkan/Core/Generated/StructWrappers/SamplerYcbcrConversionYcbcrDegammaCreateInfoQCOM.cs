@@ -36,7 +36,7 @@ public unsafe partial class SamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM : I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

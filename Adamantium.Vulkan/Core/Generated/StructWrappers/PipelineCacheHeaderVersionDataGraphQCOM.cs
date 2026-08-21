@@ -37,7 +37,7 @@ public unsafe partial class PipelineCacheHeaderVersionDataGraphQCOM : IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineCacheHeaderVersionDataGraphQCOM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineCacheHeaderVersionDataGraphQCOM>.Size;
         return size;
     }
 

@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVideoEncodeRgbConversionFeaturesVALVE>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

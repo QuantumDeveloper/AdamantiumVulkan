@@ -38,15 +38,15 @@ public unsafe partial class TimelineSemaphoreSubmitInfo : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PWaitSemaphoreValues.IsEmpty)
-            size += PWaitSemaphoreValues.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PWaitSemaphoreValues.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         if (!PSignalSemaphoreValues.IsEmpty)
-            size += PSignalSemaphoreValues.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PSignalSemaphoreValues.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         return size;
     }
 

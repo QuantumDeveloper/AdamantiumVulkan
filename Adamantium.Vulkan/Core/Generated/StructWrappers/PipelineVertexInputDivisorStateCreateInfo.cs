@@ -36,7 +36,7 @@ public unsafe partial class PipelineVertexInputDivisorStateCreateInfo : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineVertexInputDivisorStateCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class PipelineVertexInputDivisorStateCreateInfo : IMarshal
             for (int i = 0; i < PVertexBindingDivisors.Length; i++)
             {
                 if (PVertexBindingDivisors.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVertexInputBindingDivisorDescription>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVertexInputBindingDivisorDescription>.Size;
                 else
                     size += PVertexBindingDivisors.Span[i].GetSize();
             }

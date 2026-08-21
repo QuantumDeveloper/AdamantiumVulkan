@@ -41,7 +41,7 @@ public unsafe partial class RenderPassCreateInfo : IMarshallableObject, IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -51,7 +51,7 @@ public unsafe partial class RenderPassCreateInfo : IMarshallableObject, IMarshal
             for (int i = 0; i < PAttachments.Length; i++)
             {
                 if (PAttachments.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAttachmentDescription>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAttachmentDescription>.Size;
                 else
                     size += PAttachments.Span[i].GetSize();
             }
@@ -61,7 +61,7 @@ public unsafe partial class RenderPassCreateInfo : IMarshallableObject, IMarshal
             for (int i = 0; i < PSubpasses.Length; i++)
             {
                 if (PSubpasses.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubpassDescription>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubpassDescription>.Size;
                 else
                     size += PSubpasses.Span[i].GetSize();
             }
@@ -71,7 +71,7 @@ public unsafe partial class RenderPassCreateInfo : IMarshallableObject, IMarshal
             for (int i = 0; i < PDependencies.Length; i++)
             {
                 if (PDependencies.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubpassDependency>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubpassDependency>.Size;
                 else
                     size += PDependencies.Span[i].GetSize();
             }

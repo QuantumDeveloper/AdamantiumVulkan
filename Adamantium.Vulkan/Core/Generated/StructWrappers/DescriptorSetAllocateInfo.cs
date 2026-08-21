@@ -37,13 +37,13 @@ public unsafe partial class DescriptorSetAllocateInfo : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetAllocateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetAllocateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PSetLayouts.IsEmpty)
-            size += PSetLayouts.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayout_T>();
+            size += PSetLayouts.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayout_T>.Size;
         return size;
     }
 

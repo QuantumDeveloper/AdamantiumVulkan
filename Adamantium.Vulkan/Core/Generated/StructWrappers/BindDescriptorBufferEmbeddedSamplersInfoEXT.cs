@@ -37,7 +37,7 @@ public unsafe partial class BindDescriptorBufferEmbeddedSamplersInfoEXT : IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindDescriptorBufferEmbeddedSamplersInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindDescriptorBufferEmbeddedSamplersInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

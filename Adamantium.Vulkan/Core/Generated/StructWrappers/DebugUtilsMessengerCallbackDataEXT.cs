@@ -44,7 +44,7 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDebugUtilsMessengerCallbackDataEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -58,7 +58,7 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : IMarshallableOb
             for (int i = 0; i < PQueueLabels.Length; i++)
             {
                 if (PQueueLabels.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDebugUtilsLabelEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDebugUtilsLabelEXT>.Size;
                 else
                     size += PQueueLabels.Span[i].GetSize();
             }
@@ -68,7 +68,7 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : IMarshallableOb
             for (int i = 0; i < PCmdBufLabels.Length; i++)
             {
                 if (PCmdBufLabels.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDebugUtilsLabelEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDebugUtilsLabelEXT>.Size;
                 else
                     size += PCmdBufLabels.Span[i].GetSize();
             }
@@ -78,7 +78,7 @@ public unsafe partial class DebugUtilsMessengerCallbackDataEXT : IMarshallableOb
             for (int i = 0; i < PObjects.Length; i++)
             {
                 if (PObjects.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDebugUtilsObjectNameInfoEXT>.Size;
                 else
                     size += PObjects.Span[i].GetSize();
             }

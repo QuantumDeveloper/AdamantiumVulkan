@@ -35,7 +35,7 @@ public unsafe partial class PipelineFragmentDensityMapLayeredCreateInfoVALVE : I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineFragmentDensityMapLayeredCreateInfoVALVE>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineFragmentDensityMapLayeredCreateInfoVALVE>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

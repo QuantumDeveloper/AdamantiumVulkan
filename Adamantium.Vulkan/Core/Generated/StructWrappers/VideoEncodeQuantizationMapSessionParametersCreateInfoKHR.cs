@@ -35,7 +35,7 @@ public unsafe partial class VideoEncodeQuantizationMapSessionParametersCreateInf
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

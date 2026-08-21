@@ -36,7 +36,7 @@ public unsafe partial class StdVideoEncodeAV1OperatingPointInfoFlags : IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfoFlags>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfoFlags>.Size;
         return size;
     }
 

@@ -37,7 +37,7 @@ public unsafe partial class SwapchainTimeDomainPropertiesEXT : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSwapchainTimeDomainPropertiesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSwapchainTimeDomainPropertiesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -45,7 +45,7 @@ public unsafe partial class SwapchainTimeDomainPropertiesEXT : IMarshallableObje
         if (!PTimeDomains.IsEmpty)
             size += PTimeDomains.Span.Length * sizeof(int);
         if (!PTimeDomainIds.IsEmpty)
-            size += PTimeDomainIds.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PTimeDomainIds.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         return size;
     }
 

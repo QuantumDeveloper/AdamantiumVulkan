@@ -37,7 +37,7 @@ public unsafe partial class PipelineCreationFeedbackCreateInfo : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineCreationFeedbackCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineCreationFeedbackCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -51,7 +51,7 @@ public unsafe partial class PipelineCreationFeedbackCreateInfo : IMarshallableOb
             for (int i = 0; i < PipelineStageCreationFeedbacks.Length; i++)
             {
                 if (PipelineStageCreationFeedbacks.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineCreationFeedback>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineCreationFeedback>.Size;
                 else
                     size += PipelineStageCreationFeedbacks.Span[i].GetSize();
             }

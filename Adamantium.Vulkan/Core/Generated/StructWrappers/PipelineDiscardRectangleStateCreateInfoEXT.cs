@@ -38,7 +38,7 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -48,7 +48,7 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarsha
             for (int i = 0; i < PDiscardRectangles.Length; i++)
             {
                 if (PDiscardRectangles.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     size += PDiscardRectangles.Span[i].GetSize();
             }

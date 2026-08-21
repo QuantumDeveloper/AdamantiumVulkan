@@ -36,7 +36,7 @@ public unsafe partial class MemoryDedicatedRequirements : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMemoryDedicatedRequirements>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMemoryDedicatedRequirements>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

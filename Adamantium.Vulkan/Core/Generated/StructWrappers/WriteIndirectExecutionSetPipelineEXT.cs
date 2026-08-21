@@ -36,7 +36,7 @@ public unsafe partial class WriteIndirectExecutionSetPipelineEXT : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkWriteIndirectExecutionSetPipelineEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkWriteIndirectExecutionSetPipelineEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

@@ -35,7 +35,7 @@ public unsafe partial class SubpassResolvePerformanceQueryEXT : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubpassResolvePerformanceQueryEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubpassResolvePerformanceQueryEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

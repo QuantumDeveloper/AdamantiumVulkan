@@ -36,7 +36,7 @@ public unsafe partial class ResourceDescriptorDataEXT : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkResourceDescriptorDataEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkResourceDescriptorDataEXT>.Size;
         if (PImage != default)
         {
             size = Math.Max(size, PImage.GetSize());

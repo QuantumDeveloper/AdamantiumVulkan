@@ -41,7 +41,7 @@ public unsafe partial class DependencyInfo : IMarshallableObject, IMarshallable<
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDependencyInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDependencyInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -51,7 +51,7 @@ public unsafe partial class DependencyInfo : IMarshallableObject, IMarshallable<
             for (int i = 0; i < PMemoryBarriers.Length; i++)
             {
                 if (PMemoryBarriers.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMemoryBarrier2>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMemoryBarrier2>.Size;
                 else
                     size += PMemoryBarriers.Span[i].GetSize();
             }
@@ -61,7 +61,7 @@ public unsafe partial class DependencyInfo : IMarshallableObject, IMarshallable<
             for (int i = 0; i < PBufferMemoryBarriers.Length; i++)
             {
                 if (PBufferMemoryBarriers.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier2>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier2>.Size;
                 else
                     size += PBufferMemoryBarriers.Span[i].GetSize();
             }
@@ -71,7 +71,7 @@ public unsafe partial class DependencyInfo : IMarshallableObject, IMarshallable<
             for (int i = 0; i < PImageMemoryBarriers.Length; i++)
             {
                 if (PImageMemoryBarriers.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier2>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier2>.Size;
                 else
                     size += PImageMemoryBarriers.Span[i].GetSize();
             }

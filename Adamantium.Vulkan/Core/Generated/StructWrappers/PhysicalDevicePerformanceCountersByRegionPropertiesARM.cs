@@ -39,7 +39,7 @@ public unsafe partial class PhysicalDevicePerformanceCountersByRegionPropertiesA
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePerformanceCountersByRegionPropertiesARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePerformanceCountersByRegionPropertiesARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

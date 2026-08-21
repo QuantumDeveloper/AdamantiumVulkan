@@ -37,7 +37,7 @@ public unsafe partial class ImportMemoryWin32HandleInfoNV : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

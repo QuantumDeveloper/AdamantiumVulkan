@@ -35,7 +35,7 @@ public unsafe partial class DeviceMemoryOverallocationCreateInfoAMD : IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceMemoryOverallocationCreateInfoAMD>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceMemoryOverallocationCreateInfoAMD>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

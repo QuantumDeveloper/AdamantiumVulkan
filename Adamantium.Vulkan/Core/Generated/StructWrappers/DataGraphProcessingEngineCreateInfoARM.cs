@@ -36,7 +36,7 @@ public unsafe partial class DataGraphProcessingEngineCreateInfoARM : IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphProcessingEngineCreateInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphProcessingEngineCreateInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class DataGraphProcessingEngineCreateInfoARM : IMarshallab
             for (int i = 0; i < ProcessingEngines.Length; i++)
             {
                 if (ProcessingEngines.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphProcessingEngineARM>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphProcessingEngineARM>.Size;
                 else
                     size += ProcessingEngines.Span[i].GetSize();
             }

@@ -34,7 +34,7 @@ public unsafe partial class DescriptorMappingSourceIndirectAddressEXT : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourceIndirectAddressEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourceIndirectAddressEXT>.Size;
         return size;
     }
 

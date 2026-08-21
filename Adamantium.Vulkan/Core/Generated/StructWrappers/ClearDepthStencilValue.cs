@@ -34,7 +34,7 @@ public unsafe partial class ClearDepthStencilValue : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkClearDepthStencilValue>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkClearDepthStencilValue>.Size;
         return size;
     }
 

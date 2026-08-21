@@ -36,7 +36,7 @@ public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM :
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM :
             for (int i = 0; i < PerViewRenderAreas.Length; i++)
             {
                 if (PerViewRenderAreas.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     size += PerViewRenderAreas.Span[i].GetSize();
             }

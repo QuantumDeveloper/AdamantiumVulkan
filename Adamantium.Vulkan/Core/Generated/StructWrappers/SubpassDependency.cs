@@ -39,7 +39,7 @@ public unsafe partial class SubpassDependency : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubpassDependency>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubpassDependency>.Size;
         return size;
     }
 

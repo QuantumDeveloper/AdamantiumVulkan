@@ -37,7 +37,7 @@ public unsafe partial class SpvcHlslVertexAttributeRemap : IMarshallable<Adamant
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcHlslVertexAttributeRemap>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcHlslVertexAttributeRemap>.Size;
         if (!string.IsNullOrEmpty(Semantic))
             size += System.Text.Encoding.UTF8.GetByteCount(Semantic) + 1;
         return size;

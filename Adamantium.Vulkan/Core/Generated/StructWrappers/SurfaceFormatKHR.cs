@@ -34,7 +34,7 @@ public unsafe partial class SurfaceFormatKHR : IMarshallableObject, IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSurfaceFormatKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSurfaceFormatKHR>.Size;
         return size;
     }
 

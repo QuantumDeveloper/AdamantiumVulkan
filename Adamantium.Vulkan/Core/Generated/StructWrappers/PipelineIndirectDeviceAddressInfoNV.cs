@@ -36,7 +36,7 @@ public unsafe partial class PipelineIndirectDeviceAddressInfoNV : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineIndirectDeviceAddressInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

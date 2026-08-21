@@ -38,7 +38,7 @@ public unsafe partial class ColorBlendEquationEXT : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkColorBlendEquationEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkColorBlendEquationEXT>.Size;
         return size;
     }
 

@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceZeroInitializeWorkgroupMemoryFeatures 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

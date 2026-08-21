@@ -38,7 +38,7 @@ public unsafe partial class PresentTimingSurfaceCapabilitiesEXT : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentTimingSurfaceCapabilitiesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentTimingSurfaceCapabilitiesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

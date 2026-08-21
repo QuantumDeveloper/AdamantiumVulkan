@@ -34,7 +34,7 @@ public unsafe partial class DataGraphTOSANameQualityARM : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphTOSANameQualityARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphTOSANameQualityARM>.Size;
         return size;
     }
 

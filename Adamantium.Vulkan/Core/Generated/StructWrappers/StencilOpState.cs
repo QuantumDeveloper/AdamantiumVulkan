@@ -39,7 +39,7 @@ public unsafe partial class StencilOpState : IMarshallableObject, IMarshallable<
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkStencilOpState>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkStencilOpState>.Size;
         return size;
     }
 

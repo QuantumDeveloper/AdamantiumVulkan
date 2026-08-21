@@ -35,7 +35,7 @@ public unsafe partial class DataGraphPipelineSessionNeuralStatisticsCreateInfoAR
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSessionNeuralStatisticsCreateInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSessionNeuralStatisticsCreateInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

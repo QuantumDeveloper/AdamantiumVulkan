@@ -37,7 +37,7 @@ public unsafe partial class StdVideoVP9Segmentation : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoVP9Segmentation>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoVP9Segmentation>.Size;
         return size;
     }
 

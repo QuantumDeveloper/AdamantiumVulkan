@@ -39,7 +39,7 @@ public unsafe partial class StdVideoEncodeH264ReferenceInfo : IMarshallableObjec
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH264ReferenceInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH264ReferenceInfo>.Size;
         return size;
     }
 

@@ -36,7 +36,7 @@ public unsafe partial class ImageViewAddressPropertiesNVX : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageViewAddressPropertiesNVX>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageViewAddressPropertiesNVX>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

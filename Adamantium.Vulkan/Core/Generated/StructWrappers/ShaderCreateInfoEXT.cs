@@ -46,23 +46,23 @@ public unsafe partial class ShaderCreateInfoEXT : IMarshallableObject, IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PCode.IsEmpty)
-            size += PCode.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PCode.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         if (!string.IsNullOrEmpty(PName))
             size += System.Text.Encoding.UTF8.GetByteCount(PName) + 1;
         if (!PSetLayouts.IsEmpty)
-            size += PSetLayouts.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayout_T>();
+            size += PSetLayouts.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayout_T>.Size;
         if (!PushConstantRanges.IsEmpty)
         {
             for (int i = 0; i < PushConstantRanges.Length; i++)
             {
                 if (PushConstantRanges.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPushConstantRange>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPushConstantRange>.Size;
                 else
                     size += PushConstantRanges.Span[i].GetSize();
             }

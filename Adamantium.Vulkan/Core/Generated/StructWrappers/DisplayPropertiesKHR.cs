@@ -39,7 +39,7 @@ public unsafe partial class DisplayPropertiesKHR : IMarshallableObject, IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDisplayPropertiesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDisplayPropertiesKHR>.Size;
         if (!string.IsNullOrEmpty(DisplayName))
             size += System.Text.Encoding.UTF8.GetByteCount(DisplayName) + 1;
         return size;

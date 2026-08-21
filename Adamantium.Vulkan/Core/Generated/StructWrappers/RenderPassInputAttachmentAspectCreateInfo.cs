@@ -36,7 +36,7 @@ public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : IMarshal
             for (int i = 0; i < PAspectReferences.Length; i++)
             {
                 if (PAspectReferences.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkInputAttachmentAspectReference>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkInputAttachmentAspectReference>.Size;
                 else
                     size += PAspectReferences.Span[i].GetSize();
             }

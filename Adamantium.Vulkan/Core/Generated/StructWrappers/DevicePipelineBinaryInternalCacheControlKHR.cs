@@ -35,7 +35,7 @@ public unsafe partial class DevicePipelineBinaryInternalCacheControlKHR : IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDevicePipelineBinaryInternalCacheControlKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDevicePipelineBinaryInternalCacheControlKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

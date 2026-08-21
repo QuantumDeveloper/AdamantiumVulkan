@@ -33,7 +33,7 @@ public unsafe partial class ClusterAccelerationStructureMoveObjectsInfoNV : IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureMoveObjectsInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureMoveObjectsInfoNV>.Size;
         return size;
     }
 

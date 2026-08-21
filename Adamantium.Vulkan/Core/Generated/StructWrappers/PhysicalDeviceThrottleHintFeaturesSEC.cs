@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceThrottleHintFeaturesSEC : IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceThrottleHintFeaturesSEC>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceThrottleHintFeaturesSEC>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

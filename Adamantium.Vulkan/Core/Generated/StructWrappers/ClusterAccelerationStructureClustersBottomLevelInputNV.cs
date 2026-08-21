@@ -36,7 +36,7 @@ public unsafe partial class ClusterAccelerationStructureClustersBottomLevelInput
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureClustersBottomLevelInputNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureClustersBottomLevelInputNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

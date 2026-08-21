@@ -35,7 +35,7 @@ public unsafe partial class SwapchainDisplayNativeHdrCreateInfoAMD : IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSwapchainDisplayNativeHdrCreateInfoAMD>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSwapchainDisplayNativeHdrCreateInfoAMD>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

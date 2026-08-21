@@ -35,7 +35,7 @@ public unsafe partial class ClearRect : IMarshallableObject, IMarshallable<Adama
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkClearRect>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkClearRect>.Size;
         return size;
     }
 

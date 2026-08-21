@@ -40,7 +40,7 @@ public unsafe partial class VideoEncodeRateControlInfoKHR : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeRateControlInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeRateControlInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,7 @@ public unsafe partial class VideoEncodeRateControlInfoKHR : IMarshallableObject,
             for (int i = 0; i < PLayers.Length; i++)
             {
                 if (PLayers.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeRateControlLayerInfoKHR>.Size;
                 else
                     size += PLayers.Span[i].GetSize();
             }

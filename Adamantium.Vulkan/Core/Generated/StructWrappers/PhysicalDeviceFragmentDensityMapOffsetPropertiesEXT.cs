@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapOffsetPropertiesEXT 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

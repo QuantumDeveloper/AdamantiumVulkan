@@ -47,7 +47,7 @@ public unsafe partial class StdVideoEncodeH265SliceSegmentHeader : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeader>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeader>.Size;
         if (PWeightTable != default)
         {
             size += PWeightTable.GetSize();

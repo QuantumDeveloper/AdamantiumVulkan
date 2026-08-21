@@ -39,13 +39,13 @@ public unsafe partial class RenderPassPerformanceCountersByRegionBeginInfoARM : 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassPerformanceCountersByRegionBeginInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassPerformanceCountersByRegionBeginInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PCounterIndices.IsEmpty)
-            size += PCounterIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PCounterIndices.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

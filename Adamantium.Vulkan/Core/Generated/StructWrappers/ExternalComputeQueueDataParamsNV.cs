@@ -35,7 +35,7 @@ public unsafe partial class ExternalComputeQueueDataParamsNV : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkExternalComputeQueueDataParamsNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkExternalComputeQueueDataParamsNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

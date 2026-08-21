@@ -41,7 +41,7 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubmitInfo2>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubmitInfo2>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -51,7 +51,7 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
             for (int i = 0; i < PWaitSemaphoreInfos.Length; i++)
             {
                 if (PWaitSemaphoreInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphoreSubmitInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphoreSubmitInfo>.Size;
                 else
                     size += PWaitSemaphoreInfos.Span[i].GetSize();
             }
@@ -61,7 +61,7 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
             for (int i = 0; i < PCommandBufferInfos.Length; i++)
             {
                 if (PCommandBufferInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCommandBufferSubmitInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCommandBufferSubmitInfo>.Size;
                 else
                     size += PCommandBufferInfos.Span[i].GetSize();
             }
@@ -71,7 +71,7 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
             for (int i = 0; i < PSignalSemaphoreInfos.Length; i++)
             {
                 if (PSignalSemaphoreInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphoreSubmitInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphoreSubmitInfo>.Size;
                 else
                     size += PSignalSemaphoreInfos.Span[i].GetSize();
             }

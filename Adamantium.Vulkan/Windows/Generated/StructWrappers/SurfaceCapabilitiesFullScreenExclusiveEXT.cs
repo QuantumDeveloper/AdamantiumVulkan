@@ -37,7 +37,7 @@ public unsafe partial class SurfaceCapabilitiesFullScreenExclusiveEXT : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Windows.Interop.VkSurfaceCapabilitiesFullScreenExclusiveEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Windows.Interop.VkSurfaceCapabilitiesFullScreenExclusiveEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

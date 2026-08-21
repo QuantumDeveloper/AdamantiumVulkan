@@ -39,7 +39,7 @@ public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObjec
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineViewportStateCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineViewportStateCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -49,7 +49,7 @@ public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObjec
             for (int i = 0; i < PViewports.Length; i++)
             {
                 if (PViewports.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkViewport>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkViewport>.Size;
                 else
                     size += PViewports.Span[i].GetSize();
             }
@@ -59,7 +59,7 @@ public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObjec
             for (int i = 0; i < PScissors.Length; i++)
             {
                 if (PScissors.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     size += PScissors.Span[i].GetSize();
             }

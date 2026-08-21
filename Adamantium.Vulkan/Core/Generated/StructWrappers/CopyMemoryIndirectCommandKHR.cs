@@ -35,7 +35,7 @@ public unsafe partial class CopyMemoryIndirectCommandKHR : IMarshallableObject, 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCopyMemoryIndirectCommandKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCopyMemoryIndirectCommandKHR>.Size;
         return size;
     }
 

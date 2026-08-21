@@ -36,13 +36,13 @@ public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PDrmFormatModifiers.IsEmpty)
-            size += PDrmFormatModifiers.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PDrmFormatModifiers.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         return size;
     }
 

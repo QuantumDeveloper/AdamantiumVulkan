@@ -34,7 +34,7 @@ public unsafe partial class AttachmentReference : IMarshallableObject, IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAttachmentReference>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAttachmentReference>.Size;
         return size;
     }
 

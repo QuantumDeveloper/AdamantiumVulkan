@@ -37,7 +37,7 @@ public unsafe partial class StdVideoAV1FilmGrainFlags : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoAV1FilmGrainFlags>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoAV1FilmGrainFlags>.Size;
         return size;
     }
 

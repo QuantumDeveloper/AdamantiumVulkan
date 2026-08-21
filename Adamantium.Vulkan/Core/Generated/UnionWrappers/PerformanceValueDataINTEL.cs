@@ -37,7 +37,7 @@ public unsafe partial class PerformanceValueDataINTEL : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPerformanceValueDataINTEL>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPerformanceValueDataINTEL>.Size;
         if (!string.IsNullOrEmpty(ValueString))
             size = Math.Max(size, System.Text.Encoding.UTF8.GetByteCount(ValueString) + 1);
         return size;

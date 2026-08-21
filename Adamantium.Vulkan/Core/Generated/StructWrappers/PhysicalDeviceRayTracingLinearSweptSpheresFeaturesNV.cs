@@ -36,7 +36,7 @@ public unsafe partial class PhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

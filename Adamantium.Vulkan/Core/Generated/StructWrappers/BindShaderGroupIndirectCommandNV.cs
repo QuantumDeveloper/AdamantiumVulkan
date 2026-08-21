@@ -33,7 +33,7 @@ public unsafe partial class BindShaderGroupIndirectCommandNV : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindShaderGroupIndirectCommandNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindShaderGroupIndirectCommandNV>.Size;
         return size;
     }
 

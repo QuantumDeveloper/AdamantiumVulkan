@@ -39,7 +39,7 @@ public unsafe partial class StdVideoEncodeAV1OperatingPointInfo : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfo>.Size;
         return size;
     }
 

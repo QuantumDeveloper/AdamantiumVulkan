@@ -58,7 +58,7 @@ public unsafe partial class StdVideoH265SequenceParameterSetVui : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH265SequenceParameterSetVui>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH265SequenceParameterSetVui>.Size;
         if (PHrdParameters != default)
         {
             size += PHrdParameters.GetSize();

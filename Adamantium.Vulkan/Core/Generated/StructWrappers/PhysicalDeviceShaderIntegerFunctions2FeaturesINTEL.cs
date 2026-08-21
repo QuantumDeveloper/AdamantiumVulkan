@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceShaderIntegerFunctions2FeaturesINTEL :
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

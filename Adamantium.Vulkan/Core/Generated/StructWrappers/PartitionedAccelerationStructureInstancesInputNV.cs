@@ -39,7 +39,7 @@ public unsafe partial class PartitionedAccelerationStructureInstancesInputNV : I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPartitionedAccelerationStructureInstancesInputNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPartitionedAccelerationStructureInstancesInputNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

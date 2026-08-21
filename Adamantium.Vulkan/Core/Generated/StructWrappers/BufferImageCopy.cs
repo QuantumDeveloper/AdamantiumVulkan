@@ -38,7 +38,7 @@ public unsafe partial class BufferImageCopy : IMarshallableObject, IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferImageCopy>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferImageCopy>.Size;
         return size;
     }
 

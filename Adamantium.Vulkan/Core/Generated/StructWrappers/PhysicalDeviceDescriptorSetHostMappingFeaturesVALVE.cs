@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceDescriptorSetHostMappingFeaturesVALVE 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

@@ -38,7 +38,7 @@ public unsafe partial class ExportSemaphoreWin32HandleInfoKHR : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Windows.Interop.VkExportSemaphoreWin32HandleInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Windows.Interop.VkExportSemaphoreWin32HandleInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

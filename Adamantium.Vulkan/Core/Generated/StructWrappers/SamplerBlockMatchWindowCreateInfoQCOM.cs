@@ -36,7 +36,7 @@ public unsafe partial class SamplerBlockMatchWindowCreateInfoQCOM : IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSamplerBlockMatchWindowCreateInfoQCOM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSamplerBlockMatchWindowCreateInfoQCOM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

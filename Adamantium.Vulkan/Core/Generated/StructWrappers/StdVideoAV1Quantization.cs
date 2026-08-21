@@ -42,7 +42,7 @@ public unsafe partial class StdVideoAV1Quantization : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoAV1Quantization>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoAV1Quantization>.Size;
         return size;
     }
 

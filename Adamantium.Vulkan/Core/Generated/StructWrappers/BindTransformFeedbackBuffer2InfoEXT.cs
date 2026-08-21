@@ -36,7 +36,7 @@ public unsafe partial class BindTransformFeedbackBuffer2InfoEXT : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

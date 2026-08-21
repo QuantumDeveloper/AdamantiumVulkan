@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceDataGraphOperationSupportARM : IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphOperationSupportARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphOperationSupportARM>.Size;
         return size;
     }
 

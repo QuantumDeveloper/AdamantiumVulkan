@@ -33,7 +33,7 @@ public unsafe partial class SetStateFlagsIndirectCommandNV : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSetStateFlagsIndirectCommandNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSetStateFlagsIndirectCommandNV>.Size;
         return size;
     }
 

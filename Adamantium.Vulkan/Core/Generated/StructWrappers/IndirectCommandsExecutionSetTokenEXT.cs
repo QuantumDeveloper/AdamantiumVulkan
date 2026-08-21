@@ -34,7 +34,7 @@ public unsafe partial class IndirectCommandsExecutionSetTokenEXT : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsExecutionSetTokenEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsExecutionSetTokenEXT>.Size;
         return size;
     }
 

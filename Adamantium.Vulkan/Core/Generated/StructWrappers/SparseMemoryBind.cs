@@ -37,7 +37,7 @@ public unsafe partial class SparseMemoryBind : IMarshallableObject, IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSparseMemoryBind>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSparseMemoryBind>.Size;
         return size;
     }
 

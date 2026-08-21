@@ -39,7 +39,7 @@ public unsafe partial class RenderPassBeginInfo : IMarshallableObject, IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassBeginInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassBeginInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -49,7 +49,7 @@ public unsafe partial class RenderPassBeginInfo : IMarshallableObject, IMarshall
             for (int i = 0; i < PClearValues.Length; i++)
             {
                 if (PClearValues.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkClearValue>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkClearValue>.Size;
                 else
                     size += PClearValues.Span[i].GetSize();
             }

@@ -40,7 +40,7 @@ public unsafe partial class PipelineColorBlendStateCreateInfo : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineColorBlendStateCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,7 @@ public unsafe partial class PipelineColorBlendStateCreateInfo : IMarshallableObj
             for (int i = 0; i < PAttachments.Length; i++)
             {
                 if (PAttachments.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineColorBlendAttachmentState>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineColorBlendAttachmentState>.Size;
                 else
                     size += PAttachments.Span[i].GetSize();
             }

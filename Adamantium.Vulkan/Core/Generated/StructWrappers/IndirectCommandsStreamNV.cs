@@ -34,7 +34,7 @@ public unsafe partial class IndirectCommandsStreamNV : IMarshallableObject, IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsStreamNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsStreamNV>.Size;
         return size;
     }
 

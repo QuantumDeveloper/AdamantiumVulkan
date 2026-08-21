@@ -36,7 +36,7 @@ public unsafe partial class VideoProfileListInfoKHR : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoProfileListInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoProfileListInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class VideoProfileListInfoKHR : IMarshallableObject, IMars
             for (int i = 0; i < Profiles.Length; i++)
             {
                 if (Profiles.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoProfileInfoKHR>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoProfileInfoKHR>.Size;
                 else
                     size += Profiles.Span[i].GetSize();
             }

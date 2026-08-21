@@ -36,7 +36,7 @@ public unsafe partial class PipelineExecutableStatisticValueKHR : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR>.Size;
         return size;
     }
 

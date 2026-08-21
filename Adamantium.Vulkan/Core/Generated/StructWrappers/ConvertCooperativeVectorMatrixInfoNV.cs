@@ -46,7 +46,7 @@ public unsafe partial class ConvertCooperativeVectorMatrixInfoNV : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkConvertCooperativeVectorMatrixInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkConvertCooperativeVectorMatrixInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

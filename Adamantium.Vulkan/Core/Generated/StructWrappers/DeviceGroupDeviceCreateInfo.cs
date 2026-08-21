@@ -36,13 +36,13 @@ public unsafe partial class DeviceGroupDeviceCreateInfo : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceGroupDeviceCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceGroupDeviceCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PhysicalDevices.IsEmpty)
-            size += PhysicalDevices.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDevice_T>();
+            size += PhysicalDevices.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDevice_T>.Size;
         return size;
     }
 

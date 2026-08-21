@@ -34,7 +34,7 @@ public unsafe partial class Rect2D : IMarshallableObject, IMarshallable<Adamanti
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
         return size;
     }
 

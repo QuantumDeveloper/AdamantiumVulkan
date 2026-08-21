@@ -36,7 +36,7 @@ public unsafe partial class AmigoProfilingSubmitInfoSEC : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAmigoProfilingSubmitInfoSEC>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAmigoProfilingSubmitInfoSEC>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

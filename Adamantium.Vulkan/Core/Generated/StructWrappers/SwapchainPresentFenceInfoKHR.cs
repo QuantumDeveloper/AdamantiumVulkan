@@ -36,13 +36,13 @@ public unsafe partial class SwapchainPresentFenceInfoKHR : IMarshallableObject, 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSwapchainPresentFenceInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSwapchainPresentFenceInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PFences.IsEmpty)
-            size += PFences.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkFence_T>();
+            size += PFences.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkFence_T>.Size;
         return size;
     }
 

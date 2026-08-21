@@ -35,7 +35,7 @@ public unsafe partial class AccelerationStructureMotionInstanceNV : IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureMotionInstanceNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureMotionInstanceNV>.Size;
         if (Data != default)
             size += Data.GetSize();
         return size;

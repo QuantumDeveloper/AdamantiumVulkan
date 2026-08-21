@@ -36,13 +36,13 @@ public unsafe partial class DeviceFaultDebugInfoKHR : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceFaultDebugInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceFaultDebugInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PVendorBinaryData.IsEmpty)
-            size += PVendorBinaryData.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PVendorBinaryData.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 

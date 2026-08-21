@@ -33,7 +33,7 @@ public unsafe partial class RefreshCycleDurationGOOGLE : IMarshallableObject, IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRefreshCycleDurationGOOGLE>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRefreshCycleDurationGOOGLE>.Size;
         return size;
     }
 

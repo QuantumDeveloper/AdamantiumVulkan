@@ -38,19 +38,19 @@ public unsafe partial class BindImageMemoryDeviceGroupInfo : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindImageMemoryDeviceGroupInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PDeviceIndices.IsEmpty)
-            size += PDeviceIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PDeviceIndices.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         if (!PSplitInstanceBindRegions.IsEmpty)
         {
             for (int i = 0; i < PSplitInstanceBindRegions.Length; i++)
             {
                 if (PSplitInstanceBindRegions.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     size += PSplitInstanceBindRegions.Span[i].GetSize();
             }

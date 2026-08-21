@@ -39,7 +39,7 @@ public unsafe partial class ShaderStatisticsInfoAMD : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderStatisticsInfoAMD>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderStatisticsInfoAMD>.Size;
         return size;
     }
 

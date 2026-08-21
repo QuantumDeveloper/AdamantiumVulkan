@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceAttachmentFeedbackLoopDynamicStateFeat
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

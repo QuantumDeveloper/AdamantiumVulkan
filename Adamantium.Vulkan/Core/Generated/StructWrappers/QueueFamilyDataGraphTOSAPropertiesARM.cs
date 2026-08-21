@@ -39,7 +39,7 @@ public unsafe partial class QueueFamilyDataGraphTOSAPropertiesARM : IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkQueueFamilyDataGraphTOSAPropertiesARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkQueueFamilyDataGraphTOSAPropertiesARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -49,7 +49,7 @@ public unsafe partial class QueueFamilyDataGraphTOSAPropertiesARM : IMarshallabl
             for (int i = 0; i < Profiles.Length; i++)
             {
                 if (Profiles.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphTOSANameQualityARM>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphTOSANameQualityARM>.Size;
                 else
                     size += Profiles.Span[i].GetSize();
             }
@@ -59,7 +59,7 @@ public unsafe partial class QueueFamilyDataGraphTOSAPropertiesARM : IMarshallabl
             for (int i = 0; i < PExtensions.Length; i++)
             {
                 if (PExtensions.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphTOSANameQualityARM>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphTOSANameQualityARM>.Size;
                 else
                     size += PExtensions.Span[i].GetSize();
             }

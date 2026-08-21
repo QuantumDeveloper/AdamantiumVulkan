@@ -36,7 +36,7 @@ public unsafe partial class RenderingFragmentDensityMapAttachmentInfoEXT : IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderingFragmentDensityMapAttachmentInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderingFragmentDensityMapAttachmentInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

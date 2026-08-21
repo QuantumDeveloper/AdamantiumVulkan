@@ -37,7 +37,7 @@ public unsafe partial class CopyAccelerationStructureToMemoryInfoKHR : IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCopyAccelerationStructureToMemoryInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

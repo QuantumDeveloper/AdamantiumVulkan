@@ -40,7 +40,7 @@ public unsafe partial class VideoEncodeH265SessionParametersAddInfoKHR : IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersAddInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersAddInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,7 @@ public unsafe partial class VideoEncodeH265SessionParametersAddInfoKHR : IMarsha
             for (int i = 0; i < PStdVPSs.Length; i++)
             {
                 if (PStdVPSs.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH265VideoParameterSet>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH265VideoParameterSet>.Size;
                 else
                     size += PStdVPSs.Span[i].GetSize();
             }
@@ -60,7 +60,7 @@ public unsafe partial class VideoEncodeH265SessionParametersAddInfoKHR : IMarsha
             for (int i = 0; i < PStdSPSs.Length; i++)
             {
                 if (PStdSPSs.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH265SequenceParameterSet>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH265SequenceParameterSet>.Size;
                 else
                     size += PStdSPSs.Span[i].GetSize();
             }
@@ -70,7 +70,7 @@ public unsafe partial class VideoEncodeH265SessionParametersAddInfoKHR : IMarsha
             for (int i = 0; i < PStdPPSs.Length; i++)
             {
                 if (PStdPPSs.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH265PictureParameterSet>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH265PictureParameterSet>.Size;
                 else
                     size += PStdPPSs.Span[i].GetSize();
             }

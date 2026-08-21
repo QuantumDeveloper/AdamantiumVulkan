@@ -35,7 +35,7 @@ public unsafe partial class Offset3D : IMarshallableObject, IMarshallable<Adaman
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkOffset3D>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkOffset3D>.Size;
         return size;
     }
 

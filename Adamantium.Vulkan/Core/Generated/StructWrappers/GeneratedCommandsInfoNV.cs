@@ -47,7 +47,7 @@ public unsafe partial class GeneratedCommandsInfoNV : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -57,7 +57,7 @@ public unsafe partial class GeneratedCommandsInfoNV : IMarshallableObject, IMars
             for (int i = 0; i < PStreams.Length; i++)
             {
                 if (PStreams.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsStreamNV>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsStreamNV>.Size;
                 else
                     size += PStreams.Span[i].GetSize();
             }

@@ -36,13 +36,13 @@ public unsafe partial class PresentIdKHR : IMarshallableObject, IMarshallable<Ad
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentIdKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentIdKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PresentIds.IsEmpty)
-            size += PresentIds.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PresentIds.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         return size;
     }
 

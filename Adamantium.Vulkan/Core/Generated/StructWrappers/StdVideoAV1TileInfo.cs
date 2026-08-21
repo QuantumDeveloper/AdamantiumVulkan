@@ -42,15 +42,15 @@ public unsafe partial class StdVideoAV1TileInfo : IMarshallableObject, IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoAV1TileInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoAV1TileInfo>.Size;
         if (!PMiColStarts.IsEmpty)
-            size += PMiColStarts.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PMiColStarts.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         if (!PMiRowStarts.IsEmpty)
-            size += PMiRowStarts.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PMiRowStarts.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         if (!PWidthInSbsMinus1.IsEmpty)
-            size += PWidthInSbsMinus1.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PWidthInSbsMinus1.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         if (!PHeightInSbsMinus1.IsEmpty)
-            size += PHeightInSbsMinus1.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PHeightInSbsMinus1.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         return size;
     }
 

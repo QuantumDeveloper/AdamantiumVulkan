@@ -36,7 +36,7 @@ public unsafe partial class MultiviewPerViewAttributesInfoNVX : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMultiviewPerViewAttributesInfoNVX>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMultiviewPerViewAttributesInfoNVX>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

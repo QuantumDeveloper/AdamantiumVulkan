@@ -36,7 +36,7 @@ public unsafe partial class MemoryRangeBarriersInfoKHR : IMarshallableObject, IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMemoryRangeBarriersInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMemoryRangeBarriersInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class MemoryRangeBarriersInfoKHR : IMarshallableObject, IM
             for (int i = 0; i < PMemoryRangeBarriers.Length; i++)
             {
                 if (PMemoryRangeBarriers.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMemoryRangeBarrierKHR>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMemoryRangeBarrierKHR>.Size;
                 else
                     size += PMemoryRangeBarriers.Span[i].GetSize();
             }

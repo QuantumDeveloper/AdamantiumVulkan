@@ -40,19 +40,19 @@ public unsafe partial class IndirectExecutionSetShaderInfoEXT : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetShaderInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetShaderInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PInitialShaders.IsEmpty)
-            size += PInitialShaders.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderEXT_T>();
+            size += PInitialShaders.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderEXT_T>.Size;
         if (!PSetLayoutInfos.IsEmpty)
         {
             for (int i = 0; i < PSetLayoutInfos.Length; i++)
             {
                 if (PSetLayoutInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetShaderLayoutInfoEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetShaderLayoutInfoEXT>.Size;
                 else
                     size += PSetLayoutInfos.Span[i].GetSize();
             }
@@ -62,7 +62,7 @@ public unsafe partial class IndirectExecutionSetShaderInfoEXT : IMarshallableObj
             for (int i = 0; i < PushConstantRanges.Length; i++)
             {
                 if (PushConstantRanges.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPushConstantRange>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPushConstantRange>.Size;
                 else
                     size += PushConstantRanges.Span[i].GetSize();
             }

@@ -36,13 +36,13 @@ public unsafe partial class CoarseSampleOrderCustomNV : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV>.Size;
         if (!PSampleLocations.IsEmpty)
         {
             for (int i = 0; i < PSampleLocations.Length; i++)
             {
                 if (PSampleLocations.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCoarseSampleLocationNV>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCoarseSampleLocationNV>.Size;
                 else
                     size += PSampleLocations.Span[i].GetSize();
             }

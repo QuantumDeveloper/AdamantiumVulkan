@@ -34,7 +34,7 @@ public unsafe partial class ViewportWScalingNV : IMarshallableObject, IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkViewportWScalingNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkViewportWScalingNV>.Size;
         return size;
     }
 

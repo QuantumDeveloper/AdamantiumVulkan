@@ -42,7 +42,7 @@ public unsafe partial class DeviceCreateInfo : IMarshallableObject, IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -52,7 +52,7 @@ public unsafe partial class DeviceCreateInfo : IMarshallableObject, IMarshallabl
             for (int i = 0; i < PQueueCreateInfos.Length; i++)
             {
                 if (PQueueCreateInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceQueueCreateInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceQueueCreateInfo>.Size;
                 else
                     size += PQueueCreateInfos.Span[i].GetSize();
             }

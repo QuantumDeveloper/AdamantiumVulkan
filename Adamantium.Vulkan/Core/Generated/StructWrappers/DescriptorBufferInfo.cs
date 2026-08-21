@@ -35,7 +35,7 @@ public unsafe partial class DescriptorBufferInfo : IMarshallableObject, IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorBufferInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorBufferInfo>.Size;
         return size;
     }
 

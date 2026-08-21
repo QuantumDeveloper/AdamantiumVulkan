@@ -34,7 +34,7 @@ public unsafe partial class Offset2D : IMarshallableObject, IMarshallable<Adaman
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkOffset2D>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkOffset2D>.Size;
         return size;
     }
 

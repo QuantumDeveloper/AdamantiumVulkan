@@ -34,7 +34,7 @@ public unsafe partial class DepthClampRangeEXT : IMarshallableObject, IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDepthClampRangeEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDepthClampRangeEXT>.Size;
         return size;
     }
 

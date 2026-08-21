@@ -33,7 +33,7 @@ public unsafe partial class BindPipelineIndirectCommandNV : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindPipelineIndirectCommandNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindPipelineIndirectCommandNV>.Size;
         return size;
     }
 

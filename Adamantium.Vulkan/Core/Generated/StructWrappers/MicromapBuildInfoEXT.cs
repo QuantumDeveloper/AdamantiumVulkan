@@ -44,7 +44,7 @@ public unsafe partial class MicromapBuildInfoEXT : IMarshallableObject, IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMicromapBuildInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMicromapBuildInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -54,7 +54,7 @@ public unsafe partial class MicromapBuildInfoEXT : IMarshallableObject, IMarshal
             for (int i = 0; i < PUsageCounts.Length; i++)
             {
                 if (PUsageCounts.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMicromapUsageEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMicromapUsageEXT>.Size;
                 else
                     size += PUsageCounts.Span[i].GetSize();
             }

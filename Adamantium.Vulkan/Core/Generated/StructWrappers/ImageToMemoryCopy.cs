@@ -40,7 +40,7 @@ public unsafe partial class ImageToMemoryCopy : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageToMemoryCopy>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageToMemoryCopy>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

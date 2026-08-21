@@ -35,7 +35,7 @@ public unsafe partial class DescriptorBufferBindingPushDescriptorBufferHandleEXT
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorBufferBindingPushDescriptorBufferHandleEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorBufferBindingPushDescriptorBufferHandleEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

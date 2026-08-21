@@ -63,7 +63,7 @@ public unsafe static class VulkanNative
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkLayerProperties>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkLayerProperties>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -104,7 +104,7 @@ public unsafe static class VulkanNative
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkExtensionProperties>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkExtensionProperties>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }

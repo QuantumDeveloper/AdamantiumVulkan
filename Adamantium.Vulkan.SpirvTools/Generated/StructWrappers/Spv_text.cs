@@ -44,7 +44,7 @@ public unsafe partial class Spv_text : IMarshallable<Adamantium.Vulkan.SpirvTool
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.SpirvTools.Interop.spv_text>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.SpirvTools.Interop.spv_text>.Size;
         if (!string.IsNullOrEmpty(Str))
             size += System.Text.Encoding.UTF8.GetByteCount(Str) + 1;
         return size;

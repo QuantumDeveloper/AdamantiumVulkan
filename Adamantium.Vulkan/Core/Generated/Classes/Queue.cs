@@ -38,7 +38,7 @@ public unsafe partial class Queue : IUnmanagedWrapper<Adamantium.Vulkan.Core.Int
             for (var i = 0U; i < pCheckpointData.Length; i++)
             {
                 if(pCheckpointData[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCheckpointData2NV>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCheckpointData2NV>.Size;
                 else
                     totalSize += pCheckpointData[(int)i].GetSize();
             }
@@ -109,7 +109,7 @@ public unsafe partial class Queue : IUnmanagedWrapper<Adamantium.Vulkan.Core.Int
             for (var i = 0U; i < pCheckpointData.Length; i++)
             {
                 if(pCheckpointData[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCheckpointDataNV>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCheckpointDataNV>.Size;
                 else
                     totalSize += pCheckpointData[(int)i].GetSize();
             }
@@ -209,7 +209,7 @@ public unsafe partial class Queue : IUnmanagedWrapper<Adamantium.Vulkan.Core.Int
             for (var i = 0U; i < pBindInfo.Length; i++)
             {
                 if(pBindInfo[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindSparseInfo>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindSparseInfo>.Size;
                 else
                     totalSize += pBindInfo[(int)i].GetSize();
             }
@@ -405,7 +405,7 @@ public unsafe partial class Queue : IUnmanagedWrapper<Adamantium.Vulkan.Core.Int
             for (var i = 0U; i < pSubmits.Length; i++)
             {
                 if(pSubmits[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubmitInfo>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubmitInfo>.Size;
                 else
                     totalSize += pSubmits[(int)i].GetSize();
             }
@@ -474,7 +474,7 @@ public unsafe partial class Queue : IUnmanagedWrapper<Adamantium.Vulkan.Core.Int
             for (var i = 0U; i < pSubmits.Length; i++)
             {
                 if(pSubmits[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubmitInfo2>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubmitInfo2>.Size;
                 else
                     totalSize += pSubmits[(int)i].GetSize();
             }

@@ -34,7 +34,7 @@ public unsafe partial class BaseInStructure : IMarshallableObject, IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBaseInStructure>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBaseInStructure>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

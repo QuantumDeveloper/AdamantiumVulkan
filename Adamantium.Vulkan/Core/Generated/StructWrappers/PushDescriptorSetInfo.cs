@@ -39,7 +39,7 @@ public unsafe partial class PushDescriptorSetInfo : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPushDescriptorSetInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPushDescriptorSetInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -49,7 +49,7 @@ public unsafe partial class PushDescriptorSetInfo : IMarshallableObject, IMarsha
             for (int i = 0; i < PDescriptorWrites.Length; i++)
             {
                 if (PDescriptorWrites.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSet>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSet>.Size;
                 else
                     size += PDescriptorWrites.Span[i].GetSize();
             }

@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceShaderEarlyAndLateFragmentTestsFeature
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

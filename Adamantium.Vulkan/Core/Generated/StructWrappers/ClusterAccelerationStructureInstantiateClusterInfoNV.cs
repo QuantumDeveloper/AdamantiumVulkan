@@ -37,7 +37,7 @@ public unsafe partial class ClusterAccelerationStructureInstantiateClusterInfoNV
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureInstantiateClusterInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureInstantiateClusterInfoNV>.Size;
         return size;
     }
 

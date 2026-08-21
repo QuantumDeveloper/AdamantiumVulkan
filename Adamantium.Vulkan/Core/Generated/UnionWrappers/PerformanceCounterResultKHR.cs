@@ -38,7 +38,7 @@ public unsafe partial class PerformanceCounterResultKHR : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterResultKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterResultKHR>.Size;
         return size;
     }
 

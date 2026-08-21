@@ -40,15 +40,15 @@ public unsafe partial class TensorDescriptionARM : IMarshallableObject, IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTensorDescriptionARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTensorDescriptionARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PDimensions.IsEmpty)
-            size += PDimensions.Span.Length * Marshal.SizeOf<System.Int64>();
+            size += PDimensions.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Int64>.Size;
         if (!PStrides.IsEmpty)
-            size += PStrides.Span.Length * Marshal.SizeOf<System.Int64>();
+            size += PStrides.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Int64>.Size;
         return size;
     }
 

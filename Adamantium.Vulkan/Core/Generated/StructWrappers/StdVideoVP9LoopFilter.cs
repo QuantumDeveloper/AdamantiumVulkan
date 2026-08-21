@@ -39,7 +39,7 @@ public unsafe partial class StdVideoVP9LoopFilter : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoVP9LoopFilter>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoVP9LoopFilter>.Size;
         return size;
     }
 

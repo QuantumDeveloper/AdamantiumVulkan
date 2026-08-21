@@ -35,7 +35,7 @@ public unsafe partial class BuildPartitionedAccelerationStructureIndirectCommand
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBuildPartitionedAccelerationStructureIndirectCommandNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBuildPartitionedAccelerationStructureIndirectCommandNV>.Size;
         return size;
     }
 

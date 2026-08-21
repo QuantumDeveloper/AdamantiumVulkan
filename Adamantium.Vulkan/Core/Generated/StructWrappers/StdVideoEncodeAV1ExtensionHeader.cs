@@ -34,7 +34,7 @@ public unsafe partial class StdVideoEncodeAV1ExtensionHeader : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeAV1ExtensionHeader>.Size;
         return size;
     }
 

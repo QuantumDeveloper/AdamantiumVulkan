@@ -36,7 +36,7 @@ public unsafe partial class LayerSettingsCreateInfoEXT : IMarshallableObject, IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkLayerSettingsCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkLayerSettingsCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class LayerSettingsCreateInfoEXT : IMarshallableObject, IM
             for (int i = 0; i < PSettings.Length; i++)
             {
                 if (PSettings.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkLayerSettingEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkLayerSettingEXT>.Size;
                 else
                     size += PSettings.Span[i].GetSize();
             }

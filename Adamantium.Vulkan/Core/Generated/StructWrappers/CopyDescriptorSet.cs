@@ -41,7 +41,7 @@ public unsafe partial class CopyDescriptorSet : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCopyDescriptorSet>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCopyDescriptorSet>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

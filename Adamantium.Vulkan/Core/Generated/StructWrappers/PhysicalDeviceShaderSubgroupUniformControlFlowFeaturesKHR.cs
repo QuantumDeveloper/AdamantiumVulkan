@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceShaderSubgroupUniformControlFlowFeatur
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

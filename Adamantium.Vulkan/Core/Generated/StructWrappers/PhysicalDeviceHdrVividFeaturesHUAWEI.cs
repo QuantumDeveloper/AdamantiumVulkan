@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceHdrVividFeaturesHUAWEI : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceHdrVividFeaturesHUAWEI>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceHdrVividFeaturesHUAWEI>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

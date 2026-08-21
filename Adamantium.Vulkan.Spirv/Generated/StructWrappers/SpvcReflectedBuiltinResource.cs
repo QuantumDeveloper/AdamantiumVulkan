@@ -36,7 +36,7 @@ public unsafe partial class SpvcReflectedBuiltinResource : IMarshallable<Adamant
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcReflectedBuiltinResource>.Size;
         return size;
     }
 

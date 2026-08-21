@@ -42,7 +42,7 @@ public unsafe partial class DescriptorDataEXT : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorDataEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorDataEXT>.Size;
         if (PCombinedImageSampler != default)
         {
             size = Math.Max(size, PCombinedImageSampler.GetSize());

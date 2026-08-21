@@ -39,7 +39,7 @@ public unsafe partial class BindDataGraphPipelineSessionMemoryInfoARM : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindDataGraphPipelineSessionMemoryInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindDataGraphPipelineSessionMemoryInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

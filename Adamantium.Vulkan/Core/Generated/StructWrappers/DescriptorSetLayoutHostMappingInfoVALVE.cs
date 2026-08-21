@@ -36,7 +36,7 @@ public unsafe partial class DescriptorSetLayoutHostMappingInfoVALVE : IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutHostMappingInfoVALVE>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

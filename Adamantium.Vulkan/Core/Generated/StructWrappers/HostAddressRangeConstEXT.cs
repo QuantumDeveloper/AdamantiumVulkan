@@ -34,7 +34,7 @@ public unsafe partial class HostAddressRangeConstEXT : IMarshallableObject, IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkHostAddressRangeConstEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkHostAddressRangeConstEXT>.Size;
         return size;
     }
 

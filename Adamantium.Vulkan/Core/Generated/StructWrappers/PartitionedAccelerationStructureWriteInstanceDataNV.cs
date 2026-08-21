@@ -41,7 +41,7 @@ public unsafe partial class PartitionedAccelerationStructureWriteInstanceDataNV 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPartitionedAccelerationStructureWriteInstanceDataNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPartitionedAccelerationStructureWriteInstanceDataNV>.Size;
         return size;
     }
 

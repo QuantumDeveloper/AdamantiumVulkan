@@ -35,7 +35,7 @@ public unsafe partial class TensorViewCaptureDescriptorDataInfoARM : IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTensorViewCaptureDescriptorDataInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTensorViewCaptureDescriptorDataInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

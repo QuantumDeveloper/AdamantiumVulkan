@@ -41,7 +41,7 @@ public unsafe partial class AccelerationStructureTrianglesOpacityMicromapEXT : I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureTrianglesOpacityMicromapEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureTrianglesOpacityMicromapEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -53,7 +53,7 @@ public unsafe partial class AccelerationStructureTrianglesOpacityMicromapEXT : I
             for (int i = 0; i < PUsageCounts.Length; i++)
             {
                 if (PUsageCounts.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMicromapUsageEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMicromapUsageEXT>.Size;
                 else
                     size += PUsageCounts.Span[i].GetSize();
             }

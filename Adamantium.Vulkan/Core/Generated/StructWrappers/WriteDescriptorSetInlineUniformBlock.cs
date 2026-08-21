@@ -36,13 +36,13 @@ public unsafe partial class WriteDescriptorSetInlineUniformBlock : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSetInlineUniformBlock>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSetInlineUniformBlock>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PData.IsEmpty)
-            size += PData.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PData.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 

@@ -37,7 +37,7 @@ public unsafe partial class PastPresentationTimingGOOGLE : IMarshallableObject, 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPastPresentationTimingGOOGLE>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPastPresentationTimingGOOGLE>.Size;
         return size;
     }
 

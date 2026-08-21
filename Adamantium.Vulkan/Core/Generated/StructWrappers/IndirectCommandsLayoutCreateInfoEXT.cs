@@ -40,7 +40,7 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoEXT : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,7 @@ public unsafe partial class IndirectCommandsLayoutCreateInfoEXT : IMarshallableO
             for (int i = 0; i < PTokens.Length; i++)
             {
                 if (PTokens.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT>.Size;
                 else
                     size += PTokens.Span[i].GetSize();
             }

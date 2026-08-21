@@ -35,7 +35,7 @@ public unsafe partial class SurfaceCapabilitiesPresentId2KHR : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSurfaceCapabilitiesPresentId2KHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSurfaceCapabilitiesPresentId2KHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

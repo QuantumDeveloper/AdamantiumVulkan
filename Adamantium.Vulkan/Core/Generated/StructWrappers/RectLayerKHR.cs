@@ -35,7 +35,7 @@ public unsafe partial class RectLayerKHR : IMarshallableObject, IMarshallable<Ad
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRectLayerKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRectLayerKHR>.Size;
         return size;
     }
 

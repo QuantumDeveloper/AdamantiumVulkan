@@ -36,7 +36,7 @@ public unsafe partial class PresentTimesInfoGOOGLE : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentTimesInfoGOOGLE>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentTimesInfoGOOGLE>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class PresentTimesInfoGOOGLE : IMarshallableObject, IMarsh
             for (int i = 0; i < PTimes.Length; i++)
             {
                 if (PTimes.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentTimeGOOGLE>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentTimeGOOGLE>.Size;
                 else
                     size += PTimes.Span[i].GetSize();
             }

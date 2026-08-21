@@ -38,7 +38,7 @@ public unsafe partial class StdVideoVP9ColorConfig : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoVP9ColorConfig>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoVP9ColorConfig>.Size;
         return size;
     }
 

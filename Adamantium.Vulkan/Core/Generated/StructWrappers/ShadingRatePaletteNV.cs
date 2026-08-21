@@ -34,7 +34,7 @@ public unsafe partial class ShadingRatePaletteNV : IMarshallableObject, IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShadingRatePaletteNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShadingRatePaletteNV>.Size;
         if (!PShadingRatePaletteEntries.IsEmpty)
             size += PShadingRatePaletteEntries.Span.Length * sizeof(int);
         return size;

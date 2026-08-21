@@ -37,7 +37,7 @@ public unsafe partial class StdVideoH265SubLayerHrdParameters : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH265SubLayerHrdParameters>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH265SubLayerHrdParameters>.Size;
         return size;
     }
 

@@ -37,7 +37,7 @@ public unsafe partial class PhysicalDeviceSchedulingControlsDispatchParametersPr
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSchedulingControlsDispatchParametersPropertiesARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSchedulingControlsDispatchParametersPropertiesARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

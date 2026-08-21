@@ -35,7 +35,7 @@ public unsafe partial class TextureLODGatherFormatPropertiesAMD : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTextureLODGatherFormatPropertiesAMD>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTextureLODGatherFormatPropertiesAMD>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

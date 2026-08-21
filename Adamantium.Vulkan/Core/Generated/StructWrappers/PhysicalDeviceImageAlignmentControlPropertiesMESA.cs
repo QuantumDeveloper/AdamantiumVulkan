@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceImageAlignmentControlPropertiesMESA : 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageAlignmentControlPropertiesMESA>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageAlignmentControlPropertiesMESA>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

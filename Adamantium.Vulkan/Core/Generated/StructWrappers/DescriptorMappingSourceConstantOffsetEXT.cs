@@ -37,7 +37,7 @@ public unsafe partial class DescriptorMappingSourceConstantOffsetEXT : IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourceConstantOffsetEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourceConstantOffsetEXT>.Size;
         if (PEmbeddedSampler != default)
         {
             size += PEmbeddedSampler.GetSize();

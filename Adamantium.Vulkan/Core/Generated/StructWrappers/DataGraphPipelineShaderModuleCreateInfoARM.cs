@@ -39,7 +39,7 @@ public unsafe partial class DataGraphPipelineShaderModuleCreateInfoARM : IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineShaderModuleCreateInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineShaderModuleCreateInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -55,7 +55,7 @@ public unsafe partial class DataGraphPipelineShaderModuleCreateInfoARM : IMarsha
             for (int i = 0; i < PConstants.Length; i++)
             {
                 if (PConstants.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineConstantARM>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineConstantARM>.Size;
                 else
                     size += PConstants.Span[i].GetSize();
             }

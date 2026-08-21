@@ -38,13 +38,13 @@ public unsafe partial class DeviceQueueCreateInfo : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceQueueCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceQueueCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PQueuePriorities.IsEmpty)
-            size += PQueuePriorities.Span.Length * Marshal.SizeOf<System.Single>();
+            size += PQueuePriorities.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Single>.Size;
         return size;
     }
 

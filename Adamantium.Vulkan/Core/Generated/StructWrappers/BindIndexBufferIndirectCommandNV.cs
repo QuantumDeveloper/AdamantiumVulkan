@@ -35,7 +35,7 @@ public unsafe partial class BindIndexBufferIndirectCommandNV : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindIndexBufferIndirectCommandNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindIndexBufferIndirectCommandNV>.Size;
         return size;
     }
 

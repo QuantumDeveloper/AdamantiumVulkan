@@ -35,7 +35,7 @@ public unsafe partial class ClearColorValue : IMarshallableObject, IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkClearColorValue>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkClearColorValue>.Size;
         return size;
     }
 

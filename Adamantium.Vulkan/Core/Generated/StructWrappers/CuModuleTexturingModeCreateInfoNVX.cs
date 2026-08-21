@@ -35,7 +35,7 @@ public unsafe partial class CuModuleTexturingModeCreateInfoNVX : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCuModuleTexturingModeCreateInfoNVX>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCuModuleTexturingModeCreateInfoNVX>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

@@ -36,7 +36,7 @@ public unsafe partial class PhysicalDeviceLayeredApiPropertiesListKHR : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesListKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesListKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class PhysicalDeviceLayeredApiPropertiesListKHR : IMarshal
             for (int i = 0; i < PLayeredApis.Length; i++)
             {
                 if (PLayeredApis.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesKHR>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceLayeredApiPropertiesKHR>.Size;
                 else
                     size += PLayeredApis.Span[i].GetSize();
             }

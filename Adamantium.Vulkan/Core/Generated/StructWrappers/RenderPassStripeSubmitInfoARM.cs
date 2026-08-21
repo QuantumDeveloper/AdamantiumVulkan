@@ -36,7 +36,7 @@ public unsafe partial class RenderPassStripeSubmitInfoARM : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class RenderPassStripeSubmitInfoARM : IMarshallableObject,
             for (int i = 0; i < PStripeSemaphoreInfos.Length; i++)
             {
                 if (PStripeSemaphoreInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphoreSubmitInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphoreSubmitInfo>.Size;
                 else
                     size += PStripeSemaphoreInfos.Span[i].GetSize();
             }

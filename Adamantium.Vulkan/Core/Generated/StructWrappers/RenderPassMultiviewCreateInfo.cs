@@ -40,17 +40,17 @@ public unsafe partial class RenderPassMultiviewCreateInfo : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassMultiviewCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassMultiviewCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PViewMasks.IsEmpty)
-            size += PViewMasks.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PViewMasks.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         if (!PViewOffsets.IsEmpty)
-            size += PViewOffsets.Span.Length * Marshal.SizeOf<System.Int32>();
+            size += PViewOffsets.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Int32>.Size;
         if (!PCorrelationMasks.IsEmpty)
-            size += PCorrelationMasks.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PCorrelationMasks.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

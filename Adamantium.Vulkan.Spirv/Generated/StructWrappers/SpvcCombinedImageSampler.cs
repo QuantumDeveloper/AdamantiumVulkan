@@ -38,7 +38,7 @@ public unsafe partial class SpvcCombinedImageSampler : IMarshallable<Adamantium.
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcCombinedImageSampler>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcCombinedImageSampler>.Size;
         return size;
     }
 

@@ -36,7 +36,7 @@ public unsafe partial class FramebufferAttachmentsCreateInfo : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkFramebufferAttachmentsCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkFramebufferAttachmentsCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class FramebufferAttachmentsCreateInfo : IMarshallableObje
             for (int i = 0; i < PAttachmentImageInfos.Length; i++)
             {
                 if (PAttachmentImageInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkFramebufferAttachmentImageInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkFramebufferAttachmentImageInfo>.Size;
                 else
                     size += PAttachmentImageInfos.Span[i].GetSize();
             }

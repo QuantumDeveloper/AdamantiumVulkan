@@ -35,7 +35,7 @@ public unsafe partial class OpaqueCaptureDescriptorDataCreateInfoEXT : IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkOpaqueCaptureDescriptorDataCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkOpaqueCaptureDescriptorDataCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

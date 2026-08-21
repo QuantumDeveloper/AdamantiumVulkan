@@ -36,7 +36,7 @@ public unsafe partial class StdVideoH264ScalingLists : IMarshallableObject, IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH264ScalingLists>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH264ScalingLists>.Size;
         return size;
     }
 

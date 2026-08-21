@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceInternallySynchronizedQueuesFeaturesKH
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceInternallySynchronizedQueuesFeaturesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceInternallySynchronizedQueuesFeaturesKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

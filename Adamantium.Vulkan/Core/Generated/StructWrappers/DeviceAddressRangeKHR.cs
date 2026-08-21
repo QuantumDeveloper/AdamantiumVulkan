@@ -34,7 +34,7 @@ public unsafe partial class DeviceAddressRangeKHR : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceAddressRangeKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceAddressRangeKHR>.Size;
         return size;
     }
 

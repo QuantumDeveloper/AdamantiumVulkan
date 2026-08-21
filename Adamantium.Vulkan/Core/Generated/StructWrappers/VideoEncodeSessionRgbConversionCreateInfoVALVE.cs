@@ -38,7 +38,7 @@ public unsafe partial class VideoEncodeSessionRgbConversionCreateInfoVALVE : IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeSessionRgbConversionCreateInfoVALVE>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeSessionRgbConversionCreateInfoVALVE>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

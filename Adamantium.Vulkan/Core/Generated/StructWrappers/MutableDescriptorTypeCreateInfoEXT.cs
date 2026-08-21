@@ -36,7 +36,7 @@ public unsafe partial class MutableDescriptorTypeCreateInfoEXT : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class MutableDescriptorTypeCreateInfoEXT : IMarshallableOb
             for (int i = 0; i < PMutableDescriptorTypeLists.Length; i++)
             {
                 if (PMutableDescriptorTypeLists.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMutableDescriptorTypeListEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMutableDescriptorTypeListEXT>.Size;
                 else
                     size += PMutableDescriptorTypeLists.Span[i].GetSize();
             }

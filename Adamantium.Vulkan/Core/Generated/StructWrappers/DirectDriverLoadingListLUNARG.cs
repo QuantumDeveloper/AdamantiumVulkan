@@ -37,7 +37,7 @@ public unsafe partial class DirectDriverLoadingListLUNARG : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDirectDriverLoadingListLUNARG>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDirectDriverLoadingListLUNARG>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -47,7 +47,7 @@ public unsafe partial class DirectDriverLoadingListLUNARG : IMarshallableObject,
             for (int i = 0; i < PDrivers.Length; i++)
             {
                 if (PDrivers.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDirectDriverLoadingInfoLUNARG>.Size;
                 else
                     size += PDrivers.Span[i].GetSize();
             }

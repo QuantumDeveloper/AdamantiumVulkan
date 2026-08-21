@@ -45,7 +45,7 @@ public unsafe partial class SubpassDescription2 : IMarshallableObject, IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubpassDescription2>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubpassDescription2>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -55,7 +55,7 @@ public unsafe partial class SubpassDescription2 : IMarshallableObject, IMarshall
             for (int i = 0; i < PInputAttachments.Length; i++)
             {
                 if (PInputAttachments.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAttachmentReference2>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAttachmentReference2>.Size;
                 else
                     size += PInputAttachments.Span[i].GetSize();
             }
@@ -65,7 +65,7 @@ public unsafe partial class SubpassDescription2 : IMarshallableObject, IMarshall
             for (int i = 0; i < PColorAttachments.Length; i++)
             {
                 if (PColorAttachments.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAttachmentReference2>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAttachmentReference2>.Size;
                 else
                     size += PColorAttachments.Span[i].GetSize();
             }
@@ -75,7 +75,7 @@ public unsafe partial class SubpassDescription2 : IMarshallableObject, IMarshall
             for (int i = 0; i < PResolveAttachments.Length; i++)
             {
                 if (PResolveAttachments.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAttachmentReference2>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAttachmentReference2>.Size;
                 else
                     size += PResolveAttachments.Span[i].GetSize();
             }
@@ -85,7 +85,7 @@ public unsafe partial class SubpassDescription2 : IMarshallableObject, IMarshall
             size += PDepthStencilAttachment.GetSize();
         }
         if (!PreserveAttachments.IsEmpty)
-            size += PreserveAttachments.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PreserveAttachments.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

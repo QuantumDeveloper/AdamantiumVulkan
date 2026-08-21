@@ -37,7 +37,7 @@ public unsafe partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV :
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineViewportCoarseSampleOrderStateCreateInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -47,7 +47,7 @@ public unsafe partial class PipelineViewportCoarseSampleOrderStateCreateInfoNV :
             for (int i = 0; i < PCustomSampleOrders.Length; i++)
             {
                 if (PCustomSampleOrders.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV>.Size;
                 else
                     size += PCustomSampleOrders.Span[i].GetSize();
             }

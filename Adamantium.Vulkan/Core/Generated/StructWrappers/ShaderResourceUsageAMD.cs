@@ -37,7 +37,7 @@ public unsafe partial class ShaderResourceUsageAMD : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderResourceUsageAMD>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderResourceUsageAMD>.Size;
         return size;
     }
 

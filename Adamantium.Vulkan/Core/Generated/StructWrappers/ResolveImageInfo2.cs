@@ -40,7 +40,7 @@ public unsafe partial class ResolveImageInfo2 : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkResolveImageInfo2>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkResolveImageInfo2>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,7 @@ public unsafe partial class ResolveImageInfo2 : IMarshallableObject, IMarshallab
             for (int i = 0; i < PRegions.Length; i++)
             {
                 if (PRegions.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageResolve2>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageResolve2>.Size;
                 else
                     size += PRegions.Span[i].GetSize();
             }

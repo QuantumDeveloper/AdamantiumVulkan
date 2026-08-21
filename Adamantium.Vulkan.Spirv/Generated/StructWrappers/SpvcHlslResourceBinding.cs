@@ -50,7 +50,7 @@ public unsafe partial class SpvcHlslResourceBinding : IMarshallable<Adamantium.V
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcHlslResourceBinding>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcHlslResourceBinding>.Size;
         return size;
     }
 

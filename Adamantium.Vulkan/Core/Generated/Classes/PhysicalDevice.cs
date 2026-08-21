@@ -117,7 +117,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkExtensionProperties>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkExtensionProperties>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -157,7 +157,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkLayerProperties>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkLayerProperties>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -230,14 +230,14 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pCounters.Length; i++)
             {
                 if(pCounters[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterARM>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterARM>.Size;
                 else
                     totalSize += pCounters[(int)i].GetSize();
             }
             for (var i = 0U; i < pCounterDescriptions.Length; i++)
             {
                 if(pCounterDescriptions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterDescriptionARM>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterDescriptionARM>.Size;
                 else
                     totalSize += pCounterDescriptions[(int)i].GetSize();
             }
@@ -283,7 +283,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pCounterDescriptions.Length; i++)
             {
                 if(pCounterDescriptions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterDescriptionARM>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterDescriptionARM>.Size;
                 else
                     totalSize += pCounterDescriptions[(int)i].GetSize();
             }
@@ -327,7 +327,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pCounters.Length; i++)
             {
                 if(pCounters[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterARM>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterARM>.Size;
                 else
                     totalSize += pCounters[(int)i].GetSize();
             }
@@ -414,14 +414,14 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pCounters.Length; i++)
             {
                 if(pCounters[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterKHR>.Size;
                 else
                     totalSize += pCounters[(int)i].GetSize();
             }
             for (var i = 0U; i < pCounterDescriptions.Length; i++)
             {
                 if(pCounterDescriptions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterDescriptionKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterDescriptionKHR>.Size;
                 else
                     totalSize += pCounterDescriptions[(int)i].GetSize();
             }
@@ -467,7 +467,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pCounterDescriptions.Length; i++)
             {
                 if(pCounterDescriptions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterDescriptionKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterDescriptionKHR>.Size;
                 else
                     totalSize += pCounterDescriptions[(int)i].GetSize();
             }
@@ -511,7 +511,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pCounters.Length; i++)
             {
                 if(pCounters[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterKHR>.Size;
                 else
                     totalSize += pCounters[(int)i].GetSize();
             }
@@ -598,7 +598,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pDescriptions.Length; i++)
             {
                 if(pDescriptions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderInstrumentationMetricDescriptionARM>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderInstrumentationMetricDescriptionARM>.Size;
                 else
                     totalSize += pDescriptions[(int)i].GetSize();
             }
@@ -671,7 +671,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDisplayModeProperties2KHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDisplayModeProperties2KHR>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -746,7 +746,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDisplayModePropertiesKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDisplayModePropertiesKHR>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -926,7 +926,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -999,7 +999,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCooperativeMatrixPropertiesKHR>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -1072,7 +1072,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCooperativeMatrixPropertiesNV>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCooperativeMatrixPropertiesNV>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -1145,7 +1145,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCooperativeVectorPropertiesNV>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCooperativeVectorPropertiesNV>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -1223,7 +1223,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDisplayPlaneProperties2KHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDisplayPlaneProperties2KHR>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -1308,7 +1308,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDisplayProperties2KHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDisplayProperties2KHR>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -1381,7 +1381,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDisplayPropertiesKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDisplayPropertiesKHR>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -1640,7 +1640,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pFragmentShadingRates.Length; i++)
             {
                 if(pFragmentShadingRates[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR>.Size;
                 else
                     totalSize += pFragmentShadingRates[(int)i].GetSize();
             }
@@ -1776,7 +1776,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pImageFormatProperties.Length; i++)
             {
                 if(pImageFormatProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkOpticalFlowImageFormatPropertiesNV>.Size;
                 else
                     totalSize += pImageFormatProperties[(int)i].GetSize();
             }
@@ -1853,7 +1853,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pRects.Length; i++)
             {
                 if(pRects[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     totalSize += pRects[(int)i].GetSize();
             }
@@ -2004,7 +2004,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pImageFormatProperties.Length; i++)
             {
                 if(pImageFormatProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphOpticalFlowImageFormatPropertiesARM>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphOpticalFlowImageFormatPropertiesARM>.Size;
                 else
                     totalSize += pImageFormatProperties[(int)i].GetSize();
             }
@@ -2116,7 +2116,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pQueueFamilyDataGraphProperties.Length; i++)
             {
                 if(pQueueFamilyDataGraphProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkQueueFamilyDataGraphPropertiesARM>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkQueueFamilyDataGraphPropertiesARM>.Size;
                 else
                     totalSize += pQueueFamilyDataGraphProperties[(int)i].GetSize();
             }
@@ -2218,7 +2218,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pQueueFamilyProperties.Length; i++)
             {
                 if(pQueueFamilyProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkQueueFamilyProperties>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkQueueFamilyProperties>.Size;
                 else
                     totalSize += pQueueFamilyProperties[(int)i].GetSize();
             }
@@ -2256,7 +2256,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pQueueFamilyProperties.Length; i++)
             {
                 if(pQueueFamilyProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkQueueFamilyProperties2>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkQueueFamilyProperties2>.Size;
                 else
                     totalSize += pQueueFamilyProperties[(int)i].GetSize();
             }
@@ -2327,7 +2327,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSparseImageFormatProperties>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSparseImageFormatProperties>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -2400,7 +2400,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSparseImageFormatProperties2>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSparseImageFormatProperties2>.Size;
                 else
                     totalSize += pProperties[(int)i].GetSize();
             }
@@ -2475,7 +2475,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pCombinations.Length; i++)
             {
                 if(pCombinations[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkFramebufferMixedSamplesCombinationNV>.Size;
                 else
                     totalSize += pCombinations[(int)i].GetSize();
             }
@@ -2600,7 +2600,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pSurfaceFormats.Length; i++)
             {
                 if(pSurfaceFormats[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSurfaceFormat2KHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSurfaceFormat2KHR>.Size;
                 else
                     totalSize += pSurfaceFormats[(int)i].GetSize();
             }
@@ -2677,7 +2677,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pSurfaceFormats.Length; i++)
             {
                 if(pSurfaceFormats[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSurfaceFormatKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSurfaceFormatKHR>.Size;
                 else
                     totalSize += pSurfaceFormats[(int)i].GetSize();
             }
@@ -2759,7 +2759,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pToolProperties.Length; i++)
             {
                 if(pToolProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceToolProperties>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceToolProperties>.Size;
                 else
                     totalSize += pToolProperties[(int)i].GetSize();
             }
@@ -2898,7 +2898,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             for (var i = 0U; i < pVideoFormatProperties.Length; i++)
             {
                 if(pVideoFormatProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoFormatPropertiesKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoFormatPropertiesKHR>.Size;
                 else
                     totalSize += pVideoFormatProperties[(int)i].GetSize();
             }

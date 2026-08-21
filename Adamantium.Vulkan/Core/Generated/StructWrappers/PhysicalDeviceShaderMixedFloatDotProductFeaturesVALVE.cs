@@ -38,7 +38,7 @@ public unsafe partial class PhysicalDeviceShaderMixedFloatDotProductFeaturesVALV
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

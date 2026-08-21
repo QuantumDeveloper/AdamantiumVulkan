@@ -41,7 +41,7 @@ public unsafe partial class SlangcCompilerOption : IMarshallable<Adamantium.Vulk
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Slang.Interop.SlangcCompilerOption>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Slang.Interop.SlangcCompilerOption>.Size;
         if (!string.IsNullOrEmpty(StringValue0))
             size += System.Text.Encoding.UTF8.GetByteCount(StringValue0) + 1;
         if (!string.IsNullOrEmpty(StringValue1))

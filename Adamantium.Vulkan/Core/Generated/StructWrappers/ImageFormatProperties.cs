@@ -37,7 +37,7 @@ public unsafe partial class ImageFormatProperties : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageFormatProperties>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageFormatProperties>.Size;
         return size;
     }
 

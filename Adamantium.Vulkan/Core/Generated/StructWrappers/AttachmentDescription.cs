@@ -41,7 +41,7 @@ public unsafe partial class AttachmentDescription : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAttachmentDescription>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAttachmentDescription>.Size;
         return size;
     }
 

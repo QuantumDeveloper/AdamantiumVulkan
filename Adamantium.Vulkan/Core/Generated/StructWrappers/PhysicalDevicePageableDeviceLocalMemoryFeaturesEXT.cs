@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDevicePageableDeviceLocalMemoryFeaturesEXT :
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

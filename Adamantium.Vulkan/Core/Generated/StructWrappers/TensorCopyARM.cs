@@ -38,17 +38,17 @@ public unsafe partial class TensorCopyARM : IMarshallableObject, IMarshallable<A
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTensorCopyARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTensorCopyARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PSrcOffset.IsEmpty)
-            size += PSrcOffset.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PSrcOffset.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         if (!PDstOffset.IsEmpty)
-            size += PDstOffset.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PDstOffset.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         if (!PExtent.IsEmpty)
-            size += PExtent.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PExtent.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         return size;
     }
 

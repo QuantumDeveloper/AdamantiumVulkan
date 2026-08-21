@@ -33,7 +33,7 @@ public unsafe partial class TransformMatrixKHR : IMarshallableObject, IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTransformMatrixKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTransformMatrixKHR>.Size;
         return size;
     }
 

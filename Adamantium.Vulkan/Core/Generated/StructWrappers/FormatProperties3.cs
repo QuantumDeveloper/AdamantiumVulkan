@@ -37,7 +37,7 @@ public unsafe partial class FormatProperties3 : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkFormatProperties3>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkFormatProperties3>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

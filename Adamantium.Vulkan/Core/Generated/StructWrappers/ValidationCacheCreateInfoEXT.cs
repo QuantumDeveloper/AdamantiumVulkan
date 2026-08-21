@@ -37,13 +37,13 @@ public unsafe partial class ValidationCacheCreateInfoEXT : IMarshallableObject, 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkValidationCacheCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkValidationCacheCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PInitialData.IsEmpty)
-            size += PInitialData.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PInitialData.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 

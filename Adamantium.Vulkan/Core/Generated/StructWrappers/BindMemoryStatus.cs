@@ -35,7 +35,7 @@ public unsafe partial class BindMemoryStatus : IMarshallableObject, IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindMemoryStatus>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindMemoryStatus>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

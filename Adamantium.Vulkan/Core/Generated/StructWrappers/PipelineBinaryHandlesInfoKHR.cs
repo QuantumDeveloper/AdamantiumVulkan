@@ -36,13 +36,13 @@ public unsafe partial class PipelineBinaryHandlesInfoKHR : IMarshallableObject, 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryHandlesInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryHandlesInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PipelineBinaries.IsEmpty)
-            size += PipelineBinaries.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryKHR_T>();
+            size += PipelineBinaries.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryKHR_T>.Size;
         return size;
     }
 

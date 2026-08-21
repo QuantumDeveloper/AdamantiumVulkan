@@ -34,7 +34,7 @@ public unsafe partial class IndirectExecutionSetInfoEXT : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetInfoEXT>.Size;
         if (PipelineInfo != default)
         {
             size = Math.Max(size, PipelineInfo.GetSize());

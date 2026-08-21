@@ -34,7 +34,7 @@ public unsafe partial class DrawMeshTasksIndirectCommandNV : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDrawMeshTasksIndirectCommandNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDrawMeshTasksIndirectCommandNV>.Size;
         return size;
     }
 

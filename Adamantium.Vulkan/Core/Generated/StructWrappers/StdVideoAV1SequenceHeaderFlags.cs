@@ -52,7 +52,7 @@ public unsafe partial class StdVideoAV1SequenceHeaderFlags : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoAV1SequenceHeaderFlags>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoAV1SequenceHeaderFlags>.Size;
         return size;
     }
 

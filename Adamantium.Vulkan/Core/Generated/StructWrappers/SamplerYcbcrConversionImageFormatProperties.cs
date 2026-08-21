@@ -35,7 +35,7 @@ public unsafe partial class SamplerYcbcrConversionImageFormatProperties : IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSamplerYcbcrConversionImageFormatProperties>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSamplerYcbcrConversionImageFormatProperties>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

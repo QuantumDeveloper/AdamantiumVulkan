@@ -38,7 +38,7 @@ public unsafe partial class AllocationCallbacks : IMarshallableObject, IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAllocationCallbacks>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAllocationCallbacks>.Size;
         return size;
     }
 

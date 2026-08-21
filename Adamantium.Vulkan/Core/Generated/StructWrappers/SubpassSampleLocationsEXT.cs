@@ -34,7 +34,7 @@ public unsafe partial class SubpassSampleLocationsEXT : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubpassSampleLocationsEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubpassSampleLocationsEXT>.Size;
         return size;
     }
 

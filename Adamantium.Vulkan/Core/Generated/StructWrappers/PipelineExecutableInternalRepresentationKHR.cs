@@ -39,13 +39,13 @@ public unsafe partial class PipelineExecutableInternalRepresentationKHR : IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineExecutableInternalRepresentationKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PData.IsEmpty)
-            size += PData.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PData.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 

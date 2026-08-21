@@ -36,13 +36,13 @@ public unsafe partial class DescriptorSetVariableDescriptorCountAllocateInfo : I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetVariableDescriptorCountAllocateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PDescriptorCounts.IsEmpty)
-            size += PDescriptorCounts.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PDescriptorCounts.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

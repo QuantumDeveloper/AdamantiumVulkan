@@ -36,7 +36,7 @@ public unsafe partial class ConformanceVersion : IMarshallableObject, IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkConformanceVersion>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkConformanceVersion>.Size;
         return size;
     }
 

@@ -59,7 +59,7 @@ public unsafe partial class StdVideoEncodeAV1PictureInfo : IMarshallableObject, 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeAV1PictureInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeAV1PictureInfo>.Size;
         if (PTileInfo != default)
         {
             size += PTileInfo.GetSize();

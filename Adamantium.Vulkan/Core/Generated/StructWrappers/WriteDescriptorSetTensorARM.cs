@@ -36,13 +36,13 @@ public unsafe partial class WriteDescriptorSetTensorARM : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSetTensorARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSetTensorARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PTensorViews.IsEmpty)
-            size += PTensorViews.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTensorViewARM_T>();
+            size += PTensorViews.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTensorViewARM_T>.Size;
         return size;
     }
 

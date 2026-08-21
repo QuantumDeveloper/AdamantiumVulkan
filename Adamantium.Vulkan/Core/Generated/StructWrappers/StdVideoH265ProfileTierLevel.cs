@@ -35,7 +35,7 @@ public unsafe partial class StdVideoH265ProfileTierLevel : IMarshallableObject, 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH265ProfileTierLevel>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH265ProfileTierLevel>.Size;
         return size;
     }
 

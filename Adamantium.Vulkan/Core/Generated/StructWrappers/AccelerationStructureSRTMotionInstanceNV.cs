@@ -39,7 +39,7 @@ public unsafe partial class AccelerationStructureSRTMotionInstanceNV : IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureSRTMotionInstanceNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureSRTMotionInstanceNV>.Size;
         return size;
     }
 

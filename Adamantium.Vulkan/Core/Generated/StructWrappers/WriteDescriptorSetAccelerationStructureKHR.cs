@@ -36,13 +36,13 @@ public unsafe partial class WriteDescriptorSetAccelerationStructureKHR : IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSetAccelerationStructureKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PAccelerationStructures.IsEmpty)
-            size += PAccelerationStructures.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureKHR_T>();
+            size += PAccelerationStructures.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureKHR_T>.Size;
         return size;
     }
 

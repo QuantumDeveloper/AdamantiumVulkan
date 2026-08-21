@@ -37,7 +37,7 @@ public unsafe partial class PerformanceOverrideInfoINTEL : IMarshallableObject, 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPerformanceOverrideInfoINTEL>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPerformanceOverrideInfoINTEL>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

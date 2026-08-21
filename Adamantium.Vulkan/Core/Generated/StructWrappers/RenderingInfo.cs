@@ -42,7 +42,7 @@ public unsafe partial class RenderingInfo : IMarshallableObject, IMarshallable<A
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderingInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderingInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -52,7 +52,7 @@ public unsafe partial class RenderingInfo : IMarshallableObject, IMarshallable<A
             for (int i = 0; i < PColorAttachments.Length; i++)
             {
                 if (PColorAttachments.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderingAttachmentInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderingAttachmentInfo>.Size;
                 else
                     size += PColorAttachments.Span[i].GetSize();
             }

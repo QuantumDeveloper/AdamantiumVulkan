@@ -35,7 +35,7 @@ public unsafe partial class AttachmentReferenceStencilLayout : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAttachmentReferenceStencilLayout>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAttachmentReferenceStencilLayout>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

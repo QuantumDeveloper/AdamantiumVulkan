@@ -38,7 +38,7 @@ public unsafe partial class StdVideoDecodeH264PictureInfoFlags : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoDecodeH264PictureInfoFlags>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoDecodeH264PictureInfoFlags>.Size;
         return size;
     }
 

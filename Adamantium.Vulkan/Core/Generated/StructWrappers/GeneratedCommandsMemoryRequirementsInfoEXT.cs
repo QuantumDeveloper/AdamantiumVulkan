@@ -38,7 +38,7 @@ public unsafe partial class GeneratedCommandsMemoryRequirementsInfoEXT : IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsMemoryRequirementsInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

@@ -48,7 +48,7 @@ public unsafe partial class SRTDataNV : IMarshallableObject, IMarshallable<Adama
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSRTDataNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSRTDataNV>.Size;
         return size;
     }
 

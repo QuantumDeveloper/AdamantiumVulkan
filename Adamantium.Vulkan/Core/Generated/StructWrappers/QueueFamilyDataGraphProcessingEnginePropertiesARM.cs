@@ -36,7 +36,7 @@ public unsafe partial class QueueFamilyDataGraphProcessingEnginePropertiesARM : 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkQueueFamilyDataGraphProcessingEnginePropertiesARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkQueueFamilyDataGraphProcessingEnginePropertiesARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

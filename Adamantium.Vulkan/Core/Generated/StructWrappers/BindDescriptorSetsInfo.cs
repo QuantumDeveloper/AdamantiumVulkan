@@ -41,15 +41,15 @@ public unsafe partial class BindDescriptorSetsInfo : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindDescriptorSetsInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindDescriptorSetsInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PDescriptorSets.IsEmpty)
-            size += PDescriptorSets.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T>();
+            size += PDescriptorSets.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T>.Size;
         if (!PDynamicOffsets.IsEmpty)
-            size += PDynamicOffsets.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PDynamicOffsets.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

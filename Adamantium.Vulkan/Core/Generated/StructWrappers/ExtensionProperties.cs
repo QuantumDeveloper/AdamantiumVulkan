@@ -34,7 +34,7 @@ public unsafe partial class ExtensionProperties : IMarshallableObject, IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkExtensionProperties>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkExtensionProperties>.Size;
         return size;
     }
 

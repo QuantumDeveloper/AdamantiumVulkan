@@ -35,7 +35,7 @@ public unsafe partial class ExternalMemoryProperties : IMarshallableObject, IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkExternalMemoryProperties>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkExternalMemoryProperties>.Size;
         return size;
     }
 

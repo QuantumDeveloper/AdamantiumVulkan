@@ -36,13 +36,13 @@ public unsafe partial class HdrVividDynamicMetadataHUAWEI : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkHdrVividDynamicMetadataHUAWEI>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkHdrVividDynamicMetadataHUAWEI>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PDynamicMetadata.IsEmpty)
-            size += PDynamicMetadata.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PDynamicMetadata.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 

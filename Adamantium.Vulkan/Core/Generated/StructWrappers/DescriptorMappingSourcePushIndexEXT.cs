@@ -42,7 +42,7 @@ public unsafe partial class DescriptorMappingSourcePushIndexEXT : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourcePushIndexEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourcePushIndexEXT>.Size;
         if (PEmbeddedSampler != default)
         {
             size += PEmbeddedSampler.GetSize();

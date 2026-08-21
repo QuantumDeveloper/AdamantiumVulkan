@@ -36,13 +36,13 @@ public unsafe partial class DataGraphPipelineIdentifierCreateInfoARM : IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineIdentifierCreateInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineIdentifierCreateInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PIdentifier.IsEmpty)
-            size += PIdentifier.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PIdentifier.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 

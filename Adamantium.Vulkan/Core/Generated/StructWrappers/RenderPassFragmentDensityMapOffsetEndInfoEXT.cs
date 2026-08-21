@@ -36,7 +36,7 @@ public unsafe partial class RenderPassFragmentDensityMapOffsetEndInfoEXT : IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassFragmentDensityMapOffsetEndInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassFragmentDensityMapOffsetEndInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class RenderPassFragmentDensityMapOffsetEndInfoEXT : IMars
             for (int i = 0; i < PFragmentDensityOffsets.Length; i++)
             {
                 if (PFragmentDensityOffsets.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkOffset2D>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkOffset2D>.Size;
                 else
                     size += PFragmentDensityOffsets.Span[i].GetSize();
             }

@@ -36,7 +36,7 @@ public unsafe partial class ComponentMapping : IMarshallableObject, IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkComponentMapping>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkComponentMapping>.Size;
         return size;
     }
 

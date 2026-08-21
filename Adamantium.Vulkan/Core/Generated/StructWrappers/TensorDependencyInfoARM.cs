@@ -36,7 +36,7 @@ public unsafe partial class TensorDependencyInfoARM : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTensorDependencyInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTensorDependencyInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class TensorDependencyInfoARM : IMarshallableObject, IMars
             for (int i = 0; i < PTensorMemoryBarriers.Length; i++)
             {
                 if (PTensorMemoryBarriers.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTensorMemoryBarrierARM>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTensorMemoryBarrierARM>.Size;
                 else
                     size += PTensorMemoryBarriers.Span[i].GetSize();
             }

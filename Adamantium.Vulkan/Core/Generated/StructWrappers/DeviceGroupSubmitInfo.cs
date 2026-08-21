@@ -40,17 +40,17 @@ public unsafe partial class DeviceGroupSubmitInfo : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceGroupSubmitInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceGroupSubmitInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PWaitSemaphoreDeviceIndices.IsEmpty)
-            size += PWaitSemaphoreDeviceIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PWaitSemaphoreDeviceIndices.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         if (!PCommandBufferDeviceMasks.IsEmpty)
-            size += PCommandBufferDeviceMasks.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PCommandBufferDeviceMasks.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         if (!PSignalSemaphoreDeviceIndices.IsEmpty)
-            size += PSignalSemaphoreDeviceIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PSignalSemaphoreDeviceIndices.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

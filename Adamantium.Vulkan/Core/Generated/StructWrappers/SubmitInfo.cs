@@ -41,19 +41,19 @@ public unsafe partial class SubmitInfo : IMarshallableObject, IMarshallable<Adam
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubmitInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubmitInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PWaitSemaphores.IsEmpty)
-            size += PWaitSemaphores.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>();
+            size += PWaitSemaphores.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>.Size;
         if (!PWaitDstStageMask.IsEmpty)
             size += PWaitDstStageMask.Span.Length * sizeof(uint);
         if (!PCommandBuffers.IsEmpty)
-            size += PCommandBuffers.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCommandBuffer_T>();
+            size += PCommandBuffers.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCommandBuffer_T>.Size;
         if (!PSignalSemaphores.IsEmpty)
-            size += PSignalSemaphores.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>();
+            size += PSignalSemaphores.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>.Size;
         return size;
     }
 

@@ -41,7 +41,7 @@ public unsafe partial class BufferMemoryBarrier : IMarshallableObject, IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

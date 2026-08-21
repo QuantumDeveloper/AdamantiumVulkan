@@ -320,7 +320,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pCounterInfos.Length; i++)
             {
                 if(pCounterInfos[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>.Size;
                 else
                     totalSize += pCounterInfos[(int)i].GetSize();
             }
@@ -543,7 +543,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pBindingInfos.Length; i++)
             {
                 if(pBindingInfos[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT>.Size;
                 else
                     totalSize += pBindingInfos[(int)i].GetSize();
             }
@@ -979,7 +979,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pBindingInfos.Length; i++)
             {
                 if(pBindingInfos[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>.Size;
                 else
                     totalSize += pBindingInfos[(int)i].GetSize();
             }
@@ -1506,7 +1506,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pBindingInfos.Length; i++)
             {
                 if(pBindingInfos[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindVertexBuffer3InfoKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindVertexBuffer3InfoKHR>.Size;
                 else
                     totalSize += pBindingInfos[(int)i].GetSize();
             }
@@ -1573,7 +1573,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pRegions.Length; i++)
             {
                 if(pRegions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageBlit>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageBlit>.Size;
                 else
                     totalSize += pRegions[(int)i].GetSize();
             }
@@ -1706,7 +1706,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pInfos.Length; i++)
             {
                 if(pInfos[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR>.Size;
                 else
                     totalSize += pInfos[(int)i].GetSize();
             }
@@ -1785,7 +1785,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pInfos.Length; i++)
             {
                 if(pInfos[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR>.Size;
                 else
                     totalSize += pInfos[(int)i].GetSize();
             }
@@ -1829,7 +1829,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pInfos.Length; i++)
             {
                 if(pInfos[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR>.Size;
                 else
                     totalSize += pInfos[(int)i].GetSize();
             }
@@ -1908,7 +1908,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pInfos.Length; i++)
             {
                 if(pInfos[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureBuildGeometryInfoKHR>.Size;
                 else
                     totalSize += pInfos[(int)i].GetSize();
             }
@@ -2008,7 +2008,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pInfos.Length; i++)
             {
                 if(pInfos[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMicromapBuildInfoEXT>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMicromapBuildInfoEXT>.Size;
                 else
                     totalSize += pInfos[(int)i].GetSize();
             }
@@ -2104,14 +2104,14 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pAttachments.Length; i++)
             {
                 if(pAttachments[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkClearAttachment>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkClearAttachment>.Size;
                 else
                     totalSize += pAttachments[(int)i].GetSize();
             }
             for (var i = 0U; i < pRects.Length; i++)
             {
                 if(pRects[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkClearRect>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkClearRect>.Size;
                 else
                     totalSize += pRects[(int)i].GetSize();
             }
@@ -2156,7 +2156,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pRects.Length; i++)
             {
                 if(pRects[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkClearRect>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkClearRect>.Size;
                 else
                     totalSize += pRects[(int)i].GetSize();
             }
@@ -2195,7 +2195,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pAttachments.Length; i++)
             {
                 if(pAttachments[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkClearAttachment>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkClearAttachment>.Size;
                 else
                     totalSize += pAttachments[(int)i].GetSize();
             }
@@ -2270,7 +2270,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pRanges.Length; i++)
             {
                 if(pRanges[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageSubresourceRange>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageSubresourceRange>.Size;
                 else
                     totalSize += pRanges[(int)i].GetSize();
             }
@@ -2345,7 +2345,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pRanges.Length; i++)
             {
                 if(pRanges[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageSubresourceRange>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageSubresourceRange>.Size;
                 else
                     totalSize += pRanges[(int)i].GetSize();
             }
@@ -2447,7 +2447,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pInfos.Length; i++)
             {
                 if(pInfos[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkConvertCooperativeVectorMatrixInfoNV>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkConvertCooperativeVectorMatrixInfoNV>.Size;
                 else
                     totalSize += pInfos[(int)i].GetSize();
             }
@@ -2579,7 +2579,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pRegions.Length; i++)
             {
                 if(pRegions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferCopy>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferCopy>.Size;
                 else
                     totalSize += pRegions[(int)i].GetSize();
             }
@@ -2679,7 +2679,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pRegions.Length; i++)
             {
                 if(pRegions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferImageCopy>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferImageCopy>.Size;
                 else
                     totalSize += pRegions[(int)i].GetSize();
             }
@@ -2779,7 +2779,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pRegions.Length; i++)
             {
                 if(pRegions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageCopy>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageCopy>.Size;
                 else
                     totalSize += pRegions[(int)i].GetSize();
             }
@@ -2879,7 +2879,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pRegions.Length; i++)
             {
                 if(pRegions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferImageCopy>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferImageCopy>.Size;
                 else
                     totalSize += pRegions[(int)i].GetSize();
             }
@@ -3129,7 +3129,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pImageSubresources.Length; i++)
             {
                 if(pImageSubresources[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageSubresourceLayers>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageSubresourceLayers>.Size;
                 else
                     totalSize += pImageSubresources[(int)i].GetSize();
             }
@@ -3540,7 +3540,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pDecompressMemoryRegions.Length; i++)
             {
                 if(pDecompressMemoryRegions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDecompressMemoryRegionNV>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDecompressMemoryRegionNV>.Size;
                 else
                     totalSize += pDecompressMemoryRegions[(int)i].GetSize();
             }
@@ -4003,7 +4003,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pVertexInfo.Length; i++)
             {
                 if(pVertexInfo[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMultiDrawInfoEXT>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMultiDrawInfoEXT>.Size;
                 else
                     totalSize += pVertexInfo[(int)i].GetSize();
             }
@@ -4070,7 +4070,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pIndexInfo.Length; i++)
             {
                 if(pIndexInfo[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMultiDrawIndexedInfoEXT>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMultiDrawIndexedInfoEXT>.Size;
                 else
                     totalSize += pIndexInfo[(int)i].GetSize();
             }
@@ -4299,7 +4299,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pCounterInfos.Length; i++)
             {
                 if(pCounterInfos[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindTransformFeedbackBuffer2InfoEXT>.Size;
                 else
                     totalSize += pCounterInfos[(int)i].GetSize();
             }
@@ -4697,21 +4697,21 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pMemoryBarriers.Length; i++)
             {
                 if(pMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMemoryBarrier>.Size;
                 else
                     totalSize += pMemoryBarriers[(int)i].GetSize();
             }
             for (var i = 0U; i < pBufferMemoryBarriers.Length; i++)
             {
                 if(pBufferMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>.Size;
                 else
                     totalSize += pBufferMemoryBarriers[(int)i].GetSize();
             }
             for (var i = 0U; i < pImageMemoryBarriers.Length; i++)
             {
                 if(pImageMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>.Size;
                 else
                     totalSize += pImageMemoryBarriers[(int)i].GetSize();
             }
@@ -4942,7 +4942,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pDescriptorWrites.Length; i++)
             {
                 if(pDescriptorWrites[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSet>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSet>.Size;
                 else
                     totalSize += pDescriptorWrites[(int)i].GetSize();
             }
@@ -5100,7 +5100,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pRegions.Length; i++)
             {
                 if(pRegions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageResolve>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageResolve>.Size;
                 else
                     totalSize += pRegions[(int)i].GetSize();
             }
@@ -5226,7 +5226,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pCustomSampleOrders.Length; i++)
             {
                 if(pCustomSampleOrders[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV>.Size;
                 else
                     totalSize += pCustomSampleOrders[(int)i].GetSize();
             }
@@ -5293,7 +5293,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pColorBlendAdvanced.Length; i++)
             {
                 if(pColorBlendAdvanced[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkColorBlendAdvancedEXT>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkColorBlendAdvancedEXT>.Size;
                 else
                     totalSize += pColorBlendAdvanced[(int)i].GetSize();
             }
@@ -5395,7 +5395,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pColorBlendEquations.Length; i++)
             {
                 if(pColorBlendEquations[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkColorBlendEquationEXT>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkColorBlendEquationEXT>.Size;
                 else
                     totalSize += pColorBlendEquations[(int)i].GetSize();
             }
@@ -5881,7 +5881,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pDiscardRectangles.Length; i++)
             {
                 if(pDiscardRectangles[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     totalSize += pDiscardRectangles[(int)i].GetSize();
             }
@@ -6053,7 +6053,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pExclusiveScissors.Length; i++)
             {
                 if(pExclusiveScissors[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     totalSize += pExclusiveScissors[(int)i].GetSize();
             }
@@ -6463,7 +6463,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pScissors.Length; i++)
             {
                 if(pScissors[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     totalSize += pScissors[(int)i].GetSize();
             }
@@ -6530,7 +6530,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pScissors.Length; i++)
             {
                 if(pScissors[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     totalSize += pScissors[(int)i].GetSize();
             }
@@ -6632,14 +6632,14 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pVertexBindingDescriptions.Length; i++)
             {
                 if(pVertexBindingDescriptions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVertexInputBindingDescription2EXT>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVertexInputBindingDescription2EXT>.Size;
                 else
                     totalSize += pVertexBindingDescriptions[(int)i].GetSize();
             }
             for (var i = 0U; i < pVertexAttributeDescriptions.Length; i++)
             {
                 if(pVertexAttributeDescriptions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVertexInputAttributeDescription2EXT>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVertexInputAttributeDescription2EXT>.Size;
                 else
                     totalSize += pVertexAttributeDescriptions[(int)i].GetSize();
             }
@@ -6684,7 +6684,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pVertexAttributeDescriptions.Length; i++)
             {
                 if(pVertexAttributeDescriptions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVertexInputAttributeDescription2EXT>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVertexInputAttributeDescription2EXT>.Size;
                 else
                     totalSize += pVertexAttributeDescriptions[(int)i].GetSize();
             }
@@ -6723,7 +6723,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pVertexBindingDescriptions.Length; i++)
             {
                 if(pVertexBindingDescriptions[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVertexInputBindingDescription2EXT>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVertexInputBindingDescription2EXT>.Size;
                 else
                     totalSize += pVertexBindingDescriptions[(int)i].GetSize();
             }
@@ -6796,7 +6796,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pViewports.Length; i++)
             {
                 if(pViewports[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkViewport>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkViewport>.Size;
                 else
                     totalSize += pViewports[(int)i].GetSize();
             }
@@ -6863,7 +6863,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pShadingRatePalettes.Length; i++)
             {
                 if(pShadingRatePalettes[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShadingRatePaletteNV>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShadingRatePaletteNV>.Size;
                 else
                     totalSize += pShadingRatePalettes[(int)i].GetSize();
             }
@@ -6930,7 +6930,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pViewportSwizzles.Length; i++)
             {
                 if(pViewportSwizzles[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkViewportSwizzleNV>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkViewportSwizzleNV>.Size;
                 else
                     totalSize += pViewportSwizzles[(int)i].GetSize();
             }
@@ -6997,7 +6997,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pViewports.Length; i++)
             {
                 if(pViewports[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkViewport>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkViewport>.Size;
                 else
                     totalSize += pViewports[(int)i].GetSize();
             }
@@ -7069,7 +7069,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pViewportWScalings.Length; i++)
             {
                 if(pViewportWScalings[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkViewportWScalingNV>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkViewportWScalingNV>.Size;
                 else
                     totalSize += pViewportWScalings[(int)i].GetSize();
             }
@@ -7336,21 +7336,21 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pMemoryBarriers.Length; i++)
             {
                 if(pMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMemoryBarrier>.Size;
                 else
                     totalSize += pMemoryBarriers[(int)i].GetSize();
             }
             for (var i = 0U; i < pBufferMemoryBarriers.Length; i++)
             {
                 if(pBufferMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>.Size;
                 else
                     totalSize += pBufferMemoryBarriers[(int)i].GetSize();
             }
             for (var i = 0U; i < pImageMemoryBarriers.Length; i++)
             {
                 if(pImageMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>.Size;
                 else
                     totalSize += pImageMemoryBarriers[(int)i].GetSize();
             }
@@ -7406,21 +7406,21 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pMemoryBarriers.Length; i++)
             {
                 if(pMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMemoryBarrier>.Size;
                 else
                     totalSize += pMemoryBarriers[(int)i].GetSize();
             }
             for (var i = 0U; i < pBufferMemoryBarriers.Length; i++)
             {
                 if(pBufferMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>.Size;
                 else
                     totalSize += pBufferMemoryBarriers[(int)i].GetSize();
             }
             for (var i = 0U; i < pImageMemoryBarriers.Length; i++)
             {
                 if(pImageMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>.Size;
                 else
                     totalSize += pImageMemoryBarriers[(int)i].GetSize();
             }
@@ -7473,14 +7473,14 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pBufferMemoryBarriers.Length; i++)
             {
                 if(pBufferMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>.Size;
                 else
                     totalSize += pBufferMemoryBarriers[(int)i].GetSize();
             }
             for (var i = 0U; i < pImageMemoryBarriers.Length; i++)
             {
                 if(pImageMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>.Size;
                 else
                     totalSize += pImageMemoryBarriers[(int)i].GetSize();
             }
@@ -7532,7 +7532,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pMemoryBarriers.Length; i++)
             {
                 if(pMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMemoryBarrier>.Size;
                 else
                     totalSize += pMemoryBarriers[(int)i].GetSize();
             }
@@ -7541,7 +7541,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pImageMemoryBarriers.Length; i++)
             {
                 if(pImageMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>.Size;
                 else
                     totalSize += pImageMemoryBarriers[(int)i].GetSize();
             }
@@ -7593,14 +7593,14 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pMemoryBarriers.Length; i++)
             {
                 if(pMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMemoryBarrier>.Size;
                 else
                     totalSize += pMemoryBarriers[(int)i].GetSize();
             }
             for (var i = 0U; i < pBufferMemoryBarriers.Length; i++)
             {
                 if(pBufferMemoryBarriers[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>.Size;
                 else
                     totalSize += pBufferMemoryBarriers[(int)i].GetSize();
             }
@@ -7692,7 +7692,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pDependencyInfos.Length; i++)
             {
                 if(pDependencyInfos[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDependencyInfo>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDependencyInfo>.Size;
                 else
                     totalSize += pDependencyInfos[(int)i].GetSize();
             }
@@ -7738,7 +7738,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             for (var i = 0U; i < pDependencyInfos.Length; i++)
             {
                 if(pDependencyInfos[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDependencyInfo>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDependencyInfo>.Size;
                 else
                     totalSize += pDependencyInfos[(int)i].GetSize();
             }

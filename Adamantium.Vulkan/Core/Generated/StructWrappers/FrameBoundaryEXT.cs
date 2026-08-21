@@ -43,17 +43,17 @@ public unsafe partial class FrameBoundaryEXT : IMarshallableObject, IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkFrameBoundaryEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkFrameBoundaryEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PImages.IsEmpty)
-            size += PImages.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImage_T>();
+            size += PImages.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImage_T>.Size;
         if (!PBuffers.IsEmpty)
-            size += PBuffers.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBuffer_T>();
+            size += PBuffers.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBuffer_T>.Size;
         if (!PTag.IsEmpty)
-            size += PTag.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PTag.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 

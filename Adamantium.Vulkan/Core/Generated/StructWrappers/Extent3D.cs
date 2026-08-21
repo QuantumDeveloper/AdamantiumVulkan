@@ -35,7 +35,7 @@ public unsafe partial class Extent3D : IMarshallableObject, IMarshallable<Adaman
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkExtent3D>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkExtent3D>.Size;
         return size;
     }
 

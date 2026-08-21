@@ -37,7 +37,7 @@ public unsafe partial class MappedMemoryRange : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMappedMemoryRange>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMappedMemoryRange>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

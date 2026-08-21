@@ -50,13 +50,13 @@ public unsafe partial class SwapchainCreateInfoKHR : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSwapchainCreateInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSwapchainCreateInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PQueueFamilyIndices.IsEmpty)
-            size += PQueueFamilyIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PQueueFamilyIndices.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

@@ -330,7 +330,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<Adamantium.Vulkan.Core.
             for (var i = 0U; i < pPhysicalDeviceGroupProperties.Length; i++)
             {
                 if(pPhysicalDeviceGroupProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceGroupProperties>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceGroupProperties>.Size;
                 else
                     totalSize += pPhysicalDeviceGroupProperties[(int)i].GetSize();
             }

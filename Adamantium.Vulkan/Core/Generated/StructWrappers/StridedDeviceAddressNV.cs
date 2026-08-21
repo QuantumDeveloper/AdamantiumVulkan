@@ -34,7 +34,7 @@ public unsafe partial class StridedDeviceAddressNV : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkStridedDeviceAddressNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkStridedDeviceAddressNV>.Size;
         return size;
     }
 

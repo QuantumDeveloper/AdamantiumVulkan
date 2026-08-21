@@ -46,7 +46,7 @@ public unsafe partial class RayTracingPipelineCreateInfoKHR : IMarshallableObjec
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRayTracingPipelineCreateInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -56,7 +56,7 @@ public unsafe partial class RayTracingPipelineCreateInfoKHR : IMarshallableObjec
             for (int i = 0; i < PStages.Length; i++)
             {
                 if (PStages.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineShaderStageCreateInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineShaderStageCreateInfo>.Size;
                 else
                     size += PStages.Span[i].GetSize();
             }
@@ -66,7 +66,7 @@ public unsafe partial class RayTracingPipelineCreateInfoKHR : IMarshallableObjec
             for (int i = 0; i < PGroups.Length; i++)
             {
                 if (PGroups.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoKHR>.Size;
                 else
                     size += PGroups.Span[i].GetSize();
             }

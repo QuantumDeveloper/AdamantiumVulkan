@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceRelaxedLineRasterizationFeaturesIMG : 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

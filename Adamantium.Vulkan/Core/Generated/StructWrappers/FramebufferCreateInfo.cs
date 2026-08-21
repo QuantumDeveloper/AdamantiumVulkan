@@ -41,13 +41,13 @@ public unsafe partial class FramebufferCreateInfo : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkFramebufferCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkFramebufferCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PAttachments.IsEmpty)
-            size += PAttachments.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageView_T>();
+            size += PAttachments.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageView_T>.Size;
         return size;
     }
 

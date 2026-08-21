@@ -40,17 +40,17 @@ public unsafe partial class PresentInfoKHR : IMarshallableObject, IMarshallable<
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PWaitSemaphores.IsEmpty)
-            size += PWaitSemaphores.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>();
+            size += PWaitSemaphores.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>.Size;
         if (!PSwapchains.IsEmpty)
-            size += PSwapchains.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T>();
+            size += PSwapchains.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T>.Size;
         if (!PImageIndices.IsEmpty)
-            size += PImageIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PImageIndices.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         if (!PResults.IsEmpty)
             size += PResults.Span.Length * sizeof(int);
         return size;

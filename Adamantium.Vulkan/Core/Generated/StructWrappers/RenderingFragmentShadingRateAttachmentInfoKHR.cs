@@ -37,7 +37,7 @@ public unsafe partial class RenderingFragmentShadingRateAttachmentInfoKHR : IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderingFragmentShadingRateAttachmentInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderingFragmentShadingRateAttachmentInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

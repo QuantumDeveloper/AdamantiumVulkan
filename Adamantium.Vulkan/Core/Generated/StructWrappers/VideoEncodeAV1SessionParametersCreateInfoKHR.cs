@@ -38,7 +38,7 @@ public unsafe partial class VideoEncodeAV1SessionParametersCreateInfoKHR : IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -56,7 +56,7 @@ public unsafe partial class VideoEncodeAV1SessionParametersCreateInfoKHR : IMars
             for (int i = 0; i < PStdOperatingPoints.Length; i++)
             {
                 if (PStdOperatingPoints.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfo>.Size;
                 else
                     size += PStdOperatingPoints.Span[i].GetSize();
             }

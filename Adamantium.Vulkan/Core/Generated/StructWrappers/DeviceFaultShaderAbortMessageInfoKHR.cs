@@ -36,13 +36,13 @@ public unsafe partial class DeviceFaultShaderAbortMessageInfoKHR : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceFaultShaderAbortMessageInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceFaultShaderAbortMessageInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PMessageData.IsEmpty)
-            size += PMessageData.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PMessageData.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 

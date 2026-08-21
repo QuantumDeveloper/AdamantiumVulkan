@@ -36,13 +36,13 @@ public unsafe partial class RenderingAttachmentLocationInfo : IMarshallableObjec
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderingAttachmentLocationInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderingAttachmentLocationInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PColorAttachmentLocations.IsEmpty)
-            size += PColorAttachmentLocations.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PColorAttachmentLocations.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

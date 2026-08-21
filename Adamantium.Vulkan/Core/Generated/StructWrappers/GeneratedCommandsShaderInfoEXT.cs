@@ -36,13 +36,13 @@ public unsafe partial class GeneratedCommandsShaderInfoEXT : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsShaderInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsShaderInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PShaders.IsEmpty)
-            size += PShaders.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderEXT_T>();
+            size += PShaders.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderEXT_T>.Size;
         return size;
     }
 

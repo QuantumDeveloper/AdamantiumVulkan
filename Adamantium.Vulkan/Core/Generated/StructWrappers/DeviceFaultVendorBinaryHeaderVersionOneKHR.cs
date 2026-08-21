@@ -43,7 +43,7 @@ public unsafe partial class DeviceFaultVendorBinaryHeaderVersionOneKHR : IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorBinaryHeaderVersionOneKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorBinaryHeaderVersionOneKHR>.Size;
         return size;
     }
 

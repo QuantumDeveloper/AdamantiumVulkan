@@ -34,7 +34,7 @@ public unsafe partial class SampleLocationEXT : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSampleLocationEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSampleLocationEXT>.Size;
         return size;
     }
 

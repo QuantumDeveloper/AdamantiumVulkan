@@ -36,13 +36,13 @@ public unsafe partial class CuModuleCreateInfoNVX : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCuModuleCreateInfoNVX>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCuModuleCreateInfoNVX>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PData.IsEmpty)
-            size += PData.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PData.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 

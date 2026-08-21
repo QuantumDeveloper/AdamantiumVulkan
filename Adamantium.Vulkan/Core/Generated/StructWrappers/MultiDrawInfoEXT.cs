@@ -34,7 +34,7 @@ public unsafe partial class MultiDrawInfoEXT : IMarshallableObject, IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMultiDrawInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMultiDrawInfoEXT>.Size;
         return size;
     }
 

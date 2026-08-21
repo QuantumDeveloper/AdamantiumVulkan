@@ -42,7 +42,7 @@ public unsafe partial class DescriptorMappingSourceIndirectIndexArrayEXT : IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourceIndirectIndexArrayEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourceIndirectIndexArrayEXT>.Size;
         if (PEmbeddedSampler != default)
         {
             size += PEmbeddedSampler.GetSize();

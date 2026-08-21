@@ -36,7 +36,7 @@ public unsafe partial class VertexInputAttributeDescription : IMarshallableObjec
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVertexInputAttributeDescription>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVertexInputAttributeDescription>.Size;
         return size;
     }
 

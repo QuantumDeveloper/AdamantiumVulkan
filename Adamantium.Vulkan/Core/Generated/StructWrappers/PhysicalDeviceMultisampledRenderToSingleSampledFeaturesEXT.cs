@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceMultisampledRenderToSingleSampledFeatu
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

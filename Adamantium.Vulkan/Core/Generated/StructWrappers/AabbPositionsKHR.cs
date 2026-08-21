@@ -38,7 +38,7 @@ public unsafe partial class AabbPositionsKHR : IMarshallableObject, IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAabbPositionsKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAabbPositionsKHR>.Size;
         return size;
     }
 

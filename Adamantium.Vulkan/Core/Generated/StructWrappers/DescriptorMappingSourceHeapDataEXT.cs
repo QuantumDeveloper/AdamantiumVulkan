@@ -34,7 +34,7 @@ public unsafe partial class DescriptorMappingSourceHeapDataEXT : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourceHeapDataEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourceHeapDataEXT>.Size;
         return size;
     }
 

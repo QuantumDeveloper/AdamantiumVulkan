@@ -37,7 +37,7 @@ public unsafe partial class SubpassDescriptionDepthStencilResolve : IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubpassDescriptionDepthStencilResolve>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubpassDescriptionDepthStencilResolve>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

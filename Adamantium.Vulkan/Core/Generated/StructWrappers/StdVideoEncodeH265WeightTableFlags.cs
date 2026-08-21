@@ -36,7 +36,7 @@ public unsafe partial class StdVideoEncodeH265WeightTableFlags : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags>.Size;
         return size;
     }
 

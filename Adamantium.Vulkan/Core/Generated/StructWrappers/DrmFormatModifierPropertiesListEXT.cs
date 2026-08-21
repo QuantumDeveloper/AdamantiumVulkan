@@ -36,7 +36,7 @@ public unsafe partial class DrmFormatModifierPropertiesListEXT : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDrmFormatModifierPropertiesListEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDrmFormatModifierPropertiesListEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class DrmFormatModifierPropertiesListEXT : IMarshallableOb
             for (int i = 0; i < PDrmFormatModifierProperties.Length; i++)
             {
                 if (PDrmFormatModifierProperties.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDrmFormatModifierPropertiesEXT>.Size;
                 else
                     size += PDrmFormatModifierProperties.Span[i].GetSize();
             }

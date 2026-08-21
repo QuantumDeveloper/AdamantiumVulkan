@@ -37,7 +37,7 @@ public unsafe partial class ConditionalRenderingBeginInfo2EXT : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkConditionalRenderingBeginInfo2EXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkConditionalRenderingBeginInfo2EXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

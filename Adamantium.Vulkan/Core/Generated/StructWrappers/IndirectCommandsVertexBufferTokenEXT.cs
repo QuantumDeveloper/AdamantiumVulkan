@@ -33,7 +33,7 @@ public unsafe partial class IndirectCommandsVertexBufferTokenEXT : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsVertexBufferTokenEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsVertexBufferTokenEXT>.Size;
         return size;
     }
 

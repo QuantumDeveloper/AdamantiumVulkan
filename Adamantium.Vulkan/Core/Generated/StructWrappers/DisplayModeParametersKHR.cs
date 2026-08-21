@@ -34,7 +34,7 @@ public unsafe partial class DisplayModeParametersKHR : IMarshallableObject, IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDisplayModeParametersKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDisplayModeParametersKHR>.Size;
         return size;
     }
 

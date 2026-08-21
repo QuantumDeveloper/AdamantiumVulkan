@@ -42,13 +42,13 @@ public unsafe partial class SubpassDescription : IMarshallableObject, IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubpassDescription>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubpassDescription>.Size;
         if (!PInputAttachments.IsEmpty)
         {
             for (int i = 0; i < PInputAttachments.Length; i++)
             {
                 if (PInputAttachments.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAttachmentReference>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAttachmentReference>.Size;
                 else
                     size += PInputAttachments.Span[i].GetSize();
             }
@@ -58,7 +58,7 @@ public unsafe partial class SubpassDescription : IMarshallableObject, IMarshalla
             for (int i = 0; i < PColorAttachments.Length; i++)
             {
                 if (PColorAttachments.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAttachmentReference>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAttachmentReference>.Size;
                 else
                     size += PColorAttachments.Span[i].GetSize();
             }
@@ -68,7 +68,7 @@ public unsafe partial class SubpassDescription : IMarshallableObject, IMarshalla
             for (int i = 0; i < PResolveAttachments.Length; i++)
             {
                 if (PResolveAttachments.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAttachmentReference>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAttachmentReference>.Size;
                 else
                     size += PResolveAttachments.Span[i].GetSize();
             }
@@ -78,7 +78,7 @@ public unsafe partial class SubpassDescription : IMarshallableObject, IMarshalla
             size += PDepthStencilAttachment.GetSize();
         }
         if (!PreserveAttachments.IsEmpty)
-            size += PreserveAttachments.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PreserveAttachments.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 

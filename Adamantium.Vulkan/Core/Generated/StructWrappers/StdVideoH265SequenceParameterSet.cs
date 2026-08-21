@@ -71,7 +71,7 @@ public unsafe partial class StdVideoH265SequenceParameterSet : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH265SequenceParameterSet>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH265SequenceParameterSet>.Size;
         if (ProfileTierLevel != default)
         {
             size += ProfileTierLevel.GetSize();
@@ -89,7 +89,7 @@ public unsafe partial class StdVideoH265SequenceParameterSet : IMarshallableObje
             for (int i = 0; i < PShortTermRefPicSet.Length; i++)
             {
                 if (PShortTermRefPicSet.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH265ShortTermRefPicSet>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH265ShortTermRefPicSet>.Size;
                 else
                     size += PShortTermRefPicSet.Span[i].GetSize();
             }

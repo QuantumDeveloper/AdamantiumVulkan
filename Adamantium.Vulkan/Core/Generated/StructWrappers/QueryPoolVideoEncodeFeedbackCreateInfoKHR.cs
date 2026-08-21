@@ -35,7 +35,7 @@ public unsafe partial class QueryPoolVideoEncodeFeedbackCreateInfoKHR : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkQueryPoolVideoEncodeFeedbackCreateInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkQueryPoolVideoEncodeFeedbackCreateInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

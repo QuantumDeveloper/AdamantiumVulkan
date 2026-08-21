@@ -35,7 +35,7 @@ public unsafe partial class DispatchIndirectCommand : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDispatchIndirectCommand>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDispatchIndirectCommand>.Size;
         return size;
     }
 

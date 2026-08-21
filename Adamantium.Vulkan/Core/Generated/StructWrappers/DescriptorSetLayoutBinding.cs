@@ -37,9 +37,9 @@ public unsafe partial class DescriptorSetLayoutBinding : IMarshallableObject, IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutBinding>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutBinding>.Size;
         if (!PImmutableSamplers.IsEmpty)
-            size += PImmutableSamplers.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSampler_T>();
+            size += PImmutableSamplers.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSampler_T>.Size;
         return size;
     }
 

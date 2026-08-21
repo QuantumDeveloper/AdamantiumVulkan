@@ -37,7 +37,7 @@ public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -47,7 +47,7 @@ public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : IMarshal
             for (int i = 0; i < PViewportWScalings.Length; i++)
             {
                 if (PViewportWScalings.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkViewportWScalingNV>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkViewportWScalingNV>.Size;
                 else
                     size += PViewportWScalings.Span[i].GetSize();
             }

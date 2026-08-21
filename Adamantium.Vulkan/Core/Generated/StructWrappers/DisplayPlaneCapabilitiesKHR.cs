@@ -41,7 +41,7 @@ public unsafe partial class DisplayPlaneCapabilitiesKHR : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDisplayPlaneCapabilitiesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDisplayPlaneCapabilitiesKHR>.Size;
         return size;
     }
 

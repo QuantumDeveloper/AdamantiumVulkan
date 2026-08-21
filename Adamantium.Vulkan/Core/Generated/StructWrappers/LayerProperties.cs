@@ -36,7 +36,7 @@ public unsafe partial class LayerProperties : IMarshallableObject, IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkLayerProperties>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkLayerProperties>.Size;
         return size;
     }
 

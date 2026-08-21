@@ -34,7 +34,7 @@ public unsafe partial class PresentStageTimeEXT : IMarshallableObject, IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentStageTimeEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentStageTimeEXT>.Size;
         return size;
     }
 

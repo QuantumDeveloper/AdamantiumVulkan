@@ -37,7 +37,7 @@ public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -47,7 +47,7 @@ public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : 
             for (int i = 0; i < PShadingRatePalettes.Length; i++)
             {
                 if (PShadingRatePalettes.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShadingRatePaletteNV>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShadingRatePaletteNV>.Size;
                 else
                     size += PShadingRatePalettes.Span[i].GetSize();
             }

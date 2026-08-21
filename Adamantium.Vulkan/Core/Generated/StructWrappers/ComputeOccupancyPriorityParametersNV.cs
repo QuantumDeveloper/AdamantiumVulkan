@@ -36,7 +36,7 @@ public unsafe partial class ComputeOccupancyPriorityParametersNV : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkComputeOccupancyPriorityParametersNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkComputeOccupancyPriorityParametersNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

@@ -35,13 +35,13 @@ public unsafe partial class PipelineBinaryKeysAndDataKHR : IMarshallableObject, 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryKeysAndDataKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryKeysAndDataKHR>.Size;
         if (!PipelineBinaryKeys.IsEmpty)
         {
             for (int i = 0; i < PipelineBinaryKeys.Length; i++)
             {
                 if (PipelineBinaryKeys.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryKeyKHR>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryKeyKHR>.Size;
                 else
                     size += PipelineBinaryKeys.Span[i].GetSize();
             }
@@ -51,7 +51,7 @@ public unsafe partial class PipelineBinaryKeysAndDataKHR : IMarshallableObject, 
             for (int i = 0; i < PipelineBinaryData.Length; i++)
             {
                 if (PipelineBinaryData.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryDataKHR>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryDataKHR>.Size;
                 else
                     size += PipelineBinaryData.Span[i].GetSize();
             }

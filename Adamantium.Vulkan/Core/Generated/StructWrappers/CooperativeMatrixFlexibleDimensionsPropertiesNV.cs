@@ -44,7 +44,7 @@ public unsafe partial class CooperativeMatrixFlexibleDimensionsPropertiesNV : IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCooperativeMatrixFlexibleDimensionsPropertiesNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

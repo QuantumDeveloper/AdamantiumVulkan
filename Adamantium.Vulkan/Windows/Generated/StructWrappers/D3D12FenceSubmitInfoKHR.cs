@@ -39,15 +39,15 @@ public unsafe partial class D3D12FenceSubmitInfoKHR : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PWaitSemaphoreValues.IsEmpty)
-            size += PWaitSemaphoreValues.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PWaitSemaphoreValues.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         if (!PSignalSemaphoreValues.IsEmpty)
-            size += PSignalSemaphoreValues.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PSignalSemaphoreValues.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         return size;
     }
 

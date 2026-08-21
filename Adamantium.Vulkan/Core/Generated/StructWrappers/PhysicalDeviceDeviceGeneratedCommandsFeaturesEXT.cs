@@ -36,7 +36,7 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsFeaturesEXT : I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

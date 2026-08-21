@@ -39,19 +39,19 @@ public unsafe partial class PipelineLayoutCreateInfo : IMarshallableObject, IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineLayoutCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineLayoutCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PSetLayouts.IsEmpty)
-            size += PSetLayouts.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayout_T>();
+            size += PSetLayouts.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayout_T>.Size;
         if (!PushConstantRanges.IsEmpty)
         {
             for (int i = 0; i < PushConstantRanges.Length; i++)
             {
                 if (PushConstantRanges.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPushConstantRange>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPushConstantRange>.Size;
                 else
                     size += PushConstantRanges.Span[i].GetSize();
             }

@@ -35,7 +35,7 @@ public unsafe partial class RayTracingPipelineClusterAccelerationStructureCreate
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();

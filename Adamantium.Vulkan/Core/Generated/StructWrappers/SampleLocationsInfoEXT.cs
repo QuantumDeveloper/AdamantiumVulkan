@@ -38,7 +38,7 @@ public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSampleLocationsInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSampleLocationsInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -48,7 +48,7 @@ public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarsh
             for (int i = 0; i < PSampleLocations.Length; i++)
             {
                 if (PSampleLocations.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSampleLocationEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSampleLocationEXT>.Size;
                 else
                     size += PSampleLocations.Span[i].GetSize();
             }

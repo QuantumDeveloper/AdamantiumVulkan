@@ -37,7 +37,7 @@ public unsafe partial class ImageResolve : IMarshallableObject, IMarshallable<Ad
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageResolve>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageResolve>.Size;
         return size;
     }
 

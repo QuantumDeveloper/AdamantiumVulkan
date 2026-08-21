@@ -38,7 +38,7 @@ public unsafe partial class RenderPassSampleLocationsBeginInfoEXT : IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassSampleLocationsBeginInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassSampleLocationsBeginInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -48,7 +48,7 @@ public unsafe partial class RenderPassSampleLocationsBeginInfoEXT : IMarshallabl
             for (int i = 0; i < PAttachmentInitialSampleLocations.Length; i++)
             {
                 if (PAttachmentInitialSampleLocations.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAttachmentSampleLocationsEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAttachmentSampleLocationsEXT>.Size;
                 else
                     size += PAttachmentInitialSampleLocations.Span[i].GetSize();
             }
@@ -58,7 +58,7 @@ public unsafe partial class RenderPassSampleLocationsBeginInfoEXT : IMarshallabl
             for (int i = 0; i < PostSubpassSampleLocations.Length; i++)
             {
                 if (PostSubpassSampleLocations.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubpassSampleLocationsEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubpassSampleLocationsEXT>.Size;
                 else
                     size += PostSubpassSampleLocations.Span[i].GetSize();
             }
