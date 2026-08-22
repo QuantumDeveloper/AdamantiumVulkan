@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ValidationFlagsEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkValidationFlagsEXT>
+public unsafe partial class ValidationFlagsEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkValidationFlagsEXT>
 {
     public ValidationFlagsEXT()
     {
@@ -53,7 +53,14 @@ public unsafe partial class ValidationFlagsEXT : IMarshallableObject, IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkValidationFlagsEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DisabledValidationCheckCount = native.disabledValidationCheckCount;
         var arrayLengthPDisabledValidationChecks = native.disabledValidationCheckCount;
         var tmpPDisabledValidationChecks = new ValidationCheckEXT[arrayLengthPDisabledValidationChecks];
@@ -69,6 +76,12 @@ public unsafe partial class ValidationFlagsEXT : IMarshallableObject, IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkValidationFlagsEXT*)native);
     }
     private ref struct VkValidationFlagsEXTMarshaller
     {

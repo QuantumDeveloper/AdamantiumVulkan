@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceShaderObjectPropertiesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderObjectPropertiesEXT>
+public unsafe partial class PhysicalDeviceShaderObjectPropertiesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderObjectPropertiesEXT>
 {
     public PhysicalDeviceShaderObjectPropertiesEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceShaderObjectPropertiesEXT : IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderObjectPropertiesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         var tmpShaderBinaryUUID = new byte[16];
         var shaderBinaryUUIDp = native.shaderBinaryUUID[0];
         var pShaderBinaryUUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in shaderBinaryUUIDp ));
@@ -68,6 +75,12 @@ public unsafe partial class PhysicalDeviceShaderObjectPropertiesEXT : IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderObjectPropertiesEXT*)native);
     }
     private ref struct VkPhysicalDeviceShaderObjectPropertiesEXTMarshaller
     {

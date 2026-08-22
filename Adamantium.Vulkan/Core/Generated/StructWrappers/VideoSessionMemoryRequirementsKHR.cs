@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoSessionMemoryRequirementsKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR>
+public unsafe partial class VideoSessionMemoryRequirementsKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR>
 {
     public VideoSessionMemoryRequirementsKHR()
     {
@@ -51,7 +51,14 @@ public unsafe partial class VideoSessionMemoryRequirementsKHR : IMarshallableObj
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MemoryBindIndex = native.memoryBindIndex;
         MemoryRequirements = new MemoryRequirements(native.memoryRequirements);
 
@@ -64,6 +71,12 @@ public unsafe partial class VideoSessionMemoryRequirementsKHR : IMarshallableObj
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoSessionMemoryRequirementsKHR*)native);
     }
     private ref struct VkVideoSessionMemoryRequirementsKHRMarshaller
     {

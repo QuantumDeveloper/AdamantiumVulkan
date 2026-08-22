@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class BindIndexBuffer3InfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindIndexBuffer3InfoKHR>
+public unsafe partial class BindIndexBuffer3InfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindIndexBuffer3InfoKHR>
 {
     public BindIndexBuffer3InfoKHR()
     {
@@ -52,7 +52,14 @@ public unsafe partial class BindIndexBuffer3InfoKHR : IMarshallableObject, IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkBindIndexBuffer3InfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         AddressRange = new DeviceAddressRangeKHR(native.addressRange);
         AddressFlags = native.addressFlags;
         IndexType = native.indexType;
@@ -66,6 +73,12 @@ public unsafe partial class BindIndexBuffer3InfoKHR : IMarshallableObject, IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkBindIndexBuffer3InfoKHR*)native);
     }
     private ref struct VkBindIndexBuffer3InfoKHRMarshaller
     {

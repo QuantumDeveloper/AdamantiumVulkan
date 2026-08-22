@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SemaphoreWaitInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSemaphoreWaitInfo>
+public unsafe partial class SemaphoreWaitInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSemaphoreWaitInfo>
 {
     public SemaphoreWaitInfo()
     {
@@ -57,7 +57,14 @@ public unsafe partial class SemaphoreWaitInfo : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSemaphoreWaitInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         SemaphoreCount = native.semaphoreCount;
         var arrayLengthPSemaphores = native.semaphoreCount;
@@ -83,6 +90,12 @@ public unsafe partial class SemaphoreWaitInfo : IMarshallableObject, IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSemaphoreWaitInfo*)native);
     }
     private ref struct VkSemaphoreWaitInfoMarshaller
     {

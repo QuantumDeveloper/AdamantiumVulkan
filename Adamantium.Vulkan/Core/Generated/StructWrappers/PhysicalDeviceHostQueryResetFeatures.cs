@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceHostQueryResetFeatures : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceHostQueryResetFeatures>
+public unsafe partial class PhysicalDeviceHostQueryResetFeatures : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceHostQueryResetFeatures>
 {
     public PhysicalDeviceHostQueryResetFeatures()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceHostQueryResetFeatures : IMarshallable
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceHostQueryResetFeatures native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         HostQueryReset = native.hostQueryReset;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceHostQueryResetFeatures : IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceHostQueryResetFeatures*)native);
     }
     private ref struct VkPhysicalDeviceHostQueryResetFeaturesMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceSamplerFilterMinmaxProperties : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSamplerFilterMinmaxProperties>
+public unsafe partial class PhysicalDeviceSamplerFilterMinmaxProperties : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSamplerFilterMinmaxProperties>
 {
     public PhysicalDeviceSamplerFilterMinmaxProperties()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceSamplerFilterMinmaxProperties : IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSamplerFilterMinmaxProperties native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         FilterMinmaxSingleComponentFormats = native.filterMinmaxSingleComponentFormats;
         FilterMinmaxImageComponentMapping = native.filterMinmaxImageComponentMapping;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceSamplerFilterMinmaxProperties : IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSamplerFilterMinmaxProperties*)native);
     }
     private ref struct VkPhysicalDeviceSamplerFilterMinmaxPropertiesMarshaller
     {

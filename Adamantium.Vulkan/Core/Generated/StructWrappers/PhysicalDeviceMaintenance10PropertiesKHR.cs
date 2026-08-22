@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceMaintenance10PropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance10PropertiesKHR>
+public unsafe partial class PhysicalDeviceMaintenance10PropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance10PropertiesKHR>
 {
     public PhysicalDeviceMaintenance10PropertiesKHR()
     {
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDeviceMaintenance10PropertiesKHR : IMarshall
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance10PropertiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Rgba4OpaqueBlackSwizzled = native.rgba4OpaqueBlackSwizzled;
         ResolveSrgbFormatAppliesTransferFunction = native.resolveSrgbFormatAppliesTransferFunction;
         ResolveSrgbFormatSupportsTransferFunctionControl = native.resolveSrgbFormatSupportsTransferFunctionControl;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDeviceMaintenance10PropertiesKHR : IMarshall
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance10PropertiesKHR*)native);
     }
     private ref struct VkPhysicalDeviceMaintenance10PropertiesKHRMarshaller
     {

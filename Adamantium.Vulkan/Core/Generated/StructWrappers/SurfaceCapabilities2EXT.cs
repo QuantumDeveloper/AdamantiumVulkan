@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SurfaceCapabilities2EXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSurfaceCapabilities2EXT>
+public unsafe partial class SurfaceCapabilities2EXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSurfaceCapabilities2EXT>
 {
     public SurfaceCapabilities2EXT()
     {
@@ -60,7 +60,14 @@ public unsafe partial class SurfaceCapabilities2EXT : IMarshallableObject, IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSurfaceCapabilities2EXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MinImageCount = native.minImageCount;
         MaxImageCount = native.maxImageCount;
         CurrentExtent = new Extent2D(native.currentExtent);
@@ -82,6 +89,12 @@ public unsafe partial class SurfaceCapabilities2EXT : IMarshallableObject, IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSurfaceCapabilities2EXT*)native);
     }
     private ref struct VkSurfaceCapabilities2EXTMarshaller
     {

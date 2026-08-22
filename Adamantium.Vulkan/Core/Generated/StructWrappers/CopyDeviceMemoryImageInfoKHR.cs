@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CopyDeviceMemoryImageInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyDeviceMemoryImageInfoKHR>
+public unsafe partial class CopyDeviceMemoryImageInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyDeviceMemoryImageInfoKHR>
 {
     public CopyDeviceMemoryImageInfoKHR()
     {
@@ -62,7 +62,14 @@ public unsafe partial class CopyDeviceMemoryImageInfoKHR : IMarshallableObject, 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkCopyDeviceMemoryImageInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Image = new Image(native.image);
         RegionCount = native.regionCount;
         var arrayLengthPRegions = native.regionCount;
@@ -84,6 +91,12 @@ public unsafe partial class CopyDeviceMemoryImageInfoKHR : IMarshallableObject, 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCopyDeviceMemoryImageInfoKHR*)native);
     }
     private ref struct VkCopyDeviceMemoryImageInfoKHRMarshaller
     {

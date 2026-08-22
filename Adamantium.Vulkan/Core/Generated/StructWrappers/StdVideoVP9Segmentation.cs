@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoVP9Segmentation : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoVP9Segmentation>
+public unsafe partial class StdVideoVP9Segmentation : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoVP9Segmentation>
 {
     public StdVideoVP9Segmentation()
     {
@@ -79,6 +79,12 @@ public unsafe partial class StdVideoVP9Segmentation : IMarshallableObject, IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoVP9Segmentation*)native);
     }
     private ref struct StdVideoVP9SegmentationMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceRayTracingMaintenance1FeaturesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR>
+public unsafe partial class PhysicalDeviceRayTracingMaintenance1FeaturesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR>
 {
     public PhysicalDeviceRayTracingMaintenance1FeaturesKHR()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceRayTracingMaintenance1FeaturesKHR : IM
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         RayTracingMaintenance1 = native.rayTracingMaintenance1;
         RayTracingPipelineTraceRaysIndirect2 = native.rayTracingPipelineTraceRaysIndirect2;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceRayTracingMaintenance1FeaturesKHR : IM
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR*)native);
     }
     private ref struct VkPhysicalDeviceRayTracingMaintenance1FeaturesKHRMarshaller
     {

@@ -90,7 +90,10 @@ public unsafe partial class Queue : IUnmanagedWrapper<Adamantium.Vulkan.Core.Int
                 Commands.vkGetQueueCheckpointData2NV(this, ref pCheckpointDataCount, arg2);
                 if (arg2 is not null)
                 {
-                    pCheckpointData = new Adamantium.Vulkan.Core.CheckpointData2NV(*arg2);
+                    if (pCheckpointData != null)
+                        pCheckpointData.MarshalFrom(*arg2);
+                    else
+                        pCheckpointData = new Adamantium.Vulkan.Core.CheckpointData2NV(*arg2);
                 }
             }
             finally
@@ -161,7 +164,10 @@ public unsafe partial class Queue : IUnmanagedWrapper<Adamantium.Vulkan.Core.Int
                 Commands.vkGetQueueCheckpointDataNV(this, ref pCheckpointDataCount, arg2);
                 if (arg2 is not null)
                 {
-                    pCheckpointData = new Adamantium.Vulkan.Core.CheckpointDataNV(*arg2);
+                    if (pCheckpointData != null)
+                        pCheckpointData.MarshalFrom(*arg2);
+                    else
+                        pCheckpointData = new Adamantium.Vulkan.Core.CheckpointDataNV(*arg2);
                 }
             }
             finally

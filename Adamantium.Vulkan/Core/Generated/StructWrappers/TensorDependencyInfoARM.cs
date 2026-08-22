@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class TensorDependencyInfoARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkTensorDependencyInfoARM>
+public unsafe partial class TensorDependencyInfoARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkTensorDependencyInfoARM>
 {
     public TensorDependencyInfoARM()
     {
@@ -61,7 +61,14 @@ public unsafe partial class TensorDependencyInfoARM : IMarshallableObject, IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkTensorDependencyInfoARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         TensorMemoryBarrierCount = native.tensorMemoryBarrierCount;
         var arrayLengthPTensorMemoryBarriers = native.tensorMemoryBarrierCount;
         var tmpPTensorMemoryBarriers = new TensorMemoryBarrierARM[arrayLengthPTensorMemoryBarriers];
@@ -82,6 +89,12 @@ public unsafe partial class TensorDependencyInfoARM : IMarshallableObject, IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkTensorDependencyInfoARM*)native);
     }
     private ref struct VkTensorDependencyInfoARMMarshaller
     {

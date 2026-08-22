@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceSubgroupSizeControlFeatures : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlFeatures>
+public unsafe partial class PhysicalDeviceSubgroupSizeControlFeatures : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlFeatures>
 {
     public PhysicalDeviceSubgroupSizeControlFeatures()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceSubgroupSizeControlFeatures : IMarshal
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlFeatures native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SubgroupSizeControl = native.subgroupSizeControl;
         ComputeFullSubgroups = native.computeFullSubgroups;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceSubgroupSizeControlFeatures : IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlFeatures*)native);
     }
     private ref struct VkPhysicalDeviceSubgroupSizeControlFeaturesMarshaller
     {

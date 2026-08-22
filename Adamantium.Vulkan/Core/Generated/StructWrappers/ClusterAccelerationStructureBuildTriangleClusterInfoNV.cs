@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ClusterAccelerationStructureBuildTriangleClusterInfoNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureBuildTriangleClusterInfoNV>
+public unsafe partial class ClusterAccelerationStructureBuildTriangleClusterInfoNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureBuildTriangleClusterInfoNV>
 {
     public ClusterAccelerationStructureBuildTriangleClusterInfoNV()
     {
@@ -87,6 +87,12 @@ public unsafe partial class ClusterAccelerationStructureBuildTriangleClusterInfo
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureBuildTriangleClusterInfoNV*)native);
     }
     private ref struct VkClusterAccelerationStructureBuildTriangleClusterInfoNVMarshaller
     {

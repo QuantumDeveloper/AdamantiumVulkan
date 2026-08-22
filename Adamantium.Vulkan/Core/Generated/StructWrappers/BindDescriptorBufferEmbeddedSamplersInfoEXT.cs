@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class BindDescriptorBufferEmbeddedSamplersInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindDescriptorBufferEmbeddedSamplersInfoEXT>
+public unsafe partial class BindDescriptorBufferEmbeddedSamplersInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindDescriptorBufferEmbeddedSamplersInfoEXT>
 {
     public BindDescriptorBufferEmbeddedSamplersInfoEXT()
     {
@@ -52,7 +52,14 @@ public unsafe partial class BindDescriptorBufferEmbeddedSamplersInfoEXT : IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkBindDescriptorBufferEmbeddedSamplersInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         StageFlags = native.stageFlags;
         Layout = new PipelineLayout(native.layout);
         Set = native.set;
@@ -66,6 +73,12 @@ public unsafe partial class BindDescriptorBufferEmbeddedSamplersInfoEXT : IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkBindDescriptorBufferEmbeddedSamplersInfoEXT*)native);
     }
     private ref struct VkBindDescriptorBufferEmbeddedSamplersInfoEXTMarshaller
     {

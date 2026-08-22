@@ -13,7 +13,7 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Windows;
 
-public unsafe partial class ImportMemoryWin32HandleInfoNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV>
+public unsafe partial class ImportMemoryWin32HandleInfoNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV>
 {
     public ImportMemoryWin32HandleInfoNV()
     {
@@ -52,7 +52,14 @@ public unsafe partial class ImportMemoryWin32HandleInfoNV : IMarshallableObject,
 
     public void MarshalFrom(in Adamantium.Vulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         HandleType = native.handleType;
         Handle = native.handle;
 
@@ -65,6 +72,12 @@ public unsafe partial class ImportMemoryWin32HandleInfoNV : IMarshallableObject,
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Windows.Interop.VkImportMemoryWin32HandleInfoNV*)native);
     }
     private ref struct VkImportMemoryWin32HandleInfoNVMarshaller
     {

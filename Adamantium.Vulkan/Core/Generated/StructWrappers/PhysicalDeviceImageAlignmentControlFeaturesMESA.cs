@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceImageAlignmentControlFeaturesMESA : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageAlignmentControlFeaturesMESA>
+public unsafe partial class PhysicalDeviceImageAlignmentControlFeaturesMESA : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageAlignmentControlFeaturesMESA>
 {
     public PhysicalDeviceImageAlignmentControlFeaturesMESA()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceImageAlignmentControlFeaturesMESA : IM
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageAlignmentControlFeaturesMESA native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ImageAlignmentControl = native.imageAlignmentControl;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceImageAlignmentControlFeaturesMESA : IM
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageAlignmentControlFeaturesMESA*)native);
     }
     private ref struct VkPhysicalDeviceImageAlignmentControlFeaturesMESAMarshaller
     {

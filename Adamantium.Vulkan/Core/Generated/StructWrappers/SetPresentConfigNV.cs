@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SetPresentConfigNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSetPresentConfigNV>
+public unsafe partial class SetPresentConfigNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSetPresentConfigNV>
 {
     public SetPresentConfigNV()
     {
@@ -51,7 +51,14 @@ public unsafe partial class SetPresentConfigNV : IMarshallableObject, IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSetPresentConfigNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         NumFramesPerBatch = native.numFramesPerBatch;
         PresentConfigFeedback = native.presentConfigFeedback;
 
@@ -64,6 +71,12 @@ public unsafe partial class SetPresentConfigNV : IMarshallableObject, IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSetPresentConfigNV*)native);
     }
     private ref struct VkSetPresentConfigNVMarshaller
     {

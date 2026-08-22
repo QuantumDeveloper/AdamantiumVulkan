@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PresentRegionKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentRegionKHR>
+public unsafe partial class PresentRegionKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentRegionKHR>
 {
     public PresentRegionKHR()
     {
@@ -75,6 +75,12 @@ public unsafe partial class PresentRegionKHR : IMarshallableObject, IMarshallabl
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPresentRegionKHR*)native);
     }
     private ref struct VkPresentRegionKHRMarshaller
     {

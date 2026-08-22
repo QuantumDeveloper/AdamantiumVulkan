@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceAddressBindingReportFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceAddressBindingReportFeaturesEXT>
+public unsafe partial class PhysicalDeviceAddressBindingReportFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceAddressBindingReportFeaturesEXT>
 {
     public PhysicalDeviceAddressBindingReportFeaturesEXT()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceAddressBindingReportFeaturesEXT : IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceAddressBindingReportFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ReportAddressBinding = native.reportAddressBinding;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceAddressBindingReportFeaturesEXT : IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceAddressBindingReportFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDeviceAddressBindingReportFeaturesEXTMarshaller
     {

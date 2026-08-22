@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoDecodeH265SessionParametersAddInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoDecodeH265SessionParametersAddInfoKHR>
+public unsafe partial class VideoDecodeH265SessionParametersAddInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoDecodeH265SessionParametersAddInfoKHR>
 {
     public VideoDecodeH265SessionParametersAddInfoKHR()
     {
@@ -85,7 +85,14 @@ public unsafe partial class VideoDecodeH265SessionParametersAddInfoKHR : IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoDecodeH265SessionParametersAddInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         StdVPSCount = native.stdVPSCount;
         var arrayLengthPStdVPSs = native.stdVPSCount;
         var tmpPStdVPSs = new StdVideoH265VideoParameterSet[arrayLengthPStdVPSs];
@@ -126,6 +133,12 @@ public unsafe partial class VideoDecodeH265SessionParametersAddInfoKHR : IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoDecodeH265SessionParametersAddInfoKHR*)native);
     }
     private ref struct VkVideoDecodeH265SessionParametersAddInfoKHRMarshaller
     {

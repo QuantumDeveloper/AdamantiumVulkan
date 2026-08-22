@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceShaderTileImageFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderTileImageFeaturesEXT>
+public unsafe partial class PhysicalDeviceShaderTileImageFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderTileImageFeaturesEXT>
 {
     public PhysicalDeviceShaderTileImageFeaturesEXT()
     {
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDeviceShaderTileImageFeaturesEXT : IMarshall
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderTileImageFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ShaderTileImageColorReadAccess = native.shaderTileImageColorReadAccess;
         ShaderTileImageDepthReadAccess = native.shaderTileImageDepthReadAccess;
         ShaderTileImageStencilReadAccess = native.shaderTileImageStencilReadAccess;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDeviceShaderTileImageFeaturesEXT : IMarshall
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderTileImageFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDeviceShaderTileImageFeaturesEXTMarshaller
     {

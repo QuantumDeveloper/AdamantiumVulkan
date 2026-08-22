@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CheckpointData2NV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCheckpointData2NV>
+public unsafe partial class CheckpointData2NV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCheckpointData2NV>
 {
     public CheckpointData2NV()
     {
@@ -51,7 +51,14 @@ public unsafe partial class CheckpointData2NV : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkCheckpointData2NV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Stage = native.stage;
         PCheckpointMarker = (nuint)native.pCheckpointMarker;
 
@@ -64,6 +71,12 @@ public unsafe partial class CheckpointData2NV : IMarshallableObject, IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCheckpointData2NV*)native);
     }
     private ref struct VkCheckpointData2NVMarshaller
     {

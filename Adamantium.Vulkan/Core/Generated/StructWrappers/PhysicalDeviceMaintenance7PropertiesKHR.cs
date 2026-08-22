@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceMaintenance7PropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance7PropertiesKHR>
+public unsafe partial class PhysicalDeviceMaintenance7PropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance7PropertiesKHR>
 {
     public PhysicalDeviceMaintenance7PropertiesKHR()
     {
@@ -57,7 +57,14 @@ public unsafe partial class PhysicalDeviceMaintenance7PropertiesKHR : IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance7PropertiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         RobustFragmentShadingRateAttachmentAccess = native.robustFragmentShadingRateAttachmentAccess;
         SeparateDepthStencilAttachmentAccess = native.separateDepthStencilAttachmentAccess;
         MaxDescriptorSetTotalUniformBuffersDynamic = native.maxDescriptorSetTotalUniformBuffersDynamic;
@@ -76,6 +83,12 @@ public unsafe partial class PhysicalDeviceMaintenance7PropertiesKHR : IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance7PropertiesKHR*)native);
     }
     private ref struct VkPhysicalDeviceMaintenance7PropertiesKHRMarshaller
     {

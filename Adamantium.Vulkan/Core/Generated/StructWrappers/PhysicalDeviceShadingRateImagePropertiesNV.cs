@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceShadingRateImagePropertiesNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShadingRateImagePropertiesNV>
+public unsafe partial class PhysicalDeviceShadingRateImagePropertiesNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShadingRateImagePropertiesNV>
 {
     public PhysicalDeviceShadingRateImagePropertiesNV()
     {
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDeviceShadingRateImagePropertiesNV : IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShadingRateImagePropertiesNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ShadingRateTexelSize = new Extent2D(native.shadingRateTexelSize);
         ShadingRatePaletteSize = native.shadingRatePaletteSize;
         ShadingRateMaxCoarseSamples = native.shadingRateMaxCoarseSamples;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDeviceShadingRateImagePropertiesNV : IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShadingRateImagePropertiesNV*)native);
     }
     private ref struct VkPhysicalDeviceShadingRateImagePropertiesNVMarshaller
     {

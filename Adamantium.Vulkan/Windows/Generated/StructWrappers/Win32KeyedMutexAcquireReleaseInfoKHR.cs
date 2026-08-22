@@ -14,7 +14,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Windows;
 
-public unsafe partial class Win32KeyedMutexAcquireReleaseInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoKHR>
+public unsafe partial class Win32KeyedMutexAcquireReleaseInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoKHR>
 {
     public Win32KeyedMutexAcquireReleaseInfoKHR()
     {
@@ -68,7 +68,14 @@ public unsafe partial class Win32KeyedMutexAcquireReleaseInfoKHR : IMarshallable
 
     public void MarshalFrom(in Adamantium.Vulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         AcquireCount = native.acquireCount;
         var arrayLengthPAcquireSyncs = native.acquireCount;
         var tmpPAcquireSyncs = new DeviceMemory[arrayLengthPAcquireSyncs];
@@ -111,6 +118,12 @@ public unsafe partial class Win32KeyedMutexAcquireReleaseInfoKHR : IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Windows.Interop.VkWin32KeyedMutexAcquireReleaseInfoKHR*)native);
     }
     private ref struct VkWin32KeyedMutexAcquireReleaseInfoKHRMarshaller
     {

@@ -14,7 +14,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Windows;
 
-public unsafe partial class FenceGetWin32HandleInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR>
+public unsafe partial class FenceGetWin32HandleInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR>
 {
     public FenceGetWin32HandleInfoKHR()
     {
@@ -53,7 +53,14 @@ public unsafe partial class FenceGetWin32HandleInfoKHR : IMarshallableObject, IM
 
     public void MarshalFrom(in Adamantium.Vulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Fence = new Fence(native.fence);
         HandleType = native.handleType;
 
@@ -66,6 +73,12 @@ public unsafe partial class FenceGetWin32HandleInfoKHR : IMarshallableObject, IM
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Windows.Interop.VkFenceGetWin32HandleInfoKHR*)native);
     }
     private ref struct VkFenceGetWin32HandleInfoKHRMarshaller
     {

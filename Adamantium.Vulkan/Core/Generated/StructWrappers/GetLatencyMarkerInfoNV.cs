@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class GetLatencyMarkerInfoNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkGetLatencyMarkerInfoNV>
+public unsafe partial class GetLatencyMarkerInfoNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkGetLatencyMarkerInfoNV>
 {
     public GetLatencyMarkerInfoNV()
     {
@@ -61,7 +61,14 @@ public unsafe partial class GetLatencyMarkerInfoNV : IMarshallableObject, IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkGetLatencyMarkerInfoNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         TimingCount = native.timingCount;
         var arrayLengthPTimings = native.timingCount;
         var tmpPTimings = new LatencyTimingsFrameReportNV[arrayLengthPTimings];
@@ -82,6 +89,12 @@ public unsafe partial class GetLatencyMarkerInfoNV : IMarshallableObject, IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkGetLatencyMarkerInfoNV*)native);
     }
     private ref struct VkGetLatencyMarkerInfoNVMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineTessellationDomainOriginStateCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineTessellationDomainOriginStateCreateInfo>
+public unsafe partial class PipelineTessellationDomainOriginStateCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineTessellationDomainOriginStateCreateInfo>
 {
     public PipelineTessellationDomainOriginStateCreateInfo()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PipelineTessellationDomainOriginStateCreateInfo : IM
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineTessellationDomainOriginStateCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DomainOrigin = native.domainOrigin;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PipelineTessellationDomainOriginStateCreateInfo : IM
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineTessellationDomainOriginStateCreateInfo*)native);
     }
     private ref struct VkPipelineTessellationDomainOriginStateCreateInfoMarshaller
     {

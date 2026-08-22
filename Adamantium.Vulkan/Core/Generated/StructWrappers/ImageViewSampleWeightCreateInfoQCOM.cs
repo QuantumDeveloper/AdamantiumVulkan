@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ImageViewSampleWeightCreateInfoQCOM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageViewSampleWeightCreateInfoQCOM>
+public unsafe partial class ImageViewSampleWeightCreateInfoQCOM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageViewSampleWeightCreateInfoQCOM>
 {
     public ImageViewSampleWeightCreateInfoQCOM()
     {
@@ -52,7 +52,14 @@ public unsafe partial class ImageViewSampleWeightCreateInfoQCOM : IMarshallableO
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkImageViewSampleWeightCreateInfoQCOM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         FilterCenter = new Offset2D(native.filterCenter);
         FilterSize = new Extent2D(native.filterSize);
         NumPhases = native.numPhases;
@@ -66,6 +73,12 @@ public unsafe partial class ImageViewSampleWeightCreateInfoQCOM : IMarshallableO
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkImageViewSampleWeightCreateInfoQCOM*)native);
     }
     private ref struct VkImageViewSampleWeightCreateInfoQCOMMarshaller
     {

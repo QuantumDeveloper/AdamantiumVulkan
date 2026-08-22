@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoDecodeH265DpbSlotInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoDecodeH265DpbSlotInfoKHR>
+public unsafe partial class VideoDecodeH265DpbSlotInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoDecodeH265DpbSlotInfoKHR>
 {
     public VideoDecodeH265DpbSlotInfoKHR()
     {
@@ -54,7 +54,14 @@ public unsafe partial class VideoDecodeH265DpbSlotInfoKHR : IMarshallableObject,
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoDecodeH265DpbSlotInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PStdReferenceInfo = new StdVideoDecodeH265ReferenceInfo(in *native.pStdReferenceInfo);
         NativeUtils.Free(native.pStdReferenceInfo);
 
@@ -67,6 +74,12 @@ public unsafe partial class VideoDecodeH265DpbSlotInfoKHR : IMarshallableObject,
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoDecodeH265DpbSlotInfoKHR*)native);
     }
     private ref struct VkVideoDecodeH265DpbSlotInfoKHRMarshaller
     {

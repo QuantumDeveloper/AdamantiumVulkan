@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class TensorDescriptionARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkTensorDescriptionARM>
+public unsafe partial class TensorDescriptionARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkTensorDescriptionARM>
 {
     public TensorDescriptionARM()
     {
@@ -59,7 +59,14 @@ public unsafe partial class TensorDescriptionARM : IMarshallableObject, IMarshal
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkTensorDescriptionARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Tiling = native.tiling;
         Format = native.format;
         DimensionCount = native.dimensionCount;
@@ -82,6 +89,12 @@ public unsafe partial class TensorDescriptionARM : IMarshallableObject, IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkTensorDescriptionARM*)native);
     }
     private ref struct VkTensorDescriptionARMMarshaller
     {

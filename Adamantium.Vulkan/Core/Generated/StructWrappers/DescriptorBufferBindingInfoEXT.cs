@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DescriptorBufferBindingInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT>
+public unsafe partial class DescriptorBufferBindingInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT>
 {
     public DescriptorBufferBindingInfoEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class DescriptorBufferBindingInfoEXT : IMarshallableObject
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Address = native.address;
         Usage = native.usage;
 
@@ -64,6 +71,12 @@ public unsafe partial class DescriptorBufferBindingInfoEXT : IMarshallableObject
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDescriptorBufferBindingInfoEXT*)native);
     }
     private ref struct VkDescriptorBufferBindingInfoEXTMarshaller
     {

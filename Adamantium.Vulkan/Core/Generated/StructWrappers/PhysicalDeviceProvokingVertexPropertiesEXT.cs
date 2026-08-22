@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceProvokingVertexPropertiesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceProvokingVertexPropertiesEXT>
+public unsafe partial class PhysicalDeviceProvokingVertexPropertiesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceProvokingVertexPropertiesEXT>
 {
     public PhysicalDeviceProvokingVertexPropertiesEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceProvokingVertexPropertiesEXT : IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceProvokingVertexPropertiesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ProvokingVertexModePerPipeline = native.provokingVertexModePerPipeline;
         TransformFeedbackPreservesTriangleFanProvokingVertex = native.transformFeedbackPreservesTriangleFanProvokingVertex;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceProvokingVertexPropertiesEXT : IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceProvokingVertexPropertiesEXT*)native);
     }
     private ref struct VkPhysicalDeviceProvokingVertexPropertiesEXTMarshaller
     {

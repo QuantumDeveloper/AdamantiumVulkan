@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class BindPipelineIndirectCommandNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindPipelineIndirectCommandNV>
+public unsafe partial class BindPipelineIndirectCommandNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindPipelineIndirectCommandNV>
 {
     public BindPipelineIndirectCommandNV()
     {
@@ -55,6 +55,12 @@ public unsafe partial class BindPipelineIndirectCommandNV : IMarshallableObject,
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkBindPipelineIndirectCommandNV*)native);
     }
     private ref struct VkBindPipelineIndirectCommandNVMarshaller
     {

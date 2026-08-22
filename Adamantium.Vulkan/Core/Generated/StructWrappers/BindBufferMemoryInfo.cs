@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class BindBufferMemoryInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindBufferMemoryInfo>
+public unsafe partial class BindBufferMemoryInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindBufferMemoryInfo>
 {
     public BindBufferMemoryInfo()
     {
@@ -52,7 +52,14 @@ public unsafe partial class BindBufferMemoryInfo : IMarshallableObject, IMarshal
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkBindBufferMemoryInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Buffer = new Buffer(native.buffer);
         Memory = new DeviceMemory(native.memory);
         MemoryOffset = native.memoryOffset;
@@ -66,6 +73,12 @@ public unsafe partial class BindBufferMemoryInfo : IMarshallableObject, IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkBindBufferMemoryInfo*)native);
     }
     private ref struct VkBindBufferMemoryInfoMarshaller
     {

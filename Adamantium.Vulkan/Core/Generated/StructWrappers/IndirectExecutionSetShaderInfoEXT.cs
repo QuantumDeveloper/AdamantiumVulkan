@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class IndirectExecutionSetShaderInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetShaderInfoEXT>
+public unsafe partial class IndirectExecutionSetShaderInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetShaderInfoEXT>
 {
     public IndirectExecutionSetShaderInfoEXT()
     {
@@ -77,7 +77,14 @@ public unsafe partial class IndirectExecutionSetShaderInfoEXT : IMarshallableObj
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetShaderInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ShaderCount = native.shaderCount;
         var arrayLengthPInitialShaders = native.shaderCount;
         var tmpPInitialShaders = new ShaderEXT[arrayLengthPInitialShaders];
@@ -118,6 +125,12 @@ public unsafe partial class IndirectExecutionSetShaderInfoEXT : IMarshallableObj
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetShaderInfoEXT*)native);
     }
     private ref struct VkIndirectExecutionSetShaderInfoEXTMarshaller
     {

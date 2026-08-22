@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceFragmentDensityMapFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapFeaturesEXT>
+public unsafe partial class PhysicalDeviceFragmentDensityMapFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapFeaturesEXT>
 {
     public PhysicalDeviceFragmentDensityMapFeaturesEXT()
     {
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapFeaturesEXT : IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         FragmentDensityMap = native.fragmentDensityMap;
         FragmentDensityMapDynamic = native.fragmentDensityMapDynamic;
         FragmentDensityMapNonSubsampledImages = native.fragmentDensityMapNonSubsampledImages;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapFeaturesEXT : IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDeviceFragmentDensityMapFeaturesEXTMarshaller
     {

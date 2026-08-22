@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class GeometryDataNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkGeometryDataNV>
+public unsafe partial class GeometryDataNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkGeometryDataNV>
 {
     public GeometryDataNV()
     {
@@ -57,6 +57,12 @@ public unsafe partial class GeometryDataNV : IMarshallableObject, IMarshallable<
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkGeometryDataNV*)native);
     }
     private ref struct VkGeometryDataNVMarshaller
     {

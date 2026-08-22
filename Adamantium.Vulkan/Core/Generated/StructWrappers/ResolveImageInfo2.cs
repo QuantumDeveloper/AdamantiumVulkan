@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ResolveImageInfo2 : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkResolveImageInfo2>
+public unsafe partial class ResolveImageInfo2 : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkResolveImageInfo2>
 {
     public ResolveImageInfo2()
     {
@@ -65,7 +65,14 @@ public unsafe partial class ResolveImageInfo2 : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkResolveImageInfo2 native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SrcImage = new Image(native.srcImage);
         SrcImageLayout = native.srcImageLayout;
         DstImage = new Image(native.dstImage);
@@ -90,6 +97,12 @@ public unsafe partial class ResolveImageInfo2 : IMarshallableObject, IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkResolveImageInfo2*)native);
     }
     private ref struct VkResolveImageInfo2Marshaller
     {

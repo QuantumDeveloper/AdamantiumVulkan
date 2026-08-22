@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceTextureCompressionASTC3DFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTC3DFeaturesEXT>
+public unsafe partial class PhysicalDeviceTextureCompressionASTC3DFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTC3DFeaturesEXT>
 {
     public PhysicalDeviceTextureCompressionASTC3DFeaturesEXT()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceTextureCompressionASTC3DFeaturesEXT : 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTC3DFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         TextureCompressionASTC_3D = native.textureCompressionASTC_3D;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceTextureCompressionASTC3DFeaturesEXT : 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTextureCompressionASTC3DFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDeviceTextureCompressionASTC3DFeaturesEXTMarshaller
     {

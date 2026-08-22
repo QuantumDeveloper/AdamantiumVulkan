@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CoarseSampleOrderCustomNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV>
+public unsafe partial class CoarseSampleOrderCustomNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV>
 {
     public CoarseSampleOrderCustomNV()
     {
@@ -79,6 +79,12 @@ public unsafe partial class CoarseSampleOrderCustomNV : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV*)native);
     }
     private ref struct VkCoarseSampleOrderCustomNVMarshaller
     {

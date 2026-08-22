@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DataGraphPipelineBuiltinModelCreateInfoQCOM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineBuiltinModelCreateInfoQCOM>
+public unsafe partial class DataGraphPipelineBuiltinModelCreateInfoQCOM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineBuiltinModelCreateInfoQCOM>
 {
     public DataGraphPipelineBuiltinModelCreateInfoQCOM()
     {
@@ -54,7 +54,14 @@ public unsafe partial class DataGraphPipelineBuiltinModelCreateInfoQCOM : IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineBuiltinModelCreateInfoQCOM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         POperation = new PhysicalDeviceDataGraphOperationSupportARM(in *native.pOperation);
         NativeUtils.Free(native.pOperation);
 
@@ -67,6 +74,12 @@ public unsafe partial class DataGraphPipelineBuiltinModelCreateInfoQCOM : IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineBuiltinModelCreateInfoQCOM*)native);
     }
     private ref struct VkDataGraphPipelineBuiltinModelCreateInfoQCOMMarshaller
     {

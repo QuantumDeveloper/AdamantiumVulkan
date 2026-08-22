@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDevicePresentTimingFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePresentTimingFeaturesEXT>
+public unsafe partial class PhysicalDevicePresentTimingFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePresentTimingFeaturesEXT>
 {
     public PhysicalDevicePresentTimingFeaturesEXT()
     {
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDevicePresentTimingFeaturesEXT : IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePresentTimingFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PresentTiming = native.presentTiming;
         PresentAtAbsoluteTime = native.presentAtAbsoluteTime;
         PresentAtRelativeTime = native.presentAtRelativeTime;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDevicePresentTimingFeaturesEXT : IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePresentTimingFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDevicePresentTimingFeaturesEXTMarshaller
     {

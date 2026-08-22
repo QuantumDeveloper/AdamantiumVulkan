@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ImageCompressionControlEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageCompressionControlEXT>
+public unsafe partial class ImageCompressionControlEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageCompressionControlEXT>
 {
     public ImageCompressionControlEXT()
     {
@@ -54,7 +54,14 @@ public unsafe partial class ImageCompressionControlEXT : IMarshallableObject, IM
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkImageCompressionControlEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         CompressionControlPlaneCount = native.compressionControlPlaneCount;
         var arrayLengthPFixedRateFlags = native.compressionControlPlaneCount;
@@ -71,6 +78,12 @@ public unsafe partial class ImageCompressionControlEXT : IMarshallableObject, IM
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkImageCompressionControlEXT*)native);
     }
     private ref struct VkImageCompressionControlEXTMarshaller
     {

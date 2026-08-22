@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DrawIndirectCount2InfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDrawIndirectCount2InfoKHR>
+public unsafe partial class DrawIndirectCount2InfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDrawIndirectCount2InfoKHR>
 {
     public DrawIndirectCount2InfoKHR()
     {
@@ -54,7 +54,14 @@ public unsafe partial class DrawIndirectCount2InfoKHR : IMarshallableObject, IMa
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDrawIndirectCount2InfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         AddressRange = new StridedDeviceAddressRangeKHR(native.addressRange);
         AddressFlags = native.addressFlags;
         CountAddressRange = new DeviceAddressRangeKHR(native.countAddressRange);
@@ -70,6 +77,12 @@ public unsafe partial class DrawIndirectCount2InfoKHR : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDrawIndirectCount2InfoKHR*)native);
     }
     private ref struct VkDrawIndirectCount2InfoKHRMarshaller
     {

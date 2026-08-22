@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoFormatAV1QuantizationMapPropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoFormatAV1QuantizationMapPropertiesKHR>
+public unsafe partial class VideoFormatAV1QuantizationMapPropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoFormatAV1QuantizationMapPropertiesKHR>
 {
     public VideoFormatAV1QuantizationMapPropertiesKHR()
     {
@@ -50,7 +50,14 @@ public unsafe partial class VideoFormatAV1QuantizationMapPropertiesKHR : IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoFormatAV1QuantizationMapPropertiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         CompatibleSuperblockSizes = native.compatibleSuperblockSizes;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class VideoFormatAV1QuantizationMapPropertiesKHR : IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoFormatAV1QuantizationMapPropertiesKHR*)native);
     }
     private ref struct VkVideoFormatAV1QuantizationMapPropertiesKHRMarshaller
     {

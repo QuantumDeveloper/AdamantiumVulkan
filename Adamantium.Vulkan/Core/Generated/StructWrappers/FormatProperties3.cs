@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class FormatProperties3 : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkFormatProperties3>
+public unsafe partial class FormatProperties3 : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkFormatProperties3>
 {
     public FormatProperties3()
     {
@@ -52,7 +52,14 @@ public unsafe partial class FormatProperties3 : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkFormatProperties3 native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         LinearTilingFeatures = native.linearTilingFeatures;
         OptimalTilingFeatures = native.optimalTilingFeatures;
         BufferFeatures = native.bufferFeatures;
@@ -66,6 +73,12 @@ public unsafe partial class FormatProperties3 : IMarshallableObject, IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkFormatProperties3*)native);
     }
     private ref struct VkFormatProperties3Marshaller
     {

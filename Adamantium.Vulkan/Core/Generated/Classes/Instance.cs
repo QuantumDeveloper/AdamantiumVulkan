@@ -383,7 +383,10 @@ public unsafe partial class Instance : IUnmanagedWrapper<Adamantium.Vulkan.Core.
                 var result = Commands.vkEnumeratePhysicalDeviceGroups(this, ref pPhysicalDeviceGroupCount, arg2);
                 if (arg2 is not null)
                 {
-                    pPhysicalDeviceGroupProperties = new Adamantium.Vulkan.Core.PhysicalDeviceGroupProperties(*arg2);
+                    if (pPhysicalDeviceGroupProperties != null)
+                        pPhysicalDeviceGroupProperties.MarshalFrom(*arg2);
+                    else
+                        pPhysicalDeviceGroupProperties = new Adamantium.Vulkan.Core.PhysicalDeviceGroupProperties(*arg2);
                 }
                 return result;
             }

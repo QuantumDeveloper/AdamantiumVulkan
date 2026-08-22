@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class BindIndexBufferIndirectCommandEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindIndexBufferIndirectCommandEXT>
+public unsafe partial class BindIndexBufferIndirectCommandEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindIndexBufferIndirectCommandEXT>
 {
     public BindIndexBufferIndirectCommandEXT()
     {
@@ -59,6 +59,12 @@ public unsafe partial class BindIndexBufferIndirectCommandEXT : IMarshallableObj
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkBindIndexBufferIndirectCommandEXT*)native);
     }
     private ref struct VkBindIndexBufferIndirectCommandEXTMarshaller
     {

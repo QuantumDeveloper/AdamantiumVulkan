@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceLineRasterizationFeatures : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceLineRasterizationFeatures>
+public unsafe partial class PhysicalDeviceLineRasterizationFeatures : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceLineRasterizationFeatures>
 {
     public PhysicalDeviceLineRasterizationFeatures()
     {
@@ -55,7 +55,14 @@ public unsafe partial class PhysicalDeviceLineRasterizationFeatures : IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceLineRasterizationFeatures native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         RectangularLines = native.rectangularLines;
         BresenhamLines = native.bresenhamLines;
         SmoothLines = native.smoothLines;
@@ -72,6 +79,12 @@ public unsafe partial class PhysicalDeviceLineRasterizationFeatures : IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceLineRasterizationFeatures*)native);
     }
     private ref struct VkPhysicalDeviceLineRasterizationFeaturesMarshaller
     {

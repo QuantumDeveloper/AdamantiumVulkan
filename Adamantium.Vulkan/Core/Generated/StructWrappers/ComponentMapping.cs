@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ComponentMapping : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkComponentMapping>
+public unsafe partial class ComponentMapping : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkComponentMapping>
 {
     public ComponentMapping()
     {
@@ -61,6 +61,12 @@ public unsafe partial class ComponentMapping : IMarshallableObject, IMarshallabl
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkComponentMapping*)native);
     }
     private ref struct VkComponentMappingMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoFormatPropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoFormatPropertiesKHR>
+public unsafe partial class VideoFormatPropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoFormatPropertiesKHR>
 {
     public VideoFormatPropertiesKHR()
     {
@@ -55,7 +55,14 @@ public unsafe partial class VideoFormatPropertiesKHR : IMarshallableObject, IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoFormatPropertiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Format = native.format;
         ComponentMapping = new ComponentMapping(native.componentMapping);
         ImageCreateFlags = native.imageCreateFlags;
@@ -72,6 +79,12 @@ public unsafe partial class VideoFormatPropertiesKHR : IMarshallableObject, IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoFormatPropertiesKHR*)native);
     }
     private ref struct VkVideoFormatPropertiesKHRMarshaller
     {

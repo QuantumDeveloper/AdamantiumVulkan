@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoEncodeH264QpKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH264QpKHR>
+public unsafe partial class VideoEncodeH264QpKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH264QpKHR>
 {
     public VideoEncodeH264QpKHR()
     {
@@ -59,6 +59,12 @@ public unsafe partial class VideoEncodeH264QpKHR : IMarshallableObject, IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoEncodeH264QpKHR*)native);
     }
     private ref struct VkVideoEncodeH264QpKHRMarshaller
     {

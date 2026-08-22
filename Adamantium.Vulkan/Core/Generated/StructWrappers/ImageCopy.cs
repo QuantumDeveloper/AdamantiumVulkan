@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ImageCopy : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageCopy>
+public unsafe partial class ImageCopy : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageCopy>
 {
     public ImageCopy()
     {
@@ -63,6 +63,12 @@ public unsafe partial class ImageCopy : IMarshallableObject, IMarshallable<Adama
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkImageCopy*)native);
     }
     private ref struct VkImageCopyMarshaller
     {

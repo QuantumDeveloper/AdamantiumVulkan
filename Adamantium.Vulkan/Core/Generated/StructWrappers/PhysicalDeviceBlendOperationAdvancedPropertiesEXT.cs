@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT>
+public unsafe partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT>
 {
     public PhysicalDeviceBlendOperationAdvancedPropertiesEXT()
     {
@@ -55,7 +55,14 @@ public unsafe partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         AdvancedBlendMaxColorAttachments = native.advancedBlendMaxColorAttachments;
         AdvancedBlendIndependentBlend = native.advancedBlendIndependentBlend;
         AdvancedBlendNonPremultipliedSrcColor = native.advancedBlendNonPremultipliedSrcColor;
@@ -72,6 +79,12 @@ public unsafe partial class PhysicalDeviceBlendOperationAdvancedPropertiesEXT : 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT*)native);
     }
     private ref struct VkPhysicalDeviceBlendOperationAdvancedPropertiesEXTMarshaller
     {

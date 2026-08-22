@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class BufferOpaqueCaptureAddressCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBufferOpaqueCaptureAddressCreateInfo>
+public unsafe partial class BufferOpaqueCaptureAddressCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBufferOpaqueCaptureAddressCreateInfo>
 {
     public BufferOpaqueCaptureAddressCreateInfo()
     {
@@ -50,7 +50,14 @@ public unsafe partial class BufferOpaqueCaptureAddressCreateInfo : IMarshallable
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkBufferOpaqueCaptureAddressCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         OpaqueCaptureAddress = native.opaqueCaptureAddress;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class BufferOpaqueCaptureAddressCreateInfo : IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkBufferOpaqueCaptureAddressCreateInfo*)native);
     }
     private ref struct VkBufferOpaqueCaptureAddressCreateInfoMarshaller
     {

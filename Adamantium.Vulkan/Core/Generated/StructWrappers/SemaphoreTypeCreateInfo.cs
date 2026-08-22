@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SemaphoreTypeCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSemaphoreTypeCreateInfo>
+public unsafe partial class SemaphoreTypeCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSemaphoreTypeCreateInfo>
 {
     public SemaphoreTypeCreateInfo()
     {
@@ -51,7 +51,14 @@ public unsafe partial class SemaphoreTypeCreateInfo : IMarshallableObject, IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSemaphoreTypeCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SemaphoreType = native.semaphoreType;
         InitialValue = native.initialValue;
 
@@ -64,6 +71,12 @@ public unsafe partial class SemaphoreTypeCreateInfo : IMarshallableObject, IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSemaphoreTypeCreateInfo*)native);
     }
     private ref struct VkSemaphoreTypeCreateInfoMarshaller
     {

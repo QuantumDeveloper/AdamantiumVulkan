@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceDiagnosticsConfigFeaturesNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDiagnosticsConfigFeaturesNV>
+public unsafe partial class PhysicalDeviceDiagnosticsConfigFeaturesNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDiagnosticsConfigFeaturesNV>
 {
     public PhysicalDeviceDiagnosticsConfigFeaturesNV()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceDiagnosticsConfigFeaturesNV : IMarshal
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDiagnosticsConfigFeaturesNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DiagnosticsConfig = native.diagnosticsConfig;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceDiagnosticsConfigFeaturesNV : IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDiagnosticsConfigFeaturesNV*)native);
     }
     private ref struct VkPhysicalDeviceDiagnosticsConfigFeaturesNVMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DataGraphPipelineSingleNodeCreateInfoARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSingleNodeCreateInfoARM>
+public unsafe partial class DataGraphPipelineSingleNodeCreateInfoARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSingleNodeCreateInfoARM>
 {
     public DataGraphPipelineSingleNodeCreateInfoARM()
     {
@@ -62,7 +62,14 @@ public unsafe partial class DataGraphPipelineSingleNodeCreateInfoARM : IMarshall
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSingleNodeCreateInfoARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         NodeType = native.nodeType;
         ConnectionCount = native.connectionCount;
         var arrayLengthPConnections = native.connectionCount;
@@ -84,6 +91,12 @@ public unsafe partial class DataGraphPipelineSingleNodeCreateInfoARM : IMarshall
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSingleNodeCreateInfoARM*)native);
     }
     private ref struct VkDataGraphPipelineSingleNodeCreateInfoARMMarshaller
     {

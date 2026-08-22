@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceExternalSemaphoreInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo>
+public unsafe partial class PhysicalDeviceExternalSemaphoreInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo>
 {
     public PhysicalDeviceExternalSemaphoreInfo()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceExternalSemaphoreInfo : IMarshallableO
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         HandleType = native.handleType;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceExternalSemaphoreInfo : IMarshallableO
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExternalSemaphoreInfo*)native);
     }
     private ref struct VkPhysicalDeviceExternalSemaphoreInfoMarshaller
     {

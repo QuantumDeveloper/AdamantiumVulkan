@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoFormatH265QuantizationMapPropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoFormatH265QuantizationMapPropertiesKHR>
+public unsafe partial class VideoFormatH265QuantizationMapPropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoFormatH265QuantizationMapPropertiesKHR>
 {
     public VideoFormatH265QuantizationMapPropertiesKHR()
     {
@@ -50,7 +50,14 @@ public unsafe partial class VideoFormatH265QuantizationMapPropertiesKHR : IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoFormatH265QuantizationMapPropertiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         CompatibleCtbSizes = native.compatibleCtbSizes;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class VideoFormatH265QuantizationMapPropertiesKHR : IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoFormatH265QuantizationMapPropertiesKHR*)native);
     }
     private ref struct VkVideoFormatH265QuantizationMapPropertiesKHRMarshaller
     {

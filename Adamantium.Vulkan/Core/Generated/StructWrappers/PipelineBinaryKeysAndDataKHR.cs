@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineBinaryKeysAndDataKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryKeysAndDataKHR>
+public unsafe partial class PipelineBinaryKeysAndDataKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineBinaryKeysAndDataKHR>
 {
     public PipelineBinaryKeysAndDataKHR()
     {
@@ -95,6 +95,12 @@ public unsafe partial class PipelineBinaryKeysAndDataKHR : IMarshallableObject, 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineBinaryKeysAndDataKHR*)native);
     }
     private ref struct VkPipelineBinaryKeysAndDataKHRMarshaller
     {

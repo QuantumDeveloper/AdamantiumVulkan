@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StridedDeviceAddressNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkStridedDeviceAddressNV>
+public unsafe partial class StridedDeviceAddressNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkStridedDeviceAddressNV>
 {
     public StridedDeviceAddressNV()
     {
@@ -57,6 +57,12 @@ public unsafe partial class StridedDeviceAddressNV : IMarshallableObject, IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkStridedDeviceAddressNV*)native);
     }
     private ref struct VkStridedDeviceAddressNVMarshaller
     {

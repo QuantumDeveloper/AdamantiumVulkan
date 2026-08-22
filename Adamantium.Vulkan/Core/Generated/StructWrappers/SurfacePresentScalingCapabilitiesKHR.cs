@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SurfacePresentScalingCapabilitiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSurfacePresentScalingCapabilitiesKHR>
+public unsafe partial class SurfacePresentScalingCapabilitiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSurfacePresentScalingCapabilitiesKHR>
 {
     public SurfacePresentScalingCapabilitiesKHR()
     {
@@ -54,7 +54,14 @@ public unsafe partial class SurfacePresentScalingCapabilitiesKHR : IMarshallable
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSurfacePresentScalingCapabilitiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SupportedPresentScaling = native.supportedPresentScaling;
         SupportedPresentGravityX = native.supportedPresentGravityX;
         SupportedPresentGravityY = native.supportedPresentGravityY;
@@ -70,6 +77,12 @@ public unsafe partial class SurfacePresentScalingCapabilitiesKHR : IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSurfacePresentScalingCapabilitiesKHR*)native);
     }
     private ref struct VkSurfacePresentScalingCapabilitiesKHRMarshaller
     {

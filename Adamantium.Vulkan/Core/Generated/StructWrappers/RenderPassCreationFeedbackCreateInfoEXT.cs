@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class RenderPassCreationFeedbackCreateInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassCreationFeedbackCreateInfoEXT>
+public unsafe partial class RenderPassCreationFeedbackCreateInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassCreationFeedbackCreateInfoEXT>
 {
     public RenderPassCreationFeedbackCreateInfoEXT()
     {
@@ -54,7 +54,14 @@ public unsafe partial class RenderPassCreationFeedbackCreateInfoEXT : IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkRenderPassCreationFeedbackCreateInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PRenderPassFeedback = new RenderPassCreationFeedbackInfoEXT(in *native.pRenderPassFeedback);
         NativeUtils.Free(native.pRenderPassFeedback);
 
@@ -67,6 +74,12 @@ public unsafe partial class RenderPassCreationFeedbackCreateInfoEXT : IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkRenderPassCreationFeedbackCreateInfoEXT*)native);
     }
     private ref struct VkRenderPassCreationFeedbackCreateInfoEXTMarshaller
     {

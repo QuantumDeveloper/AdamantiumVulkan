@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceFragmentShadingRatePropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR>
+public unsafe partial class PhysicalDeviceFragmentShadingRatePropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR>
 {
     public PhysicalDeviceFragmentShadingRatePropertiesKHR()
     {
@@ -66,7 +66,14 @@ public unsafe partial class PhysicalDeviceFragmentShadingRatePropertiesKHR : IMa
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MinFragmentShadingRateAttachmentTexelSize = new Extent2D(native.minFragmentShadingRateAttachmentTexelSize);
         MaxFragmentShadingRateAttachmentTexelSize = new Extent2D(native.maxFragmentShadingRateAttachmentTexelSize);
         MaxFragmentShadingRateAttachmentTexelSizeAspectRatio = native.maxFragmentShadingRateAttachmentTexelSizeAspectRatio;
@@ -94,6 +101,12 @@ public unsafe partial class PhysicalDeviceFragmentShadingRatePropertiesKHR : IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRatePropertiesKHR*)native);
     }
     private ref struct VkPhysicalDeviceFragmentShadingRatePropertiesKHRMarshaller
     {

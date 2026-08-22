@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class GeometryTrianglesNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkGeometryTrianglesNV>
+public unsafe partial class GeometryTrianglesNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkGeometryTrianglesNV>
 {
     public GeometryTrianglesNV()
     {
@@ -60,7 +60,14 @@ public unsafe partial class GeometryTrianglesNV : IMarshallableObject, IMarshall
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkGeometryTrianglesNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         VertexData = new Buffer(native.vertexData);
         VertexOffset = native.vertexOffset;
         VertexCount = native.vertexCount;
@@ -82,6 +89,12 @@ public unsafe partial class GeometryTrianglesNV : IMarshallableObject, IMarshall
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkGeometryTrianglesNV*)native);
     }
     private ref struct VkGeometryTrianglesNVMarshaller
     {

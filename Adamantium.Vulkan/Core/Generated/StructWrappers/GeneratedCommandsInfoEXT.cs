@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class GeneratedCommandsInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsInfoEXT>
+public unsafe partial class GeneratedCommandsInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsInfoEXT>
 {
     public GeneratedCommandsInfoEXT()
     {
@@ -59,7 +59,14 @@ public unsafe partial class GeneratedCommandsInfoEXT : IMarshallableObject, IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ShaderStages = native.shaderStages;
         IndirectExecutionSet = new IndirectExecutionSetEXT(native.indirectExecutionSet);
         IndirectCommandsLayout = new IndirectCommandsLayoutEXT(native.indirectCommandsLayout);
@@ -80,6 +87,12 @@ public unsafe partial class GeneratedCommandsInfoEXT : IMarshallableObject, IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsInfoEXT*)native);
     }
     private ref struct VkGeneratedCommandsInfoEXTMarshaller
     {

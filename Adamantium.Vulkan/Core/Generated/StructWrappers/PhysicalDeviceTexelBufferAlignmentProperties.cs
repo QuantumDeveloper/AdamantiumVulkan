@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceTexelBufferAlignmentProperties : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentProperties>
+public unsafe partial class PhysicalDeviceTexelBufferAlignmentProperties : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentProperties>
 {
     public PhysicalDeviceTexelBufferAlignmentProperties()
     {
@@ -53,7 +53,14 @@ public unsafe partial class PhysicalDeviceTexelBufferAlignmentProperties : IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentProperties native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         StorageTexelBufferOffsetAlignmentBytes = native.storageTexelBufferOffsetAlignmentBytes;
         StorageTexelBufferOffsetSingleTexelAlignment = native.storageTexelBufferOffsetSingleTexelAlignment;
         UniformTexelBufferOffsetAlignmentBytes = native.uniformTexelBufferOffsetAlignmentBytes;
@@ -68,6 +75,12 @@ public unsafe partial class PhysicalDeviceTexelBufferAlignmentProperties : IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTexelBufferAlignmentProperties*)native);
     }
     private ref struct VkPhysicalDeviceTexelBufferAlignmentPropertiesMarshaller
     {

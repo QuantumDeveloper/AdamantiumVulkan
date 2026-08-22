@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DescriptorSetLayoutBindingFlagsCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutBindingFlagsCreateInfo>
+public unsafe partial class DescriptorSetLayoutBindingFlagsCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutBindingFlagsCreateInfo>
 {
     public DescriptorSetLayoutBindingFlagsCreateInfo()
     {
@@ -53,7 +53,14 @@ public unsafe partial class DescriptorSetLayoutBindingFlagsCreateInfo : IMarshal
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutBindingFlagsCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         BindingCount = native.bindingCount;
         var arrayLengthPBindingFlags = native.bindingCount;
         var tmpPBindingFlags = new DescriptorBindingFlagBits[arrayLengthPBindingFlags];
@@ -69,6 +76,12 @@ public unsafe partial class DescriptorSetLayoutBindingFlagsCreateInfo : IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutBindingFlagsCreateInfo*)native);
     }
     private ref struct VkDescriptorSetLayoutBindingFlagsCreateInfoMarshaller
     {

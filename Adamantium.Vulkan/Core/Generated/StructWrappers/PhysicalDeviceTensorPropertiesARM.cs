@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceTensorPropertiesARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTensorPropertiesARM>
+public unsafe partial class PhysicalDeviceTensorPropertiesARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTensorPropertiesARM>
 {
     public PhysicalDeviceTensorPropertiesARM()
     {
@@ -62,7 +62,14 @@ public unsafe partial class PhysicalDeviceTensorPropertiesARM : IMarshallableObj
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTensorPropertiesARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MaxTensorDimensionCount = native.maxTensorDimensionCount;
         MaxTensorElements = native.maxTensorElements;
         MaxPerDimensionTensorElements = native.maxPerDimensionTensorElements;
@@ -86,6 +93,12 @@ public unsafe partial class PhysicalDeviceTensorPropertiesARM : IMarshallableObj
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTensorPropertiesARM*)native);
     }
     private ref struct VkPhysicalDeviceTensorPropertiesARMMarshaller
     {

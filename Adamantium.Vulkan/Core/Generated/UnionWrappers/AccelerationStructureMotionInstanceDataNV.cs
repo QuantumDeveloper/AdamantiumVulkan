@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class AccelerationStructureMotionInstanceDataNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureMotionInstanceDataNV>
+public unsafe partial class AccelerationStructureMotionInstanceDataNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureMotionInstanceDataNV>
 {
     public AccelerationStructureMotionInstanceDataNV()
     {
@@ -59,6 +59,12 @@ public unsafe partial class AccelerationStructureMotionInstanceDataNV : IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkAccelerationStructureMotionInstanceDataNV*)native);
     }
     private ref struct VkAccelerationStructureMotionInstanceDataNVMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDevicePerformanceQueryFeaturesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePerformanceQueryFeaturesKHR>
+public unsafe partial class PhysicalDevicePerformanceQueryFeaturesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePerformanceQueryFeaturesKHR>
 {
     public PhysicalDevicePerformanceQueryFeaturesKHR()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDevicePerformanceQueryFeaturesKHR : IMarshal
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePerformanceQueryFeaturesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PerformanceCounterQueryPools = native.performanceCounterQueryPools;
         PerformanceCounterMultipleQueryPools = native.performanceCounterMultipleQueryPools;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDevicePerformanceQueryFeaturesKHR : IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePerformanceQueryFeaturesKHR*)native);
     }
     private ref struct VkPhysicalDevicePerformanceQueryFeaturesKHRMarshaller
     {

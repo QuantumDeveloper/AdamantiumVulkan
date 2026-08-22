@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceMultiviewFeatures : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMultiviewFeatures>
+public unsafe partial class PhysicalDeviceMultiviewFeatures : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMultiviewFeatures>
 {
     public PhysicalDeviceMultiviewFeatures()
     {
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDeviceMultiviewFeatures : IMarshallableObjec
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMultiviewFeatures native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Multiview = native.multiview;
         MultiviewGeometryShader = native.multiviewGeometryShader;
         MultiviewTessellationShader = native.multiviewTessellationShader;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDeviceMultiviewFeatures : IMarshallableObjec
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMultiviewFeatures*)native);
     }
     private ref struct VkPhysicalDeviceMultiviewFeaturesMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class InitializePerformanceApiInfoINTEL : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL>
+public unsafe partial class InitializePerformanceApiInfoINTEL : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL>
 {
     public InitializePerformanceApiInfoINTEL()
     {
@@ -50,7 +50,14 @@ public unsafe partial class InitializePerformanceApiInfoINTEL : IMarshallableObj
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PUserData = (nuint)native.pUserData;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class InitializePerformanceApiInfoINTEL : IMarshallableObj
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkInitializePerformanceApiInfoINTEL*)native);
     }
     private ref struct VkInitializePerformanceApiInfoINTELMarshaller
     {

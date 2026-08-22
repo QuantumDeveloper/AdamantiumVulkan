@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PushConstantsInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPushConstantsInfo>
+public unsafe partial class PushConstantsInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPushConstantsInfo>
 {
     public PushConstantsInfo()
     {
@@ -56,7 +56,14 @@ public unsafe partial class PushConstantsInfo : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPushConstantsInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Layout = new PipelineLayout(native.layout);
         StageFlags = native.stageFlags;
         Offset = native.offset;
@@ -75,6 +82,12 @@ public unsafe partial class PushConstantsInfo : IMarshallableObject, IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPushConstantsInfo*)native);
     }
     private ref struct VkPushConstantsInfoMarshaller
     {

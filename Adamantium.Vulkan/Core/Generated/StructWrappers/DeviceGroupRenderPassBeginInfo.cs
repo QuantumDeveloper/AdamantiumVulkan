@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DeviceGroupRenderPassBeginInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo>
+public unsafe partial class DeviceGroupRenderPassBeginInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo>
 {
     public DeviceGroupRenderPassBeginInfo()
     {
@@ -62,7 +62,14 @@ public unsafe partial class DeviceGroupRenderPassBeginInfo : IMarshallableObject
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DeviceMask = native.deviceMask;
         DeviceRenderAreaCount = native.deviceRenderAreaCount;
         var arrayLengthPDeviceRenderAreas = native.deviceRenderAreaCount;
@@ -84,6 +91,12 @@ public unsafe partial class DeviceGroupRenderPassBeginInfo : IMarshallableObject
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDeviceGroupRenderPassBeginInfo*)native);
     }
     private ref struct VkDeviceGroupRenderPassBeginInfoMarshaller
     {

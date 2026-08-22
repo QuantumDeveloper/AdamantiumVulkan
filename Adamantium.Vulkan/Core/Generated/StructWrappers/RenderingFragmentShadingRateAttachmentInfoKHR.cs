@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class RenderingFragmentShadingRateAttachmentInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderingFragmentShadingRateAttachmentInfoKHR>
+public unsafe partial class RenderingFragmentShadingRateAttachmentInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderingFragmentShadingRateAttachmentInfoKHR>
 {
     public RenderingFragmentShadingRateAttachmentInfoKHR()
     {
@@ -52,7 +52,14 @@ public unsafe partial class RenderingFragmentShadingRateAttachmentInfoKHR : IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkRenderingFragmentShadingRateAttachmentInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ImageView = new ImageView(native.imageView);
         ImageLayout = native.imageLayout;
         ShadingRateAttachmentTexelSize = new Extent2D(native.shadingRateAttachmentTexelSize);
@@ -66,6 +73,12 @@ public unsafe partial class RenderingFragmentShadingRateAttachmentInfoKHR : IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkRenderingFragmentShadingRateAttachmentInfoKHR*)native);
     }
     private ref struct VkRenderingFragmentShadingRateAttachmentInfoKHRMarshaller
     {

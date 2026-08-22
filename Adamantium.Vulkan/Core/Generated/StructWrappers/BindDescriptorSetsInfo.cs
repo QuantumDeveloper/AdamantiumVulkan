@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class BindDescriptorSetsInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindDescriptorSetsInfo>
+public unsafe partial class BindDescriptorSetsInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindDescriptorSetsInfo>
 {
     public BindDescriptorSetsInfo()
     {
@@ -60,7 +60,14 @@ public unsafe partial class BindDescriptorSetsInfo : IMarshallableObject, IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkBindDescriptorSetsInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         StageFlags = native.stageFlags;
         Layout = new PipelineLayout(native.layout);
         FirstSet = native.firstSet;
@@ -89,6 +96,12 @@ public unsafe partial class BindDescriptorSetsInfo : IMarshallableObject, IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkBindDescriptorSetsInfo*)native);
     }
     private ref struct VkBindDescriptorSetsInfoMarshaller
     {

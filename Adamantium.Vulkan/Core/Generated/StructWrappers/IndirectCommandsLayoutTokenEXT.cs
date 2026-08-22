@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class IndirectCommandsLayoutTokenEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT>
+public unsafe partial class IndirectCommandsLayoutTokenEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT>
 {
     public IndirectCommandsLayoutTokenEXT()
     {
@@ -54,7 +54,14 @@ public unsafe partial class IndirectCommandsLayoutTokenEXT : IMarshallableObject
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Type = native.type;
         Data = new IndirectCommandsTokenDataEXT(native.data);
         Offset = native.offset;
@@ -68,6 +75,12 @@ public unsafe partial class IndirectCommandsLayoutTokenEXT : IMarshallableObject
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutTokenEXT*)native);
     }
     private ref struct VkIndirectCommandsLayoutTokenEXTMarshaller
     {

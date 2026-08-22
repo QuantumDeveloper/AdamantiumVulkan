@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ClusterAccelerationStructureClustersBottomLevelInputNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureClustersBottomLevelInputNV>
+public unsafe partial class ClusterAccelerationStructureClustersBottomLevelInputNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureClustersBottomLevelInputNV>
 {
     public ClusterAccelerationStructureClustersBottomLevelInputNV()
     {
@@ -51,7 +51,14 @@ public unsafe partial class ClusterAccelerationStructureClustersBottomLevelInput
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureClustersBottomLevelInputNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MaxTotalClusterCount = native.maxTotalClusterCount;
         MaxClusterCountPerAccelerationStructure = native.maxClusterCountPerAccelerationStructure;
 
@@ -64,6 +71,12 @@ public unsafe partial class ClusterAccelerationStructureClustersBottomLevelInput
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureClustersBottomLevelInputNV*)native);
     }
     private ref struct VkClusterAccelerationStructureClustersBottomLevelInputNVMarshaller
     {

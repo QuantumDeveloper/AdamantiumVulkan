@@ -14,7 +14,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Windows;
 
-public unsafe partial class SemaphoreGetWin32HandleInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR>
+public unsafe partial class SemaphoreGetWin32HandleInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR>
 {
     public SemaphoreGetWin32HandleInfoKHR()
     {
@@ -53,7 +53,14 @@ public unsafe partial class SemaphoreGetWin32HandleInfoKHR : IMarshallableObject
 
     public void MarshalFrom(in Adamantium.Vulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Semaphore = new Semaphore(native.semaphore);
         HandleType = native.handleType;
 
@@ -66,6 +73,12 @@ public unsafe partial class SemaphoreGetWin32HandleInfoKHR : IMarshallableObject
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Windows.Interop.VkSemaphoreGetWin32HandleInfoKHR*)native);
     }
     private ref struct VkSemaphoreGetWin32HandleInfoKHRMarshaller
     {

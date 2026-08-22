@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class BindImageMemorySwapchainInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindImageMemorySwapchainInfoKHR>
+public unsafe partial class BindImageMemorySwapchainInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindImageMemorySwapchainInfoKHR>
 {
     public BindImageMemorySwapchainInfoKHR()
     {
@@ -51,7 +51,14 @@ public unsafe partial class BindImageMemorySwapchainInfoKHR : IMarshallableObjec
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkBindImageMemorySwapchainInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Swapchain = new SwapchainKHR(native.swapchain);
         ImageIndex = native.imageIndex;
 
@@ -64,6 +71,12 @@ public unsafe partial class BindImageMemorySwapchainInfoKHR : IMarshallableObjec
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkBindImageMemorySwapchainInfoKHR*)native);
     }
     private ref struct VkBindImageMemorySwapchainInfoKHRMarshaller
     {

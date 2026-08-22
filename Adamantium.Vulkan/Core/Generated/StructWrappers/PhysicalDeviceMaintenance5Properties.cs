@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceMaintenance5Properties : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance5Properties>
+public unsafe partial class PhysicalDeviceMaintenance5Properties : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance5Properties>
 {
     public PhysicalDeviceMaintenance5Properties()
     {
@@ -55,7 +55,14 @@ public unsafe partial class PhysicalDeviceMaintenance5Properties : IMarshallable
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance5Properties native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         EarlyFragmentMultisampleCoverageAfterSampleCounting = native.earlyFragmentMultisampleCoverageAfterSampleCounting;
         EarlyFragmentSampleMaskTestBeforeSampleCounting = native.earlyFragmentSampleMaskTestBeforeSampleCounting;
         DepthStencilSwizzleOneSupport = native.depthStencilSwizzleOneSupport;
@@ -72,6 +79,12 @@ public unsafe partial class PhysicalDeviceMaintenance5Properties : IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance5Properties*)native);
     }
     private ref struct VkPhysicalDeviceMaintenance5PropertiesMarshaller
     {

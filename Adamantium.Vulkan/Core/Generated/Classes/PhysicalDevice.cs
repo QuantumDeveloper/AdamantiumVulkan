@@ -210,7 +210,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkEnumerateDeviceLayerProperties(this, ref pPropertyCount, arg2);
                 if (arg2 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.LayerProperties(*arg2);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg2);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.LayerProperties(*arg2);
                 }
                 return result;
             }
@@ -303,7 +306,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
                 if (arg3 is not null)
                 {
-                    pCounters = new Adamantium.Vulkan.Core.PerformanceCounterARM(*arg3);
+                    if (pCounters != null)
+                        pCounters.MarshalFrom(*arg3);
+                    else
+                        pCounters = new Adamantium.Vulkan.Core.PerformanceCounterARM(*arg3);
                 }
                 for (var i = 0; i < pCounterDescriptions.Length; ++i)
                 {
@@ -353,7 +359,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 }
                 if (arg4 is not null)
                 {
-                    pCounterDescriptions = new Adamantium.Vulkan.Core.PerformanceCounterDescriptionARM(*arg4);
+                    if (pCounterDescriptions != null)
+                        pCounterDescriptions.MarshalFrom(*arg4);
+                    else
+                        pCounterDescriptions = new Adamantium.Vulkan.Core.PerformanceCounterDescriptionARM(*arg4);
                 }
                 return result;
             }
@@ -390,11 +399,17 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
                 if (arg3 is not null)
                 {
-                    pCounters = new Adamantium.Vulkan.Core.PerformanceCounterARM(*arg3);
+                    if (pCounters != null)
+                        pCounters.MarshalFrom(*arg3);
+                    else
+                        pCounters = new Adamantium.Vulkan.Core.PerformanceCounterARM(*arg3);
                 }
                 if (arg4 is not null)
                 {
-                    pCounterDescriptions = new Adamantium.Vulkan.Core.PerformanceCounterDescriptionARM(*arg4);
+                    if (pCounterDescriptions != null)
+                        pCounterDescriptions.MarshalFrom(*arg4);
+                    else
+                        pCounterDescriptions = new Adamantium.Vulkan.Core.PerformanceCounterDescriptionARM(*arg4);
                 }
                 return result;
             }
@@ -487,7 +502,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
                 if (arg3 is not null)
                 {
-                    pCounters = new Adamantium.Vulkan.Core.PerformanceCounterKHR(*arg3);
+                    if (pCounters != null)
+                        pCounters.MarshalFrom(*arg3);
+                    else
+                        pCounters = new Adamantium.Vulkan.Core.PerformanceCounterKHR(*arg3);
                 }
                 for (var i = 0; i < pCounterDescriptions.Length; ++i)
                 {
@@ -537,7 +555,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 }
                 if (arg4 is not null)
                 {
-                    pCounterDescriptions = new Adamantium.Vulkan.Core.PerformanceCounterDescriptionKHR(*arg4);
+                    if (pCounterDescriptions != null)
+                        pCounterDescriptions.MarshalFrom(*arg4);
+                    else
+                        pCounterDescriptions = new Adamantium.Vulkan.Core.PerformanceCounterDescriptionKHR(*arg4);
                 }
                 return result;
             }
@@ -574,11 +595,17 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(this, queueFamilyIndex, ref pCounterCount, arg3, arg4);
                 if (arg3 is not null)
                 {
-                    pCounters = new Adamantium.Vulkan.Core.PerformanceCounterKHR(*arg3);
+                    if (pCounters != null)
+                        pCounters.MarshalFrom(*arg3);
+                    else
+                        pCounters = new Adamantium.Vulkan.Core.PerformanceCounterKHR(*arg3);
                 }
                 if (arg4 is not null)
                 {
-                    pCounterDescriptions = new Adamantium.Vulkan.Core.PerformanceCounterDescriptionKHR(*arg4);
+                    if (pCounterDescriptions != null)
+                        pCounterDescriptions.MarshalFrom(*arg4);
+                    else
+                        pCounterDescriptions = new Adamantium.Vulkan.Core.PerformanceCounterDescriptionKHR(*arg4);
                 }
                 return result;
             }
@@ -651,7 +678,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM(this, ref pDescriptionCount, arg2);
                 if (arg2 is not null)
                 {
-                    pDescriptions = new Adamantium.Vulkan.Core.ShaderInstrumentationMetricDescriptionARM(*arg2);
+                    if (pDescriptions != null)
+                        pDescriptions.MarshalFrom(*arg2);
+                    else
+                        pDescriptions = new Adamantium.Vulkan.Core.ShaderInstrumentationMetricDescriptionARM(*arg2);
                 }
                 return result;
             }
@@ -726,7 +756,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetDisplayModeProperties2KHR(this, arg1, ref pPropertyCount, arg3);
                 if (arg3 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.DisplayModeProperties2KHR(*arg3);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg3);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.DisplayModeProperties2KHR(*arg3);
                 }
                 return result;
             }
@@ -801,7 +834,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetDisplayModePropertiesKHR(this, arg1, ref pPropertyCount, arg3);
                 if (arg3 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.DisplayModePropertiesKHR(*arg3);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg3);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.DisplayModePropertiesKHR(*arg3);
                 }
                 return result;
             }
@@ -979,7 +1015,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(this, ref pPropertyCount, arg2);
                 if (arg2 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.CooperativeMatrixFlexibleDimensionsPropertiesNV(*arg2);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg2);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.CooperativeMatrixFlexibleDimensionsPropertiesNV(*arg2);
                 }
                 return result;
             }
@@ -1052,7 +1091,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(this, ref pPropertyCount, arg2);
                 if (arg2 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.CooperativeMatrixPropertiesKHR(*arg2);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg2);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.CooperativeMatrixPropertiesKHR(*arg2);
                 }
                 return result;
             }
@@ -1125,7 +1167,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(this, ref pPropertyCount, arg2);
                 if (arg2 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.CooperativeMatrixPropertiesNV(*arg2);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg2);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.CooperativeMatrixPropertiesNV(*arg2);
                 }
                 return result;
             }
@@ -1198,7 +1243,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceCooperativeVectorPropertiesNV(this, ref pPropertyCount, arg2);
                 if (arg2 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.CooperativeVectorPropertiesNV(*arg2);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg2);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.CooperativeVectorPropertiesNV(*arg2);
                 }
                 return result;
             }
@@ -1276,7 +1324,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceDisplayPlaneProperties2KHR(this, ref pPropertyCount, arg2);
                 if (arg2 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.DisplayPlaneProperties2KHR(*arg2);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg2);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.DisplayPlaneProperties2KHR(*arg2);
                 }
                 return result;
             }
@@ -1361,7 +1412,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceDisplayProperties2KHR(this, ref pPropertyCount, arg2);
                 if (arg2 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.DisplayProperties2KHR(*arg2);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg2);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.DisplayProperties2KHR(*arg2);
                 }
                 return result;
             }
@@ -1434,7 +1488,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceDisplayPropertiesKHR(this, ref pPropertyCount, arg2);
                 if (arg2 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.DisplayPropertiesKHR(*arg2);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg2);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.DisplayPropertiesKHR(*arg2);
                 }
                 return result;
             }
@@ -1607,7 +1664,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 Commands.vkGetPhysicalDeviceFeatures2(this, arg1);
                 if (arg1 is not null)
                 {
-                    pFeatures = new Adamantium.Vulkan.Core.PhysicalDeviceFeatures2(*arg1);
+                    if (pFeatures != null)
+                        pFeatures.MarshalFrom(*arg1);
+                    else
+                        pFeatures = new Adamantium.Vulkan.Core.PhysicalDeviceFeatures2(*arg1);
                 }
             }
             finally
@@ -1693,7 +1753,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceFragmentShadingRatesKHR(this, ref pFragmentShadingRateCount, arg2);
                 if (arg2 is not null)
                 {
-                    pFragmentShadingRates = new Adamantium.Vulkan.Core.PhysicalDeviceFragmentShadingRateKHR(*arg2);
+                    if (pFragmentShadingRates != null)
+                        pFragmentShadingRates.MarshalFrom(*arg2);
+                    else
+                        pFragmentShadingRates = new Adamantium.Vulkan.Core.PhysicalDeviceFragmentShadingRateKHR(*arg2);
                 }
                 return result;
             }
@@ -1833,7 +1896,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceOpticalFlowImageFormatsNV(this, arg1, ref pFormatCount, arg3);
                 if (arg3 is not null)
                 {
-                    pImageFormatProperties = new Adamantium.Vulkan.Core.OpticalFlowImageFormatPropertiesNV(*arg3);
+                    if (pImageFormatProperties != null)
+                        pImageFormatProperties.MarshalFrom(*arg3);
+                    else
+                        pImageFormatProperties = new Adamantium.Vulkan.Core.OpticalFlowImageFormatPropertiesNV(*arg3);
                 }
                 return result;
             }
@@ -1908,7 +1974,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDevicePresentRectanglesKHR(this, arg1, ref pRectCount, arg3);
                 if (arg3 is not null)
                 {
-                    pRects = new Adamantium.Vulkan.Core.Rect2D(*arg3);
+                    if (pRects != null)
+                        pRects.MarshalFrom(*arg3);
+                    else
+                        pRects = new Adamantium.Vulkan.Core.Rect2D(*arg3);
                 }
                 return result;
             }
@@ -1949,7 +2018,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 Commands.vkGetPhysicalDeviceProperties2(this, arg1);
                 if (arg1 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.PhysicalDeviceProperties2(*arg1);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg1);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.PhysicalDeviceProperties2(*arg1);
                 }
             }
             finally
@@ -2065,7 +2137,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM(this, queueFamilyIndex, arg2, arg3, ref pFormatCount, arg5);
                 if (arg5 is not null)
                 {
-                    pImageFormatProperties = new Adamantium.Vulkan.Core.DataGraphOpticalFlowImageFormatPropertiesARM(*arg5);
+                    if (pImageFormatProperties != null)
+                        pImageFormatProperties.MarshalFrom(*arg5);
+                    else
+                        pImageFormatProperties = new Adamantium.Vulkan.Core.DataGraphOpticalFlowImageFormatPropertiesARM(*arg5);
                 }
                 return result;
             }
@@ -2169,7 +2244,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM(this, queueFamilyIndex, ref pQueueFamilyDataGraphPropertyCount, arg3);
                 if (arg3 is not null)
                 {
-                    pQueueFamilyDataGraphProperties = new Adamantium.Vulkan.Core.QueueFamilyDataGraphPropertiesARM(*arg3);
+                    if (pQueueFamilyDataGraphProperties != null)
+                        pQueueFamilyDataGraphProperties.MarshalFrom(*arg3);
+                    else
+                        pQueueFamilyDataGraphProperties = new Adamantium.Vulkan.Core.QueueFamilyDataGraphPropertiesARM(*arg3);
                 }
                 return result;
             }
@@ -2308,7 +2386,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 Commands.vkGetPhysicalDeviceQueueFamilyProperties2(this, ref pQueueFamilyPropertyCount, arg2);
                 if (arg2 is not null)
                 {
-                    pQueueFamilyProperties = new Adamantium.Vulkan.Core.QueueFamilyProperties2(*arg2);
+                    if (pQueueFamilyProperties != null)
+                        pQueueFamilyProperties.MarshalFrom(*arg2);
+                    else
+                        pQueueFamilyProperties = new Adamantium.Vulkan.Core.QueueFamilyProperties2(*arg2);
                 }
             }
             finally
@@ -2379,7 +2460,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 Commands.vkGetPhysicalDeviceSparseImageFormatProperties(this, format, type, samples, usage, tiling, ref pPropertyCount, arg7);
                 if (arg7 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.SparseImageFormatProperties(*arg7);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg7);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.SparseImageFormatProperties(*arg7);
                 }
             }
             finally
@@ -2456,7 +2540,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 Commands.vkGetPhysicalDeviceSparseImageFormatProperties2(this, arg1, ref pPropertyCount, arg3);
                 if (arg3 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.SparseImageFormatProperties2(*arg3);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg3);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.SparseImageFormatProperties2(*arg3);
                 }
             }
             finally
@@ -2528,7 +2615,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(this, ref pCombinationCount, arg2);
                 if (arg2 is not null)
                 {
-                    pCombinations = new Adamantium.Vulkan.Core.FramebufferMixedSamplesCombinationNV(*arg2);
+                    if (pCombinations != null)
+                        pCombinations.MarshalFrom(*arg2);
+                    else
+                        pCombinations = new Adamantium.Vulkan.Core.FramebufferMixedSamplesCombinationNV(*arg2);
                 }
                 return result;
             }
@@ -2549,17 +2639,19 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
         return result;
     }
 
-    public Result GetPhysicalDeviceSurfaceCapabilities2KHR(in PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, out SurfaceCapabilities2KHR pSurfaceCapabilities)
+    public Result GetPhysicalDeviceSurfaceCapabilities2KHR(in PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, ref SurfaceCapabilities2KHR pSurfaceCapabilities)
     {
-        int CalculateSize(PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo)
+        int CalculateSize(PhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, SurfaceCapabilities2KHR pSurfaceCapabilities)
         {
             int totalSize = 0;
             if (pSurfaceInfo != null)
                 totalSize += pSurfaceInfo.GetSize();
+            if (pSurfaceCapabilities != null)
+                totalSize += pSurfaceCapabilities.GetSize();
             return totalSize;
         }
 
-        var totalSize = CalculateSize(pSurfaceInfo);
+        var totalSize = CalculateSize(pSurfaceInfo, pSurfaceCapabilities);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
         fixed (byte* bufferPtr = mainBuffer)
@@ -2568,9 +2660,15 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<Adamantium.Vulkan.Core.PhysicalDeviceSurfaceInfo2KHR, Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR>(pSurfaceInfo, ref currentCursor);
-                Adamantium.Vulkan.Core.Interop.VkSurfaceCapabilities2KHR arg2 = default;
-                var result = Commands.vkGetPhysicalDeviceSurfaceCapabilities2KHR(this, arg1, &arg2);
-                pSurfaceCapabilities = new SurfaceCapabilities2KHR(arg2);
+                var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<Adamantium.Vulkan.Core.SurfaceCapabilities2KHR, Adamantium.Vulkan.Core.Interop.VkSurfaceCapabilities2KHR>(pSurfaceCapabilities, ref currentCursor);
+                var result = Commands.vkGetPhysicalDeviceSurfaceCapabilities2KHR(this, arg1, arg2);
+                if (arg2 is not null)
+                {
+                    if (pSurfaceCapabilities != null)
+                        pSurfaceCapabilities.MarshalFrom(*arg2);
+                    else
+                        pSurfaceCapabilities = new Adamantium.Vulkan.Core.SurfaceCapabilities2KHR(*arg2);
+                }
                 return result;
             }
             finally
@@ -2657,7 +2755,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceSurfaceFormats2KHR(this, arg1, ref pSurfaceFormatCount, arg3);
                 if (arg3 is not null)
                 {
-                    pSurfaceFormats = new Adamantium.Vulkan.Core.SurfaceFormat2KHR(*arg3);
+                    if (pSurfaceFormats != null)
+                        pSurfaceFormats.MarshalFrom(*arg3);
+                    else
+                        pSurfaceFormats = new Adamantium.Vulkan.Core.SurfaceFormat2KHR(*arg3);
                 }
                 return result;
             }
@@ -2812,7 +2913,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceToolProperties(this, ref pToolCount, arg2);
                 if (arg2 is not null)
                 {
-                    pToolProperties = new Adamantium.Vulkan.Core.PhysicalDeviceToolProperties(*arg2);
+                    if (pToolProperties != null)
+                        pToolProperties.MarshalFrom(*arg2);
+                    else
+                        pToolProperties = new Adamantium.Vulkan.Core.PhysicalDeviceToolProperties(*arg2);
                 }
                 return result;
             }
@@ -2955,7 +3059,10 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
                 var result = Commands.vkGetPhysicalDeviceVideoFormatPropertiesKHR(this, arg1, ref pVideoFormatPropertyCount, arg3);
                 if (arg3 is not null)
                 {
-                    pVideoFormatProperties = new Adamantium.Vulkan.Core.VideoFormatPropertiesKHR(*arg3);
+                    if (pVideoFormatProperties != null)
+                        pVideoFormatProperties.MarshalFrom(*arg3);
+                    else
+                        pVideoFormatProperties = new Adamantium.Vulkan.Core.VideoFormatPropertiesKHR(*arg3);
                 }
                 return result;
             }

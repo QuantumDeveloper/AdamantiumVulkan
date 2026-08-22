@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DebugReportCallbackCreateInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT>
+public unsafe partial class DebugReportCallbackCreateInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT>
 {
     public DebugReportCallbackCreateInfoEXT()
     {
@@ -52,7 +52,14 @@ public unsafe partial class DebugReportCallbackCreateInfoEXT : IMarshallableObje
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         PfnCallback = native.pfnCallback;
         PUserData = (nuint)native.pUserData;
@@ -66,6 +73,12 @@ public unsafe partial class DebugReportCallbackCreateInfoEXT : IMarshallableObje
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDebugReportCallbackCreateInfoEXT*)native);
     }
     private ref struct VkDebugReportCallbackCreateInfoEXTMarshaller
     {

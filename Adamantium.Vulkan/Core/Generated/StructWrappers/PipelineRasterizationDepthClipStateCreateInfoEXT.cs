@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineRasterizationDepthClipStateCreateInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT>
+public unsafe partial class PipelineRasterizationDepthClipStateCreateInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT>
 {
     public PipelineRasterizationDepthClipStateCreateInfoEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PipelineRasterizationDepthClipStateCreateInfoEXT : I
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         DepthClipEnable = native.depthClipEnable;
 
@@ -64,6 +71,12 @@ public unsafe partial class PipelineRasterizationDepthClipStateCreateInfoEXT : I
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineRasterizationDepthClipStateCreateInfoEXT*)native);
     }
     private ref struct VkPipelineRasterizationDepthClipStateCreateInfoEXTMarshaller
     {

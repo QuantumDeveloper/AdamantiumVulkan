@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VertexInputAttributeDescription2EXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVertexInputAttributeDescription2EXT>
+public unsafe partial class VertexInputAttributeDescription2EXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVertexInputAttributeDescription2EXT>
 {
     public VertexInputAttributeDescription2EXT()
     {
@@ -53,7 +53,14 @@ public unsafe partial class VertexInputAttributeDescription2EXT : IMarshallableO
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVertexInputAttributeDescription2EXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Location = native.location;
         Binding = native.binding;
         Format = native.format;
@@ -68,6 +75,12 @@ public unsafe partial class VertexInputAttributeDescription2EXT : IMarshallableO
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVertexInputAttributeDescription2EXT*)native);
     }
     private ref struct VkVertexInputAttributeDescription2EXTMarshaller
     {

@@ -13,7 +13,7 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Windows;
 
-public unsafe partial class SurfaceFullScreenExclusiveWin32InfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT>
+public unsafe partial class SurfaceFullScreenExclusiveWin32InfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT>
 {
     public SurfaceFullScreenExclusiveWin32InfoEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class SurfaceFullScreenExclusiveWin32InfoEXT : IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Hmonitor = native.hmonitor;
 
     }
@@ -63,6 +70,12 @@ public unsafe partial class SurfaceFullScreenExclusiveWin32InfoEXT : IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Windows.Interop.VkSurfaceFullScreenExclusiveWin32InfoEXT*)native);
     }
     private ref struct VkSurfaceFullScreenExclusiveWin32InfoEXTMarshaller
     {

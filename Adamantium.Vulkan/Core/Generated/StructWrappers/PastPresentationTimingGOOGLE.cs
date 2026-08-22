@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PastPresentationTimingGOOGLE : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPastPresentationTimingGOOGLE>
+public unsafe partial class PastPresentationTimingGOOGLE : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPastPresentationTimingGOOGLE>
 {
     public PastPresentationTimingGOOGLE()
     {
@@ -63,6 +63,12 @@ public unsafe partial class PastPresentationTimingGOOGLE : IMarshallableObject, 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPastPresentationTimingGOOGLE*)native);
     }
     private ref struct VkPastPresentationTimingGOOGLEMarshaller
     {

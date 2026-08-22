@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DeviceQueueCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceQueueCreateInfo>
+public unsafe partial class DeviceQueueCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceQueueCreateInfo>
 {
     public DeviceQueueCreateInfo()
     {
@@ -55,7 +55,14 @@ public unsafe partial class DeviceQueueCreateInfo : IMarshallableObject, IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDeviceQueueCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         QueueFamilyIndex = native.queueFamilyIndex;
         QueueCount = native.queueCount;
@@ -73,6 +80,12 @@ public unsafe partial class DeviceQueueCreateInfo : IMarshallableObject, IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDeviceQueueCreateInfo*)native);
     }
     private ref struct VkDeviceQueueCreateInfoMarshaller
     {

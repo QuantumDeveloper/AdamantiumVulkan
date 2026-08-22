@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class Extent3D : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkExtent3D>
+public unsafe partial class Extent3D : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkExtent3D>
 {
     public Extent3D()
     {
@@ -59,6 +59,12 @@ public unsafe partial class Extent3D : IMarshallableObject, IMarshallable<Adaman
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkExtent3D*)native);
     }
     private ref struct VkExtent3DMarshaller
     {

@@ -13,7 +13,7 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Windows;
 
-public unsafe partial class D3D12FenceSubmitInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR>
+public unsafe partial class D3D12FenceSubmitInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR>
 {
     public D3D12FenceSubmitInfoKHR()
     {
@@ -58,7 +58,14 @@ public unsafe partial class D3D12FenceSubmitInfoKHR : IMarshallableObject, IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         WaitSemaphoreValuesCount = native.waitSemaphoreValuesCount;
         var arrayLengthPWaitSemaphoreValues = native.waitSemaphoreValuesCount;
         var tmpPWaitSemaphoreValues = new ulong[arrayLengthPWaitSemaphoreValues];
@@ -79,6 +86,12 @@ public unsafe partial class D3D12FenceSubmitInfoKHR : IMarshallableObject, IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR*)native);
     }
     private ref struct VkD3D12FenceSubmitInfoKHRMarshaller
     {

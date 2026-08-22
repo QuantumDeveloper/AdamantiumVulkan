@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PresentWait2InfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentWait2InfoKHR>
+public unsafe partial class PresentWait2InfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentWait2InfoKHR>
 {
     public PresentWait2InfoKHR()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PresentWait2InfoKHR : IMarshallableObject, IMarshall
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPresentWait2InfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PresentId = native.presentId;
         Timeout = native.timeout;
 
@@ -64,6 +71,12 @@ public unsafe partial class PresentWait2InfoKHR : IMarshallableObject, IMarshall
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPresentWait2InfoKHR*)native);
     }
     private ref struct VkPresentWait2InfoKHRMarshaller
     {

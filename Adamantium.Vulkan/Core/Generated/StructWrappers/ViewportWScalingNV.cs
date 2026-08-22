@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ViewportWScalingNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkViewportWScalingNV>
+public unsafe partial class ViewportWScalingNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkViewportWScalingNV>
 {
     public ViewportWScalingNV()
     {
@@ -57,6 +57,12 @@ public unsafe partial class ViewportWScalingNV : IMarshallableObject, IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkViewportWScalingNV*)native);
     }
     private ref struct VkViewportWScalingNVMarshaller
     {

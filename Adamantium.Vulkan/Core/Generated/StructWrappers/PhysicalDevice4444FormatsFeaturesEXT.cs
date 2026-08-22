@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDevice4444FormatsFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT>
+public unsafe partial class PhysicalDevice4444FormatsFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT>
 {
     public PhysicalDevice4444FormatsFeaturesEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDevice4444FormatsFeaturesEXT : IMarshallable
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         FormatA4R4G4B4 = native.formatA4R4G4B4;
         FormatA4B4G4R4 = native.formatA4B4G4R4;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDevice4444FormatsFeaturesEXT : IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDevice4444FormatsFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDevice4444FormatsFeaturesEXTMarshaller
     {

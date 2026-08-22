@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class BindVertexBuffer3InfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindVertexBuffer3InfoKHR>
+public unsafe partial class BindVertexBuffer3InfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindVertexBuffer3InfoKHR>
 {
     public BindVertexBuffer3InfoKHR()
     {
@@ -52,7 +52,14 @@ public unsafe partial class BindVertexBuffer3InfoKHR : IMarshallableObject, IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkBindVertexBuffer3InfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SetStride = native.setStride;
         AddressRange = new StridedDeviceAddressRangeKHR(native.addressRange);
         AddressFlags = native.addressFlags;
@@ -66,6 +73,12 @@ public unsafe partial class BindVertexBuffer3InfoKHR : IMarshallableObject, IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkBindVertexBuffer3InfoKHR*)native);
     }
     private ref struct VkBindVertexBuffer3InfoKHRMarshaller
     {

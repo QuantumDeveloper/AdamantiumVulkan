@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceDescriptorHeapFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorHeapFeaturesEXT>
+public unsafe partial class PhysicalDeviceDescriptorHeapFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorHeapFeaturesEXT>
 {
     public PhysicalDeviceDescriptorHeapFeaturesEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceDescriptorHeapFeaturesEXT : IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorHeapFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DescriptorHeap = native.descriptorHeap;
         DescriptorHeapCaptureReplay = native.descriptorHeapCaptureReplay;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceDescriptorHeapFeaturesEXT : IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorHeapFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDeviceDescriptorHeapFeaturesEXTMarshaller
     {

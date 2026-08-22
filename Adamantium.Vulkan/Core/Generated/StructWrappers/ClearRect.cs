@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ClearRect : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkClearRect>
+public unsafe partial class ClearRect : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkClearRect>
 {
     public ClearRect()
     {
@@ -59,6 +59,12 @@ public unsafe partial class ClearRect : IMarshallableObject, IMarshallable<Adama
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkClearRect*)native);
     }
     private ref struct VkClearRectMarshaller
     {

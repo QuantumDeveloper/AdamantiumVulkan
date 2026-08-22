@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceVideoDecodeVP9FeaturesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVideoDecodeVP9FeaturesKHR>
+public unsafe partial class PhysicalDeviceVideoDecodeVP9FeaturesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVideoDecodeVP9FeaturesKHR>
 {
     public PhysicalDeviceVideoDecodeVP9FeaturesKHR()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceVideoDecodeVP9FeaturesKHR : IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVideoDecodeVP9FeaturesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         VideoDecodeVP9 = native.videoDecodeVP9;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceVideoDecodeVP9FeaturesKHR : IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVideoDecodeVP9FeaturesKHR*)native);
     }
     private ref struct VkPhysicalDeviceVideoDecodeVP9FeaturesKHRMarshaller
     {

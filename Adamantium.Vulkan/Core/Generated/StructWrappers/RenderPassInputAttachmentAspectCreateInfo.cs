@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo>
+public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo>
 {
     public RenderPassInputAttachmentAspectCreateInfo()
     {
@@ -61,7 +61,14 @@ public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : IMarshal
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         AspectReferenceCount = native.aspectReferenceCount;
         var arrayLengthPAspectReferences = native.aspectReferenceCount;
         var tmpPAspectReferences = new InputAttachmentAspectReference[arrayLengthPAspectReferences];
@@ -82,6 +89,12 @@ public unsafe partial class RenderPassInputAttachmentAspectCreateInfo : IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkRenderPassInputAttachmentAspectCreateInfo*)native);
     }
     private ref struct VkRenderPassInputAttachmentAspectCreateInfoMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PresentId2KHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentId2KHR>
+public unsafe partial class PresentId2KHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentId2KHR>
 {
     public PresentId2KHR()
     {
@@ -53,7 +53,14 @@ public unsafe partial class PresentId2KHR : IMarshallableObject, IMarshallable<A
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPresentId2KHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SwapchainCount = native.swapchainCount;
         var arrayLengthPresentIds = native.swapchainCount;
         var tmpPresentIds = new ulong[arrayLengthPresentIds];
@@ -69,6 +76,12 @@ public unsafe partial class PresentId2KHR : IMarshallableObject, IMarshallable<A
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPresentId2KHR*)native);
     }
     private ref struct VkPresentId2KHRMarshaller
     {

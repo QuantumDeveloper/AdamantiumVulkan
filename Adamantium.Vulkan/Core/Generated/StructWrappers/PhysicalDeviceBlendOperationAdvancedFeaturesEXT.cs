@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceBlendOperationAdvancedFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT>
+public unsafe partial class PhysicalDeviceBlendOperationAdvancedFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT>
 {
     public PhysicalDeviceBlendOperationAdvancedFeaturesEXT()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceBlendOperationAdvancedFeaturesEXT : IM
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         AdvancedBlendCoherentOperations = native.advancedBlendCoherentOperations;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceBlendOperationAdvancedFeaturesEXT : IM
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDeviceBlendOperationAdvancedFeaturesEXTMarshaller
     {

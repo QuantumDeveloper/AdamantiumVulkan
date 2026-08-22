@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class OpticalFlowExecuteInfoNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkOpticalFlowExecuteInfoNV>
+public unsafe partial class OpticalFlowExecuteInfoNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkOpticalFlowExecuteInfoNV>
 {
     public OpticalFlowExecuteInfoNV()
     {
@@ -62,7 +62,14 @@ public unsafe partial class OpticalFlowExecuteInfoNV : IMarshallableObject, IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkOpticalFlowExecuteInfoNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         RegionCount = native.regionCount;
         var arrayLengthPRegions = native.regionCount;
@@ -84,6 +91,12 @@ public unsafe partial class OpticalFlowExecuteInfoNV : IMarshallableObject, IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkOpticalFlowExecuteInfoNV*)native);
     }
     private ref struct VkOpticalFlowExecuteInfoNVMarshaller
     {

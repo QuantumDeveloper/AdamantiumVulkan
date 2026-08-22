@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DataGraphPipelineResourceInfoARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineResourceInfoARM>
+public unsafe partial class DataGraphPipelineResourceInfoARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineResourceInfoARM>
 {
     public DataGraphPipelineResourceInfoARM()
     {
@@ -52,7 +52,14 @@ public unsafe partial class DataGraphPipelineResourceInfoARM : IMarshallableObje
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineResourceInfoARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DescriptorSet = native.descriptorSet;
         Binding = native.binding;
         ArrayElement = native.arrayElement;
@@ -66,6 +73,12 @@ public unsafe partial class DataGraphPipelineResourceInfoARM : IMarshallableObje
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineResourceInfoARM*)native);
     }
     private ref struct VkDataGraphPipelineResourceInfoARMMarshaller
     {

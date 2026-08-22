@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DescriptorMappingSourcePushIndexEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourcePushIndexEXT>
+public unsafe partial class DescriptorMappingSourcePushIndexEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourcePushIndexEXT>
 {
     public DescriptorMappingSourcePushIndexEXT()
     {
@@ -78,6 +78,12 @@ public unsafe partial class DescriptorMappingSourcePushIndexEXT : IMarshallableO
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourcePushIndexEXT*)native);
     }
     private ref struct VkDescriptorMappingSourcePushIndexEXTMarshaller
     {

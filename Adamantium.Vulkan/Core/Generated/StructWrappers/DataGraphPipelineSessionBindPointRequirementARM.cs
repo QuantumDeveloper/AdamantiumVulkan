@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DataGraphPipelineSessionBindPointRequirementARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSessionBindPointRequirementARM>
+public unsafe partial class DataGraphPipelineSessionBindPointRequirementARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSessionBindPointRequirementARM>
 {
     public DataGraphPipelineSessionBindPointRequirementARM()
     {
@@ -52,7 +52,14 @@ public unsafe partial class DataGraphPipelineSessionBindPointRequirementARM : IM
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSessionBindPointRequirementARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         BindPoint = native.bindPoint;
         BindPointType = native.bindPointType;
         NumObjects = native.numObjects;
@@ -66,6 +73,12 @@ public unsafe partial class DataGraphPipelineSessionBindPointRequirementARM : IM
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSessionBindPointRequirementARM*)native);
     }
     private ref struct VkDataGraphPipelineSessionBindPointRequirementARMMarshaller
     {

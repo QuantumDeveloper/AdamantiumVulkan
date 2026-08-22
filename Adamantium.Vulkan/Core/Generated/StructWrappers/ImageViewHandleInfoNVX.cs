@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ImageViewHandleInfoNVX : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageViewHandleInfoNVX>
+public unsafe partial class ImageViewHandleInfoNVX : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageViewHandleInfoNVX>
 {
     public ImageViewHandleInfoNVX()
     {
@@ -52,7 +52,14 @@ public unsafe partial class ImageViewHandleInfoNVX : IMarshallableObject, IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkImageViewHandleInfoNVX native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ImageView = new ImageView(native.imageView);
         DescriptorType = native.descriptorType;
         Sampler = new Sampler(native.sampler);
@@ -66,6 +73,12 @@ public unsafe partial class ImageViewHandleInfoNVX : IMarshallableObject, IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkImageViewHandleInfoNVX*)native);
     }
     private ref struct VkImageViewHandleInfoNVXMarshaller
     {

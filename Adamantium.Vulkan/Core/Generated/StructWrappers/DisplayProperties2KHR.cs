@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DisplayProperties2KHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDisplayProperties2KHR>
+public unsafe partial class DisplayProperties2KHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDisplayProperties2KHR>
 {
     public DisplayProperties2KHR()
     {
@@ -50,7 +50,14 @@ public unsafe partial class DisplayProperties2KHR : IMarshallableObject, IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDisplayProperties2KHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DisplayProperties = new DisplayPropertiesKHR(native.displayProperties);
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class DisplayProperties2KHR : IMarshallableObject, IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDisplayProperties2KHR*)native);
     }
     private ref struct VkDisplayProperties2KHRMarshaller
     {

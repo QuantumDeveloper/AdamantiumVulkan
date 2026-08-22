@@ -148,7 +148,15 @@ public static partial class VulkanBindings
             WithParameterName("pFeatures").
             InterpretAsIs().
             SetParameterKind(ParameterKind.Ref);
-        
+
+        // Ref rather than Out: the answer is not the top-level structure alone. Which scaling modes and which
+        // compatible present modes a surface offers arrive in structures the CALLER chains onto pSurfaceCapabilities,
+        // and an out parameter gives the caller no way to put them there.
+        api.Function("vkGetPhysicalDeviceSurfaceCapabilities2KHR").
+            WithParameterName("pSurfaceCapabilities").
+            InterpretAsIs().
+            SetParameterKind(ParameterKind.Ref);
+
         api.Function("vkGetInstanceProcAddr").WithReturnType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void)});
         api.Function("vkGetDeviceProcAddr").WithReturnType(new PointerType() { Pointee = new BuiltinType(PrimitiveType.Void)});
         

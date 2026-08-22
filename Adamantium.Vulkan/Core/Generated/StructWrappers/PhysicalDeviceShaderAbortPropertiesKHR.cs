@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceShaderAbortPropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderAbortPropertiesKHR>
+public unsafe partial class PhysicalDeviceShaderAbortPropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderAbortPropertiesKHR>
 {
     public PhysicalDeviceShaderAbortPropertiesKHR()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceShaderAbortPropertiesKHR : IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderAbortPropertiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MaxShaderAbortMessageSize = native.maxShaderAbortMessageSize;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceShaderAbortPropertiesKHR : IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderAbortPropertiesKHR*)native);
     }
     private ref struct VkPhysicalDeviceShaderAbortPropertiesKHRMarshaller
     {

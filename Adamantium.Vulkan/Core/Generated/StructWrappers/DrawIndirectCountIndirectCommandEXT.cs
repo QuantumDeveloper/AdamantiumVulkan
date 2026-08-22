@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DrawIndirectCountIndirectCommandEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDrawIndirectCountIndirectCommandEXT>
+public unsafe partial class DrawIndirectCountIndirectCommandEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDrawIndirectCountIndirectCommandEXT>
 {
     public DrawIndirectCountIndirectCommandEXT()
     {
@@ -59,6 +59,12 @@ public unsafe partial class DrawIndirectCountIndirectCommandEXT : IMarshallableO
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDrawIndirectCountIndirectCommandEXT*)native);
     }
     private ref struct VkDrawIndirectCountIndirectCommandEXTMarshaller
     {

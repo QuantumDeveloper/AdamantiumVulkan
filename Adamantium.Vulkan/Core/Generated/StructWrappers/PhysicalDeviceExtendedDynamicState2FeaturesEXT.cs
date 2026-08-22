@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceExtendedDynamicState2FeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState2FeaturesEXT>
+public unsafe partial class PhysicalDeviceExtendedDynamicState2FeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState2FeaturesEXT>
 {
     public PhysicalDeviceExtendedDynamicState2FeaturesEXT()
     {
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDeviceExtendedDynamicState2FeaturesEXT : IMa
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState2FeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ExtendedDynamicState2 = native.extendedDynamicState2;
         ExtendedDynamicState2LogicOp = native.extendedDynamicState2LogicOp;
         ExtendedDynamicState2PatchControlPoints = native.extendedDynamicState2PatchControlPoints;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDeviceExtendedDynamicState2FeaturesEXT : IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState2FeaturesEXT*)native);
     }
     private ref struct VkPhysicalDeviceExtendedDynamicState2FeaturesEXTMarshaller
     {

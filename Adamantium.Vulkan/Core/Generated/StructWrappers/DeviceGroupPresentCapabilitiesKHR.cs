@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DeviceGroupPresentCapabilitiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR>
+public unsafe partial class DeviceGroupPresentCapabilitiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR>
 {
     public DeviceGroupPresentCapabilitiesKHR()
     {
@@ -51,7 +51,14 @@ public unsafe partial class DeviceGroupPresentCapabilitiesKHR : IMarshallableObj
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         var tmpPresentMask = new uint[32];
         var presentMaskp = native.presentMask[0];
         var pPresentMask = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in presentMaskp ));
@@ -68,6 +75,12 @@ public unsafe partial class DeviceGroupPresentCapabilitiesKHR : IMarshallableObj
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDeviceGroupPresentCapabilitiesKHR*)native);
     }
     private ref struct VkDeviceGroupPresentCapabilitiesKHRMarshaller
     {

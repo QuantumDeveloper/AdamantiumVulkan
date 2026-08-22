@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CuFunctionCreateInfoNVX : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCuFunctionCreateInfoNVX>
+public unsafe partial class CuFunctionCreateInfoNVX : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCuFunctionCreateInfoNVX>
 {
     public CuFunctionCreateInfoNVX()
     {
@@ -53,7 +53,14 @@ public unsafe partial class CuFunctionCreateInfoNVX : IMarshallableObject, IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkCuFunctionCreateInfoNVX native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Module = new CuModuleNVX(native.module);
         PName = new string(native.pName);
 
@@ -66,6 +73,12 @@ public unsafe partial class CuFunctionCreateInfoNVX : IMarshallableObject, IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCuFunctionCreateInfoNVX*)native);
     }
     private ref struct VkCuFunctionCreateInfoNVXMarshaller
     {

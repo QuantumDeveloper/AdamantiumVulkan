@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SwapchainPresentFenceInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSwapchainPresentFenceInfoKHR>
+public unsafe partial class SwapchainPresentFenceInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSwapchainPresentFenceInfoKHR>
 {
     public SwapchainPresentFenceInfoKHR()
     {
@@ -53,7 +53,14 @@ public unsafe partial class SwapchainPresentFenceInfoKHR : IMarshallableObject, 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSwapchainPresentFenceInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SwapchainCount = native.swapchainCount;
         var arrayLengthPFences = native.swapchainCount;
         var tmpPFences = new Fence[arrayLengthPFences];
@@ -74,6 +81,12 @@ public unsafe partial class SwapchainPresentFenceInfoKHR : IMarshallableObject, 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSwapchainPresentFenceInfoKHR*)native);
     }
     private ref struct VkSwapchainPresentFenceInfoKHRMarshaller
     {

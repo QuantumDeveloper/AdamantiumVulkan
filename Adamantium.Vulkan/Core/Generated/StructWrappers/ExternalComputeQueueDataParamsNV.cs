@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ExternalComputeQueueDataParamsNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkExternalComputeQueueDataParamsNV>
+public unsafe partial class ExternalComputeQueueDataParamsNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkExternalComputeQueueDataParamsNV>
 {
     public ExternalComputeQueueDataParamsNV()
     {
@@ -50,7 +50,14 @@ public unsafe partial class ExternalComputeQueueDataParamsNV : IMarshallableObje
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkExternalComputeQueueDataParamsNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DeviceIndex = native.deviceIndex;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class ExternalComputeQueueDataParamsNV : IMarshallableObje
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkExternalComputeQueueDataParamsNV*)native);
     }
     private ref struct VkExternalComputeQueueDataParamsNVMarshaller
     {

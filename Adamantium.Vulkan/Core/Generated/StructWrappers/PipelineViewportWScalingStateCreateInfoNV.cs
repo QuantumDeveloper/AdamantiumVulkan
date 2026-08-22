@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV>
+public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV>
 {
     public PipelineViewportWScalingStateCreateInfoNV()
     {
@@ -62,7 +62,14 @@ public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : IMarshal
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ViewportWScalingEnable = native.viewportWScalingEnable;
         ViewportCount = native.viewportCount;
         var arrayLengthPViewportWScalings = native.viewportCount;
@@ -84,6 +91,12 @@ public unsafe partial class PipelineViewportWScalingStateCreateInfoNV : IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineViewportWScalingStateCreateInfoNV*)native);
     }
     private ref struct VkPipelineViewportWScalingStateCreateInfoNVMarshaller
     {

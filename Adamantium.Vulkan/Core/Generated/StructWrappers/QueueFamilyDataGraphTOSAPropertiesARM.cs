@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class QueueFamilyDataGraphTOSAPropertiesARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkQueueFamilyDataGraphTOSAPropertiesARM>
+public unsafe partial class QueueFamilyDataGraphTOSAPropertiesARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkQueueFamilyDataGraphTOSAPropertiesARM>
 {
     public QueueFamilyDataGraphTOSAPropertiesARM()
     {
@@ -74,7 +74,14 @@ public unsafe partial class QueueFamilyDataGraphTOSAPropertiesARM : IMarshallabl
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkQueueFamilyDataGraphTOSAPropertiesARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ProfileCount = native.profileCount;
         var arrayLengthProfiles = native.profileCount;
         var tmpProfiles = new DataGraphTOSANameQualityARM[arrayLengthProfiles];
@@ -106,6 +113,12 @@ public unsafe partial class QueueFamilyDataGraphTOSAPropertiesARM : IMarshallabl
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkQueueFamilyDataGraphTOSAPropertiesARM*)native);
     }
     private ref struct VkQueueFamilyDataGraphTOSAPropertiesARMMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV>
+public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV>
 {
     public PipelineViewportShadingRateImageStateCreateInfoNV()
     {
@@ -62,7 +62,14 @@ public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ShadingRateImageEnable = native.shadingRateImageEnable;
         ViewportCount = native.viewportCount;
         var arrayLengthPShadingRatePalettes = native.viewportCount;
@@ -84,6 +91,12 @@ public unsafe partial class PipelineViewportShadingRateImageStateCreateInfoNV : 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineViewportShadingRateImageStateCreateInfoNV*)native);
     }
     private ref struct VkPipelineViewportShadingRateImageStateCreateInfoNVMarshaller
     {

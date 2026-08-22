@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV>
+public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV>
 {
     public PhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV()
     {
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsComputeFeatures
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DeviceGeneratedCompute = native.deviceGeneratedCompute;
         DeviceGeneratedComputePipelines = native.deviceGeneratedComputePipelines;
         DeviceGeneratedComputeCaptureReplay = native.deviceGeneratedComputeCaptureReplay;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsComputeFeatures
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV*)native);
     }
     private ref struct VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNVMarshaller
     {

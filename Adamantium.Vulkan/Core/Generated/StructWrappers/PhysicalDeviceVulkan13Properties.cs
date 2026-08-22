@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceVulkan13Properties : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVulkan13Properties>
+public unsafe partial class PhysicalDeviceVulkan13Properties : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVulkan13Properties>
 {
     public PhysicalDeviceVulkan13Properties()
     {
@@ -94,7 +94,14 @@ public unsafe partial class PhysicalDeviceVulkan13Properties : IMarshallableObje
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVulkan13Properties native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MinSubgroupSize = native.minSubgroupSize;
         MaxSubgroupSize = native.maxSubgroupSize;
         MaxComputeWorkgroupSubgroups = native.maxComputeWorkgroupSubgroups;
@@ -150,6 +157,12 @@ public unsafe partial class PhysicalDeviceVulkan13Properties : IMarshallableObje
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVulkan13Properties*)native);
     }
     private ref struct VkPhysicalDeviceVulkan13PropertiesMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineRasterizationLineStateCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineRasterizationLineStateCreateInfo>
+public unsafe partial class PipelineRasterizationLineStateCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineRasterizationLineStateCreateInfo>
 {
     public PipelineRasterizationLineStateCreateInfo()
     {
@@ -53,7 +53,14 @@ public unsafe partial class PipelineRasterizationLineStateCreateInfo : IMarshall
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineRasterizationLineStateCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         LineRasterizationMode = native.lineRasterizationMode;
         StippledLineEnable = native.stippledLineEnable;
         LineStippleFactor = native.lineStippleFactor;
@@ -68,6 +75,12 @@ public unsafe partial class PipelineRasterizationLineStateCreateInfo : IMarshall
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineRasterizationLineStateCreateInfo*)native);
     }
     private ref struct VkPipelineRasterizationLineStateCreateInfoMarshaller
     {

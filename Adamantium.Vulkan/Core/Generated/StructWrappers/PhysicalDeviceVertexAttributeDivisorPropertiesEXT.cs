@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceVertexAttributeDivisorPropertiesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT>
+public unsafe partial class PhysicalDeviceVertexAttributeDivisorPropertiesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT>
 {
     public PhysicalDeviceVertexAttributeDivisorPropertiesEXT()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceVertexAttributeDivisorPropertiesEXT : 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MaxVertexAttribDivisor = native.maxVertexAttribDivisor;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceVertexAttributeDivisorPropertiesEXT : 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT*)native);
     }
     private ref struct VkPhysicalDeviceVertexAttributeDivisorPropertiesEXTMarshaller
     {

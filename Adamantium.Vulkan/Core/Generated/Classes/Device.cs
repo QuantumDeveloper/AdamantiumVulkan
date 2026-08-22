@@ -5351,7 +5351,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var result = Commands.vkGetDataGraphPipelineSessionBindPointRequirementsARM(this, arg1, ref pBindPointRequirementCount, arg3);
                 if (arg3 is not null)
                 {
-                    pBindPointRequirements = new Adamantium.Vulkan.Core.DataGraphPipelineSessionBindPointRequirementARM(*arg3);
+                    if (pBindPointRequirements != null)
+                        pBindPointRequirements.MarshalFrom(*arg3);
+                    else
+                        pBindPointRequirements = new Adamantium.Vulkan.Core.DataGraphPipelineSessionBindPointRequirementARM(*arg3);
                 }
                 return result;
             }
@@ -5626,7 +5629,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 pFaultCounts = new DeviceFaultCountsEXT(arg1);
                 if (arg2 is not null)
                 {
-                    pFaultInfo = new Adamantium.Vulkan.Core.DeviceFaultInfoEXT(*arg2);
+                    if (pFaultInfo != null)
+                        pFaultInfo.MarshalFrom(*arg2);
+                    else
+                        pFaultInfo = new Adamantium.Vulkan.Core.DeviceFaultInfoEXT(*arg2);
                 }
                 return result;
             }
@@ -5699,7 +5705,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var result = Commands.vkGetDeviceFaultReportsKHR(this, timeout, out pFaultCounts, arg3);
                 if (arg3 is not null)
                 {
-                    pFaultInfo = new Adamantium.Vulkan.Core.DeviceFaultInfoKHR(*arg3);
+                    if (pFaultInfo != null)
+                        pFaultInfo.MarshalFrom(*arg3);
+                    else
+                        pFaultInfo = new Adamantium.Vulkan.Core.DeviceFaultInfoKHR(*arg3);
                 }
                 return result;
             }
@@ -5841,7 +5850,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 Commands.vkGetDeviceImageSparseMemoryRequirements(this, arg1, ref pSparseMemoryRequirementCount, arg3);
                 if (arg3 is not null)
                 {
-                    pSparseMemoryRequirements = new Adamantium.Vulkan.Core.SparseImageMemoryRequirements2(*arg3);
+                    if (pSparseMemoryRequirements != null)
+                        pSparseMemoryRequirements.MarshalFrom(*arg3);
+                    else
+                        pSparseMemoryRequirements = new Adamantium.Vulkan.Core.SparseImageMemoryRequirements2(*arg3);
                 }
             }
             finally
@@ -6130,7 +6142,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var result = Commands.vkGetEncodedVideoSessionParametersKHR(this, arg1, arg2, &arg3, arg4);
                 if (arg2 is not null)
                 {
-                    pFeedbackInfo = new Adamantium.Vulkan.Core.VideoEncodeSessionParametersFeedbackInfoKHR(*arg2);
+                    if (pFeedbackInfo != null)
+                        pFeedbackInfo.MarshalFrom(*arg2);
+                    else
+                        pFeedbackInfo = new Adamantium.Vulkan.Core.VideoEncodeSessionParametersFeedbackInfoKHR(*arg2);
                 }
                 pDataSize = (nuint)arg3;
                 QuantumBinding.Utils.MarshalContextUtils.CopyNativeToSpan(arg4, (long)pDataSize, pData);
@@ -6172,7 +6187,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var result = Commands.vkGetEncodedVideoSessionParametersKHR(this, arg1, arg2, &arg3, arg4);
                 if (arg2 is not null)
                 {
-                    pFeedbackInfo = new Adamantium.Vulkan.Core.VideoEncodeSessionParametersFeedbackInfoKHR(*arg2);
+                    if (pFeedbackInfo != null)
+                        pFeedbackInfo.MarshalFrom(*arg2);
+                    else
+                        pFeedbackInfo = new Adamantium.Vulkan.Core.VideoEncodeSessionParametersFeedbackInfoKHR(*arg2);
                 }
                 pDataSize = (nuint)arg3;
                 pData = *arg4;
@@ -6290,7 +6308,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var result = Commands.vkGetFramebufferTilePropertiesQCOM(this, arg1, ref pPropertiesCount, arg3);
                 if (arg3 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.TilePropertiesQCOM(*arg3);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg3);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.TilePropertiesQCOM(*arg3);
                 }
                 return result;
             }
@@ -6541,7 +6562,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 Commands.vkGetImageSparseMemoryRequirements(this, arg1, ref pSparseMemoryRequirementCount, arg3);
                 if (arg3 is not null)
                 {
-                    pSparseMemoryRequirements = new Adamantium.Vulkan.Core.SparseImageMemoryRequirements(*arg3);
+                    if (pSparseMemoryRequirements != null)
+                        pSparseMemoryRequirements.MarshalFrom(*arg3);
+                    else
+                        pSparseMemoryRequirements = new Adamantium.Vulkan.Core.SparseImageMemoryRequirements(*arg3);
                 }
             }
             finally
@@ -6618,7 +6642,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 Commands.vkGetImageSparseMemoryRequirements2(this, arg1, ref pSparseMemoryRequirementCount, arg3);
                 if (arg3 is not null)
                 {
-                    pSparseMemoryRequirements = new Adamantium.Vulkan.Core.SparseImageMemoryRequirements2(*arg3);
+                    if (pSparseMemoryRequirements != null)
+                        pSparseMemoryRequirements.MarshalFrom(*arg3);
+                    else
+                        pSparseMemoryRequirements = new Adamantium.Vulkan.Core.SparseImageMemoryRequirements2(*arg3);
                 }
             }
             finally
@@ -7035,7 +7062,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var result = Commands.vkGetPastPresentationTimingGOOGLE(this, arg1, ref pPresentationTimingCount, arg3);
                 if (arg3 is not null)
                 {
-                    pPresentationTimings = new Adamantium.Vulkan.Core.PastPresentationTimingGOOGLE(*arg3);
+                    if (pPresentationTimings != null)
+                        pPresentationTimings.MarshalFrom(*arg3);
+                    else
+                        pPresentationTimings = new Adamantium.Vulkan.Core.PastPresentationTimingGOOGLE(*arg3);
                 }
                 return result;
             }
@@ -7241,7 +7271,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var result = Commands.vkGetPipelineExecutableInternalRepresentationsKHR(this, arg1, ref pInternalRepresentationCount, arg3);
                 if (arg3 is not null)
                 {
-                    pInternalRepresentations = new Adamantium.Vulkan.Core.PipelineExecutableInternalRepresentationKHR(*arg3);
+                    if (pInternalRepresentations != null)
+                        pInternalRepresentations.MarshalFrom(*arg3);
+                    else
+                        pInternalRepresentations = new Adamantium.Vulkan.Core.PipelineExecutableInternalRepresentationKHR(*arg3);
                 }
                 return result;
             }
@@ -7320,7 +7353,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var result = Commands.vkGetPipelineExecutablePropertiesKHR(this, arg1, ref pExecutableCount, arg3);
                 if (arg3 is not null)
                 {
-                    pProperties = new Adamantium.Vulkan.Core.PipelineExecutablePropertiesKHR(*arg3);
+                    if (pProperties != null)
+                        pProperties.MarshalFrom(*arg3);
+                    else
+                        pProperties = new Adamantium.Vulkan.Core.PipelineExecutablePropertiesKHR(*arg3);
                 }
                 return result;
             }
@@ -7399,7 +7435,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var result = Commands.vkGetPipelineExecutableStatisticsKHR(this, arg1, ref pStatisticCount, arg3);
                 if (arg3 is not null)
                 {
-                    pStatistics = new Adamantium.Vulkan.Core.PipelineExecutableStatisticKHR(*arg3);
+                    if (pStatistics != null)
+                        pStatistics.MarshalFrom(*arg3);
+                    else
+                        pStatistics = new Adamantium.Vulkan.Core.PipelineExecutableStatisticKHR(*arg3);
                 }
                 return result;
             }
@@ -8157,7 +8196,10 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var result = Commands.vkGetVideoSessionMemoryRequirementsKHR(this, arg1, ref pMemoryRequirementsCount, arg3);
                 if (arg3 is not null)
                 {
-                    pMemoryRequirements = new Adamantium.Vulkan.Core.VideoSessionMemoryRequirementsKHR(*arg3);
+                    if (pMemoryRequirements != null)
+                        pMemoryRequirements.MarshalFrom(*arg3);
+                    else
+                        pMemoryRequirements = new Adamantium.Vulkan.Core.VideoSessionMemoryRequirementsKHR(*arg3);
                 }
                 return result;
             }

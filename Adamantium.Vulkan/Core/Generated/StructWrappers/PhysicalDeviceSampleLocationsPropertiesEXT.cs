@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceSampleLocationsPropertiesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSampleLocationsPropertiesEXT>
+public unsafe partial class PhysicalDeviceSampleLocationsPropertiesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSampleLocationsPropertiesEXT>
 {
     public PhysicalDeviceSampleLocationsPropertiesEXT()
     {
@@ -54,7 +54,14 @@ public unsafe partial class PhysicalDeviceSampleLocationsPropertiesEXT : IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSampleLocationsPropertiesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SampleLocationSampleCounts = native.sampleLocationSampleCounts;
         MaxSampleLocationGridSize = new Extent2D(native.maxSampleLocationGridSize);
         var tmpSampleLocationCoordinateRange = new float[2];
@@ -74,6 +81,12 @@ public unsafe partial class PhysicalDeviceSampleLocationsPropertiesEXT : IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSampleLocationsPropertiesEXT*)native);
     }
     private ref struct VkPhysicalDeviceSampleLocationsPropertiesEXTMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoVP9ColorConfig : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoVP9ColorConfig>
+public unsafe partial class StdVideoVP9ColorConfig : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoVP9ColorConfig>
 {
     public StdVideoVP9ColorConfig()
     {
@@ -65,6 +65,12 @@ public unsafe partial class StdVideoVP9ColorConfig : IMarshallableObject, IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoVP9ColorConfig*)native);
     }
     private ref struct StdVideoVP9ColorConfigMarshaller
     {

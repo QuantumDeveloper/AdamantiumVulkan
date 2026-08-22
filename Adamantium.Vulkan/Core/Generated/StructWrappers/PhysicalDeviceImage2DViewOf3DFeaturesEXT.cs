@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceImage2DViewOf3DFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImage2DViewOf3DFeaturesEXT>
+public unsafe partial class PhysicalDeviceImage2DViewOf3DFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImage2DViewOf3DFeaturesEXT>
 {
     public PhysicalDeviceImage2DViewOf3DFeaturesEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceImage2DViewOf3DFeaturesEXT : IMarshall
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImage2DViewOf3DFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Image2DViewOf3D = native.image2DViewOf3D;
         Sampler2DViewOf3D = native.sampler2DViewOf3D;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceImage2DViewOf3DFeaturesEXT : IMarshall
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImage2DViewOf3DFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDeviceImage2DViewOf3DFeaturesEXTMarshaller
     {

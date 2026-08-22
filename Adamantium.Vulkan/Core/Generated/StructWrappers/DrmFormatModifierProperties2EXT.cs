@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DrmFormatModifierProperties2EXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDrmFormatModifierProperties2EXT>
+public unsafe partial class DrmFormatModifierProperties2EXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDrmFormatModifierProperties2EXT>
 {
     public DrmFormatModifierProperties2EXT()
     {
@@ -59,6 +59,12 @@ public unsafe partial class DrmFormatModifierProperties2EXT : IMarshallableObjec
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDrmFormatModifierProperties2EXT*)native);
     }
     private ref struct VkDrmFormatModifierProperties2EXTMarshaller
     {

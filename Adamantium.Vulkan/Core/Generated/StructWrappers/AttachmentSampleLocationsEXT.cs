@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class AttachmentSampleLocationsEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkAttachmentSampleLocationsEXT>
+public unsafe partial class AttachmentSampleLocationsEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkAttachmentSampleLocationsEXT>
 {
     public AttachmentSampleLocationsEXT()
     {
@@ -57,6 +57,12 @@ public unsafe partial class AttachmentSampleLocationsEXT : IMarshallableObject, 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkAttachmentSampleLocationsEXT*)native);
     }
     private ref struct VkAttachmentSampleLocationsEXTMarshaller
     {

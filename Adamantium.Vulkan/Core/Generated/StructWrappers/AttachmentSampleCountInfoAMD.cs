@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class AttachmentSampleCountInfoAMD : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkAttachmentSampleCountInfoAMD>
+public unsafe partial class AttachmentSampleCountInfoAMD : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkAttachmentSampleCountInfoAMD>
 {
     public AttachmentSampleCountInfoAMD()
     {
@@ -54,7 +54,14 @@ public unsafe partial class AttachmentSampleCountInfoAMD : IMarshallableObject, 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkAttachmentSampleCountInfoAMD native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ColorAttachmentCount = native.colorAttachmentCount;
         var arrayLengthPColorAttachmentSamples = native.colorAttachmentCount;
         var tmpPColorAttachmentSamples = new SampleCountFlagBits[arrayLengthPColorAttachmentSamples];
@@ -71,6 +78,12 @@ public unsafe partial class AttachmentSampleCountInfoAMD : IMarshallableObject, 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkAttachmentSampleCountInfoAMD*)native);
     }
     private ref struct VkAttachmentSampleCountInfoAMDMarshaller
     {

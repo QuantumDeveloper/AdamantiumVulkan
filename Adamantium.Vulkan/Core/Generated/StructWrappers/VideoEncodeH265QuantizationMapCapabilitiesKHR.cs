@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoEncodeH265QuantizationMapCapabilitiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265QuantizationMapCapabilitiesKHR>
+public unsafe partial class VideoEncodeH265QuantizationMapCapabilitiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265QuantizationMapCapabilitiesKHR>
 {
     public VideoEncodeH265QuantizationMapCapabilitiesKHR()
     {
@@ -51,7 +51,14 @@ public unsafe partial class VideoEncodeH265QuantizationMapCapabilitiesKHR : IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265QuantizationMapCapabilitiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MinQpDelta = native.minQpDelta;
         MaxQpDelta = native.maxQpDelta;
 
@@ -64,6 +71,12 @@ public unsafe partial class VideoEncodeH265QuantizationMapCapabilitiesKHR : IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265QuantizationMapCapabilitiesKHR*)native);
     }
     private ref struct VkVideoEncodeH265QuantizationMapCapabilitiesKHRMarshaller
     {

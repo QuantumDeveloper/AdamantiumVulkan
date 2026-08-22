@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ComputePipelineIndirectBufferInfoNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkComputePipelineIndirectBufferInfoNV>
+public unsafe partial class ComputePipelineIndirectBufferInfoNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkComputePipelineIndirectBufferInfoNV>
 {
     public ComputePipelineIndirectBufferInfoNV()
     {
@@ -52,7 +52,14 @@ public unsafe partial class ComputePipelineIndirectBufferInfoNV : IMarshallableO
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkComputePipelineIndirectBufferInfoNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DeviceAddress = native.deviceAddress;
         Size = native.size;
         PipelineDeviceAddressCaptureReplay = native.pipelineDeviceAddressCaptureReplay;
@@ -66,6 +73,12 @@ public unsafe partial class ComputePipelineIndirectBufferInfoNV : IMarshallableO
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkComputePipelineIndirectBufferInfoNV*)native);
     }
     private ref struct VkComputePipelineIndirectBufferInfoNVMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceNestedCommandBufferFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceNestedCommandBufferFeaturesEXT>
+public unsafe partial class PhysicalDeviceNestedCommandBufferFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceNestedCommandBufferFeaturesEXT>
 {
     public PhysicalDeviceNestedCommandBufferFeaturesEXT()
     {
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDeviceNestedCommandBufferFeaturesEXT : IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceNestedCommandBufferFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         NestedCommandBuffer = native.nestedCommandBuffer;
         NestedCommandBufferRendering = native.nestedCommandBufferRendering;
         NestedCommandBufferSimultaneousUse = native.nestedCommandBufferSimultaneousUse;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDeviceNestedCommandBufferFeaturesEXT : IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceNestedCommandBufferFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDeviceNestedCommandBufferFeaturesEXTMarshaller
     {

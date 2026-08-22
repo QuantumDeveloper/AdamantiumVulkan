@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceSubgroupProperties : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties>
+public unsafe partial class PhysicalDeviceSubgroupProperties : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties>
 {
     public PhysicalDeviceSubgroupProperties()
     {
@@ -53,7 +53,14 @@ public unsafe partial class PhysicalDeviceSubgroupProperties : IMarshallableObje
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SubgroupSize = native.subgroupSize;
         SupportedStages = native.supportedStages;
         SupportedOperations = native.supportedOperations;
@@ -68,6 +75,12 @@ public unsafe partial class PhysicalDeviceSubgroupProperties : IMarshallableObje
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupProperties*)native);
     }
     private ref struct VkPhysicalDeviceSubgroupPropertiesMarshaller
     {

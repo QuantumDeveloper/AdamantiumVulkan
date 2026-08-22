@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class RenderPassFragmentDensityMapOffsetEndInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassFragmentDensityMapOffsetEndInfoEXT>
+public unsafe partial class RenderPassFragmentDensityMapOffsetEndInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassFragmentDensityMapOffsetEndInfoEXT>
 {
     public RenderPassFragmentDensityMapOffsetEndInfoEXT()
     {
@@ -61,7 +61,14 @@ public unsafe partial class RenderPassFragmentDensityMapOffsetEndInfoEXT : IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkRenderPassFragmentDensityMapOffsetEndInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         FragmentDensityOffsetCount = native.fragmentDensityOffsetCount;
         var arrayLengthPFragmentDensityOffsets = native.fragmentDensityOffsetCount;
         var tmpPFragmentDensityOffsets = new Offset2D[arrayLengthPFragmentDensityOffsets];
@@ -82,6 +89,12 @@ public unsafe partial class RenderPassFragmentDensityMapOffsetEndInfoEXT : IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkRenderPassFragmentDensityMapOffsetEndInfoEXT*)native);
     }
     private ref struct VkRenderPassFragmentDensityMapOffsetEndInfoEXTMarshaller
     {

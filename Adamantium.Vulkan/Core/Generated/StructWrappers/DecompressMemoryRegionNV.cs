@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DecompressMemoryRegionNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDecompressMemoryRegionNV>
+public unsafe partial class DecompressMemoryRegionNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDecompressMemoryRegionNV>
 {
     public DecompressMemoryRegionNV()
     {
@@ -63,6 +63,12 @@ public unsafe partial class DecompressMemoryRegionNV : IMarshallableObject, IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDecompressMemoryRegionNV*)native);
     }
     private ref struct VkDecompressMemoryRegionNVMarshaller
     {

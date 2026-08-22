@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceShaderFmaFeaturesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderFmaFeaturesKHR>
+public unsafe partial class PhysicalDeviceShaderFmaFeaturesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderFmaFeaturesKHR>
 {
     public PhysicalDeviceShaderFmaFeaturesKHR()
     {
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDeviceShaderFmaFeaturesKHR : IMarshallableOb
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderFmaFeaturesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ShaderFmaFloat16 = native.shaderFmaFloat16;
         ShaderFmaFloat32 = native.shaderFmaFloat32;
         ShaderFmaFloat64 = native.shaderFmaFloat64;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDeviceShaderFmaFeaturesKHR : IMarshallableOb
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderFmaFeaturesKHR*)native);
     }
     private ref struct VkPhysicalDeviceShaderFmaFeaturesKHRMarshaller
     {

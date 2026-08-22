@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT>
+public unsafe partial class PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT>
 {
     public PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT :
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         GraphicsPipelineLibraryFastLinking = native.graphicsPipelineLibraryFastLinking;
         GraphicsPipelineLibraryIndependentInterpolationDecoration = native.graphicsPipelineLibraryIndependentInterpolationDecoration;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceGraphicsPipelineLibraryPropertiesEXT :
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT*)native);
     }
     private ref struct VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXTMarshaller
     {

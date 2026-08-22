@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DeviceGroupPresentInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceGroupPresentInfoKHR>
+public unsafe partial class DeviceGroupPresentInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceGroupPresentInfoKHR>
 {
     public DeviceGroupPresentInfoKHR()
     {
@@ -54,7 +54,14 @@ public unsafe partial class DeviceGroupPresentInfoKHR : IMarshallableObject, IMa
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDeviceGroupPresentInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SwapchainCount = native.swapchainCount;
         var arrayLengthPDeviceMasks = native.swapchainCount;
         var tmpPDeviceMasks = new uint[arrayLengthPDeviceMasks];
@@ -71,6 +78,12 @@ public unsafe partial class DeviceGroupPresentInfoKHR : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDeviceGroupPresentInfoKHR*)native);
     }
     private ref struct VkDeviceGroupPresentInfoKHRMarshaller
     {

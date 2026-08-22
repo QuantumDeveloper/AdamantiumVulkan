@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DisplayPropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDisplayPropertiesKHR>
+public unsafe partial class DisplayPropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDisplayPropertiesKHR>
 {
     public DisplayPropertiesKHR()
     {
@@ -69,6 +69,12 @@ public unsafe partial class DisplayPropertiesKHR : IMarshallableObject, IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDisplayPropertiesKHR*)native);
     }
     private ref struct VkDisplayPropertiesKHRMarshaller
     {

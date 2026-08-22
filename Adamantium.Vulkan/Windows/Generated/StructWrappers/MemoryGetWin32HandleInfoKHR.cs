@@ -14,7 +14,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Windows;
 
-public unsafe partial class MemoryGetWin32HandleInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR>
+public unsafe partial class MemoryGetWin32HandleInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR>
 {
     public MemoryGetWin32HandleInfoKHR()
     {
@@ -53,7 +53,14 @@ public unsafe partial class MemoryGetWin32HandleInfoKHR : IMarshallableObject, I
 
     public void MarshalFrom(in Adamantium.Vulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Memory = new DeviceMemory(native.memory);
         HandleType = native.handleType;
 
@@ -66,6 +73,12 @@ public unsafe partial class MemoryGetWin32HandleInfoKHR : IMarshallableObject, I
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Windows.Interop.VkMemoryGetWin32HandleInfoKHR*)native);
     }
     private ref struct VkMemoryGetWin32HandleInfoKHRMarshaller
     {

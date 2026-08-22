@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CopyMemoryIndirectInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyMemoryIndirectInfoKHR>
+public unsafe partial class CopyMemoryIndirectInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyMemoryIndirectInfoKHR>
 {
     public CopyMemoryIndirectInfoKHR()
     {
@@ -53,7 +53,14 @@ public unsafe partial class CopyMemoryIndirectInfoKHR : IMarshallableObject, IMa
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkCopyMemoryIndirectInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SrcCopyFlags = native.srcCopyFlags;
         DstCopyFlags = native.dstCopyFlags;
         CopyCount = native.copyCount;
@@ -68,6 +75,12 @@ public unsafe partial class CopyMemoryIndirectInfoKHR : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCopyMemoryIndirectInfoKHR*)native);
     }
     private ref struct VkCopyMemoryIndirectInfoKHRMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoAV1GlobalMotion : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoAV1GlobalMotion>
+public unsafe partial class StdVideoAV1GlobalMotion : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoAV1GlobalMotion>
 {
     public StdVideoAV1GlobalMotion()
     {
@@ -65,6 +65,12 @@ public unsafe partial class StdVideoAV1GlobalMotion : IMarshallableObject, IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoAV1GlobalMotion*)native);
     }
     private ref struct StdVideoAV1GlobalMotionMarshaller
     {

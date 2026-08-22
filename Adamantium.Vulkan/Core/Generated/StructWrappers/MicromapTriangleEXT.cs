@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class MicromapTriangleEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMicromapTriangleEXT>
+public unsafe partial class MicromapTriangleEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMicromapTriangleEXT>
 {
     public MicromapTriangleEXT()
     {
@@ -59,6 +59,12 @@ public unsafe partial class MicromapTriangleEXT : IMarshallableObject, IMarshall
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkMicromapTriangleEXT*)native);
     }
     private ref struct VkMicromapTriangleEXTMarshaller
     {

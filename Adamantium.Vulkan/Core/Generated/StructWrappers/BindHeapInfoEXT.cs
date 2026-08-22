@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class BindHeapInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindHeapInfoEXT>
+public unsafe partial class BindHeapInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindHeapInfoEXT>
 {
     public BindHeapInfoEXT()
     {
@@ -52,7 +52,14 @@ public unsafe partial class BindHeapInfoEXT : IMarshallableObject, IMarshallable
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkBindHeapInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         HeapRange = new DeviceAddressRangeKHR(native.heapRange);
         ReservedRangeOffset = native.reservedRangeOffset;
         ReservedRangeSize = native.reservedRangeSize;
@@ -66,6 +73,12 @@ public unsafe partial class BindHeapInfoEXT : IMarshallableObject, IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkBindHeapInfoEXT*)native);
     }
     private ref struct VkBindHeapInfoEXTMarshaller
     {

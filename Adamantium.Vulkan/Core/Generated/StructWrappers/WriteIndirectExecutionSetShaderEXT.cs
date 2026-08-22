@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class WriteIndirectExecutionSetShaderEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkWriteIndirectExecutionSetShaderEXT>
+public unsafe partial class WriteIndirectExecutionSetShaderEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkWriteIndirectExecutionSetShaderEXT>
 {
     public WriteIndirectExecutionSetShaderEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class WriteIndirectExecutionSetShaderEXT : IMarshallableOb
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkWriteIndirectExecutionSetShaderEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Index = native.index;
         Shader = new ShaderEXT(native.shader);
 
@@ -64,6 +71,12 @@ public unsafe partial class WriteIndirectExecutionSetShaderEXT : IMarshallableOb
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkWriteIndirectExecutionSetShaderEXT*)native);
     }
     private ref struct VkWriteIndirectExecutionSetShaderEXTMarshaller
     {

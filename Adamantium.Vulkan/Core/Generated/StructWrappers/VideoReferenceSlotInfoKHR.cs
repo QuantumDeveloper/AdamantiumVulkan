@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoReferenceSlotInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoReferenceSlotInfoKHR>
+public unsafe partial class VideoReferenceSlotInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoReferenceSlotInfoKHR>
 {
     public VideoReferenceSlotInfoKHR()
     {
@@ -55,7 +55,14 @@ public unsafe partial class VideoReferenceSlotInfoKHR : IMarshallableObject, IMa
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoReferenceSlotInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SlotIndex = native.slotIndex;
         PictureResource = new VideoPictureResourceInfoKHR(in *native.pPictureResource);
         NativeUtils.Free(native.pPictureResource);
@@ -69,6 +76,12 @@ public unsafe partial class VideoReferenceSlotInfoKHR : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoReferenceSlotInfoKHR*)native);
     }
     private ref struct VkVideoReferenceSlotInfoKHRMarshaller
     {

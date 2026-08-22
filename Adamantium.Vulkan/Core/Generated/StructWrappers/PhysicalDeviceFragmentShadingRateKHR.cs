@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceFragmentShadingRateKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR>
+public unsafe partial class PhysicalDeviceFragmentShadingRateKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR>
 {
     public PhysicalDeviceFragmentShadingRateKHR()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceFragmentShadingRateKHR : IMarshallable
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SampleCounts = native.sampleCounts;
         FragmentSize = new Extent2D(native.fragmentSize);
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceFragmentShadingRateKHR : IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShadingRateKHR*)native);
     }
     private ref struct VkPhysicalDeviceFragmentShadingRateKHRMarshaller
     {

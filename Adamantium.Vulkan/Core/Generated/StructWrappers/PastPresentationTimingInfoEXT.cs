@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PastPresentationTimingInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPastPresentationTimingInfoEXT>
+public unsafe partial class PastPresentationTimingInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPastPresentationTimingInfoEXT>
 {
     public PastPresentationTimingInfoEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PastPresentationTimingInfoEXT : IMarshallableObject,
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPastPresentationTimingInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         Swapchain = new SwapchainKHR(native.swapchain);
 
@@ -64,6 +71,12 @@ public unsafe partial class PastPresentationTimingInfoEXT : IMarshallableObject,
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPastPresentationTimingInfoEXT*)native);
     }
     private ref struct VkPastPresentationTimingInfoEXTMarshaller
     {

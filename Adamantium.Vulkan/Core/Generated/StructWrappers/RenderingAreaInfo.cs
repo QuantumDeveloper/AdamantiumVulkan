@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class RenderingAreaInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderingAreaInfo>
+public unsafe partial class RenderingAreaInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderingAreaInfo>
 {
     public RenderingAreaInfo()
     {
@@ -56,7 +56,14 @@ public unsafe partial class RenderingAreaInfo : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkRenderingAreaInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ViewMask = native.viewMask;
         ColorAttachmentCount = native.colorAttachmentCount;
         var arrayLengthPColorAttachmentFormats = native.colorAttachmentCount;
@@ -75,6 +82,12 @@ public unsafe partial class RenderingAreaInfo : IMarshallableObject, IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkRenderingAreaInfo*)native);
     }
     private ref struct VkRenderingAreaInfoMarshaller
     {

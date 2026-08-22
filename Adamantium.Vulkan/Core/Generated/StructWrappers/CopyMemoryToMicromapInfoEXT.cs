@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CopyMemoryToMicromapInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyMemoryToMicromapInfoEXT>
+public unsafe partial class CopyMemoryToMicromapInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyMemoryToMicromapInfoEXT>
 {
     public CopyMemoryToMicromapInfoEXT()
     {
@@ -54,7 +54,14 @@ public unsafe partial class CopyMemoryToMicromapInfoEXT : IMarshallableObject, I
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkCopyMemoryToMicromapInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Src = new DeviceOrHostAddressConstKHR(native.src);
         Dst = new MicromapEXT(native.dst);
         Mode = native.mode;
@@ -68,6 +75,12 @@ public unsafe partial class CopyMemoryToMicromapInfoEXT : IMarshallableObject, I
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCopyMemoryToMicromapInfoEXT*)native);
     }
     private ref struct VkCopyMemoryToMicromapInfoEXTMarshaller
     {

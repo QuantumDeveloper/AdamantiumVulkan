@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDevicePerformanceCountersByRegionPropertiesARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePerformanceCountersByRegionPropertiesARM>
+public unsafe partial class PhysicalDevicePerformanceCountersByRegionPropertiesARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePerformanceCountersByRegionPropertiesARM>
 {
     public PhysicalDevicePerformanceCountersByRegionPropertiesARM()
     {
@@ -54,7 +54,14 @@ public unsafe partial class PhysicalDevicePerformanceCountersByRegionPropertiesA
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePerformanceCountersByRegionPropertiesARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MaxPerRegionPerformanceCounters = native.maxPerRegionPerformanceCounters;
         PerformanceCounterRegionSize = new Extent2D(native.performanceCounterRegionSize);
         RowStrideAlignment = native.rowStrideAlignment;
@@ -70,6 +77,12 @@ public unsafe partial class PhysicalDevicePerformanceCountersByRegionPropertiesA
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePerformanceCountersByRegionPropertiesARM*)native);
     }
     private ref struct VkPhysicalDevicePerformanceCountersByRegionPropertiesARMMarshaller
     {

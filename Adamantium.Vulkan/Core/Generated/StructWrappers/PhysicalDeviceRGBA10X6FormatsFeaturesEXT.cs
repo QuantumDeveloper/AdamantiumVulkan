@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceRGBA10X6FormatsFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT>
+public unsafe partial class PhysicalDeviceRGBA10X6FormatsFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT>
 {
     public PhysicalDeviceRGBA10X6FormatsFeaturesEXT()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceRGBA10X6FormatsFeaturesEXT : IMarshall
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         FormatRgba10x6WithoutYCbCrSampler = native.formatRgba10x6WithoutYCbCrSampler;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceRGBA10X6FormatsFeaturesEXT : IMarshall
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDeviceRGBA10X6FormatsFeaturesEXTMarshaller
     {

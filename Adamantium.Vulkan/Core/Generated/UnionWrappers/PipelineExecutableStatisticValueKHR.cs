@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineExecutableStatisticValueKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR>
+public unsafe partial class PipelineExecutableStatisticValueKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR>
 {
     public PipelineExecutableStatisticValueKHR()
     {
@@ -61,6 +61,12 @@ public unsafe partial class PipelineExecutableStatisticValueKHR : IMarshallableO
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineExecutableStatisticValueKHR*)native);
     }
     private ref struct VkPipelineExecutableStatisticValueKHRMarshaller
     {

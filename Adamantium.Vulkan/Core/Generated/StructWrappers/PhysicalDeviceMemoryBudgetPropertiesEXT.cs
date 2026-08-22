@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceMemoryBudgetPropertiesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT>
+public unsafe partial class PhysicalDeviceMemoryBudgetPropertiesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT>
 {
     public PhysicalDeviceMemoryBudgetPropertiesEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceMemoryBudgetPropertiesEXT : IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         var tmpHeapBudget = new VkDeviceSize[16];
         var heapBudgetp = native.heapBudget[0];
         var pHeapBudget = (VkDeviceSize*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in heapBudgetp ));
@@ -72,6 +79,12 @@ public unsafe partial class PhysicalDeviceMemoryBudgetPropertiesEXT : IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMemoryBudgetPropertiesEXT*)native);
     }
     private ref struct VkPhysicalDeviceMemoryBudgetPropertiesEXTMarshaller
     {

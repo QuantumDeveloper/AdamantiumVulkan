@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoEncodeRateControlInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeRateControlInfoKHR>
+public unsafe partial class VideoEncodeRateControlInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeRateControlInfoKHR>
 {
     public VideoEncodeRateControlInfoKHR()
     {
@@ -65,7 +65,14 @@ public unsafe partial class VideoEncodeRateControlInfoKHR : IMarshallableObject,
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoEncodeRateControlInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         RateControlMode = native.rateControlMode;
         LayerCount = native.layerCount;
@@ -90,6 +97,12 @@ public unsafe partial class VideoEncodeRateControlInfoKHR : IMarshallableObject,
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoEncodeRateControlInfoKHR*)native);
     }
     private ref struct VkVideoEncodeRateControlInfoKHRMarshaller
     {

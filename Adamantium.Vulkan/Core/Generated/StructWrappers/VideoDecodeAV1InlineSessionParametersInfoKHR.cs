@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoDecodeAV1InlineSessionParametersInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoDecodeAV1InlineSessionParametersInfoKHR>
+public unsafe partial class VideoDecodeAV1InlineSessionParametersInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoDecodeAV1InlineSessionParametersInfoKHR>
 {
     public VideoDecodeAV1InlineSessionParametersInfoKHR()
     {
@@ -54,7 +54,14 @@ public unsafe partial class VideoDecodeAV1InlineSessionParametersInfoKHR : IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoDecodeAV1InlineSessionParametersInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PStdSequenceHeader = new StdVideoAV1SequenceHeader(in *native.pStdSequenceHeader);
         NativeUtils.Free(native.pStdSequenceHeader);
 
@@ -67,6 +74,12 @@ public unsafe partial class VideoDecodeAV1InlineSessionParametersInfoKHR : IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoDecodeAV1InlineSessionParametersInfoKHR*)native);
     }
     private ref struct VkVideoDecodeAV1InlineSessionParametersInfoKHRMarshaller
     {

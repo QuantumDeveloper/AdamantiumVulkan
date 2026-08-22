@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ImageBlit2 : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageBlit2>
+public unsafe partial class ImageBlit2 : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageBlit2>
 {
     public ImageBlit2()
     {
@@ -53,7 +53,14 @@ public unsafe partial class ImageBlit2 : IMarshallableObject, IMarshallable<Adam
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkImageBlit2 native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SrcSubresource = new ImageSubresourceLayers(native.srcSubresource);
         var tmpSrcOffsets = new Offset3D[2];
         var pSrcOffsets = (VkOffset3D*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in native.srcOffsets));
@@ -72,6 +79,12 @@ public unsafe partial class ImageBlit2 : IMarshallableObject, IMarshallable<Adam
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkImageBlit2*)native);
     }
     private ref struct VkImageBlit2Marshaller
     {

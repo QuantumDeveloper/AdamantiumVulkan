@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class MemoryBarrierAccessFlags3KHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMemoryBarrierAccessFlags3KHR>
+public unsafe partial class MemoryBarrierAccessFlags3KHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMemoryBarrierAccessFlags3KHR>
 {
     public MemoryBarrierAccessFlags3KHR()
     {
@@ -51,7 +51,14 @@ public unsafe partial class MemoryBarrierAccessFlags3KHR : IMarshallableObject, 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkMemoryBarrierAccessFlags3KHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SrcAccessMask3 = native.srcAccessMask3;
         DstAccessMask3 = native.dstAccessMask3;
 
@@ -64,6 +71,12 @@ public unsafe partial class MemoryBarrierAccessFlags3KHR : IMarshallableObject, 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkMemoryBarrierAccessFlags3KHR*)native);
     }
     private ref struct VkMemoryBarrierAccessFlags3KHRMarshaller
     {

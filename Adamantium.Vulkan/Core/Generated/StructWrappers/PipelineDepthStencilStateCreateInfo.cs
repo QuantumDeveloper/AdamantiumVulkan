@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineDepthStencilStateCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo>
+public unsafe partial class PipelineDepthStencilStateCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo>
 {
     public PipelineDepthStencilStateCreateInfo()
     {
@@ -59,7 +59,14 @@ public unsafe partial class PipelineDepthStencilStateCreateInfo : IMarshallableO
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         DepthTestEnable = native.depthTestEnable;
         DepthWriteEnable = native.depthWriteEnable;
@@ -80,6 +87,12 @@ public unsafe partial class PipelineDepthStencilStateCreateInfo : IMarshallableO
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineDepthStencilStateCreateInfo*)native);
     }
     private ref struct VkPipelineDepthStencilStateCreateInfoMarshaller
     {

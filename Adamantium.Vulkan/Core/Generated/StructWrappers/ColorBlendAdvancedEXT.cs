@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ColorBlendAdvancedEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkColorBlendAdvancedEXT>
+public unsafe partial class ColorBlendAdvancedEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkColorBlendAdvancedEXT>
 {
     public ColorBlendAdvancedEXT()
     {
@@ -63,6 +63,12 @@ public unsafe partial class ColorBlendAdvancedEXT : IMarshallableObject, IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkColorBlendAdvancedEXT*)native);
     }
     private ref struct VkColorBlendAdvancedEXTMarshaller
     {

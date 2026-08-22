@@ -13,7 +13,7 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.MacOS;
 
-public unsafe partial class MacOSSurfaceCreateInfoMVK : IMarshallableObject, IMarshallable<Adamantium.Vulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK>
+public unsafe partial class MacOSSurfaceCreateInfoMVK : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK>
 {
     public MacOSSurfaceCreateInfoMVK()
     {
@@ -52,7 +52,14 @@ public unsafe partial class MacOSSurfaceCreateInfoMVK : IMarshallableObject, IMa
 
     public void MarshalFrom(in Adamantium.Vulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         PView = (nuint)native.pView;
 
@@ -65,6 +72,12 @@ public unsafe partial class MacOSSurfaceCreateInfoMVK : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK*)native);
     }
     private ref struct VkMacOSSurfaceCreateInfoMVKMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ImageToMemoryCopy : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageToMemoryCopy>
+public unsafe partial class ImageToMemoryCopy : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageToMemoryCopy>
 {
     public ImageToMemoryCopy()
     {
@@ -55,7 +55,14 @@ public unsafe partial class ImageToMemoryCopy : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkImageToMemoryCopy native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PHostPointer = (nuint)native.pHostPointer;
         MemoryRowLength = native.memoryRowLength;
         MemoryImageHeight = native.memoryImageHeight;
@@ -72,6 +79,12 @@ public unsafe partial class ImageToMemoryCopy : IMarshallableObject, IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkImageToMemoryCopy*)native);
     }
     private ref struct VkImageToMemoryCopyMarshaller
     {

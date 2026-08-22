@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoH265PpsFlags : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoH265PpsFlags>
+public unsafe partial class StdVideoH265PpsFlags : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoH265PpsFlags>
 {
     public StdVideoH265PpsFlags()
     {
@@ -115,6 +115,12 @@ public unsafe partial class StdVideoH265PpsFlags : IMarshallableObject, IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoH265PpsFlags*)native);
     }
     private ref struct StdVideoH265PpsFlagsMarshaller
     {

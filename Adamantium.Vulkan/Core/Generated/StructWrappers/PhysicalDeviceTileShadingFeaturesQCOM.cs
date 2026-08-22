@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceTileShadingFeaturesQCOM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTileShadingFeaturesQCOM>
+public unsafe partial class PhysicalDeviceTileShadingFeaturesQCOM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTileShadingFeaturesQCOM>
 {
     public PhysicalDeviceTileShadingFeaturesQCOM()
     {
@@ -63,7 +63,14 @@ public unsafe partial class PhysicalDeviceTileShadingFeaturesQCOM : IMarshallabl
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTileShadingFeaturesQCOM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         TileShading = native.tileShading;
         TileShadingFragmentStage = native.tileShadingFragmentStage;
         TileShadingColorAttachments = native.tileShadingColorAttachments;
@@ -88,6 +95,12 @@ public unsafe partial class PhysicalDeviceTileShadingFeaturesQCOM : IMarshallabl
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceTileShadingFeaturesQCOM*)native);
     }
     private ref struct VkPhysicalDeviceTileShadingFeaturesQCOMMarshaller
     {

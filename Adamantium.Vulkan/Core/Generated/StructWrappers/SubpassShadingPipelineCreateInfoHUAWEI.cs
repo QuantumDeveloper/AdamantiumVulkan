@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SubpassShadingPipelineCreateInfoHUAWEI : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSubpassShadingPipelineCreateInfoHUAWEI>
+public unsafe partial class SubpassShadingPipelineCreateInfoHUAWEI : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSubpassShadingPipelineCreateInfoHUAWEI>
 {
     public SubpassShadingPipelineCreateInfoHUAWEI()
     {
@@ -51,7 +51,14 @@ public unsafe partial class SubpassShadingPipelineCreateInfoHUAWEI : IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSubpassShadingPipelineCreateInfoHUAWEI native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         RenderPass = new RenderPass(native.renderPass);
         Subpass = native.subpass;
 
@@ -64,6 +71,12 @@ public unsafe partial class SubpassShadingPipelineCreateInfoHUAWEI : IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSubpassShadingPipelineCreateInfoHUAWEI*)native);
     }
     private ref struct VkSubpassShadingPipelineCreateInfoHUAWEIMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class AcquireProfilingLockInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkAcquireProfilingLockInfoKHR>
+public unsafe partial class AcquireProfilingLockInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkAcquireProfilingLockInfoKHR>
 {
     public AcquireProfilingLockInfoKHR()
     {
@@ -51,7 +51,14 @@ public unsafe partial class AcquireProfilingLockInfoKHR : IMarshallableObject, I
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkAcquireProfilingLockInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         Timeout = native.timeout;
 
@@ -64,6 +71,12 @@ public unsafe partial class AcquireProfilingLockInfoKHR : IMarshallableObject, I
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkAcquireProfilingLockInfoKHR*)native);
     }
     private ref struct VkAcquireProfilingLockInfoKHRMarshaller
     {

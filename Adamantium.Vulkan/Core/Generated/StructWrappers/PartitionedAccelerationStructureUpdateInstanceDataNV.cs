@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PartitionedAccelerationStructureUpdateInstanceDataNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPartitionedAccelerationStructureUpdateInstanceDataNV>
+public unsafe partial class PartitionedAccelerationStructureUpdateInstanceDataNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPartitionedAccelerationStructureUpdateInstanceDataNV>
 {
     public PartitionedAccelerationStructureUpdateInstanceDataNV()
     {
@@ -59,6 +59,12 @@ public unsafe partial class PartitionedAccelerationStructureUpdateInstanceDataNV
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPartitionedAccelerationStructureUpdateInstanceDataNV*)native);
     }
     private ref struct VkPartitionedAccelerationStructureUpdateInstanceDataNVMarshaller
     {

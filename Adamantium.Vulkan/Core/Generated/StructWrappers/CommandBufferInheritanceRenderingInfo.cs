@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CommandBufferInheritanceRenderingInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceRenderingInfo>
+public unsafe partial class CommandBufferInheritanceRenderingInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceRenderingInfo>
 {
     public CommandBufferInheritanceRenderingInfo()
     {
@@ -58,7 +58,14 @@ public unsafe partial class CommandBufferInheritanceRenderingInfo : IMarshallabl
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceRenderingInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         ViewMask = native.viewMask;
         ColorAttachmentCount = native.colorAttachmentCount;
@@ -79,6 +86,12 @@ public unsafe partial class CommandBufferInheritanceRenderingInfo : IMarshallabl
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceRenderingInfo*)native);
     }
     private ref struct VkCommandBufferInheritanceRenderingInfoMarshaller
     {

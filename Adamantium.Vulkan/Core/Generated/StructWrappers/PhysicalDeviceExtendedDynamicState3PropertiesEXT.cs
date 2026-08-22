@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceExtendedDynamicState3PropertiesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3PropertiesEXT>
+public unsafe partial class PhysicalDeviceExtendedDynamicState3PropertiesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3PropertiesEXT>
 {
     public PhysicalDeviceExtendedDynamicState3PropertiesEXT()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceExtendedDynamicState3PropertiesEXT : I
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3PropertiesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DynamicPrimitiveTopologyUnrestricted = native.dynamicPrimitiveTopologyUnrestricted;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceExtendedDynamicState3PropertiesEXT : I
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3PropertiesEXT*)native);
     }
     private ref struct VkPhysicalDeviceExtendedDynamicState3PropertiesEXTMarshaller
     {

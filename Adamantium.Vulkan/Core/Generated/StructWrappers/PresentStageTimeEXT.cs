@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PresentStageTimeEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentStageTimeEXT>
+public unsafe partial class PresentStageTimeEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentStageTimeEXT>
 {
     public PresentStageTimeEXT()
     {
@@ -57,6 +57,12 @@ public unsafe partial class PresentStageTimeEXT : IMarshallableObject, IMarshall
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPresentStageTimeEXT*)native);
     }
     private ref struct VkPresentStageTimeEXTMarshaller
     {

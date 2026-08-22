@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceMaintenance9PropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance9PropertiesKHR>
+public unsafe partial class PhysicalDeviceMaintenance9PropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance9PropertiesKHR>
 {
     public PhysicalDeviceMaintenance9PropertiesKHR()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceMaintenance9PropertiesKHR : IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance9PropertiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Image2DViewOf3DSparse = native.image2DViewOf3DSparse;
         DefaultVertexAttributeValue = native.defaultVertexAttributeValue;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceMaintenance9PropertiesKHR : IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceMaintenance9PropertiesKHR*)native);
     }
     private ref struct VkPhysicalDeviceMaintenance9PropertiesKHRMarshaller
     {

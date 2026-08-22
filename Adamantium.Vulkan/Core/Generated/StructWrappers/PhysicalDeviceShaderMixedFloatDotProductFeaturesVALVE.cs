@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE>
+public unsafe partial class PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE>
 {
     public PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE()
     {
@@ -53,7 +53,14 @@ public unsafe partial class PhysicalDeviceShaderMixedFloatDotProductFeaturesVALV
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ShaderMixedFloatDotProductFloat16AccFloat32 = native.shaderMixedFloatDotProductFloat16AccFloat32;
         ShaderMixedFloatDotProductFloat16AccFloat16 = native.shaderMixedFloatDotProductFloat16AccFloat16;
         ShaderMixedFloatDotProductBFloat16Acc = native.shaderMixedFloatDotProductBFloat16Acc;
@@ -68,6 +75,12 @@ public unsafe partial class PhysicalDeviceShaderMixedFloatDotProductFeaturesVALV
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE*)native);
     }
     private ref struct VkPhysicalDeviceShaderMixedFloatDotProductFeaturesVALVEMarshaller
     {

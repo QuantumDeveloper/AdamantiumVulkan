@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineShaderStageModuleIdentifierCreateInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineShaderStageModuleIdentifierCreateInfoEXT>
+public unsafe partial class PipelineShaderStageModuleIdentifierCreateInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineShaderStageModuleIdentifierCreateInfoEXT>
 {
     public PipelineShaderStageModuleIdentifierCreateInfoEXT()
     {
@@ -53,7 +53,14 @@ public unsafe partial class PipelineShaderStageModuleIdentifierCreateInfoEXT : I
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineShaderStageModuleIdentifierCreateInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         IdentifierSize = native.identifierSize;
         var arrayLengthPIdentifier = native.identifierSize;
         var tmpPIdentifier = new byte[arrayLengthPIdentifier];
@@ -69,6 +76,12 @@ public unsafe partial class PipelineShaderStageModuleIdentifierCreateInfoEXT : I
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineShaderStageModuleIdentifierCreateInfoEXT*)native);
     }
     private ref struct VkPipelineShaderStageModuleIdentifierCreateInfoEXTMarshaller
     {

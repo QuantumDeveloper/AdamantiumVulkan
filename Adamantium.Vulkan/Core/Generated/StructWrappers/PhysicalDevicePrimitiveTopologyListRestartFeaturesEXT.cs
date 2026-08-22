@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT>
+public unsafe partial class PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT>
 {
     public PhysicalDevicePrimitiveTopologyListRestartFeaturesEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDevicePrimitiveTopologyListRestartFeaturesEX
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PrimitiveTopologyListRestart = native.primitiveTopologyListRestart;
         PrimitiveTopologyPatchListRestart = native.primitiveTopologyPatchListRestart;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDevicePrimitiveTopologyListRestartFeaturesEX
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXTMarshaller
     {

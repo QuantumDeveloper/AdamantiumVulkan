@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDevicePCIBusInfoPropertiesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePCIBusInfoPropertiesEXT>
+public unsafe partial class PhysicalDevicePCIBusInfoPropertiesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePCIBusInfoPropertiesEXT>
 {
     public PhysicalDevicePCIBusInfoPropertiesEXT()
     {
@@ -53,7 +53,14 @@ public unsafe partial class PhysicalDevicePCIBusInfoPropertiesEXT : IMarshallabl
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePCIBusInfoPropertiesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PciDomain = native.pciDomain;
         PciBus = native.pciBus;
         PciDevice = native.pciDevice;
@@ -68,6 +75,12 @@ public unsafe partial class PhysicalDevicePCIBusInfoPropertiesEXT : IMarshallabl
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePCIBusInfoPropertiesEXT*)native);
     }
     private ref struct VkPhysicalDevicePCIBusInfoPropertiesEXTMarshaller
     {

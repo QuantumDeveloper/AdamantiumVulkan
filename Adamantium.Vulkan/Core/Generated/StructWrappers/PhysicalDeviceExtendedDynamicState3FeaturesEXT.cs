@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceExtendedDynamicState3FeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3FeaturesEXT>
+public unsafe partial class PhysicalDeviceExtendedDynamicState3FeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3FeaturesEXT>
 {
     public PhysicalDeviceExtendedDynamicState3FeaturesEXT()
     {
@@ -80,7 +80,14 @@ public unsafe partial class PhysicalDeviceExtendedDynamicState3FeaturesEXT : IMa
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3FeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ExtendedDynamicState3TessellationDomainOrigin = native.extendedDynamicState3TessellationDomainOrigin;
         ExtendedDynamicState3DepthClampEnable = native.extendedDynamicState3DepthClampEnable;
         ExtendedDynamicState3PolygonMode = native.extendedDynamicState3PolygonMode;
@@ -122,6 +129,12 @@ public unsafe partial class PhysicalDeviceExtendedDynamicState3FeaturesEXT : IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExtendedDynamicState3FeaturesEXT*)native);
     }
     private ref struct VkPhysicalDeviceExtendedDynamicState3FeaturesEXTMarshaller
     {

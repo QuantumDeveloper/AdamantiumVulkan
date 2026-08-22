@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ImportFenceFdInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImportFenceFdInfoKHR>
+public unsafe partial class ImportFenceFdInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImportFenceFdInfoKHR>
 {
     public ImportFenceFdInfoKHR()
     {
@@ -53,7 +53,14 @@ public unsafe partial class ImportFenceFdInfoKHR : IMarshallableObject, IMarshal
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkImportFenceFdInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Fence = new Fence(native.fence);
         Flags = native.flags;
         HandleType = native.handleType;
@@ -68,6 +75,12 @@ public unsafe partial class ImportFenceFdInfoKHR : IMarshallableObject, IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkImportFenceFdInfoKHR*)native);
     }
     private ref struct VkImportFenceFdInfoKHRMarshaller
     {

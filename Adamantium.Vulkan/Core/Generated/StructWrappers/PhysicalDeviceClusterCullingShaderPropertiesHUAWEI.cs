@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceClusterCullingShaderPropertiesHUAWEI : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI>
+public unsafe partial class PhysicalDeviceClusterCullingShaderPropertiesHUAWEI : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI>
 {
     public PhysicalDeviceClusterCullingShaderPropertiesHUAWEI()
     {
@@ -53,7 +53,14 @@ public unsafe partial class PhysicalDeviceClusterCullingShaderPropertiesHUAWEI :
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         var tmpMaxWorkGroupCount = new uint[3];
         var maxWorkGroupCountp = native.maxWorkGroupCount[0];
         var pMaxWorkGroupCount = (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in maxWorkGroupCountp ));
@@ -76,6 +83,12 @@ public unsafe partial class PhysicalDeviceClusterCullingShaderPropertiesHUAWEI :
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI*)native);
     }
     private ref struct VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEIMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SurfacePresentModeCompatibilityKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSurfacePresentModeCompatibilityKHR>
+public unsafe partial class SurfacePresentModeCompatibilityKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSurfacePresentModeCompatibilityKHR>
 {
     public SurfacePresentModeCompatibilityKHR()
     {
@@ -53,7 +53,14 @@ public unsafe partial class SurfacePresentModeCompatibilityKHR : IMarshallableOb
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSurfacePresentModeCompatibilityKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PresentModeCount = native.presentModeCount;
         var arrayLengthPresentModes = native.presentModeCount;
         var tmpPresentModes = new PresentModeKHR[arrayLengthPresentModes];
@@ -69,6 +76,12 @@ public unsafe partial class SurfacePresentModeCompatibilityKHR : IMarshallableOb
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSurfacePresentModeCompatibilityKHR*)native);
     }
     private ref struct VkSurfacePresentModeCompatibilityKHRMarshaller
     {

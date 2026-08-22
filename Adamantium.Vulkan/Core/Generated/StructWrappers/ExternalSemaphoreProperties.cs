@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ExternalSemaphoreProperties : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkExternalSemaphoreProperties>
+public unsafe partial class ExternalSemaphoreProperties : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkExternalSemaphoreProperties>
 {
     public ExternalSemaphoreProperties()
     {
@@ -52,7 +52,14 @@ public unsafe partial class ExternalSemaphoreProperties : IMarshallableObject, I
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkExternalSemaphoreProperties native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ExportFromImportedHandleTypes = native.exportFromImportedHandleTypes;
         CompatibleHandleTypes = native.compatibleHandleTypes;
         ExternalSemaphoreFeatures = native.externalSemaphoreFeatures;
@@ -66,6 +73,12 @@ public unsafe partial class ExternalSemaphoreProperties : IMarshallableObject, I
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkExternalSemaphoreProperties*)native);
     }
     private ref struct VkExternalSemaphorePropertiesMarshaller
     {

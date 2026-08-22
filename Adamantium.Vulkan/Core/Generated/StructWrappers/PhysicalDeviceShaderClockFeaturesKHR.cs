@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceShaderClockFeaturesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderClockFeaturesKHR>
+public unsafe partial class PhysicalDeviceShaderClockFeaturesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderClockFeaturesKHR>
 {
     public PhysicalDeviceShaderClockFeaturesKHR()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceShaderClockFeaturesKHR : IMarshallable
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderClockFeaturesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ShaderSubgroupClock = native.shaderSubgroupClock;
         ShaderDeviceClock = native.shaderDeviceClock;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceShaderClockFeaturesKHR : IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderClockFeaturesKHR*)native);
     }
     private ref struct VkPhysicalDeviceShaderClockFeaturesKHRMarshaller
     {

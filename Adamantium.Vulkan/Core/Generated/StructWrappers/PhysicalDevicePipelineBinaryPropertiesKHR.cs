@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDevicePipelineBinaryPropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePipelineBinaryPropertiesKHR>
+public unsafe partial class PhysicalDevicePipelineBinaryPropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePipelineBinaryPropertiesKHR>
 {
     public PhysicalDevicePipelineBinaryPropertiesKHR()
     {
@@ -54,7 +54,14 @@ public unsafe partial class PhysicalDevicePipelineBinaryPropertiesKHR : IMarshal
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePipelineBinaryPropertiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PipelineBinaryInternalCache = native.pipelineBinaryInternalCache;
         PipelineBinaryInternalCacheControl = native.pipelineBinaryInternalCacheControl;
         PipelineBinaryPrefersInternalCache = native.pipelineBinaryPrefersInternalCache;
@@ -70,6 +77,12 @@ public unsafe partial class PhysicalDevicePipelineBinaryPropertiesKHR : IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePipelineBinaryPropertiesKHR*)native);
     }
     private ref struct VkPhysicalDevicePipelineBinaryPropertiesKHRMarshaller
     {

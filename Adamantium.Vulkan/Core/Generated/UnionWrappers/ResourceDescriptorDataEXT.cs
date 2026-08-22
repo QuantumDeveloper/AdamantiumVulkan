@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ResourceDescriptorDataEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkResourceDescriptorDataEXT>
+public unsafe partial class ResourceDescriptorDataEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkResourceDescriptorDataEXT>
 {
     public ResourceDescriptorDataEXT()
     {
@@ -81,6 +81,12 @@ public unsafe partial class ResourceDescriptorDataEXT : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkResourceDescriptorDataEXT*)native);
     }
     private ref struct VkResourceDescriptorDataEXTMarshaller
     {

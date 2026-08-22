@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class RenderPassCreationFeedbackInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassCreationFeedbackInfoEXT>
+public unsafe partial class RenderPassCreationFeedbackInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassCreationFeedbackInfoEXT>
 {
     public RenderPassCreationFeedbackInfoEXT()
     {
@@ -55,6 +55,12 @@ public unsafe partial class RenderPassCreationFeedbackInfoEXT : IMarshallableObj
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkRenderPassCreationFeedbackInfoEXT*)native);
     }
     private ref struct VkRenderPassCreationFeedbackInfoEXTMarshaller
     {

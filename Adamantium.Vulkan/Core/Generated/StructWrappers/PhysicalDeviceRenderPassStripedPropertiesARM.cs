@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceRenderPassStripedPropertiesARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRenderPassStripedPropertiesARM>
+public unsafe partial class PhysicalDeviceRenderPassStripedPropertiesARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRenderPassStripedPropertiesARM>
 {
     public PhysicalDeviceRenderPassStripedPropertiesARM()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceRenderPassStripedPropertiesARM : IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRenderPassStripedPropertiesARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         RenderPassStripeGranularity = new Extent2D(native.renderPassStripeGranularity);
         MaxRenderPassStripes = native.maxRenderPassStripes;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceRenderPassStripedPropertiesARM : IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRenderPassStripedPropertiesARM*)native);
     }
     private ref struct VkPhysicalDeviceRenderPassStripedPropertiesARMMarshaller
     {

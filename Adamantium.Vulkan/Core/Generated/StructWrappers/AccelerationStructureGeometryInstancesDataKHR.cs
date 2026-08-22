@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class AccelerationStructureGeometryInstancesDataKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureGeometryInstancesDataKHR>
+public unsafe partial class AccelerationStructureGeometryInstancesDataKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureGeometryInstancesDataKHR>
 {
     public AccelerationStructureGeometryInstancesDataKHR()
     {
@@ -53,7 +53,14 @@ public unsafe partial class AccelerationStructureGeometryInstancesDataKHR : IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkAccelerationStructureGeometryInstancesDataKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ArrayOfPointers = native.arrayOfPointers;
         Data = new DeviceOrHostAddressConstKHR(native.data);
 
@@ -66,6 +73,12 @@ public unsafe partial class AccelerationStructureGeometryInstancesDataKHR : IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkAccelerationStructureGeometryInstancesDataKHR*)native);
     }
     private ref struct VkAccelerationStructureGeometryInstancesDataKHRMarshaller
     {

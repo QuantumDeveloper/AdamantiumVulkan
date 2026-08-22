@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DepthClampRangeEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDepthClampRangeEXT>
+public unsafe partial class DepthClampRangeEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDepthClampRangeEXT>
 {
     public DepthClampRangeEXT()
     {
@@ -57,6 +57,12 @@ public unsafe partial class DepthClampRangeEXT : IMarshallableObject, IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDepthClampRangeEXT*)native);
     }
     private ref struct VkDepthClampRangeEXTMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ShadingRatePaletteNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkShadingRatePaletteNV>
+public unsafe partial class ShadingRatePaletteNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkShadingRatePaletteNV>
 {
     public ShadingRatePaletteNV()
     {
@@ -62,6 +62,12 @@ public unsafe partial class ShadingRatePaletteNV : IMarshallableObject, IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkShadingRatePaletteNV*)native);
     }
     private ref struct VkShadingRatePaletteNVMarshaller
     {

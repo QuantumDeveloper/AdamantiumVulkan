@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineCoverageReductionStateCreateInfoNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV>
+public unsafe partial class PipelineCoverageReductionStateCreateInfoNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV>
 {
     public PipelineCoverageReductionStateCreateInfoNV()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PipelineCoverageReductionStateCreateInfoNV : IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         CoverageReductionMode = native.coverageReductionMode;
 
@@ -64,6 +71,12 @@ public unsafe partial class PipelineCoverageReductionStateCreateInfoNV : IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineCoverageReductionStateCreateInfoNV*)native);
     }
     private ref struct VkPipelineCoverageReductionStateCreateInfoNVMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CopyMemoryToImageIndirectCommandKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyMemoryToImageIndirectCommandKHR>
+public unsafe partial class CopyMemoryToImageIndirectCommandKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyMemoryToImageIndirectCommandKHR>
 {
     public CopyMemoryToImageIndirectCommandKHR()
     {
@@ -65,6 +65,12 @@ public unsafe partial class CopyMemoryToImageIndirectCommandKHR : IMarshallableO
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCopyMemoryToImageIndirectCommandKHR*)native);
     }
     private ref struct VkCopyMemoryToImageIndirectCommandKHRMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineViewportDepthClampControlCreateInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineViewportDepthClampControlCreateInfoEXT>
+public unsafe partial class PipelineViewportDepthClampControlCreateInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineViewportDepthClampControlCreateInfoEXT>
 {
     public PipelineViewportDepthClampControlCreateInfoEXT()
     {
@@ -55,7 +55,14 @@ public unsafe partial class PipelineViewportDepthClampControlCreateInfoEXT : IMa
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineViewportDepthClampControlCreateInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DepthClampMode = native.depthClampMode;
         PDepthClampRange = new DepthClampRangeEXT(in *native.pDepthClampRange);
         NativeUtils.Free(native.pDepthClampRange);
@@ -69,6 +76,12 @@ public unsafe partial class PipelineViewportDepthClampControlCreateInfoEXT : IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineViewportDepthClampControlCreateInfoEXT*)native);
     }
     private ref struct VkPipelineViewportDepthClampControlCreateInfoEXTMarshaller
     {

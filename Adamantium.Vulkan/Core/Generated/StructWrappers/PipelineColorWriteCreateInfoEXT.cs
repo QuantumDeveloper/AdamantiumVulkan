@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineColorWriteCreateInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineColorWriteCreateInfoEXT>
+public unsafe partial class PipelineColorWriteCreateInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineColorWriteCreateInfoEXT>
 {
     public PipelineColorWriteCreateInfoEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PipelineColorWriteCreateInfoEXT : IMarshallableObjec
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineColorWriteCreateInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         AttachmentCount = native.attachmentCount;
         var arrayLengthPColorWriteEnables = native.attachmentCount;
         var tmpPColorWriteEnables = new VkBool32[arrayLengthPColorWriteEnables];
@@ -67,6 +74,12 @@ public unsafe partial class PipelineColorWriteCreateInfoEXT : IMarshallableObjec
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineColorWriteCreateInfoEXT*)native);
     }
     private ref struct VkPipelineColorWriteCreateInfoEXTMarshaller
     {

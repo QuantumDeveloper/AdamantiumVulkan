@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceRayTracingInvocationReorderPropertiesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRayTracingInvocationReorderPropertiesEXT>
+public unsafe partial class PhysicalDeviceRayTracingInvocationReorderPropertiesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRayTracingInvocationReorderPropertiesEXT>
 {
     public PhysicalDeviceRayTracingInvocationReorderPropertiesEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceRayTracingInvocationReorderPropertiesE
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRayTracingInvocationReorderPropertiesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         RayTracingInvocationReorderReorderingHint = native.rayTracingInvocationReorderReorderingHint;
         MaxShaderBindingTableRecordIndex = native.maxShaderBindingTableRecordIndex;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceRayTracingInvocationReorderPropertiesE
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRayTracingInvocationReorderPropertiesEXT*)native);
     }
     private ref struct VkPhysicalDeviceRayTracingInvocationReorderPropertiesEXTMarshaller
     {

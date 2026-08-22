@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceDataGraphOpticalFlowFeaturesARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphOpticalFlowFeaturesARM>
+public unsafe partial class PhysicalDeviceDataGraphOpticalFlowFeaturesARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphOpticalFlowFeaturesARM>
 {
     public PhysicalDeviceDataGraphOpticalFlowFeaturesARM()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceDataGraphOpticalFlowFeaturesARM : IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphOpticalFlowFeaturesARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DataGraphOpticalFlow = native.dataGraphOpticalFlow;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceDataGraphOpticalFlowFeaturesARM : IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphOpticalFlowFeaturesARM*)native);
     }
     private ref struct VkPhysicalDeviceDataGraphOpticalFlowFeaturesARMMarshaller
     {

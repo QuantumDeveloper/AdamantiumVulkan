@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT>
+public unsafe partial class PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT>
 {
     public PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT()
     {
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDeviceRasterizationOrderAttachmentAccessFeat
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         RasterizationOrderColorAttachmentAccess = native.rasterizationOrderColorAttachmentAccess;
         RasterizationOrderDepthAttachmentAccess = native.rasterizationOrderDepthAttachmentAccess;
         RasterizationOrderStencilAttachmentAccess = native.rasterizationOrderStencilAttachmentAccess;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDeviceRasterizationOrderAttachmentAccessFeat
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXTMarshaller
     {

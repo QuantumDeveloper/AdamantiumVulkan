@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoEncodeH265WeightTableFlags : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags>
+public unsafe partial class StdVideoEncodeH265WeightTableFlags : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags>
 {
     public StdVideoEncodeH265WeightTableFlags()
     {
@@ -61,6 +61,12 @@ public unsafe partial class StdVideoEncodeH265WeightTableFlags : IMarshallableOb
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoEncodeH265WeightTableFlags*)native);
     }
     private ref struct StdVideoEncodeH265WeightTableFlagsMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CommandBufferInheritanceDescriptorHeapInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceDescriptorHeapInfoEXT>
+public unsafe partial class CommandBufferInheritanceDescriptorHeapInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceDescriptorHeapInfoEXT>
 {
     public CommandBufferInheritanceDescriptorHeapInfoEXT()
     {
@@ -59,7 +59,14 @@ public unsafe partial class CommandBufferInheritanceDescriptorHeapInfoEXT : IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceDescriptorHeapInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PSamplerHeapBindInfo = new BindHeapInfoEXT(in *native.pSamplerHeapBindInfo);
         NativeUtils.Free(native.pSamplerHeapBindInfo);
         PResourceHeapBindInfo = new BindHeapInfoEXT(in *native.pResourceHeapBindInfo);
@@ -74,6 +81,12 @@ public unsafe partial class CommandBufferInheritanceDescriptorHeapInfoEXT : IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceDescriptorHeapInfoEXT*)native);
     }
     private ref struct VkCommandBufferInheritanceDescriptorHeapInfoEXTMarshaller
     {

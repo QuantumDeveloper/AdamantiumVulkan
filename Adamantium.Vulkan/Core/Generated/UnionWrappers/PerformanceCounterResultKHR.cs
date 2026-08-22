@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PerformanceCounterResultKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterResultKHR>
+public unsafe partial class PerformanceCounterResultKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPerformanceCounterResultKHR>
 {
     public PerformanceCounterResultKHR()
     {
@@ -65,6 +65,12 @@ public unsafe partial class PerformanceCounterResultKHR : IMarshallableObject, I
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPerformanceCounterResultKHR*)native);
     }
     private ref struct VkPerformanceCounterResultKHRMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceRawAccessChainsFeaturesNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRawAccessChainsFeaturesNV>
+public unsafe partial class PhysicalDeviceRawAccessChainsFeaturesNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRawAccessChainsFeaturesNV>
 {
     public PhysicalDeviceRawAccessChainsFeaturesNV()
     {
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceRawAccessChainsFeaturesNV : IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRawAccessChainsFeaturesNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ShaderRawAccessChains = native.shaderRawAccessChains;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceRawAccessChainsFeaturesNV : IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceRawAccessChainsFeaturesNV*)native);
     }
     private ref struct VkPhysicalDeviceRawAccessChainsFeaturesNVMarshaller
     {

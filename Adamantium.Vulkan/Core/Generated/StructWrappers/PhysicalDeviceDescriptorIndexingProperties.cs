@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceDescriptorIndexingProperties : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingProperties>
+public unsafe partial class PhysicalDeviceDescriptorIndexingProperties : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingProperties>
 {
     public PhysicalDeviceDescriptorIndexingProperties()
     {
@@ -72,7 +72,14 @@ public unsafe partial class PhysicalDeviceDescriptorIndexingProperties : IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingProperties native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MaxUpdateAfterBindDescriptorsInAllPools = native.maxUpdateAfterBindDescriptorsInAllPools;
         ShaderUniformBufferArrayNonUniformIndexingNative = native.shaderUniformBufferArrayNonUniformIndexingNative;
         ShaderSampledImageArrayNonUniformIndexingNative = native.shaderSampledImageArrayNonUniformIndexingNative;
@@ -106,6 +113,12 @@ public unsafe partial class PhysicalDeviceDescriptorIndexingProperties : IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorIndexingProperties*)native);
     }
     private ref struct VkPhysicalDeviceDescriptorIndexingPropertiesMarshaller
     {

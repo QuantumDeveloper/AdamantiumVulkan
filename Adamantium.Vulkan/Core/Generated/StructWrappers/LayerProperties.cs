@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class LayerProperties : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkLayerProperties>
+public unsafe partial class LayerProperties : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkLayerProperties>
 {
     public LayerProperties()
     {
@@ -67,6 +67,12 @@ public unsafe partial class LayerProperties : IMarshallableObject, IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkLayerProperties*)native);
     }
     private ref struct VkLayerPropertiesMarshaller
     {

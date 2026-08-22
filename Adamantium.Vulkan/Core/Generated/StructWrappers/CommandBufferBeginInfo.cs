@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CommandBufferBeginInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCommandBufferBeginInfo>
+public unsafe partial class CommandBufferBeginInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCommandBufferBeginInfo>
 {
     public CommandBufferBeginInfo()
     {
@@ -55,7 +55,14 @@ public unsafe partial class CommandBufferBeginInfo : IMarshallableObject, IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkCommandBufferBeginInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         PInheritanceInfo = new CommandBufferInheritanceInfo(in *native.pInheritanceInfo);
         NativeUtils.Free(native.pInheritanceInfo);
@@ -69,6 +76,12 @@ public unsafe partial class CommandBufferBeginInfo : IMarshallableObject, IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCommandBufferBeginInfo*)native);
     }
     private ref struct VkCommandBufferBeginInfoMarshaller
     {

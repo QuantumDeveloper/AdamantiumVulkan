@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ClusterAccelerationStructureInputInfoNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureInputInfoNV>
+public unsafe partial class ClusterAccelerationStructureInputInfoNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureInputInfoNV>
 {
     public ClusterAccelerationStructureInputInfoNV()
     {
@@ -56,7 +56,14 @@ public unsafe partial class ClusterAccelerationStructureInputInfoNV : IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureInputInfoNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MaxAccelerationStructureCount = native.maxAccelerationStructureCount;
         Flags = native.flags;
         OpType = native.opType;
@@ -72,6 +79,12 @@ public unsafe partial class ClusterAccelerationStructureInputInfoNV : IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureInputInfoNV*)native);
     }
     private ref struct VkClusterAccelerationStructureInputInfoNVMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV>
+public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV>
 {
     public PhysicalDeviceDeviceGeneratedCommandsPropertiesNV()
     {
@@ -58,7 +58,14 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesNV : 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MaxGraphicsShaderGroupCount = native.maxGraphicsShaderGroupCount;
         MaxIndirectSequenceCount = native.maxIndirectSequenceCount;
         MaxIndirectCommandsTokenCount = native.maxIndirectCommandsTokenCount;
@@ -78,6 +85,12 @@ public unsafe partial class PhysicalDeviceDeviceGeneratedCommandsPropertiesNV : 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV*)native);
     }
     private ref struct VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNVMarshaller
     {

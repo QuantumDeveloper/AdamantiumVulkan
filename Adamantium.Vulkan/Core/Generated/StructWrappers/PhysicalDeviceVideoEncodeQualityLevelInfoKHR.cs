@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceVideoEncodeQualityLevelInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR>
+public unsafe partial class PhysicalDeviceVideoEncodeQualityLevelInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR>
 {
     public PhysicalDeviceVideoEncodeQualityLevelInfoKHR()
     {
@@ -55,7 +55,14 @@ public unsafe partial class PhysicalDeviceVideoEncodeQualityLevelInfoKHR : IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PVideoProfile = new VideoProfileInfoKHR(in *native.pVideoProfile);
         NativeUtils.Free(native.pVideoProfile);
         QualityLevel = native.qualityLevel;
@@ -69,6 +76,12 @@ public unsafe partial class PhysicalDeviceVideoEncodeQualityLevelInfoKHR : IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR*)native);
     }
     private ref struct VkPhysicalDeviceVideoEncodeQualityLevelInfoKHRMarshaller
     {

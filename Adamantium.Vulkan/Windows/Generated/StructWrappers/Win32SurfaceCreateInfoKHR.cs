@@ -13,7 +13,7 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Windows;
 
-public unsafe partial class Win32SurfaceCreateInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR>
+public unsafe partial class Win32SurfaceCreateInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR>
 {
     public Win32SurfaceCreateInfoKHR()
     {
@@ -53,7 +53,14 @@ public unsafe partial class Win32SurfaceCreateInfoKHR : IMarshallableObject, IMa
 
     public void MarshalFrom(in Adamantium.Vulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         Hinstance = native.hinstance;
         Hwnd = native.hwnd;
@@ -67,6 +74,12 @@ public unsafe partial class Win32SurfaceCreateInfoKHR : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Windows.Interop.VkWin32SurfaceCreateInfoKHR*)native);
     }
     private ref struct VkWin32SurfaceCreateInfoKHRMarshaller
     {

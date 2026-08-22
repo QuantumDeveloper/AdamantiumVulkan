@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class IndirectExecutionSetCreateInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetCreateInfoEXT>
+public unsafe partial class IndirectExecutionSetCreateInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetCreateInfoEXT>
 {
     public IndirectExecutionSetCreateInfoEXT()
     {
@@ -53,7 +53,14 @@ public unsafe partial class IndirectExecutionSetCreateInfoEXT : IMarshallableObj
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetCreateInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Type = native.type;
         Info = new IndirectExecutionSetInfoEXT(native.info);
 
@@ -66,6 +73,12 @@ public unsafe partial class IndirectExecutionSetCreateInfoEXT : IMarshallableObj
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetCreateInfoEXT*)native);
     }
     private ref struct VkIndirectExecutionSetCreateInfoEXTMarshaller
     {

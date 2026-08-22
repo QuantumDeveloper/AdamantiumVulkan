@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceBorderColorSwizzleFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceBorderColorSwizzleFeaturesEXT>
+public unsafe partial class PhysicalDeviceBorderColorSwizzleFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceBorderColorSwizzleFeaturesEXT>
 {
     public PhysicalDeviceBorderColorSwizzleFeaturesEXT()
     {
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceBorderColorSwizzleFeaturesEXT : IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceBorderColorSwizzleFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         BorderColorSwizzle = native.borderColorSwizzle;
         BorderColorSwizzleFromImage = native.borderColorSwizzleFromImage;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceBorderColorSwizzleFeaturesEXT : IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceBorderColorSwizzleFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDeviceBorderColorSwizzleFeaturesEXTMarshaller
     {
