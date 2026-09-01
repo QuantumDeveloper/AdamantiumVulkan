@@ -177,9 +177,9 @@ public unsafe partial class Instance : IUnmanagedWrapper<Adamantium.Vulkan.Core.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(pLayerPrefix))
-                totalSize += pLayerPrefix.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(pLayerPrefix) + 1;
             if (!string.IsNullOrEmpty(pMessage))
-                totalSize += pMessage.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(pMessage) + 1;
             return totalSize;
         }
 
@@ -416,7 +416,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<Adamantium.Vulkan.Core.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(pName))
-                totalSize += pName.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(pName) + 1;
             return totalSize;
         }
 

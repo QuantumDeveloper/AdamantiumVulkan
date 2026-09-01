@@ -120,7 +120,7 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<Adamantium.Vulkan.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(flag))
-                totalSize += flag.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(flag) + 1;
             return totalSize;
         }
 

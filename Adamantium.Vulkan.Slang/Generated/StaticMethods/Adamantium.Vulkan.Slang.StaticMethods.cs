@@ -27,7 +27,7 @@ public unsafe static class SlangNative
             totalSize += QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(defineNames);
             totalSize += QuantumBinding.Utils.MarshalContextUtils.CalculateRequiredSizeForStringArray(defineValues);
             if (!string.IsNullOrEmpty(profile))
-                totalSize += profile.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(profile) + 1;
             for (var i = 0U; i < options.Length; i++)
             {
                 if(options[(int)i] == null)

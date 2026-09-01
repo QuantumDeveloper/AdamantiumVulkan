@@ -36,7 +36,7 @@ public unsafe partial class spv_position : IUnmanagedWrapper<Adamantium.Vulkan.S
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(message))
-                totalSize += message.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(message) + 1;
             return totalSize;
         }
 

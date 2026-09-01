@@ -113,7 +113,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(pLayerName))
-                totalSize += pLayerName.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(pLayerName) + 1;
             for (var i = 0U; i < pProperties.Length; i++)
             {
                 if(pProperties[(int)i] == null)

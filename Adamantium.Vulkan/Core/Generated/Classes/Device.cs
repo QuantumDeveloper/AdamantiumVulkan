@@ -5974,7 +5974,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(pName))
-                totalSize += pName.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(pName) + 1;
             return totalSize;
         }
 

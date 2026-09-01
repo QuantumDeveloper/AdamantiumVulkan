@@ -67,7 +67,7 @@ public unsafe static class SpirvToolsNative
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(s))
-                totalSize += s.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(s) + 1;
             return totalSize;
         }
 

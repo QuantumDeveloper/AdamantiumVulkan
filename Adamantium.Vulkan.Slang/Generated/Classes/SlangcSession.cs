@@ -39,11 +39,11 @@ public unsafe partial class SlangcSession : IUnmanagedWrapper<Adamantium.Vulkan.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(moduleName))
-                totalSize += moduleName.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(moduleName) + 1;
             if (!string.IsNullOrEmpty(source))
-                totalSize += source.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(source) + 1;
             if (!string.IsNullOrEmpty(entryPoint))
-                totalSize += entryPoint.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(entryPoint) + 1;
             return totalSize;
         }
 
