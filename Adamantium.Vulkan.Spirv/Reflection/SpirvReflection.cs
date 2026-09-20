@@ -148,8 +148,35 @@ namespace Adamantium.Vulkan.Spirv.Reflection
 
                         member.TypeId = memberType;
                         var memberTypeHandle = compiler.GetTypeHandle(memberType);
+
+                        // Slang wraps an ARRAY inside a std140 uniform block in a synthetic single-member struct
+                        // ("_Array_std140_matrix<float,4,4>64"), which is how it pins the element padding std140 asks
+                        // for - but it is not what the member IS. Left alone, an array of matrices reflects as an
+                        // opaque struct: no row/column layout, no element count, and a zero element stride, so the
+                        // matrix copy was never wired up and writing such a parameter died on a null delegate.
+                        // The layout facts then live on the WRAPPER's only member, not on the block's.
+                        var layoutType = spvcType;
+                        var layoutIndex = k;
+                        var layoutTypeId = shaderResources[i].Base_type_id;
+
+                        if (memberTypeHandle.GetBasetype() == Basetype.Struct &&
+                            memberTypeHandle.GetNumMemberTypes() == 1)
+                        {
+                            var innerType = memberTypeHandle.GetMemberType(0);
+                            var innerHandle = compiler.GetTypeHandle(innerType);
+
+                            if (innerHandle.GetNumArrayDimensions() > 0)
+                            {
+                                layoutType = memberTypeHandle;
+                                layoutIndex = 0;
+                                layoutTypeId = memberType;
+                                memberTypeHandle = innerHandle;
+                            }
+                        }
+
                         member.Type = memberTypeHandle.GetBasetype();
                         ulong typeSize = 0;
+                        // Size and offset describe where the member sits IN THE BLOCK, so they stay on the block.
                         lastResult = compiler.GetDeclaredStructMemberSize(spvcType, k, ref typeSize);
                         member.Size = typeSize;
                         uint offset = 0;
@@ -157,9 +184,10 @@ namespace Adamantium.Vulkan.Spirv.Reflection
                         member.Offset = offset;
                         member.Name = compiler.GetMemberName(shaderResources[i].Base_type_id, k);
                         uint stride = 0;
-                        lastResult = compiler.TypeStructMemberArrayStride(spvcType, k, ref stride);
+                        // The strides describe the ELEMENTS, so they come from wherever the array actually is.
+                        lastResult = compiler.TypeStructMemberArrayStride(layoutType, layoutIndex, ref stride);
                         member.ArrayStride = stride;
-                        lastResult = compiler.TypeStructMemberMatrixStride(spvcType, k, ref stride);
+                        lastResult = compiler.TypeStructMemberMatrixStride(layoutType, layoutIndex, ref stride);
                         member.MatrixStride = stride;
 
                         //Get the number of rows in the type
@@ -182,11 +210,11 @@ namespace Adamantium.Vulkan.Spirv.Reflection
                             // only happened to work while a matrix was the first member (offset 0 == index 0); once a
                             // member precedes it (e.g. a uint64 BDA address), offset != index, the row/col-major lookup
                             // failed and VariableType defaulted to Scalar -> CopyMatrix was never wired -> NRE on SetValue.
-                            if (compiler.HasMemberDecoration(shaderResources[i].Base_type_id, k, Decoration.RowMajor))
+                            if (compiler.HasMemberDecoration(layoutTypeId, layoutIndex, Decoration.RowMajor))
                             {
                                 member.VariableType = ShaderVariableClass.MatrixRows;
                             }
-                            else if (compiler.HasMemberDecoration(shaderResources[i].Base_type_id, k, Decoration.ColMajor))
+                            else if (compiler.HasMemberDecoration(layoutTypeId, layoutIndex, Decoration.ColMajor))
                             {
                                 member.VariableType = ShaderVariableClass.MatrixColumns;
                             }
@@ -197,9 +225,11 @@ namespace Adamantium.Vulkan.Spirv.Reflection
                             member.VariableType = ShaderVariableClass.Struct;
                         }
                         
+                        // The MEMBER's dimensions, not the block's - the block is not an array, so this read its own
+                        // (empty) dimensions and every element count came back as zero.
                         for (var x = 0u; x < member.ArrayDimensionsCount; ++x)
                         {
-                            member.AddArraySizeForDimension(x, spvcType.GetArrayDimension(x));
+                            member.AddArraySizeForDimension(x, memberTypeHandle.GetArrayDimension(x));
                         }
 
                         shaderResource.AddVariable(member);
