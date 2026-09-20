@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13021 Column: 6
 [Flags]
 public enum SwapchainCreateFlagBitsKHR : uint
 {
@@ -33,7 +32,9 @@ public enum SwapchainCreateFlagBitsKHR : uint
 
     DeferredMemoryAllocationBitKhr = 8,
 
-    Reserved8BitExt = 256,
+    MultisampledRenderToSingleSampledBitExt = 256,
+
+    Reserved10BitHuawei = 1024,
 
 }
 

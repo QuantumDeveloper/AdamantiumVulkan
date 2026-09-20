@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Slang.Interop;
 
-// File: C:\AdamantiumEngine\AdamantiumVulkan\Adamantium.Vulkan.Slang\native\slang_c.h Line: 221 Column: 16
 ///<summary>
 /// One Slang compiler option, mirroring slang::CompilerOptionEntry. `name` is a SlangcCompilerOptionName value. `valueKind` selects which value fields are used: 0 = int/bool (intValue0/intValue1), 1 = string (stringValue0/stringValue1). Passing an array of these to slangc_session_create lets the compiler be configured from C# without changing this shim.
 ///</summary>

@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: vk.xml Line: 2000 Column: 10
 [StructLayout(LayoutKind.Explicit)]
 public unsafe partial struct VkClearColorValue
 {

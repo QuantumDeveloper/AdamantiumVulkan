@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17451 Column: 10
 public unsafe struct PFN_vkCmdSetDepthWriteEnable
 {
     public PFN_vkCmdSetDepthWriteEnable(nuint ptr) : this((void*) ptr) { }

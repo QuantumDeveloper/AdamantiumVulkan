@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 14274 Column: 6
 [Flags]
 public enum DataGraphOpticalFlowExecuteFlagBitsARM : uint
 {

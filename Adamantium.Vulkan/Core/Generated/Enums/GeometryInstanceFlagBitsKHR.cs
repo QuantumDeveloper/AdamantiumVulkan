@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13195 Column: 6
 [Flags]
 public enum GeometryInstanceFlagBitsKHR : uint
 {
@@ -23,9 +22,9 @@ public enum GeometryInstanceFlagBitsKHR : uint
 
     ForceNoOpaqueBitKhr = 8,
 
-    ForceOpacityMicromap2StateBitExt = 16,
+    ForceOpacityMicromap2StateBitKhr = 16,
 
-    DisableOpacityMicromapsBitExt = 32,
+    DisableOpacityMicromapsBitKhr = 32,
 
 }
 

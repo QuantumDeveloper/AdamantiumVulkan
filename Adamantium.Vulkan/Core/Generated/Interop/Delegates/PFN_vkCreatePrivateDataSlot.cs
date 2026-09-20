@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17680 Column: 10
 public unsafe struct PFN_vkCreatePrivateDataSlot
 {
     public PFN_vkCreatePrivateDataSlot(nuint ptr) : this((void*) ptr) { }

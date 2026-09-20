@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 14836 Column: 10
 public unsafe struct PFN_vkDestroyPipelineLayout
 {
     public PFN_vkDestroyPipelineLayout(nuint ptr) : this((void*) ptr) { }

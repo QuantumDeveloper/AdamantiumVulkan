@@ -13,7 +13,6 @@ using QuantumBinding.Utils;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 14377 Column: 10
 public unsafe struct PFN_vkEnumerateInstanceVersion
 {
     public PFN_vkEnumerateInstanceVersion(nuint ptr) : this((void*) ptr) { }

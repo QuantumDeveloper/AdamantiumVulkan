@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 580 Column: 9
 ///<summary>
 /// Certain target environments impose additional restrictions on SPIR-V, so it's often necessary to specify which one applies. SPV_ENV_UNIVERSAL_* implies an environment-agnostic SPIR-V.
 ///</summary>

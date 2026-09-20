@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 619 Column: 10
 public unsafe partial class QueryPool : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkQueryPool_T>
 {
     internal VkQueryPool_T __Instance;

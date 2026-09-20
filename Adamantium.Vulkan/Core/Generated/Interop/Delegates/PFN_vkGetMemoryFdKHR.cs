@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15934 Column: 10
 public unsafe struct PFN_vkGetMemoryFdKHR
 {
     public PFN_vkGetMemoryFdKHR(nuint ptr) : this((void*) ptr) { }

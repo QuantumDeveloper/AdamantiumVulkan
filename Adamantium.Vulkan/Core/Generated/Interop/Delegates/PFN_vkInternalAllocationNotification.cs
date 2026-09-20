@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: vk.xml Line: 1097 Column: 10
 public unsafe struct PFN_vkInternalAllocationNotification
 {
     public PFN_vkInternalAllocationNotification(nuint ptr) : this((void*) ptr) { }

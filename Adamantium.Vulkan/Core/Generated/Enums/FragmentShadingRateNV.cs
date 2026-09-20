@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13407 Column: 6
 public enum FragmentShadingRateNV : int
 {
     _1InvocationPerPixelNv = 0,

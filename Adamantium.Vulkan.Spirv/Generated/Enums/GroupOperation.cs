@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv.h Line: 1040 Column: 14
 public enum GroupOperation : uint
 {
     Reduce = 0,

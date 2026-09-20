@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Slang;
 
-// File: C:\AdamantiumEngine\AdamantiumVulkan\Adamantium.Vulkan.Slang\native\slang_c.h Line: 66 Column: 14
 ///<summary>
 /// Compiler option names — a 1:1 mirror of slang::CompilerOptionName (values must match exactly). The SLANGC_OPT_ prefix is stripped by the binding generator, so the C# enum members read e.g. SlangcCompilerOptionName.VulkanUseEntryPointName. This is the full Slang option surface; almost every Slang/CLI setting (matrix layout, optimization, debug info, floating-point mode, Vulkan binding shifts, target flags, …) is one of these, so passing an array of options covers the whole compiler config.
 ///</summary>
@@ -306,6 +305,61 @@ public enum SlangcCompilerOptionName : uint
     EnableMachineReadableDiagnostics = 143,
 
     DiagnosticColor = 144,
+
+    ///<summary>
+    /// Added in Slang 2026.13.1 (Vulkan SDK 1.4.357.0). Every value above is unchanged from the previous release - the enum only ever grows, so a mirror is safe to extend rather than rewrite.
+    ///</summary>
+    TraceCoverage = 145,
+
+    ///<summary>
+    /// Added in Slang 2026.13.1 (Vulkan SDK 1.4.357.0). Every value above is unchanged from the previous release - the enum only ever grows, so a mirror is safe to extend rather than rewrite.
+    ///</summary>
+    TraceCoverageBinding = 146,
+
+    ///<summary>
+    /// Added in Slang 2026.13.1 (Vulkan SDK 1.4.357.0). Every value above is unchanged from the previous release - the enum only ever grows, so a mirror is safe to extend rather than rewrite.
+    ///</summary>
+    TraceCoverageReservedSpace = 147,
+
+    ///<summary>
+    /// Added in Slang 2026.13.1 (Vulkan SDK 1.4.357.0). Every value above is unchanged from the previous release - the enum only ever grows, so a mirror is safe to extend rather than rewrite.
+    ///</summary>
+    TraceFunctionCoverage = 148,
+
+    ///<summary>
+    /// Added in Slang 2026.13.1 (Vulkan SDK 1.4.357.0). Every value above is unchanged from the previous release - the enum only ever grows, so a mirror is safe to extend rather than rewrite.
+    ///</summary>
+    TraceBranchCoverage = 149,
+
+    ///<summary>
+    /// Added in Slang 2026.13.1 (Vulkan SDK 1.4.357.0). Every value above is unchanged from the previous release - the enum only ever grows, so a mirror is safe to extend rather than rewrite.
+    ///</summary>
+    CoverageManifestOutput = 150,
+
+    ///<summary>
+    /// Added in Slang 2026.13.1 (Vulkan SDK 1.4.357.0). Every value above is unchanged from the previous release - the enum only ever grows, so a mirror is safe to extend rather than rewrite.
+    ///</summary>
+    TraceCoverageCounterByteWidth = 151,
+
+    ///<summary>
+    /// Added in Slang 2026.13.1 (Vulkan SDK 1.4.357.0). Every value above is unchanged from the previous release - the enum only ever grows, so a mirror is safe to extend rather than rewrite.
+    ///</summary>
+    TraceCoverageBoolean = 152,
+
+    ///<summary>
+    /// Added in Slang 2026.13.1 (Vulkan SDK 1.4.357.0). Every value above is unchanged from the previous release - the enum only ever grows, so a mirror is safe to extend rather than rewrite.
+    ///</summary>
+    CompilerVersion = 153,
+
+    ///<summary>
+    /// Added in Slang 2026.13.1 (Vulkan SDK 1.4.357.0). Every value above is unchanged from the previous release - the enum only ever grows, so a mirror is safe to extend rather than rewrite.
+    ///</summary>
+    SPIRVUnifiedDescriptorHeapStride = 154,
+
+    ///<summary>
+    /// Added in Slang 2026.13.1 (Vulkan SDK 1.4.357.0). Every value above is unchanged from the previous release - the enum only ever grows, so a mirror is safe to extend rather than rewrite.
+    ///</summary>
+    WarningLevel = 155,
 
 }
 

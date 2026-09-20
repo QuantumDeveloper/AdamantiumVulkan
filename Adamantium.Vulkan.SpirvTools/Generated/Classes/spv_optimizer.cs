@@ -13,7 +13,6 @@ using Adamantium.Vulkan.SpirvTools.Interop;
 
 namespace Adamantium.Vulkan.SpirvTools;
 
-// 
 public unsafe partial class spv_optimizer : IUnmanagedWrapper<Adamantium.Vulkan.SpirvTools.Interop.spv_optimizer_t>
 {
     public spv_optimizer_t __Instance;

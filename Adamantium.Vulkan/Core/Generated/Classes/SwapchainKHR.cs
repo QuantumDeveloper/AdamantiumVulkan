@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 653 Column: 10
 public unsafe partial class SwapchainKHR : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T>
 {
     internal VkSwapchainKHR_T __Instance;

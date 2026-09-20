@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 612 Column: 10
 public unsafe partial class Sampler : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkSampler_T>
 {
     internal VkSampler_T __Instance;

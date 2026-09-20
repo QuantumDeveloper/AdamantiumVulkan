@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Slang.Interop;
 
 namespace Adamantium.Vulkan.Slang;
 
-// File: C:\AdamantiumEngine\AdamantiumVulkan\Adamantium.Vulkan.Slang\native\slang_c.h Line: 25 Column: 33
 ///<summary>
 /// Opaque handles.
 ///</summary>

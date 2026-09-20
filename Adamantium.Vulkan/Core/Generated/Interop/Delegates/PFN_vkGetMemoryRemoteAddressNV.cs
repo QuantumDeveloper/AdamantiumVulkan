@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15960 Column: 10
 public unsafe struct PFN_vkGetMemoryRemoteAddressNV
 {
     public PFN_vkGetMemoryRemoteAddressNV(nuint ptr) : this((void*) ptr) { }

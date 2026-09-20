@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 14040 Column: 6
 [Flags]
 public enum ShaderCreateFlagBitsEXT : uint
 {
@@ -43,7 +42,7 @@ public enum ShaderCreateFlagBitsEXT : uint
 
     Reserved9BitExt = 512,
 
-    Reserved12BitExt = 4096,
+    OpacityMicromapDisallowMixedSpecialIndexBitExt = 4096,
 
     _64BitIndexingBitExt = 32768,
 

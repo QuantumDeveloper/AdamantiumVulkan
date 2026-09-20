@@ -15,7 +15,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Windows.Interop;
 
-// File: video.xml Line: 15609 Column: 10
 public unsafe struct PFN_vkCreateWin32SurfaceKHR
 {
     public PFN_vkCreateWin32SurfaceKHR(nuint ptr) : this((void*) ptr) { }

@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 14178 Column: 6
 public enum PerfHintTypeQCOM : int
 {
     DefaultQcom = 0,

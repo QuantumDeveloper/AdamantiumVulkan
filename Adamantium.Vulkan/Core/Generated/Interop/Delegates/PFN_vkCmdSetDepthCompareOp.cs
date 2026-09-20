@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17457 Column: 10
 public unsafe struct PFN_vkCmdSetDepthCompareOp
 {
     public PFN_vkCmdSetDepthCompareOp(nuint ptr) : this((void*) ptr) { }

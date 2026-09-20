@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18498 Column: 10
 public unsafe struct PFN_vkGetShaderBinaryDataEXT
 {
     public PFN_vkGetShaderBinaryDataEXT(nuint ptr) : this((void*) ptr) { }

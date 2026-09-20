@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15541 Column: 10
 public unsafe struct PFN_vkCreateSwapchainKHR
 {
     public PFN_vkCreateSwapchainKHR(nuint ptr) : this((void*) ptr) { }

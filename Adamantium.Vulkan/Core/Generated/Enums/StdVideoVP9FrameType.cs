@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: video.xml Line: 1546 Column: 6
 public enum StdVideoVP9FrameType : int
 {
     Key = 0,

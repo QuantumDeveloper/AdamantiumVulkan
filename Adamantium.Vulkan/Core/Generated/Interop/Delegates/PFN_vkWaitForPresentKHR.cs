@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18155 Column: 10
 public unsafe struct PFN_vkWaitForPresentKHR
 {
     public PFN_vkWaitForPresentKHR(nuint ptr) : this((void*) ptr) { }

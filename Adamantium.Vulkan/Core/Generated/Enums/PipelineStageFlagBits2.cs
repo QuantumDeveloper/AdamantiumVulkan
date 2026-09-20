@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13465 Column: 6
 [Flags]
 public enum PipelineStageFlagBits2 : ulong
 {
@@ -68,6 +67,8 @@ public enum PipelineStageFlagBits2 : ulong
     VideoDecodeBitKhr = 67108864,
 
     VideoEncodeBitKhr = 134217728,
+
+    Reserved50BitKhr = 1125899906842624,
 
     TransformFeedbackBitExt = 16777216,
 

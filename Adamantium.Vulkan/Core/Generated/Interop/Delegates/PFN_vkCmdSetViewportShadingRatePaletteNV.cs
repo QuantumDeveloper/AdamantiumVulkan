@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 16790 Column: 10
 public unsafe struct PFN_vkCmdSetViewportShadingRatePaletteNV
 {
     public PFN_vkCmdSetViewportShadingRatePaletteNV(nuint ptr) : this((void*) ptr) { }

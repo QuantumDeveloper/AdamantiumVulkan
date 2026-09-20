@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 19113 Column: 10
 public unsafe struct PFN_vkCmdDrawIndirectByteCount2EXT
 {
     public PFN_vkCmdDrawIndirectByteCount2EXT(nuint ptr) : this((void*) ptr) { }

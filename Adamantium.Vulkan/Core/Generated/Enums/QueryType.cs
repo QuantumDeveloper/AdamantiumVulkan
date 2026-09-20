@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 11984 Column: 6
 public enum QueryType : int
 {
     Occlusion = 0,
@@ -31,6 +30,8 @@ public enum QueryType : int
     AccelerationStructureSerializationSizeKhr = 1000150001,
 
     AccelerationStructureCompactedSizeNv = 1000165000,
+
+    TimeElapsedQcom = 1000173000,
 
     PerformanceQueryIntel = 1000210000,
 

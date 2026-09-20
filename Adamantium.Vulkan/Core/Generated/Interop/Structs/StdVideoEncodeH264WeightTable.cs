@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 270 Column: 9
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoEncodeH264WeightTable
 {

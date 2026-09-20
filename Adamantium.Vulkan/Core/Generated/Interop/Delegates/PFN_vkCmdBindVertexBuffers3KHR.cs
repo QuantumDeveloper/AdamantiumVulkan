@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 19132 Column: 10
 public unsafe struct PFN_vkCmdBindVertexBuffers3KHR
 {
     public PFN_vkCmdBindVertexBuffers3KHR(nuint ptr) : this((void*) ptr) { }

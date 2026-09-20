@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 602 Column: 10
 public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkCommandBuffer_T>
 {
     internal VkCommandBuffer_T __Instance;
@@ -173,6 +172,42 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
                     System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
             }
         }
+    }
+
+    public Result BeginGpaSampleAMD(Adamantium.Vulkan.Core.GpaSessionAMD gpaSession, in GpaSampleBeginInfoAMD pGpaSampleBeginInfo, out uint pSampleID)
+    {
+        int CalculateSize(GpaSampleBeginInfoAMD pGpaSampleBeginInfo)
+        {
+            int totalSize = 0;
+            if (pGpaSampleBeginInfo != null)
+                totalSize += pGpaSampleBeginInfo.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pGpaSampleBeginInfo);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        fixed (byte* bufferPtr = mainBuffer)
+        {
+            try
+            {
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var arg1 = gpaSession == null ? new VkGpaSessionAMD_T() : (VkGpaSessionAMD_T)gpaSession;
+                var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<Adamantium.Vulkan.Core.GpaSampleBeginInfoAMD, Adamantium.Vulkan.Core.Interop.VkGpaSampleBeginInfoAMD>(pGpaSampleBeginInfo, ref currentCursor);
+                return Commands.vkCmdBeginGpaSampleAMD(this, arg1, arg2, out pSampleID);
+            }
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
+        }
+    }
+
+    public Result BeginGpaSessionAMD(Adamantium.Vulkan.Core.GpaSessionAMD gpaSession)
+    {
+        var arg1 = gpaSession == null ? new VkGpaSessionAMD_T() : (VkGpaSessionAMD_T)gpaSession;
+        return Commands.vkCmdBeginGpaSessionAMD(this, arg1);
     }
 
     public void BeginPerTileExecutionQCOM(in PerTileBeginInfoQCOM pPerTileBeginInfo)
@@ -2771,6 +2806,12 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
         }
     }
 
+    public void CopyGpaSessionResultsAMD(Adamantium.Vulkan.Core.GpaSessionAMD gpaSession)
+    {
+        var arg1 = gpaSession == null ? new VkGpaSessionAMD_T() : (VkGpaSessionAMD_T)gpaSession;
+        Commands.vkCmdCopyGpaSessionResultsAMD(this, arg1);
+    }
+
     public void CopyImage(Adamantium.Vulkan.Core.Image srcImage, ImageLayout srcImageLayout, Adamantium.Vulkan.Core.Image dstImage, ImageLayout dstImageLayout, uint regionCount, in System.ReadOnlySpan<ImageCopy> pRegions)
     {
         int CalculateSize(System.ReadOnlySpan<ImageCopy> pRegions)
@@ -4175,6 +4216,18 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
     public void EndDebugUtilsLabelEXT()
     {
         Commands.vkCmdEndDebugUtilsLabelEXT(this);
+    }
+
+    public void EndGpaSampleAMD(Adamantium.Vulkan.Core.GpaSessionAMD gpaSession, uint sampleID)
+    {
+        var arg1 = gpaSession == null ? new VkGpaSessionAMD_T() : (VkGpaSessionAMD_T)gpaSession;
+        Commands.vkCmdEndGpaSampleAMD(this, arg1, sampleID);
+    }
+
+    public Result EndGpaSessionAMD(Adamantium.Vulkan.Core.GpaSessionAMD gpaSession)
+    {
+        var arg1 = gpaSession == null ? new VkGpaSessionAMD_T() : (VkGpaSessionAMD_T)gpaSession;
+        return Commands.vkCmdEndGpaSessionAMD(this, arg1);
     }
 
     public void EndPerTileExecutionQCOM(in PerTileEndInfoQCOM pPerTileEndInfo)

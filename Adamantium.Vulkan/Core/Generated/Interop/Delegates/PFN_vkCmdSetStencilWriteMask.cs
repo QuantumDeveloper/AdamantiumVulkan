@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15064 Column: 10
 public unsafe struct PFN_vkCmdSetStencilWriteMask
 {
     public PFN_vkCmdSetStencilWriteMask(nuint ptr) : this((void*) ptr) { }

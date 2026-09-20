@@ -8,16 +8,16 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: vk.xml Line: 9415 Column: 10
 [StructLayout(LayoutKind.Sequential)]
-public unsafe partial struct VkMicromapTriangleEXT
+public unsafe partial struct VkImageStencilUsage2CreateInfoKHR
 {
-    public uint dataOffset;
-    public ushort subdivisionLevel;
-    public ushort format;
+    public StructureType sType;
+    public void* pNext;
+    public VkImageUsageFlags2KHR stencilUsage;
 }
 
 

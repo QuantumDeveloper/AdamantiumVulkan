@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12023 Column: 6
 public enum IndexType : int
 {
     Uint16 = 0,

@@ -13,7 +13,6 @@ using Adamantium.Vulkan.SpirvTools.Interop;
 
 namespace Adamantium.Vulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 541 Column: 25
 public unsafe partial class spv_position : IUnmanagedWrapper<Adamantium.Vulkan.SpirvTools.Interop.spv_position_t>
 {
     internal spv_position_t __Instance;

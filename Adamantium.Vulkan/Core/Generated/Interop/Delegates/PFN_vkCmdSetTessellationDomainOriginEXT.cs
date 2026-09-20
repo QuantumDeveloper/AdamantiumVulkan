@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17513 Column: 10
 public unsafe struct PFN_vkCmdSetTessellationDomainOriginEXT
 {
     public PFN_vkCmdSetTessellationDomainOriginEXT(nuint ptr) : this((void*) ptr) { }

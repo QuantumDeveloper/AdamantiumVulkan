@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: video.xml Line: 1317 Column: 6
 public enum StdVideoH264ChromaFormatIdc : int
 {
     Monochrome = 0,

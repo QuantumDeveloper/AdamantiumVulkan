@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13643 Column: 6
 public enum VideoEncodeTuningModeKHR : int
 {
     DefaultKhr = 0,

@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 659 Column: 10
 public unsafe partial class VideoSessionParametersKHR : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkVideoSessionParametersKHR_T>
 {
     internal VkVideoSessionParametersKHR_T __Instance;

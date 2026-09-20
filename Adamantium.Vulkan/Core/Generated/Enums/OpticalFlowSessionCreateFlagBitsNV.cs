@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13945 Column: 6
 [Flags]
 public enum OpticalFlowSessionCreateFlagBitsNV : uint
 {

@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 19040 Column: 10
 public unsafe struct PFN_vkGetTensorOpaqueCaptureDataARM
 {
     public PFN_vkGetTensorOpaqueCaptureDataARM(nuint ptr) : this((void*) ptr) { }

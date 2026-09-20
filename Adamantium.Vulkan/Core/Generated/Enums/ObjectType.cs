@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12422 Column: 6
 public enum ObjectType : int
 {
     Unknown = 0,
@@ -85,6 +84,8 @@ public enum ObjectType : int
     CuFunctionNvx = 1000029001,
 
     DebugUtilsMessengerExt = 1000128000,
+
+    GpaSessionAmd = 1000133000,
 
     AccelerationStructureKhr = 1000150000,
 

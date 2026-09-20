@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17507 Column: 10
 public unsafe struct PFN_vkCmdSetPrimitiveRestartEnable
 {
     public PFN_vkCmdSetPrimitiveRestartEnable(nuint ptr) : this((void*) ptr) { }

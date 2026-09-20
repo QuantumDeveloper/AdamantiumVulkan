@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 353 Column: 14
 public enum spv_ext_inst_type_t : uint
 {
     ExtInstTypeNone = 0,
@@ -34,18 +33,22 @@ public enum spv_ext_inst_type_t : uint
 
     ExtInstTypeNonsemanticClspvreflection = 9,
 
-    ExtInstTypeNonsemanticShaderDebuginfo100 = 10,
+    ExtInstTypeNonsemanticGraphDebuginfo = 10,
 
-    ExtInstTypeNonsemanticVkspreflection = 11,
+    ExtInstTypeNonsemanticShaderDebuginfo100 = 11,
 
-    ExtInstTypeTosa0010001 = 12,
+    ExtInstTypeNonsemanticVkspreflection = 12,
 
-    ExtInstTypeArmMotionEngine100 = 13,
+    ExtInstTypeTosa0010001 = 13,
+
+    ExtInstTypeArmMotionEngine100 = 14,
+
+    ExtInstTypeArmExperimentalMlOperations = 15,
 
     ///<summary>
     /// Multiple distinct extended instruction set types could return this value, if they are prefixed with NonSemantic. and are otherwise unrecognised
     ///</summary>
-    ExtInstTypeNonsemanticUnknown = 14,
+    ExtInstTypeNonsemanticUnknown = 16,
 
     ///<summary>
     /// Multiple distinct extended instruction set types could return this value, if they are prefixed with NonSemantic. and are otherwise unrecognised

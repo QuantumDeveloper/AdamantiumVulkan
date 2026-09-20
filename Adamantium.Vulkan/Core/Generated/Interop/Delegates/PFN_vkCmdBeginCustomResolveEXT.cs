@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15377 Column: 10
 public unsafe struct PFN_vkCmdBeginCustomResolveEXT
 {
     public PFN_vkCmdBeginCustomResolveEXT(nuint ptr) : this((void*) ptr) { }

@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: vk.xml Line: 2280 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDrawIndirectCommand
 {

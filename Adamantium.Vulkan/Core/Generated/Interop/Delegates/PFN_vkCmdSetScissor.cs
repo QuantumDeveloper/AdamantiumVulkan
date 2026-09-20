@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15028 Column: 10
 public unsafe struct PFN_vkCmdSetScissor
 {
     public PFN_vkCmdSetScissor(nuint ptr) : this((void*) ptr) { }

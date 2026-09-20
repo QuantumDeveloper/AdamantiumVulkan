@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 16581 Column: 10
 public unsafe struct PFN_vkCmdEndDebugUtilsLabelEXT
 {
     public PFN_vkCmdEndDebugUtilsLabelEXT(nuint ptr) : this((void*) ptr) { }

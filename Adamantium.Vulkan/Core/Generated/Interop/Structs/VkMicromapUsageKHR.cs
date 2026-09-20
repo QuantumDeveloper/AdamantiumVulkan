@@ -8,20 +8,16 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Adamantium.Vulkan.Core;
 
-namespace Adamantium.Vulkan.Core;
+namespace Adamantium.Vulkan.Core.Interop;
 
-// File: vk.xml Line: 13979 Column: 6
-public enum OpacityMicromapSpecialIndexEXT : int
+[StructLayout(LayoutKind.Sequential)]
+public unsafe partial struct VkMicromapUsageKHR
 {
-    TransparentExt = -1,
-
-    OpaqueExt = -2,
-
-    UnknownTransparentExt = -3,
-
-    UnknownOpaqueExt = -4,
-
+    public uint count;
+    public uint subdivisionLevel;
+    public OpacityMicromapFormatKHR format;
 }
 
 

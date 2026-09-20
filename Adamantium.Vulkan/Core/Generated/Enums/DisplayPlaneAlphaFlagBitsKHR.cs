@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12739 Column: 6
 [Flags]
 public enum DisplayPlaneAlphaFlagBitsKHR : uint
 {

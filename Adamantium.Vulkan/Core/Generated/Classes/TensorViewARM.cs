@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 645 Column: 10
 public unsafe partial class TensorViewARM : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkTensorViewARM_T>
 {
     internal VkTensorViewARM_T __Instance;

@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 125 Column: 14
 ///<summary>
 /// The kinds of operands that an instruction may have.
 ///</summary>
@@ -553,9 +552,14 @@ public enum spv_operand_type_t : uint
     OperandTypeVariableCapability = 106,
 
     ///<summary>
+    /// SPV_QCOM_image_processing3
+    ///</summary>
+    OperandTypeGatherModes = 107,
+
+    ///<summary>
     /// This is a sentinel value, and does not represent an operand type. It should come last.
     ///</summary>
-    OperandTypeNumOperandTypes = 107,
+    OperandTypeNumOperandTypes = 108,
 
     ///<summary>
     /// This is a sentinel value, and does not represent an operand type. It should come last.

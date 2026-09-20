@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18313 Column: 10
 public unsafe struct PFN_vkCopyMemoryToMicromapEXT
 {
     public PFN_vkCopyMemoryToMicromapEXT(nuint ptr) : this((void*) ptr) { }

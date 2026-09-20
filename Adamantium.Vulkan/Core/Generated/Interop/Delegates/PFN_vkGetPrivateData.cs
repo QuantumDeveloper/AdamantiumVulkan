@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17704 Column: 10
 public unsafe struct PFN_vkGetPrivateData
 {
     public PFN_vkGetPrivateData(nuint ptr) : this((void*) ptr) { }

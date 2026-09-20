@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12035 Column: 6
 public enum SamplerAddressMode : int
 {
     Repeat = 0,

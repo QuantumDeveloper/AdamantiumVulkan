@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 651 Column: 10
 public unsafe partial class DisplayModeKHR : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkDisplayModeKHR_T>
 {
     internal VkDisplayModeKHR_T __Instance;

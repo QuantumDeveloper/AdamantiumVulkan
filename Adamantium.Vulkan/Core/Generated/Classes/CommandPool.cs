@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 604 Column: 10
 public unsafe partial class CommandPool : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkCommandPool_T>
 {
     internal VkCommandPool_T __Instance;

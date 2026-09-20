@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: vk.xml Line: 1145 Column: 10
 public unsafe struct PFN_vkDebugUtilsMessengerCallbackEXT
 {
     public PFN_vkDebugUtilsMessengerCallbackEXT(nuint ptr) : this((void*) ptr) { }

@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12380 Column: 6
 public enum SubpassContents : int
 {
     Inline = 0,

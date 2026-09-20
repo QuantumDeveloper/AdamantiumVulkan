@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 655 Column: 10
 public unsafe partial class DebugUtilsMessengerEXT : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkDebugUtilsMessengerEXT_T>
 {
     internal VkDebugUtilsMessengerEXT_T __Instance;

@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15373 Column: 10
 public unsafe struct PFN_vkCmdEndConditionalRenderingEXT
 {
     public PFN_vkCmdEndConditionalRenderingEXT(nuint ptr) : this((void*) ptr) { }

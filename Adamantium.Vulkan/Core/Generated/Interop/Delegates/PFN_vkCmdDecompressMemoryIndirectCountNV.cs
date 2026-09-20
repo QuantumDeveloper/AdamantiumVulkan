@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17994 Column: 10
 public unsafe struct PFN_vkCmdDecompressMemoryIndirectCountNV
 {
     public PFN_vkCmdDecompressMemoryIndirectCountNV(nuint ptr) : this((void*) ptr) { }

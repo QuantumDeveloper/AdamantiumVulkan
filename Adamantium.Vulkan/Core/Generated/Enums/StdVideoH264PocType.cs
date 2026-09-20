@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: video.xml Line: 1353 Column: 6
 public enum StdVideoH264PocType : int
 {
     _0 = 0,

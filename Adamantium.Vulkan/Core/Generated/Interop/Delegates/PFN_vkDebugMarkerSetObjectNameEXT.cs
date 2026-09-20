@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15713 Column: 10
 public unsafe struct PFN_vkDebugMarkerSetObjectNameEXT
 {
     public PFN_vkDebugMarkerSetObjectNameEXT(nuint ptr) : this((void*) ptr) { }

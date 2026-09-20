@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 19016 Column: 10
 public unsafe struct PFN_vkRegisterCustomBorderColorEXT
 {
     public PFN_vkRegisterCustomBorderColorEXT(nuint ptr) : this((void*) ptr) { }

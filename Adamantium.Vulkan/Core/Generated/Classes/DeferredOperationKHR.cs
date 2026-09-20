@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 636 Column: 10
 public unsafe partial class DeferredOperationKHR : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkDeferredOperationKHR_T>
 {
     internal VkDeferredOperationKHR_T __Instance;

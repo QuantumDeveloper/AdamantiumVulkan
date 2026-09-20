@@ -15,7 +15,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Windows.Interop;
 
-// File: video.xml Line: 15616 Column: 10
 public unsafe struct PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR
 {
     public PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR(nuint ptr) : this((void*) ptr) { }

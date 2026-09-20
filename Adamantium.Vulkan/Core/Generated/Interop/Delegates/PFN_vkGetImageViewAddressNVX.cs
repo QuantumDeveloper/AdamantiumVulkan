@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17128 Column: 10
 public unsafe struct PFN_vkGetImageViewAddressNVX
 {
     public PFN_vkGetImageViewAddressNVX(nuint ptr) : this((void*) ptr) { }

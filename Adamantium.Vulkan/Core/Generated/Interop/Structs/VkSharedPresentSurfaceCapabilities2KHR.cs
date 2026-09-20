@@ -8,17 +8,16 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Adamantium.Vulkan.Core;
 
-namespace Adamantium.Vulkan.Core;
+namespace Adamantium.Vulkan.Core.Interop;
 
-// File: vk.xml Line: 13975 Column: 6
-[Flags]
-public enum OpacityMicromapFormatEXT : int
+[StructLayout(LayoutKind.Sequential)]
+public unsafe partial struct VkSharedPresentSurfaceCapabilities2KHR
 {
-    _2StateExt = 1,
-
-    _4StateExt = 2,
-
+    public StructureType sType;
+    public void* pNext;
+    public VkImageUsageFlags2KHR sharedPresentSupportedUsageFlags;
 }
 
 

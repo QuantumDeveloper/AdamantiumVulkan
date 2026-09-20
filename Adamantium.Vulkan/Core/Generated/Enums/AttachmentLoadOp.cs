@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 11931 Column: 6
 public enum AttachmentLoadOp : int
 {
     Load = 0,

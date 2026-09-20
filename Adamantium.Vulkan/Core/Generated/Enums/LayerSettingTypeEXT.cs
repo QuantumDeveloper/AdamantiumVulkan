@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12907 Column: 6
 public enum LayerSettingTypeEXT : int
 {
     Bool32Ext = 0,

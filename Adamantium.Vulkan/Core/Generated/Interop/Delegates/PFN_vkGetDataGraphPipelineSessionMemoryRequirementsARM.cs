@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18883 Column: 10
 public unsafe struct PFN_vkGetDataGraphPipelineSessionMemoryRequirementsARM
 {
     public PFN_vkGetDataGraphPipelineSessionMemoryRequirementsARM(nuint ptr) : this((void*) ptr) { }

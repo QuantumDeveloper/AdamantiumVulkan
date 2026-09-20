@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13441 Column: 6
 [Flags]
 public enum AccessFlagBits2 : ulong
 {
@@ -70,6 +69,10 @@ public enum AccessFlagBits2 : ulong
     VideoEncodeReadBitKhr = 137438953472,
 
     VideoEncodeWriteBitKhr = 274877906944,
+
+    Reserved53BitKhr = 9007199254740992,
+
+    Reserved54BitKhr = 18014398509481984,
 
     ShaderTileAttachmentReadBitQcom = 2251799813685248,
 

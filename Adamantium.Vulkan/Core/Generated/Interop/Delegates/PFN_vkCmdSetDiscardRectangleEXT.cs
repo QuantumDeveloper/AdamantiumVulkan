@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 16324 Column: 10
 public unsafe struct PFN_vkCmdSetDiscardRectangleEXT
 {
     public PFN_vkCmdSetDiscardRectangleEXT(nuint ptr) : this((void*) ptr) { }

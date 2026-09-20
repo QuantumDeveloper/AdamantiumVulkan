@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12533 Column: 6
 [Flags]
 public enum BufferUsageFlagBits2 : ulong
 {
@@ -36,6 +35,10 @@ public enum BufferUsageFlagBits2 : ulong
     ExecutionGraphScratchBitAmdx = 33554432,
 
     DescriptorHeapBitExt = 268435456,
+
+    MicromapBuildInputReadOnlyBitExt = 8388608,
+
+    MicromapStorageBitExt = 16777216,
 
     ConditionalRenderingBitExt = 512,
 
@@ -62,10 +65,6 @@ public enum BufferUsageFlagBits2 : ulong
     ResourceDescriptorBufferBitExt = 4194304,
 
     PushDescriptorsDescriptorBufferBitExt = 67108864,
-
-    MicromapBuildInputReadOnlyBitExt = 8388608,
-
-    MicromapStorageBitExt = 16777216,
 
     CompressedDataDgf1BitAmdx = 8589934592,
 

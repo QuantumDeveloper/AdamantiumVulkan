@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 19122 Column: 10
 public unsafe struct PFN_vkCmdWriteMarkerToMemoryAMD
 {
     public PFN_vkCmdWriteMarkerToMemoryAMD(nuint ptr) : this((void*) ptr) { }

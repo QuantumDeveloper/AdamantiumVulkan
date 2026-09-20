@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18435 Column: 10
 public unsafe struct PFN_vkGetDeviceFaultInfoEXT
 {
     public PFN_vkGetDeviceFaultInfoEXT(nuint ptr) : this((void*) ptr) { }

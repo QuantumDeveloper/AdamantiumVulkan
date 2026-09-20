@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 14404 Column: 10
 public unsafe struct PFN_vkEnumerateDeviceExtensionProperties
 {
     public PFN_vkEnumerateDeviceExtensionProperties(nuint ptr) : this((void*) ptr) { }

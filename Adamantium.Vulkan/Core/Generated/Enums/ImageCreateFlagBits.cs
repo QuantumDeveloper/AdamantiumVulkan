@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12569 Column: 6
 [Flags]
 public enum ImageCreateFlagBits : uint
 {
@@ -44,6 +43,8 @@ public enum ImageCreateFlagBits : uint
     FragmentDensityMapOffsetBitExt = 32768,
 
     AliasSingleLayerDescriptorBitKhr = 4194304,
+
+    Reserved19BitNv = 524288,
 
     AliasBit = 1024,
 

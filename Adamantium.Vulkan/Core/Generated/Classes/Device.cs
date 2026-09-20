@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 600 Column: 10
 public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkDevice_T>
 {
     internal VkDevice_T __Instance;
@@ -1914,6 +1913,41 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
         }
     }
 
+    public Result CreateGpaSessionAMD(in GpaSessionCreateInfoAMD pCreateInfo, in AllocationCallbacks pAllocator, out Adamantium.Vulkan.Core.GpaSessionAMD pGpaSession)
+    {
+        int CalculateSize(GpaSessionCreateInfoAMD pCreateInfo, AllocationCallbacks pAllocator)
+        {
+            int totalSize = 0;
+            if (pCreateInfo != null)
+                totalSize += pCreateInfo.GetSize();
+            if (pAllocator != null)
+                totalSize += pAllocator.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pCreateInfo, pAllocator);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        fixed (byte* bufferPtr = mainBuffer)
+        {
+            try
+            {
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var arg1 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<Adamantium.Vulkan.Core.GpaSessionCreateInfoAMD, Adamantium.Vulkan.Core.Interop.VkGpaSessionCreateInfoAMD>(pCreateInfo, ref currentCursor);
+                var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<Adamantium.Vulkan.Core.AllocationCallbacks, Adamantium.Vulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
+                VkGpaSessionAMD_T arg3 = default;
+                var result = Commands.vkCreateGpaSessionAMD(this, arg1, arg2, &arg3);
+                pGpaSession = new GpaSessionAMD(arg3);
+                return result;
+            }
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
+        }
+    }
+
     public Result CreateGraphicsPipelines(Adamantium.Vulkan.Core.PipelineCache pipelineCache, uint createInfoCount, in System.ReadOnlySpan<GraphicsPipelineCreateInfo> pCreateInfos, in AllocationCallbacks pAllocator, out Adamantium.Vulkan.Core.Pipeline[] pPipelines)
     {
         int CalculateSize(System.ReadOnlySpan<GraphicsPipelineCreateInfo> pCreateInfos, AllocationCallbacks pAllocator)
@@ -3796,6 +3830,36 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                 var arg1 = framebuffer == null ? new VkFramebuffer_T() : (VkFramebuffer_T)framebuffer;
                 var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<Adamantium.Vulkan.Core.AllocationCallbacks, Adamantium.Vulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
                 Commands.vkDestroyFramebuffer(this, arg1, arg2);
+            }
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
+        }
+    }
+
+    public void DestroyGpaSessionAMD(Adamantium.Vulkan.Core.GpaSessionAMD gpaSession, in AllocationCallbacks pAllocator = null)
+    {
+        int CalculateSize(AllocationCallbacks pAllocator)
+        {
+            int totalSize = 0;
+            if (pAllocator != null)
+                totalSize += pAllocator.GetSize();
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pAllocator);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        fixed (byte* bufferPtr = mainBuffer)
+        {
+            try
+            {
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var arg1 = gpaSession == null ? new VkGpaSessionAMD_T() : (VkGpaSessionAMD_T)gpaSession;
+                var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<Adamantium.Vulkan.Core.AllocationCallbacks, Adamantium.Vulkan.Core.Interop.VkAllocationCallbacks>(pAllocator, ref currentCursor);
+                Commands.vkDestroyGpaSessionAMD(this, arg1, arg2);
             }
             finally
             {
@@ -6385,6 +6449,65 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
         }
     }
 
+    public Result GetGpaDeviceClockInfoAMD(out GpaDeviceGetClockInfoAMD pInfo)
+    {
+        Adamantium.Vulkan.Core.Interop.VkGpaDeviceGetClockInfoAMD arg1 = default;
+        var result = Commands.vkGetGpaDeviceClockInfoAMD(this, &arg1);
+        pInfo = new GpaDeviceGetClockInfoAMD(arg1);
+        return result;
+    }
+
+    public Result GetGpaSessionResultsAMD(Adamantium.Vulkan.Core.GpaSessionAMD gpaSession, uint sampleID, ref nuint pSizeInBytes, System.Span<byte> pData)
+    {
+        int CalculateSize(System.Span<byte> pData)
+        {
+            int totalSize = 0;
+            totalSize += pData.Length * sizeof(System.Byte);
+            return totalSize;
+        }
+
+        var totalSize = CalculateSize(pData);
+        byte[] rentedArray = null;
+        var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
+        fixed (byte* bufferPtr = mainBuffer)
+        {
+            try
+            {
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                var arg1 = gpaSession == null ? new VkGpaSessionAMD_T() : (VkGpaSessionAMD_T)gpaSession;
+                void* arg3 = (void*)pSizeInBytes;
+                var arg4 = stackalloc byte[(int)pSizeInBytes];
+                var result = Commands.vkGetGpaSessionResultsAMD(this, arg1, sampleID, &arg3, arg4);
+                pSizeInBytes = (nuint)arg3;
+                QuantumBinding.Utils.MarshalContextUtils.CopyNativeToSpan(arg4, (long)pSizeInBytes, pData);
+                return result;
+            }
+            finally
+            {
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
+            }
+        }
+    }
+
+    public Result GetGpaSessionResultsAMD(Adamantium.Vulkan.Core.GpaSessionAMD gpaSession, uint sampleID, ref nuint pSizeInBytes, ref byte pData)
+    {
+        var arg1 = gpaSession == null ? new VkGpaSessionAMD_T() : (VkGpaSessionAMD_T)gpaSession;
+        var arg3 = (void*)pSizeInBytes;
+        var arg4 = stackalloc byte[1];
+        *arg4 = pData;
+        var result = Commands.vkGetGpaSessionResultsAMD(this, arg1, sampleID, arg3, arg4);
+        pSizeInBytes = (nuint)arg3;
+        pData = *arg4;
+        return result;
+    }
+
+    public Result GetGpaSessionStatusAMD(Adamantium.Vulkan.Core.GpaSessionAMD gpaSession)
+    {
+        var arg1 = gpaSession == null ? new VkGpaSessionAMD_T() : (VkGpaSessionAMD_T)gpaSession;
+        return Commands.vkGetGpaSessionStatusAMD(this, arg1);
+    }
+
     public Result GetImageDrmFormatModifierPropertiesEXT(Adamantium.Vulkan.Core.Image image, out ImageDrmFormatModifierPropertiesEXT pProperties)
     {
         var arg1 = image == null ? new VkImage_T() : (VkImage_T)image;
@@ -6817,6 +6940,13 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                     System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
             }
         }
+    }
+
+    public void GetLatencyTimingsLegacyNV(out nuint pTimings)
+    {
+        void* arg1 = null;
+        Commands.vkGetLatencyTimingsLegacyNV(this, arg1);
+        pTimings = (nuint)arg1;
     }
 
     public void GetLatencyTimingsNV(Adamantium.Vulkan.Core.SwapchainKHR swapchain, out GetLatencyMarkerInfoNV pLatencyMarkerInfo)
@@ -7902,6 +8032,13 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
         pIdentifier = new ShaderModuleIdentifierEXT(arg2);
     }
 
+    public void GetSleepStatusLegacyNV(out VkBool32 pLowLatencyMode)
+    {
+        VkBool32 arg1 = default;
+        Commands.vkGetSleepStatusLegacyNV(this, &arg1);
+        pLowLatencyMode = arg1;
+    }
+
     public Result GetSwapchainCounterEXT(Adamantium.Vulkan.Core.SwapchainKHR swapchain, SurfaceCounterFlagBitsEXT counter, out ulong pCounterValue)
     {
         var arg1 = swapchain == null ? new VkSwapchainKHR_T() : (VkSwapchainKHR_T)swapchain;
@@ -8365,6 +8502,12 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
         }
     }
 
+    public void LatencySleepLegacyNV(Adamantium.Vulkan.Core.Semaphore signalSemaphore, ulong value)
+    {
+        var arg1 = signalSemaphore == null ? new VkSemaphore_T() : (VkSemaphore_T)signalSemaphore;
+        Commands.vkLatencySleepLegacyNV(this, arg1, value);
+    }
+
     public Result LatencySleepNV(Adamantium.Vulkan.Core.SwapchainKHR swapchain, in LatencySleepInfoNV pSleepInfo)
     {
         int CalculateSize(LatencySleepInfoNV pSleepInfo)
@@ -8694,6 +8837,12 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
         return Commands.vkResetFences(this, fenceCount, arg2);
     }
 
+    public Result ResetGpaSessionAMD(Adamantium.Vulkan.Core.GpaSessionAMD gpaSession)
+    {
+        var arg1 = gpaSession == null ? new VkGpaSessionAMD_T() : (VkGpaSessionAMD_T)gpaSession;
+        return Commands.vkResetGpaSessionAMD(this, arg1);
+    }
+
     public void ResetQueryPool(Adamantium.Vulkan.Core.QueryPool queryPool, uint firstQuery, uint queryCount)
     {
         var arg1 = queryPool == null ? new VkQueryPool_T() : (VkQueryPool_T)queryPool;
@@ -8768,6 +8917,14 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
     {
         var arg1 = @event == null ? new VkEvent_T() : (VkEvent_T)@event;
         return Commands.vkSetEvent(this, arg1);
+    }
+
+    public Result SetGpaDeviceClockModeAMD(out GpaDeviceClockModeInfoAMD pInfo)
+    {
+        Adamantium.Vulkan.Core.Interop.VkGpaDeviceClockModeInfoAMD arg1 = default;
+        var result = Commands.vkSetGpaDeviceClockModeAMD(this, &arg1);
+        pInfo = new GpaDeviceClockModeInfoAMD(arg1);
+        return result;
     }
 
     public void SetHdrMetadataEXT(uint swapchainCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.SwapchainKHR> pSwapchains, in System.ReadOnlySpan<HdrMetadataEXT> pMetadata)
@@ -8926,6 +9083,11 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
         }
     }
 
+    public void SetLatencyMarkerLegacyNV(ulong frameID, uint marker)
+    {
+        Commands.vkSetLatencyMarkerLegacyNV(this, frameID, marker);
+    }
+
     public void SetLatencyMarkerNV(Adamantium.Vulkan.Core.SwapchainKHR swapchain, in SetLatencyMarkerInfoNV pLatencyMarkerInfo)
     {
         int CalculateSize(SetLatencyMarkerInfoNV pLatencyMarkerInfo)
@@ -8954,6 +9116,11 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
                     System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
             }
         }
+    }
+
+    public void SetLatencySleepModeLegacyNV(VkBool32 lowLatencyMode, VkBool32 lowLatencyBoost, uint minimumIntervalUs)
+    {
+        Commands.vkSetLatencySleepModeLegacyNV(this, lowLatencyMode, lowLatencyBoost, minimumIntervalUs);
     }
 
     public Result SetLatencySleepModeNV(Adamantium.Vulkan.Core.SwapchainKHR swapchain, in LatencySleepModeInfoNV pSleepModeInfo)
@@ -9002,6 +9169,11 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
     {
         var arg1 = swapchain == null ? new VkSwapchainKHR_T() : (VkSwapchainKHR_T)swapchain;
         return Commands.vkSetSwapchainPresentTimingQueueSizeEXT(this, arg1, size);
+    }
+
+    public void ShutdownLatencyDeviceLegacyNV()
+    {
+        Commands.vkShutdownLatencyDeviceLegacyNV(this);
     }
 
     public Result SignalSemaphore(in SemaphoreSignalInfo pSignalInfo)

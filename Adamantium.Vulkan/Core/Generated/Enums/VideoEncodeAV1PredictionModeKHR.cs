@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13847 Column: 6
 public enum VideoEncodeAV1PredictionModeKHR : int
 {
     IntraOnlyKhr = 0,

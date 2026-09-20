@@ -15,7 +15,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Windows.Interop;
 
-// File: video.xml Line: 16128 Column: 10
 public unsafe struct PFN_vkGetWinrtDisplayNV
 {
     public PFN_vkGetWinrtDisplayNV(nuint ptr) : this((void*) ptr) { }

@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Slang.Interop;
 
-// File: C:\AdamantiumEngine\AdamantiumVulkan\Adamantium.Vulkan.Slang\native\slang_c.h Line: 25 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct SlangcSessionT
 {

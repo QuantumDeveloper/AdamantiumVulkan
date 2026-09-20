@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 14076 Column: 6
 public enum PhysicalDeviceLayeredApiKHR : int
 {
     VulkanKhr = 0,

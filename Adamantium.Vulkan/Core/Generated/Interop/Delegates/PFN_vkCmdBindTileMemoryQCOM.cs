@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18383 Column: 10
 public unsafe struct PFN_vkCmdBindTileMemoryQCOM
 {
     public PFN_vkCmdBindTileMemoryQCOM(nuint ptr) : this((void*) ptr) { }

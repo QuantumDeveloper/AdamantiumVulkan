@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17617 Column: 10
 public unsafe struct PFN_vkCmdSetLineStippleEnableEXT
 {
     public PFN_vkCmdSetLineStippleEnableEXT(nuint ptr) : this((void*) ptr) { }

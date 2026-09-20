@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12856 Column: 6
 public enum ClusterAccelerationStructureOpTypeNV : int
 {
     MoveObjectsNv = 0,

@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: video.xml Line: 1566 Column: 6
 public enum StdVideoVP9ColorSpace : int
 {
     Unknown = 0,

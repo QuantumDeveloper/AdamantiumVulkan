@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 621 Column: 10
 public unsafe partial class RenderPass : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkRenderPass_T>
 {
     internal VkRenderPass_T __Instance;

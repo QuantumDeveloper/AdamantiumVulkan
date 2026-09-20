@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 646 Column: 10
 public unsafe partial class DataGraphPipelineSessionARM : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSessionARM_T>
 {
     internal VkDataGraphPipelineSessionARM_T __Instance;

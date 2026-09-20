@@ -19,7 +19,6 @@ internal static unsafe partial class VulkanInterop
 {
     public const string LibraryPath = "vulkan-1";
 
-    // File: vk.xml Line: 16303 Column: 10
     [DllImport(LibraryPath, EntryPoint = "vkCreateMacOSSurfaceMVK", ExactSpelling = true)]
     internal static extern Result vkCreateMacOSSurfaceMVK(Adamantium.Vulkan.Core.Interop.VkInstance_T instance, Adamantium.Vulkan.MacOS.Interop.VkMacOSSurfaceCreateInfoMVK* pCreateInfo, Adamantium.Vulkan.Core.Interop.VkAllocationCallbacks* pAllocator, Adamantium.Vulkan.Core.Interop.VkSurfaceKHR_T* pSurface);
 

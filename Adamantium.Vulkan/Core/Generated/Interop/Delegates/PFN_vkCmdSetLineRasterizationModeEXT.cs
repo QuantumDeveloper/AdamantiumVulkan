@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17612 Column: 10
 public unsafe struct PFN_vkCmdSetLineRasterizationModeEXT
 {
     public PFN_vkCmdSetLineRasterizationModeEXT(nuint ptr) : this((void*) ptr) { }

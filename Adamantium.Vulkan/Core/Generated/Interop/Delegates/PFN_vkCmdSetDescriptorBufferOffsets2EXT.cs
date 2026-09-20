@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18624 Column: 10
 public unsafe struct PFN_vkCmdSetDescriptorBufferOffsets2EXT
 {
     public PFN_vkCmdSetDescriptorBufferOffsets2EXT(nuint ptr) : this((void*) ptr) { }

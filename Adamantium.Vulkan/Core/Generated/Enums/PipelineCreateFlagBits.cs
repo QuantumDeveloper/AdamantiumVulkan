@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12580 Column: 6
 [Flags]
 public enum PipelineCreateFlagBits : uint
 {
@@ -61,9 +60,9 @@ public enum PipelineCreateFlagBits : uint
 
     DepthStencilAttachmentFeedbackLoopBitExt = 67108864,
 
-    RayTracingOpacityMicromapBitExt = 16777216,
-
     RayTracingDisplacementMicromapBitNv = 268435456,
+
+    RayTracingOpacityMicromapBitKhr = 16777216,
 
     DispatchBaseBit = 16,
 

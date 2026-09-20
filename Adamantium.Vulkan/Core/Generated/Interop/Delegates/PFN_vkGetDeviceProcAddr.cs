@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 14308 Column: 10
 public unsafe struct PFN_vkGetDeviceProcAddr
 {
     public PFN_vkGetDeviceProcAddr(nuint ptr) : this((void*) ptr) { }

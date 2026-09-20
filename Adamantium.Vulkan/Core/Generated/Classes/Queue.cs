@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 601 Column: 10
 public unsafe partial class Queue : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkQueue_T>
 {
     internal VkQueue_T __Instance;
@@ -308,6 +307,11 @@ public unsafe partial class Queue : IUnmanagedWrapper<Adamantium.Vulkan.Core.Int
                     System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
             }
         }
+    }
+
+    public void QueueNotifyOutOfBandLegacyNV(uint queueType)
+    {
+        Commands.vkQueueNotifyOutOfBandLegacyNV(this, queueType);
     }
 
     public void QueueNotifyOutOfBandNV(in OutOfBandQueueTypeInfoNV pQueueTypeInfo)

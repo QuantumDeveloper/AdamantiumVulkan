@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 390 Column: 14
 ///<summary>
 /// Represent the encoding of floating point values
 ///</summary>
@@ -39,6 +38,16 @@ public enum spv_fp_encoding_t : uint
     Float8E4m3 = 5,
 
     Float8E5m2 = 6,
+
+    Float6E2m3 = 7,
+
+    Float6E3m2 = 8,
+
+    Float4E2m1 = 9,
+
+    Float8UnsignedE8m0 = 10,
+
+    Mxint8 = 11,
 
 }
 
