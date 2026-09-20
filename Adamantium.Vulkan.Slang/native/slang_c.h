@@ -209,7 +209,20 @@ typedef enum SlangcCompilerOptionName
     SLANGC_OPT_EnableRichDiagnostics = 141,
     SLANGC_OPT_ReportDynamicDispatchSites = 142,
     SLANGC_OPT_EnableMachineReadableDiagnostics = 143,
-    SLANGC_OPT_DiagnosticColor = 144
+    SLANGC_OPT_DiagnosticColor = 144,
+    /* Added in Slang 2026.13.1 (Vulkan SDK 1.4.357.0). Every value above is unchanged from the previous
+     * release - the enum only ever grows, so a mirror is safe to extend rather than rewrite. */
+    SLANGC_OPT_TraceCoverage = 145,
+    SLANGC_OPT_TraceCoverageBinding = 146,
+    SLANGC_OPT_TraceCoverageReservedSpace = 147,
+    SLANGC_OPT_TraceFunctionCoverage = 148,
+    SLANGC_OPT_TraceBranchCoverage = 149,
+    SLANGC_OPT_CoverageManifestOutput = 150,
+    SLANGC_OPT_TraceCoverageCounterByteWidth = 151,
+    SLANGC_OPT_TraceCoverageBoolean = 152,
+    SLANGC_OPT_CompilerVersion = 153,
+    SLANGC_OPT_SPIRVUnifiedDescriptorHeapStride = 154,
+    SLANGC_OPT_WarningLevel = 155
 } SlangcCompilerOptionName;
 
 /*
