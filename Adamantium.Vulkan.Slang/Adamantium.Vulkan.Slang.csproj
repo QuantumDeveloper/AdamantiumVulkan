@@ -12,7 +12,7 @@
 
   <PropertyGroup>
     <PackageId>Adamantium.Vulkan.Slang</PackageId>
-    <Version>1.0.5</Version>
+    <Version>1.0.7</Version>
     <Authors>Den</Authors>
     <Company>Adamantium studio</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -30,6 +30,17 @@
       <PackageCopyToOutput>true</PackageCopyToOutput>
     </Content>
     <Content Include="slang.dll" Condition="Exists('slang.dll')">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
+    <!-- slang.dll is a 75 KB front; these two are what it loads by name, and shipping them is what lets a machine build
+         shaders without the 4 GB Vulkan SDK. glslang carries the SPIRV-Tools optimizer: without it Slang silently skips
+         optimization and emits 18% more SPIR-V. slang-rt and slang-glsl-module change nothing here - measured. -->
+    <Content Include="slang-compiler.dll" Condition="Exists('slang-compiler.dll')">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
+    <Content Include="slang-glslang.dll" Condition="Exists('slang-glslang.dll')">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <PackageCopyToOutput>true</PackageCopyToOutput>
     </Content>
