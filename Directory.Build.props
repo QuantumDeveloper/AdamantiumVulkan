@@ -21,6 +21,14 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+  <!-- Content goes to contentFiles only. By default the SDK also copies it to content\, which packages.config-era
+       projects read - so every native library shipped here travelled twice and the Slang package was 28.5 MB against
+       14.3 MB for the same payload. Nothing reads content\ any more: PackageReference uses contentFiles, and the
+       loader in this repository looks there first and at content\ only as a fallback. -->
+  <PropertyGroup>
+    <ContentTargetFolders>contentFiles</ContentTargetFolders>
+  </PropertyGroup>
+
   <!-- No condition on IsPackable here or below. MSBuild finishes evaluating PROPERTIES before it starts on ITEMS, and
        this file is imported before the project body - so a PropertyGroup guarded on IsPackable reads the false set
        above, never the true the project sets later, while an ItemGroup guarded the same way reads the final value.
