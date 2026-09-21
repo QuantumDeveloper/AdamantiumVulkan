@@ -25,4 +25,15 @@
     <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="\" Visible="false" />
   </ItemGroup>
 
+  <!-- Drop icon.png next to this file and every package here picks it up. Both halves are guarded on the file being
+       there: PackageIcon without the file packed is NU5046, a build broken by a missing picture. PackageIconUrl is
+       not used - nuget.org deprecated it, the image has to travel inside the package. -->
+  <PropertyGroup Condition="'$(IsPackable)' == 'true' AND Exists('$(MSBuildThisFileDirectory)icon.png')">
+    <PackageIcon>icon.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(IsPackable)' == 'true' AND Exists('$(MSBuildThisFileDirectory)icon.png')">
+    <None Include="$(MSBuildThisFileDirectory)icon.png" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+
 </Project>
