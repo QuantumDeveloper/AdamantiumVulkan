@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT>
+public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT>
 {
     public PipelineDiscardRectangleStateCreateInfoEXT()
     {
@@ -38,7 +38,7 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -48,7 +48,7 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarsha
             for (int i = 0; i < PDiscardRectangles.Length; i++)
             {
                 if (PDiscardRectangles.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     size += PDiscardRectangles.Span[i].GetSize();
             }
@@ -63,7 +63,14 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         DiscardRectangleMode = native.discardRectangleMode;
         DiscardRectangleCount = native.discardRectangleCount;
@@ -86,6 +93,12 @@ public unsafe partial class PipelineDiscardRectangleStateCreateInfoEXT : IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineDiscardRectangleStateCreateInfoEXT*)native);
     }
     private ref struct VkPipelineDiscardRectangleStateCreateInfoEXTMarshaller
     {

@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Spirv.Interop;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv.h Line: 40 Column: 22
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct SpvId
 {

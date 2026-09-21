@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SparseImageMemoryBindInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSparseImageMemoryBindInfo>
+public unsafe partial class SparseImageMemoryBindInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSparseImageMemoryBindInfo>
 {
     public SparseImageMemoryBindInfo()
     {
@@ -35,13 +35,13 @@ public unsafe partial class SparseImageMemoryBindInfo : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSparseImageMemoryBindInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSparseImageMemoryBindInfo>.Size;
         if (!PBinds.IsEmpty)
         {
             for (int i = 0; i < PBinds.Length; i++)
             {
                 if (PBinds.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSparseImageMemoryBind>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSparseImageMemoryBind>.Size;
                 else
                     size += PBinds.Span[i].GetSize();
             }
@@ -77,6 +77,12 @@ public unsafe partial class SparseImageMemoryBindInfo : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSparseImageMemoryBindInfo*)native);
     }
     private ref struct VkSparseImageMemoryBindInfoMarshaller
     {

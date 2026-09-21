@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceCoverageReductionModeFeaturesNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCoverageReductionModeFeaturesNV>
+public unsafe partial class PhysicalDeviceCoverageReductionModeFeaturesNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCoverageReductionModeFeaturesNV>
 {
     public PhysicalDeviceCoverageReductionModeFeaturesNV()
     {
@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceCoverageReductionModeFeaturesNV : IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCoverageReductionModeFeaturesNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCoverageReductionModeFeaturesNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceCoverageReductionModeFeaturesNV : IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCoverageReductionModeFeaturesNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         CoverageReductionMode = native.coverageReductionMode;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceCoverageReductionModeFeaturesNV : IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCoverageReductionModeFeaturesNV*)native);
     }
     private ref struct VkPhysicalDeviceCoverageReductionModeFeaturesNVMarshaller
     {

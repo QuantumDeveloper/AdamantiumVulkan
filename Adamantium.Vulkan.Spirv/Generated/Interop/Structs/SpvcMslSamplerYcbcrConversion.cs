@@ -12,7 +12,6 @@ using Adamantium.Vulkan.Spirv.Cross;
 
 namespace Adamantium.Vulkan.Spirv.Cross.Interop;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 564 Column: 16
 ///<summary>
 /// Maps to the sampler Y'CbCr conversion-related portions of MSLConstexprSampler. See C++ API for defaults and details.
 ///</summary>

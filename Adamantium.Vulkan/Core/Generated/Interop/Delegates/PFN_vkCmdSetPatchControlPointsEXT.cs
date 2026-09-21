@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17485 Column: 10
 public unsafe struct PFN_vkCmdSetPatchControlPointsEXT
 {
     public PFN_vkCmdSetPatchControlPointsEXT(nuint ptr) : this((void*) ptr) { }

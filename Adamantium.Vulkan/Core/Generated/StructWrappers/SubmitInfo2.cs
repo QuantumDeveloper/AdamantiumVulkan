@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSubmitInfo2>
+public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSubmitInfo2>
 {
     public SubmitInfo2()
     {
@@ -41,7 +41,7 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSubmitInfo2>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSubmitInfo2>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -51,7 +51,7 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
             for (int i = 0; i < PWaitSemaphoreInfos.Length; i++)
             {
                 if (PWaitSemaphoreInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphoreSubmitInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphoreSubmitInfo>.Size;
                 else
                     size += PWaitSemaphoreInfos.Span[i].GetSize();
             }
@@ -61,7 +61,7 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
             for (int i = 0; i < PCommandBufferInfos.Length; i++)
             {
                 if (PCommandBufferInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCommandBufferSubmitInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCommandBufferSubmitInfo>.Size;
                 else
                     size += PCommandBufferInfos.Span[i].GetSize();
             }
@@ -71,7 +71,7 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
             for (int i = 0; i < PSignalSemaphoreInfos.Length; i++)
             {
                 if (PSignalSemaphoreInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphoreSubmitInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphoreSubmitInfo>.Size;
                 else
                     size += PSignalSemaphoreInfos.Span[i].GetSize();
             }
@@ -86,7 +86,14 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSubmitInfo2 native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         WaitSemaphoreInfoCount = native.waitSemaphoreInfoCount;
         var arrayLengthPWaitSemaphoreInfos = native.waitSemaphoreInfoCount;
@@ -128,6 +135,12 @@ public unsafe partial class SubmitInfo2 : IMarshallableObject, IMarshallable<Ada
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSubmitInfo2*)native);
     }
     private ref struct VkSubmitInfo2Marshaller
     {

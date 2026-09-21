@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12585 Column: 6
 [Flags]
 public enum PipelineCreateFlagBits2 : ulong
 {
@@ -79,8 +78,6 @@ public enum PipelineCreateFlagBits2 : ulong
 
     _2RenderingFragmentDensityMapAttachmentBitExt = 4194304,
 
-    _2RayTracingOpacityMicromapBitExt = 16777216,
-
     _2ColorAttachmentFeedbackLoopBitExt = 33554432,
 
     _2DepthStencilAttachmentFeedbackLoopBitExt = 67108864,
@@ -101,7 +98,9 @@ public enum PipelineCreateFlagBits2 : ulong
 
     _2PerLayerFragmentDensityBitValve = 1099511627776,
 
-    _2Reserved41BitKhr = 2199023255552,
+    _2RayTracingOpacityMicromapBitKhr = 16777216,
+
+    _2OpacityMicromapDisallowMixedSpecialIndexBitKhr = 2199023255552,
 
     _264BitIndexingBitExt = 8796093022208,
 

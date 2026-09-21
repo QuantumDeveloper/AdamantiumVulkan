@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceDescriptorBufferTensorPropertiesARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferTensorPropertiesARM>
+public unsafe partial class PhysicalDeviceDescriptorBufferTensorPropertiesARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferTensorPropertiesARM>
 {
     public PhysicalDeviceDescriptorBufferTensorPropertiesARM()
     {
@@ -37,7 +37,7 @@ public unsafe partial class PhysicalDeviceDescriptorBufferTensorPropertiesARM : 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferTensorPropertiesARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferTensorPropertiesARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDeviceDescriptorBufferTensorPropertiesARM : 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferTensorPropertiesARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         TensorCaptureReplayDescriptorDataSize = native.tensorCaptureReplayDescriptorDataSize;
         TensorViewCaptureReplayDescriptorDataSize = native.tensorViewCaptureReplayDescriptorDataSize;
         TensorDescriptorSize = native.tensorDescriptorSize;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDeviceDescriptorBufferTensorPropertiesARM : 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDescriptorBufferTensorPropertiesARM*)native);
     }
     private ref struct VkPhysicalDeviceDescriptorBufferTensorPropertiesARMMarshaller
     {

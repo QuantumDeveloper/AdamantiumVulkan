@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 637 Column: 10
 public unsafe partial class PrivateDataSlot : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkPrivateDataSlot_T>
 {
     internal VkPrivateDataSlot_T __Instance;

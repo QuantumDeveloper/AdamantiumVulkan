@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoEncodeH264ReferenceListsInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH264ReferenceListsInfo>
+public unsafe partial class StdVideoEncodeH264ReferenceListsInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH264ReferenceListsInfo>
 {
     public StdVideoEncodeH264ReferenceListsInfo()
     {
@@ -44,13 +44,13 @@ public unsafe partial class StdVideoEncodeH264ReferenceListsInfo : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH264ReferenceListsInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH264ReferenceListsInfo>.Size;
         if (!PRefList0ModOperations.IsEmpty)
         {
             for (int i = 0; i < PRefList0ModOperations.Length; i++)
             {
                 if (PRefList0ModOperations.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>.Size;
                 else
                     size += PRefList0ModOperations.Span[i].GetSize();
             }
@@ -60,7 +60,7 @@ public unsafe partial class StdVideoEncodeH264ReferenceListsInfo : IMarshallable
             for (int i = 0; i < PRefList1ModOperations.Length; i++)
             {
                 if (PRefList1ModOperations.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH264RefListModEntry>.Size;
                 else
                     size += PRefList1ModOperations.Span[i].GetSize();
             }
@@ -70,7 +70,7 @@ public unsafe partial class StdVideoEncodeH264ReferenceListsInfo : IMarshallable
             for (int i = 0; i < PRefPicMarkingOperations.Length; i++)
             {
                 if (PRefPicMarkingOperations.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH264RefPicMarkingEntry>.Size;
                 else
                     size += PRefPicMarkingOperations.Span[i].GetSize();
             }
@@ -143,6 +143,12 @@ public unsafe partial class StdVideoEncodeH264ReferenceListsInfo : IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoEncodeH264ReferenceListsInfo*)native);
     }
     private ref struct StdVideoEncodeH264ReferenceListsInfoMarshaller
     {

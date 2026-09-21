@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT>
+public unsafe partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT>
 {
     public PhysicalDeviceFragmentDensityMapPropertiesEXT()
     {
@@ -37,7 +37,7 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MinFragmentDensityTexelSize = new Extent2D(native.minFragmentDensityTexelSize);
         MaxFragmentDensityTexelSize = new Extent2D(native.maxFragmentDensityTexelSize);
         FragmentDensityInvocations = native.fragmentDensityInvocations;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDeviceFragmentDensityMapPropertiesEXT : IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentDensityMapPropertiesEXT*)native);
     }
     private ref struct VkPhysicalDeviceFragmentDensityMapPropertiesEXTMarshaller
     {

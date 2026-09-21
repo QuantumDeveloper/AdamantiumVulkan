@@ -11,13 +11,21 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 14144 Column: 6
-[Flags]
 public enum TensorTilingARM : int
 {
     OptimalArm = 0,
 
     LinearArm = 1,
+
+    Brick16WideArm = 1000565000,
+
+    Brick8WideArm = 1000565001,
+
+    Brick4WideArm = 1000565002,
+
+    BlockUInterleavedArm = 1000565003,
+
+    BlockUInterleaved64kArm = 1000565004,
 
 }
 

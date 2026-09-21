@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Spirv.Cross.Interop;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 94 Column: 16
 ///<summary>
 /// See C++ API.
 ///</summary>

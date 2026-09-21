@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceSurfaceInfo2KHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR>
+public unsafe partial class PhysicalDeviceSurfaceInfo2KHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR>
 {
     public PhysicalDeviceSurfaceInfo2KHR()
     {
@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceSurfaceInfo2KHR : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceSurfaceInfo2KHR : IMarshallableObject,
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Surface = new SurfaceKHR(native.surface);
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceSurfaceInfo2KHR : IMarshallableObject,
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSurfaceInfo2KHR*)native);
     }
     private ref struct VkPhysicalDeviceSurfaceInfo2KHRMarshaller
     {

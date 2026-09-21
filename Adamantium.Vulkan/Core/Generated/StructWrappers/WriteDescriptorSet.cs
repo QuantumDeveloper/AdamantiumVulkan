@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class WriteDescriptorSet : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSet>
+public unsafe partial class WriteDescriptorSet : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSet>
 {
     public WriteDescriptorSet()
     {
@@ -42,7 +42,7 @@ public unsafe partial class WriteDescriptorSet : IMarshallableObject, IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSet>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSet>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -52,7 +52,7 @@ public unsafe partial class WriteDescriptorSet : IMarshallableObject, IMarshalla
             for (int i = 0; i < PImageInfo.Length; i++)
             {
                 if (PImageInfo.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorImageInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorImageInfo>.Size;
                 else
                     size += PImageInfo.Span[i].GetSize();
             }
@@ -62,13 +62,13 @@ public unsafe partial class WriteDescriptorSet : IMarshallableObject, IMarshalla
             for (int i = 0; i < PBufferInfo.Length; i++)
             {
                 if (PBufferInfo.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorBufferInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorBufferInfo>.Size;
                 else
                     size += PBufferInfo.Span[i].GetSize();
             }
         }
         if (!PTexelBufferView.IsEmpty)
-            size += PTexelBufferView.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferView_T>();
+            size += PTexelBufferView.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferView_T>.Size;
         return size;
     }
 
@@ -79,7 +79,14 @@ public unsafe partial class WriteDescriptorSet : IMarshallableObject, IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSet native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DstSet = new DescriptorSet(native.dstSet);
         DstBinding = native.dstBinding;
         DstArrayElement = native.dstArrayElement;
@@ -122,6 +129,12 @@ public unsafe partial class WriteDescriptorSet : IMarshallableObject, IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkWriteDescriptorSet*)native);
     }
     private ref struct VkWriteDescriptorSetMarshaller
     {

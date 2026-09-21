@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ExternalMemoryAcquireUnmodifiedEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkExternalMemoryAcquireUnmodifiedEXT>
+public unsafe partial class ExternalMemoryAcquireUnmodifiedEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkExternalMemoryAcquireUnmodifiedEXT>
 {
     public ExternalMemoryAcquireUnmodifiedEXT()
     {
@@ -35,7 +35,7 @@ public unsafe partial class ExternalMemoryAcquireUnmodifiedEXT : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkExternalMemoryAcquireUnmodifiedEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkExternalMemoryAcquireUnmodifiedEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,14 @@ public unsafe partial class ExternalMemoryAcquireUnmodifiedEXT : IMarshallableOb
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkExternalMemoryAcquireUnmodifiedEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         AcquireUnmodifiedMemory = native.acquireUnmodifiedMemory;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class ExternalMemoryAcquireUnmodifiedEXT : IMarshallableOb
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkExternalMemoryAcquireUnmodifiedEXT*)native);
     }
     private ref struct VkExternalMemoryAcquireUnmodifiedEXTMarshaller
     {

@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18681 Column: 10
 public unsafe struct PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV
 {
     public PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(nuint ptr) : this((void*) ptr) { }

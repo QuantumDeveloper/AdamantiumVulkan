@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineExecutablePropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineExecutablePropertiesKHR>
+public unsafe partial class PipelineExecutablePropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineExecutablePropertiesKHR>
 {
     public PipelineExecutablePropertiesKHR()
     {
@@ -38,7 +38,7 @@ public unsafe partial class PipelineExecutablePropertiesKHR : IMarshallableObjec
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineExecutablePropertiesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineExecutablePropertiesKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -53,7 +53,14 @@ public unsafe partial class PipelineExecutablePropertiesKHR : IMarshallableObjec
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineExecutablePropertiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Stages = native.stages;
         fixed(sbyte* pSource = native.name)
         {
@@ -74,6 +81,12 @@ public unsafe partial class PipelineExecutablePropertiesKHR : IMarshallableObjec
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineExecutablePropertiesKHR*)native);
     }
     private ref struct VkPipelineExecutablePropertiesKHRMarshaller
     {

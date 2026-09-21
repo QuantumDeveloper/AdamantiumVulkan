@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PresentTimesInfoGOOGLE : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentTimesInfoGOOGLE>
+public unsafe partial class PresentTimesInfoGOOGLE : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentTimesInfoGOOGLE>
 {
     public PresentTimesInfoGOOGLE()
     {
@@ -36,7 +36,7 @@ public unsafe partial class PresentTimesInfoGOOGLE : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentTimesInfoGOOGLE>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentTimesInfoGOOGLE>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class PresentTimesInfoGOOGLE : IMarshallableObject, IMarsh
             for (int i = 0; i < PTimes.Length; i++)
             {
                 if (PTimes.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentTimeGOOGLE>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentTimeGOOGLE>.Size;
                 else
                     size += PTimes.Span[i].GetSize();
             }
@@ -61,7 +61,14 @@ public unsafe partial class PresentTimesInfoGOOGLE : IMarshallableObject, IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPresentTimesInfoGOOGLE native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SwapchainCount = native.swapchainCount;
         var arrayLengthPTimes = native.swapchainCount;
         var tmpPTimes = new PresentTimeGOOGLE[arrayLengthPTimes];
@@ -82,6 +89,12 @@ public unsafe partial class PresentTimesInfoGOOGLE : IMarshallableObject, IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPresentTimesInfoGOOGLE*)native);
     }
     private ref struct VkPresentTimesInfoGOOGLEMarshaller
     {

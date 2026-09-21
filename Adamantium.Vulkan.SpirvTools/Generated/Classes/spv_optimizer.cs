@@ -13,7 +13,6 @@ using Adamantium.Vulkan.SpirvTools.Interop;
 
 namespace Adamantium.Vulkan.SpirvTools;
 
-// 
 public unsafe partial class spv_optimizer : IUnmanagedWrapper<Adamantium.Vulkan.SpirvTools.Interop.spv_optimizer_t>
 {
     public spv_optimizer_t __Instance;
@@ -120,7 +119,7 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<Adamantium.Vulkan.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(flag))
-                totalSize += flag.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(flag) + 1;
             return totalSize;
         }
 

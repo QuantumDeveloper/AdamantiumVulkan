@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class Viewport : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkViewport>
+public unsafe partial class Viewport : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkViewport>
 {
     public Viewport()
     {
@@ -38,7 +38,7 @@ public unsafe partial class Viewport : IMarshallableObject, IMarshallable<Adaman
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkViewport>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkViewport>.Size;
         return size;
     }
 
@@ -65,6 +65,12 @@ public unsafe partial class Viewport : IMarshallableObject, IMarshallable<Adaman
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkViewport*)native);
     }
     private ref struct VkViewportMarshaller
     {

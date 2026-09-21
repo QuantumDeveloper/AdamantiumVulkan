@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class RenderPassMultiviewCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassMultiviewCreateInfo>
+public unsafe partial class RenderPassMultiviewCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassMultiviewCreateInfo>
 {
     public RenderPassMultiviewCreateInfo()
     {
@@ -40,17 +40,17 @@ public unsafe partial class RenderPassMultiviewCreateInfo : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassMultiviewCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassMultiviewCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PViewMasks.IsEmpty)
-            size += PViewMasks.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PViewMasks.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         if (!PViewOffsets.IsEmpty)
-            size += PViewOffsets.Span.Length * Marshal.SizeOf<System.Int32>();
+            size += PViewOffsets.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Int32>.Size;
         if (!PCorrelationMasks.IsEmpty)
-            size += PCorrelationMasks.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PCorrelationMasks.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 
@@ -61,7 +61,14 @@ public unsafe partial class RenderPassMultiviewCreateInfo : IMarshallableObject,
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkRenderPassMultiviewCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SubpassCount = native.subpassCount;
         var arrayLengthPViewMasks = native.subpassCount;
         var tmpPViewMasks = new uint[arrayLengthPViewMasks];
@@ -87,6 +94,12 @@ public unsafe partial class RenderPassMultiviewCreateInfo : IMarshallableObject,
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkRenderPassMultiviewCreateInfo*)native);
     }
     private ref struct VkRenderPassMultiviewCreateInfoMarshaller
     {

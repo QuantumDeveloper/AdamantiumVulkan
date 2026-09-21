@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 613 Column: 10
 public unsafe partial class DescriptorSet : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T>
 {
     internal VkDescriptorSet_T __Instance;

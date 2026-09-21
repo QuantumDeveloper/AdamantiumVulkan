@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class BufferViewCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBufferViewCreateInfo>
+public unsafe partial class BufferViewCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBufferViewCreateInfo>
 {
     public BufferViewCreateInfo()
     {
@@ -39,7 +39,7 @@ public unsafe partial class BufferViewCreateInfo : IMarshallableObject, IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferViewCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferViewCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -54,7 +54,14 @@ public unsafe partial class BufferViewCreateInfo : IMarshallableObject, IMarshal
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkBufferViewCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         Buffer = new Buffer(native.buffer);
         Format = native.format;
@@ -70,6 +77,12 @@ public unsafe partial class BufferViewCreateInfo : IMarshallableObject, IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkBufferViewCreateInfo*)native);
     }
     private ref struct VkBufferViewCreateInfoMarshaller
     {

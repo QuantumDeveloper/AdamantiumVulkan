@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceFragmentShaderBarycentricPropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR>
+public unsafe partial class PhysicalDeviceFragmentShaderBarycentricPropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR>
 {
     public PhysicalDeviceFragmentShaderBarycentricPropertiesKHR()
     {
@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceFragmentShaderBarycentricPropertiesKHR
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceFragmentShaderBarycentricPropertiesKHR
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         TriStripVertexOrderIndependentOfProvokingVertex = native.triStripVertexOrderIndependentOfProvokingVertex;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceFragmentShaderBarycentricPropertiesKHR
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR*)native);
     }
     private ref struct VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHRMarshaller
     {

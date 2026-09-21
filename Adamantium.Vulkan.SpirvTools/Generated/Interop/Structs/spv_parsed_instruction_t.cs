@@ -12,7 +12,6 @@ using Adamantium.Vulkan.SpirvTools;
 
 namespace Adamantium.Vulkan.SpirvTools.Interop;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 464 Column: 16
 ///<summary>
 /// An instruction parsed from a binary SPIR-V module.
 ///</summary>

@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17786 Column: 10
 public unsafe struct PFN_vkCmdSetVertexInputEXT
 {
     public PFN_vkCmdSetVertexInputEXT(nuint ptr) : this((void*) ptr) { }

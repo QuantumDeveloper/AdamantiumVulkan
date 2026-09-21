@@ -15,7 +15,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.MacOS.Interop;
 
-// File: video.xml Line: 16303 Column: 10
 public unsafe struct PFN_vkCreateMacOSSurfaceMVK
 {
     public PFN_vkCreateMacOSSurfaceMVK(nuint ptr) : this((void*) ptr) { }

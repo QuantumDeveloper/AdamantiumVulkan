@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PushDescriptorSetWithTemplateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPushDescriptorSetWithTemplateInfo>
+public unsafe partial class PushDescriptorSetWithTemplateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPushDescriptorSetWithTemplateInfo>
 {
     public PushDescriptorSetWithTemplateInfo()
     {
@@ -38,7 +38,7 @@ public unsafe partial class PushDescriptorSetWithTemplateInfo : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPushDescriptorSetWithTemplateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPushDescriptorSetWithTemplateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -53,7 +53,14 @@ public unsafe partial class PushDescriptorSetWithTemplateInfo : IMarshallableObj
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPushDescriptorSetWithTemplateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DescriptorUpdateTemplate = new DescriptorUpdateTemplate(native.descriptorUpdateTemplate);
         Layout = new PipelineLayout(native.layout);
         Set = native.set;
@@ -68,6 +75,12 @@ public unsafe partial class PushDescriptorSetWithTemplateInfo : IMarshallableObj
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPushDescriptorSetWithTemplateInfo*)native);
     }
     private ref struct VkPushDescriptorSetWithTemplateInfoMarshaller
     {

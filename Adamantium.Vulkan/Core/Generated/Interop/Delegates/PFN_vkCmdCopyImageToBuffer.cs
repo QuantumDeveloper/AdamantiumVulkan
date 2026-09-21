@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15228 Column: 10
 public unsafe struct PFN_vkCmdCopyImageToBuffer
 {
     public PFN_vkCmdCopyImageToBuffer(nuint ptr) : this((void*) ptr) { }

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSampleLocationsInfoEXT>
+public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSampleLocationsInfoEXT>
 {
     public SampleLocationsInfoEXT()
     {
@@ -38,7 +38,7 @@ public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSampleLocationsInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSampleLocationsInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -48,7 +48,7 @@ public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarsh
             for (int i = 0; i < PSampleLocations.Length; i++)
             {
                 if (PSampleLocations.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSampleLocationEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSampleLocationEXT>.Size;
                 else
                     size += PSampleLocations.Span[i].GetSize();
             }
@@ -63,7 +63,14 @@ public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSampleLocationsInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SampleLocationsPerPixel = native.sampleLocationsPerPixel;
         SampleLocationGridSize = new Extent2D(native.sampleLocationGridSize);
         SampleLocationsCount = native.sampleLocationsCount;
@@ -86,6 +93,12 @@ public unsafe partial class SampleLocationsInfoEXT : IMarshallableObject, IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSampleLocationsInfoEXT*)native);
     }
     private ref struct VkSampleLocationsInfoEXTMarshaller
     {

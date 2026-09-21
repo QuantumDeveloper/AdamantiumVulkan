@@ -13,7 +13,6 @@ using Adamantium.Vulkan.SpirvTools.Interop;
 
 namespace Adamantium.Vulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 538 Column: 29
 ///<summary>
 /// Type Definitions
 ///</summary>

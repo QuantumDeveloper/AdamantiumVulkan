@@ -15,7 +15,6 @@ using Adamantium.Vulkan.Spirv.Interop;
 
 namespace Adamantium.Vulkan.Spirv.Cross;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 74 Column: 33
 public unsafe partial class SpirvCompiler : IUnmanagedWrapper<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcCompilerS>
 {
     internal SpvcCompilerS __Instance;
@@ -38,7 +37,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<Adamantium.Vulkan.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(line))
-                totalSize += line.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(line) + 1;
             return totalSize;
         }
 
@@ -235,7 +234,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<Adamantium.Vulkan.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(name))
-                totalSize += name.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(name) + 1;
             return totalSize;
         }
 
@@ -1106,7 +1105,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<Adamantium.Vulkan.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(suffix))
-                totalSize += suffix.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(suffix) + 1;
             return totalSize;
         }
 
@@ -1140,9 +1139,9 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<Adamantium.Vulkan.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(old_name))
-                totalSize += old_name.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(old_name) + 1;
             if (!string.IsNullOrEmpty(new_name))
-                totalSize += new_name.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(new_name) + 1;
             return totalSize;
         }
 
@@ -1172,7 +1171,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<Adamantium.Vulkan.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(ext))
-                totalSize += ext.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(ext) + 1;
             return totalSize;
         }
 
@@ -1209,7 +1208,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<Adamantium.Vulkan.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(argument))
-                totalSize += argument.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(argument) + 1;
             return totalSize;
         }
 
@@ -1244,7 +1243,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<Adamantium.Vulkan.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(name))
-                totalSize += name.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(name) + 1;
             return totalSize;
         }
 
@@ -1288,7 +1287,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<Adamantium.Vulkan.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(argument))
-                totalSize += argument.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(argument) + 1;
             return totalSize;
         }
 
@@ -1317,7 +1316,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<Adamantium.Vulkan.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(argument))
-                totalSize += argument.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(argument) + 1;
             return totalSize;
         }
 
@@ -1346,7 +1345,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<Adamantium.Vulkan.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(argument))
-                totalSize += argument.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(argument) + 1;
             return totalSize;
         }
 

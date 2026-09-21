@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Spirv;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv.h Line: 870 Column: 14
 public enum LoopControlShift : uint
 {
     UnrollShift = 0,

@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: video.xml Line: 1689 Column: 6
 public enum StdVideoAV1MatrixCoefficients : int
 {
     Identity = 0,

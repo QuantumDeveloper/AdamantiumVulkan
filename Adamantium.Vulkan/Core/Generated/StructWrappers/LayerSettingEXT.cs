@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class LayerSettingEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkLayerSettingEXT>
+public unsafe partial class LayerSettingEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkLayerSettingEXT>
 {
     public LayerSettingEXT()
     {
@@ -37,13 +37,13 @@ public unsafe partial class LayerSettingEXT : IMarshallableObject, IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkLayerSettingEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkLayerSettingEXT>.Size;
         if (!string.IsNullOrEmpty(PLayerName))
             size += System.Text.Encoding.UTF8.GetByteCount(PLayerName) + 1;
         if (!string.IsNullOrEmpty(PSettingName))
             size += System.Text.Encoding.UTF8.GetByteCount(PSettingName) + 1;
         if (!PValues.IsEmpty)
-            size += PValues.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PValues.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 
@@ -72,6 +72,12 @@ public unsafe partial class LayerSettingEXT : IMarshallableObject, IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkLayerSettingEXT*)native);
     }
     private ref struct VkLayerSettingEXTMarshaller
     {

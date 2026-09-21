@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DataGraphProcessingEngineCreateInfoARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDataGraphProcessingEngineCreateInfoARM>
+public unsafe partial class DataGraphProcessingEngineCreateInfoARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDataGraphProcessingEngineCreateInfoARM>
 {
     public DataGraphProcessingEngineCreateInfoARM()
     {
@@ -36,7 +36,7 @@ public unsafe partial class DataGraphProcessingEngineCreateInfoARM : IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDataGraphProcessingEngineCreateInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDataGraphProcessingEngineCreateInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class DataGraphProcessingEngineCreateInfoARM : IMarshallab
             for (int i = 0; i < ProcessingEngines.Length; i++)
             {
                 if (ProcessingEngines.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphProcessingEngineARM>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphProcessingEngineARM>.Size;
                 else
                     size += ProcessingEngines.Span[i].GetSize();
             }
@@ -61,7 +61,14 @@ public unsafe partial class DataGraphProcessingEngineCreateInfoARM : IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDataGraphProcessingEngineCreateInfoARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ProcessingEngineCount = native.processingEngineCount;
         var arrayLengthProcessingEngines = native.processingEngineCount;
         var tmpProcessingEngines = new PhysicalDeviceDataGraphProcessingEngineARM[arrayLengthProcessingEngines];
@@ -82,6 +89,12 @@ public unsafe partial class DataGraphProcessingEngineCreateInfoARM : IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDataGraphProcessingEngineCreateInfoARM*)native);
     }
     private ref struct VkDataGraphProcessingEngineCreateInfoARMMarshaller
     {

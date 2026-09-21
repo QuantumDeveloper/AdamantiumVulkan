@@ -35,7 +35,7 @@ namespace Adamantium.Vulkan.Generator
             string spirvToolsLibrary = "SPIRV-Tools-shared";
             string slangLibrary = "slang-c-shared";
             string mainNamespace = "Adamantium.Vulkan";
-            string vulkanBasePath = @"C:\VulkanSDK\1.4.350.0\Include";
+            string vulkanBasePath = Path.Combine(VulkanSdkRoot(), "Include");
             string vulkanXmlPath = "vk.xml";
             string interopSubNamespace = "Interop";
 
@@ -51,7 +51,9 @@ namespace Adamantium.Vulkan.Generator
             options.GenerateSequentialLayout = true;
             options.PodTypesAsSimpleTypes = false;
             options.PathToBindingsFile = "VulkanBindingsMap.xml";
-            options.DebugMode = true;
+            // OFF: it stamps every declaration with its line and column in vk.xml, which the registry shifts on any
+            // edit. The generated file then counts as changed when nothing about the binding did - pure diff noise.
+            options.DebugMode = false;
 
             var namespaceMappings = new List<NamespaceMapping>();
             namespaceMappings.Add(new NamespaceMapping(){FileName = "vulkan_core", SubNamespace = "Core", OutputPath = corePath});
@@ -167,6 +169,29 @@ namespace Adamantium.Vulkan.Generator
             options.AddModule(spivCrossModule);
             options.AddModule(spivToolsModule);
             options.AddModule(slangModule);
+        }
+
+        /// <summary>Where the Vulkan SDK's headers are. Read from VULKAN_SDK, because an installed version is a moving
+        /// target: naming one in the source meant that upgrading the SDK left the generator pointing at a directory
+        /// that no longer exists, and it says so rather than generating against something stale.</summary>
+        private static string VulkanSdkRoot()
+        {
+            var root = Environment.GetEnvironmentVariable("VULKAN_SDK");
+
+            if (string.IsNullOrWhiteSpace(root) || !Directory.Exists(root))
+            {
+                // The process may have inherited the value from before an upgrade - ask the machine itself.
+                root = Environment.GetEnvironmentVariable("VULKAN_SDK", EnvironmentVariableTarget.Machine);
+            }
+
+            if (string.IsNullOrWhiteSpace(root) || !Directory.Exists(root))
+            {
+                throw new DirectoryNotFoundException(
+                    "VULKAN_SDK does not point at an installed SDK. Install the Vulkan SDK, or open a fresh shell so " +
+                    "the variable is picked up, before generating the bindings.");
+            }
+
+            return root;
         }
 
         public override void OnBeforeSetupPasses(ProcessingContext context)

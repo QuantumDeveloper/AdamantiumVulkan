@@ -54,7 +54,7 @@ public unsafe partial class SpvcMslSamplerYcbcrConversion : IMarshallable<Adaman
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcMslSamplerYcbcrConversion>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcMslSamplerYcbcrConversion>.Size;
         return size;
     }
 

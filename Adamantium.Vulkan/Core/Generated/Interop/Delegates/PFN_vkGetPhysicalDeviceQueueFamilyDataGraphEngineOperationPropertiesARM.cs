@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 19181 Column: 10
 public unsafe struct PFN_vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM
 {
     public PFN_vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM(nuint ptr) : this((void*) ptr) { }

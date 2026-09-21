@@ -13,7 +13,6 @@ using Adamantium.Vulkan.SpirvTools.Interop;
 
 namespace Adamantium.Vulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 543 Column: 30
 public unsafe partial class spv_const_context : IUnmanagedWrapper<Adamantium.Vulkan.SpirvTools.Interop.spv_context_t>
 {
     internal spv_context_t __Instance;
@@ -100,7 +99,7 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<Adamantium.Vul
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(text))
-                totalSize += text.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(text) + 1;
             return totalSize;
         }
 
@@ -137,7 +136,7 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<Adamantium.Vul
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(text))
-                totalSize += text.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(text) + 1;
             return totalSize;
         }
 

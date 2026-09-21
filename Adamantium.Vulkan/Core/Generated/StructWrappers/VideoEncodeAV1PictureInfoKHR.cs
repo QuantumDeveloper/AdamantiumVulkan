@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoEncodeAV1PictureInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1PictureInfoKHR>
+public unsafe partial class VideoEncodeAV1PictureInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1PictureInfoKHR>
 {
     public VideoEncodeAV1PictureInfoKHR()
     {
@@ -41,7 +41,7 @@ public unsafe partial class VideoEncodeAV1PictureInfoKHR : IMarshallableObject, 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1PictureInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1PictureInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -60,7 +60,14 @@ public unsafe partial class VideoEncodeAV1PictureInfoKHR : IMarshallableObject, 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1PictureInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PredictionMode = native.predictionMode;
         RateControlGroup = native.rateControlGroup;
         ConstantQIndex = native.constantQIndex;
@@ -83,6 +90,12 @@ public unsafe partial class VideoEncodeAV1PictureInfoKHR : IMarshallableObject, 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1PictureInfoKHR*)native);
     }
     private ref struct VkVideoEncodeAV1PictureInfoKHRMarshaller
     {

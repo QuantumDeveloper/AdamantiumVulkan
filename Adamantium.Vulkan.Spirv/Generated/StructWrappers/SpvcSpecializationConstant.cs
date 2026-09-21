@@ -37,7 +37,7 @@ public unsafe partial class SpvcSpecializationConstant : IMarshallable<Adamantiu
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcSpecializationConstant>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcSpecializationConstant>.Size;
         return size;
     }
 

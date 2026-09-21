@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class GeneratedCommandsShaderInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsShaderInfoEXT>
+public unsafe partial class GeneratedCommandsShaderInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsShaderInfoEXT>
 {
     public GeneratedCommandsShaderInfoEXT()
     {
@@ -36,13 +36,13 @@ public unsafe partial class GeneratedCommandsShaderInfoEXT : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsShaderInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsShaderInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PShaders.IsEmpty)
-            size += PShaders.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderEXT_T>();
+            size += PShaders.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderEXT_T>.Size;
         return size;
     }
 
@@ -53,7 +53,14 @@ public unsafe partial class GeneratedCommandsShaderInfoEXT : IMarshallableObject
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsShaderInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ShaderCount = native.shaderCount;
         var arrayLengthPShaders = native.shaderCount;
         var tmpPShaders = new ShaderEXT[arrayLengthPShaders];
@@ -74,6 +81,12 @@ public unsafe partial class GeneratedCommandsShaderInfoEXT : IMarshallableObject
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkGeneratedCommandsShaderInfoEXT*)native);
     }
     private ref struct VkGeneratedCommandsShaderInfoEXTMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CopyBufferInfo2 : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyBufferInfo2>
+public unsafe partial class CopyBufferInfo2 : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyBufferInfo2>
 {
     public CopyBufferInfo2()
     {
@@ -38,7 +38,7 @@ public unsafe partial class CopyBufferInfo2 : IMarshallableObject, IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCopyBufferInfo2>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCopyBufferInfo2>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -48,7 +48,7 @@ public unsafe partial class CopyBufferInfo2 : IMarshallableObject, IMarshallable
             for (int i = 0; i < PRegions.Length; i++)
             {
                 if (PRegions.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBufferCopy2>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBufferCopy2>.Size;
                 else
                     size += PRegions.Span[i].GetSize();
             }
@@ -63,7 +63,14 @@ public unsafe partial class CopyBufferInfo2 : IMarshallableObject, IMarshallable
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkCopyBufferInfo2 native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SrcBuffer = new Buffer(native.srcBuffer);
         DstBuffer = new Buffer(native.dstBuffer);
         RegionCount = native.regionCount;
@@ -86,6 +93,12 @@ public unsafe partial class CopyBufferInfo2 : IMarshallableObject, IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCopyBufferInfo2*)native);
     }
     private ref struct VkCopyBufferInfo2Marshaller
     {

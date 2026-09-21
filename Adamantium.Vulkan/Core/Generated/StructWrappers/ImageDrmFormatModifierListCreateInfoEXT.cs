@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT>
+public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT>
 {
     public ImageDrmFormatModifierListCreateInfoEXT()
     {
@@ -36,13 +36,13 @@ public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PDrmFormatModifiers.IsEmpty)
-            size += PDrmFormatModifiers.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PDrmFormatModifiers.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         return size;
     }
 
@@ -53,7 +53,14 @@ public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DrmFormatModifierCount = native.drmFormatModifierCount;
         var arrayLengthPDrmFormatModifiers = native.drmFormatModifierCount;
         var tmpPDrmFormatModifiers = new ulong[arrayLengthPDrmFormatModifiers];
@@ -69,6 +76,12 @@ public unsafe partial class ImageDrmFormatModifierListCreateInfoEXT : IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkImageDrmFormatModifierListCreateInfoEXT*)native);
     }
     private ref struct VkImageDrmFormatModifierListCreateInfoEXTMarshaller
     {

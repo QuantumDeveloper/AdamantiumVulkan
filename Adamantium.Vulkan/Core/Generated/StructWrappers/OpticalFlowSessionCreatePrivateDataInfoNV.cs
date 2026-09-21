@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class OpticalFlowSessionCreatePrivateDataInfoNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV>
+public unsafe partial class OpticalFlowSessionCreatePrivateDataInfoNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV>
 {
     public OpticalFlowSessionCreatePrivateDataInfoNV()
     {
@@ -37,7 +37,7 @@ public unsafe partial class OpticalFlowSessionCreatePrivateDataInfoNV : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -52,7 +52,14 @@ public unsafe partial class OpticalFlowSessionCreatePrivateDataInfoNV : IMarshal
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Id = native.id;
         Size = native.size;
         PrivateData = (nuint)native.pPrivateData;
@@ -66,6 +73,12 @@ public unsafe partial class OpticalFlowSessionCreatePrivateDataInfoNV : IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkOpticalFlowSessionCreatePrivateDataInfoNV*)native);
     }
     private ref struct VkOpticalFlowSessionCreatePrivateDataInfoNVMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceFaultInfoEXT>
+public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceFaultInfoEXT>
 {
     public DeviceFaultInfoEXT()
     {
@@ -38,7 +38,7 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceFaultInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceFaultInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -48,7 +48,7 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
             for (int i = 0; i < PAddressInfos.Length; i++)
             {
                 if (PAddressInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceFaultAddressInfoKHR>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceFaultAddressInfoKHR>.Size;
                 else
                     size += PAddressInfos.Span[i].GetSize();
             }
@@ -58,7 +58,7 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
             for (int i = 0; i < PVendorInfos.Length; i++)
             {
                 if (PVendorInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR>.Size;
                 else
                     size += PVendorInfos.Span[i].GetSize();
             }
@@ -74,7 +74,14 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDeviceFaultInfoEXT native)
     {
         InteropSource = native;
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         fixed(sbyte* pSource = native.description)
         {
             Description = QuantumBinding.Utils.MarshalingUtils.MarshalFixedByteArrayToString(pSource, 256);
@@ -90,6 +97,12 @@ public unsafe partial class DeviceFaultInfoEXT : IMarshallableObject, IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDeviceFaultInfoEXT*)native);
     }
     private ref struct VkDeviceFaultInfoEXTMarshaller
     {

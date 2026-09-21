@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 652 Column: 10
 public unsafe partial class SurfaceKHR : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkSurfaceKHR_T>
 {
     internal VkSurfaceKHR_T __Instance;

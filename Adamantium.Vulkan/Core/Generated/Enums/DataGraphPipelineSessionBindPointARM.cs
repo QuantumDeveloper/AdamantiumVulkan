@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 14157 Column: 6
 public enum DataGraphPipelineSessionBindPointARM : int
 {
     TransientArm = 0,

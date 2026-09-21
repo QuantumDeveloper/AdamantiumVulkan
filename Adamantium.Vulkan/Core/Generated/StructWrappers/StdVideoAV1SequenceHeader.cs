@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoAV1SequenceHeader : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoAV1SequenceHeader>
+public unsafe partial class StdVideoAV1SequenceHeader : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoAV1SequenceHeader>
 {
     public StdVideoAV1SequenceHeader()
     {
@@ -46,7 +46,7 @@ public unsafe partial class StdVideoAV1SequenceHeader : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoAV1SequenceHeader>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoAV1SequenceHeader>.Size;
         if (PColorConfig != default)
         {
             size += PColorConfig.GetSize();
@@ -95,6 +95,12 @@ public unsafe partial class StdVideoAV1SequenceHeader : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoAV1SequenceHeader*)native);
     }
     private ref struct StdVideoAV1SequenceHeaderMarshaller
     {

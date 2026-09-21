@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DescriptorMappingSourceDataEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourceDataEXT>
+public unsafe partial class DescriptorMappingSourceDataEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourceDataEXT>
 {
     public DescriptorMappingSourceDataEXT()
     {
@@ -43,7 +43,7 @@ public unsafe partial class DescriptorMappingSourceDataEXT : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourceDataEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourceDataEXT>.Size;
         return size;
     }
 
@@ -75,6 +75,12 @@ public unsafe partial class DescriptorMappingSourceDataEXT : IMarshallableObject
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDescriptorMappingSourceDataEXT*)native);
     }
     private ref struct VkDescriptorMappingSourceDataEXTMarshaller
     {

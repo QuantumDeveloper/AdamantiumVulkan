@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17192 Column: 10
 public unsafe struct PFN_vkGetBufferOpaqueCaptureAddress
 {
     public PFN_vkGetBufferOpaqueCaptureAddress(nuint ptr) : this((void*) ptr) { }

@@ -12,7 +12,6 @@ using Adamantium.Vulkan.SpirvTools;
 
 namespace Adamantium.Vulkan.SpirvTools.Interop;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 446 Column: 16
 ///<summary>
 /// Information about an operand parsed from a binary SPIR-V module. Note that the values are not included. You still need access to the binary to extract the values.
 ///</summary>

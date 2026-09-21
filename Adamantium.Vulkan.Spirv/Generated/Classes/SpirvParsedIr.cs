@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Spirv.Cross.Interop;
 
 namespace Adamantium.Vulkan.Spirv.Cross;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 73 Column: 34
 public unsafe partial class SpirvParsedIr : IUnmanagedWrapper<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcParsedIrS>
 {
     internal SpvcParsedIrS __Instance;

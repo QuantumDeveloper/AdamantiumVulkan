@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceVulkan13Features : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVulkan13Features>
+public unsafe partial class PhysicalDeviceVulkan13Features : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVulkan13Features>
 {
     public PhysicalDeviceVulkan13Features()
     {
@@ -49,7 +49,7 @@ public unsafe partial class PhysicalDeviceVulkan13Features : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVulkan13Features>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVulkan13Features>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -64,7 +64,14 @@ public unsafe partial class PhysicalDeviceVulkan13Features : IMarshallableObject
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVulkan13Features native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         RobustImageAccess = native.robustImageAccess;
         InlineUniformBlock = native.inlineUniformBlock;
         DescriptorBindingInlineUniformBlockUpdateAfterBind = native.descriptorBindingInlineUniformBlockUpdateAfterBind;
@@ -90,6 +97,12 @@ public unsafe partial class PhysicalDeviceVulkan13Features : IMarshallableObject
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVulkan13Features*)native);
     }
     private ref struct VkPhysicalDeviceVulkan13FeaturesMarshaller
     {

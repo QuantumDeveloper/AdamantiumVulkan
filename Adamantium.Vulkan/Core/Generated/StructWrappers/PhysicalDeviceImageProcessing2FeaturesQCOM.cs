@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceImageProcessing2FeaturesQCOM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageProcessing2FeaturesQCOM>
+public unsafe partial class PhysicalDeviceImageProcessing2FeaturesQCOM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageProcessing2FeaturesQCOM>
 {
     public PhysicalDeviceImageProcessing2FeaturesQCOM()
     {
@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceImageProcessing2FeaturesQCOM : IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageProcessing2FeaturesQCOM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageProcessing2FeaturesQCOM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceImageProcessing2FeaturesQCOM : IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageProcessing2FeaturesQCOM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         TextureBlockMatch2 = native.textureBlockMatch2;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceImageProcessing2FeaturesQCOM : IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceImageProcessing2FeaturesQCOM*)native);
     }
     private ref struct VkPhysicalDeviceImageProcessing2FeaturesQCOMMarshaller
     {

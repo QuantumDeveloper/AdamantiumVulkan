@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DeviceGroupSubmitInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceGroupSubmitInfo>
+public unsafe partial class DeviceGroupSubmitInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceGroupSubmitInfo>
 {
     public DeviceGroupSubmitInfo()
     {
@@ -40,17 +40,17 @@ public unsafe partial class DeviceGroupSubmitInfo : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceGroupSubmitInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceGroupSubmitInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PWaitSemaphoreDeviceIndices.IsEmpty)
-            size += PWaitSemaphoreDeviceIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PWaitSemaphoreDeviceIndices.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         if (!PCommandBufferDeviceMasks.IsEmpty)
-            size += PCommandBufferDeviceMasks.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PCommandBufferDeviceMasks.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         if (!PSignalSemaphoreDeviceIndices.IsEmpty)
-            size += PSignalSemaphoreDeviceIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PSignalSemaphoreDeviceIndices.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 
@@ -61,7 +61,14 @@ public unsafe partial class DeviceGroupSubmitInfo : IMarshallableObject, IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDeviceGroupSubmitInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         WaitSemaphoreCount = native.waitSemaphoreCount;
         var arrayLengthPWaitSemaphoreDeviceIndices = native.waitSemaphoreCount;
         var tmpPWaitSemaphoreDeviceIndices = new uint[arrayLengthPWaitSemaphoreDeviceIndices];
@@ -87,6 +94,12 @@ public unsafe partial class DeviceGroupSubmitInfo : IMarshallableObject, IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDeviceGroupSubmitInfo*)native);
     }
     private ref struct VkDeviceGroupSubmitInfoMarshaller
     {

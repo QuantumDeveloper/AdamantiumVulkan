@@ -13,7 +13,7 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Windows;
 
-public unsafe partial class D3D12FenceSubmitInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR>
+public unsafe partial class D3D12FenceSubmitInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR>
 {
     public D3D12FenceSubmitInfoKHR()
     {
@@ -39,15 +39,15 @@ public unsafe partial class D3D12FenceSubmitInfoKHR : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PWaitSemaphoreValues.IsEmpty)
-            size += PWaitSemaphoreValues.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PWaitSemaphoreValues.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         if (!PSignalSemaphoreValues.IsEmpty)
-            size += PSignalSemaphoreValues.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PSignalSemaphoreValues.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         return size;
     }
 
@@ -58,7 +58,14 @@ public unsafe partial class D3D12FenceSubmitInfoKHR : IMarshallableObject, IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         WaitSemaphoreValuesCount = native.waitSemaphoreValuesCount;
         var arrayLengthPWaitSemaphoreValues = native.waitSemaphoreValuesCount;
         var tmpPWaitSemaphoreValues = new ulong[arrayLengthPWaitSemaphoreValues];
@@ -79,6 +86,12 @@ public unsafe partial class D3D12FenceSubmitInfoKHR : IMarshallableObject, IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Windows.Interop.VkD3D12FenceSubmitInfoKHR*)native);
     }
     private ref struct VkD3D12FenceSubmitInfoKHRMarshaller
     {

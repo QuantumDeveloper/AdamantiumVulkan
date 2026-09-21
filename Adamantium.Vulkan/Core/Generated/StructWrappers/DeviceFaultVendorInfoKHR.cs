@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DeviceFaultVendorInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR>
+public unsafe partial class DeviceFaultVendorInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR>
 {
     public DeviceFaultVendorInfoKHR()
     {
@@ -35,7 +35,7 @@ public unsafe partial class DeviceFaultVendorInfoKHR : IMarshallableObject, IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR>.Size;
         return size;
     }
 
@@ -62,6 +62,12 @@ public unsafe partial class DeviceFaultVendorInfoKHR : IMarshallableObject, IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDeviceFaultVendorInfoKHR*)native);
     }
     private ref struct VkDeviceFaultVendorInfoKHRMarshaller
     {

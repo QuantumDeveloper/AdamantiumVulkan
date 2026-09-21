@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Spirv.Cross.Interop;
 
 namespace Adamantium.Vulkan.Spirv.Cross;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 79 Column: 33
 public unsafe partial class SpirvConstant : IUnmanagedWrapper<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcConstantS>
 {
     internal SpvcConstantS __Instance;

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SurfaceFormat2KHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSurfaceFormat2KHR>
+public unsafe partial class SurfaceFormat2KHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSurfaceFormat2KHR>
 {
     public SurfaceFormat2KHR()
     {
@@ -35,7 +35,7 @@ public unsafe partial class SurfaceFormat2KHR : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSurfaceFormat2KHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSurfaceFormat2KHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,14 @@ public unsafe partial class SurfaceFormat2KHR : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSurfaceFormat2KHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SurfaceFormat = new SurfaceFormatKHR(native.surfaceFormat);
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class SurfaceFormat2KHR : IMarshallableObject, IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSurfaceFormat2KHR*)native);
     }
     private ref struct VkSurfaceFormat2KHRMarshaller
     {

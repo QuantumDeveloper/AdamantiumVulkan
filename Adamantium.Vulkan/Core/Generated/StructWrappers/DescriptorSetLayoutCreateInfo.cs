@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DescriptorSetLayoutCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo>
+public unsafe partial class DescriptorSetLayoutCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo>
 {
     public DescriptorSetLayoutCreateInfo()
     {
@@ -37,7 +37,7 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -47,7 +47,7 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : IMarshallableObject,
             for (int i = 0; i < PBindings.Length; i++)
             {
                 if (PBindings.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutBinding>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutBinding>.Size;
                 else
                     size += PBindings.Span[i].GetSize();
             }
@@ -62,7 +62,14 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : IMarshallableObject,
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         BindingCount = native.bindingCount;
         var arrayLengthPBindings = native.bindingCount;
@@ -84,6 +91,12 @@ public unsafe partial class DescriptorSetLayoutCreateInfo : IMarshallableObject,
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayoutCreateInfo*)native);
     }
     private ref struct VkDescriptorSetLayoutCreateInfoMarshaller
     {

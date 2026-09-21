@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12329 Column: 6
 public enum StructureType : int
 {
     ApplicationInfo = 0,
@@ -462,6 +461,20 @@ public enum StructureType : int
 
     AndroidHardwareBufferFormatProperties2Android = 1000129006,
 
+    PhysicalDeviceGpaFeaturesAmd = 1000133000,
+
+    PhysicalDeviceGpaPropertiesAmd = 1000133001,
+
+    GpaSampleBeginInfoAmd = 1000133002,
+
+    GpaSessionCreateInfoAmd = 1000133003,
+
+    GpaDeviceClockModeInfoAmd = 1000133004,
+
+    PhysicalDeviceGpaProperties2Amd = 1000133005,
+
+    GpaDeviceGetClockInfoAmd = 1000133006,
+
     PhysicalDeviceShaderEnqueueFeaturesAmdx = 1000134000,
 
     PhysicalDeviceShaderEnqueuePropertiesAmdx = 1000134001,
@@ -631,6 +644,8 @@ public enum StructureType : int
     FilterCubicImageViewImageFormatPropertiesExt = 1000170001,
 
     PhysicalDeviceCooperativeMatrixConversionFeaturesQcom = 1000172000,
+
+    PhysicalDeviceElapsedTimerQueryFeaturesQcom = 1000173000,
 
     ImportMemoryHostPointerInfoExt = 1000178000,
 
@@ -921,6 +936,16 @@ public enum StructureType : int
     PhysicalDeviceQueuePerfHintFeaturesQcom = 1000302001,
 
     PhysicalDeviceQueuePerfHintPropertiesQcom = 1000302002,
+
+    PhysicalDeviceImageProcessing3FeaturesQcom = 1000303000,
+
+    PhysicalDeviceShaderMultipleWaitQueuesFeaturesQcom = 1000304000,
+
+    PhysicalDeviceShaderMultipleWaitQueuesPropertiesQcom = 1000304001,
+
+    PhysicalDeviceShaderSplitBarrierFeaturesExt = 1000305000,
+
+    PhysicalDeviceShaderSplitBarrierPropertiesExt = 1000305001,
 
     CudaModuleCreateInfoNv = 1000307000,
 
@@ -1812,6 +1837,10 @@ public enum StructureType : int
 
     PhysicalDeviceShaderReplicatedCompositesFeaturesExt = 1000564000,
 
+    TensorExplicitTilingFormatPropertiesArm = 1000565000,
+
+    TensorRollingBackingCreateInfoArm = 1000565001,
+
     PhysicalDeviceShaderFloat8FeaturesExt = 1000567000,
 
     PhysicalDeviceRayTracingValidationFeaturesNv = 1000568000,
@@ -1938,6 +1967,12 @@ public enum StructureType : int
 
     PhysicalDevicePipelineOpacityMicromapFeaturesArm = 1000596000,
 
+    PhysicalDeviceVideoEncodeFeedback2FeaturesKhr = 1000598000,
+
+    VideoEncodeFeedback2CapabilitiesKhr = 1000598001,
+
+    QueryPoolVideoEncodePerPartitionFeedbackCreateInfoKhr = 1000598002,
+
     ImportMemoryMetalHandleInfoExt = 1000602000,
 
     MemoryMetalHandlePropertiesExt = 1000602001,
@@ -1982,6 +2017,10 @@ public enum StructureType : int
 
     PhysicalDevicePresentMeteringFeaturesNv = 1000613001,
 
+    PhysicalDeviceMultisampledRenderToSwapchainFeaturesExt = 1000616000,
+
+    SwapchainFlagsSurfaceCapabilitiesExt = 1000616001,
+
     PhysicalDeviceFragmentDensityMapOffsetFeaturesExt = 1000425000,
 
     PhysicalDeviceFragmentDensityMapOffsetPropertiesExt = 1000425001,
@@ -1991,6 +2030,14 @@ public enum StructureType : int
     PhysicalDeviceZeroInitializeDeviceMemoryFeaturesExt = 1000620000,
 
     PhysicalDevicePresentModeFifoLatestReadyFeaturesKhr = 1000361000,
+
+    PhysicalDeviceOpacityMicromapFeaturesKhr = 1000623000,
+
+    PhysicalDeviceOpacityMicromapPropertiesKhr = 1000623001,
+
+    AccelerationStructureGeometryMicromapDataKhr = 1000623002,
+
+    AccelerationStructureTrianglesOpacityMicromapKhr = 1000623003,
 
     PhysicalDeviceShader64BitIndexingFeaturesExt = 1000627000,
 
@@ -2052,6 +2099,22 @@ public enum StructureType : int
 
     UbmSurfaceCreateInfoSec = 1000664000,
 
+    FormatProperties4Khr = 1000668000,
+
+    ImageCreateFlags2CreateInfoKhr = 1000668001,
+
+    ImageUsageFlags2CreateInfoKhr = 1000668002,
+
+    ImageViewUsage2CreateInfoKhr = 1000668003,
+
+    PhysicalDeviceExtendedFlagsFeaturesKhr = 1000668004,
+
+    ImageStencilUsage2CreateInfoKhr = 1000668005,
+
+    SharedPresentSurfaceCapabilities2Khr = 1000668006,
+
+    PhysicalDeviceShaderOcpMicroscalingTypesFeaturesExt = 1000672000,
+
     PhysicalDeviceShaderMixedFloatDotProductFeaturesValve = 1000673000,
 
     PhysicalDeviceThrottleHintFeaturesSec = 1000674000,
@@ -2065,6 +2128,8 @@ public enum StructureType : int
     PhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesArm = 1000676002,
 
     PhysicalDevicePrimitiveRestartIndexFeaturesExt = 1000678000,
+
+    PhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNv = 1000689000,
 
     BindBufferMemoryInfo = 1000157000,
 

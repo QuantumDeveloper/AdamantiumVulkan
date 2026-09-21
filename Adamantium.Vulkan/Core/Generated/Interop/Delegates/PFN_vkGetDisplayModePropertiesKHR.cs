@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15470 Column: 10
 public unsafe struct PFN_vkGetDisplayModePropertiesKHR
 {
     public PFN_vkGetDisplayModePropertiesKHR(nuint ptr) : this((void*) ptr) { }

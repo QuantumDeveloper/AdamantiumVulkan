@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceClusterAccelerationStructureFeaturesNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceClusterAccelerationStructureFeaturesNV>
+public unsafe partial class PhysicalDeviceClusterAccelerationStructureFeaturesNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceClusterAccelerationStructureFeaturesNV>
 {
     public PhysicalDeviceClusterAccelerationStructureFeaturesNV()
     {
@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceClusterAccelerationStructureFeaturesNV
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceClusterAccelerationStructureFeaturesNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceClusterAccelerationStructureFeaturesNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceClusterAccelerationStructureFeaturesNV
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceClusterAccelerationStructureFeaturesNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ClusterAccelerationStructure = native.clusterAccelerationStructure;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceClusterAccelerationStructureFeaturesNV
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceClusterAccelerationStructureFeaturesNV*)native);
     }
     private ref struct VkPhysicalDeviceClusterAccelerationStructureFeaturesNVMarshaller
     {

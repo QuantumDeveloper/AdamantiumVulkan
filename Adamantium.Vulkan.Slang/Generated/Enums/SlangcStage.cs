@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Slang;
 
-// File: C:\AdamantiumEngine\AdamantiumVulkan\Adamantium.Vulkan.Slang\native\slang_c.h Line: 29 Column: 14
 ///<summary>
 /// Shader stage. Values mirror Slang's SlangStage so mapping is trivial.
 ///</summary>

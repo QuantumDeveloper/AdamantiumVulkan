@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 654 Column: 10
 public unsafe partial class DebugReportCallbackEXT : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkDebugReportCallbackEXT_T>
 {
     internal VkDebugReportCallbackEXT_T __Instance;

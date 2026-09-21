@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoEncodeH265SliceSegmentHeaderFlags : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags>
+public unsafe partial class StdVideoEncodeH265SliceSegmentHeaderFlags : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags>
 {
     public StdVideoEncodeH265SliceSegmentHeaderFlags()
     {
@@ -45,7 +45,7 @@ public unsafe partial class StdVideoEncodeH265SliceSegmentHeaderFlags : IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags>.Size;
         return size;
     }
 
@@ -79,6 +79,12 @@ public unsafe partial class StdVideoEncodeH265SliceSegmentHeaderFlags : IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoEncodeH265SliceSegmentHeaderFlags*)native);
     }
     private ref struct StdVideoEncodeH265SliceSegmentHeaderFlagsMarshaller
     {

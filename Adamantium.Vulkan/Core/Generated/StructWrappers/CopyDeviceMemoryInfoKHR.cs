@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CopyDeviceMemoryInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyDeviceMemoryInfoKHR>
+public unsafe partial class CopyDeviceMemoryInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyDeviceMemoryInfoKHR>
 {
     public CopyDeviceMemoryInfoKHR()
     {
@@ -36,7 +36,7 @@ public unsafe partial class CopyDeviceMemoryInfoKHR : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCopyDeviceMemoryInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCopyDeviceMemoryInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class CopyDeviceMemoryInfoKHR : IMarshallableObject, IMars
             for (int i = 0; i < PRegions.Length; i++)
             {
                 if (PRegions.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceMemoryCopyKHR>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceMemoryCopyKHR>.Size;
                 else
                     size += PRegions.Span[i].GetSize();
             }
@@ -61,7 +61,14 @@ public unsafe partial class CopyDeviceMemoryInfoKHR : IMarshallableObject, IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkCopyDeviceMemoryInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         RegionCount = native.regionCount;
         var arrayLengthPRegions = native.regionCount;
         var tmpPRegions = new DeviceMemoryCopyKHR[arrayLengthPRegions];
@@ -82,6 +89,12 @@ public unsafe partial class CopyDeviceMemoryInfoKHR : IMarshallableObject, IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCopyDeviceMemoryInfoKHR*)native);
     }
     private ref struct VkCopyDeviceMemoryInfoKHRMarshaller
     {

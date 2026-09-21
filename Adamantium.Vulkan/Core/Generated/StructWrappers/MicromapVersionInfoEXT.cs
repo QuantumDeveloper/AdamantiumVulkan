@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class MicromapVersionInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMicromapVersionInfoEXT>
+public unsafe partial class MicromapVersionInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMicromapVersionInfoEXT>
 {
     public MicromapVersionInfoEXT()
     {
@@ -35,7 +35,7 @@ public unsafe partial class MicromapVersionInfoEXT : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMicromapVersionInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMicromapVersionInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,14 @@ public unsafe partial class MicromapVersionInfoEXT : IMarshallableObject, IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkMicromapVersionInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         if (native.pVersionData != null)
         {
             PVersionData = *native.pVersionData;
@@ -66,6 +73,12 @@ public unsafe partial class MicromapVersionInfoEXT : IMarshallableObject, IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkMicromapVersionInfoEXT*)native);
     }
     private ref struct VkMicromapVersionInfoEXTMarshaller
     {

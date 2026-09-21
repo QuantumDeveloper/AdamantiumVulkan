@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DepthBiasRepresentationInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDepthBiasRepresentationInfoEXT>
+public unsafe partial class DepthBiasRepresentationInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDepthBiasRepresentationInfoEXT>
 {
     public DepthBiasRepresentationInfoEXT()
     {
@@ -36,7 +36,7 @@ public unsafe partial class DepthBiasRepresentationInfoEXT : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDepthBiasRepresentationInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDepthBiasRepresentationInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -51,7 +51,14 @@ public unsafe partial class DepthBiasRepresentationInfoEXT : IMarshallableObject
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDepthBiasRepresentationInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DepthBiasRepresentation = native.depthBiasRepresentation;
         DepthBiasExact = native.depthBiasExact;
 
@@ -64,6 +71,12 @@ public unsafe partial class DepthBiasRepresentationInfoEXT : IMarshallableObject
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDepthBiasRepresentationInfoEXT*)native);
     }
     private ref struct VkDepthBiasRepresentationInfoEXTMarshaller
     {

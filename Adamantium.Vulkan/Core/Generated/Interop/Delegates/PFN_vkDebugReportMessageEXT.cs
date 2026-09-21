@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15702 Column: 10
 public unsafe struct PFN_vkDebugReportMessageEXT
 {
     public PFN_vkDebugReportMessageEXT(nuint ptr) : this((void*) ptr) { }

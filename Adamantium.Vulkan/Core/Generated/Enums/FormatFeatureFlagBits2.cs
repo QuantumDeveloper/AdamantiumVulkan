@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13737 Column: 6
 [Flags]
 public enum FormatFeatureFlagBits2 : ulong
 {
@@ -81,7 +80,7 @@ public enum FormatFeatureFlagBits2 : ulong
 
     VideoEncodeDpbBitKhr = 268435456,
 
-    Reserved44BitQcom = 17592186044416,
+    BlockMatchingSxdBitQcom = 17592186044416,
 
     AccelerationStructureRadiusBufferBitNv = 2251799813685248,
 
@@ -114,6 +113,8 @@ public enum FormatFeatureFlagBits2 : ulong
     VideoEncodeQuantizationDeltaMapBitKhr = 562949953421312,
 
     VideoEncodeEmphasisMapBitKhr = 1125899906842624,
+
+    SampledImageFilterLinear2dBitImg = 35184372088832,
 
     DepthCopyOnComputeQueueBitKhr = 4503599627370496,
 

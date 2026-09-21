@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18901 Column: 10
 public unsafe struct PFN_vkCmdDispatchDataGraphARM
 {
     public PFN_vkCmdDispatchDataGraphARM(nuint ptr) : this((void*) ptr) { }

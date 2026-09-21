@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class AccelerationStructureGeometryDataKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureGeometryDataKHR>
+public unsafe partial class AccelerationStructureGeometryDataKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureGeometryDataKHR>
 {
     public AccelerationStructureGeometryDataKHR()
     {
@@ -35,7 +35,7 @@ public unsafe partial class AccelerationStructureGeometryDataKHR : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureGeometryDataKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureGeometryDataKHR>.Size;
         return size;
     }
 
@@ -59,6 +59,12 @@ public unsafe partial class AccelerationStructureGeometryDataKHR : IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkAccelerationStructureGeometryDataKHR*)native);
     }
     private ref struct VkAccelerationStructureGeometryDataKHRMarshaller
     {

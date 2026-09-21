@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceExternalTensorInfoARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExternalTensorInfoARM>
+public unsafe partial class PhysicalDeviceExternalTensorInfoARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExternalTensorInfoARM>
 {
     public PhysicalDeviceExternalTensorInfoARM()
     {
@@ -37,7 +37,7 @@ public unsafe partial class PhysicalDeviceExternalTensorInfoARM : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExternalTensorInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExternalTensorInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -56,7 +56,14 @@ public unsafe partial class PhysicalDeviceExternalTensorInfoARM : IMarshallableO
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExternalTensorInfoARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         PDescription = new TensorDescriptionARM(in *native.pDescription);
         NativeUtils.Free(native.pDescription);
@@ -71,6 +78,12 @@ public unsafe partial class PhysicalDeviceExternalTensorInfoARM : IMarshallableO
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceExternalTensorInfoARM*)native);
     }
     private ref struct VkPhysicalDeviceExternalTensorInfoARMMarshaller
     {

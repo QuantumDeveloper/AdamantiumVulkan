@@ -14,7 +14,6 @@ using Adamantium.Vulkan.SpirvTools;
 
 namespace Adamantium.Vulkan.SpirvTools.Interop;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 976 Column: 24
 ///<summary>
 /// A pointer to a function that accepts a parsed SPIR-V header. The integer arguments are the 32-bit words from the header, as specified in SPIR-V 1.0 Section 2.3 Table 1. The function should return SPV_SUCCESS if parsing should continue.
 ///</summary>

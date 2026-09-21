@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13344 Column: 6
 public enum PerformanceValueTypeINTEL : int
 {
     Uint32Intel = 0,

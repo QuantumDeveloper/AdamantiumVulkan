@@ -41,7 +41,7 @@ public unsafe partial class Spv_parsed_operand_t : IMarshallable<Adamantium.Vulk
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.SpirvTools.Interop.spv_parsed_operand_t>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.SpirvTools.Interop.spv_parsed_operand_t>.Size;
         return size;
     }
 

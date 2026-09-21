@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CoarseSampleOrderCustomNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV>
+public unsafe partial class CoarseSampleOrderCustomNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV>
 {
     public CoarseSampleOrderCustomNV()
     {
@@ -36,13 +36,13 @@ public unsafe partial class CoarseSampleOrderCustomNV : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV>.Size;
         if (!PSampleLocations.IsEmpty)
         {
             for (int i = 0; i < PSampleLocations.Length; i++)
             {
                 if (PSampleLocations.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCoarseSampleLocationNV>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCoarseSampleLocationNV>.Size;
                 else
                     size += PSampleLocations.Span[i].GetSize();
             }
@@ -79,6 +79,12 @@ public unsafe partial class CoarseSampleOrderCustomNV : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCoarseSampleOrderCustomNV*)native);
     }
     private ref struct VkCoarseSampleOrderCustomNVMarshaller
     {

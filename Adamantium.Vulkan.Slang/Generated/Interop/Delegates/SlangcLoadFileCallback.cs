@@ -13,7 +13,6 @@ using QuantumBinding.Utils;
 
 namespace Adamantium.Vulkan.Slang.Interop;
 
-// File: C:\AdamantiumEngine\AdamantiumVulkan\Adamantium.Vulkan.Slang\native\slang_c.h Line: 56 Column: 15
 ///<summary>
 /// Include / import resolution callback (optional). When set, Slang asks it for file contents instead of touching the OS filesystem — wire it to the engine's VFS / asset system. Return 1 if the file was found (and write *outData / *outSize; the buffer must stay valid until the call returns — the shim copies it immediately), or 0 if not found. `userData` is the opaque pointer passed to the session.
 ///</summary>

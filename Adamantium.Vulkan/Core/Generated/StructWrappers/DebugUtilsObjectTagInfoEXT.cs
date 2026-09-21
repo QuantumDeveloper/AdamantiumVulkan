@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DebugUtilsObjectTagInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT>
+public unsafe partial class DebugUtilsObjectTagInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT>
 {
     public DebugUtilsObjectTagInfoEXT()
     {
@@ -39,13 +39,13 @@ public unsafe partial class DebugUtilsObjectTagInfoEXT : IMarshallableObject, IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PTag.IsEmpty)
-            size += PTag.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PTag.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 
@@ -56,7 +56,14 @@ public unsafe partial class DebugUtilsObjectTagInfoEXT : IMarshallableObject, IM
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ObjectType = native.objectType;
         ObjectHandle = native.objectHandle;
         TagName = native.tagName;
@@ -75,6 +82,12 @@ public unsafe partial class DebugUtilsObjectTagInfoEXT : IMarshallableObject, IM
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDebugUtilsObjectTagInfoEXT*)native);
     }
     private ref struct VkDebugUtilsObjectTagInfoEXTMarshaller
     {

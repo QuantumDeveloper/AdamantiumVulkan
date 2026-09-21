@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineVertexInputStateCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo>
+public unsafe partial class PipelineVertexInputStateCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo>
 {
     public PipelineVertexInputStateCreateInfo()
     {
@@ -39,7 +39,7 @@ public unsafe partial class PipelineVertexInputStateCreateInfo : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -49,7 +49,7 @@ public unsafe partial class PipelineVertexInputStateCreateInfo : IMarshallableOb
             for (int i = 0; i < PVertexBindingDescriptions.Length; i++)
             {
                 if (PVertexBindingDescriptions.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVertexInputBindingDescription>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVertexInputBindingDescription>.Size;
                 else
                     size += PVertexBindingDescriptions.Span[i].GetSize();
             }
@@ -59,7 +59,7 @@ public unsafe partial class PipelineVertexInputStateCreateInfo : IMarshallableOb
             for (int i = 0; i < PVertexAttributeDescriptions.Length; i++)
             {
                 if (PVertexAttributeDescriptions.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVertexInputAttributeDescription>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVertexInputAttributeDescription>.Size;
                 else
                     size += PVertexAttributeDescriptions.Span[i].GetSize();
             }
@@ -74,7 +74,14 @@ public unsafe partial class PipelineVertexInputStateCreateInfo : IMarshallableOb
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         VertexBindingDescriptionCount = native.vertexBindingDescriptionCount;
         var arrayLengthPVertexBindingDescriptions = native.vertexBindingDescriptionCount;
@@ -106,6 +113,12 @@ public unsafe partial class PipelineVertexInputStateCreateInfo : IMarshallableOb
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineVertexInputStateCreateInfo*)native);
     }
     private ref struct VkPipelineVertexInputStateCreateInfoMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoEncodeAV1SessionParametersCreateInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR>
+public unsafe partial class VideoEncodeAV1SessionParametersCreateInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR>
 {
     public VideoEncodeAV1SessionParametersCreateInfoKHR()
     {
@@ -38,7 +38,7 @@ public unsafe partial class VideoEncodeAV1SessionParametersCreateInfoKHR : IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -56,7 +56,7 @@ public unsafe partial class VideoEncodeAV1SessionParametersCreateInfoKHR : IMars
             for (int i = 0; i < PStdOperatingPoints.Length; i++)
             {
                 if (PStdOperatingPoints.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoEncodeAV1OperatingPointInfo>.Size;
                 else
                     size += PStdOperatingPoints.Span[i].GetSize();
             }
@@ -71,7 +71,14 @@ public unsafe partial class VideoEncodeAV1SessionParametersCreateInfoKHR : IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PStdSequenceHeader = new StdVideoAV1SequenceHeader(in *native.pStdSequenceHeader);
         NativeUtils.Free(native.pStdSequenceHeader);
         PStdDecoderModelInfo = new StdVideoEncodeAV1DecoderModelInfo(in *native.pStdDecoderModelInfo);
@@ -96,6 +103,12 @@ public unsafe partial class VideoEncodeAV1SessionParametersCreateInfoKHR : IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1SessionParametersCreateInfoKHR*)native);
     }
     private ref struct VkVideoEncodeAV1SessionParametersCreateInfoKHRMarshaller
     {

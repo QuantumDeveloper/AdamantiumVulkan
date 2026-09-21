@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class RayTracingPipelineCreateInfoNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV>
+public unsafe partial class RayTracingPipelineCreateInfoNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV>
 {
     public RayTracingPipelineCreateInfoNV()
     {
@@ -43,7 +43,7 @@ public unsafe partial class RayTracingPipelineCreateInfoNV : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -53,7 +53,7 @@ public unsafe partial class RayTracingPipelineCreateInfoNV : IMarshallableObject
             for (int i = 0; i < PStages.Length; i++)
             {
                 if (PStages.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineShaderStageCreateInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineShaderStageCreateInfo>.Size;
                 else
                     size += PStages.Span[i].GetSize();
             }
@@ -63,7 +63,7 @@ public unsafe partial class RayTracingPipelineCreateInfoNV : IMarshallableObject
             for (int i = 0; i < PGroups.Length; i++)
             {
                 if (PGroups.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV>.Size;
                 else
                     size += PGroups.Span[i].GetSize();
             }
@@ -78,7 +78,14 @@ public unsafe partial class RayTracingPipelineCreateInfoNV : IMarshallableObject
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         StageCount = native.stageCount;
         var arrayLengthPStages = native.stageCount;
@@ -114,6 +121,12 @@ public unsafe partial class RayTracingPipelineCreateInfoNV : IMarshallableObject
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkRayTracingPipelineCreateInfoNV*)native);
     }
     private ref struct VkRayTracingPipelineCreateInfoNVMarshaller
     {

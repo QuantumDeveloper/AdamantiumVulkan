@@ -38,7 +38,7 @@ public unsafe partial class SpvcBufferRange : IMarshallable<Adamantium.Vulkan.Sp
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcBufferRange>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcBufferRange>.Size;
         return size;
     }
 

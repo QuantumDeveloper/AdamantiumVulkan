@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoBeginCodingInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoBeginCodingInfoKHR>
+public unsafe partial class VideoBeginCodingInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoBeginCodingInfoKHR>
 {
     public VideoBeginCodingInfoKHR()
     {
@@ -39,7 +39,7 @@ public unsafe partial class VideoBeginCodingInfoKHR : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoBeginCodingInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoBeginCodingInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -49,7 +49,7 @@ public unsafe partial class VideoBeginCodingInfoKHR : IMarshallableObject, IMars
             for (int i = 0; i < PReferenceSlots.Length; i++)
             {
                 if (PReferenceSlots.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoReferenceSlotInfoKHR>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoReferenceSlotInfoKHR>.Size;
                 else
                     size += PReferenceSlots.Span[i].GetSize();
             }
@@ -64,7 +64,14 @@ public unsafe partial class VideoBeginCodingInfoKHR : IMarshallableObject, IMars
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoBeginCodingInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         VideoSession = new VideoSessionKHR(native.videoSession);
         VideoSessionParameters = new VideoSessionParametersKHR(native.videoSessionParameters);
@@ -88,6 +95,12 @@ public unsafe partial class VideoBeginCodingInfoKHR : IMarshallableObject, IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoBeginCodingInfoKHR*)native);
     }
     private ref struct VkVideoBeginCodingInfoKHRMarshaller
     {

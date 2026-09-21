@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 610 Column: 10
 public unsafe partial class Pipeline : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkPipeline_T>
 {
     internal VkPipeline_T __Instance;

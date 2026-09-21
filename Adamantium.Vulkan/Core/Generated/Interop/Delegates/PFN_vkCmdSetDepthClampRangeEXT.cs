@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18675 Column: 10
 public unsafe struct PFN_vkCmdSetDepthClampRangeEXT
 {
     public PFN_vkCmdSetDepthClampRangeEXT(nuint ptr) : this((void*) ptr) { }

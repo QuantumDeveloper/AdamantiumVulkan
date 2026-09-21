@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ShaderCreateInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkShaderCreateInfoEXT>
+public unsafe partial class ShaderCreateInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkShaderCreateInfoEXT>
 {
     public ShaderCreateInfoEXT()
     {
@@ -46,23 +46,23 @@ public unsafe partial class ShaderCreateInfoEXT : IMarshallableObject, IMarshall
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PCode.IsEmpty)
-            size += PCode.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PCode.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         if (!string.IsNullOrEmpty(PName))
             size += System.Text.Encoding.UTF8.GetByteCount(PName) + 1;
         if (!PSetLayouts.IsEmpty)
-            size += PSetLayouts.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayout_T>();
+            size += PSetLayouts.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayout_T>.Size;
         if (!PushConstantRanges.IsEmpty)
         {
             for (int i = 0; i < PushConstantRanges.Length; i++)
             {
                 if (PushConstantRanges.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPushConstantRange>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPushConstantRange>.Size;
                 else
                     size += PushConstantRanges.Span[i].GetSize();
             }
@@ -81,7 +81,14 @@ public unsafe partial class ShaderCreateInfoEXT : IMarshallableObject, IMarshall
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkShaderCreateInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         Stage = native.stage;
         NextStage = native.nextStage;
@@ -120,6 +127,12 @@ public unsafe partial class ShaderCreateInfoEXT : IMarshallableObject, IMarshall
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkShaderCreateInfoEXT*)native);
     }
     private ref struct VkShaderCreateInfoEXTMarshaller
     {

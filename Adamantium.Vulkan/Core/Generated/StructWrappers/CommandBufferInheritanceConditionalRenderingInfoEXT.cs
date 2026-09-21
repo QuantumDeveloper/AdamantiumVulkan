@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CommandBufferInheritanceConditionalRenderingInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT>
+public unsafe partial class CommandBufferInheritanceConditionalRenderingInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT>
 {
     public CommandBufferInheritanceConditionalRenderingInfoEXT()
     {
@@ -35,7 +35,7 @@ public unsafe partial class CommandBufferInheritanceConditionalRenderingInfoEXT 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,14 @@ public unsafe partial class CommandBufferInheritanceConditionalRenderingInfoEXT 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ConditionalRenderingEnable = native.conditionalRenderingEnable;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class CommandBufferInheritanceConditionalRenderingInfoEXT 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCommandBufferInheritanceConditionalRenderingInfoEXT*)native);
     }
     private ref struct VkCommandBufferInheritanceConditionalRenderingInfoEXTMarshaller
     {

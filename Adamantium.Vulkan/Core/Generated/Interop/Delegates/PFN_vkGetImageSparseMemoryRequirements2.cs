@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 16404 Column: 10
 public unsafe struct PFN_vkGetImageSparseMemoryRequirements2
 {
     public PFN_vkGetImageSparseMemoryRequirements2(nuint ptr) : this((void*) ptr) { }

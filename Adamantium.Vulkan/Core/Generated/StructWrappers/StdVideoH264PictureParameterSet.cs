@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoH264PictureParameterSet : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoH264PictureParameterSet>
+public unsafe partial class StdVideoH264PictureParameterSet : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoH264PictureParameterSet>
 {
     public StdVideoH264PictureParameterSet()
     {
@@ -43,7 +43,7 @@ public unsafe partial class StdVideoH264PictureParameterSet : IMarshallableObjec
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH264PictureParameterSet>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH264PictureParameterSet>.Size;
         if (PScalingLists != default)
         {
             size += PScalingLists.GetSize();
@@ -80,6 +80,12 @@ public unsafe partial class StdVideoH264PictureParameterSet : IMarshallableObjec
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoH264PictureParameterSet*)native);
     }
     private ref struct StdVideoH264PictureParameterSetMarshaller
     {

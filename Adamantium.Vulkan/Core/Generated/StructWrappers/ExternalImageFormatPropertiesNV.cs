@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ExternalImageFormatPropertiesNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkExternalImageFormatPropertiesNV>
+public unsafe partial class ExternalImageFormatPropertiesNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkExternalImageFormatPropertiesNV>
 {
     public ExternalImageFormatPropertiesNV()
     {
@@ -36,7 +36,7 @@ public unsafe partial class ExternalImageFormatPropertiesNV : IMarshallableObjec
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkExternalImageFormatPropertiesNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkExternalImageFormatPropertiesNV>.Size;
         return size;
     }
 
@@ -61,6 +61,12 @@ public unsafe partial class ExternalImageFormatPropertiesNV : IMarshallableObjec
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkExternalImageFormatPropertiesNV*)native);
     }
     private ref struct VkExternalImageFormatPropertiesNVMarshaller
     {

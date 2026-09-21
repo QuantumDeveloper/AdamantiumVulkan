@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15070 Column: 10
 public unsafe struct PFN_vkCmdSetStencilReference
 {
     public PFN_vkCmdSetStencilReference(nuint ptr) : this((void*) ptr) { }

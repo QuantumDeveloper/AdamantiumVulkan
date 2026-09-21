@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class BindSparseInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindSparseInfo>
+public unsafe partial class BindSparseInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkBindSparseInfo>
 {
     public BindSparseInfo()
     {
@@ -44,19 +44,19 @@ public unsafe partial class BindSparseInfo : IMarshallableObject, IMarshallable<
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkBindSparseInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkBindSparseInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PWaitSemaphores.IsEmpty)
-            size += PWaitSemaphores.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>();
+            size += PWaitSemaphores.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>.Size;
         if (!PBufferBinds.IsEmpty)
         {
             for (int i = 0; i < PBufferBinds.Length; i++)
             {
                 if (PBufferBinds.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSparseBufferMemoryBindInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSparseBufferMemoryBindInfo>.Size;
                 else
                     size += PBufferBinds.Span[i].GetSize();
             }
@@ -66,7 +66,7 @@ public unsafe partial class BindSparseInfo : IMarshallableObject, IMarshallable<
             for (int i = 0; i < PImageOpaqueBinds.Length; i++)
             {
                 if (PImageOpaqueBinds.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSparseImageOpaqueMemoryBindInfo>.Size;
                 else
                     size += PImageOpaqueBinds.Span[i].GetSize();
             }
@@ -76,13 +76,13 @@ public unsafe partial class BindSparseInfo : IMarshallableObject, IMarshallable<
             for (int i = 0; i < PImageBinds.Length; i++)
             {
                 if (PImageBinds.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSparseImageMemoryBindInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSparseImageMemoryBindInfo>.Size;
                 else
                     size += PImageBinds.Span[i].GetSize();
             }
         }
         if (!PSignalSemaphores.IsEmpty)
-            size += PSignalSemaphores.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>();
+            size += PSignalSemaphores.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>.Size;
         return size;
     }
 
@@ -93,7 +93,14 @@ public unsafe partial class BindSparseInfo : IMarshallableObject, IMarshallable<
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkBindSparseInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         WaitSemaphoreCount = native.waitSemaphoreCount;
         var arrayLengthPWaitSemaphores = native.waitSemaphoreCount;
         var tmpPWaitSemaphores = new Semaphore[arrayLengthPWaitSemaphores];
@@ -154,6 +161,12 @@ public unsafe partial class BindSparseInfo : IMarshallableObject, IMarshallable<
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkBindSparseInfo*)native);
     }
     private ref struct VkBindSparseInfoMarshaller
     {

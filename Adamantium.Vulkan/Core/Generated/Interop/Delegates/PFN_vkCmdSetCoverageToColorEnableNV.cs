@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17639 Column: 10
 public unsafe struct PFN_vkCmdSetCoverageToColorEnableNV
 {
     public PFN_vkCmdSetCoverageToColorEnableNV(nuint ptr) : this((void*) ptr) { }

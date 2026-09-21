@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13362 Column: 6
 public enum LineRasterizationMode : int
 {
     Default = 0,

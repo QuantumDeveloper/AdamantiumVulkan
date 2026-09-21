@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: video.xml Line: 1462 Column: 6
 public enum StdVideoH265ProfileIdc : int
 {
     Main = 1,

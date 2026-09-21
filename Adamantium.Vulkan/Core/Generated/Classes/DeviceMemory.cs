@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 603 Column: 10
 public unsafe partial class DeviceMemory : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkDeviceMemory_T>
 {
     internal VkDeviceMemory_T __Instance;

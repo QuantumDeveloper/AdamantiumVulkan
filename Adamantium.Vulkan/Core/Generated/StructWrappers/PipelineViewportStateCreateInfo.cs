@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineViewportStateCreateInfo>
+public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineViewportStateCreateInfo>
 {
     public PipelineViewportStateCreateInfo()
     {
@@ -39,7 +39,7 @@ public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObjec
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineViewportStateCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineViewportStateCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -49,7 +49,7 @@ public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObjec
             for (int i = 0; i < PViewports.Length; i++)
             {
                 if (PViewports.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkViewport>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkViewport>.Size;
                 else
                     size += PViewports.Span[i].GetSize();
             }
@@ -59,7 +59,7 @@ public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObjec
             for (int i = 0; i < PScissors.Length; i++)
             {
                 if (PScissors.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     size += PScissors.Span[i].GetSize();
             }
@@ -74,7 +74,14 @@ public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObjec
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineViewportStateCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         ViewportCount = native.viewportCount;
         var arrayLengthPViewports = native.viewportCount;
@@ -106,6 +113,12 @@ public unsafe partial class PipelineViewportStateCreateInfo : IMarshallableObjec
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineViewportStateCreateInfo*)native);
     }
     private ref struct VkPipelineViewportStateCreateInfoMarshaller
     {

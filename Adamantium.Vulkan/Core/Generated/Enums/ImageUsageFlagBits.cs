@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12559 Column: 6
 [Flags]
 public enum ImageUsageFlagBits : uint
 {
@@ -73,7 +72,7 @@ public enum ImageUsageFlagBits : uint
 
     Reserved16BitHuawei = 65536,
 
-    Reserved27BitHuawei = 131072,
+    Reserved17BitHuawei = 131072,
 
     HostTransferBit = 4194304,
 

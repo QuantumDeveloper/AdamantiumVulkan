@@ -12,7 +12,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: vk.xml Line: 11829 Column: 4
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkDataGraphOpticalFlowImageFormatInfoARM
 {

@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15773 Column: 10
 public unsafe struct PFN_vkGetGeneratedCommandsMemoryRequirementsNV
 {
     public PFN_vkGetGeneratedCommandsMemoryRequirementsNV(nuint ptr) : this((void*) ptr) { }

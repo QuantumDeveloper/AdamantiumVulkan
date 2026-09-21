@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15047 Column: 10
 public unsafe struct PFN_vkCmdSetBlendConstants
 {
     public PFN_vkCmdSetBlendConstants(nuint ptr) : this((void*) ptr) { }

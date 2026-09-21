@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV>
+public unsafe partial class ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV>
 {
     public ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV()
     {
@@ -35,7 +35,7 @@ public unsafe partial class ClusterAccelerationStructureGeometryIndexAndGeometry
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV>.Size;
         return size;
     }
 
@@ -59,6 +59,12 @@ public unsafe partial class ClusterAccelerationStructureGeometryIndexAndGeometry
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV*)native);
     }
     private ref struct VkClusterAccelerationStructureGeometryIndexAndGeometryFlagsNVMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceSubgroupSizeControlProperties : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlProperties>
+public unsafe partial class PhysicalDeviceSubgroupSizeControlProperties : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlProperties>
 {
     public PhysicalDeviceSubgroupSizeControlProperties()
     {
@@ -38,7 +38,7 @@ public unsafe partial class PhysicalDeviceSubgroupSizeControlProperties : IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlProperties>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlProperties>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -53,7 +53,14 @@ public unsafe partial class PhysicalDeviceSubgroupSizeControlProperties : IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlProperties native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MinSubgroupSize = native.minSubgroupSize;
         MaxSubgroupSize = native.maxSubgroupSize;
         MaxComputeWorkgroupSubgroups = native.maxComputeWorkgroupSubgroups;
@@ -68,6 +75,12 @@ public unsafe partial class PhysicalDeviceSubgroupSizeControlProperties : IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceSubgroupSizeControlProperties*)native);
     }
     private ref struct VkPhysicalDeviceSubgroupSizeControlPropertiesMarshaller
     {

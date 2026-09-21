@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 620 Column: 10
 public unsafe partial class Framebuffer : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkFramebuffer_T>
 {
     internal VkFramebuffer_T __Instance;

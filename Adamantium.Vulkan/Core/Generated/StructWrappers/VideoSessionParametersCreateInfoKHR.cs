@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoSessionParametersCreateInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR>
+public unsafe partial class VideoSessionParametersCreateInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR>
 {
     public VideoSessionParametersCreateInfoKHR()
     {
@@ -37,7 +37,7 @@ public unsafe partial class VideoSessionParametersCreateInfoKHR : IMarshallableO
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -52,7 +52,14 @@ public unsafe partial class VideoSessionParametersCreateInfoKHR : IMarshallableO
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         VideoSessionParametersTemplate = new VideoSessionParametersKHR(native.videoSessionParametersTemplate);
         VideoSession = new VideoSessionKHR(native.videoSession);
@@ -66,6 +73,12 @@ public unsafe partial class VideoSessionParametersCreateInfoKHR : IMarshallableO
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoSessionParametersCreateInfoKHR*)native);
     }
     private ref struct VkVideoSessionParametersCreateInfoKHRMarshaller
     {

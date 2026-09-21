@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceShaderModuleIdentifierPropertiesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT>
+public unsafe partial class PhysicalDeviceShaderModuleIdentifierPropertiesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT>
 {
     public PhysicalDeviceShaderModuleIdentifierPropertiesEXT()
     {
@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceShaderModuleIdentifierPropertiesEXT : 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceShaderModuleIdentifierPropertiesEXT : 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         var tmpShaderModuleIdentifierAlgorithmUUID = new byte[16];
         var shaderModuleIdentifierAlgorithmUUIDp = native.shaderModuleIdentifierAlgorithmUUID[0];
         var pShaderModuleIdentifierAlgorithmUUID = (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref System.Runtime.CompilerServices.Unsafe.AsRef(in shaderModuleIdentifierAlgorithmUUIDp ));
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDeviceShaderModuleIdentifierPropertiesEXT : 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT*)native);
     }
     private ref struct VkPhysicalDeviceShaderModuleIdentifierPropertiesEXTMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ImageViewAddressPropertiesNVX : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageViewAddressPropertiesNVX>
+public unsafe partial class ImageViewAddressPropertiesNVX : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkImageViewAddressPropertiesNVX>
 {
     public ImageViewAddressPropertiesNVX()
     {
@@ -36,7 +36,7 @@ public unsafe partial class ImageViewAddressPropertiesNVX : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageViewAddressPropertiesNVX>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageViewAddressPropertiesNVX>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -51,7 +51,14 @@ public unsafe partial class ImageViewAddressPropertiesNVX : IMarshallableObject,
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkImageViewAddressPropertiesNVX native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DeviceAddress = native.deviceAddress;
         Size = native.size;
 
@@ -64,6 +71,12 @@ public unsafe partial class ImageViewAddressPropertiesNVX : IMarshallableObject,
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkImageViewAddressPropertiesNVX*)native);
     }
     private ref struct VkImageViewAddressPropertiesNVXMarshaller
     {

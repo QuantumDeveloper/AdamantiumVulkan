@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoDecodeAV1ReferenceInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfo>
+public unsafe partial class StdVideoDecodeAV1ReferenceInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfo>
 {
     public StdVideoDecodeAV1ReferenceInfo()
     {
@@ -37,7 +37,7 @@ public unsafe partial class StdVideoDecodeAV1ReferenceInfo : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfo>.Size;
         return size;
     }
 
@@ -67,6 +67,12 @@ public unsafe partial class StdVideoDecodeAV1ReferenceInfo : IMarshallableObject
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoDecodeAV1ReferenceInfo*)native);
     }
     private ref struct StdVideoDecodeAV1ReferenceInfoMarshaller
     {

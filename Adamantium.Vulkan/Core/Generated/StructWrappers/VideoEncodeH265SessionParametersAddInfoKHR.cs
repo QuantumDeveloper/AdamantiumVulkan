@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoEncodeH265SessionParametersAddInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersAddInfoKHR>
+public unsafe partial class VideoEncodeH265SessionParametersAddInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersAddInfoKHR>
 {
     public VideoEncodeH265SessionParametersAddInfoKHR()
     {
@@ -40,7 +40,7 @@ public unsafe partial class VideoEncodeH265SessionParametersAddInfoKHR : IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersAddInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersAddInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,7 @@ public unsafe partial class VideoEncodeH265SessionParametersAddInfoKHR : IMarsha
             for (int i = 0; i < PStdVPSs.Length; i++)
             {
                 if (PStdVPSs.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH265VideoParameterSet>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH265VideoParameterSet>.Size;
                 else
                     size += PStdVPSs.Span[i].GetSize();
             }
@@ -60,7 +60,7 @@ public unsafe partial class VideoEncodeH265SessionParametersAddInfoKHR : IMarsha
             for (int i = 0; i < PStdSPSs.Length; i++)
             {
                 if (PStdSPSs.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH265SequenceParameterSet>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH265SequenceParameterSet>.Size;
                 else
                     size += PStdSPSs.Span[i].GetSize();
             }
@@ -70,7 +70,7 @@ public unsafe partial class VideoEncodeH265SessionParametersAddInfoKHR : IMarsha
             for (int i = 0; i < PStdPPSs.Length; i++)
             {
                 if (PStdPPSs.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH265PictureParameterSet>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH265PictureParameterSet>.Size;
                 else
                     size += PStdPPSs.Span[i].GetSize();
             }
@@ -85,7 +85,14 @@ public unsafe partial class VideoEncodeH265SessionParametersAddInfoKHR : IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersAddInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         StdVPSCount = native.stdVPSCount;
         var arrayLengthPStdVPSs = native.stdVPSCount;
         var tmpPStdVPSs = new StdVideoH265VideoParameterSet[arrayLengthPStdVPSs];
@@ -126,6 +133,12 @@ public unsafe partial class VideoEncodeH265SessionParametersAddInfoKHR : IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersAddInfoKHR*)native);
     }
     private ref struct VkVideoEncodeH265SessionParametersAddInfoKHRMarshaller
     {

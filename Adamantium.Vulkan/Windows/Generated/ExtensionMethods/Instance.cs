@@ -15,7 +15,6 @@ using Adamantium.Vulkan.Windows.Interop;
 
 namespace Adamantium.Vulkan.Windows;
 
-// File: vk.xml Line: 598 Column: 10
 public static unsafe partial class InstanceExtension
 {
     public static Result CreateWin32SurfaceKHR(this Adamantium.Vulkan.Core.Instance instance, in Win32SurfaceCreateInfoKHR pCreateInfo, in AllocationCallbacks pAllocator, out Adamantium.Vulkan.Core.SurfaceKHR pSurface)

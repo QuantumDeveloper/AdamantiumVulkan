@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15040 Column: 10
 public unsafe struct PFN_vkCmdSetDepthBias
 {
     public PFN_vkCmdSetDepthBias(nuint ptr) : this((void*) ptr) { }

@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: video.xml Line: 1638 Column: 6
 public enum StdVideoAV1TxMode : int
 {
     Only4x4 = 0,

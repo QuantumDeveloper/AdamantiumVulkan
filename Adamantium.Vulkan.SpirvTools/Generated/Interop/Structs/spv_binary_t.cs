@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.SpirvTools.Interop;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 500 Column: 16
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct spv_binary_t
 {

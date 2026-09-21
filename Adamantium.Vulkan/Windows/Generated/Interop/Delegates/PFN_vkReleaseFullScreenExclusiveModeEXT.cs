@@ -15,7 +15,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Windows.Interop;
 
-// File: video.xml Line: 17158 Column: 10
 public unsafe struct PFN_vkReleaseFullScreenExclusiveModeEXT
 {
     public PFN_vkReleaseFullScreenExclusiveModeEXT(nuint ptr) : this((void*) ptr) { }

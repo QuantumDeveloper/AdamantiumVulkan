@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CopyImageInfo2 : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyImageInfo2>
+public unsafe partial class CopyImageInfo2 : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyImageInfo2>
 {
     public CopyImageInfo2()
     {
@@ -40,7 +40,7 @@ public unsafe partial class CopyImageInfo2 : IMarshallableObject, IMarshallable<
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCopyImageInfo2>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCopyImageInfo2>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,7 @@ public unsafe partial class CopyImageInfo2 : IMarshallableObject, IMarshallable<
             for (int i = 0; i < PRegions.Length; i++)
             {
                 if (PRegions.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageCopy2>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageCopy2>.Size;
                 else
                     size += PRegions.Span[i].GetSize();
             }
@@ -65,7 +65,14 @@ public unsafe partial class CopyImageInfo2 : IMarshallableObject, IMarshallable<
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkCopyImageInfo2 native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SrcImage = new Image(native.srcImage);
         SrcImageLayout = native.srcImageLayout;
         DstImage = new Image(native.dstImage);
@@ -90,6 +97,12 @@ public unsafe partial class CopyImageInfo2 : IMarshallableObject, IMarshallable<
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCopyImageInfo2*)native);
     }
     private ref struct VkCopyImageInfo2Marshaller
     {

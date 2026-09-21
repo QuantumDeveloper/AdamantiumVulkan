@@ -13,7 +13,6 @@ using QuantumBinding.Utils;
 
 namespace Adamantium.Vulkan.Spirv.Cross.Interop;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 780 Column: 16
 ///<summary>
 /// Get notified in a callback when an error triggers. Useful for debugging.
 ///</summary>

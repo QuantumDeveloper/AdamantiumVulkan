@@ -13,7 +13,7 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Windows;
 
-public unsafe partial class ImportMemoryWin32HandleInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR>
+public unsafe partial class ImportMemoryWin32HandleInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR>
 {
     public ImportMemoryWin32HandleInfoKHR()
     {
@@ -38,7 +38,7 @@ public unsafe partial class ImportMemoryWin32HandleInfoKHR : IMarshallableObject
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -53,7 +53,14 @@ public unsafe partial class ImportMemoryWin32HandleInfoKHR : IMarshallableObject
 
     public void MarshalFrom(in Adamantium.Vulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         HandleType = native.handleType;
         Handle = native.handle;
         Name = native.name;
@@ -67,6 +74,12 @@ public unsafe partial class ImportMemoryWin32HandleInfoKHR : IMarshallableObject
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Windows.Interop.VkImportMemoryWin32HandleInfoKHR*)native);
     }
     private ref struct VkImportMemoryWin32HandleInfoKHRMarshaller
     {

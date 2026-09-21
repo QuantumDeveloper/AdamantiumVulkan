@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SwapchainTimeDomainPropertiesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSwapchainTimeDomainPropertiesEXT>
+public unsafe partial class SwapchainTimeDomainPropertiesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSwapchainTimeDomainPropertiesEXT>
 {
     public SwapchainTimeDomainPropertiesEXT()
     {
@@ -37,7 +37,7 @@ public unsafe partial class SwapchainTimeDomainPropertiesEXT : IMarshallableObje
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSwapchainTimeDomainPropertiesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSwapchainTimeDomainPropertiesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -45,7 +45,7 @@ public unsafe partial class SwapchainTimeDomainPropertiesEXT : IMarshallableObje
         if (!PTimeDomains.IsEmpty)
             size += PTimeDomains.Span.Length * sizeof(int);
         if (!PTimeDomainIds.IsEmpty)
-            size += PTimeDomainIds.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PTimeDomainIds.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         return size;
     }
 
@@ -56,7 +56,14 @@ public unsafe partial class SwapchainTimeDomainPropertiesEXT : IMarshallableObje
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSwapchainTimeDomainPropertiesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         TimeDomainCount = native.timeDomainCount;
         var arrayLengthPTimeDomains = native.timeDomainCount;
         var tmpPTimeDomains = new TimeDomainKHR[arrayLengthPTimeDomains];
@@ -76,6 +83,12 @@ public unsafe partial class SwapchainTimeDomainPropertiesEXT : IMarshallableObje
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSwapchainTimeDomainPropertiesEXT*)native);
     }
     private ref struct VkSwapchainTimeDomainPropertiesEXTMarshaller
     {

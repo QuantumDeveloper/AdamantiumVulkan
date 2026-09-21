@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: vk.xml Line: 1104 Column: 10
 public unsafe struct PFN_vkInternalFreeNotification
 {
     public PFN_vkInternalFreeNotification(nuint ptr) : this((void*) ptr) { }

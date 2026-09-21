@@ -13,7 +13,7 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Windows;
 
-public unsafe partial class SurfaceFullScreenExclusiveInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT>
+public unsafe partial class SurfaceFullScreenExclusiveInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT>
 {
     public SurfaceFullScreenExclusiveInfoEXT()
     {
@@ -36,7 +36,7 @@ public unsafe partial class SurfaceFullScreenExclusiveInfoEXT : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -51,7 +51,14 @@ public unsafe partial class SurfaceFullScreenExclusiveInfoEXT : IMarshallableObj
 
     public void MarshalFrom(in Adamantium.Vulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         FullScreenExclusive = native.fullScreenExclusive;
 
     }
@@ -63,6 +70,12 @@ public unsafe partial class SurfaceFullScreenExclusiveInfoEXT : IMarshallableObj
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Windows.Interop.VkSurfaceFullScreenExclusiveInfoEXT*)native);
     }
     private ref struct VkSurfaceFullScreenExclusiveInfoEXTMarshaller
     {

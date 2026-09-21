@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoEncodeAV1FrameSizeKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1FrameSizeKHR>
+public unsafe partial class VideoEncodeAV1FrameSizeKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1FrameSizeKHR>
 {
     public VideoEncodeAV1FrameSizeKHR()
     {
@@ -35,7 +35,7 @@ public unsafe partial class VideoEncodeAV1FrameSizeKHR : IMarshallableObject, IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1FrameSizeKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1FrameSizeKHR>.Size;
         return size;
     }
 
@@ -59,6 +59,12 @@ public unsafe partial class VideoEncodeAV1FrameSizeKHR : IMarshallableObject, IM
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoEncodeAV1FrameSizeKHR*)native);
     }
     private ref struct VkVideoEncodeAV1FrameSizeKHRMarshaller
     {

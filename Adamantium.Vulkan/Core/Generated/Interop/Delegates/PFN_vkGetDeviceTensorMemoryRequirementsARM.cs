@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18830 Column: 10
 public unsafe struct PFN_vkGetDeviceTensorMemoryRequirementsARM
 {
     public PFN_vkGetDeviceTensorMemoryRequirementsARM(nuint ptr) : this((void*) ptr) { }

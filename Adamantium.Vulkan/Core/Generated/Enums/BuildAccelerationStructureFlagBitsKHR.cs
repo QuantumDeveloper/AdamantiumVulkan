@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13206 Column: 6
 [Flags]
 public enum BuildAccelerationStructureFlagBitsKHR : uint
 {
@@ -27,10 +26,6 @@ public enum BuildAccelerationStructureFlagBitsKHR : uint
 
     MotionBitNv = 32,
 
-    AllowOpacityMicromapUpdateBitExt = 64,
-
-    AllowDisableOpacityMicromapsBitExt = 128,
-
     AllowOpacityMicromapDataUpdateBitExt = 256,
 
     AllowDisplacementMicromapUpdateBitNv = 512,
@@ -39,7 +34,17 @@ public enum BuildAccelerationStructureFlagBitsKHR : uint
 
     AllowClusterOpacityMicromapsBitNv = 4096,
 
-    Reserved10BitKhr = 1024,
+    AllowOpacityMicromapUpdateBitKhr = 64,
+
+    AllowDisableOpacityMicromapsBitKhr = 128,
+
+    MicromapLossyBitKhr = 1024,
+
+    Reserved15BitExt = 32768,
+
+    Reserved14BitExt = 16384,
+
+    Reserved13BitAmd = 8192,
 
 }
 

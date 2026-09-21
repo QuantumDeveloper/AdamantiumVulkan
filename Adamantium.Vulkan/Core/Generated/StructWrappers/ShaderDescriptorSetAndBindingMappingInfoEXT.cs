@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ShaderDescriptorSetAndBindingMappingInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkShaderDescriptorSetAndBindingMappingInfoEXT>
+public unsafe partial class ShaderDescriptorSetAndBindingMappingInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkShaderDescriptorSetAndBindingMappingInfoEXT>
 {
     public ShaderDescriptorSetAndBindingMappingInfoEXT()
     {
@@ -36,7 +36,7 @@ public unsafe partial class ShaderDescriptorSetAndBindingMappingInfoEXT : IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderDescriptorSetAndBindingMappingInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderDescriptorSetAndBindingMappingInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class ShaderDescriptorSetAndBindingMappingInfoEXT : IMarsh
             for (int i = 0; i < PMappings.Length; i++)
             {
                 if (PMappings.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetAndBindingMappingEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetAndBindingMappingEXT>.Size;
                 else
                     size += PMappings.Span[i].GetSize();
             }
@@ -61,7 +61,14 @@ public unsafe partial class ShaderDescriptorSetAndBindingMappingInfoEXT : IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkShaderDescriptorSetAndBindingMappingInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MappingCount = native.mappingCount;
         var arrayLengthPMappings = native.mappingCount;
         var tmpPMappings = new DescriptorSetAndBindingMappingEXT[arrayLengthPMappings];
@@ -82,6 +89,12 @@ public unsafe partial class ShaderDescriptorSetAndBindingMappingInfoEXT : IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkShaderDescriptorSetAndBindingMappingInfoEXT*)native);
     }
     private ref struct VkShaderDescriptorSetAndBindingMappingInfoEXTMarshaller
     {

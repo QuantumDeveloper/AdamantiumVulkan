@@ -39,7 +39,7 @@ public unsafe partial class SpvcHlslRootConstants : IMarshallable<Adamantium.Vul
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcHlslRootConstants>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcHlslRootConstants>.Size;
         return size;
     }
 

@@ -15,7 +15,6 @@ using Adamantium.Vulkan.Windows.Interop;
 
 namespace Adamantium.Vulkan.Windows;
 
-// File: vk.xml Line: 600 Column: 10
 public static unsafe partial class DeviceExtension
 {
     public static Result GetMemoryWin32HandleNV(this Adamantium.Vulkan.Core.Device device, Adamantium.Vulkan.Core.DeviceMemory memory, ExternalMemoryHandleTypeFlagBitsNV handleType, out nuint pHandle)

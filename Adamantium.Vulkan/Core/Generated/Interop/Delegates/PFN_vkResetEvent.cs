@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 14605 Column: 10
 public unsafe struct PFN_vkResetEvent
 {
     public PFN_vkResetEvent(nuint ptr) : this((void*) ptr) { }

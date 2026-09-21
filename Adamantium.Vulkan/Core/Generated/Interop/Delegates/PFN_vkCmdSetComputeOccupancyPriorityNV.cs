@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18982 Column: 10
 public unsafe struct PFN_vkCmdSetComputeOccupancyPriorityNV
 {
     public PFN_vkCmdSetComputeOccupancyPriorityNV(nuint ptr) : this((void*) ptr) { }

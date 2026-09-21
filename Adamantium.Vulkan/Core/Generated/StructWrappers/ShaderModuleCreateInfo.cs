@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ShaderModuleCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkShaderModuleCreateInfo>
+public unsafe partial class ShaderModuleCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkShaderModuleCreateInfo>
 {
     public ShaderModuleCreateInfo()
     {
@@ -37,13 +37,13 @@ public unsafe partial class ShaderModuleCreateInfo : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderModuleCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderModuleCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PCode.IsEmpty)
-            size += PCode.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PCode.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 
@@ -54,7 +54,14 @@ public unsafe partial class ShaderModuleCreateInfo : IMarshallableObject, IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkShaderModuleCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         CodeSize = native.codeSize;
         var arrayLengthPCode = (uint)native.codeSize / 4;
@@ -71,6 +78,12 @@ public unsafe partial class ShaderModuleCreateInfo : IMarshallableObject, IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkShaderModuleCreateInfo*)native);
     }
     private ref struct VkShaderModuleCreateInfoMarshaller
     {

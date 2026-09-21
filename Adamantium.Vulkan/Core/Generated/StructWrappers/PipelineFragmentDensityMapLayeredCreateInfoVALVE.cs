@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineFragmentDensityMapLayeredCreateInfoVALVE : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineFragmentDensityMapLayeredCreateInfoVALVE>
+public unsafe partial class PipelineFragmentDensityMapLayeredCreateInfoVALVE : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineFragmentDensityMapLayeredCreateInfoVALVE>
 {
     public PipelineFragmentDensityMapLayeredCreateInfoVALVE()
     {
@@ -35,7 +35,7 @@ public unsafe partial class PipelineFragmentDensityMapLayeredCreateInfoVALVE : I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineFragmentDensityMapLayeredCreateInfoVALVE>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineFragmentDensityMapLayeredCreateInfoVALVE>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,14 @@ public unsafe partial class PipelineFragmentDensityMapLayeredCreateInfoVALVE : I
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineFragmentDensityMapLayeredCreateInfoVALVE native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MaxFragmentDensityMapLayers = native.maxFragmentDensityMapLayers;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PipelineFragmentDensityMapLayeredCreateInfoVALVE : I
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineFragmentDensityMapLayeredCreateInfoVALVE*)native);
     }
     private ref struct VkPipelineFragmentDensityMapLayeredCreateInfoVALVEMarshaller
     {

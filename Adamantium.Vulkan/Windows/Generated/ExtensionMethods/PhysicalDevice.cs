@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Windows;
 
-// File: vk.xml Line: 599 Column: 10
 public static unsafe partial class PhysicalDeviceExtension
 {
     public static VkBool32 GetPhysicalDeviceWin32PresentationSupportKHR(this Adamantium.Vulkan.Core.PhysicalDevice physicalDevice, uint queueFamilyIndex)

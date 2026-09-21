@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Slang.Interop;
 
 namespace Adamantium.Vulkan.Slang;
 
-// File: C:\AdamantiumEngine\AdamantiumVulkan\Adamantium.Vulkan.Slang\native\slang_c.h Line: 26 Column: 33
 public unsafe partial class SlangcResult : IUnmanagedWrapper<Adamantium.Vulkan.Slang.Interop.SlangcResultT>
 {
     internal SlangcResultT __Instance;

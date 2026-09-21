@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 722 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct StdVideoDecodeH265ReferenceInfoFlags
 {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PerformanceValueDataINTEL : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPerformanceValueDataINTEL>
+public unsafe partial class PerformanceValueDataINTEL : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPerformanceValueDataINTEL>
 {
     public PerformanceValueDataINTEL()
     {
@@ -37,7 +37,7 @@ public unsafe partial class PerformanceValueDataINTEL : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPerformanceValueDataINTEL>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPerformanceValueDataINTEL>.Size;
         if (!string.IsNullOrEmpty(ValueString))
             size = Math.Max(size, System.Text.Encoding.UTF8.GetByteCount(ValueString) + 1);
         return size;
@@ -65,6 +65,12 @@ public unsafe partial class PerformanceValueDataINTEL : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPerformanceValueDataINTEL*)native);
     }
     private ref struct VkPerformanceValueDataINTELMarshaller
     {

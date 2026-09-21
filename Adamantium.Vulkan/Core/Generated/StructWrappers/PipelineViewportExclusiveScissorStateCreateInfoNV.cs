@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PipelineViewportExclusiveScissorStateCreateInfoNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV>
+public unsafe partial class PipelineViewportExclusiveScissorStateCreateInfoNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV>
 {
     public PipelineViewportExclusiveScissorStateCreateInfoNV()
     {
@@ -36,7 +36,7 @@ public unsafe partial class PipelineViewportExclusiveScissorStateCreateInfoNV : 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class PipelineViewportExclusiveScissorStateCreateInfoNV : 
             for (int i = 0; i < PExclusiveScissors.Length; i++)
             {
                 if (PExclusiveScissors.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     size += PExclusiveScissors.Span[i].GetSize();
             }
@@ -61,7 +61,14 @@ public unsafe partial class PipelineViewportExclusiveScissorStateCreateInfoNV : 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         ExclusiveScissorCount = native.exclusiveScissorCount;
         var arrayLengthPExclusiveScissors = native.exclusiveScissorCount;
         var tmpPExclusiveScissors = new Rect2D[arrayLengthPExclusiveScissors];
@@ -82,6 +89,12 @@ public unsafe partial class PipelineViewportExclusiveScissorStateCreateInfoNV : 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPipelineViewportExclusiveScissorStateCreateInfoNV*)native);
     }
     private ref struct VkPipelineViewportExclusiveScissorStateCreateInfoNVMarshaller
     {

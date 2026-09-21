@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 626 Column: 10
 public unsafe partial class IndirectExecutionSetEXT : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkIndirectExecutionSetEXT_T>
 {
     internal VkIndirectExecutionSetEXT_T __Instance;

@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 14053 Column: 6
 public enum ComponentTypeKHR : int
 {
     Float16Khr = 0,
@@ -45,6 +44,16 @@ public enum ComponentTypeKHR : int
     Float8E4m3Ext = 1000491002,
 
     Float8E5m2Ext = 1000491003,
+
+    Float6E2m3Ext = 1000672000,
+
+    Float6E3m2Ext = 1000672001,
+
+    Float4E2m1Ext = 1000672002,
+
+    Float8UnsignedE8m0Ext = 1000672003,
+
+    Mxint8Ext = 1000672004,
 
 }
 

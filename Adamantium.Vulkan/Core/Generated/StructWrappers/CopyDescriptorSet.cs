@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class CopyDescriptorSet : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyDescriptorSet>
+public unsafe partial class CopyDescriptorSet : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkCopyDescriptorSet>
 {
     public CopyDescriptorSet()
     {
@@ -41,7 +41,7 @@ public unsafe partial class CopyDescriptorSet : IMarshallableObject, IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkCopyDescriptorSet>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkCopyDescriptorSet>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -56,7 +56,14 @@ public unsafe partial class CopyDescriptorSet : IMarshallableObject, IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkCopyDescriptorSet native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SrcSet = new DescriptorSet(native.srcSet);
         SrcBinding = native.srcBinding;
         SrcArrayElement = native.srcArrayElement;
@@ -74,6 +81,12 @@ public unsafe partial class CopyDescriptorSet : IMarshallableObject, IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkCopyDescriptorSet*)native);
     }
     private ref struct VkCopyDescriptorSetMarshaller
     {

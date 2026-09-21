@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class MutableDescriptorTypeCreateInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT>
+public unsafe partial class MutableDescriptorTypeCreateInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT>
 {
     public MutableDescriptorTypeCreateInfoEXT()
     {
@@ -36,7 +36,7 @@ public unsafe partial class MutableDescriptorTypeCreateInfoEXT : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class MutableDescriptorTypeCreateInfoEXT : IMarshallableOb
             for (int i = 0; i < PMutableDescriptorTypeLists.Length; i++)
             {
                 if (PMutableDescriptorTypeLists.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMutableDescriptorTypeListEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMutableDescriptorTypeListEXT>.Size;
                 else
                     size += PMutableDescriptorTypeLists.Span[i].GetSize();
             }
@@ -61,7 +61,14 @@ public unsafe partial class MutableDescriptorTypeCreateInfoEXT : IMarshallableOb
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MutableDescriptorTypeListCount = native.mutableDescriptorTypeListCount;
         var arrayLengthPMutableDescriptorTypeLists = native.mutableDescriptorTypeListCount;
         var tmpPMutableDescriptorTypeLists = new MutableDescriptorTypeListEXT[arrayLengthPMutableDescriptorTypeLists];
@@ -82,6 +89,12 @@ public unsafe partial class MutableDescriptorTypeCreateInfoEXT : IMarshallableOb
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkMutableDescriptorTypeCreateInfoEXT*)native);
     }
     private ref struct VkMutableDescriptorTypeCreateInfoEXTMarshaller
     {

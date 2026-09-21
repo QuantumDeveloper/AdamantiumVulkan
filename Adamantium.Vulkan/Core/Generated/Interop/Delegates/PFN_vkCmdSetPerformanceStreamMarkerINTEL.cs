@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17232 Column: 10
 public unsafe struct PFN_vkCmdSetPerformanceStreamMarkerINTEL
 {
     public PFN_vkCmdSetPerformanceStreamMarkerINTEL(nuint ptr) : this((void*) ptr) { }

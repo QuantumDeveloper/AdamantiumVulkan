@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SetDescriptorBufferOffsetsInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT>
+public unsafe partial class SetDescriptorBufferOffsetsInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT>
 {
     public SetDescriptorBufferOffsetsInfoEXT()
     {
@@ -40,13 +40,13 @@ public unsafe partial class SetDescriptorBufferOffsetsInfoEXT : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PBufferIndices.IsEmpty)
-            size += PBufferIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PBufferIndices.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 
@@ -57,7 +57,14 @@ public unsafe partial class SetDescriptorBufferOffsetsInfoEXT : IMarshallableObj
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         StageFlags = native.stageFlags;
         Layout = new PipelineLayout(native.layout);
         FirstSet = native.firstSet;
@@ -80,6 +87,12 @@ public unsafe partial class SetDescriptorBufferOffsetsInfoEXT : IMarshallableObj
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSetDescriptorBufferOffsetsInfoEXT*)native);
     }
     private ref struct VkSetDescriptorBufferOffsetsInfoEXTMarshaller
     {

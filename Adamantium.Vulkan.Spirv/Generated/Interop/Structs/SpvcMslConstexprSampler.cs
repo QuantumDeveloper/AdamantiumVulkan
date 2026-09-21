@@ -12,7 +12,6 @@ using Adamantium.Vulkan.Spirv.Cross;
 
 namespace Adamantium.Vulkan.Spirv.Cross.Interop;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv_cross\spirv_cross_c.h Line: 537 Column: 16
 ///<summary>
 /// Maps to C++ API.
 ///</summary>

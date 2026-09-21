@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 616 Column: 10
 public unsafe partial class Fence : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkFence_T>
 {
     internal VkFence_T __Instance;

@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 14066 Column: 6
 public enum CubicFilterWeightsQCOM : int
 {
     CatmullRomQcom = 0,

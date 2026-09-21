@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PresentTimingsInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentTimingsInfoEXT>
+public unsafe partial class PresentTimingsInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentTimingsInfoEXT>
 {
     public PresentTimingsInfoEXT()
     {
@@ -36,7 +36,7 @@ public unsafe partial class PresentTimingsInfoEXT : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentTimingsInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentTimingsInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class PresentTimingsInfoEXT : IMarshallableObject, IMarsha
             for (int i = 0; i < PTimingInfos.Length; i++)
             {
                 if (PTimingInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentTimingInfoEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentTimingInfoEXT>.Size;
                 else
                     size += PTimingInfos.Span[i].GetSize();
             }
@@ -61,7 +61,14 @@ public unsafe partial class PresentTimingsInfoEXT : IMarshallableObject, IMarsha
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPresentTimingsInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SwapchainCount = native.swapchainCount;
         var arrayLengthPTimingInfos = native.swapchainCount;
         var tmpPTimingInfos = new PresentTimingInfoEXT[arrayLengthPTimingInfos];
@@ -82,6 +89,12 @@ public unsafe partial class PresentTimingsInfoEXT : IMarshallableObject, IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPresentTimingsInfoEXT*)native);
     }
     private ref struct VkPresentTimingsInfoEXTMarshaller
     {

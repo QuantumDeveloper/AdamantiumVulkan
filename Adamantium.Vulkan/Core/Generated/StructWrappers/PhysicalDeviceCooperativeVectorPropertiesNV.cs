@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceCooperativeVectorPropertiesNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCooperativeVectorPropertiesNV>
+public unsafe partial class PhysicalDeviceCooperativeVectorPropertiesNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCooperativeVectorPropertiesNV>
 {
     public PhysicalDeviceCooperativeVectorPropertiesNV()
     {
@@ -38,7 +38,7 @@ public unsafe partial class PhysicalDeviceCooperativeVectorPropertiesNV : IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCooperativeVectorPropertiesNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCooperativeVectorPropertiesNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -53,7 +53,14 @@ public unsafe partial class PhysicalDeviceCooperativeVectorPropertiesNV : IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCooperativeVectorPropertiesNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         CooperativeVectorSupportedStages = native.cooperativeVectorSupportedStages;
         CooperativeVectorTrainingFloat16Accumulation = native.cooperativeVectorTrainingFloat16Accumulation;
         CooperativeVectorTrainingFloat32Accumulation = native.cooperativeVectorTrainingFloat32Accumulation;
@@ -68,6 +75,12 @@ public unsafe partial class PhysicalDeviceCooperativeVectorPropertiesNV : IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceCooperativeVectorPropertiesNV*)native);
     }
     private ref struct VkPhysicalDeviceCooperativeVectorPropertiesNVMarshaller
     {

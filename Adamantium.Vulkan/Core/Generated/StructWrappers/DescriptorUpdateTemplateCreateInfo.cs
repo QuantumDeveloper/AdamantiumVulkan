@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DescriptorUpdateTemplateCreateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo>
+public unsafe partial class DescriptorUpdateTemplateCreateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo>
 {
     public DescriptorUpdateTemplateCreateInfo()
     {
@@ -42,7 +42,7 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : IMarshallableOb
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -52,7 +52,7 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : IMarshallableOb
             for (int i = 0; i < PDescriptorUpdateEntries.Length; i++)
             {
                 if (PDescriptorUpdateEntries.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorUpdateTemplateEntry>.Size;
                 else
                     size += PDescriptorUpdateEntries.Span[i].GetSize();
             }
@@ -67,7 +67,14 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : IMarshallableOb
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         DescriptorUpdateEntryCount = native.descriptorUpdateEntryCount;
         var arrayLengthPDescriptorUpdateEntries = native.descriptorUpdateEntryCount;
@@ -94,6 +101,12 @@ public unsafe partial class DescriptorUpdateTemplateCreateInfo : IMarshallableOb
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDescriptorUpdateTemplateCreateInfo*)native);
     }
     private ref struct VkDescriptorUpdateTemplateCreateInfoMarshaller
     {

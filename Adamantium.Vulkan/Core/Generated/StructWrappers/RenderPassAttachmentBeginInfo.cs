@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class RenderPassAttachmentBeginInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassAttachmentBeginInfo>
+public unsafe partial class RenderPassAttachmentBeginInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassAttachmentBeginInfo>
 {
     public RenderPassAttachmentBeginInfo()
     {
@@ -36,13 +36,13 @@ public unsafe partial class RenderPassAttachmentBeginInfo : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassAttachmentBeginInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassAttachmentBeginInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PAttachments.IsEmpty)
-            size += PAttachments.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkImageView_T>();
+            size += PAttachments.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkImageView_T>.Size;
         return size;
     }
 
@@ -53,7 +53,14 @@ public unsafe partial class RenderPassAttachmentBeginInfo : IMarshallableObject,
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkRenderPassAttachmentBeginInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         AttachmentCount = native.attachmentCount;
         var arrayLengthPAttachments = native.attachmentCount;
         var tmpPAttachments = new ImageView[arrayLengthPAttachments];
@@ -74,6 +81,12 @@ public unsafe partial class RenderPassAttachmentBeginInfo : IMarshallableObject,
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkRenderPassAttachmentBeginInfo*)native);
     }
     private ref struct VkRenderPassAttachmentBeginInfoMarshaller
     {

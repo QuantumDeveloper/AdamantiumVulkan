@@ -13,7 +13,6 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 598 Column: 10
 public unsafe partial class Instance : IUnmanagedWrapper<Adamantium.Vulkan.Core.Interop.VkInstance_T>
 {
     internal VkInstance_T __Instance;
@@ -177,9 +176,9 @@ public unsafe partial class Instance : IUnmanagedWrapper<Adamantium.Vulkan.Core.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(pLayerPrefix))
-                totalSize += pLayerPrefix.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(pLayerPrefix) + 1;
             if (!string.IsNullOrEmpty(pMessage))
-                totalSize += pMessage.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(pMessage) + 1;
             return totalSize;
         }
 
@@ -330,7 +329,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<Adamantium.Vulkan.Core.
             for (var i = 0U; i < pPhysicalDeviceGroupProperties.Length; i++)
             {
                 if(pPhysicalDeviceGroupProperties[(int)i] == null)
-                    totalSize += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceGroupProperties>();
+                    totalSize += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceGroupProperties>.Size;
                 else
                     totalSize += pPhysicalDeviceGroupProperties[(int)i].GetSize();
             }
@@ -383,7 +382,10 @@ public unsafe partial class Instance : IUnmanagedWrapper<Adamantium.Vulkan.Core.
                 var result = Commands.vkEnumeratePhysicalDeviceGroups(this, ref pPhysicalDeviceGroupCount, arg2);
                 if (arg2 is not null)
                 {
-                    pPhysicalDeviceGroupProperties = new Adamantium.Vulkan.Core.PhysicalDeviceGroupProperties(*arg2);
+                    if (pPhysicalDeviceGroupProperties != null)
+                        pPhysicalDeviceGroupProperties.MarshalFrom(*arg2);
+                    else
+                        pPhysicalDeviceGroupProperties = new Adamantium.Vulkan.Core.PhysicalDeviceGroupProperties(*arg2);
                 }
                 return result;
             }
@@ -413,7 +415,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<Adamantium.Vulkan.Core.
         {
             int totalSize = 0;
             if (!string.IsNullOrEmpty(pName))
-                totalSize += pName.Length * sizeof(byte) + 1;
+                totalSize += System.Text.Encoding.UTF8.GetByteCount(pName) + 1;
             return totalSize;
         }
 

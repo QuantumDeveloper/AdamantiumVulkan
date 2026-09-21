@@ -60,7 +60,7 @@ public unsafe partial class SpvcMslShaderInterfaceVar : IMarshallable<Adamantium
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcMslShaderInterfaceVar>.Size;
         return size;
     }
 

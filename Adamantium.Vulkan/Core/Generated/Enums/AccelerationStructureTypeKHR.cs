@@ -11,8 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13224 Column: 6
-[Flags]
 public enum AccelerationStructureTypeKHR : int
 {
     TopLevelKhr = 0,
@@ -20,6 +18,8 @@ public enum AccelerationStructureTypeKHR : int
     BottomLevelKhr = 1,
 
     GenericKhr = 2,
+
+    OpacityMicromapKhr = 1000623000,
 
 }
 

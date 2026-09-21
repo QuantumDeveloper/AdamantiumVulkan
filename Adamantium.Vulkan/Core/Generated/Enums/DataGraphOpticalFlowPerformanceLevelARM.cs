@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 14259 Column: 6
 public enum DataGraphOpticalFlowPerformanceLevelARM : int
 {
     UnknownArm = 0,

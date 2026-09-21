@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class RayTracingShaderGroupCreateInfoNV : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV>
+public unsafe partial class RayTracingShaderGroupCreateInfoNV : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV>
 {
     public RayTracingShaderGroupCreateInfoNV()
     {
@@ -39,7 +39,7 @@ public unsafe partial class RayTracingShaderGroupCreateInfoNV : IMarshallableObj
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -54,7 +54,14 @@ public unsafe partial class RayTracingShaderGroupCreateInfoNV : IMarshallableObj
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Type = native.type;
         GeneralShader = native.generalShader;
         ClosestHitShader = native.closestHitShader;
@@ -70,6 +77,12 @@ public unsafe partial class RayTracingShaderGroupCreateInfoNV : IMarshallableObj
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkRayTracingShaderGroupCreateInfoNV*)native);
     }
     private ref struct VkRayTracingShaderGroupCreateInfoNVMarshaller
     {

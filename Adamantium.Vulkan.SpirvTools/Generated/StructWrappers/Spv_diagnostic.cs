@@ -55,7 +55,7 @@ public unsafe partial class Spv_diagnostic : IMarshallable<Adamantium.Vulkan.Spi
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.SpirvTools.Interop.spv_diagnostic>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.SpirvTools.Interop.spv_diagnostic>.Size;
         return size;
     }
 

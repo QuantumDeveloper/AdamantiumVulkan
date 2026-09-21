@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM>
+public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM>
 {
     public MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM()
     {
@@ -36,7 +36,7 @@ public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM :
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM :
             for (int i = 0; i < PerViewRenderAreas.Length; i++)
             {
                 if (PerViewRenderAreas.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRect2D>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRect2D>.Size;
                 else
                     size += PerViewRenderAreas.Span[i].GetSize();
             }
@@ -61,7 +61,14 @@ public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM :
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PerViewRenderAreaCount = native.perViewRenderAreaCount;
         var arrayLengthPerViewRenderAreas = native.perViewRenderAreaCount;
         var tmpPerViewRenderAreas = new Rect2D[arrayLengthPerViewRenderAreas];
@@ -82,6 +89,12 @@ public unsafe partial class MultiviewPerViewRenderAreasRenderPassBeginInfoQCOM :
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM*)native);
     }
     private ref struct VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOMMarshaller
     {

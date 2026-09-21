@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: video.xml Line: 1486 Column: 6
 public enum StdVideoH265SliceType : int
 {
     B = 0,

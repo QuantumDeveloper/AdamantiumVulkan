@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: video.xml Line: 1585 Column: 6
 public enum StdVideoAV1Level : int
 {
     _20 = 0,

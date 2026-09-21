@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 12824 Column: 6
 public enum DeviceMemoryReportEventTypeEXT : int
 {
     AllocateExt = 0,

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoH264ScalingLists : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoH264ScalingLists>
+public unsafe partial class StdVideoH264ScalingLists : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoH264ScalingLists>
 {
     public StdVideoH264ScalingLists()
     {
@@ -36,7 +36,7 @@ public unsafe partial class StdVideoH264ScalingLists : IMarshallableObject, IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoH264ScalingLists>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoH264ScalingLists>.Size;
         return size;
     }
 
@@ -69,6 +69,12 @@ public unsafe partial class StdVideoH264ScalingLists : IMarshallableObject, IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoH264ScalingLists*)native);
     }
     private ref struct StdVideoH264ScalingListsMarshaller
     {

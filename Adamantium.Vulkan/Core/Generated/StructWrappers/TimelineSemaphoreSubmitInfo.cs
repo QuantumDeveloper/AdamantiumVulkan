@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class TimelineSemaphoreSubmitInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo>
+public unsafe partial class TimelineSemaphoreSubmitInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo>
 {
     public TimelineSemaphoreSubmitInfo()
     {
@@ -38,15 +38,15 @@ public unsafe partial class TimelineSemaphoreSubmitInfo : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PWaitSemaphoreValues.IsEmpty)
-            size += PWaitSemaphoreValues.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PWaitSemaphoreValues.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         if (!PSignalSemaphoreValues.IsEmpty)
-            size += PSignalSemaphoreValues.Span.Length * Marshal.SizeOf<System.UInt64>();
+            size += PSignalSemaphoreValues.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt64>.Size;
         return size;
     }
 
@@ -57,7 +57,14 @@ public unsafe partial class TimelineSemaphoreSubmitInfo : IMarshallableObject, I
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         WaitSemaphoreValueCount = native.waitSemaphoreValueCount;
         var arrayLengthPWaitSemaphoreValues = native.waitSemaphoreValueCount;
         var tmpPWaitSemaphoreValues = new ulong[arrayLengthPWaitSemaphoreValues];
@@ -78,6 +85,12 @@ public unsafe partial class TimelineSemaphoreSubmitInfo : IMarshallableObject, I
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkTimelineSemaphoreSubmitInfo*)native);
     }
     private ref struct VkTimelineSemaphoreSubmitInfoMarshaller
     {

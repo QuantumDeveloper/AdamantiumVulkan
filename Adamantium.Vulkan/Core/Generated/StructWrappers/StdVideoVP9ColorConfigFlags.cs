@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoVP9ColorConfigFlags : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoVP9ColorConfigFlags>
+public unsafe partial class StdVideoVP9ColorConfigFlags : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoVP9ColorConfigFlags>
 {
     public StdVideoVP9ColorConfigFlags()
     {
@@ -34,7 +34,7 @@ public unsafe partial class StdVideoVP9ColorConfigFlags : IMarshallableObject, I
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoVP9ColorConfigFlags>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoVP9ColorConfigFlags>.Size;
         return size;
     }
 
@@ -57,6 +57,12 @@ public unsafe partial class StdVideoVP9ColorConfigFlags : IMarshallableObject, I
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoVP9ColorConfigFlags*)native);
     }
     private ref struct StdVideoVP9ColorConfigFlagsMarshaller
     {

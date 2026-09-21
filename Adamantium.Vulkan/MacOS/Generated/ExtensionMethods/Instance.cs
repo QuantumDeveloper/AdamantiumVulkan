@@ -15,7 +15,6 @@ using Adamantium.Vulkan.MacOS.Interop;
 
 namespace Adamantium.Vulkan.MacOS;
 
-// File: vk.xml Line: 598 Column: 10
 public static unsafe partial class InstanceExtension
 {
     public static Result CreateMacOSSurfaceMVK(this Adamantium.Vulkan.Core.Instance instance, in MacOSSurfaceCreateInfoMVK pCreateInfo, in AllocationCallbacks pAllocator, out Adamantium.Vulkan.Core.SurfaceKHR pSurface)

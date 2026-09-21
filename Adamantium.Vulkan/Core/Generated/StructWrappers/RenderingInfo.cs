@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class RenderingInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderingInfo>
+public unsafe partial class RenderingInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderingInfo>
 {
     public RenderingInfo()
     {
@@ -42,7 +42,7 @@ public unsafe partial class RenderingInfo : IMarshallableObject, IMarshallable<A
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderingInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderingInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -52,7 +52,7 @@ public unsafe partial class RenderingInfo : IMarshallableObject, IMarshallable<A
             for (int i = 0; i < PColorAttachments.Length; i++)
             {
                 if (PColorAttachments.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderingAttachmentInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderingAttachmentInfo>.Size;
                 else
                     size += PColorAttachments.Span[i].GetSize();
             }
@@ -75,7 +75,14 @@ public unsafe partial class RenderingInfo : IMarshallableObject, IMarshallable<A
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkRenderingInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         RenderArea = new Rect2D(native.renderArea);
         LayerCount = native.layerCount;
@@ -104,6 +111,12 @@ public unsafe partial class RenderingInfo : IMarshallableObject, IMarshallable<A
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkRenderingInfo*)native);
     }
     private ref struct VkRenderingInfoMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoAV1ColorConfig : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoAV1ColorConfig>
+public unsafe partial class StdVideoAV1ColorConfig : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoAV1ColorConfig>
 {
     public StdVideoAV1ColorConfig()
     {
@@ -41,7 +41,7 @@ public unsafe partial class StdVideoAV1ColorConfig : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoAV1ColorConfig>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoAV1ColorConfig>.Size;
         return size;
     }
 
@@ -71,6 +71,12 @@ public unsafe partial class StdVideoAV1ColorConfig : IMarshallableObject, IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoAV1ColorConfig*)native);
     }
     private ref struct StdVideoAV1ColorConfigMarshaller
     {

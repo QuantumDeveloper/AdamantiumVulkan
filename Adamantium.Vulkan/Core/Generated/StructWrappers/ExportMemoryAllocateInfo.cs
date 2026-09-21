@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ExportMemoryAllocateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkExportMemoryAllocateInfo>
+public unsafe partial class ExportMemoryAllocateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkExportMemoryAllocateInfo>
 {
     public ExportMemoryAllocateInfo()
     {
@@ -35,7 +35,7 @@ public unsafe partial class ExportMemoryAllocateInfo : IMarshallableObject, IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkExportMemoryAllocateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkExportMemoryAllocateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,14 @@ public unsafe partial class ExportMemoryAllocateInfo : IMarshallableObject, IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkExportMemoryAllocateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         HandleTypes = native.handleTypes;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class ExportMemoryAllocateInfo : IMarshallableObject, IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkExportMemoryAllocateInfo*)native);
     }
     private ref struct VkExportMemoryAllocateInfoMarshaller
     {

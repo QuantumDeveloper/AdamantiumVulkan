@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17106 Column: 10
 public unsafe struct PFN_vkGetRayTracingShaderGroupStackSizeKHR
 {
     public PFN_vkGetRayTracingShaderGroupStackSizeKHR(nuint ptr) : this((void*) ptr) { }

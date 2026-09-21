@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class StdVideoVP9LoopFilter : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoVP9LoopFilter>
+public unsafe partial class StdVideoVP9LoopFilter : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.StdVideoVP9LoopFilter>
 {
     public StdVideoVP9LoopFilter()
     {
@@ -39,7 +39,7 @@ public unsafe partial class StdVideoVP9LoopFilter : IMarshallableObject, IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.StdVideoVP9LoopFilter>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.StdVideoVP9LoopFilter>.Size;
         return size;
     }
 
@@ -75,6 +75,12 @@ public unsafe partial class StdVideoVP9LoopFilter : IMarshallableObject, IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.StdVideoVP9LoopFilter*)native);
     }
     private ref struct StdVideoVP9LoopFilterMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceDataGraphOperationSupportARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphOperationSupportARM>
+public unsafe partial class PhysicalDeviceDataGraphOperationSupportARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphOperationSupportARM>
 {
     public PhysicalDeviceDataGraphOperationSupportARM()
     {
@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceDataGraphOperationSupportARM : IMarsha
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphOperationSupportARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphOperationSupportARM>.Size;
         return size;
     }
 
@@ -62,6 +62,12 @@ public unsafe partial class PhysicalDeviceDataGraphOperationSupportARM : IMarsha
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceDataGraphOperationSupportARM*)native);
     }
     private ref struct VkPhysicalDeviceDataGraphOperationSupportARMMarshaller
     {

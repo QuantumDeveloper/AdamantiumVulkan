@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class TilePropertiesQCOM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkTilePropertiesQCOM>
+public unsafe partial class TilePropertiesQCOM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkTilePropertiesQCOM>
 {
     public TilePropertiesQCOM()
     {
@@ -37,7 +37,7 @@ public unsafe partial class TilePropertiesQCOM : IMarshallableObject, IMarshalla
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkTilePropertiesQCOM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkTilePropertiesQCOM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -52,7 +52,14 @@ public unsafe partial class TilePropertiesQCOM : IMarshallableObject, IMarshalla
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkTilePropertiesQCOM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         TileSize = new Extent3D(native.tileSize);
         ApronSize = new Extent2D(native.apronSize);
         Origin = new Offset2D(native.origin);
@@ -66,6 +73,12 @@ public unsafe partial class TilePropertiesQCOM : IMarshallableObject, IMarshalla
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkTilePropertiesQCOM*)native);
     }
     private ref struct VkTilePropertiesQCOMMarshaller
     {

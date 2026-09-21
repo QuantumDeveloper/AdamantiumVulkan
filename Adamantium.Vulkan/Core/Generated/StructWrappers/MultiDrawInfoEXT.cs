@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class MultiDrawInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMultiDrawInfoEXT>
+public unsafe partial class MultiDrawInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMultiDrawInfoEXT>
 {
     public MultiDrawInfoEXT()
     {
@@ -34,7 +34,7 @@ public unsafe partial class MultiDrawInfoEXT : IMarshallableObject, IMarshallabl
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMultiDrawInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMultiDrawInfoEXT>.Size;
         return size;
     }
 
@@ -57,6 +57,12 @@ public unsafe partial class MultiDrawInfoEXT : IMarshallableObject, IMarshallabl
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkMultiDrawInfoEXT*)native);
     }
     private ref struct VkMultiDrawInfoEXTMarshaller
     {

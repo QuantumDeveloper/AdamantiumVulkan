@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18241 Column: 10
 public unsafe struct PFN_vkCmdEndRendering2KHR
 {
     public PFN_vkCmdEndRendering2KHR(nuint ptr) : this((void*) ptr) { }

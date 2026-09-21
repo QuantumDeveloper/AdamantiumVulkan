@@ -37,7 +37,7 @@ public unsafe partial class Spv_parsed_header_t : IMarshallable<Adamantium.Vulka
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.SpirvTools.Interop.spv_parsed_header_t>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.SpirvTools.Interop.spv_parsed_header_t>.Size;
         return size;
     }
 

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DescriptorSetAllocateInfo : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorSetAllocateInfo>
+public unsafe partial class DescriptorSetAllocateInfo : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDescriptorSetAllocateInfo>
 {
     public DescriptorSetAllocateInfo()
     {
@@ -37,13 +37,13 @@ public unsafe partial class DescriptorSetAllocateInfo : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetAllocateInfo>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetAllocateInfo>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PSetLayouts.IsEmpty)
-            size += PSetLayouts.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayout_T>();
+            size += PSetLayouts.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayout_T>.Size;
         return size;
     }
 
@@ -54,7 +54,14 @@ public unsafe partial class DescriptorSetAllocateInfo : IMarshallableObject, IMa
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDescriptorSetAllocateInfo native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         DescriptorPool = new DescriptorPool(native.descriptorPool);
         DescriptorSetCount = native.descriptorSetCount;
         var arrayLengthPSetLayouts = native.descriptorSetCount;
@@ -76,6 +83,12 @@ public unsafe partial class DescriptorSetAllocateInfo : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDescriptorSetAllocateInfo*)native);
     }
     private ref struct VkDescriptorSetAllocateInfoMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class LayerSettingsCreateInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkLayerSettingsCreateInfoEXT>
+public unsafe partial class LayerSettingsCreateInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkLayerSettingsCreateInfoEXT>
 {
     public LayerSettingsCreateInfoEXT()
     {
@@ -36,7 +36,7 @@ public unsafe partial class LayerSettingsCreateInfoEXT : IMarshallableObject, IM
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkLayerSettingsCreateInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkLayerSettingsCreateInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class LayerSettingsCreateInfoEXT : IMarshallableObject, IM
             for (int i = 0; i < PSettings.Length; i++)
             {
                 if (PSettings.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkLayerSettingEXT>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkLayerSettingEXT>.Size;
                 else
                     size += PSettings.Span[i].GetSize();
             }
@@ -61,7 +61,14 @@ public unsafe partial class LayerSettingsCreateInfoEXT : IMarshallableObject, IM
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkLayerSettingsCreateInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         SettingCount = native.settingCount;
         var arrayLengthPSettings = native.settingCount;
         var tmpPSettings = new LayerSettingEXT[arrayLengthPSettings];
@@ -82,6 +89,12 @@ public unsafe partial class LayerSettingsCreateInfoEXT : IMarshallableObject, IM
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkLayerSettingsCreateInfoEXT*)native);
     }
     private ref struct VkLayerSettingsCreateInfoEXTMarshaller
     {

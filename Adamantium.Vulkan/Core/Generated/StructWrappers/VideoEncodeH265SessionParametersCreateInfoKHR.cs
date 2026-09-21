@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class VideoEncodeH265SessionParametersCreateInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersCreateInfoKHR>
+public unsafe partial class VideoEncodeH265SessionParametersCreateInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersCreateInfoKHR>
 {
     public VideoEncodeH265SessionParametersCreateInfoKHR()
     {
@@ -38,7 +38,7 @@ public unsafe partial class VideoEncodeH265SessionParametersCreateInfoKHR : IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersCreateInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersCreateInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -57,7 +57,14 @@ public unsafe partial class VideoEncodeH265SessionParametersCreateInfoKHR : IMar
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersCreateInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MaxStdVPSCount = native.maxStdVPSCount;
         MaxStdSPSCount = native.maxStdSPSCount;
         MaxStdPPSCount = native.maxStdPPSCount;
@@ -73,6 +80,12 @@ public unsafe partial class VideoEncodeH265SessionParametersCreateInfoKHR : IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkVideoEncodeH265SessionParametersCreateInfoKHR*)native);
     }
     private ref struct VkVideoEncodeH265SessionParametersCreateInfoKHRMarshaller
     {

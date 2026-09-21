@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceVariablePointersFeatures : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVariablePointersFeatures>
+public unsafe partial class PhysicalDeviceVariablePointersFeatures : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVariablePointersFeatures>
 {
     public PhysicalDeviceVariablePointersFeatures()
     {
@@ -36,7 +36,7 @@ public unsafe partial class PhysicalDeviceVariablePointersFeatures : IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVariablePointersFeatures>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVariablePointersFeatures>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -51,7 +51,14 @@ public unsafe partial class PhysicalDeviceVariablePointersFeatures : IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVariablePointersFeatures native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         VariablePointersStorageBuffer = native.variablePointersStorageBuffer;
         VariablePointers = native.variablePointers;
 
@@ -64,6 +71,12 @@ public unsafe partial class PhysicalDeviceVariablePointersFeatures : IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceVariablePointersFeatures*)native);
     }
     private ref struct VkPhysicalDeviceVariablePointersFeaturesMarshaller
     {

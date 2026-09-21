@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13534 Column: 6
 [Flags]
 public enum ResolveImageFlagBitsKHR : uint
 {

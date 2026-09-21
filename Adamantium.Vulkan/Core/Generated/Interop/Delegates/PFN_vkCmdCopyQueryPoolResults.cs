@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 15396 Column: 10
 public unsafe struct PFN_vkCmdCopyQueryPoolResults
 {
     public PFN_vkCmdCopyQueryPoolResults(nuint ptr) : this((void*) ptr) { }

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDeviceYcbcrDegammaFeaturesQCOM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceYcbcrDegammaFeaturesQCOM>
+public unsafe partial class PhysicalDeviceYcbcrDegammaFeaturesQCOM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceYcbcrDegammaFeaturesQCOM>
 {
     public PhysicalDeviceYcbcrDegammaFeaturesQCOM()
     {
@@ -35,7 +35,7 @@ public unsafe partial class PhysicalDeviceYcbcrDegammaFeaturesQCOM : IMarshallab
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceYcbcrDegammaFeaturesQCOM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceYcbcrDegammaFeaturesQCOM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -50,7 +50,14 @@ public unsafe partial class PhysicalDeviceYcbcrDegammaFeaturesQCOM : IMarshallab
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceYcbcrDegammaFeaturesQCOM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         YcbcrDegamma = native.ycbcrDegamma;
 
     }
@@ -62,6 +69,12 @@ public unsafe partial class PhysicalDeviceYcbcrDegammaFeaturesQCOM : IMarshallab
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDeviceYcbcrDegammaFeaturesQCOM*)native);
     }
     private ref struct VkPhysicalDeviceYcbcrDegammaFeaturesQCOMMarshaller
     {

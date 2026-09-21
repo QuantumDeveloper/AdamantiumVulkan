@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 17345 Column: 10
 public unsafe struct PFN_vkGetAccelerationStructureDeviceAddressKHR
 {
     public PFN_vkGetAccelerationStructureDeviceAddressKHR(nuint ptr) : this((void*) ptr) { }

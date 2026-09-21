@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DisplayPropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDisplayPropertiesKHR>
+public unsafe partial class DisplayPropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDisplayPropertiesKHR>
 {
     public DisplayPropertiesKHR()
     {
@@ -39,7 +39,7 @@ public unsafe partial class DisplayPropertiesKHR : IMarshallableObject, IMarshal
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDisplayPropertiesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDisplayPropertiesKHR>.Size;
         if (!string.IsNullOrEmpty(DisplayName))
             size += System.Text.Encoding.UTF8.GetByteCount(DisplayName) + 1;
         return size;
@@ -69,6 +69,12 @@ public unsafe partial class DisplayPropertiesKHR : IMarshallableObject, IMarshal
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDisplayPropertiesKHR*)native);
     }
     private ref struct VkDisplayPropertiesKHRMarshaller
     {

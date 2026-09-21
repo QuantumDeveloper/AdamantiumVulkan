@@ -53,7 +53,7 @@ public unsafe partial class SpvcMslVertexAttribute : IMarshallable<Adamantium.Vu
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcMslVertexAttribute>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcMslVertexAttribute>.Size;
         return size;
     }
 

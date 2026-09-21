@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class RenderPassStripeSubmitInfoARM : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM>
+public unsafe partial class RenderPassStripeSubmitInfoARM : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM>
 {
     public RenderPassStripeSubmitInfoARM()
     {
@@ -36,7 +36,7 @@ public unsafe partial class RenderPassStripeSubmitInfoARM : IMarshallableObject,
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -46,7 +46,7 @@ public unsafe partial class RenderPassStripeSubmitInfoARM : IMarshallableObject,
             for (int i = 0; i < PStripeSemaphoreInfos.Length; i++)
             {
                 if (PStripeSemaphoreInfos.Span[i] == null)
-                    size += Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphoreSubmitInfo>();
+                    size += QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphoreSubmitInfo>.Size;
                 else
                     size += PStripeSemaphoreInfos.Span[i].GetSize();
             }
@@ -61,7 +61,14 @@ public unsafe partial class RenderPassStripeSubmitInfoARM : IMarshallableObject,
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         StripeSemaphoreInfoCount = native.stripeSemaphoreInfoCount;
         var arrayLengthPStripeSemaphoreInfos = native.stripeSemaphoreInfoCount;
         var tmpPStripeSemaphoreInfos = new SemaphoreSubmitInfo[arrayLengthPStripeSemaphoreInfos];
@@ -82,6 +89,12 @@ public unsafe partial class RenderPassStripeSubmitInfoARM : IMarshallableObject,
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkRenderPassStripeSubmitInfoARM*)native);
     }
     private ref struct VkRenderPassStripeSubmitInfoARMMarshaller
     {

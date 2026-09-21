@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DeviceFaultShaderAbortMessageInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceFaultShaderAbortMessageInfoKHR>
+public unsafe partial class DeviceFaultShaderAbortMessageInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDeviceFaultShaderAbortMessageInfoKHR>
 {
     public DeviceFaultShaderAbortMessageInfoKHR()
     {
@@ -36,13 +36,13 @@ public unsafe partial class DeviceFaultShaderAbortMessageInfoKHR : IMarshallable
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDeviceFaultShaderAbortMessageInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDeviceFaultShaderAbortMessageInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PMessageData.IsEmpty)
-            size += PMessageData.Span.Length * Marshal.SizeOf<System.Byte>();
+            size += PMessageData.Span.Length * QuantumBinding.Utils.SizeOfCache<System.Byte>.Size;
         return size;
     }
 
@@ -53,7 +53,14 @@ public unsafe partial class DeviceFaultShaderAbortMessageInfoKHR : IMarshallable
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkDeviceFaultShaderAbortMessageInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MessageDataSize = native.messageDataSize;
         var arrayLengthPMessageData = native.messageDataSize;
         var tmpPMessageData = new byte[arrayLengthPMessageData];
@@ -69,6 +76,12 @@ public unsafe partial class DeviceFaultShaderAbortMessageInfoKHR : IMarshallable
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDeviceFaultShaderAbortMessageInfoKHR*)native);
     }
     private ref struct VkDeviceFaultShaderAbortMessageInfoKHRMarshaller
     {

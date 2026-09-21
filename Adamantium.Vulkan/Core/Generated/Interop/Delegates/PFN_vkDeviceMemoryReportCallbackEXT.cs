@@ -13,7 +13,6 @@ using QuantumBinding.Utils;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: vk.xml Line: 1158 Column: 10
 public unsafe struct PFN_vkDeviceMemoryReportCallbackEXT
 {
     public PFN_vkDeviceMemoryReportCallbackEXT(nuint ptr) : this((void*) ptr) { }

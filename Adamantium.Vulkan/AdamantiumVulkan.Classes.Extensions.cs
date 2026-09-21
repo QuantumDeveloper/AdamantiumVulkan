@@ -517,7 +517,7 @@ namespace Adamantium.Vulkan.Core
             // Phase 1: a null pFaultInfo makes the driver report ONLY the counts (the array lengths live here).
             VkDeviceFaultCountsEXT counts = new() { sType = StructureType.DeviceFaultCountsExt };
             var result = Commands.vkGetDeviceFaultInfoEXT(this, &counts, null);
-            if (result != Result.Success) return result;
+            if (result != Result.Success && result != Result.Incomplete) return result;
 
             int addressCount = (int)counts.addressInfoCount;
             int vendorCount = (int)counts.vendorInfoCount;
@@ -541,8 +541,12 @@ namespace Adamantium.Vulkan.Core
                     pAddressInfos = addressCount > 0 ? pAddresses : null,
                     pVendorInfos = vendorCount > 0 ? pVendors : null,
                 };
+                // INCOMPLETE is the expected answer here, not a failure: zeroing vendorBinarySize above opts out of the
+                // vendor blob, and the driver reports "written, but not all of it" for exactly that. The description and
+                // the address records ARE filled - treating this as failure threw away the whole diagnostic, which is
+                // why the fault probe looked like it only worked sometimes.
                 result = Commands.vkGetDeviceFaultInfoEXT(this, &counts, &nativeInfo);
-                if (result != Result.Success) return result;
+                if (result != Result.Success && result != Result.Incomplete) return result;
                 faultInfo = new DeviceFaultInfoEXT(in nativeInfo);   // keeps InteropSource + marshals the description
             }
 

@@ -47,7 +47,7 @@ public unsafe partial class SpvcMslResourceBinding2 : IMarshallable<Adamantium.V
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcMslResourceBinding2>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcMslResourceBinding2>.Size;
         return size;
     }
 

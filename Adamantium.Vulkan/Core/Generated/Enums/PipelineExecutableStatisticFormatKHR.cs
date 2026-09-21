@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: vk.xml Line: 13356 Column: 6
 public enum PipelineExecutableStatisticFormatKHR : int
 {
     Bool32Khr = 0,

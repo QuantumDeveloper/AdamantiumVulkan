@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class MicromapBuildSizesInfoEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMicromapBuildSizesInfoEXT>
+public unsafe partial class MicromapBuildSizesInfoEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkMicromapBuildSizesInfoEXT>
 {
     public MicromapBuildSizesInfoEXT()
     {
@@ -37,7 +37,7 @@ public unsafe partial class MicromapBuildSizesInfoEXT : IMarshallableObject, IMa
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkMicromapBuildSizesInfoEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkMicromapBuildSizesInfoEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -52,7 +52,14 @@ public unsafe partial class MicromapBuildSizesInfoEXT : IMarshallableObject, IMa
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkMicromapBuildSizesInfoEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         MicromapSize = native.micromapSize;
         BuildScratchSize = native.buildScratchSize;
         Discardable = native.discardable;
@@ -66,6 +73,12 @@ public unsafe partial class MicromapBuildSizesInfoEXT : IMarshallableObject, IMa
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkMicromapBuildSizesInfoEXT*)native);
     }
     private ref struct VkMicromapBuildSizesInfoEXTMarshaller
     {

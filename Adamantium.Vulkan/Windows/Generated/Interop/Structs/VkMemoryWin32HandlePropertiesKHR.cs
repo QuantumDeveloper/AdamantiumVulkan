@@ -12,7 +12,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Windows.Interop;
 
-// File: vk.xml Line: 3158 Column: 10
 [StructLayout(LayoutKind.Sequential)]
 public unsafe partial struct VkMemoryWin32HandlePropertiesKHR
 {

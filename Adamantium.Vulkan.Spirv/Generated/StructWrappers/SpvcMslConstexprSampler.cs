@@ -60,7 +60,7 @@ public unsafe partial class SpvcMslConstexprSampler : IMarshallable<Adamantium.V
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Spirv.Cross.Interop.SpvcMslConstexprSampler>.Size;
         return size;
     }
 

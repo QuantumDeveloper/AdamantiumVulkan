@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class ShaderStatisticsInfoAMD : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkShaderStatisticsInfoAMD>
+public unsafe partial class ShaderStatisticsInfoAMD : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkShaderStatisticsInfoAMD>
 {
     public ShaderStatisticsInfoAMD()
     {
@@ -39,7 +39,7 @@ public unsafe partial class ShaderStatisticsInfoAMD : IMarshallableObject, IMars
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkShaderStatisticsInfoAMD>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkShaderStatisticsInfoAMD>.Size;
         return size;
     }
 
@@ -71,6 +71,12 @@ public unsafe partial class ShaderStatisticsInfoAMD : IMarshallableObject, IMars
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkShaderStatisticsInfoAMD*)native);
     }
     private ref struct VkShaderStatisticsInfoAMDMarshaller
     {

@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PresentInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentInfoKHR>
+public unsafe partial class PresentInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPresentInfoKHR>
 {
     public PresentInfoKHR()
     {
@@ -40,17 +40,17 @@ public unsafe partial class PresentInfoKHR : IMarshallableObject, IMarshallable<
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPresentInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPresentInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PWaitSemaphores.IsEmpty)
-            size += PWaitSemaphores.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>();
+            size += PWaitSemaphores.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSemaphore_T>.Size;
         if (!PSwapchains.IsEmpty)
-            size += PSwapchains.Span.Length * Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T>();
+            size += PSwapchains.Span.Length * QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T>.Size;
         if (!PImageIndices.IsEmpty)
-            size += PImageIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PImageIndices.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         if (!PResults.IsEmpty)
             size += PResults.Span.Length * sizeof(int);
         return size;
@@ -63,7 +63,14 @@ public unsafe partial class PresentInfoKHR : IMarshallableObject, IMarshallable<
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPresentInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         WaitSemaphoreCount = native.waitSemaphoreCount;
         var arrayLengthPWaitSemaphores = native.waitSemaphoreCount;
         var tmpPWaitSemaphores = new Semaphore[arrayLengthPWaitSemaphores];
@@ -102,6 +109,12 @@ public unsafe partial class PresentInfoKHR : IMarshallableObject, IMarshallable<
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPresentInfoKHR*)native);
     }
     private ref struct VkPresentInfoKHRMarshaller
     {

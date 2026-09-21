@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: video.xml Line: 1448 Column: 6
 public enum StdVideoDecodeH264FieldOrderCount : int
 {
     Top = 0,

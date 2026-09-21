@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class SwapchainCreateInfoKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSwapchainCreateInfoKHR>
+public unsafe partial class SwapchainCreateInfoKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkSwapchainCreateInfoKHR>
 {
     public SwapchainCreateInfoKHR()
     {
@@ -50,13 +50,13 @@ public unsafe partial class SwapchainCreateInfoKHR : IMarshallableObject, IMarsh
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkSwapchainCreateInfoKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkSwapchainCreateInfoKHR>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
         }
         if (!PQueueFamilyIndices.IsEmpty)
-            size += PQueueFamilyIndices.Span.Length * Marshal.SizeOf<System.UInt32>();
+            size += PQueueFamilyIndices.Span.Length * QuantumBinding.Utils.SizeOfCache<System.UInt32>.Size;
         return size;
     }
 
@@ -67,7 +67,14 @@ public unsafe partial class SwapchainCreateInfoKHR : IMarshallableObject, IMarsh
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkSwapchainCreateInfoKHR native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         Flags = native.flags;
         Surface = new SurfaceKHR(native.surface);
         MinImageCount = native.minImageCount;
@@ -97,6 +104,12 @@ public unsafe partial class SwapchainCreateInfoKHR : IMarshallableObject, IMarsh
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkSwapchainCreateInfoKHR*)native);
     }
     private ref struct VkSwapchainCreateInfoKHRMarshaller
     {

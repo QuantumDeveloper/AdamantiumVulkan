@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT>
+public unsafe partial class PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT>
 {
     public PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT()
     {
@@ -37,7 +37,7 @@ public unsafe partial class PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT : 
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT>.Size;
         if (PNext is IMarshallableObject marshallable)
         {
             size += marshallable.GetSize();
@@ -52,7 +52,14 @@ public unsafe partial class PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT : 
 
     public void MarshalFrom(in Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT native)
     {
-        PNext = (System.IntPtr)native.pNext;
+        if (PNext is IMarshallableFromPointer chainedPNext)
+        {
+            chainedPNext.MarshalFromPointer(native.pNext);
+        }
+        else
+        {
+            PNext = (System.IntPtr)native.pNext;
+        }
         PrimitivesGeneratedQuery = native.primitivesGeneratedQuery;
         PrimitivesGeneratedQueryWithRasterizerDiscard = native.primitivesGeneratedQueryWithRasterizerDiscard;
         PrimitivesGeneratedQueryWithNonZeroStreams = native.primitivesGeneratedQueryWithNonZeroStreams;
@@ -66,6 +73,12 @@ public unsafe partial class PhysicalDevicePrimitivesGeneratedQueryFeaturesEXT : 
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT*)native);
     }
     private ref struct VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXTMarshaller
     {

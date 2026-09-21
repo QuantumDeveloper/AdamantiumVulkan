@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.SpirvTools;
 
-// File: C:\VulkanSDK\1.4.350.0\Include\spirv-tools\libspirv.h Line: 382 Column: 14
 ///<summary>
 /// This determines at a high level the kind of a binary-encoded literal number, but not the bit width. In principle, these could probably be folded into new entries in spv_operand_type_t. But then we'd have some special case differences between the assembler and disassembler.
 ///</summary>

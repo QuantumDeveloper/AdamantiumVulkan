@@ -14,7 +14,6 @@ using Adamantium.Vulkan.Core;
 
 namespace Adamantium.Vulkan.Core.Interop;
 
-// File: video.xml Line: 18663 Column: 10
 public unsafe struct PFN_vkCmdSetRenderingAttachmentLocations
 {
     public PFN_vkCmdSetRenderingAttachmentLocations(nuint ptr) : this((void*) ptr) { }

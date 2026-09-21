@@ -12,7 +12,7 @@ using Adamantium.Vulkan.Core.Interop;
 
 namespace Adamantium.Vulkan.Core;
 
-public unsafe partial class DisplayModePropertiesKHR : IMarshallableObject, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDisplayModePropertiesKHR>
+public unsafe partial class DisplayModePropertiesKHR : IMarshallableObject, IMarshallableFromPointer, IMarshallable<Adamantium.Vulkan.Core.Interop.VkDisplayModePropertiesKHR>
 {
     public DisplayModePropertiesKHR()
     {
@@ -34,7 +34,7 @@ public unsafe partial class DisplayModePropertiesKHR : IMarshallableObject, IMar
 
     public int GetSize()
     {
-        var size = Marshal.SizeOf<Adamantium.Vulkan.Core.Interop.VkDisplayModePropertiesKHR>();
+        var size = QuantumBinding.Utils.SizeOfCache<Adamantium.Vulkan.Core.Interop.VkDisplayModePropertiesKHR>.Size;
         return size;
     }
 
@@ -57,6 +57,12 @@ public unsafe partial class DisplayModePropertiesKHR : IMarshallableObject, IMar
         this.MarshalTo(ref internalContext);
         context.SetDataCursor(internalContext.DataCursor);
         return System.Runtime.CompilerServices.Unsafe.AsPointer(ref nativeSpan[0]);
+    }
+
+    public void MarshalFromPointer(void* native)
+    {
+        if (native == null) return;
+        MarshalFrom(in *(Adamantium.Vulkan.Core.Interop.VkDisplayModePropertiesKHR*)native);
     }
     private ref struct VkDisplayModePropertiesKHRMarshaller
     {

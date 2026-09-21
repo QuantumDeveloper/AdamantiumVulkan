@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 
 namespace Adamantium.Vulkan.Core;
 
-// File: video.xml Line: 1380 Column: 6
 public enum StdVideoH264WeightedBipredIdc : int
 {
     Default = 0,
