@@ -1,0 +1,86 @@
+# Publishes the four Adamantium.Vulkan packages to nuget.org without a stored key.
+#
+# The job asks GitHub for a short-lived OIDC token, NuGet/login exchanges it for a temporary API key good for one
+# hour, and the push uses that. Nothing to rotate and nothing to leak - which matters, since API keys created from
+# 17 Aug 2026 last thirty days and every key made before that stops working on 1 Nov 2026.
+#
+# The matching policy on nuget.org (Account -> Trusted Publishing) must name:
+#   Repository Owner: QuantumDeveloper
+#   Repository:       AdamantiumVulkan
+#   Workflow File:    publish-nuget.yml     <- this file's NAME only, no path
+#   Environment:      (leave empty)
+# Renaming this file breaks publishing until the policy is changed to match: the name is half of what is trusted.
+name: Publish to NuGet
+
+# Manual, and dry by default. A published version can be unlisted but never deleted and never replaced, so it should
+# take a deliberate act rather than follow from a push.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Pack only, do not publish'
+        type: boolean
+        default: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # lets the job ask GitHub for the OIDC token; without it NuGet/login has nothing to exchange
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Version comes from global.json, so CI and a developer's machine build with the same SDK.
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      # One project at a time rather than the solution: the solution also holds the binding generator, which reaches
+      # into the QuantumBinding repository by path and is not here. Only these four are IsPackable anyway.
+      #
+      # Platform=x64 is not decoration: AllowUnsafeBlocks is set per configuration and platform in these projects,
+      # and without it the generated interop does not compile (CS0227).
+      - name: Pack
+        run: |
+          for p in Adamantium.Vulkan Adamantium.Vulkan.Loader Adamantium.Vulkan.Slang Adamantium.Vulkan.Spirv; do
+            echo "== $p"
+            dotnet pack "$p/$p.csproj" -c Release -p:Platform=x64 -o artifacts
+          done
+
+      # Printed, because the things worth checking before an irreversible push are all in here: the version, the
+      # licence, the commit the package claims to come from, and that the icon is actually referenced and not just
+      # carried along silently.
+      - name: Show what was packed
+        run: |
+          ls -la artifacts
+          for f in artifacts/*.nupkg; do
+            echo "===== $f"
+            unzip -p "$f" '*.nuspec'
+            echo "--- files"
+            unzip -l "$f" | grep -E 'icon.png|README.md|\.dll|\.dylib|\.so' || true
+          done
+
+      - name: Upload packages as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nupkg
+          path: artifacts/*.nupkg
+
+      # Asked for as late as possible: the key expires an hour after it is issued.
+      - name: NuGet login (OIDC to a temporary key)
+        if: ${{ !inputs.dry_run }}
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: ${{ secrets.NUGET_USER }}   # nuget.org profile name, not the e-mail address
+
+      # Adamantium.Vulkan depends on QuantumBinding.Utils, which is already published, so order does not matter here.
+      - name: Push
+        if: ${{ !inputs.dry_run }}
+        run: >
+          dotnet nuget push artifacts/*.nupkg
+          --api-key ${{ steps.login.outputs.NUGET_API_KEY }}
+          --source https://api.nuget.org/v3/index.json
+          --skip-duplicate
