@@ -686,30 +686,35 @@ namespace Adamantium.Vulkan.Core
         var totalSize = CalculateSize(pMemoryBarriers, pBufferMemoryBarriers, pImageMemoryBarriers);
         byte[] rentedArray = null;
         var mainBuffer = totalSize <= QuantumBinding.Utils.MarshalingUtils.StackAllocThreshold ? stackalloc byte[totalSize] : (rentedArray = System.Buffers.ArrayPool<byte>.Shared.Rent(totalSize)).AsSpan(0, totalSize);
-        try
+        // PINNED, as every generated call site is: above the threshold this buffer is a managed array, and the native
+        // pointers below point INTO it - a collection moving it mid-call would hand the driver a stale address.
+        fixed (byte* bufferPtr = mainBuffer)
         {
-            ref System.Span<byte> currentCursor = ref mainBuffer;
-            Adamantium.Vulkan.Core.Interop.VkMemoryBarrier* arg5 = null;
-            if (!pMemoryBarriers.IsEmpty)
+            try
             {
-                arg5 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<Adamantium.Vulkan.Core.MemoryBarrier, Adamantium.Vulkan.Core.Interop.VkMemoryBarrier>(pMemoryBarriers, ref currentCursor);
+                ref System.Span<byte> currentCursor = ref mainBuffer;
+                Adamantium.Vulkan.Core.Interop.VkMemoryBarrier* arg5 = null;
+                if (!pMemoryBarriers.IsEmpty)
+                {
+                    arg5 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<Adamantium.Vulkan.Core.MemoryBarrier, Adamantium.Vulkan.Core.Interop.VkMemoryBarrier>(pMemoryBarriers, ref currentCursor);
+                }
+                Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier* arg7 = null;
+                if (!pBufferMemoryBarriers.IsEmpty)
+                {
+                    arg7 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<Adamantium.Vulkan.Core.BufferMemoryBarrier, Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>(pBufferMemoryBarriers, ref currentCursor);
+                }
+                Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier* arg9 = null;
+                if (pImageMemoryBarriers != null)
+                {
+                    arg9 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<ImageMemoryBarrier, Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>(pImageMemoryBarriers, ref currentCursor);
+                }
+                Commands.vkCmdPipelineBarrier(this, srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, arg5, bufferMemoryBarrierCount, arg7, imageMemoryBarrierCount, arg9);
             }
-            Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier* arg7 = null;
-            if (!pBufferMemoryBarriers.IsEmpty)
+            finally
             {
-                arg7 = QuantumBinding.Utils.MarshalContextUtils.MarshalArrayOfWrappers<Adamantium.Vulkan.Core.BufferMemoryBarrier, Adamantium.Vulkan.Core.Interop.VkBufferMemoryBarrier>(pBufferMemoryBarriers, ref currentCursor);
+                if (rentedArray != null)
+                    System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
             }
-            Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier* arg9 = null;
-            if (pImageMemoryBarriers != null)
-            {
-                arg9 = QuantumBinding.Utils.MarshalContextUtils.MarshalStructToPointer<ImageMemoryBarrier, Adamantium.Vulkan.Core.Interop.VkImageMemoryBarrier>(pImageMemoryBarriers, ref currentCursor);
-            }
-            Commands.vkCmdPipelineBarrier(this, srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, arg5, bufferMemoryBarrierCount, arg7, imageMemoryBarrierCount, arg9);
-        }
-        finally
-        {
-            if (rentedArray != null)
-                System.Buffers.ArrayPool<byte>.Shared.Return(rentedArray);
         }
     }
     }
