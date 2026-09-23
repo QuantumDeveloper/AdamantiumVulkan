@@ -18,7 +18,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="QuantumBinding.Utils" Version="2.0.2" />
+      <PackageReference Include="QuantumBinding.Utils" Version="3.0.0" />
     </ItemGroup>
 
     <ItemGroup>
