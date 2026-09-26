@@ -26,7 +26,7 @@ public unsafe partial class OpticalFlowSessionNV : IUnmanagedWrapper<Adamantium.
     }
 
     public Adamantium.Vulkan.Core.Interop.VkOpticalFlowSessionNV_T GetNativeValue() => __Instance;
-    public ref readonly VkOpticalFlowSessionNV_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkOpticalFlowSessionNV_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkOpticalFlowSessionNV_T(OpticalFlowSessionNV o)
     {

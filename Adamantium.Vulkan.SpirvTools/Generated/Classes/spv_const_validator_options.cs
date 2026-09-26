@@ -26,7 +26,7 @@ public unsafe partial class spv_const_validator_options : IUnmanagedWrapper<Adam
     }
 
     public Adamantium.Vulkan.SpirvTools.Interop.spv_validator_options_t GetNativeValue() => __Instance;
-    public ref readonly spv_validator_options_t GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.SpirvTools.Interop.spv_validator_options_t GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.SpirvTools.Interop.spv_validator_options_t(spv_const_validator_options s)
     {

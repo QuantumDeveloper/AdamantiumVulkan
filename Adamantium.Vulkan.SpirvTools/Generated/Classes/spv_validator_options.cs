@@ -146,7 +146,7 @@ public unsafe partial class spv_validator_options : IUnmanagedWrapper<Adamantium
         Adamantium.Vulkan.SpirvTools.Interop.SpirvToolsInterop.spvValidatorOptionsSetWorkgroupScalarBlockLayout(this, val);
     }
 
-    public ref readonly spv_validator_options_t GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.SpirvTools.Interop.spv_validator_options_t GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.SpirvTools.Interop.spv_validator_options_t(spv_validator_options s)
     {

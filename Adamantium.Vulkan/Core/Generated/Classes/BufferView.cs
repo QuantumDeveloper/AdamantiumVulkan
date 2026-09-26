@@ -28,7 +28,7 @@ public unsafe partial class BufferView : IUnmanagedWrapper<Adamantium.Vulkan.Cor
     public Adamantium.Vulkan.Core.Interop.VkBufferView_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkBufferView_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkBufferView_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkBufferView_T(BufferView b)
     {

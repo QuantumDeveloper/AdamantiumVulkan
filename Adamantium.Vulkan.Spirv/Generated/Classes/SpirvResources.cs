@@ -67,7 +67,7 @@ public unsafe partial class SpirvResources : IUnmanagedWrapper<Adamantium.Vulkan
         return result;
     }
 
-    public ref readonly SpvcResourcesS GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Spirv.Cross.Interop.SpvcResourcesS GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Spirv.Cross.Interop.SpvcResourcesS(SpirvResources s)
     {

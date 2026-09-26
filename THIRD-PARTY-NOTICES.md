@@ -165,8 +165,8 @@ Upstream: https://github.com/TestableIO/System.IO.Abstractions
 ## Not third-party
 
 For the avoidance of doubt, these committed binaries are this project's own and are covered by the repository's
-`LICENSE`: `QuantumBinding.Clang.dll`, `QuantumBinding.Generator.dll`, `Adamantium.Core.dll`,
-`Adamantium.Imaging.dll`, `Adamantium.Mathematics.dll`.
+`LICENSE`: `QuantumBinding.Generator.dll`, `Adamantium.Core.dll`, `Adamantium.Imaging.dll`,
+`Adamantium.Mathematics.dll`.
 
 ---
 

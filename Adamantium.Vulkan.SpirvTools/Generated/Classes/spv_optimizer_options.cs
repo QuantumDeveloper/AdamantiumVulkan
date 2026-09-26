@@ -83,7 +83,7 @@ public unsafe partial class spv_optimizer_options : IUnmanagedWrapper<Adamantium
         Adamantium.Vulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerOptionsSetValidatorOptions(this, arg1);
     }
 
-    public ref readonly spv_optimizer_options_t GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.SpirvTools.Interop.spv_optimizer_options_t GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.SpirvTools.Interop.spv_optimizer_options_t(spv_optimizer_options s)
     {

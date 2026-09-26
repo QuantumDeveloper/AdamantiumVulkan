@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Platforms>x64</Platforms>
     <Configurations>Debug;Release</Configurations>
     <LangVersion>latestmajor</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AssemblyName>Adamantium.Vulkan.Spirv</AssemblyName>
     <RootNamespace>Adamantium.Vulkan.Spirv</RootNamespace>
   </PropertyGroup>
@@ -12,18 +12,13 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Adamantium.Vulkan.Spirv</PackageId>
-    <Version>1.0.11</Version>
+    <Version>1.0.12</Version>
     <Description>C# bindings to SPIRV-Cross, shipping its native library. Reads back what a compiled shader declares, so resources can be bound by what the shader actually asks for rather than by a hand-kept table. SPIRV-Cross is a Khronos project under Apache-2.0 - see THIRD-PARTY-NOTICES.md in the repository.</Description>
     <PackageTags>spirv;spirv-cross;reflection;shader;vulkan</PackageTags>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <Optimize>False</Optimize>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -42,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="QuantumBinding.Utils" Version="3.0.0" />
+    <PackageReference Include="QuantumBinding.Utils" Version="3.0.1" />
   </ItemGroup>
 
   <ItemGroup>

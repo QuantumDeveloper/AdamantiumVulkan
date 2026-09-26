@@ -26,7 +26,7 @@ public unsafe partial class DeferredOperationKHR : IUnmanagedWrapper<Adamantium.
     }
 
     public Adamantium.Vulkan.Core.Interop.VkDeferredOperationKHR_T GetNativeValue() => __Instance;
-    public ref readonly VkDeferredOperationKHR_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkDeferredOperationKHR_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkDeferredOperationKHR_T(DeferredOperationKHR d)
     {

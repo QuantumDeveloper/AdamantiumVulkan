@@ -128,7 +128,7 @@ public unsafe partial class SpirvType : IUnmanagedWrapper<Adamantium.Vulkan.Spir
         return Adamantium.Vulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_type_get_vector_size(this);
     }
 
-    public ref readonly SpvcTypeS GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Spirv.Cross.Interop.SpvcTypeS GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Spirv.Cross.Interop.SpvcTypeS(SpirvType s)
     {

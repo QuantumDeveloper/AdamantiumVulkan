@@ -28,7 +28,7 @@ public unsafe partial class DescriptorSetLayout : IUnmanagedWrapper<Adamantium.V
     public Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayout_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkDescriptorSetLayout_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayout_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkDescriptorSetLayout_T(DescriptorSetLayout d)
     {

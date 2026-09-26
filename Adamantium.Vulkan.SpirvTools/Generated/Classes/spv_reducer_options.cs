@@ -66,7 +66,7 @@ public unsafe partial class spv_reducer_options : IUnmanagedWrapper<Adamantium.V
         Adamantium.Vulkan.SpirvTools.Interop.SpirvToolsInterop.spvReducerOptionsSetTargetFunction(this, target_function);
     }
 
-    public ref readonly spv_reducer_options_t GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.SpirvTools.Interop.spv_reducer_options_t GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.SpirvTools.Interop.spv_reducer_options_t(spv_reducer_options s)
     {

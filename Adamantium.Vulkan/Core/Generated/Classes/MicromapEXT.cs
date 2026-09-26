@@ -26,7 +26,7 @@ public unsafe partial class MicromapEXT : IUnmanagedWrapper<Adamantium.Vulkan.Co
     }
 
     public Adamantium.Vulkan.Core.Interop.VkMicromapEXT_T GetNativeValue() => __Instance;
-    public ref readonly VkMicromapEXT_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkMicromapEXT_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkMicromapEXT_T(MicromapEXT m)
     {

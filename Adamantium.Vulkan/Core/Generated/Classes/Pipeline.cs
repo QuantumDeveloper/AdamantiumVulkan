@@ -28,7 +28,7 @@ public unsafe partial class Pipeline : IUnmanagedWrapper<Adamantium.Vulkan.Core.
     public Adamantium.Vulkan.Core.Interop.VkPipeline_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkPipeline_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkPipeline_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkPipeline_T(Pipeline p)
     {

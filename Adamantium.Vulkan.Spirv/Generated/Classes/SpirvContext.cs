@@ -119,7 +119,7 @@ public unsafe partial class SpirvContext : IUnmanagedWrapper<Adamantium.Vulkan.S
         userdata = (nuint)arg2;
     }
 
-    public ref readonly SpvcContextS GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Spirv.Cross.Interop.SpvcContextS GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Spirv.Cross.Interop.SpvcContextS(SpirvContext s)
     {

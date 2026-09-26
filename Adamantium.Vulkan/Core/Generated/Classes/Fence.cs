@@ -28,7 +28,7 @@ public unsafe partial class Fence : IUnmanagedWrapper<Adamantium.Vulkan.Core.Int
     public Adamantium.Vulkan.Core.Interop.VkFence_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkFence_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkFence_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkFence_T(Fence f)
     {

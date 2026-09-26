@@ -2,24 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
-    <Platforms>x64</Platforms>
     <LangVersion>latestmajor</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>..\Output\$(Configuration)</OutputPath>
 
     <IsPackable>true</IsPackable>
     <PackageId>Adamantium.Vulkan.Loader</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Description>Finds and loads the Vulkan loader at run time and resolves its entry points, so an application binds to whichever Vulkan the machine actually has instead of to an import library fixed at build time.</Description>
     <PackageTags>vulkan;loader;interop;gpu</PackageTags>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <OutputPath>..\Output\DebugX64</OutputPath>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutputPath>..\Output\ReleaseX64</OutputPath>
   </PropertyGroup>
 
 </Project>

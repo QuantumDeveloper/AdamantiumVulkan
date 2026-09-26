@@ -28,7 +28,7 @@ public unsafe partial class ValidationCacheEXT : IUnmanagedWrapper<Adamantium.Vu
     public Adamantium.Vulkan.Core.Interop.VkValidationCacheEXT_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkValidationCacheEXT_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkValidationCacheEXT_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkValidationCacheEXT_T(ValidationCacheEXT v)
     {

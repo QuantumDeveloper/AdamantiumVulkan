@@ -28,7 +28,7 @@ public unsafe partial class DisplayModeKHR : IUnmanagedWrapper<Adamantium.Vulkan
     public Adamantium.Vulkan.Core.Interop.VkDisplayModeKHR_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkDisplayModeKHR_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkDisplayModeKHR_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkDisplayModeKHR_T(DisplayModeKHR d)
     {

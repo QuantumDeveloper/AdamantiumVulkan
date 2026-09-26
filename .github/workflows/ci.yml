@@ -1,0 +1,41 @@
+# Builds the solution, the demo and the binding generator included, and packs the four published packages, on Windows,
+# Linux and macOS. The bindings are not regenerated here: the generator needs an installed Vulkan SDK for the SPIR-V
+# headers.
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    # A branch of this repository is built on push, so pull_request builds only the ones from forks.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: global.json
+
+      # The demo is WinForms; EnableWindowsTargeting lets Linux and macOS compile it.
+      - name: Build
+        run: dotnet build AdamantiumVulkan.sln -c Release -warnaserror -p:EnableWindowsTargeting=true
+
+      - name: Pack
+        shell: bash
+        run: |
+          for p in Adamantium.Vulkan Adamantium.Vulkan.Loader Adamantium.Vulkan.Slang Adamantium.Vulkan.Spirv; do
+            dotnet pack "$p/$p.csproj" -c Release -o artifacts
+          done

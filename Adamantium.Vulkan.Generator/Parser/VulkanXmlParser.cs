@@ -1974,15 +1974,12 @@ public class VulkanXmlParser : IMetadataProvider
         op.PassValueToConstructor = true;
         handle.Operators.Add(op);
 
-        if (_translationUnit.Module.AllowConvertStructToClass)
-        {
-            var defaultCtr = new Constructor() { Class = handle, IsDefault = true };
-            handle.Constructors.Add(defaultCtr);
+        var defaultCtr = new Constructor() { Class = handle, IsDefault = true };
+        handle.Constructors.Add(defaultCtr);
 
-            var ctr = new Constructor() { Class = handle };
-            ctr.InputParameters.Add(inputParameter);
-            handle.Constructors.Add(ctr);
-        }
+        var ctr = new Constructor() { Class = handle };
+        ctr.InputParameters.Add(inputParameter);
+        handle.Constructors.Add(ctr);
 
         AddDeclaration(nativeStruct);
         AddDeclaration(handle);

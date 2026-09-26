@@ -28,7 +28,7 @@ public unsafe partial class SwapchainKHR : IUnmanagedWrapper<Adamantium.Vulkan.C
     public Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkSwapchainKHR_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T(SwapchainKHR s)
     {

@@ -28,7 +28,7 @@ public unsafe partial class Framebuffer : IUnmanagedWrapper<Adamantium.Vulkan.Co
     public Adamantium.Vulkan.Core.Interop.VkFramebuffer_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkFramebuffer_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkFramebuffer_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkFramebuffer_T(Framebuffer f)
     {

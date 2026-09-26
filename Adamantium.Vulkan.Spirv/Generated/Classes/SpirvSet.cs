@@ -26,7 +26,7 @@ public unsafe partial class SpirvSet : IUnmanagedWrapper<Adamantium.Vulkan.Spirv
     }
 
     public Adamantium.Vulkan.Spirv.Cross.Interop.SpvcSetS GetNativeValue() => __Instance;
-    public ref readonly SpvcSetS GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Spirv.Cross.Interop.SpvcSetS GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Spirv.Cross.Interop.SpvcSetS(SpirvSet s)
     {

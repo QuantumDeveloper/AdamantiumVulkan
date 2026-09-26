@@ -202,7 +202,7 @@ public unsafe partial class spv_const_context : IUnmanagedWrapper<Adamantium.Vul
         return result;
     }
 
-    public ref readonly spv_context_t GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.SpirvTools.Interop.spv_context_t GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.SpirvTools.Interop.spv_context_t(spv_const_context s)
     {

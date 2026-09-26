@@ -468,7 +468,7 @@ public unsafe partial class Instance : IUnmanagedWrapper<Adamantium.Vulkan.Core.
         }
     }
 
-    public ref readonly VkInstance_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkInstance_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkInstance_T(Instance i)
     {

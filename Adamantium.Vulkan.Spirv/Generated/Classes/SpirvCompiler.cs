@@ -1411,7 +1411,7 @@ public unsafe partial class SpirvCompiler : IUnmanagedWrapper<Adamantium.Vulkan.
         return Adamantium.Vulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_variable_is_depth_or_compare(this, id);
     }
 
-    public ref readonly SpvcCompilerS GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Spirv.Cross.Interop.SpvcCompilerS GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Spirv.Cross.Interop.SpvcCompilerS(SpirvCompiler s)
     {
