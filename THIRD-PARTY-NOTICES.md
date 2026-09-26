@@ -78,104 +78,16 @@ Upstream: https://github.com/KhronosGroup/SPIRV-Tools
 
 ---
 
-## XmlSchemaClassGenerator and its dependencies
-
-**Where:** `XmlSchemaClassGenerator.2.0.254/`
-
-Build-time tooling used by the Vulkan binding generator to turn the Vulkan XML registry into C# types. Not part of
-anything this repository produces at runtime — it runs only when the bindings are regenerated.
-
-### XmlSchemaClassGenerator
-
-`XmlSchemaClassGenerator.dll` — licensed under the **Apache License 2.0**, text in `LICENSE` at the root of this
-repository.
-
-Upstream: https://github.com/mganss/XmlSchemaClassGenerator
-
-### Glob
-
-`Glob.dll` — MIT.
-
-```
-The MIT License (MIT)
-
-Copyright (c) 2013-2019 Kevin Thompson
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
-Upstream: https://github.com/kthompson/glob
-
-### Mono.Options
-
-`Mono.Options.dll` — MIT.
-
-```
-Copyright (C) 2008 Novell (http://www.novell.com)
-Copyright (C) 2009 Federico Di Gregorio.
-Copyright (C) 2012 Xamarin Inc (http://www.xamarin.com)
-Copyright (C) 2017 Microsoft Corporation (http://www.microsoft.com)
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
-Upstream: https://github.com/mono/mono/tree/main/mcs/class/Mono.Options
-
-### System.IO.Abstractions
-
-`System.IO.Abstractions.dll` — MIT, copyright © Tatham Oddie & friends, maintained by TestableIO. The MIT text is
-the one reproduced above for Glob, with that copyright line in place of Kevin Thompson's.
-
-Upstream: https://github.com/TestableIO/System.IO.Abstractions
-
----
-
 ## Not third-party
 
 For the avoidance of doubt, these committed binaries are this project's own and are covered by the repository's
-`LICENSE`: `QuantumBinding.Generator.dll`, `Adamantium.Core.dll`, `Adamantium.Imaging.dll`,
-`Adamantium.Mathematics.dll`.
+`LICENSE`: `Adamantium.Core.dll`, `Adamantium.Imaging.dll`, `Adamantium.Mathematics.dll`.
 
 ---
 
 ## Worth fixing
 
-Committing other people's binaries is what makes this file necessary. Two of these entries need not exist:
-
-- **`XmlSchemaClassGenerator.2.0.254/` is an unpacked NuGet package.** Consuming it as a `PackageReference` would
-  remove five binaries and their notices from this repository outright.
-- **The Slang, SPIRV-Cross and SPIRV-Tools binaries are genuinely redistributed** — they ship so that building needs
-  no Vulkan SDK, which is a deliberate and good property. They should stay, but the upstream release version of each
-  ought to be recorded next to them, so this file can name it.
+Committing other people's binaries is what makes this file necessary. The Slang, SPIRV-Cross and SPIRV-Tools
+binaries are genuinely redistributed — they ship so that building needs no Vulkan SDK, which is a deliberate and good
+property. They should stay, but the upstream release version of each ought to be recorded next to them, so this file
+can name it.
