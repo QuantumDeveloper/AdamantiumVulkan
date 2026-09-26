@@ -28,7 +28,7 @@ public unsafe partial class RenderPass : IUnmanagedWrapper<Adamantium.Vulkan.Cor
     public Adamantium.Vulkan.Core.Interop.VkRenderPass_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkRenderPass_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkRenderPass_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkRenderPass_T(RenderPass r)
     {

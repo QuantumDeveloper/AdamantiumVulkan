@@ -39,7 +39,7 @@ public unsafe partial class SpirvCompilerOptions : IUnmanagedWrapper<Adamantium.
         return Adamantium.Vulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_compiler_options_set_uint(this, option, value);
     }
 
-    public ref readonly SpvcCompilerOptionsS GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Spirv.Cross.Interop.SpvcCompilerOptionsS GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Spirv.Cross.Interop.SpvcCompilerOptionsS(SpirvCompilerOptions s)
     {

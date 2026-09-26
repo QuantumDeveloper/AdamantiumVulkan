@@ -26,7 +26,7 @@ public unsafe partial class GpaSessionAMD : IUnmanagedWrapper<Adamantium.Vulkan.
     }
 
     public Adamantium.Vulkan.Core.Interop.VkGpaSessionAMD_T GetNativeValue() => __Instance;
-    public ref readonly VkGpaSessionAMD_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkGpaSessionAMD_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkGpaSessionAMD_T(GpaSessionAMD g)
     {

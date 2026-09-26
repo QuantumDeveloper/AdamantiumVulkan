@@ -57,18 +57,16 @@ Nothing here derives from the Vulkan logo or any other Khronos trademark.
 ```
 git clone https://github.com/QuantumDeveloper/AdamantiumVulkan
 cd AdamantiumVulkan
-dotnet build Adamantium.Vulkan/Adamantium.Vulkan.csproj -c Release -p:Platform=x64
+dotnet build AdamantiumVulkan.sln -c Release
 ```
 
-The four published projects build from a clone on their own. **Regenerating the bindings** - which is only needed when
-the Vulkan registry moves - additionally requires
-[QuantumBinding](https://github.com/QuantumDeveloper/QuantumBinding) cloned beside this repository, because
-`Adamantium.Vulkan.Generator` uses it directly:
+**Regenerating the bindings** is only needed when the Vulkan registry moves. `Adamantium.Vulkan.Generator` takes
+QuantumBinding from the `QuantumBinding.Generator` package and the SPIR-V headers from the Vulkan SDK that
+`VULKAN_SDK` points at. It reads `vk.xml` and `video.xml` from the current directory, so run it from its own:
 
 ```
-<parent>/
-  AdamantiumVulkan/
-  QuantumBinding/
+cd Adamantium.Vulkan.Generator
+dotnet run -c Release
 ```
 
 ## Status

@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.Serialization;
 
 namespace Adamantium.Vulkan.Core;
 
@@ -16,11 +15,6 @@ public class ResultException : Exception
     }
 
     public ResultException(string message, Exception innerException) : base(message, innerException)
-    {
-
-    }
-
-    public ResultException(SerializationInfo info, StreamingContext context) : base(info, context)
     {
 
     }

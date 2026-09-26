@@ -57,7 +57,7 @@ public unsafe partial class SlangcResult : IUnmanagedWrapper<Adamantium.Vulkan.S
         return (nuint)result;
     }
 
-    public ref readonly SlangcResultT GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Slang.Interop.SlangcResultT GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Slang.Interop.SlangcResultT(SlangcResult s)
     {

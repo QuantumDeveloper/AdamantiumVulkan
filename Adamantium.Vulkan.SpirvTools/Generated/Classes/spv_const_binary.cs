@@ -29,7 +29,7 @@ public unsafe partial class spv_const_binary : IUnmanagedWrapper<Adamantium.Vulk
     }
 
     public Adamantium.Vulkan.SpirvTools.Interop.spv_const_binary_t GetNativeValue() => __Instance;
-    public ref readonly spv_const_binary_t GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.SpirvTools.Interop.spv_const_binary_t GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.SpirvTools.Interop.spv_const_binary_t(spv_const_binary s)
     {

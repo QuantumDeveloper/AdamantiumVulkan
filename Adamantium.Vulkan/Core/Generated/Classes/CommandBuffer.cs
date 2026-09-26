@@ -432,7 +432,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkBuffer_T* arg3 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
                 if (!pCounterBuffers.IsEmpty)
                 {
                     arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkBuffer_T[(int)counterBufferCount];
@@ -484,7 +484,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
     public void BeginTransformFeedbackEXT(uint firstCounterBuffer, uint counterBufferCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.Buffer> pCounterBuffers, in VkDeviceSize pCounterBufferOffsets)
     {
         Adamantium.Vulkan.Core.Interop.VkBuffer_T* arg3 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
         if (!pCounterBuffers.IsEmpty)
         {
             arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkBuffer_T[(int)counterBufferCount];
@@ -656,7 +656,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 var arg2 = layout == null ? new VkPipelineLayout_T() : (VkPipelineLayout_T)layout;
                 Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T* arg5 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T> arg5Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T> arg5Span = default;
                 if (!pDescriptorSets.IsEmpty)
                 {
                     arg5Span = stackalloc Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T[(int)descriptorSetCount];
@@ -710,7 +710,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
     {
         var arg2 = layout == null ? new VkPipelineLayout_T() : (VkPipelineLayout_T)layout;
         Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T* arg5 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T> arg5Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T> arg5Span = default;
         if (!pDescriptorSets.IsEmpty)
         {
             arg5Span = stackalloc Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T[(int)descriptorSetCount];
@@ -898,7 +898,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 var arg2 = QuantumBinding.Utils.MarshalContextUtils.MarshalBlittableArray<Adamantium.Vulkan.Core.ShaderStageFlagBits>(pStages, ref currentCursor);
                 Adamantium.Vulkan.Core.Interop.VkShaderEXT_T* arg3 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkShaderEXT_T> arg3Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkShaderEXT_T> arg3Span = default;
                 if (!pShaders.IsEmpty)
                 {
                     arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkShaderEXT_T[(int)stageCount];
@@ -920,7 +920,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
         var arg2 = stackalloc Adamantium.Vulkan.Core.ShaderStageFlagBits[1];
         *arg2 = pStages;
         Adamantium.Vulkan.Core.Interop.VkShaderEXT_T* arg3 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkShaderEXT_T> arg3Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkShaderEXT_T> arg3Span = default;
         if (!pShaders.IsEmpty)
         {
             arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkShaderEXT_T[(int)stageCount];
@@ -1092,7 +1092,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkBuffer_T* arg3 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
                 if (!pBuffers.IsEmpty)
                 {
                     arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkBuffer_T[(int)bindingCount];
@@ -1162,7 +1162,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkBuffer_T* arg3 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
                 if (!pBuffers.IsEmpty)
                 {
                     arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkBuffer_T[(int)bindingCount];
@@ -1200,7 +1200,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkBuffer_T* arg3 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
                 if (!pBuffers.IsEmpty)
                 {
                     arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkBuffer_T[(int)bindingCount];
@@ -1250,7 +1250,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkBuffer_T* arg3 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
                 if (!pBuffers.IsEmpty)
                 {
                     arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkBuffer_T[(int)bindingCount];
@@ -1302,7 +1302,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
     public void BindVertexBuffers(uint firstBinding, uint bindingCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.Buffer> pBuffers, in VkDeviceSize pOffsets)
     {
         Adamantium.Vulkan.Core.Interop.VkBuffer_T* arg3 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
         if (!pBuffers.IsEmpty)
         {
             arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkBuffer_T[(int)bindingCount];
@@ -1344,7 +1344,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkBuffer_T* arg3 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
                 if (!pBuffers.IsEmpty)
                 {
                     arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkBuffer_T[(int)bindingCount];
@@ -1418,7 +1418,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkBuffer_T* arg3 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
                 if (!pBuffers.IsEmpty)
                 {
                     arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkBuffer_T[(int)bindingCount];
@@ -1458,7 +1458,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkBuffer_T* arg3 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
                 if (!pBuffers.IsEmpty)
                 {
                     arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkBuffer_T[(int)bindingCount];
@@ -1498,7 +1498,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkBuffer_T* arg3 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
                 if (!pBuffers.IsEmpty)
                 {
                     arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkBuffer_T[(int)bindingCount];
@@ -4429,7 +4429,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkBuffer_T* arg3 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
                 if (!pCounterBuffers.IsEmpty)
                 {
                     arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkBuffer_T[(int)counterBufferCount];
@@ -4481,7 +4481,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
     public void EndTransformFeedbackEXT(uint firstCounterBuffer, uint counterBufferCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.Buffer> pCounterBuffers, in VkDeviceSize pCounterBufferOffsets)
     {
         Adamantium.Vulkan.Core.Interop.VkBuffer_T* arg3 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkBuffer_T> arg3Span = default;
         if (!pCounterBuffers.IsEmpty)
         {
             arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkBuffer_T[(int)counterBufferCount];
@@ -4535,7 +4535,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
     public void ExecuteCommands(uint commandBufferCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.CommandBuffer> pCommandBuffers)
     {
         Adamantium.Vulkan.Core.Interop.VkCommandBuffer_T* arg2 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkCommandBuffer_T> arg2Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkCommandBuffer_T> arg2Span = default;
         if (!pCommandBuffers.IsEmpty)
         {
             arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkCommandBuffer_T[(int)commandBufferCount];
@@ -7419,7 +7419,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkEvent_T* arg2 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkEvent_T> arg2Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkEvent_T> arg2Span = default;
                 if (!pEvents.IsEmpty)
                 {
                     arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkEvent_T[(int)eventCount];
@@ -7549,7 +7549,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkEvent_T* arg2 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkEvent_T> arg2Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkEvent_T> arg2Span = default;
                 if (!pEvents.IsEmpty)
                 {
                     arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkEvent_T[(int)eventCount];
@@ -7610,7 +7610,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkEvent_T* arg2 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkEvent_T> arg2Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkEvent_T> arg2Span = default;
                 if (!pEvents.IsEmpty)
                 {
                     arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkEvent_T[(int)eventCount];
@@ -7671,7 +7671,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkEvent_T* arg2 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkEvent_T> arg2Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkEvent_T> arg2Span = default;
                 if (!pEvents.IsEmpty)
                 {
                     arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkEvent_T[(int)eventCount];
@@ -7761,7 +7761,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkEvent_T* arg2 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkEvent_T> arg2Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkEvent_T> arg2Span = default;
                 if (!pEvents.IsEmpty)
                 {
                     arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkEvent_T[(int)eventCount];
@@ -7843,7 +7843,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkEvent_T* arg2 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkEvent_T> arg2Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkEvent_T> arg2Span = default;
                 if (!pEvents.IsEmpty)
                 {
                     arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkEvent_T[(int)eventCount];
@@ -7896,7 +7896,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
     public void WriteAccelerationStructuresPropertiesKHR(uint accelerationStructureCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.AccelerationStructureKHR> pAccelerationStructures, QueryType queryType, Adamantium.Vulkan.Core.QueryPool queryPool, uint firstQuery)
     {
         Adamantium.Vulkan.Core.Interop.VkAccelerationStructureKHR_T* arg2 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureKHR_T> arg2Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureKHR_T> arg2Span = default;
         if (!pAccelerationStructures.IsEmpty)
         {
             arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkAccelerationStructureKHR_T[(int)accelerationStructureCount];
@@ -7919,7 +7919,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
     public void WriteAccelerationStructuresPropertiesNV(uint accelerationStructureCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.AccelerationStructureNV> pAccelerationStructures, QueryType queryType, Adamantium.Vulkan.Core.QueryPool queryPool, uint firstQuery)
     {
         Adamantium.Vulkan.Core.Interop.VkAccelerationStructureNV_T* arg2 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureNV_T> arg2Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureNV_T> arg2Span = default;
         if (!pAccelerationStructures.IsEmpty)
         {
             arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkAccelerationStructureNV_T[(int)accelerationStructureCount];
@@ -7983,7 +7983,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
     public void WriteMicromapsPropertiesEXT(uint micromapCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.MicromapEXT> pMicromaps, QueryType queryType, Adamantium.Vulkan.Core.QueryPool queryPool, uint firstQuery)
     {
         Adamantium.Vulkan.Core.Interop.VkMicromapEXT_T* arg2 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkMicromapEXT_T> arg2Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkMicromapEXT_T> arg2Span = default;
         if (!pMicromaps.IsEmpty)
         {
             arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkMicromapEXT_T[(int)micromapCount];
@@ -8015,7 +8015,7 @@ public unsafe partial class CommandBuffer : IUnmanagedWrapper<Adamantium.Vulkan.
         Commands.vkCmdWriteTimestamp2(this, stage, arg2, query);
     }
 
-    public ref readonly VkCommandBuffer_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkCommandBuffer_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkCommandBuffer_T(CommandBuffer c)
     {

@@ -185,7 +185,7 @@ public unsafe partial class spv_optimizer : IUnmanagedWrapper<Adamantium.Vulkan.
         Adamantium.Vulkan.SpirvTools.Interop.SpirvToolsInterop.spvOptimizerSetMessageConsumer(&nativeInstance, consumer);
     }
 
-    public ref readonly spv_optimizer_t GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.SpirvTools.Interop.spv_optimizer_t GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.SpirvTools.Interop.spv_optimizer_t(spv_optimizer s)
     {

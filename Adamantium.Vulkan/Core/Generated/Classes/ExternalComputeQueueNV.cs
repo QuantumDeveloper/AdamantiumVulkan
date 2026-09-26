@@ -36,7 +36,7 @@ public unsafe partial class ExternalComputeQueueNV : IUnmanagedWrapper<Adamantiu
         pData = (nuint)arg2;
     }
 
-    public ref readonly VkExternalComputeQueueNV_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkExternalComputeQueueNV_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkExternalComputeQueueNV_T(ExternalComputeQueueNV e)
     {

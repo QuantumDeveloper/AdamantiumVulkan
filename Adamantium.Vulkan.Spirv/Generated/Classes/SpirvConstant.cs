@@ -158,7 +158,7 @@ public unsafe partial class SpirvConstant : IUnmanagedWrapper<Adamantium.Vulkan.
         Adamantium.Vulkan.Spirv.Cross.Interop.SpirvCrossInterop.spvc_constant_set_scalar_u8(this, column, row, value);
     }
 
-    public ref readonly SpvcConstantS GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Spirv.Cross.Interop.SpvcConstantS GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Spirv.Cross.Interop.SpvcConstantS(SpirvConstant s)
     {

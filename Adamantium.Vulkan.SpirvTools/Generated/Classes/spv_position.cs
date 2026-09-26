@@ -58,7 +58,7 @@ public unsafe partial class spv_position : IUnmanagedWrapper<Adamantium.Vulkan.S
         }
     }
 
-    public ref readonly spv_position_t GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.SpirvTools.Interop.spv_position_t GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.SpirvTools.Interop.spv_position_t(spv_position s)
     {

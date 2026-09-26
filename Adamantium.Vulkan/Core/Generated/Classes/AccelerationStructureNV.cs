@@ -28,7 +28,7 @@ public unsafe partial class AccelerationStructureNV : IUnmanagedWrapper<Adamanti
     public Adamantium.Vulkan.Core.Interop.VkAccelerationStructureNV_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkAccelerationStructureNV_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkAccelerationStructureNV_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkAccelerationStructureNV_T(AccelerationStructureNV a)
     {

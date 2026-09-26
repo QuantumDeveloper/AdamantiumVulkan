@@ -26,7 +26,7 @@ public unsafe partial class PrivateDataSlot : IUnmanagedWrapper<Adamantium.Vulka
     }
 
     public Adamantium.Vulkan.Core.Interop.VkPrivateDataSlot_T GetNativeValue() => __Instance;
-    public ref readonly VkPrivateDataSlot_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkPrivateDataSlot_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkPrivateDataSlot_T(PrivateDataSlot p)
     {

@@ -28,7 +28,7 @@ public unsafe partial class DescriptorSet : IUnmanagedWrapper<Adamantium.Vulkan.
     public Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkDescriptorSet_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T(DescriptorSet d)
     {

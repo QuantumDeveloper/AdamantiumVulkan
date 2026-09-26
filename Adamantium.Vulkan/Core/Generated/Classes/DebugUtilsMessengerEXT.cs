@@ -28,7 +28,7 @@ public unsafe partial class DebugUtilsMessengerEXT : IUnmanagedWrapper<Adamantiu
     public Adamantium.Vulkan.Core.Interop.VkDebugUtilsMessengerEXT_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkDebugUtilsMessengerEXT_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkDebugUtilsMessengerEXT_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkDebugUtilsMessengerEXT_T(DebugUtilsMessengerEXT d)
     {

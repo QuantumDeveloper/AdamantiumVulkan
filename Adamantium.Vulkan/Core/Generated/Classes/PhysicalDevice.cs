@@ -3079,7 +3079,7 @@ public unsafe partial class PhysicalDevice : IUnmanagedWrapper<Adamantium.Vulkan
         return Commands.vkReleaseDisplayEXT(this, arg1);
     }
 
-    public ref readonly VkPhysicalDevice_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkPhysicalDevice_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkPhysicalDevice_T(PhysicalDevice p)
     {

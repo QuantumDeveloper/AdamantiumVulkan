@@ -4755,7 +4755,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
     {
         var arg1 = commandPool == null ? new VkCommandPool_T() : (VkCommandPool_T)commandPool;
         Adamantium.Vulkan.Core.Interop.VkCommandBuffer_T* arg3 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkCommandBuffer_T> arg3Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkCommandBuffer_T> arg3Span = default;
         if (!pCommandBuffers.IsEmpty)
         {
             arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkCommandBuffer_T[(int)commandBufferCount];
@@ -4778,7 +4778,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
     {
         var arg1 = descriptorPool == null ? new VkDescriptorPool_T() : (VkDescriptorPool_T)descriptorPool;
         Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T* arg3 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T> arg3Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T> arg3Span = default;
         if (!pDescriptorSets.IsEmpty)
         {
             arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkDescriptorSet_T[(int)descriptorSetCount];
@@ -6559,7 +6559,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
     public Result GetImageOpaqueCaptureDataEXT(uint imageCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.Image> pImages, out HostAddressRangeEXT[] pDatas)
     {
         Adamantium.Vulkan.Core.Interop.VkImage_T* arg2 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkImage_T> arg2Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkImage_T> arg2Span = default;
         if (!pImages.IsEmpty)
         {
             arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkImage_T[(int)imageCount];
@@ -8129,7 +8129,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
     public Result GetTensorOpaqueCaptureDataARM(uint tensorCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.TensorARM> pTensors, out HostAddressRangeEXT[] pDatas)
     {
         Adamantium.Vulkan.Core.Interop.VkTensorARM_T* arg2 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkTensorARM_T> arg2Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkTensorARM_T> arg2Span = default;
         if (!pTensors.IsEmpty)
         {
             arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkTensorARM_T[(int)tensorCount];
@@ -8584,7 +8584,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
     {
         var arg1 = dstCache == null ? new VkPipelineCache_T() : (VkPipelineCache_T)dstCache;
         Adamantium.Vulkan.Core.Interop.VkPipelineCache_T* arg3 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkPipelineCache_T> arg3Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkPipelineCache_T> arg3Span = default;
         if (!pSrcCaches.IsEmpty)
         {
             arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkPipelineCache_T[(int)srcCacheCount];
@@ -8607,7 +8607,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
     {
         var arg1 = dstCache == null ? new VkValidationCacheEXT_T() : (VkValidationCacheEXT_T)dstCache;
         Adamantium.Vulkan.Core.Interop.VkValidationCacheEXT_T* arg3 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkValidationCacheEXT_T> arg3Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkValidationCacheEXT_T> arg3Span = default;
         if (!pSrcCaches.IsEmpty)
         {
             arg3Span = stackalloc Adamantium.Vulkan.Core.Interop.VkValidationCacheEXT_T[(int)srcCacheCount];
@@ -8819,7 +8819,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
     public Result ResetFences(uint fenceCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.Fence> pFences)
     {
         Adamantium.Vulkan.Core.Interop.VkFence_T* arg2 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkFence_T> arg2Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkFence_T> arg2Span = default;
         if (!pFences.IsEmpty)
         {
             arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkFence_T[(int)fenceCount];
@@ -8951,7 +8951,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T* arg2 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T> arg2Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T> arg2Span = default;
                 if (!pSwapchains.IsEmpty)
                 {
                     arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T[(int)swapchainCount];
@@ -9033,7 +9033,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
             {
                 ref System.Span<byte> currentCursor = ref mainBuffer;
                 Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T* arg2 = null;
-                System.Span<Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T> arg2Span = default;
+                scoped System.Span<Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T> arg2Span = default;
                 if (!pSwapchains.IsEmpty)
                 {
                     arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkSwapchainKHR_T[(int)swapchainCount];
@@ -9581,7 +9581,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
     public Result WaitForFences(uint fenceCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.Fence> pFences, VkBool32 waitAll, ulong timeout)
     {
         Adamantium.Vulkan.Core.Interop.VkFence_T* arg2 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkFence_T> arg2Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkFence_T> arg2Span = default;
         if (!pFences.IsEmpty)
         {
             arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkFence_T[(int)fenceCount];
@@ -9667,7 +9667,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
     public Result WriteAccelerationStructuresPropertiesKHR(uint accelerationStructureCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.AccelerationStructureKHR> pAccelerationStructures, QueryType queryType, nuint dataSize, out byte[] pData, nuint stride)
     {
         Adamantium.Vulkan.Core.Interop.VkAccelerationStructureKHR_T* arg2 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureKHR_T> arg2Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkAccelerationStructureKHR_T> arg2Span = default;
         if (!pAccelerationStructures.IsEmpty)
         {
             arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkAccelerationStructureKHR_T[(int)accelerationStructureCount];
@@ -9718,7 +9718,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
     public Result WriteMicromapsPropertiesEXT(uint micromapCount, in System.ReadOnlySpan<Adamantium.Vulkan.Core.MicromapEXT> pMicromaps, QueryType queryType, nuint dataSize, out byte[] pData, nuint stride)
     {
         Adamantium.Vulkan.Core.Interop.VkMicromapEXT_T* arg2 = null;
-        System.Span<Adamantium.Vulkan.Core.Interop.VkMicromapEXT_T> arg2Span = default;
+        scoped System.Span<Adamantium.Vulkan.Core.Interop.VkMicromapEXT_T> arg2Span = default;
         if (!pMicromaps.IsEmpty)
         {
             arg2Span = stackalloc Adamantium.Vulkan.Core.Interop.VkMicromapEXT_T[(int)micromapCount];
@@ -10094,7 +10094,7 @@ public unsafe partial class Device : IUnmanagedWrapper<Adamantium.Vulkan.Core.In
         }
     }
 
-    public ref readonly VkDevice_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkDevice_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkDevice_T(Device d)
     {

@@ -550,7 +550,7 @@ public unsafe partial class Queue : IUnmanagedWrapper<Adamantium.Vulkan.Core.Int
         return Commands.vkQueueWaitIdle(this);
     }
 
-    public ref readonly VkQueue_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkQueue_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkQueue_T(Queue q)
     {

@@ -26,7 +26,7 @@ public unsafe partial class CuModuleNVX : IUnmanagedWrapper<Adamantium.Vulkan.Co
     }
 
     public Adamantium.Vulkan.Core.Interop.VkCuModuleNVX_T GetNativeValue() => __Instance;
-    public ref readonly VkCuModuleNVX_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkCuModuleNVX_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkCuModuleNVX_T(CuModuleNVX c)
     {

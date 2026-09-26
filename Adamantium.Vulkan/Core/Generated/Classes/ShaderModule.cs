@@ -28,7 +28,7 @@ public unsafe partial class ShaderModule : IUnmanagedWrapper<Adamantium.Vulkan.C
     public Adamantium.Vulkan.Core.Interop.VkShaderModule_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkShaderModule_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkShaderModule_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkShaderModule_T(ShaderModule s)
     {

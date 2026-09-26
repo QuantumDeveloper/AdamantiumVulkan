@@ -26,7 +26,7 @@ public unsafe partial class TensorARM : IUnmanagedWrapper<Adamantium.Vulkan.Core
     }
 
     public Adamantium.Vulkan.Core.Interop.VkTensorARM_T GetNativeValue() => __Instance;
-    public ref readonly VkTensorARM_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkTensorARM_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkTensorARM_T(TensorARM t)
     {

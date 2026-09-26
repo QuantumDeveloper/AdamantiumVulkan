@@ -28,7 +28,7 @@ public unsafe partial class DeviceMemory : IUnmanagedWrapper<Adamantium.Vulkan.C
     public Adamantium.Vulkan.Core.Interop.VkDeviceMemory_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkDeviceMemory_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkDeviceMemory_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkDeviceMemory_T(DeviceMemory d)
     {

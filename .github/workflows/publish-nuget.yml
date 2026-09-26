@@ -30,23 +30,21 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Version comes from global.json, so CI and a developer's machine build with the same SDK.
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v6
         with:
           global-json-file: global.json
 
-      # One project at a time rather than the solution: the solution also holds the binding generator, which reaches
-      # into the QuantumBinding repository by path and is not here. Only these four are IsPackable anyway.
-      #
-      # Platform=x64 is not decoration: AllowUnsafeBlocks is set per configuration and platform in these projects,
-      # and without it the generated interop does not compile (CS0227).
+      # One project at a time rather than the solution, which also holds the generator and the demo: only these four
+      # are IsPackable.
+      # AnyCPU: the libraries load in any 64-bit process, the ARM64 ones of Apple Silicon included.
       - name: Pack
         run: |
           for p in Adamantium.Vulkan Adamantium.Vulkan.Loader Adamantium.Vulkan.Slang Adamantium.Vulkan.Spirv; do
             echo "== $p"
-            dotnet pack "$p/$p.csproj" -c Release -p:Platform=x64 -o artifacts
+            dotnet pack "$p/$p.csproj" -c Release -o artifacts
           done
 
       # Printed, because the things worth checking before an irreversible push are all in here: the version, the
@@ -63,7 +61,7 @@ jobs:
           done
 
       - name: Upload packages as an artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: nupkg
           path: artifacts/*.nupkg

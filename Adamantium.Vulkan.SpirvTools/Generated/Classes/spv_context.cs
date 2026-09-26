@@ -34,7 +34,7 @@ public unsafe partial class spv_context : IUnmanagedWrapper<Adamantium.Vulkan.Sp
         Adamantium.Vulkan.SpirvTools.Interop.SpirvToolsInterop.spvContextDestroy(this);
     }
 
-    public ref readonly spv_context_t GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.SpirvTools.Interop.spv_context_t GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.SpirvTools.Interop.spv_context_t(spv_context s)
     {

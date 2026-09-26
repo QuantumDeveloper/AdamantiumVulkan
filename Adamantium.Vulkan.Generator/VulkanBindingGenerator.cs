@@ -30,7 +30,6 @@ namespace Adamantium.Vulkan.Generator
             ----------------------------------------------------------------------------------------------";
             
             string vkMainLibrary = "vulkan-1";
-            string shadercLibrary = "shaderc_shared";
             string spirvCrossLibrary = "spirv-cross-c-shared";
             string spirvToolsLibrary = "SPIRV-Tools-shared";
             string slangLibrary = "slang-c-shared";
@@ -50,7 +49,6 @@ namespace Adamantium.Vulkan.Generator
             
             options.GenerateSequentialLayout = true;
             options.PodTypesAsSimpleTypes = false;
-            options.PathToBindingsFile = "VulkanBindingsMap.xml";
             // OFF: it stamps every declaration with its line and column in vk.xml, which the registry shifts on any
             // edit. The generated file then counts as changed when nothing about the binding did - pure diff noise.
             options.DebugMode = false;
@@ -76,7 +74,6 @@ namespace Adamantium.Vulkan.Generator
             vkMainModule.ForceCallingConvention = false;
             vkMainModule.InteropClassAccessSpecifier = AccessSpecifier.Internal;
             vkMainModule.CallingConvention = CallingConvention.Winapi;
-            vkMainModule.AllowConvertStructToClass = true;
             vkMainModule.MethodClassName = "VulkanNative";
             vkMainModule.InteropClassName = "VulkanInterop";
             vkMainModule.OutputFileName = mainNamespace;
@@ -85,7 +82,6 @@ namespace Adamantium.Vulkan.Generator
             vkMainModule.AddNamespaceMapping("vulkan_core", "Core", corePath);
             vkMainModule.AddNamespaceMapping("vulkan_win32", "Windows", windowsPath);
             vkMainModule.AddNamespaceMapping("vulkan_macos", "MacOS", macOSPath);
-            vkMainModule.WrapInteropObjects = true;
             vkMainModule.GenerateOverloadsForArrayParams = true;
             vkMainModule.GeneratorSpecializations = GeneratorSpecializations.All;
             vkMainModule.OutputPath = corePath;
@@ -103,7 +99,6 @@ namespace Adamantium.Vulkan.Generator
             spivCrossModule.Defines.Add("_MSC_VER");
             spivCrossModule.ForceCallingConvention = true;
             spivCrossModule.CallingConvention = CallingConvention.Winapi;
-            spivCrossModule.AllowConvertStructToClass = true;
             spivCrossModule.MethodClassName = "SpirvCrossNative";
             spivCrossModule.InteropClassName = "SpirvCrossInterop";
             spivCrossModule.GeneratorSpecializations = spirvCrossSpecs;
@@ -111,7 +106,6 @@ namespace Adamantium.Vulkan.Generator
             spivCrossModule.OutputNamespace = "Adamantium.Vulkan.Spirv.Cross";
             spivCrossModule.InteropSubNamespace = interopSubNamespace;
             spivCrossModule.AddNamespaceMapping("spirv", "Adamantium.Vulkan.Spirv", spirvPath, true);
-            spivCrossModule.WrapInteropObjects = true;
             spivCrossModule.CharAsBoolForMethods = true;
             spivCrossModule.OutputPath = spirvPath;
             spivCrossModule.TargetRuntime = TargetRuntime.NetStandard20;
@@ -128,7 +122,6 @@ namespace Adamantium.Vulkan.Generator
             spivToolsModule.Defines.Add("_WIN32");
             spivToolsModule.ForceCallingConvention = true;
             spivToolsModule.CallingConvention = CallingConvention.Winapi;
-            spivToolsModule.AllowConvertStructToClass = true;
             spivToolsModule.MethodClassName = "SpirvToolsNative";
             spivToolsModule.InteropClassName = "SpirvToolsInterop";
             spivToolsModule.GeneratorSpecializations = spirvToolsSpecs;
@@ -136,7 +129,6 @@ namespace Adamantium.Vulkan.Generator
             spivToolsModule.OutputNamespace = "Adamantium.Vulkan.SpirvTools";
             spivToolsModule.InteropSubNamespace = interopSubNamespace;
             spivToolsModule.AddNamespaceMapping("libspirv", "Adamantium.Vulkan.SpirvTools", spirvToolsPath, true);
-            spivToolsModule.WrapInteropObjects = true;
             spivToolsModule.CharAsBoolForMethods = true;
             spivToolsModule.OutputPath = spirvToolsPath;
             spivToolsModule.TargetRuntime = TargetRuntime.NetStandard20;
@@ -154,14 +146,12 @@ namespace Adamantium.Vulkan.Generator
             slangModule.Defines.Add("_MSC_VER");
             slangModule.ForceCallingConvention = true;
             slangModule.CallingConvention = CallingConvention.Winapi;
-            slangModule.AllowConvertStructToClass = true;
             slangModule.MethodClassName = "SlangNative";
             slangModule.InteropClassName = "SlangInterop";
             slangModule.GeneratorSpecializations = slangSpecs;
             slangModule.OutputFileName = "Adamantium.Vulkan.Slang";
             slangModule.OutputNamespace = "Adamantium.Vulkan.Slang";
             slangModule.InteropSubNamespace = interopSubNamespace;
-            slangModule.WrapInteropObjects = true;
             slangModule.OutputPath = slangPath;
             slangModule.TargetRuntime = TargetRuntime.NetStandard20;
 

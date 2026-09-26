@@ -72,7 +72,7 @@ public unsafe partial class SlangcSession : IUnmanagedWrapper<Adamantium.Vulkan.
         Adamantium.Vulkan.Slang.Interop.SlangInterop.slangc_session_release(this);
     }
 
-    public ref readonly SlangcSessionT GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Slang.Interop.SlangcSessionT GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Slang.Interop.SlangcSessionT(SlangcSession s)
     {

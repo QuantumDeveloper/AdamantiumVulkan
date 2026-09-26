@@ -26,7 +26,7 @@ public unsafe partial class ShaderInstrumentationARM : IUnmanagedWrapper<Adamant
     }
 
     public Adamantium.Vulkan.Core.Interop.VkShaderInstrumentationARM_T GetNativeValue() => __Instance;
-    public ref readonly VkShaderInstrumentationARM_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkShaderInstrumentationARM_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkShaderInstrumentationARM_T(ShaderInstrumentationARM s)
     {

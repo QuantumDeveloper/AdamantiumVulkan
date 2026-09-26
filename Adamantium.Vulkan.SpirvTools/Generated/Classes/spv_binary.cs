@@ -34,7 +34,7 @@ public unsafe partial class spv_binary : IUnmanagedWrapper<Adamantium.Vulkan.Spi
         Adamantium.Vulkan.SpirvTools.Interop.SpirvToolsInterop.spvBinaryDestroy(this);
     }
 
-    public ref readonly spv_binary_t GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.SpirvTools.Interop.spv_binary_t GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.SpirvTools.Interop.spv_binary_t(spv_binary s)
     {

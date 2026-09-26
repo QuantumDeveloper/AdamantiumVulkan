@@ -26,7 +26,7 @@ public unsafe partial class VideoSessionKHR : IUnmanagedWrapper<Adamantium.Vulka
     }
 
     public Adamantium.Vulkan.Core.Interop.VkVideoSessionKHR_T GetNativeValue() => __Instance;
-    public ref readonly VkVideoSessionKHR_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkVideoSessionKHR_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkVideoSessionKHR_T(VideoSessionKHR v)
     {

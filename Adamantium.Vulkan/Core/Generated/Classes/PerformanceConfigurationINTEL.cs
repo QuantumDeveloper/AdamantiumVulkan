@@ -26,7 +26,7 @@ public unsafe partial class PerformanceConfigurationINTEL : IUnmanagedWrapper<Ad
     }
 
     public Adamantium.Vulkan.Core.Interop.VkPerformanceConfigurationINTEL_T GetNativeValue() => __Instance;
-    public ref readonly VkPerformanceConfigurationINTEL_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkPerformanceConfigurationINTEL_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkPerformanceConfigurationINTEL_T(PerformanceConfigurationINTEL p)
     {

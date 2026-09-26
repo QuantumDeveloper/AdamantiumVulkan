@@ -28,7 +28,7 @@ public unsafe partial class DebugReportCallbackEXT : IUnmanagedWrapper<Adamantiu
     public Adamantium.Vulkan.Core.Interop.VkDebugReportCallbackEXT_T GetNativeValue() => __Instance;
     public void* NativePointer => __Instance.pointer;
 
-    public ref readonly VkDebugReportCallbackEXT_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkDebugReportCallbackEXT_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkDebugReportCallbackEXT_T(DebugReportCallbackEXT d)
     {

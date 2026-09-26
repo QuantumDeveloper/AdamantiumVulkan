@@ -26,7 +26,7 @@ public unsafe partial class DataGraphPipelineSessionARM : IUnmanagedWrapper<Adam
     }
 
     public Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSessionARM_T GetNativeValue() => __Instance;
-    public ref readonly VkDataGraphPipelineSessionARM_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSessionARM_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkDataGraphPipelineSessionARM_T(DataGraphPipelineSessionARM d)
     {

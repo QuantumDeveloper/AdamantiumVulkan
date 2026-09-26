@@ -26,7 +26,7 @@ public unsafe partial class IndirectCommandsLayoutEXT : IUnmanagedWrapper<Adaman
     }
 
     public Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutEXT_T GetNativeValue() => __Instance;
-    public ref readonly VkIndirectCommandsLayoutEXT_T GetPinnableReference() => ref __Instance;
+    public ref readonly Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutEXT_T GetPinnableReference() => ref __Instance;
 
     public static implicit operator Adamantium.Vulkan.Core.Interop.VkIndirectCommandsLayoutEXT_T(IndirectCommandsLayoutEXT i)
     {
