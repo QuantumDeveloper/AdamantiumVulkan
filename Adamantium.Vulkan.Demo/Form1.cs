@@ -1042,9 +1042,6 @@ public unsafe partial class Form1 : Form
         if (!fragmentResult.Success) throw new Exception($"Fragment shader compile failed: {fragmentResult.Diagnostics}");
         var vertexContent = vertexResult.Spirv;
         var fragmentContent = fragmentResult.Spirv;
-            
-        //var vertexContent = File.ReadAllBytes(@"shaders\vert.spv");
-        //var fragmentContent = File.ReadAllBytes(@"shaders\frag.spv");
 
         var vertexShaderModule = CreateShaderModule(vertexContent);
         var fragmentShaderModule = CreateShaderModule(fragmentContent);

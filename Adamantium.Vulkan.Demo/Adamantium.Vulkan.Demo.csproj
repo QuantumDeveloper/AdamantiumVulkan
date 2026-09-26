@@ -1,11 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <ApplicationIcon />
-    <StartupObject />
     <LangVersion>latest</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -13,60 +11,6 @@
   <PropertyGroup>
     <PublishReadyToRun>true</PublishReadyToRun>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="shaders\25_shader_textures.frag" />
-    <None Remove="shaders\25_shader_textures.vert" />
-    <None Remove="shaders\frag.spv" />
-    <None Remove="shaders\GLSLEffect.fx" />
-    <None Remove="shaders\NoiseGeneration\OpenSimplexNoise.hlsl" />
-    <None Remove="shaders\NoiseGeneration\PerlinNoise.hlsl" />
-    <None Remove="shaders\TerrainGenShaders\Density.hlsl" />
-    <None Remove="shaders\TerrainGenShaders\MarchingCubes.fx" />
-    <None Remove="shaders\TerrainGenShaders\MarchingCubesTest2.fx" />
-    <None Remove="shaders\TerrainGenShaders\Prototype.fx" />
-    <None Remove="shaders\UIEffect.fx" />
-    <None Remove="shaders\vert.spv" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="shaders\25_shader_textures.frag">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="shaders\25_shader_textures.vert">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="shaders\frag.spv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="shaders\GLSLEffect.fx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="shaders\NoiseGeneration\OpenSimplexNoise.hlsl">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="shaders\NoiseGeneration\PerlinNoise.hlsl">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="shaders\TerrainGenShaders\Density.hlsl">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="shaders\TerrainGenShaders\MarchingCubes.fx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="shaders\TerrainGenShaders\MarchingCubesTest2.fx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="shaders\TerrainGenShaders\Prototype.fx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="shaders\UIEffect.fx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="shaders\vert.spv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Adamantium.Vulkan\Adamantium.Vulkan.csproj" />
@@ -89,22 +33,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Textures\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Textures\BaseAlbedoTexture_Text.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Textures\ColoredImage.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="shaders\BasicShader.hlsl">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="shaders\BasicShader.slang">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
