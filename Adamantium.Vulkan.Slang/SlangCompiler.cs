@@ -19,7 +19,8 @@ namespace Adamantium.Vulkan.Slang
     /// compiler options and preprocessor defines, and resolves <c>#include</c> directives through
     /// <see cref="IncludeResolver"/>. The native session, file-load callback and SPIR-V extraction live here once and
     /// are shared by every consumer (the engine's effect compiler, the Vulkan demo, …) instead of being duplicated.
-    /// Not thread-safe; use one instance per compilation context.
+    /// Each distinct source is parsed once per instance and its headers are read then, so a header changed since is
+    /// seen by a new instance only. Not thread-safe; use one instance per compilation context.
     /// </summary>
     public sealed class SlangCompiler : IDisposable
     {
@@ -30,7 +31,7 @@ namespace Adamantium.Vulkan.Slang
         private readonly SlangcSession session;
         private readonly SlangcLoadFile loadFileDelegate;   // kept alive for the session's lifetime
         private readonly List<IntPtr> pendingBuffers = [];
-        private int moduleCounter;
+        private readonly Dictionary<string, string> moduleNames = [];
 
         /// <summary>Maps an <c>#include</c> path to file contents (null = not found); set per compile as needed.</summary>
         public Func<string, string> IncludeResolver { get; set; }
@@ -64,8 +65,13 @@ namespace Adamantium.Vulkan.Slang
         /// <summary>Compiles one entry point of <paramref name="source"/> to SPIR-V for the given stage.</summary>
         public SlangCompileResult Compile(string source, string entryPoint, SlangcStage stage)
         {
-            // Unique module name per compile so Slang's per-session module cache never collides.
-            var moduleName = $"m{moduleCounter++}_{entryPoint}";
+            // Slang caches a module by name: one name per distinct source, so the next entry point of the same source
+            // skips parsing and checking it again, and a different source never gets a stale module.
+            if (!moduleNames.TryGetValue(source, out var moduleName))
+            {
+                moduleName = $"m{moduleNames.Count}";
+                moduleNames[source] = moduleName;
+            }
 
             var result = session.Compile(moduleName, source, entryPoint, stage);
             try
