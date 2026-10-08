@@ -27,4 +27,8 @@ shim="$(find "$NATIVE/build" -maxdepth 2 -name 'libslang-c-shared.*' | head -n1)
 runtime="$(find "$SLANG" -maxdepth 2 \( -name 'libslang.so*' -o -name 'libslang.dylib' \) | head -n1)"
 [ -n "$runtime" ] && cp "$runtime" "$PROJECT/"
 
+# Stage Slang's language server from the same SDK.
+server="$(find "$SLANG" -maxdepth 2 -name 'slangd' -type f | head -n1)"
+[ -n "$server" ] && cp "$server" "$PROJECT/"
+
 echo "OK: $(basename "${shim:-libslang-c-shared}") + Slang runtime -> $PROJECT"
