@@ -21,7 +21,7 @@ carry no dependency on it and can be used on their own.
 |---|---|
 | [`Adamantium.Vulkan`](https://www.nuget.org/packages/Adamantium.Vulkan) | The bindings themselves: structures, handles, enums and commands |
 | [`Adamantium.Vulkan.Loader`](https://www.nuget.org/packages/Adamantium.Vulkan.Loader) | Finds the Vulkan loader at run time and resolves its entry points |
-| [`Adamantium.Vulkan.Slang`](https://www.nuget.org/packages/Adamantium.Vulkan.Slang) | Bindings to the Slang shader compiler, shipping the compiler itself |
+| [`Adamantium.Vulkan.Slang`](https://www.nuget.org/packages/Adamantium.Vulkan.Slang) | Bindings to the Slang shader compiler, shipping the compiler itself and its language server, `slangd` |
 | [`Adamantium.Vulkan.Spirv`](https://www.nuget.org/packages/Adamantium.Vulkan.Spirv) | Bindings to SPIRV-Cross, for reading back what a compiled shader declares |
 
 ```
@@ -34,7 +34,8 @@ dotnet add package Adamantium.Vulkan.Loader
 - **.NET 10** or later. The shader packages also target `netstandard2.0`.
 - **x64.** The projects build for that platform only; other architectures have not been tried.
 - **A Vulkan driver** on the machine at run time. No SDK is needed to build: the loader resolves the driver's own
-  library, and the Slang package carries the shader compiler with it.
+  library, and the Slang package carries the shader compiler with it - and `slangd`, which an editor starts from the
+  application's folder for completion, hover and definitions in shaders.
 
 ## Why the loader is a separate package
 

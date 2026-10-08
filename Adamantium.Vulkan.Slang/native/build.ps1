@@ -28,7 +28,11 @@ if ($LASTEXITCODE) { throw "cmake configure failed" }
 & $cmake --build "$native\build" --config $Config
 if ($LASTEXITCODE) { throw "cmake build failed" }
 
-# Stage the shim + Slang runtime next to the C# project so they ship as <Content>.
+# Stage the shim + Slang runtime + its language server next to the C# project so they ship as <Content>. All from one
+# Slang build: slangd loads the same slang-compiler.dll the bindings do.
 Copy-Item "$native\build\$Config\slang-c-shared.dll" $project -Force
-Copy-Item "$slang\Bin\slang.dll" $project -Force
-Write-Host "OK: slang-c-shared.dll + slang.dll -> $project" -ForegroundColor Green
+$runtime = "slang.dll", "slang-compiler.dll", "slang-glslang.dll", "slangd.exe", "slangd.dll"
+foreach ($file in $runtime) {
+    Copy-Item "$slang\Bin\$file" $project -Force
+}
+Write-Host "OK: slang-c-shared.dll + $($runtime -join ', ') -> $project" -ForegroundColor Green
